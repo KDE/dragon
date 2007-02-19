@@ -13,6 +13,12 @@
 #include <qapplication.h> //::sendEvent()
 #include <qdatetime.h>    //record()
 #include <qdir.h>         //::exists()
+//Added by qt3to4:
+#include <QTimerEvent>
+#include <Q3ValueList>
+#include <QCustomEvent>
+#include <Q3CString>
+#include <QEvent>
 #include "slider.h"
 #include "theStream.h"
 #include <xine.h>
@@ -158,7 +164,7 @@ VideoWindow::init()
 
 
    {
-      typedef QValueList<int> List;
+      typedef Q3ValueList<int> List;
       List params( List()
             << XINE_PARAM_VO_HUE << XINE_PARAM_VO_SATURATION << XINE_PARAM_VO_CONTRAST << XINE_PARAM_VO_BRIGHTNESS
             << XINE_PARAM_SPU_CHANNEL << XINE_PARAM_AUDIO_CHANNEL_LOGICAL << XINE_PARAM_VO_ASPECT_RATIO );
@@ -223,11 +229,11 @@ VideoWindow::eject()
 
    profile->sync();
 
-   m_url = KURL();
+   m_url = KUrl();
 }
 
 bool
-VideoWindow::load( const KURL &url )
+VideoWindow::load( const KUrl &url )
 {
    mxcl::WaitCursor allocateOnStack;
 
@@ -279,7 +285,7 @@ VideoWindow::load( const KURL &url )
 
    showErrorMessage();
    announceStateChange();
-   m_url = KURL();
+   m_url = KUrl();
    return false;
 }
 
@@ -534,7 +540,7 @@ VideoWindow::seek( uint pos )
 void
 VideoWindow::setStreamParameter( int value )
 {
-   QCString sender = this->sender()->name();
+   Q3CString sender = this->sender()->name();
    int parameter;
 
    if( sender == "hue" )

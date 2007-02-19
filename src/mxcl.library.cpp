@@ -12,7 +12,7 @@ namespace mxcl
       QApplication::setOverrideCursor( KCursor::waitCursor() );
    }
 
-   WaitCursor::~WaitCursor()
+   WaitCursor::~Qt::WaitCursor()
    {
       QApplication::restoreOverrideCursor();
    }

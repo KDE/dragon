@@ -9,6 +9,10 @@
 #include <qtooltip.h>
 
 #include <qpainter.h>
+//Added by qt3to4:
+#include <QWheelEvent>
+#include <QMouseEvent>
+#include <Q3Frame>
 #include "xineEngine.h"
 
 using Codeine::Slider;
@@ -26,7 +30,7 @@ Slider::Slider( QWidget *parent, uint max )
    s_instance = this;
 
    setRange( 0, max );
-   setFocusPolicy( NoFocus );
+   setFocusPolicy( Qt::NoFocus );
    setSizePolicy( QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding );
 }
 
@@ -54,7 +58,7 @@ Slider::mouseMoveEvent( QMouseEvent *e )
          m_outside = false;
 
          QSlider::setValue(
-               QRangeControl::valueFromPosition(
+               Q3RangeControl::valueFromPosition(
                      e->pos().x() - sliderRect().width()/2,
                      width()  - sliderRect().width() ) );
 
@@ -112,11 +116,11 @@ Slider::setValue( int newValue )
    if (!w1) {
       w1 = new QLabel( this );
       w1->setPalette( QToolTip::palette() );
-      w1->setFrameStyle( QFrame::Plain | QFrame::Box );
+      w1->setFrameStyle( Q3Frame::Plain | Q3Frame::Box );
 
       w2 = new QLabel( this );
       w2->setPalette( QToolTip::palette() );
-      w2->setFrameStyle( QFrame::Plain | QFrame::Box );
+      w2->setFrameStyle( Q3Frame::Plain | Q3Frame::Box );
    }
 
    //TODO stupidly inefficeint! :)

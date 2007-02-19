@@ -8,8 +8,8 @@
 #include <qdialog.h>
 
 class KListView;
-class QBoxLayout;
-class QListViewItem;
+class Q3BoxLayout;
+class Q3ListViewItem;
 
 namespace Codeine
 {
@@ -24,10 +24,10 @@ namespace Codeine
       enum DialogCode { FILE = QDialog::Accepted + 2, VCD, CDDA, DVD, RECENT_FILE };
 
    private slots:
-      void done( QListViewItem* );
+      void done( Q3ListViewItem* );
 
    private:
-      void createRecentFileWidget( QBoxLayout* );
+      void createRecentFileWidget( Q3BoxLayout* );
 
       KURL m_url;
    };

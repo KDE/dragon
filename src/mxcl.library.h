@@ -11,7 +11,7 @@ namespace mxcl
    struct WaitCursor
    {
       WaitCursor();
-     ~WaitCursor();
+     ~Qt::WaitCursor();
    };
 }
 

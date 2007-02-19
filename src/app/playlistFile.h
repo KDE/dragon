@@ -21,8 +21,8 @@ public:
 
 private:
    /// both only return first url currently
-   void parsePlsFile( QTextStream& );
-   void parseM3uFile( QTextStream& );
+   void parsePlsFile( Q3TextStream& );
+   void parseM3uFile( Q3TextStream& );
 
    KURL m_url;
    bool m_isRemoteFile;

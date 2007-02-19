@@ -7,6 +7,9 @@
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qslider.h>
+//Added by qt3to4:
+#include <Q3VBoxLayout>
+#include <Q3Frame>
 
 #include "debug.h"
 #include "volumeAction.h"
@@ -14,23 +17,23 @@
 #include "xineEngine.h"
 
 
-class VolumeSlider : public QFrame
+class VolumeSlider : public Q3Frame
 {
 public:
    VolumeSlider( QWidget *parent )
-         : QFrame( parent )
+         : Q3Frame( parent )
    {
       slider = new QSlider( Qt::Vertical, this, "volume" );
       label = new QLabel( this );
 
-      QBoxLayout *lay = new QVBoxLayout( this );
+      Q3BoxLayout *lay = new Q3VBoxLayout( this );
       lay->addWidget( slider, 0, Qt::AlignHCenter );
       lay->addWidget( label, 0, Qt::AlignHCenter );
       lay->setMargin( 4 );
 
       slider->setRange( 0, 100 );
 
-      setFrameStyle( QFrame::Plain | QFrame::Box );
+      setFrameStyle( Q3Frame::Plain | Q3Frame::Box );
       setSizePolicy( QSizePolicy::Minimum, QSizePolicy::Fixed );
 
       hide();

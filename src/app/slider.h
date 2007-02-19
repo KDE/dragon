@@ -5,6 +5,10 @@
 #define CODEINESLIDER_H
 
 #include <qslider.h>
+//Added by qt3to4:
+#include <QMouseEvent>
+#include <QKeyEvent>
+#include <QWheelEvent>
 
 namespace Codeine
 {

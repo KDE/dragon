@@ -10,12 +10,15 @@
 #include "mainWindow.h"
 #include "mxcl.library.h"
 #include <qdialog.h>
-#include <qhbox.h>
+#include <q3hbox.h>
 #include <qlabel.h>
 #include <qimage.h>
 #include <qlayout.h>
 #include <qpainter.h>
 #include <qstringlist.h>
+//Added by qt3to4:
+#include <QPaintEvent>
+#include <Q3VBoxLayout>
 #include "theStream.h"
 #include "xineEngine.h"
 #include <xine.h>
@@ -27,7 +30,7 @@ class FrameCapturePreview : public KPreviewWidgetBase
 {
    QImage m_frame;
 
-   virtual void showPreview( const KURL& ) {}
+   virtual void showPreview( const KUrl& ) {}
    virtual void clearPreview() {}
 
    virtual void paintEvent( QPaintEvent* )
@@ -68,10 +71,10 @@ public:
          , m_time( time )
          , m_title( TheStream::prettyTitle() )
    {
-      (new QVBoxLayout( this ))->setAutoAdd( true );
+      (new Q3VBoxLayout( this ))->setAutoAdd( true );
       (new QLabel( this ))->setPixmap( frame );
 
-      QHBox *box = new QHBox( this );
+      Q3HBox *box = new Q3HBox( this );
       KPushButton *o = new KPushButton( KStdGuiItem::save(), box );
       connect( o, SIGNAL(clicked()), SLOT(accept()) );
 

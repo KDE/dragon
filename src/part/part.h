@@ -7,6 +7,8 @@
 #include <kparts/statusbarextension.h>
 #include <kparts/part.h>
 #include <kurl.h>
+//Added by qt3to4:
+#include <QTimerEvent>
 
 class KAboutData;
 class QSlider;

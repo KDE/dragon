@@ -11,8 +11,10 @@
 #include <qapplication.h>
 #include <qevent.h>
 #include <qlabel.h>
-#include <qpopupmenu.h>
+#include <q3popupmenu.h>
 #include <qslider.h>
+//Added by qt3to4:
+#include <QContextMenuEvent>
 #include "theStream.h"
 #include "videoSettings.h" //FIXME unfortunate
 #include "xineEngine.h"
@@ -34,7 +36,7 @@ MainWindow::engineStateChanged( Engine::State state )
 {
    Q_ASSERT( state != Engine::Uninitialised );
 
-   KURL const &url = TheStream::url();
+   KUrl const &url = TheStream::url();
    bool const isFullScreen = toggleAction("fullscreen")->isChecked();
    QWidget *const toolbar = reinterpret_cast<QWidget*>(toolBar());
 
@@ -78,8 +80,8 @@ MainWindow::engineStateChanged( Engine::State state )
 
       // the toolbar play button is always enabled, but the menu item
       // is disabled if we are empty, this looks more sensible
-      QPopupMenu * const file_menu = menu( "file" );
-      QPopupMenu * const settings_menu = menu( "settings" );
+      Q3PopupMenu * const file_menu = menu( "file" );
+      Q3PopupMenu * const settings_menu = menu( "settings" );
       const int play_id = file_menu->idAt( 2 );
       file_menu->setItemEnabled( play_id, state != Empty );
 
@@ -95,7 +97,7 @@ MainWindow::engineStateChanged( Engine::State state )
 
       // set correct aspect ratio
       if( state == Loaded )
-         static_cast<QPopupMenu*>(child( "aspect_ratio_menu" ))->setItemChecked( TheStream::aspectRatio(), true );
+         static_cast<Q3PopupMenu*>(child( "aspect_ratio_menu" ))->setItemChecked( TheStream::aspectRatio(), true );
    }
 
 
@@ -176,7 +178,7 @@ MainWindow::engineStateChanged( Engine::State state )
 
          if( videoWindow()->isActiveWindow() ) {
             //FIXME dual-screen this seems to still show
-            QContextMenuEvent e( QContextMenuEvent::Other, QPoint(), Qt::MetaButton );
+            QContextMenuEvent e( QContextMenuEvent::Other, QPoint(), Qt::MetaModifier );
             QApplication::sendEvent( videoWindow(), &e );
          }
          break;

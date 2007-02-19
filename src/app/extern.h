@@ -1,3 +1,5 @@
+//Added by qt3to4:
+#include <Q3PopupMenu>
 // (C) 2005 Max Howell (max.howell@methylblue.com)
 // See COPYING file for licensing information
 
@@ -9,7 +11,7 @@ extern "C"
    typedef struct xine_s xine_t;
 }
 
-class QPopupMenu;
+class Q3PopupMenu;
 class QWidget;
 
 namespace Codeine
@@ -22,7 +24,7 @@ namespace Codeine
 
    void showVideoSettingsDialog( QWidget* );
    void showXineConfigurationDialog( QWidget*, xine_t* );
-   void insertAspectRatioMenuItems( QPopupMenu* );
+   void insertAspectRatioMenuItems( Q3PopupMenu* );
 }
 
 #endif

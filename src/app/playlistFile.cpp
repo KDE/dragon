@@ -10,11 +10,11 @@
 #include <kio/netaccess.h>
 #include "playlistFile.h"
 #include <qfile.h>
-#include <qtextstream.h>
+#include <q3textstream.h>
 #include <mxcl.library.h>
 
 
-PlaylistFile::PlaylistFile( const KURL &url )
+PlaylistFile::PlaylistFile( const KUrl &url )
       : m_url( url )
       , m_isRemoteFile( !url.isLocalFile() )
       , m_isValid( false )
@@ -42,8 +42,8 @@ PlaylistFile::PlaylistFile( const KURL &url )
    }
 
    QFile file( path );
-   if( file.open( IO_ReadOnly ) ) {
-      QTextStream stream( &file );
+   if( file.open( QIODevice::ReadOnly ) ) {
+      Q3TextStream stream( &file );
       switch( m_type ) {
          case M3U: parseM3uFile( stream ); break;
          case PLS: parsePlsFile( stream ); break;
@@ -67,14 +67,14 @@ PlaylistFile::~PlaylistFile()
 
 
 void
-PlaylistFile::parsePlsFile( QTextStream &stream )
+PlaylistFile::parsePlsFile( Q3TextStream &stream )
 {
    DEBUG_BLOCK
 
    for( QString line = stream.readLine(); !line.isNull(); )
    {
       if( line.startsWith( "File" ) ) {
-         const KURL url = line.section( '=', -1 );
+         const KUrl url = line.section( '=', -1 );
          const QString title = stream.readLine().section( '=', -1 );
 
          debug() << url << endl << title << endl;
@@ -90,7 +90,7 @@ PlaylistFile::parsePlsFile( QTextStream &stream )
 
 
 void
-PlaylistFile::parseM3uFile( QTextStream &stream )
+PlaylistFile::parseM3uFile( Q3TextStream &stream )
 {
    DEBUG_BLOCK
 
@@ -103,16 +103,16 @@ PlaylistFile::parseM3uFile( QTextStream &stream )
 
       else if( !line.startsWith( "#" ) && !line.isEmpty() )
       {
-         KURL url;
+         KUrl url;
 
-         // KURL::isRelativeURL() expects absolute URLs to start with a protocol, so prepend it if missing
+         // KUrl::isRelativeURL() expects absolute URLs to start with a protocol, so prepend it if missing
          if( line.startsWith( "/" ) )
             line.prepend( "file://" );
 
-         if( KURL::isRelativeURL( line ) )
+         if( KUrl::isRelativeURL( line ) )
             url.setPath( m_url.directory() + line );
          else
-            url = KURL::fromPathOrURL( line );
+            url = KUrl::fromPathOrURL( line );
 
          m_contents += url;
          m_isValid = true;

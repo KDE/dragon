@@ -6,6 +6,8 @@
 #include "debug.h"
 #include <math.h>       //interpolate()
 #include <qevent.h>     //event()
+//Added by qt3to4:
+#include <QResizeEvent>
 #include "xineEngine.h"
 
 #include "fht.cpp"

@@ -21,7 +21,7 @@ namespace Codeine
          return Codeine::config( url().prettyURL() );
    }
 
-   const KURL&
+   const KUrl&
    TheStream::url()
          { return e->m_url; }
 
@@ -60,7 +60,7 @@ namespace Codeine
    QString
    TheStream::prettyTitle()
    {
-      const KURL &url      = e->m_url;
+      const KUrl &url      = e->m_url;
       const QString artist = QString::fromUtf8( xine_get_meta_info( e->m_stream, XINE_META_INFO_ARTIST ) );
       const QString title  = QString::fromUtf8( xine_get_meta_info( e->m_stream, XINE_META_INFO_TITLE ) );
 
@@ -70,7 +70,7 @@ namespace Codeine
          return artist + " - " + title;
       else if (url.protocol() != "http" && !url.fileName().isEmpty()) {
          const QString n = url.fileName();
-         return KURL::decode_string( n.left( n.findRev( '.' ) ).replace( '_', ' ' ) ); }
+         return KUrl::decode_string( n.left( n.findRev( '.' ) ).replace( '_', ' ' ) ); }
       else
          return url.prettyURL();
    }

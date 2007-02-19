@@ -2,6 +2,8 @@
 // See COPYING file for licensing information
 
 #include <kaction.h>
+//Added by qt3to4:
+#include <QEvent>
 
 
 /**

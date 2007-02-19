@@ -5,6 +5,8 @@
 #define CODEINE_VOLUME_ACTION_H
 
 #include <kactionclasses.h>
+//Added by qt3to4:
+#include <QEvent>
 
 class VolumeAction : public KToggleAction
 {

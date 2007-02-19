@@ -6,11 +6,13 @@
 #include <klocale.h>
 #include <kwin.h>
 #include <qwidget.h>
+//Added by qt3to4:
+#include <QEvent>
 #include "xineEngine.h" //videoWindow()
 
 
 FullScreenAction::FullScreenAction( QWidget* window, KActionCollection *parent )
-      : KToggleAction( QString::null, Key_F, 0, 0, parent, "fullscreen" )
+      : KToggleAction( QString::null, Qt::Key_F, 0, 0, parent, "fullscreen" )
       , m_window( window )
       , m_shouldBeDisabled( false )
       , m_state( 0 )

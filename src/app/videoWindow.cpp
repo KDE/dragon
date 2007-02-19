@@ -15,6 +15,10 @@
 #include "mxcl.library.h"
 #include <qcursor.h>
 #include <qevent.h>
+//Added by qt3to4:
+#include <QContextMenuEvent>
+#include <QWheelEvent>
+#include <QKeyEvent>
 #include "slider.h"
 #include "theStream.h"
 #include <X11/Xlib.h>

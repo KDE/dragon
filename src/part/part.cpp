@@ -7,6 +7,8 @@
 #include <kparts/genericfactory.h>
 #include "part.h"
 #include <qtimer.h>
+//Added by qt3to4:
+#include <QTimerEvent>
 #include "toolbar.h"
 #include "videoWindow.h"
 

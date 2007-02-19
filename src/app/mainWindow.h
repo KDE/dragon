@@ -6,10 +6,17 @@
 
 #include "codeine.h"
 #include <kmainwindow.h>
+//Added by qt3to4:
+#include <Q3PopupMenu>
+#include <QTimerEvent>
+#include <QKeyEvent>
+#include <QDropEvent>
+#include <QDragEnterEvent>
+#include <QLabel>
 
 class KURL;
 class QLabel;
-class QPopupMenu;
+class Q3PopupMenu;
 class QSlider;
 
 
@@ -49,7 +56,7 @@ namespace Codeine
       bool load( const KURL& );
       bool open( const KURL& );
 
-      QPopupMenu *menu( const char *name );
+      Q3PopupMenu *menu( const char *name );
 
       virtual void timerEvent( QTimerEvent* );
       virtual void dragEnterEvent( QDragEnterEvent* );

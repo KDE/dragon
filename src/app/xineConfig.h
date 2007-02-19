@@ -5,12 +5,15 @@
 #define XINECONFIG_H
 
 #include <kdialogbase.h>
-#include <qptrlist.h>
+#include <q3ptrlist.h>
+//Added by qt3to4:
+#include <Q3GridLayout>
+#include <Q3CString>
 
 class KComboBox;
 class KLineEdit;
 class QCheckBox;
-class QGridLayout;
+class Q3GridLayout;
 class QSpinBox;
 
 typedef struct xine_s xine_t;
@@ -24,11 +27,11 @@ class XineConfigEntry : public QObject
    enum ClassType { LineEdit, ComboBox, SpinBox, CheckBox };
 
    QWidget *m_widget;
-   QCString m_key;
-   QCString m_string;
+   Q3CString m_key;
+   Q3CString m_string;
    int      m_number;
 
-   static inline ClassType classType( const QCString &name )
+   static inline ClassType classType( const Q3CString &name )
    {
       return name == "KLineEdit" ? LineEdit
            : name == "KComboBox" ? ComboBox
@@ -36,13 +39,13 @@ class XineConfigEntry : public QObject
    }
 
 public:
-   XineConfigEntry( QWidget *parent, QGridLayout*, xine_cfg_entry_t* );
+   XineConfigEntry( QWidget *parent, Q3GridLayout*, xine_cfg_entry_t* );
 
    bool isChanged() const;
    void save( xine_t* );
    void reset();
 
-   inline const QCString &key() const { return m_key; }
+   inline const Q3CString &key() const { return m_key; }
 };
 
 
@@ -50,7 +53,7 @@ class XineConfigDialog : public KDialogBase
 {
    static KDialogBase *s_instance;
 
-   QPtrList<XineConfigEntry> m_entrys;
+   Q3PtrList<XineConfigEntry> m_entrys;
    xine_t *m_xine;
 
 public:

@@ -10,6 +10,10 @@
 #include <qapplication.h> //::sendEvent()
 #include <qdatetime.h>    //::play()
 #include <qdir.h>         //QDir::homeDir()
+//Added by qt3to4:
+#include <QCustomEvent>
+#include <Q3CString>
+#include <QEvent>
 #include <xine.h>
 #include "videoWindow.h"
 
@@ -65,7 +69,7 @@ VideoWindow::init()
       xine_cfg_entry_t config;
 
       if( xine_config_lookup_entry( m_xine, "misc.save_dir", &config ) ) {
-         const QCString dir = KGlobalSettings::desktopPath().local8Bit();
+         const Q3CString dir = KGlobalSettings::desktopPath().local8Bit();
          config.str_value = qstrdup( dir );
          xine_config_update_entry( m_xine, &config );
       }

@@ -24,12 +24,19 @@
 #include "playDialog.h"  //::play()
 #include "playlistFile.h"
 #include "mxcl.library.h"
-#include <qcstring.h>
+#include <q3cstring.h>
 #include <qdesktopwidget.h>
 #include <qevent.h>      //::stateChanged()
 #include <qlayout.h>     //ctor
-#include <qpopupmenu.h>  //because XMLGUI is poorly designed
-#include <qobjectlist.h>
+#include <q3popupmenu.h>  //because XMLGUI is poorly designed
+#include <qobject.h>
+//Added by qt3to4:
+#include <QTimerEvent>
+#include <QKeyEvent>
+#include <QLabel>
+#include <QDragEnterEvent>
+#include <QDropEvent>
+#include <QMouseEvent>
 #include "slider.h"
 #include "theStream.h"
 #include "volumeAction.h"
@@ -59,7 +66,7 @@ MainWindow::MainWindow()
 {
    DEBUG_BLOCK
 
-   clearWFlags( WDestructiveClose ); //we are allocated on the stack
+   clearWFlags( Qt::WDestructiveClose ); //we are allocated on the stack
 
    kapp->setMainWidget( this );
 
@@ -111,11 +118,11 @@ MainWindow::MainWindow()
    }
 
    {
-      QPopupMenu *menu = 0, *settings = static_cast<QPopupMenu*>(factory()->container( "settings", this ));
+      Q3PopupMenu *menu = 0, *settings = static_cast<Q3PopupMenu*>(factory()->container( "settings", this ));
       int id = SubtitleChannelsMenuItemId, index = 0;
 
       #define make_menu( name, text ) \
-            menu = new QPopupMenu( this, name ); \
+            menu = new Q3PopupMenu( this, name ); \
             menu->setCheckable( true ); \
             connect( menu, SIGNAL(activated( int )), engine(), SLOT(setStreamParameter( int )) ); \
             connect( menu, SIGNAL(aboutToShow()), SLOT(aboutToShowMenu()) ); \
@@ -333,7 +340,7 @@ MainWindow::engineMessage( const QString &message )
 }
 
 bool
-MainWindow::open( const KURL &url )
+MainWindow::open( const KUrl &url )
 {
    DEBUG_BLOCK
    debug() << url << endl;
@@ -351,7 +358,7 @@ MainWindow::open( const KURL &url )
 }
 
 bool
-MainWindow::load( const KURL &url )
+MainWindow::load( const KUrl &url )
 {
     //FileWatch the file that is opened
 
@@ -382,11 +389,11 @@ MainWindow::load( const KURL &url )
          KIO::UDSEntry::ConstIterator end = e.end();
          for (KIO::UDSEntry::ConstIterator it = e.begin(); it != end; ++it)
             if ((*it).m_uds == UDS_LOCAL_PATH && !(*it).m_str.isEmpty())
-               return engine()->load( KURL::fromPathOrURL( (*it).m_str ) );
+               return engine()->load( KUrl::fromPathOrURL( (*it).m_str ) );
       }
    }
 
-   //let xine handle invalid, etc, KURLS
+   //let xine handle invalid, etc, KUrlS
    //TODO it handles non-existant files with bad error message
    return engine()->load( url );
 }
@@ -419,7 +426,7 @@ MainWindow::playMedia( bool show_welcome_dialog )
    switch( dialog.exec() ) {
    case PlayDialog::FILE: {
       const QString filter = engine()->fileFilter() + '|' + i18n("Supported Media Formats") + "\n*|" + i18n("All Files");
-      const KURL url = KFileDialog::getOpenURL( ":default", filter, this, i18n("Select A File To Play") );
+      const KUrl url = KFileDialog::getOpenURL( ":default", filter, this, i18n("Select A File To Play") );
       open( url );
       } break;
    case PlayDialog::RECENT_FILE:
@@ -572,7 +579,7 @@ MainWindow::fullScreenToggled( bool isFullScreen )
 void
 MainWindow::configure()
 {
-   const QCString sender = this->sender()->name();
+   const Q3CString sender = this->sender()->name();
 
    if( sender == "video_settings" )
       Codeine::showVideoSettingsDialog( this );
@@ -596,7 +603,7 @@ MainWindow::setChannels( const QStringList &channels )
 
    QStringList::ConstIterator it = channels.begin();
 
-   QPopupMenu *menu = (QPopupMenu*)child( (*it).latin1() );
+   Q3PopupMenu *menu = (Q3PopupMenu*)child( (*it).latin1() );
    menu->clear();
 
    menu->insertItem( i18n("&Determine Automatically"), 1 );
@@ -620,8 +627,8 @@ MainWindow::setChannels( const QStringList &channels )
 void
 MainWindow::aboutToShowMenu()
 {
-   QPopupMenu *menu = (QPopupMenu*)sender();
-   QCString name( sender() ? sender()->name() : 0 );
+   Q3PopupMenu *menu = (Q3PopupMenu*)sender();
+   Q3CString name( sender() ? sender()->name() : 0 );
 
    // uncheck all items first
    for( uint x = 0; x < menu->count(); ++x )
@@ -641,14 +648,14 @@ MainWindow::aboutToShowMenu()
 void
 MainWindow::dragEnterEvent( QDragEnterEvent *e )
 {
-   e->accept( KURLDrag::canDecode( e ) );
+   e->accept( KUrlDrag::canDecode( e ) );
 }
 
 void
 MainWindow::dropEvent( QDropEvent *e )
 {
-   KURL::List list;
-   KURLDrag::decode( e, list );
+   KUrl::List list;
+   KUrlDrag::decode( e, list );
 
    if( !list.isEmpty() )
       open( list.first() );
@@ -675,11 +682,11 @@ MainWindow::keyPressEvent( QKeyEvent *e )
    #undef seek
 }
 
-QPopupMenu*
+Q3PopupMenu*
 MainWindow::menu( const char *name )
 {
    // KXMLGUI is "really good".
-   return static_cast<QPopupMenu*>(factory()->container( name, this ));
+   return static_cast<Q3PopupMenu*>(factory()->container( name, this ));
 }
 
 

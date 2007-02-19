@@ -11,11 +11,16 @@
 #include <qcheckbox.h>
 #include <qlabel.h>
 #include <qlayout.h>
-#include <qscrollview.h>
+#include <q3scrollview.h>
 #include <qspinbox.h>
 #include <qtabwidget.h>
 #include <qtooltip.h>
-#include <qvbox.h>
+#include <q3vbox.h>
+//Added by qt3to4:
+#include <Q3GridLayout>
+#include <Q3Frame>
+#include <QPixmap>
+#include <Q3VBoxLayout>
 #include <xine.h>
 #include "xineConfig.h"
 
@@ -69,12 +74,12 @@ XineConfigDialog::XineConfigDialog( xine_t *xine, QWidget *parent )
    const int METRIC = fontMetrics().width( 'x' );
    const int METRIC_3B2 = (3*METRIC)/2;
 
-   QVBox *box = new QVBox( this );
+   Q3VBox *box = new Q3VBox( this );
    box->setSpacing( METRIC );
    setMainWidget( box );
 
    {
-      QHBox *hbox = new QHBox( box );
+      Q3HBox *hbox = new Q3HBox( box );
       hbox->setSpacing( METRIC_3B2 );
       hbox->setMargin( METRIC_3B2 );
       QPixmap info = kapp->iconLoader()->loadIcon( "messagebox_info", KIcon::NoGroup, KIcon::SizeMedium, KIcon::DefaultState, 0, true );
@@ -104,9 +109,9 @@ XineConfigDialog::XineConfigDialog( xine_t *xine, QWidget *parent )
    };
 
 
-   QGridLayout *grid = 0;
+   Q3GridLayout *grid = 0;
    QString currentPage;
-   QScrollView *view = 0;
+   Q3ScrollView *view = 0;
    parent = 0;
 
    for( XineConfigEntryIterator it( m_xine ); *it; ++it )
@@ -124,18 +129,18 @@ XineConfigDialog::XineConfigDialog( xine_t *xine, QWidget *parent )
          QString pageTitle = pageName;
          pageTitle[0] = pageTitle[0].upper();
 
-         tabs->addTab( view = new QScrollView, pageTitle );
-         view->setResizePolicy( QScrollView::AutoOneFit );
-         view->setHScrollBarMode( QScrollView::AlwaysOff );
-         view->setFrameShape( QFrame::NoFrame );
+         tabs->addTab( view = new Q3ScrollView, pageTitle );
+         view->setResizePolicy( Q3ScrollView::AutoOneFit );
+         view->setHScrollBarMode( Q3ScrollView::AlwaysOff );
+         view->setFrameShape( Q3Frame::NoFrame );
          view->addChild( parent = new QWidget( view->viewport() ) );
 
-         QBoxLayout *layout = new QVBoxLayout( parent, /*margin*/METRIC_3B2, /*spacing*/0 );
+         Q3BoxLayout *layout = new Q3VBoxLayout( parent, /*margin*/METRIC_3B2, /*spacing*/0 );
 
-         parent = new QFrame( parent );
-         static_cast<QFrame*>(parent)->setFrameStyle( QFrame::Panel | QFrame::Raised );
-         static_cast<QFrame*>(parent)->setLineWidth( 2 );
-         grid = new QGridLayout( parent, /*rows*/0, /*cols*/2, /*margin*/20, /*spacing*/int(METRIC*2.5) );
+         parent = new Q3Frame( parent );
+         static_cast<Q3Frame*>(parent)->setFrameStyle( Q3Frame::Panel | Q3Frame::Raised );
+         static_cast<Q3Frame*>(parent)->setLineWidth( 2 );
+         grid = new Q3GridLayout( parent, /*rows*/0, /*cols*/2, /*margin*/20, /*spacing*/int(METRIC*2.5) );
          grid->setColStretch( 0, 3 );
          grid->setColStretch( 1, 2 );
 
@@ -169,7 +174,7 @@ XineConfigDialog::slotHelp()
 void
 XineConfigDialog::slotUser1()
 {
-   for( QPtrListIterator<XineConfigEntry> it( m_entrys ); *it != 0; ++it )
+   for( Q3PtrListIterator<XineConfigEntry> it( m_entrys ); *it != 0; ++it )
       (*it)->reset();
 
    slotHelp();
@@ -178,7 +183,7 @@ XineConfigDialog::slotUser1()
 bool
 XineConfigDialog::isUnsavedSettings() const
 {
-   for( QPtrListIterator<XineConfigEntry> it( m_entrys ); *it != 0; ++it )
+   for( Q3PtrListIterator<XineConfigEntry> it( m_entrys ); *it != 0; ++it )
       if( (*it)->isChanged() )
          return true;
 
@@ -199,7 +204,7 @@ XineConfigDialog::saveSettings()
 
 ///@class XineConfigEntry
 
-XineConfigEntry::XineConfigEntry( QWidget *parent, QGridLayout *grid, xine_cfg_entry_t *entry )
+XineConfigEntry::XineConfigEntry( QWidget *parent, Q3GridLayout *grid, xine_cfg_entry_t *entry )
       : m_widget( 0 )
       , m_key( entry->key )
       , m_string( entry->str_value )
@@ -253,7 +258,7 @@ XineConfigEntry::XineConfigEntry( QWidget *parent, QGridLayout *grid, xine_cfg_e
    connect( w, signal, XineConfigDialog::instance(), SLOT(slotHelp()) );
 
    QLabel *description = new QLabel( description_text + ':', parent );
-   description->setAlignment( QLabel::WordBreak | QLabel::AlignVCenter );
+   description->setAlignment( Qt::TextWordWrap | Qt::AlignVCenter );
 
    const QString tip = "<qt>" + QString::fromUtf8( entry->help );
    QToolTip::add( w, tip );

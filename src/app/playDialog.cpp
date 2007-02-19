@@ -15,6 +15,10 @@
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qsignalmapper.h>
+//Added by qt3to4:
+#include <Q3GridLayout>
+#include <Q3HBoxLayout>
+#include <Q3VBoxLayout>
 
 QString i18n( const char *text );
 
@@ -29,11 +33,11 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
 
    QSignalMapper *mapper = new QSignalMapper( this );
    QWidget *o, *closeButton = new KPushButton( KStdGuiItem::close(), this );
-   QBoxLayout *hbox, *vbox = new QVBoxLayout( this, 15, 20 );
+   Q3BoxLayout *hbox, *vbox = new Q3VBoxLayout( this, 15, 20 );
 
    vbox->addWidget( new QLabel( i18n( "What media would you like to play?" ), this ) );
 
-   QGridLayout *grid = new QGridLayout( vbox, 1, 3, 20 );
+   Q3GridLayout *grid = new Q3GridLayout( vbox, 1, 3, 20 );
 
    //TODO use the kguiItems from the actions
    mapper->setMapping( o = new KPushButton( KGuiItem( i18n("Play File..."), "fileopen" ), this ), FILE );
@@ -53,7 +57,7 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
 
    createRecentFileWidget( vbox );
 
-   hbox = new QHBoxLayout( vbox );
+   hbox = new Q3HBoxLayout( vbox );
    hbox->addItem( new QSpacerItem( 10, 10, QSizePolicy::Expanding ) );
 
    if( be_welcome_dialog ) {
@@ -68,19 +72,19 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
 }
 
 void
-PlayDialog::createRecentFileWidget( QBoxLayout *layout )
+PlayDialog::createRecentFileWidget( Q3BoxLayout *layout )
 {
    KListView *lv;
    lv = new Codeine::ListView( this );
    lv->setColumnText( 1, i18n("Recently Played Media") );
 
    const QStringList list1 = Codeine::config( "General" )->readPathListEntry( "Recent Urls" );
-   KURL::List urls;
+   KUrl::List urls;
 
    foreach( list1 )
       urls += *it;
 
-   for( KURL::List::Iterator it = urls.begin(), end = urls.end(); it != end; ) {
+   for( KUrl::List::Iterator it = urls.begin(), end = urls.end(); it != end; ) {
       if( urls.contains( *it ) > 1 )
          //remove duplicates
          it = urls.remove( it );
@@ -91,21 +95,21 @@ PlayDialog::createRecentFileWidget( QBoxLayout *layout )
          ++it;
    }
 
-   for( KURL::List::ConstIterator it = urls.begin(), end = urls.end(); it != end; ++it ) {
+   for( KUrl::List::ConstIterator it = urls.begin(), end = urls.end(); it != end; ++it ) {
       const QString fileName = (*it).fileName();
       new KListViewItem( lv, 0, (*it).url(), fileName.isEmpty() ? (*it).prettyURL() : fileName );
    }
 
    if( lv->childCount() ) {
       layout->addWidget( lv, 1 );
-      connect( lv, SIGNAL(executed( QListViewItem* )), SLOT(done( QListViewItem* )) );
+      connect( lv, SIGNAL(executed( Q3ListViewItem* )), SLOT(done( Q3ListViewItem* )) );
    }
    else
       delete lv;
 }
 
 void
-PlayDialog::done( QListViewItem *item )
+PlayDialog::done( Q3ListViewItem *item )
 {
    m_url = item->text( 0 );
    QDialog::done( RECENT_FILE );

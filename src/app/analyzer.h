@@ -11,6 +11,10 @@
 #include <qpixmap.h> //stack allocated and convenience
 #include <qtimer.h>  //stack allocated
 #include <qwidget.h> //baseclass
+//Added by qt3to4:
+#include <QPaintEvent>
+#include <QResizeEvent>
+#include <QEvent>
 #include <vector>    //included for convenience
 
 namespace Analyzer

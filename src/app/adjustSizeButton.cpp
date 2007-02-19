@@ -9,6 +9,11 @@
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qpainter.h>
+//Added by qt3to4:
+#include <Q3HBoxLayout>
+#include <Q3VBoxLayout>
+#include <Q3Frame>
+#include <QTimerEvent>
 #include "theStream.h"
 #include "xineEngine.h" //videoWindow()
 
@@ -18,7 +23,7 @@ QString i18n( const char *text );
 namespace Codeine
 {
    AdjustSizeButton::AdjustSizeButton( QWidget *parent )
-         : QFrame( parent )
+         : Q3Frame( parent )
          , m_counter( 0 )
          , m_stage( 1 )
          , m_offset( 0 )
@@ -26,7 +31,7 @@ namespace Codeine
       parent->installEventFilter( this );
 
       setPalette( QApplication::palette() ); //videoWindow has different palette
-      setFrameStyle( QFrame::Plain | QFrame::Box );
+      setFrameStyle( Q3Frame::Plain | Q3Frame::Box );
 
       m_preferred = new KPushButton( KGuiItem( i18n("Preferred Scale"), "viewmag" ), this );
       connect( m_preferred, SIGNAL(clicked()), qApp->mainWidget(), SLOT(adjustSize()) );
@@ -36,15 +41,15 @@ namespace Codeine
       connect( m_oneToOne, SIGNAL(clicked()), (QObject*)videoWindow(), SLOT(resetZoom()) );
       connect( m_oneToOne, SIGNAL(clicked()), SLOT(deleteLater()) );
 
-      QBoxLayout *hbox = new QHBoxLayout( this, 8, 6 );
-      QBoxLayout *vbox = new QVBoxLayout( hbox );
+      Q3BoxLayout *hbox = new Q3HBoxLayout( this, 8, 6 );
+      Q3BoxLayout *vbox = new Q3VBoxLayout( hbox );
       vbox->addWidget( new QLabel( i18n( "<b>Adjust video scale?" ), this ) );
       vbox->addWidget( m_preferred );
       vbox->addWidget( m_oneToOne );
-      hbox->addWidget( m_thingy = new QFrame( this ) );
+      hbox->addWidget( m_thingy = new Q3Frame( this ) );
 
       m_thingy->setFixedWidth( fontMetrics().width( "X" ) );
-      m_thingy->setFrameStyle( QFrame::Plain | QFrame::Box );
+      m_thingy->setFrameStyle( Q3Frame::Plain | Q3Frame::Box );
       m_thingy->setPaletteForegroundColor( paletteBackgroundColor().dark() );
 
       QEvent e( QEvent::Resize );
@@ -59,7 +64,7 @@ namespace Codeine
    void
    AdjustSizeButton::timerEvent( QTimerEvent* )
    {
-      QFrame *&h = m_thingy;
+      Q3Frame *&h = m_thingy;
 
       switch( m_stage )
       {

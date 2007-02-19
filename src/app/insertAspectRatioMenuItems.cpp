@@ -1,7 +1,7 @@
 // Copyright 2005 Max Howell (max.howell@methylblue.com)
 // See COPYING file for licensing information
 
-#include <qpopupmenu.h>
+#include <q3popupmenu.h>
 #include <xine.h>
 
 QString i18n( const char *text );
@@ -10,7 +10,7 @@ QString i18n( const char *text );
 namespace Codeine
 {
    void
-   insertAspectRatioMenuItems( QPopupMenu *menu )
+   insertAspectRatioMenuItems( Q3PopupMenu *menu )
    {
       menu->insertItem( i18n( "Determine &Automatically" ), XINE_VO_ASPECT_AUTO );
       menu->insertSeparator();

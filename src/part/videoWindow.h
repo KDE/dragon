@@ -7,6 +7,9 @@
 #include "../codeine.h"
 #include <qtimer.h>
 #include <qwidget.h>
+//Added by qt3to4:
+#include <QEvent>
+#include <QCustomEvent>
 #include <kurl.h>
 
 typedef struct xine_s xine_t;

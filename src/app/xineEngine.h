@@ -7,6 +7,11 @@
 #include "codeine.h"
 #include <qtimer.h>
 #include <qwidget.h>
+//Added by qt3to4:
+#include <QEvent>
+#include <QCustomEvent>
+#include <QContextMenuEvent>
+#include <QTimerEvent>
 #include <kurl.h>
 #include <vector>
 

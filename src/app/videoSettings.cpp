@@ -6,6 +6,11 @@
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qslider.h>
+//Added by qt3to4:
+#include <Q3GridLayout>
+#include <Q3VBoxLayout>
+#include <QMouseEvent>
+#include <Q3Frame>
 #include "videoSettings.h"
 #include <xine.h>
 #include "xineEngine.h"
@@ -54,7 +59,7 @@ public:
       if( x > MIDDLE - F && x < MIDDLE + F ) {
          QMouseEvent e2( e->type(), QPoint( MIDDLE + m_offset, e->pos().y() ), e->button(), e->state() );
          QSlider::mouseMoveEvent( &e2 );
-         QRangeControl::setValue( 65536 / 2 - 1 ); // to ensure we are absolutely exact
+         Q3RangeControl::setValue( 65536 / 2 - 1 ); // to ensure we are absolutely exact
       }
       else
          QSlider::mouseMoveEvent( e );
@@ -63,18 +68,18 @@ public:
 
 
 Codeine::VideoSettingsDialog::VideoSettingsDialog( QWidget *parent )
-      : KDialog( parent, "video_settings_dialog", false, WType_TopLevel | WDestructiveClose )
+      : KDialog( parent, "video_settings_dialog", false, Qt::WType_TopLevel | Qt::WDestructiveClose )
 {
    XSetTransientForHint( x11Display(), winId(), parent->winId() );
    KWin::setType( winId(), NET::Utility );
    KWin::setState( winId(), NET::SkipTaskbar );
 
-   QFrame *frame = new QFrame( this );
-   (new QVBoxLayout( this, 10 ))->addWidget( frame );
-   frame->setFrameStyle( QFrame::StyledPanel | QFrame::Sunken );
+   Q3Frame *frame = new Q3Frame( this );
+   (new Q3VBoxLayout( this, 10 ))->addWidget( frame );
+   frame->setFrameStyle( Q3Frame::StyledPanel | Q3Frame::Sunken );
    frame->setPaletteBackgroundColor( backgroundColor().dark( 102 ) );
 
-   QGridLayout *grid = new QGridLayout( frame, 4, 2, 15, 10 );
+   Q3GridLayout *grid = new Q3GridLayout( frame, 4, 2, 15, 10 );
    grid->setAutoAdd( true );
 
    #define makeSlider( PARAM, name ) \

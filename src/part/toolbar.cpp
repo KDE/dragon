@@ -4,6 +4,8 @@
 #include <kpushbutton.h>
 #include <qapplication.h>
 #include <qevent.h>
+//Added by qt3to4:
+#include <QResizeEvent>
 #include "toolbar.h"
 
 

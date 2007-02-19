@@ -6,13 +6,15 @@
 #define CODEINE_DEBUG_H
 
 #include <kdebug.h>
-#include <qcstring.h>
-#include <qvariant.h>
+#include <q3cstring.h>
+#include <QMutex>
+#include <QObject>
+//Added by qt3to4:
+#include <Q3ValueList>
 #include <sys/time.h>
 
-class QApplication; ///@see Debug::Indent
-extern QApplication *qApp;
-
+#include <QApplication>
+#include <iostream>
 
 /**
  * @namespace Debug
@@ -44,90 +46,91 @@ extern QApplication *qApp;
  * @see ListStream
  */
 
-
 namespace Debug
 {
-   inline QCString &indent()
-   {
-      static QCString indent;
-      return indent;
-      #if 0
-      static timeval *stamp = 0;
+    extern QMutex mutex; // defined in app.cpp
 
-      if( stamp == 0 ) {
-         stamp = new timeval;
-         return "[00:00] "; }
+    // we can't use a statically instantiated QCString for the indent, because
+    // static namespaces are unique to each dlopened library. So we piggy back
+    // the QCString on the KApplication instance
 
-      timeval now;
-      gettimeofday( &now, 0 );
-      now.tv_sec -= stamp->tv_sec;
+    #define qOApp reinterpret_cast<QObject*>(qApp)
+    class Indent : QObject
+    {
+        friend Q3CString &modifieableIndent();
+        Indent() : QObject( qOApp ) { setObjectName( "DEBUG_indent" ); }
+        Q3CString m_string;
+    };
 
-      QString time( "[%1:%2]" );
+    inline Q3CString &modifieableIndent()
+    {
+        QObject* o = qOApp ? qOApp->findChild<QObject*>( "DEBUG_indent" ) : 0;
+        Q3CString &ret = (o ? static_cast<Indent*>( o ) : new Indent)->m_string;
+        return ret;
+    }
 
-      return time.arg( now.tv_sec / 60, 2 ).arg( now.tv_sec % 60, 2 ).latin1() + indent;
-      #endif
-   }
+    inline Q3CString indent()
+    {
+        return modifieableIndent();
+    }
+    #undef qApp
 
-   #ifdef NDEBUG
-      static inline kndbgstream debug()   { return kndbgstream(); }
-      static inline kndbgstream warning() { return kndbgstream(); }
-      static inline kndbgstream error()   { return kndbgstream(); }
-      static inline kndbgstream fatal()   { return kndbgstream(); }
 
-      static inline void debug1( QVariant v ) {}
+    #ifdef NDEBUG
+        static inline kndbgstream debug()   { return kndbgstream(); }
+        static inline kndbgstream warning() { return kndbgstream(); }
+        static inline kndbgstream error()   { return kndbgstream(); }
+        static inline kndbgstream fatal()   { return kndbgstream(); }
 
-      typedef kndbgstream Stream;
-   #else
-      #ifndef DEBUG_PREFIX
-      #define AMK_PREFIX ""
-      #else
-      #define AMK_PREFIX "[" DEBUG_PREFIX "] "
-      #endif
+        typedef kndbgstream DebugStream;
+    #else
+        #ifndef DEBUG_PREFIX
+        #define AMK_PREFIX ""
+        #else
+        #define AMK_PREFIX "[" DEBUG_PREFIX "] "
+        #endif
 
-      //from kdebug.h
-      enum DebugLevels {
-         KDEBUG_INFO  = 0,
-         KDEBUG_WARN  = 1,
-         KDEBUG_ERROR = 2,
-         KDEBUG_FATAL = 3
-      };
+        //from kdebug.h
+        enum DebugLevels {
+            KDEBUG_INFO  = 0,
+            KDEBUG_WARN  = 1,
+            KDEBUG_ERROR = 2,
+            KDEBUG_FATAL = 3
+        };
 
-      static inline kdbgstream debug()   { return kdbgstream( indent(), 0, KDEBUG_INFO  ) << AMK_PREFIX; }
-      static inline kdbgstream warning() { return kdbgstream( indent(), 0, KDEBUG_WARN  ) << AMK_PREFIX << "[WARNING!] "; }
-      static inline kdbgstream error()   { return kdbgstream( indent(), 0, KDEBUG_ERROR ) << AMK_PREFIX << "[ERROR!] "; }
-      static inline kdbgstream fatal()   { return kdbgstream( indent(), 0, KDEBUG_FATAL ) << AMK_PREFIX; }
+        static inline kdbgstream debug()   { mutex.lock(); Q3CString ind = indent(); mutex.unlock(); return kdbgstream( ind.data(), 0, KDEBUG_INFO  ) << AMK_PREFIX; }
+        static inline kdbgstream warning() { mutex.lock(); Q3CString ind = indent(); mutex.unlock(); return kdbgstream( ind.data(), 0, KDEBUG_WARN  ) << AMK_PREFIX << "[WARNING!] "; }
+        static inline kdbgstream error()   { mutex.lock(); Q3CString ind = indent(); mutex.unlock(); return kdbgstream( ind.data(), 0, KDEBUG_ERROR ) << AMK_PREFIX << "[ERROR!] "; }
+        static inline kdbgstream fatal()   { mutex.lock(); Q3CString ind = indent(); mutex.unlock(); return kdbgstream( ind.data(), 0, KDEBUG_FATAL ) << AMK_PREFIX; }
 
-      /// convenience function
-      static inline void debug1( QVariant v ) { kdbgstream( indent(), 0, KDEBUG_INFO ) << v << endl; }
+        typedef kdbgstream DebugStream;
 
-      typedef kdbgstream Stream;
+        #undef AMK_PREFIX
+    #endif
 
-      #undef AMK_PREFIX
-   #endif
-
-   typedef kndbgstream DummyStream;
+    typedef kndbgstream NoDebugStream;
 }
 
 using Debug::debug;
-using Debug::debug1;
+using Debug::warning;
+using Debug::error;
+using Debug::fatal;
+using Debug::DebugStream;
 
 /// Standard function announcer
-#define DEBUG_FUNC_INFO kdDebug() << Debug::indent() << k_funcinfo << endl;
+#define DEBUG_FUNC_INFO { Debug::mutex.lock(); kDebug() << Debug::indent() << k_funcinfo << endl; Debug::mutex.unlock(); }
 
 /// Announce a line
-#define DEBUG_LINE_INFO kdDebug() << Debug::indent() << k_funcinfo << "Line: " << __LINE__ << endl;
+#define DEBUG_LINE_INFO { Debug::mutex.lock(); kDebug() << Debug::indent() << k_funcinfo << "Line: " << __LINE__ << endl; Debug::mutex.unlock(); }
 
 /// Convenience macro for making a standard Debug::Block
 #define DEBUG_BLOCK Debug::Block uniquelyNamedStackAllocatedStandardBlock( __PRETTY_FUNCTION__ );
 
-#define DEBUG_INDENT Debug::indent() += "  ";
-#define DEBUG_UNINDENT { QCString &s = Debug::indent(); s.truncate( s.length() - 2 ); }
-
 /// Use this to remind yourself to finish the implementation of a function
-#define DEBUG_NOTIMPLEMENTED warning() << "NOT-IMPLEMENTED: " << __PRETTY_FUNCTION__ << endl;
+#define AMAROK_NOTIMPLEMENTED warning() << "NOT-IMPLEMENTED: " << __PRETTY_FUNCTION__ << endl;
 
 /// Use this to alert other developers to stop using a function
-#define DEBUG_DEPRECATED warning() << "DEPRECATED: " << __PRETTY_FUNCTION__ << endl;
+#define AMAROK_DEPRECATED warning() << "DEPRECATED: " << __PRETTY_FUNCTION__ << endl;
 
 
 namespace Debug
@@ -164,14 +167,17 @@ namespace Debug
         Block( const char *label )
                 : m_label( label )
         {
+            mutex.lock();
             gettimeofday( &m_start, 0 );
 
-            kdDebug() << indent() << "BEGIN: " << label << "\n";
-            DEBUG_INDENT
+            kDebug() << "BEGIN: " << label << "\n";
+            Debug::modifieableIndent() += "  ";
+            mutex.unlock();
         }
 
         ~Block()
         {
+            mutex.lock();
             timeval end;
             gettimeofday( &end, 0 );
 
@@ -185,9 +191,10 @@ namespace Debug
 
             double duration = double(end.tv_sec) + (double(end.tv_usec) / 1000000.0);
 
-            DEBUG_UNINDENT
-            kdDebug() << indent() << "END__: " << m_label
-                      << " - Took " << QString::number( duration, 'g', 3 ) << "s\n";
+            Debug::modifieableIndent().truncate( Debug::indent().length() - 2 );
+            kDebug() << "END__: " << m_label
+                      << " - Took " << QString::number( duration, 'g', 2 ) << "s\n";
+            mutex.unlock();
         }
     };
 
@@ -221,6 +228,8 @@ namespace Debug
 }
 
 
+#include <QVariant>
+
 namespace Debug
 {
     /**
@@ -230,9 +239,8 @@ namespace Debug
      *     debug() << (Debug::List() << anInt << aString << aQStringList << aDouble) << endl;
      */
 
-    typedef QValueList<QVariant> List;
+    typedef Q3ValueList<QVariant> List;
 }
-
 
 #include <kmessagebox.h>
 
