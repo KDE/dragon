@@ -25,6 +25,7 @@ kde4_add_executable(videoplayer ${videoplayer_SRCS} xineScope.c)
 target_link_libraries(videoplayer 
     ${KDE4_KUTILS_LIBS}
     ${KDE4_KDEUI_LIBS}
+    ${KDE4_KDECORE_LIBS}
     ${XINE_LIBRARY}
     ${KDE4_KDE3SUPPORT_LIBS} )
 
