@@ -4,14 +4,14 @@
 #ifndef CODEINELISTVIEW_CPP
 #define CODEINELISTVIEW_CPP
 
-#include <klistview.h>
+#include <k3listview.h>
 
 namespace Codeine
 {
-   class ListView : public KListView
+   class ListView : public K3ListView
    {
    public:
-      ListView( QWidget *parent ) : KListView( parent )
+      ListView( QWidget *parent ) : K3ListView( parent )
       {
          addColumn( QString::null, 0 );
          addColumn( QString::null );
@@ -26,12 +26,12 @@ namespace Codeine
 
       virtual QSize sizeHint() const
       {
-         const QSize sh = KListView::sizeHint();
+         const QSize sh = K3ListView::sizeHint();
 
          return QSize( sh.width(),
             childCount() == 0
                ? 50
-               : QMIN( sh.height(), childCount() * (firstChild()->height()) + margin() * 2 + 4 + reinterpret_cast<QWidget*>(header())->height() ) );
+               : qMin( sh.height(), childCount() * (firstChild()->height()) + margin() * 2 + 4 + reinterpret_cast<QWidget*>(header())->height() ) );
       }
    };
 }

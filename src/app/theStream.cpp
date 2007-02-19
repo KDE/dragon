@@ -18,7 +18,7 @@ namespace Codeine
 //       if( url().protocol() == "dvd" )
 //          return Codeine::config( QString( "dvd:/" ) + prettyTitle() );
 //       else
-         return Codeine::config( url().prettyURL() );
+         return Codeine::config( url().prettyUrl() );
    }
 
    const KUrl&
@@ -72,7 +72,7 @@ namespace Codeine
          const QString n = url.fileName();
          return KUrl::decode_string( n.left( n.findRev( '.' ) ).replace( '_', ' ' ) ); }
       else
-         return url.prettyURL();
+         return url.prettyUrl();
    }
 
 

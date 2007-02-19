@@ -10,7 +10,7 @@
 #include <kapplication.h> //::makeStandardCaption
 #include <kconfig.h>
 #include <kiconloader.h>
-#include <kpopupmenu.h>
+#include <kmenu.h>
 #include <kwin.h>
 #include "mxcl.library.h"
 #include <qcursor.h>
@@ -133,7 +133,7 @@ VideoWindow::contextMenuEvent( QContextMenuEvent *e )
 {
    e->accept();
 
-   KPopupMenu popup;
+   KMenu popup;
 
    if( state() == Engine::Playing )
       popup.insertItem( SmallIconSet("player_pause"), i18n("Pause"), 1 );
@@ -154,7 +154,7 @@ VideoWindow::contextMenuEvent( QContextMenuEvent *e )
    action( "fullscreen" )->plug( &popup );
    //show zoom information?
 
-   if( e->state() & Qt::MetaButton ) { //only on track end, or for special users
+   if( e->state() & Qt::MetaModifier ) { //only on track end, or for special users
       popup.insertSeparator();
       action( "file_quit" )->plug( &popup );
    }

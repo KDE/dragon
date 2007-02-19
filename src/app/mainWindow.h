@@ -14,7 +14,7 @@
 #include <QDragEnterEvent>
 #include <QLabel>
 
-class KURL;
+class KUrl;
 class QLabel;
 class Q3PopupMenu;
 class QSlider;
@@ -53,8 +53,8 @@ namespace Codeine
    private:
       void setupActions();
 
-      bool load( const KURL& );
-      bool open( const KURL& );
+      bool load( const KUrl& );
+      bool open( const KUrl& );
 
       Q3PopupMenu *menu( const char *name );
 

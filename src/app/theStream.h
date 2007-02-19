@@ -25,7 +25,7 @@ namespace Codeine
    CODEINE_NO_EXPORT( TheStream )
 
    public:
-      static const KURL &url();
+      static const KUrl &url();
 
       static bool canSeek();
       static bool hasAudio();
@@ -41,7 +41,7 @@ namespace Codeine
       static QString information();
 
       static inline bool hasProfile()
-            { return KGlobal::config()->hasGroup( url().prettyURL() ); }
+            { return KGlobal::config()->hasGroup( url().prettyUrl() ); }
 
       static KConfig *profile();
    };

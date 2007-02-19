@@ -9,9 +9,9 @@
 
 namespace Codeine
 {
-   static inline KConfig *config( const QString &group )
+   static KSharedConfig::Ptr config( const QString &group )
    {
-      KConfig* const instance = KGlobal::config();
+      KSharedConfig::Ptr instance = KGlobal::config();
       instance->setGroup( group );
       return instance;
    }

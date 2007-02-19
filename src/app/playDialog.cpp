@@ -6,7 +6,7 @@
 #include <kapplication.h>
 #include <kconfig.h>
 #include <kguiitem.h>
-#include <klistview.h>
+#include <k3listview.h>
 #include <kpushbutton.h>
 #include <kstdguiitem.h>
 #include "playDialog.h"
@@ -29,10 +29,10 @@ namespace Codeine {
 PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
       : QDialog( parent )
 {
-   setCaption( kapp->makeStdCaption( i18n("Play Media") ) );
+   setCaption( KInstance::makeStandardCaption( i18n("Play Media") ) );
 
    QSignalMapper *mapper = new QSignalMapper( this );
-   QWidget *o, *closeButton = new KPushButton( KStdGuiItem::close(), this );
+   QWidget *o, *closeButton = new KPushButton( KStandardGuiItem::close(), this );
    Q3BoxLayout *hbox, *vbox = new Q3VBoxLayout( this, 15, 20 );
 
    vbox->addWidget( new QLabel( i18n( "What media would you like to play?" ), this ) );
@@ -61,7 +61,7 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
    hbox->addItem( new QSpacerItem( 10, 10, QSizePolicy::Expanding ) );
 
    if( be_welcome_dialog ) {
-      QWidget *w = new KPushButton( KStdGuiItem::quit(), this );
+      QWidget *w = new KPushButton( KStandardGuiItem::quit(), this );
       hbox->addWidget( w );
       connect( w, SIGNAL(clicked()), kapp, SLOT(quit()) );
    }
@@ -74,7 +74,7 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
 void
 PlayDialog::createRecentFileWidget( Q3BoxLayout *layout )
 {
-   KListView *lv;
+   K3ListView *lv;
    lv = new Codeine::ListView( this );
    lv->setColumnText( 1, i18n("Recently Played Media") );
 
@@ -97,7 +97,7 @@ PlayDialog::createRecentFileWidget( Q3BoxLayout *layout )
 
    for( KUrl::List::ConstIterator it = urls.begin(), end = urls.end(); it != end; ++it ) {
       const QString fileName = (*it).fileName();
-      new KListViewItem( lv, 0, (*it).url(), fileName.isEmpty() ? (*it).prettyURL() : fileName );
+      new K3ListViewItem( lv, 0, (*it).url(), fileName.isEmpty() ? (*it).prettyUrl() : fileName );
    }
 
    if( lv->childCount() ) {

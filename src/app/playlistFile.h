@@ -9,14 +9,14 @@
 class PlaylistFile
 {
 public:
-   PlaylistFile( const KURL &url );
+   PlaylistFile( const KUrl &url );
   ~PlaylistFile();
 
    enum FileFormat { M3U, PLS, Unknown, NotPlaylistFile = Unknown };
 
    bool isPlaylist() const { return m_type != Unknown; }
    bool isValid() const { return m_isValid; }
-   KURL firstUrl() const { return m_contents.isEmpty() ? KURL() : m_contents.first(); }
+   KUrl firstUrl() const { return m_contents.isEmpty() ? KUrl() : m_contents.first(); }
    QString error() const { return m_error; }
 
 private:
@@ -24,13 +24,13 @@ private:
    void parsePlsFile( Q3TextStream& );
    void parseM3uFile( Q3TextStream& );
 
-   KURL m_url;
+   KUrl m_url;
    bool m_isRemoteFile;
    bool m_isValid;
    QString m_error;
    FileFormat m_type;
    QString m_path;
-   KURL::List m_contents;
+   KUrl::List m_contents;
 };
 
 #endif

@@ -56,7 +56,7 @@ namespace Codeine
       bool init();
       void exit();
 
-      bool load( const KURL &url );
+      bool load( const KUrl &url );
       bool play( uint = 0 );
 
       uint position() const { return posTimeLength( Pos ); }
@@ -80,7 +80,7 @@ namespace Codeine
       ///special slot, see implementation to facilitate understanding
       void setStreamParameter( int );
 
-   signals:
+   Q_SIGNALS:
       void stateChanged( Engine::State );
       void statusMessage( const QString& );
       void titleChanged( const QString& );
@@ -111,7 +111,7 @@ namespace Codeine
 
       int64_t m_current_vpts;
 
-      KURL m_url;
+      KUrl m_url;
 
    public:
       QString fileFilter() const;

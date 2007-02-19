@@ -83,6 +83,8 @@ namespace Debug
         static inline kndbgstream fatal()   { return kndbgstream(); }
 
         typedef kndbgstream DebugStream;
+        
+        static inline void debug1( QVariant v ) {}
     #else
         #ifndef DEBUG_PREFIX
         #define AMK_PREFIX ""
@@ -104,7 +106,7 @@ namespace Debug
         static inline kdbgstream fatal()   { mutex.lock(); Q3CString ind = indent(); mutex.unlock(); return kdbgstream( ind.data(), 0, KDEBUG_FATAL ) << AMK_PREFIX; }
 
         typedef kdbgstream DebugStream;
-
+        static inline void debug1( QVariant v ) { mutex.lock(); Q3CString ind = indent(); mutex.unlock(); kdbgstream( ind.data(), 0, KDEBUG_INFO ) << v << endl; }
         #undef AMK_PREFIX
     #endif
 
@@ -112,6 +114,7 @@ namespace Debug
 }
 
 using Debug::debug;
+using Debug::debug1;
 using Debug::warning;
 using Debug::error;
 using Debug::fatal;

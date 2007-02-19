@@ -52,12 +52,12 @@ VideoWindow::VideoWindow( QWidget *parent )
 
    s_instance = this;
 
-   setWFlags( Qt::WNoAutoErase );
+   setWindowFlags( Qt::WNoAutoErase );
    setMouseTracking( true );
    setAcceptDrops( true );
    setUpdatesEnabled( false ); //to stop Qt drawing over us
    setPaletteBackgroundColor( Qt::black );
-   setFocusPolicy( ClickFocus );
+   setFocusPolicy( Qt::ClickFocus );
 
    //TODO sucks
    //TODO namespace this?
@@ -120,7 +120,7 @@ VideoWindow::init()
    #endif
 
    debug() << "xine_config_load()\n";
-   xine_config_load( m_xine, QFile::encodeName( QDir::homeDirPath() + "/.xine/config" ) );
+   xine_config_load( m_xine, QFile::encodeName( QDir::homePath() + "/.xine/config" ) );
 
    debug() << "xine_init()\n";
    xine_init( m_xine );
@@ -334,10 +334,10 @@ VideoWindow::record()
       QDir d( QDir::home().filePath( "Desktop" ) );
       config.str_value = qstrdup( d.exists() //FIXME tiny-mem-leak, *shrug*
             ? d.path().utf8()
-            : QDir::homeDirPath().utf8() );
+            : QDir::homePath().utf8() );
       xine_config_update_entry( m_xine, &config );
 
-      const QString fileName = m_url.filename();
+      const QString fileName = m_url.fileName();
 
       QString
       url  = m_url.url();
@@ -699,7 +699,7 @@ VideoWindow::customEvent( QCustomEvent *e )
       break;
 
    case 1001:
-      MessageBox::sorry( (*message).arg( m_url.prettyURL() ) );
+      MessageBox::sorry( (*message).arg( m_url.prettyUrl() ) );
       delete message;
       break;
 

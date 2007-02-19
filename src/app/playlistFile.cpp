@@ -36,7 +36,7 @@ PlaylistFile::PlaylistFile( const KUrl &url )
    if( m_isRemoteFile ) {
       path = QString();
       if( !KIO::NetAccess::download( url, path, Codeine::mainWindow() ) ) {
-         m_error = i18n( "Codeine could not download the remote playlist: %1" ).arg( url.prettyURL() );
+         m_error = i18n( "Codeine could not download the remote playlist: %1" ).arg( url.prettyUrl() );
          return;
       }
    }
@@ -105,14 +105,14 @@ PlaylistFile::parseM3uFile( Q3TextStream &stream )
       {
          KUrl url;
 
-         // KUrl::isRelativeURL() expects absolute URLs to start with a protocol, so prepend it if missing
+         // KUrl::isRelativeUrl() expects absolute URLs to start with a protocol, so prepend it if missing
          if( line.startsWith( "/" ) )
             line.prepend( "file://" );
 
-         if( KUrl::isRelativeURL( line ) )
+         if( KUrl::isRelativeUrl( line ) )
             url.setPath( m_url.directory() + line );
          else
-            url = KUrl::fromPathOrURL( line );
+            url = KUrl::fromPathOrUrl( line );
 
          m_contents += url;
          m_isValid = true;

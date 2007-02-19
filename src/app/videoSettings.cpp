@@ -18,7 +18,7 @@
 extern "C"
 {
    // #include <X11/Xlib.h> is just dangerous! Here, there is a macro for Below that conflicts
-   // with QSlider::Below. Stupid X11 people.
+   // with QSlider::TicksBelow. Stupid X11 people.
    typedef unsigned long XID;
    typedef XID Window;
    extern int XSetTransientForHint( Display*, Window, Window );
@@ -38,7 +38,7 @@ public:
          : QSlider( (65536/4)-1, (3*(65536/4))-1, 1000, value, Qt::Horizontal, parent, name )
          , m_offset( 0 )
    {
-      setTickmarks( QSlider::Below );
+      setTickmarks( QSlider::TicksBelow );
       setTickInterval( 65536 / 4 );
       setMinimumWidth( fontMetrics().width( name ) * 3 );
       connect( this, SIGNAL(valueChanged( int )), Codeine::engine(), SLOT(setStreamParameter( int )) );

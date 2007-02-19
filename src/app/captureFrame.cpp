@@ -75,10 +75,10 @@ public:
       (new QLabel( this ))->setPixmap( frame );
 
       Q3HBox *box = new Q3HBox( this );
-      KPushButton *o = new KPushButton( KStdGuiItem::save(), box );
+      KPushButton *o = new KPushButton( KStandardGuiItem::save(), box );
       connect( o, SIGNAL(clicked()), SLOT(accept()) );
 
-      o = new KPushButton( KStdGuiItem::cancel(), box );
+      o = new KPushButton( KStandardGuiItem::cancel(), box );
       o->setText( i18n("Discard") );
       connect( o, SIGNAL(clicked()), SLOT(reject()) );
 

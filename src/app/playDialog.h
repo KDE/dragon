@@ -7,7 +7,7 @@
 #include <kurl.h>
 #include <qdialog.h>
 
-class KListView;
+class K3ListView;
 class Q3BoxLayout;
 class Q3ListViewItem;
 
@@ -19,7 +19,7 @@ namespace Codeine
    public:
       PlayDialog( QWidget*, bool show_welcome_dialog = false );
 
-      const KURL &url() const { return m_url; }
+      const KUrl &url() const { return m_url; }
 
       enum DialogCode { FILE = QDialog::Accepted + 2, VCD, CDDA, DVD, RECENT_FILE };
 
@@ -29,7 +29,7 @@ namespace Codeine
    private:
       void createRecentFileWidget( Q3BoxLayout* );
 
-      KURL m_url;
+      KUrl m_url;
    };
 }
 

@@ -155,7 +155,7 @@ MainWindow::MainWindow()
    KXMLGUIClient::stateChanged( "empty" );
 
    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-   if( args->count() || args->isSet( "play-dvd" ) || kapp->isRestored() )
+   if( args->count() || args->isSet( "play-dvd" ) || kapp->isSessionRestored() )
       //we need to resize the window, so we can't show the window yet
       init();
    else {
@@ -190,7 +190,7 @@ MainWindow::init()
 
    QApplication::restoreOverrideCursor();
 
-   if( !kapp->isRestored() ) {
+   if( !kapp->isSessionRestored() ) {
       KCmdLineArgs &args = *KCmdLineArgs::parsedArgs();
       if (args.isSet( "play-dvd" ))
          open( "dvd:/" );
@@ -248,8 +248,8 @@ MainWindow::setupActions()
 
    KActionCollection * const ac = actionCollection();
 
-   KStdAction::quit( kapp, SLOT(quit()), ac );
-   KStdAction::open( this, SLOT(playMedia()), ac, "play_media" )->setText( i18n("Play &Media...") );
+   KStandardAction::quit( kapp, SLOT(quit()), ac );
+   KStandardAction::open( this, SLOT(playMedia()), ac, "play_media" )->setText( i18n("Play &Media...") );
    connect( new FullScreenAction( this, ac ), SIGNAL(toggled( bool )), SLOT(fullScreenToggled( bool )) );
 
    new PlayAction( this, SLOT(play()), ac );
@@ -265,7 +265,7 @@ MainWindow::setupActions()
    new KAction( i18n("Video Settings..."), "configure", Key_V, this, SLOT(configure()), ac, "video_settings" );
    new KAction( i18n("Configure xine..."), "configure", 0, this, SLOT(configure()), ac, "xine_settings" );
 
-   (new KWidgetAction( m_positionSlider, i18n("Position Slider"), 0, 0, 0, ac, "position_slider" ))->setAutoSized( true );
+   (new K3WidgetAction( m_positionSlider, i18n("Position Slider"), 0, 0, 0, ac, "position_slider" ))->setAutoSized( true );
 
    new VolumeAction( toolBar(), ac );
 }
@@ -389,7 +389,7 @@ MainWindow::load( const KUrl &url )
          KIO::UDSEntry::ConstIterator end = e.end();
          for (KIO::UDSEntry::ConstIterator it = e.begin(); it != end; ++it)
             if ((*it).m_uds == UDS_LOCAL_PATH && !(*it).m_str.isEmpty())
-               return engine()->load( KUrl::fromPathOrURL( (*it).m_str ) );
+               return engine()->load( KUrl::fromPathOrUrl( (*it).m_str ) );
       }
    }
 

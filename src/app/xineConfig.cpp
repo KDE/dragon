@@ -65,7 +65,7 @@ XineConfigDialog::XineConfigDialog( xine_t *xine, QWidget *parent )
                i18n("Configure xine"), User1 | Stretch | Ok | Cancel,
                Ok, //default button
                false, //draw separator
-               KStdGuiItem::reset() )
+               KStandardGuiItem::reset() )
       , m_xine( xine )
 {
    DEBUG_BLOCK
@@ -82,7 +82,7 @@ XineConfigDialog::XineConfigDialog( xine_t *xine, QWidget *parent )
       Q3HBox *hbox = new Q3HBox( box );
       hbox->setSpacing( METRIC_3B2 );
       hbox->setMargin( METRIC_3B2 );
-      QPixmap info = kapp->iconLoader()->loadIcon( "messagebox_info", KIcon::NoGroup, KIcon::SizeMedium, KIcon::DefaultState, 0, true );
+      QPixmap info = kapp->iconLoader()->loadIcon( "messagebox_info", K3Icon::NoGroup, K3Icon::SizeMedium, K3Icon::DefaultState, 0, true );
       QLabel *label = new QLabel( hbox );
       label->setPixmap( info );
       label->setSizePolicy( QSizePolicy::Maximum, QSizePolicy::Maximum );
@@ -198,7 +198,7 @@ XineConfigDialog::saveSettings()
       if( entry->isChanged() )
          entry->save( m_xine );
 
-   xine_config_save( m_xine, QFile::encodeName( QDir::homeDirPath() + "/.xine/config" ) );
+   xine_config_save( m_xine, QFile::encodeName( QDir::homePath() + "/.xine/config" ) );
 }
 
 
@@ -235,8 +235,8 @@ XineConfigEntry::XineConfigEntry( QWidget *parent, Q3GridLayout *grid, xine_cfg_
    case XINE_CONFIG_TYPE_RANGE:
    case XINE_CONFIG_TYPE_NUM: {
       w = new QSpinBox(
-               QMIN( m_number, entry->range_min ), // xine bug, sometimes the min and max ranges
-               QMAX( m_number, entry->range_max ), // are both 0 even though this is bullshit
+               qMin( m_number, entry->range_min ), // xine bug, sometimes the min and max ranges
+               qMax( m_number, entry->range_max ), // are both 0 even though this is bullshit
                1, parent );
       ((QSpinBox*)w)->setValue( m_number );
       signal = SIGNAL(valueChanged( int ));
@@ -257,7 +257,8 @@ XineConfigEntry::XineConfigEntry( QWidget *parent, Q3GridLayout *grid, xine_cfg_
 
    connect( w, signal, XineConfigDialog::instance(), SLOT(slotHelp()) );
 
-   QLabel *description = new QLabel( description_text + ':', parent );
+   QLabel *description = new QLabel( parent );
+   description->setBuddy( description_text + ':' );
    description->setAlignment( Qt::TextWordWrap | Qt::AlignVCenter );
 
    const QString tip = "<qt>" + QString::fromUtf8( entry->help );

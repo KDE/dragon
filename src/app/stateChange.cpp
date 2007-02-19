@@ -137,7 +137,7 @@ MainWindow::engineStateChanged( Engine::State state )
       #endif
          if( url.protocol() != "dvd" && url.protocol() != "vcd" ) {
             KConfig *config = Codeine::config( "General" );
-            const QString prettyUrl = url.prettyURL();
+            const QString prettyUrl = url.prettyUrl();
 
             QStringList urls = config->readPathListEntry( "Recent Urls" );
             urls.remove( prettyUrl );
