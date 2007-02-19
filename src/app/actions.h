@@ -10,7 +10,7 @@
 namespace Codeine
 {
    KActionCollection *actionCollection(); ///defined in mainWindow.cpp
-   KAction *action( const char* ); ///defined in mainWindow.cpp
+   QAction *action( const char* ); ///defined in mainWindow.cpp
    inline KToggleAction *toggleAction( const char *name ) { return (KToggleAction*)action( name ); }
 
    class PlayAction : public KToggleAction

@@ -13,6 +13,7 @@
 #include <ksqueezedtextlabel.h>
 #include <kstatusbar.h>
 #include <ktoolbar.h>
+#include <k3urldrag.h>
 #include <kwin.h>
 #include <kxmlguifactory.h>
 
@@ -31,7 +32,7 @@
 
 #include "actions.h"
 #include "analyzer.h"
-#include "config.h"
+#include "configfn.h"
 #include "debug.h"
 #include "extern.h"         //dialog creation function definitions
 #include "fullScreenAction.h"
@@ -69,7 +70,7 @@ MainWindow::MainWindow()
 {
     DEBUG_BLOCK
 
-    setWindowState( windowState() ^ Qt::WDestructiveClose ); //we are allocated on the stack
+//PORTING?    setWindowState( windowState() ^ Qt::WDestructiveClose ); //we are allocated on the stack
 
     kapp->setMainWidget( this );
 
@@ -292,10 +293,10 @@ MainWindow::setupActions()
     configureAction->setObjectName( "xine_settings" );
     connect( configureAction, SIGNAL( triggered() ), this, SLOT( configure() ) );
 
-    KAction* positionSlider = new KAction( i18n("Position Slider"), ac,  )
+    KAction* positionSlider = new KAction( i18n("Position Slider"), ac );
     positionSlider->setObjectName( "position_slider" );
     positionSlider->setDefaultWidget( m_positionSlider );
-    positionSlider->setAutoSized( true );
+   // positionSlider->setAutoSized( true ); PORTING, whats the replacement for this?
 
     new VolumeAction( toolBar(), ac );
 }
@@ -330,7 +331,7 @@ MainWindow::timerEvent( QTimerEvent* )
 
         #ifndef NO_XTEST_EXTENSION
         if( counter == 0 /*1020*/ ) { // 51 seconds //do at 0 to ensure screensaver doesn't happen before 51 seconds is up (somehow)
-            const bool isOnThisDesktop = KWin::windowInfo( winId() ).isOnDesktop( KWin::currentDesktop() );
+            const bool isOnThisDesktop = KWin::windowInfo( winId(), NET::WMDesktop, 0 ).isOnDesktop( KWin::currentDesktop() );
 
             if( videoWindow()->isVisible() && isOnThisDesktop ) {
                 int key = XKeysymToKeycode( x11Display(), XK_Shift_R );
@@ -411,15 +412,14 @@ MainWindow::load( const KUrl &url )
     }
 
     if (url.protocol() == "media") {
-        #define UDS_LOCAL_PATH (72 | KIO::UDS_STRING)
+        //#define UDS_LOCAL_PATH (72 | KIO::UDS_STRING)
         KIO::UDSEntry e;
         if (!KIO::NetAccess::stat( url, e, 0 ))
             MessageBox::sorry( "There was an internal error with the media slave..." );
         else {
-            KIO::UDSEntry::ConstIterator end = e.end();
-            for (KIO::UDSEntry::ConstIterator it = e.begin(); it != end; ++it)
-                if ((*it).m_uds == UDS_LOCAL_PATH && !(*it).m_str.isEmpty())
-                    return engine()->load( KUrl::fromPathOrUrl( (*it).m_str ) );
+            QString path = e.stringValue( KIO::UDS_LOCAL_PATH );
+            if( !path.isEmpty() )
+                return engine()->load( KUrl::fromPathOrUrl( path ) );
         }
     }
 
@@ -456,20 +456,20 @@ MainWindow::playMedia( bool show_welcome_dialog )
     switch( dialog.exec() ) {
     case PlayDialog::FILE: {
         const QString filter = engine()->fileFilter() + '|' + i18n("Supported Media Formats") + "\n*|" + i18n("All Files");
-        const KUrl url = KFileDialog::getOpenURL( ":default", filter, this, i18n("Select A File To Play") );
+        const KUrl url = KFileDialog::getOpenUrl( KUrl(":default"), filter, this, i18n("Select A File To Play") );
         open( url );
         } break;
     case PlayDialog::RECENT_FILE:
         open( dialog.url() );
         break;
     case PlayDialog::CDDA:
-        open( "cdda:/1" );
+        open( KUrl( "cdda:/1" ) );
         break;
     case PlayDialog::VCD:
-        open( "vcd://" ); // one / is not enough
+        open( KUrl( "vcd://" ) ); // one / is not enough
         break;
     case PlayDialog::DVD:
-        open( "dvd:/" );
+        open( KUrl( "dvd:/" ) );
         break;
     }
 }
@@ -589,7 +589,7 @@ MainWindow::fullScreenToggled( bool isFullScreen )
         toolBar()->unsetPalette(),
         unsetPalette();
 
-    toolBar()->setMovingEnabled( !isFullScreen );
+    //toolBar()->setMovingEnabled( !isFullScreen );
     toolBar()->setHidden( isFullScreen && engine()->state() == Engine::Playing );
 
     reinterpret_cast<QWidget*>(menuBar())->setHidden( isFullScreen );
@@ -678,14 +678,14 @@ MainWindow::aboutToShowMenu()
 void
 MainWindow::dragEnterEvent( QDragEnterEvent *e )
 {
-    e->accept( KUrlDrag::canDecode( e ) );
+    e->accept( K3URLDrag::canDecode( e ) );
 }
 
 void
 MainWindow::dropEvent( QDropEvent *e )
 {
     KUrl::List list;
-    KUrlDrag::decode( e, list );
+    K3URLDrag::decode( e, list );
 
     if( !list.isEmpty() )
         open( list.first() );
@@ -728,14 +728,14 @@ actionCollection()
 }
 
 /// Convenience class for other classes that need access to the actions
-KAction*
+QAction*
 action( const char *name )
 {
     #define QT_FATAL_ASSERT
 
     MainWindow *mainWindow = 0;
     KActionCollection *actionCollection = 0;
-    KAction *action = 0;
+    QAction *action = 0;
 
     if( mainWindow = (MainWindow*)kapp->mainWidget() )
         if( actionCollection = mainWindow->actionCollection() )

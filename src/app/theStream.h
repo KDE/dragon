@@ -4,7 +4,7 @@
 #ifndef CODEINE_THESTREAM_H
 #define CODEINE_THESTREAM_H
 
-#include "config.h"  // needed for inline functions
+#include "configfn.h"  // needed for inline functions
 #include <kurl.h>    // larger :( but no macros at least
 #include <qsize.h>   // small header
 #include <qstring.h> // small header

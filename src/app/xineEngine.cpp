@@ -5,7 +5,7 @@
 
 #include "actions.h"        //::seek() FIXME unfortunate
 #include <cmath>             //the fade out
-#include "config.h"
+#include "configfn.h"
 #include "debug.h"
 #include <limits>
 #include <klocale.h>

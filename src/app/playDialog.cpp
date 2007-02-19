@@ -1,7 +1,7 @@
 // (C) 2005 Max Howell (max.howell@methylblue.com)
 // See COPYING file for licensing information
 
-#include "config.h"
+#include "configfn.h"
 #include "listView.cpp"
 #include "mxcl.library.h"
 #include "playDialog.h"
