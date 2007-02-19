@@ -5,6 +5,7 @@
 #define CODEINE_PLAYLIST_FILE_H
 
 #include <kurl.h>
+#include <Q3TextStream>
 
 class PlaylistFile
 {

@@ -4,28 +4,27 @@
 #ifndef CODEINE_VOLUME_ACTION_H
 #define CODEINE_VOLUME_ACTION_H
 
-#include <kactionclasses.h>
-//Added by qt3to4:
-#include <QEvent>
+#include <ktoggleaction.h>
+class KActionCollection;
 
 class VolumeAction : public KToggleAction
 {
-   Q_OBJECT
+    Q_OBJECT
 
-   QWidget *m_anchor;
-   class VolumeSlider *m_widget;
+    QWidget *m_anchor;
+    class VolumeSlider *m_widget;
 
-   virtual bool eventFilter( QObject *o, QEvent *e );
+    virtual bool eventFilter( QObject *o, QEvent *e );
 
-   virtual int plug( QWidget*, int );
+    virtual QWidget* createWidget( QWidget* parent );
 
 private slots:
-   void toggled( bool );
-   void sliderMoved( int );
-   void sliderReleased() { setChecked( false ); toggled( false ); }
+    void toggled( bool );
+    void sliderMoved( int );
+    void sliderReleased() { setChecked( false ); toggled( false ); }
 
 public:
-   VolumeAction( KToolBar *anchor, KActionCollection *ac );
+    VolumeAction( KToolBar *anchor, QObject *ac );
 };
 
 #endif

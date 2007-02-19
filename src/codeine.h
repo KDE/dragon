@@ -9,28 +9,28 @@
 
 namespace Engine
 {
-   enum State
-   {
-      Uninitialised = 0,
-      Empty = 1,
-      Loaded = 2,
-      Playing = 4,
-      Paused = 8,
-      TrackEnded = 16
-   };
+    enum State
+    {
+        Uninitialised = 0,
+        Empty = 1,
+        Loaded = 2,
+        Playing = 4,
+        Paused = 8,
+        TrackEnded = 16
+    };
 }
 
 class QWidget;
 
 namespace Analyzer
 {
-   static const int SCOPE_SIZE_EXP = 9;
-   static const int SCOPE_SIZE = 1 << SCOPE_SIZE_EXP;
+    static const int SCOPE_SIZE_EXP = 9;
+    static const int SCOPE_SIZE = 1 << SCOPE_SIZE_EXP;
 }
 
 namespace Codeine
 {
-   QWidget *mainWindow(); //defined in mainWindow.cpp
+    QWidget *mainWindow(); //defined in mainWindow.cpp
 }
 
 /// used by mainWindow.h and xineEngine.h

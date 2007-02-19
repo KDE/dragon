@@ -5,14 +5,9 @@
 #define CODEINEMAINWINDOW_H
 
 #include "codeine.h"
-#include <kmainwindow.h>
-//Added by qt3to4:
-#include <Q3PopupMenu>
-#include <QTimerEvent>
-#include <QKeyEvent>
-#include <QDropEvent>
-#include <QDragEnterEvent>
-#include <QLabel>
+
+
+#include <KMainWindow>
 
 class KUrl;
 class QLabel;
@@ -39,7 +34,6 @@ namespace Codeine
 
       void configure();
       void streamInformation();
-      void captureFrame();
 
    private slots:
       void engineMessage( const QString& );

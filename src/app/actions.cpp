@@ -11,23 +11,23 @@
 
 namespace Codeine
 {
-   PlayAction::PlayAction( QObject *receiver, const char *slot, KActionCollection *ac )
-         : KToggleAction( i18n("Play"), ac )
-    {
-        setObjectName( "player_play" );
-        setShortcut( Qt::Key_Space );
-        connect( this, SIGNAL( trigger() ), receiver, slot );
-    }
+    PlayAction::PlayAction( QObject *receiver, const char *slot, KActionCollection *ac )
+            : KToggleAction( i18n("Play"), ac )
+     {
+          setObjectName( "player_play" );
+          setShortcut( Qt::Key_Space );
+          connect( this, SIGNAL( trigger() ), receiver, slot );
+     }
 
-   void
-   PlayAction::setChecked( bool b )
-   {
-      if( videoWindow()->state() == Engine::Empty && sender() && Q3CString(sender()->className()) == "KToolBarButton" ) {
-         // clicking play when empty means open PlayMediaDialog, but we have to uncheck the toolbar button
-         // as KDElibs sets that checked automatically..
-         ((QToolButton*)sender())->setOn( false );
-      }
-      else
-         KToggleAction::setChecked( b );
-   }
+    void
+    PlayAction::setChecked( bool b )
+    {
+        if( videoWindow()->state() == Engine::Empty && sender() && Q3CString(sender()->className()) == "KToolBarButton" ) {
+            // clicking play when empty means open PlayMediaDialog, but we have to uncheck the toolbar button
+            // as KDElibs sets that checked automatically..
+            ((QToolButton*)sender())->setOn( false );
+        }
+        else
+            KToggleAction::setChecked( b );
+    }
 }

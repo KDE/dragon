@@ -136,7 +136,6 @@ namespace Codeine
 
       void *x11Visual() const;
       void becomePreferredSize();
-      QImage captureFrame() const;
 
       enum { ExposeEvent = 3000 };
 
