@@ -1,0 +1,48 @@
+INTRODUCTION
+  Codeine is a very simple xine-based media player.
+
+  I make the following promises:
+
+    * I will not add any substantial features after version 1.0.0
+    * After then, improvements will only be in the realm of usability and bug
+      fixes
+
+  You can rely on Codeine for now and until xine is obsolete to be a simple
+  no-frills video(/media) player.
+
+  Visit #codeine on freenode.net!
+
+  Max Howell
+
+
+REQUIREMENTS
+  You will need at least:
+
+    * Qt 3.3.0 (Qt 3.2.x may work, it is just not tested)
+    * KDElibs 3.3.0
+    * xine-lib 1.0.0-rc4
+
+  You also need python installed in order to build Codeine.
+
+
+INSTALLATION
+  I use scons + bksys as the build system. But you can still do the following:
+
+     % ./configure && make && su -c "make install"
+
+  Or if you have scons installed, simply:
+
+     % scons && su -c "scons install"
+
+  Note that scons is a little silly and this kind of thing doesn't work:
+
+     % ./configure --prefix=/foo/bar --debug=full
+
+  Instead do:
+
+     % ./configure prefix=/foo/bar debug=full
+
+
+TRANSLATIONS
+  I will make the po file available for translation at the 1.0-rc1 stage, if
+  you want to make a translation I thank you in advance :-)

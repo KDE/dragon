@@ -1,0 +1,52 @@
+1.0.1
+   Mute button for KPart
+   Play DVD entry for KDE 3.5 + media:/ when DVD inserted
+   DVD-Menu-Toggle is no longer a KToggleAction because I can't detect when DVD menus change, but it still acts as a toggle button
+   Made record work for systems other than mine! (hard-coded path)
+   Made record shortcut CTRL-R so it doesn't conflict with the DVD-Root-Menu toggle
+   videoWindow doesn't judder when toolbar appears in fullscreen anymore
+   dvd-toolbar is gone, instead root menu button appears when dvd is playing
+   toolbar in fullscreen mode shows on mouse move
+   toolbar in fullscreen mode respects user-positioning
+   media kioslave support
+   double-clicking the video toggles fullscreen
+   don't show part in K-Menu
+   a volume toolbar button, - available from the configure-toolbar dialog, it's not very good yet
+
+1.0-rc2
+   Seek fixes
+   Improved error messages
+   KPart crash on exit fix
+
+1.0-beta6
+   Frame capture function
+   Aspect Ratio setting
+   Snap for videoSettings dialog sliders
+   Polish to all dialogs, menus
+   Hide cursor in fullscreen mode bug fixed
+   Many other fixes and lots of polish
+
+1.0-beta3
+   Made Codeine single-window
+   Removed Pause KAction, instead toggling play pauses
+   Made it remember all details about how you like to view videos (eg.
+   contrast, brightness, size)
+   Shows toolbar when mouse is a screen-top in fullscreen mode
+   Bug fixes
+
+1.0-beta2
+   Fixed fullscreen not covering Kicker
+   Added stop KAction
+   Added "You must install!" message after make does linking
+   Set busy cursor during unresponsive init period
+   Made the GUI detect lack of a ui file and show a useful message
+   If you quit during playback, the track volume fades out
+   Various feel/feedback fixes
+   Recent-files list in initial definately doesn't have duplicates anymore, sort order is also corrected
+   Routed out some nasty freeze bugs
+   Automatic frame format change handling
+   Stream recording
+   Many little bug-fixes and improvements
+
+1.0-beta1
+   Initial release

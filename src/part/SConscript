@@ -1,0 +1,12 @@
+# Copyright 2005 Max Howell <max.howell@methylblue.com>
+
+Import( "*" )
+myenv=env.Copy()
+
+## Additional paths for compiling the source files
+## Always add '../' (top-level directory) because moc makes code that needs it
+KDEaddpaths( ['./', '../', '../../'], myenv )
+
+KDEaddlibs( ['qt-mt', 'kdecore', 'kdeui', 'kparts', 'xine'], myenv )
+
+KDEshlib( "libcodeine", Split( "part.cpp xineEngine.cpp videoWindow.cpp toolbar.cpp ../mxcl.library.cpp" ), myenv )

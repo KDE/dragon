@@ -1,0 +1,21 @@
+
+############################
+## load the config
+
+## Use the environment and the tools set in the top-level
+## SConstruct file (set with 'Export') - this is very important
+
+Import( '*' )
+myenv=env.Copy()
+
+myenv.SConscript( dirs = Split( "app part") )
+
+KDEinstall( env['KDEDATA']+'/codeine', '../misc/codeineui.rc', myenv )
+KDEinstall( env['KDEDATA']+'/konqueror/servicemenus', '../misc/codeine_play_dvd.desktop', myenv )
+KDEinstall( env['KDESERV'], '../misc/codeine_part.desktop', myenv )
+KDEinstall( env['KDEXDG'], '../misc/codeine.desktop', myenv )
+
+for size in ['16', '22', '32', '48', '64', '128']:
+   KDEinstallas( env['KDEICONS']+'/crystalsvg/'+size+'x'+size+'/apps/codeine.png', '../misc/cr'+size+'-app-codeine.png', myenv )
+
+#print env['KDECXXFLAGS']

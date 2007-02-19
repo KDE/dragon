@@ -1,0 +1,13 @@
+================================================================================
+FAQ
+================================================================================
+This FAQ regards the source code and its layout.
+
+
+Q: Why reimplement code in the part rather than consolidate it with the app?
+A: Mainly to make the application start faster, loading a part is not free. But
+   also to make the part start faster as it has much lower requirements.
+   I admit the maintainance consequences aren't pretty, but the part has very
+   little code, so theoretically it should be easy to keep bug fixes in sync.
+
+=========1=========2=========3=========4=========5=========6=========7=========8
