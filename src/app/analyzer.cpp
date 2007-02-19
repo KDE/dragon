@@ -41,7 +41,7 @@ Analyzer::Base<W>::event( QEvent *e )
 Analyzer::Base2D::Base2D( QWidget *parent, uint timeout )
       : Base<QWidget>( parent, timeout )
 {
-   setWFlags( Qt::WNoAutoErase ); //no flicker
+   setWindowFlags( Qt::WNoAutoErase ); //no flicker
    connect( &m_timer, SIGNAL(timeout()), SLOT(draw()) );
 }
 

@@ -1,19 +1,21 @@
 // (C) 2005 Max Howell (max.howell@methylblue.com)
 // See COPYING file for licensing information
 
-#include "adjustSizeButton.h"
-#include "extern.h"
+#include <kguiitem.h>
 #include <kpushbutton.h>
+
+#include <Q3Frame>
+#include <Q3HBoxLayout>
+#include <Q3VBoxLayout>
 #include <qapplication.h>
 #include <qevent.h>
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qpainter.h>
-//Added by qt3to4:
-#include <Q3HBoxLayout>
-#include <Q3VBoxLayout>
-#include <Q3Frame>
 #include <QTimerEvent>
+
+#include "adjustSizeButton.h"
+#include "extern.h"
 #include "theStream.h"
 #include "xineEngine.h" //videoWindow()
 

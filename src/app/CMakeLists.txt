@@ -3,7 +3,6 @@ set(videoplayer_SRCS
     theStream.cpp
     videoWindow.cpp
     videoSettings.cpp
-    captureFrame.cpp
     actions.cpp
     stateChange.cpp
     slider.cpp

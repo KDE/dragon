@@ -3,22 +3,25 @@
 
 #include "config.h"
 #include "listView.cpp"
+#include "mxcl.library.h"
+#include "playDialog.h"
+
+#include <k3listview.h>
 #include <kapplication.h>
 #include <kconfig.h>
+#include <kdialog.h>
 #include <kguiitem.h>
-#include <k3listview.h>
 #include <kpushbutton.h>
-#include <kstdguiitem.h>
-#include "playDialog.h"
-#include "mxcl.library.h"
+#include <kstandardguiitem.h>
+
+#include <Q3GridLayout>
+#include <Q3HBoxLayout>
+#include <Q3VBoxLayout>
 #include <qfile.h>
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qsignalmapper.h>
-//Added by qt3to4:
-#include <Q3GridLayout>
-#include <Q3HBoxLayout>
-#include <Q3VBoxLayout>
+
 
 QString i18n( const char *text );
 
@@ -29,7 +32,7 @@ namespace Codeine {
 PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
       : QDialog( parent )
 {
-   setCaption( KInstance::makeStandardCaption( i18n("Play Media") ) );
+   setCaption( KDialog::makeStandardCaption( i18n("Play Media") ) );
 
    QSignalMapper *mapper = new QSignalMapper( this );
    QWidget *o, *closeButton = new KPushButton( KStandardGuiItem::close(), this );
@@ -84,15 +87,12 @@ PlayDialog::createRecentFileWidget( Q3BoxLayout *layout )
    foreachOld( list1 )
       urls += *it;
 
-   for( KUrl::List::Iterator it = urls.begin(), end = urls.end(); it != end; ) {
-      if( urls.contains( *it ) > 1 )
-         //remove duplicates
-         it = urls.remove( it );
-      else if( (*it).protocol() == "file" && !QFile::exists( (*it).path() ) )
+   foreach( KUrl it, urls) {
+      while( urls.count( it ) > 1 )
+         urls.removeAt( urls.indexOf(it) );
+      if( it.protocol() == "file" && !QFile::exists( it.path() ) )
          //remove stale entries
-         it = urls.remove( it );
-      else
-         ++it;
+         urls.remove( it );
    }
 
    for( KUrl::List::ConstIterator it = urls.begin(), end = urls.end(); it != end; ++it ) {

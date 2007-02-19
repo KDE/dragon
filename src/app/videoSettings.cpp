@@ -5,6 +5,7 @@
 
 #include <Q3Frame>
 #include <Q3GridLayout>
+#include <Q3RangeControl>
 #include <Q3VBoxLayout>
 #include <qlabel.h>
 #include <qlayout.h>
@@ -62,7 +63,7 @@ public:
       if( x > MIDDLE - F && x < MIDDLE + F ) {
          QMouseEvent e2( e->type(), QPoint( MIDDLE + m_offset, e->pos().y() ), e->button(), e->state() );
          QSlider::mouseMoveEvent( &e2 );
-         Q3RangeControl::setValue( 65536 / 2 - 1 ); // to ensure we are absolutely exact
+         setSliderPosition( 65536 / 2 - 1 ); // to ensure we are absolutely exact
       }
       else
          QSlider::mouseMoveEvent( e );
@@ -71,8 +72,9 @@ public:
 
 
 Codeine::VideoSettingsDialog::VideoSettingsDialog( QWidget *parent )
-      : KDialog( parent, "video_settings_dialog", false, Qt::WType_TopLevel | Qt::WDestructiveClose )
+      : KDialog( parent, Qt::WType_TopLevel | Qt::WDestructiveClose )
 {
+   setObjectName( "video_settings_dialog" );
    XSetTransientForHint( x11Display(), winId(), parent->winId() );
    KWin::setType( winId(), NET::Utility );
    KWin::setState( winId(), NET::SkipTaskbar );

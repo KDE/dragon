@@ -12,8 +12,12 @@
 namespace Codeine
 {
    PlayAction::PlayAction( QObject *receiver, const char *slot, KActionCollection *ac )
-         : KToggleAction( i18n("Play"), "player_play", Qt::Key_Space, receiver, slot, ac, "play" )
-   {}
+         : KToggleAction( i18n("Play"), ac )
+    {
+        setObjectName( "player_play" );
+        setShortcut( Qt::Key_Space );
+        connect( this, SIGNAL( trigger() ), receiver, slot );
+    }
 
    void
    PlayAction::setChecked( bool b )

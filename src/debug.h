@@ -9,6 +9,7 @@
 #include <q3cstring.h>
 #include <QMutex>
 #include <QObject>
+#include <QVariant>
 //Added by qt3to4:
 #include <Q3ValueList>
 #include <sys/time.h>

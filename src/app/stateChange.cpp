@@ -1,20 +1,22 @@
 // Copyright 2004 Max Howell (max.howell@methylblue.com)
 // See COPYING file for licensing information
 
+#include <kconfig.h>
+#include <kglobal.h>
+#include <ktoolbar.h>
+
+#include <q3popupmenu.h>
+#include <qapplication.h>
+#include <QContextMenuEvent>
+#include <qevent.h>
+#include <qlabel.h>
+#include <qslider.h>
+
 #include "actions.h"
 #include "adjustSizeButton.h"
 #include "debug.h"
 #include "mainWindow.h"
-#include <kconfig.h>
-#include <kglobal.h>
 #include "mxcl.library.h"
-#include <qapplication.h>
-#include <qevent.h>
-#include <qlabel.h>
-#include <q3popupmenu.h>
-#include <qslider.h>
-//Added by qt3to4:
-#include <QContextMenuEvent>
 #include "theStream.h"
 #include "videoSettings.h" //FIXME unfortunate
 #include "xineEngine.h"
@@ -136,7 +138,7 @@ MainWindow::engineStateChanged( Engine::State state )
       if( !(url_string.contains( "porn", false ) || url_string.contains( "pr0n", false )) )
       #endif
          if( url.protocol() != "dvd" && url.protocol() != "vcd" ) {
-            KConfig *config = Codeine::config( "General" );
+            KSharedConfig::Ptr config = Codeine::config( "General" );
             const QString prettyUrl = url.prettyUrl();
 
             QStringList urls = config->readPathListEntry( "Recent Urls" );

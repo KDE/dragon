@@ -1,10 +1,9 @@
 // (C) 2005 Max Howell (max.howell@methylblue.com)
 // See COPYING file for licensing information
 
-#include <kaction.h>
-//Added by qt3to4:
-#include <QEvent>
+#include <ktoggleaction.h>
 
+class KActionCollection;
 
 /**
  * @class FullSCreenAction

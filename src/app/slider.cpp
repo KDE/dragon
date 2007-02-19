@@ -1,19 +1,21 @@
 // (c) 2004 Max Howell (max.howell@methylblue.com)
 // See COPYING file for licensing information
 
+
 #include "debug.h"
 #include "slider.h"
+#include "xineEngine.h"
+
+#include <Q3Frame>
 #include <qapplication.h>
 #include <qlabel.h>
-#include <qsize.h>
-#include <qtooltip.h>
-
-#include <qpainter.h>
-//Added by qt3to4:
-#include <QWheelEvent>
 #include <QMouseEvent>
-#include <Q3Frame>
-#include "xineEngine.h"
+#include <qpainter.h>
+#include <qsize.h>
+#include <QStyle>
+#include <qtooltip.h>
+#include <QWheelEvent>
+
 
 using Codeine::Slider;
 
@@ -52,15 +54,14 @@ Slider::mouseMoveEvent( QMouseEvent *e )
 
       if( !rect.contains( e->pos() ) ) {
          if( !m_outside )
-            QSlider::setValue( m_prevValue );
+//            QSlider::setValue( m_prevValue );
          m_outside = true;
       } else {
          m_outside = false;
-
-         QSlider::setValue(
-               Q3RangeControl::valueFromPosition(
-                     e->pos().x() - sliderRect().width()/2,
-                     width()  - sliderRect().width() ) );
+//PORTING         int slideWidth = style()->subControlRect(QStyle::CC_Slider, 0, QStyle::SC_SliderHandle, this).width();
+//         QSlider::setSliderPosition(
+//                     e->pos().x() - slideWidth/2,
+//                     width()  - slideWidth );
 
          emit sliderMoved( value() );
       }
@@ -75,8 +76,8 @@ Slider::mousePressEvent( QMouseEvent *e )
    m_sliding   = true;
    m_prevValue = QSlider::value();
 
-   if( !sliderRect().contains( e->pos() ) )
-      mouseMoveEvent( e );
+//PORTING   if( !sliderRect().contains( e->pos() ) )
+//      mouseMoveEvent( e );
 }
 
 void
