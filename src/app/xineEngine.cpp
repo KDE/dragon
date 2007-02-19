@@ -193,7 +193,7 @@ VideoWindow::eject()
    if( m_url.isEmpty() )
       return;
 
-   KConfig *profile = TheStream::profile(); // the config profile for this video file
+      KSharedConfig::Ptr profile = TheStream::profile(); // the config profile for this video file
 
    #define writeParameter( param, default ) { \
          const int value = xine_get_param( m_stream, param ); \
@@ -249,7 +249,7 @@ VideoWindow::load( const KUrl &url )
    debug() << "xine_open()\n";
    if( xine_open( m_stream, url.url().local8Bit() ) )
    {
-      KConfig *profile = TheStream::profile();
+      KSharedConfig::Ptr profile = TheStream::profile();
       #define setParameter( param, default ) xine_set_param( m_stream, param, profile->readNumEntry( QString::number( param ), default ) );
       setParameter( XINE_PARAM_VO_HUE, 32768 );
       setParameter( XINE_PARAM_VO_SATURATION, 32772 );

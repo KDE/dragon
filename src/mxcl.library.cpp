@@ -5,6 +5,7 @@
 #include <qapplication.h>
 #include <kcursor.h>
 
+
 namespace mxcl
 {
    WaitCursor::WaitCursor()
@@ -12,7 +13,7 @@ namespace mxcl
       QApplication::setOverrideCursor( KCursor::waitCursor() );
    }
 
-   WaitCursor::~Qt::WaitCursor()
+   WaitCursor::~WaitCursor()
    {
       QApplication::restoreOverrideCursor();
    }

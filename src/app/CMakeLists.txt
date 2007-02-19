@@ -1,7 +1,5 @@
 set(videoplayer_SRCS  
     xineEngine.cpp
-    xineConfig.cpp
-    xineScope.c
     theStream.cpp
     videoWindow.cpp
     videoSettings.cpp
@@ -23,7 +21,7 @@ set(videoplayer_SRCS
 
 kde4_automoc(${videoplayer_SRCS})
 
-kde4_add_executable(videoplayer ${videoplayer_SRCS})
+kde4_add_executable(videoplayer ${videoplayer_SRCS} xineScope.c)
 
 target_link_libraries(videoplayer  ${KDE4_KDECORE_LIBS} amarok )
 

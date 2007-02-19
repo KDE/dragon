@@ -73,7 +73,7 @@ namespace Debug
     {
         return modifieableIndent();
     }
-    #undef qApp
+    #undef qOApp
 
 
     #ifdef NDEBUG

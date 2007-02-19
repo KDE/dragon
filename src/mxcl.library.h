@@ -11,7 +11,7 @@ namespace mxcl
    struct WaitCursor
    {
       WaitCursor();
-     ~Qt::WaitCursor();
+     ~WaitCursor();
    };
 }
 
@@ -22,7 +22,7 @@ QString i18n( const char *text );
 
 
 /// very useful for QStringLists
-#define foreach( x ) \
+#define foreachOld( x ) \
    for( QStringList::ConstIterator it = x.constBegin(), end = x.constEnd(); it != end; ++it )
 
 #endif

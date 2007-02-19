@@ -3,28 +3,34 @@
 
 #define CODEINE_DEBUG_PREFIX "VideoWindow"
 
-#include "actions.h"
+
 #include <cmath> //std::log10
 #include <cstdlib>
-#include "debug.h"
+
 #include <kapplication.h> //::makeStandardCaption
 #include <kconfig.h>
 #include <kiconloader.h>
 #include <kmenu.h>
 #include <kwin.h>
+
+#include "actions.h"
+#include "debug.h"
 #include "mxcl.library.h"
-#include <qcursor.h>
-#include <qevent.h>
-//Added by qt3to4:
-#include <QContextMenuEvent>
-#include <QWheelEvent>
-#include <QKeyEvent>
+#include "xineEngine.h"
 #include "slider.h"
 #include "theStream.h"
+
+#include <QContextMenuEvent>
+#include <qcursor.h>
+#include <qevent.h>
+#include <QKeyEvent>
+#include <QWheelEvent>
 #include <X11/Xlib.h>
 #include <xine.h>
-#include "xineEngine.h"
 
+#include <QApplication>
+
+using namespace Qt;
 
 namespace Codeine
 {
@@ -132,34 +138,38 @@ void
 VideoWindow::contextMenuEvent( QContextMenuEvent *e )
 {
    e->accept();
-
+   enum { PauseAction = 1 };
    KMenu popup;
 
    if( state() == Engine::Playing )
+   {
+      QAction pauseAction( SmallIconSet("player_pause"), i18n("Pause"), this );
+      pauseAction.setData( PauseAction );
       popup.insertItem( SmallIconSet("player_pause"), i18n("Pause"), 1 );
+   }
    else
-      action( "play" )->plug( &popup );
+      popup.addAction( action( "play" ) );
 
    popup.insertSeparator();
 
    if( TheStream::url().protocol() == "dvd" )
-      action( "toggle_dvd_menu" )->plug( &popup ),
+      popup.addAction( action( "toggle_dvd_menu" ) ),
       popup.insertSeparator();
    if( !((KToggleAction*)actionCollection()->action( "fullscreen" ))->isChecked() )
-      action( "reset_zoom" )->plug( &popup );
-   action( "capture_frame" )->plug( &popup );
+      popup.addAction( "reset_zoom" );
+   popup.addAction( "capture_frame" );
    popup.insertSeparator();
-   action( "video_settings" )->plug( &popup );
+   popup.addAction( "video_settings" );
    popup.insertSeparator();
-   action( "fullscreen" )->plug( &popup );
+   popup.addAction( "fullscreen" );
    //show zoom information?
 
    if( e->state() & Qt::MetaModifier ) { //only on track end, or for special users
       popup.insertSeparator();
-      action( "file_quit" )->plug( &popup );
+      popup.addAction( "file_quit" );
    }
 
-   if( popup.exec( e->globalPos() ) == 1 && state() == Engine::Playing )
+   if( popup.exec( e->globalPos() )->data() == PauseAction && state() == Engine::Playing )
       // we check we are still paused as the menu generates a modal event loop
       // so anything might have happened in the meantime.
       pause();
@@ -211,7 +221,7 @@ VideoWindow::event( QEvent *e )
          break;
 
       case QEvent::MouseButtonDblClick:
-         Codeine::action( "fullscreen" )->activate();
+         Codeine::action( "fullscreen" )->activate( QAction::Trigger );
          break;
 
       default: ;

@@ -2,17 +2,20 @@
 // See COPYING file for licensing information
 
 #include <kwin.h>
-#include "mxcl.library.h"
-#include <qlabel.h>
-#include <qlayout.h>
-#include <qslider.h>
-//Added by qt3to4:
+
+#include <Q3Frame>
 #include <Q3GridLayout>
 #include <Q3VBoxLayout>
+#include <qlabel.h>
+#include <qlayout.h>
 #include <QMouseEvent>
-#include <Q3Frame>
-#include "videoSettings.h"
+#include <qslider.h>
+#include <QStyle>
+
 #include <xine.h>
+
+#include "mxcl.library.h"
+#include "videoSettings.h"
 #include "xineEngine.h"
 
 extern "C"
@@ -46,7 +49,7 @@ public:
 
    virtual void mousePressEvent( QMouseEvent *e )
    {
-      m_offset = e->pos().x() - (sliderStart() + (sliderRect().width()/2));
+      m_offset = e->pos().x() - (sliderPosition() + (style()->subControlRect(QStyle::CC_Slider, 0, QStyle::SC_SliderHandle, this).width()/2));
       QSlider::mousePressEvent( e );
    }
 
@@ -54,7 +57,7 @@ public:
    {
       const int MIDDLE = width() / 2;
       const int x = e->pos().x() - m_offset;
-      const int F = sliderRect().width() / 2;
+      const int F = style()->subControlRect(QStyle::CC_Slider, 0, QStyle::SC_SliderHandle, this).width() / 2;
 
       if( x > MIDDLE - F && x < MIDDLE + F ) {
          QMouseEvent e2( e->type(), QPoint( MIDDLE + m_offset, e->pos().y() ), e->button(), e->state() );

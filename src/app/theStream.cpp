@@ -11,7 +11,7 @@ namespace Codeine
 {
    #define e VideoWindow::s_instance
 
-   KConfig*
+   KSharedConfig::Ptr
    TheStream::profile()
    {
 //TODO a unique id for discs, and then even to also record chapters etc.
@@ -87,7 +87,7 @@ namespace Codeine
    {
       QString s;
 
-      foreach( entries )
+      foreachOld( entries )
          if( !(*it).isEmpty() )
             s += *it;
 

@@ -81,7 +81,7 @@ PlayDialog::createRecentFileWidget( Q3BoxLayout *layout )
    const QStringList list1 = Codeine::config( "General" )->readPathListEntry( "Recent Urls" );
    KUrl::List urls;
 
-   foreach( list1 )
+   foreachOld( list1 )
       urls += *it;
 
    for( KUrl::List::Iterator it = urls.begin(), end = urls.end(); it != end; ) {
