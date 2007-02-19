@@ -11,30 +11,31 @@
 
 namespace Codeine
 {
-   class AdjustSizeButton : public Q3Frame
-   {
-      int m_counter;
-      int m_stage;
-      int m_offset;
-      int m_timerId;
+    class AdjustSizeButton : public Q3Frame
+    {
+        Q_OBJECT
+        int m_counter;
+        int m_stage;
+        int m_offset;
+        int m_timerId;
 
-      QWidget *m_preferred;
-      QWidget *m_oneToOne;
+        QWidget *m_preferred;
+        QWidget *m_oneToOne;
 
-      Q3Frame *m_thingy;
+        Q3Frame *m_thingy;
 
-   public:
-      AdjustSizeButton( QWidget *parent );
+    public:
+        AdjustSizeButton( QWidget *parent );
 
-   private:
-      virtual void timerEvent( QTimerEvent* );
-      virtual bool eventFilter( QObject*, QEvent* );
+    private:
+        virtual void timerEvent( QTimerEvent* );
+        virtual bool eventFilter( QObject*, QEvent* );
 
-      inline void move()
-      {
-         QWidget::move( parentWidget()->width() - width(), parentWidget()->height() - m_offset );
-      }
-   };
+        inline void move()
+        {
+            QWidget::move( parentWidget()->width() - width(), parentWidget()->height() - m_offset );
+        }
+    };
 }
 
 #endif

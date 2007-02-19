@@ -880,3 +880,5 @@ VideoWindow::fileFilter() const
 }
 
 } //namespace Codeine
+
+#include "xineEngine.moc"

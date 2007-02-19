@@ -10,17 +10,18 @@
 
 namespace Codeine
 {
-   class VideoSettingsDialog : public KDialog
-   {
-      VideoSettingsDialog(); //disable
-      VideoSettingsDialog( const VideoSettingsDialog& ); //disable
-      VideoSettingsDialog &operator=( const VideoSettingsDialog& ); //disable
+    class VideoSettingsDialog : public KDialog
+    {
+        Q_OBJECT
+        VideoSettingsDialog(); //disable
+        VideoSettingsDialog( const VideoSettingsDialog& ); //disable
+        VideoSettingsDialog &operator=( const VideoSettingsDialog& ); //disable
 
-   public:
-      VideoSettingsDialog( QWidget *parent );
+    public:
+        VideoSettingsDialog( QWidget *parent );
 
-      static void stateChanged( QWidget *parent, Engine::State );
-   };
+        static void stateChanged( QWidget *parent, Engine::State );
+    };
 }
 
 #endif

@@ -130,3 +130,4 @@ namespace Codeine
         return false;
     }
 }
+#include "adjustSizeButton.moc"

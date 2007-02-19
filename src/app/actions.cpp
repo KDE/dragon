@@ -31,3 +31,5 @@ namespace Codeine
             KToggleAction::setChecked( b );
     }
 }
+
+#include "actions.moc"

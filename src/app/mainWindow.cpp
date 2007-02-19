@@ -749,3 +749,5 @@ action( const char *name )
 }
 
 } //namespace Codeine
+
+#include "mainWindow.moc"

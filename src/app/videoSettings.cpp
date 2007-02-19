@@ -143,3 +143,5 @@ namespace Codeine
         new VideoSettingsDialog( parent );
     }
 }
+
+#include "videoSettings.moc"

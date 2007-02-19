@@ -119,3 +119,4 @@ VolumeAction::eventFilter( QObject *o, QEvent *e )
             return false;
     }
 }
+//#include "volumeAction.moc"

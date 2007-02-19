@@ -105,3 +105,5 @@ FullScreenAction::eventFilter( QObject *o, QEvent *e )
 
     return false;
 }
+
+#include "fullScreenAction.moc"

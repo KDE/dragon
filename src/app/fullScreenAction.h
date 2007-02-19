@@ -1,6 +1,9 @@
 // (C) 2005 Max Howell (max.howell@methylblue.com)
 // See COPYING file for licensing information
 
+#ifndef CODEINE_FULLSCREENACTION_H
+#define CODEINE_FULLSCREENACTION_H
+
 #include <ktoggleaction.h>
 
 class KActionCollection;
@@ -12,6 +15,7 @@ class KActionCollection;
  */
 class FullScreenAction : public KToggleAction
 {
+Q_OBJECT
 public:
     FullScreenAction( QWidget *window, KActionCollection* );
 
@@ -26,3 +30,5 @@ private:
     bool m_shouldBeDisabled;
     unsigned long m_state;
 };
+
+#endif

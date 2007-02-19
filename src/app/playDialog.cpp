@@ -116,3 +116,5 @@ PlayDialog::done( Q3ListViewItem *item )
 }
 
 }
+
+#include "playDialog.moc"

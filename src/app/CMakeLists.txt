@@ -1,4 +1,4 @@
-set(videoplayer_SRCS  
+set(videoplayer_SRCS
     xineEngine.cpp
     theStream.cpp
     videoWindow.cpp
@@ -22,6 +22,10 @@ kde4_automoc(${videoplayer_SRCS})
 
 kde4_add_executable(videoplayer ${videoplayer_SRCS} xineScope.c)
 
-target_link_libraries(videoplayer ${KDE4_KDEUI_LIBS} ${XINE_LIBRARY} ${KDE4_KDE3SUPPORT_LIBS} )
+target_link_libraries(videoplayer 
+    ${KDE4_KUTILS_LIBS}
+    ${KDE4_KDEUI_LIBS}
+    ${XINE_LIBRARY}
+    ${KDE4_KDE3SUPPORT_LIBS} )
 
 install(TARGETS videoplayer DESTINATION ${BIN_INSTALL_DIR})

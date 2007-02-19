@@ -15,6 +15,7 @@ namespace Codeine
 
    class PlayAction : public KToggleAction
    {
+   Q_OBJECT
    public:
       PlayAction( QObject *receiver, const char *slot, KActionCollection* );
 

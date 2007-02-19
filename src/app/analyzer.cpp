@@ -131,3 +131,5 @@ Analyzer::Block::heightForWidth( int w ) const
 {
     return w / 2;
 }
+
+#include "analyzer.moc"

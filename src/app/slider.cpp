@@ -148,3 +148,5 @@ Slider::setValue( int newValue )
     else
         m_prevValue = newValue;
 }
+
+#include "slider.moc"

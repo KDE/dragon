@@ -6,13 +6,14 @@
 
 #include <ktoggleaction.h>
 class KActionCollection;
+class VolumeSlider;
 
 class VolumeAction : public KToggleAction
 {
     Q_OBJECT
 
     QWidget *m_anchor;
-    class VolumeSlider *m_widget;
+    VolumeSlider *m_widget;
 
     virtual bool eventFilter( QObject *o, QEvent *e );
 
