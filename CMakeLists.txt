@@ -20,11 +20,6 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src/app
     ${XINE_INCLUDE_DIR} )
 
-message( STATUS, "    ${KDE4_KUTILS_LIBS}
-    ${KDE4_KDEUI_LIBS}
-    ${XINE_LIBRARY}
-    ${KDE4_KDE3SUPPORT_LIBS} " )
-
 add_definitions(-DQT3_SUPPORT -DQT3_SUPPORT_WARNINGS) 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -w") #we're still worrying about all the errors
 

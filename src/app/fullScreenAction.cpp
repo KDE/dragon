@@ -20,6 +20,7 @@ FullScreenAction::FullScreenAction( QWidget* window, KActionCollection *parent )
  //KToggleAction( QString::null, Qt::Key_F, 0, 0, parent, "fullscreen" )
     setObjectName( "fullscreen" );
     setShortcut( Qt::Key_F );
+    parent->addAction( objectName(), this );
     window->installEventFilter( this );
     setChecked( false );
 }

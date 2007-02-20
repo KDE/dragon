@@ -19,6 +19,7 @@ namespace Codeine
      {
           setObjectName( "player_play" );
           setShortcut( Qt::Key_Space );
+          ac->addAction( objectName(), this );
           connect( this, SIGNAL( trigger() ), receiver, slot );
      }
 

@@ -259,30 +259,36 @@ MainWindow::setupActions()
     connect( new FullScreenAction( this, ac ), SIGNAL(toggled( bool )), SLOT(fullScreenToggled( bool )) );
 
     new PlayAction( this, SLOT(play()), ac );
+    #define addToAc( X ) ac->addAction( X->objectName(), X );
     KAction* playerStop = new KAction( KIcon("player_stop"), i18n("Stop"), ac );
     playerStop->setObjectName( "stop" );
     playerStop->setShortcut( Qt::Key_S );
     connect( playerStop, SIGNAL( triggered() ), engine(), SLOT( stop() ) );
+    addToAc( playerStop )
 
     KAction* recordAction = new KToggleAction( KIcon("player_record"), i18n("Record"), ac );
     recordAction->setObjectName( "record" );
     recordAction->setShortcut( Qt::CTRL + Qt::Key_R );
     connect( recordAction, SIGNAL( triggered() ), engine(), SLOT( record() ) );
+    addToAc( recordAction )
 
     KAction* resetZoom = new KAction( KIcon("viewmag1"), i18n("Reset Video Scale"), ac );
     resetZoom->setObjectName( "reset_zoom" );
     resetZoom->setShortcut( Qt::Key_Equal );
     connect( resetZoom, SIGNAL( triggered() ), videoWindow(), SLOT( resetZoom() ) );
+    addToAc( resetZoom )
 
     KAction* mediaInfo = new KAction( KIcon("messagebox_info"), i18n("Media Information"), ac );
     mediaInfo->setObjectName( "information" );
     mediaInfo->setShortcut( Qt::Key_I );
     connect( mediaInfo, SIGNAL( triggered() ), this, SLOT( streamInformation() ) );
+    addToAc( mediaInfo )
 
     KAction* dvdMenu = new KAction( KIcon("dvd_unmount"), i18n("Menu Toggle"), ac );
     dvdMenu->setObjectName( "toggle_dvd_menu" );
     dvdMenu->setShortcut( Qt::Key_R );
     connect( dvdMenu, SIGNAL( triggered() ), engine(), SLOT( toggleDVDMenu() ) );
+    addToAc( dvdMenu )
 
  //   new KAction( i18n("&Capture Frame"), "frame_image", Key_C, this, SLOT(captureFrame()), ac, "capture_frame" );
 
@@ -290,17 +296,21 @@ MainWindow::setupActions()
     videoSettings->setObjectName( "video_settings" );
     videoSettings->setShortcut( Qt::Key_V );
     connect( videoSettings, SIGNAL( triggered() ), this, SLOT( configure() ) );
+    addToAc( videoSettings )
     
     KAction* configureAction = new KAction( KIcon("configure"), i18n("Configure xine..."), ac);
     configureAction->setObjectName( "xine_settings" );
     connect( configureAction, SIGNAL( triggered() ), this, SLOT( configure() ) );
+    addToAc( configureAction )
 
     KAction* positionSlider = new KAction( i18n("Position Slider"), ac );
     positionSlider->setObjectName( "position_slider" );
     positionSlider->setDefaultWidget( m_positionSlider );
+    addToAc( positionSlider )
    // positionSlider->setAutoSized( true ); PORTING, whats the replacement for this?
 
     new VolumeAction( toolBar(), ac );
+    #undef addToAc
 }
 
 void
@@ -742,7 +752,8 @@ action( const char *name )
     if( mainWindow = (MainWindow*)kapp->mainWidget() )
         if( actionCollection = mainWindow->actionCollection() )
             action = actionCollection->action( name );
-
+    if( !action )
+        debug() << name << endl;
     Q_ASSERT( mainWindow );
     Q_ASSERT( actionCollection );
     Q_ASSERT( action );

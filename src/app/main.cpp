@@ -28,8 +28,8 @@ int
 main( int argc, char **argv )
 {
     //we need to do this, says adrianS from SuSE
-    if( !XInitThreads() )
-        return 1;
+//    if( !XInitThreads() )
+//        return 1;
 
     aboutData.addCredit( "Mike Diehl", I18N_NOOP("Handbook") );
     aboutData.addCredit( "The Kaffeine Developers", I18N_NOOP("Great reference code") );
