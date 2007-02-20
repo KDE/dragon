@@ -16,11 +16,6 @@ namespace mxcl
 }
 
 
-/// almost always negates the need to #include <klocale.h> in implementations
-#include <qstring.h>
-QString i18n( const char *text );
-
-
 /// very useful for QStringLists
 #define foreachOld( x ) \
    for( QStringList::ConstIterator it = x.constBegin(), end = x.constEnd(); it != end; ++it )

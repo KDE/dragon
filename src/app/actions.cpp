@@ -3,10 +3,13 @@
 
 #include "actions.h"
 #include "debug.h"
-#include "mxcl.library.h"
+
 #include <qtoolbutton.h>
 //Added by qt3to4:
 #include <Q3CString>
+
+#include <klocale.h>
+
 #include "xineEngine.h"
 
 namespace Codeine

@@ -37,7 +37,7 @@ namespace Codeine
 int main( int, char** );
 
 #define APP_VERSION "1.0.1"
-#define APP_NAME "codeine"
+#define APP_NAME "videoplayer"
 #define PRETTY_NAME "Codeine"
 
 #endif

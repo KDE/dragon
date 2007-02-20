@@ -10,6 +10,7 @@
 #include <kapplication.h> //::makeStandardCaption
 #include <kconfig.h>
 #include <kiconloader.h>
+#include <klocale.h>
 #include <kmenu.h>
 #include <kwin.h>
 

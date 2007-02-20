@@ -8,6 +8,7 @@
 #include "codeine.h"
 #include "debug.h"
 #include <kio/netaccess.h>
+#include <klocale.h>
 #include "playlistFile.h"
 #include <qfile.h>
 #include <q3textstream.h>

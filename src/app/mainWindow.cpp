@@ -10,6 +10,7 @@
 #include <kfiledialog.h>      //::open()
 #include <kglobalsettings.h> //::timerEvent()
 #include <kio/netaccess.h>
+#include <klocale.h>
 #include <ksqueezedtextlabel.h>
 #include <kstatusbar.h>
 #include <ktoolbar.h>
@@ -614,8 +615,8 @@ MainWindow::configure()
     if( sender == "video_settings" )
         Codeine::showVideoSettingsDialog( this );
 
-    else if( sender == "xine_settings" )
-        Codeine::showXineConfigurationDialog( this, *engine() );
+//    else if( sender == "xine_settings" )
+//        Codeine::showXineConfigurationDialog( this, *engine() );
 }
 
 void

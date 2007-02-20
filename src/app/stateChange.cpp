@@ -2,6 +2,7 @@
 // See COPYING file for licensing information
 
 #include <kconfig.h>
+#include <klocale.h>
 #include <kglobal.h>
 #include <ktoolbar.h>
 

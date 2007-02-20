@@ -2,6 +2,8 @@
 // See COPYING file for licensing information
 
 #include <kurl.h>
+#include <klocale.h>
+
 #include "mxcl.library.h"
 #include "theStream.h"
 #include <xine.h>

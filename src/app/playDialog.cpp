@@ -3,13 +3,13 @@
 
 #include "configfn.h"
 #include "listView.cpp"
-#include "mxcl.library.h"
 #include "playDialog.h"
 
 #include <k3listview.h>
 #include <kapplication.h>
 #include <kconfig.h>
 #include <kdialog.h>
+#include <klocale.h>
 #include <kguiitem.h>
 #include <kpushbutton.h>
 #include <kstandardguiitem.h>
@@ -84,8 +84,8 @@ PlayDialog::createRecentFileWidget( Q3BoxLayout *layout )
     const QStringList list1 = Codeine::config( "General" )->readPathListEntry( "Recent Urls" );
     KUrl::List urls;
 
-    foreachOld( list1 )
-        urls += *it;
+    foreach( QString s, list1 )
+        urls += s;
 
     foreach( KUrl it, urls) {
         while( urls.count( it ) > 1 )

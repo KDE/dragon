@@ -2,9 +2,8 @@
 // See COPYING file for licensing information
 
 #include <q3popupmenu.h>
+#include <klocale.h>
 #include <xine.h>
-
-QString i18n( const char *text );
 
 
 namespace Codeine
