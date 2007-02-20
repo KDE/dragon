@@ -146,7 +146,7 @@ MainWindow::MainWindow()
     }
     {
         QObjectList list = toolBar()->queryList( "KToolBarButton" );
-        if (list.isEmpty()) {
+/*        if (list.isEmpty()) {
                 MessageBox::error( i18n(
                     "<qt>" PRETTY_NAME " could not load its interface, this probably means that " PRETTY_NAME " is not "
                     "installed to the correct prefix. If you installed from packages please contact the packager, if "
@@ -155,6 +155,7 @@ MainWindow::MainWindow()
 
                 std::exit( 1 );
         }
+                */
     }
     KXMLGUIClient::stateChanged( "empty" );
 
