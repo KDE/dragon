@@ -11,8 +11,6 @@
 
 namespace Codeine
 {
-    #define e VideoWindow::s_instance
-
     KSharedConfig::Ptr
     TheStream::profile()
     {
@@ -25,46 +23,46 @@ namespace Codeine
 
     const KUrl&
     TheStream::url()
-            { return e->m_url; }
+            { return VideoWindow::s_instance->m_url; }
 
     bool
     TheStream::canSeek()
             //FIXME!
-            { return e->m_url.protocol() != "http"; }
+            { return VideoWindow::s_instance->m_url.protocol() != "http"; }
 
     bool
     TheStream::hasAudio()
-            { return xine_get_stream_info( e->m_stream, XINE_STREAM_INFO_HAS_AUDIO ); }
+            { return xine_get_stream_info( VideoWindow::s_instance->m_stream, XINE_STREAM_INFO_HAS_AUDIO ); }
 
     bool
     TheStream::hasVideo()
-            { return xine_get_stream_info( e->m_stream, XINE_STREAM_INFO_HAS_VIDEO ); }
+            { return xine_get_stream_info( VideoWindow::s_instance->m_stream, XINE_STREAM_INFO_HAS_VIDEO ); }
 
     QSize
     TheStream::defaultVideoSize()
     {
-        return !e->m_stream
+        return !VideoWindow::s_instance->m_stream
                 ? QSize()
                 : QSize(
-                        xine_get_stream_info( e->m_stream, XINE_STREAM_INFO_VIDEO_WIDTH ),
-                        xine_get_stream_info( e->m_stream, XINE_STREAM_INFO_VIDEO_HEIGHT ) );
+                        xine_get_stream_info( VideoWindow::s_instance->m_stream, XINE_STREAM_INFO_VIDEO_WIDTH ),
+                        xine_get_stream_info( VideoWindow::s_instance->m_stream, XINE_STREAM_INFO_VIDEO_HEIGHT ) );
     }
 
     int TheStream::aspectRatio()
-            { return xine_get_param( e->m_stream, XINE_PARAM_VO_ASPECT_RATIO ); }
+            { return xine_get_param( VideoWindow::s_instance->m_stream, XINE_PARAM_VO_ASPECT_RATIO ); }
 
     int TheStream::subtitleChannel()
-            { return xine_get_param( e->m_stream, XINE_PARAM_SPU_CHANNEL ); }
+            { return xine_get_param( VideoWindow::s_instance->m_stream, XINE_PARAM_SPU_CHANNEL ); }
 
     int TheStream::audioChannel()
-            { return xine_get_param( e->m_stream, XINE_PARAM_AUDIO_CHANNEL_LOGICAL ); }
+            { return xine_get_param( VideoWindow::s_instance->m_stream, XINE_PARAM_AUDIO_CHANNEL_LOGICAL ); }
 
     QString
     TheStream::prettyTitle()
     {
-        const KUrl &url        = e->m_url;
-        const QString artist = QString::fromUtf8( xine_get_meta_info( e->m_stream, XINE_META_INFO_ARTIST ) );
-        const QString title  = QString::fromUtf8( xine_get_meta_info( e->m_stream, XINE_META_INFO_TITLE ) );
+        const KUrl &url        = VideoWindow::s_instance->m_url;
+        const QString artist = QString::fromUtf8( xine_get_meta_info( VideoWindow::s_instance->m_stream, XINE_META_INFO_ARTIST ) );
+        const QString title  = QString::fromUtf8( xine_get_meta_info( VideoWindow::s_instance->m_stream, XINE_META_INFO_TITLE ) );
 
         if (hasVideo() && !title.isEmpty())
             return title;
@@ -89,9 +87,9 @@ namespace Codeine
     {
 	QString s;
 
-	for( QStringList::ConstIterator it = entries.constBegin(), end = entries.constEnd(); it != end; ++it )
-            if( !(*it).isEmpty() )
-                s += *it;
+        foreach( QString str, entries )
+            if( !str.isEmpty() )
+                s += str;
 
         return s.isEmpty() ? s : "<h2>" + sectionTitle + "</h2>" + s;
     }
@@ -99,9 +97,9 @@ namespace Codeine
     QString
     TheStream::information()
     {
-        #define meta( x ) xine_get_meta_info( e->m_stream, x )
-        #define info( x, y ) x.arg( xine_get_stream_info( e->m_stream, y ) )
-        #define simple( x ) QString::number( xine_get_stream_info( e->m_stream, x ) )
+        #define meta( x ) xine_get_meta_info( VideoWindow::s_instance->m_stream, x )
+        #define info( x, y ) x.arg( xine_get_stream_info( VideoWindow::s_instance->m_stream, y ) )
+        #define simple( x ) QString::number( xine_get_stream_info( VideoWindow::s_instance->m_stream, x ) )
 
         const QString plate = "<p><b>%1</b>: %2</p>";
         QString s;
@@ -141,6 +139,4 @@ namespace Codeine
 
         return s;
     }
-
-    #undef e
 }
