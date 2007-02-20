@@ -25,7 +25,7 @@ private slots:
     void sliderReleased() { setChecked( false ); toggled( false ); }
 
 public:
-    VolumeAction( KToolBar *anchor, QObject *ac );
+    VolumeAction( KToolBar *anchor, KActionCollection *ac );
 };
 
 #endif

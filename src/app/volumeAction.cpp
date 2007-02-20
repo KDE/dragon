@@ -1,6 +1,7 @@
 // (C) 2005 Max Howell (max.howell@methylblue.com)
 // See COPYING file for licensing information
 
+#include <kactioncollection.h>
 #include <klocale.h>
 #include <ktoolbar.h>
 #include <qevent.h>
@@ -44,7 +45,7 @@ public:
 };
 
 
-VolumeAction::VolumeAction( KToolBar *bar, QObject *ac )
+VolumeAction::VolumeAction( KToolBar *bar, KActionCollection *ac )
         : KToggleAction( i18n("Volume"), ac )
         , m_anchor( 0 )
 {
@@ -52,7 +53,7 @@ VolumeAction::VolumeAction( KToolBar *bar, QObject *ac )
     setObjectName( "volume" );
     setShortcut( Qt::Key_1 );
     m_widget = new VolumeSlider( bar->topLevelWidget() );
-
+    ac->addAction( objectName(), this );
     connect( this, SIGNAL(toggled( bool )), SLOT(toggled( bool )) );
     connect( m_widget->slider, SIGNAL(sliderMoved( int )), SLOT(sliderMoved( int )) );
     connect( m_widget->slider, SIGNAL(sliderMoved( int )), Codeine::engine(), SLOT(setStreamParameter( int )) );

@@ -17,7 +17,7 @@ namespace Codeine
     PlayAction::PlayAction( QObject *receiver, const char *slot, KActionCollection *ac )
             : KToggleAction( i18n("Play"), ac )
      {
-          setObjectName( "player_play" );
+          setObjectName( "play" );
           setShortcut( Qt::Key_Space );
           ac->addAction( objectName(), this );
           connect( this, SIGNAL( trigger() ), receiver, slot );
