@@ -15,9 +15,4 @@ namespace mxcl
    };
 }
 
-
-/// very useful for QStringLists
-#define foreachOld( x ) \
-   for( QStringList::ConstIterator it = x.constBegin(), end = x.constEnd(); it != end; ++it )
-
 #endif

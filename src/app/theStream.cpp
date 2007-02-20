@@ -87,9 +87,9 @@ namespace Codeine
     static inline QString
     sectionHelper( const QString &sectionTitle, const QStringList &entries )
     {
-        QString s;
+	QString s;
 
-        foreachOld( entries )
+	for( QStringList::ConstIterator it = entries.constBegin(), end = entries.constEnd(); it != end; ++it )
             if( !(*it).isEmpty() )
                 s += *it;
 
