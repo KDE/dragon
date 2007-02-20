@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Codeine
+Name[sv]=Kodein
 Exec=codeine %u
 Icon=codeine
 Type=Application
@@ -7,3 +8,6 @@ Encoding=UTF-8
 MimeType=video/x-theora;video/x-ogm;video/x-ms-wmv;video/x-msvideo;video/x-ms-asf;video/x-matroska;video/mpeg;video/avi;video/quicktime;video/vnd.rn-realvideo;video/x-flic;
 Categories=Qt;KDE;AudioVideo;Player
 GenericName=Video Player
+GenericName[pt]=Leitor de Vídeo
+GenericName[pt_BR]=Leitor de Vídeo
+GenericName[sv]=Videospelare

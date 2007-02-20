@@ -6,5 +6,8 @@ X-KDE-Priority=TopLevel
 
 [Desktop Action Play]
 Name=Play DVD with Codeine
+Name[pt]=Ler o DVD com o Codeine
+Name[pt_BR]=Ler o DVD com o Codeine
+Name[sv]=Spela dvd med Kodein
 Icon=codeine
 Exec=codeine --play-dvd %u
