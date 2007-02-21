@@ -11,7 +11,7 @@
 
 class KUrl;
 class QLabel;
-class Q3PopupMenu;
+class QMenu;
 class QSlider;
 
 
@@ -50,7 +50,7 @@ namespace Codeine
       bool load( const KUrl& );
       bool open( const KUrl& );
 
-      Q3PopupMenu *menu( const char *name );
+      QMenu *menu( const char *name );
 
       virtual void timerEvent( QTimerEvent* );
       virtual void dragEnterEvent( QDragEnterEvent* );

@@ -24,7 +24,7 @@ namespace Codeine
 
    void showVideoSettingsDialog( QWidget* );
    void showXineConfigurationDialog( QWidget*, xine_t* );
-   void insertAspectRatioMenuItems( Q3PopupMenu* );
+   void insertAspectRatioMenuItems( QMenu* );
 }
 
 #endif

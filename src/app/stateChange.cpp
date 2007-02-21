@@ -73,7 +73,7 @@ MainWindow::engineStateChanged( Engine::State state )
             volume->setValue( engine()->volume() );
     }
 
-
+    debug() << "updated actions" << endl;
     /// update VideoSettingsDialog instance
     VideoSettingsDialog::stateChanged( this, state );
 
@@ -84,8 +84,8 @@ MainWindow::engineStateChanged( Engine::State state )
 
         // the toolbar play button is always enabled, but the menu item
         // is disabled if we are empty, this looks more sensible
-        Q3PopupMenu * const file_menu = menu( "file" );
-        Q3PopupMenu * const settings_menu = menu( "settings" );
+        QMenu * const file_menu = menu( "file" );
+        QMenu * const settings_menu = menu( "settings" );
         const int play_id = file_menu->idAt( 2 );
         file_menu->setItemEnabled( play_id, state != Empty );
 
@@ -101,9 +101,9 @@ MainWindow::engineStateChanged( Engine::State state )
 
         // set correct aspect ratio
         if( state == Loaded )
-            static_cast<Q3PopupMenu*>(child( "aspect_ratio_menu" ))->setItemChecked( TheStream::aspectRatio(), true );
+            static_cast<QMenu*>(child( "aspect_ratio_menu" ))->setItemChecked( TheStream::aspectRatio(), true );
     }
-
+    debug() << "updated menus" << endl;
 
     /// update statusBar
     {
@@ -111,7 +111,7 @@ MainWindow::engineStateChanged( Engine::State state )
         m_analyzer->setShown( state & (Playing | Paused) && TheStream::hasAudio() );
         m_timeLabel->setShown( state & (Playing | Paused) );
     }
-
+    debug() << "updated statusbar" << endl;
 
     /// update position slider
     switch( state )
@@ -128,7 +128,7 @@ MainWindow::engineStateChanged( Engine::State state )
             m_positionSlider->setEnabled( TheStream::canSeek() );
             break;
     }
-
+    debug() << "update position slider" << endl;
 
     /// update recent files list if necessary
     if( state == Engine::Loaded ) {
@@ -151,7 +151,7 @@ MainWindow::engineStateChanged( Engine::State state )
         if( TheStream::hasVideo() && !isFullScreen )
             new AdjustSizeButton( reinterpret_cast<QWidget*>(videoWindow()) );
     }
-
+    debug() << " update recent files list " << endl;
 
     /// set titles
     switch( state )
@@ -168,7 +168,7 @@ MainWindow::engineStateChanged( Engine::State state )
             m_titleLabel->setText( TheStream::prettyTitle() );
             break;
     }
-
+    debug() << "set titles " << endl;
 
     /// set toolbar states
     QWidget *dvd_button = (QWidget*)toolBar()->child( "toolbutton_toggle_dvd_menu" );

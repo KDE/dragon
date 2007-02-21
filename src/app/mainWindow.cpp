@@ -123,11 +123,12 @@ MainWindow::MainWindow()
     }
 
     {
-        Q3PopupMenu *menu = 0, *settings = static_cast<Q3PopupMenu*>(factory()->container( "settings", this ));
+        QMenu *menu = 0, *settings = static_cast<QMenu*>(factory()->container( "settings", this ));
         int id = SubtitleChannelsMenuItemId, index = 0;
 
         #define make_menu( name, text ) \
-                menu = new Q3PopupMenu( this, name ); \
+                menu = new QMenu( text, this ); \
+                menu->setObjectName( name ); \
                 menu->setCheckable( true ); \
                 connect( menu, SIGNAL(activated( int )), engine(), SLOT(setStreamParameter( int )) ); \
                 connect( menu, SIGNAL(aboutToShow()), SLOT(aboutToShowMenu()) ); \
@@ -645,7 +646,7 @@ MainWindow::setChannels( const QStringList &channels )
 
     QStringList::ConstIterator it = channels.begin();
 
-    Q3PopupMenu *menu = (Q3PopupMenu*)child( (*it).latin1() );
+    QMenu *menu = (QMenu*)child( (*it).latin1() );
     menu->clear();
 
     menu->insertItem( i18n("&Determine Automatically"), 1 );
@@ -669,7 +670,7 @@ MainWindow::setChannels( const QStringList &channels )
 void
 MainWindow::aboutToShowMenu()
 {
-    Q3PopupMenu *menu = (Q3PopupMenu*)sender();
+    QMenu *menu = (QMenu*)sender();
     Q3CString name( sender() ? sender()->name() : 0 );
 
     // uncheck all items first
@@ -724,11 +725,11 @@ MainWindow::keyPressEvent( QKeyEvent *e )
     #undef seek
 }
 
-Q3PopupMenu*
+QMenu*
 MainWindow::menu( const char *name )
 {
     // KXMLGUI is "really good".
-    return static_cast<Q3PopupMenu*>(factory()->container( name, this ));
+    return static_cast<QMenu*>(factory()->container( name, this ));
 }
 
 

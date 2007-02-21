@@ -9,7 +9,7 @@
 namespace Codeine
 {
     void
-    insertAspectRatioMenuItems( Q3PopupMenu *menu )
+    insertAspectRatioMenuItems( QMenu *menu )
     {
         menu->insertItem( i18n( "Determine &Automatically" ), XINE_VO_ASPECT_AUTO );
         menu->insertSeparator();
