@@ -21,7 +21,6 @@ include_directories(
     ${XINE_INCLUDE_DIR} )
 
 add_definitions(-DQT3_SUPPORT -DQT3_SUPPORT_WARNINGS) 
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -w") #we're still worrying about all the errors
 
 add_subdirectory( src/app )
 
