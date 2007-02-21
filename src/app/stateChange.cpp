@@ -140,12 +140,12 @@ MainWindow::engineStateChanged( Engine::State state )
         if( !(url_string.contains( "porn", false ) || url_string.contains( "pr0n", false )) )
         #endif
             if( url.protocol() != "dvd" && url.protocol() != "vcd" ) {
-                KSharedConfig::Ptr config = Codeine::config( "General" );
+                KConfigGroup config = Codeine::config( "General" );
                 const QString prettyUrl = url.prettyUrl();
 
-                QStringList urls = config->readPathListEntry( "Recent Urls" );
+                QStringList urls = config.readPathListEntry( "Recent Urls" );
                 urls.remove( prettyUrl );
-                config->writePathEntry( "Recent Urls", urls << prettyUrl );
+                config.writePathEntry( "Recent Urls", urls << prettyUrl );
             }
 
         if( TheStream::hasVideo() && !isFullScreen )

@@ -11,7 +11,7 @@
 
 namespace Codeine
 {
-    KSharedConfig::Ptr
+    KConfigGroup
     TheStream::profile()
     {
 //TODO a unique id for discs, and then even to also record chapters etc.

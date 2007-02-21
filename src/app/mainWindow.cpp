@@ -391,7 +391,7 @@ MainWindow::open( const KUrl &url )
     if( load( url ) ) {
         const int offset = TheStream::hasProfile()
                 // adjust offset if we have session history for this video
-                ? TheStream::profile()->readNumEntry( "Position", 0 )
+                ? TheStream::profile().readEntry<int>( "Position", 0 )
                 : 0;
 
         return engine()->play( offset );

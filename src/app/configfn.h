@@ -5,15 +5,14 @@
 #define CODEINECONFIG_H
 
 #include <kconfig.h>
+#include <ksharedconfig.h>
 #include <kglobal.h>
 
 namespace Codeine
 {
-   static KSharedConfig::Ptr config( const QString &group )
+   static KConfigGroup config( const QString &group )
    {
-      KSharedConfig::Ptr instance = KGlobal::config();
-      instance->setGroup( group );
-      return instance;
+      return KConfigGroup( KGlobal::config(), group );
    }
 }
 

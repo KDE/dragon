@@ -365,7 +365,7 @@ VideoWindow::hideCursor()
 QSize
 VideoWindow::sizeHint() const //virtual
 {
-    QSize s = TheStream::profile()->readSizeEntry( "Preferred Size" );
+    QSize s = TheStream::profile().readEntry<QSize>( "Preferred Size", QSize() );
 
     if( !s.isValid() )
         s = TheStream::defaultVideoSize();
@@ -387,7 +387,7 @@ VideoWindow::minimumSizeHint() const //virtual
 void
 VideoWindow::resetZoom()
 {
-    TheStream::profile()->deleteEntry( "Preferred Size" );
+    TheStream::profile().deleteEntry( "Preferred Size" );
     topLevelWidget()->adjustSize();
 }
 

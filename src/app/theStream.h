@@ -43,7 +43,7 @@ namespace Codeine
       static inline bool hasProfile()
             { return KGlobal::config()->hasGroup( url().prettyUrl() ); }
 
-      static    KSharedConfig::Ptr profile();
+      static    KConfigGroup profile();
    };
 }
 

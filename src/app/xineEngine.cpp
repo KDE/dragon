@@ -193,15 +193,15 @@ VideoWindow::eject()
     if( m_url.isEmpty() )
         return;
 
-        KSharedConfig::Ptr profile = TheStream::profile(); // the config profile for this video file
+        KConfigGroup profile = TheStream::profile(); // the config profile for this video file
 
     #define writeParameter( param, default ) { \
             const int value = xine_get_param( m_stream, param ); \
             const QString key = QString::number( param ); \
             if( value != default ) \
-                profile->writeEntry( key, value ); \
+                profile.writeEntry( key, value ); \
             else \
-                profile->deleteEntry( key ); }
+                profile.deleteEntry( key ); }
 
     writeParameter( XINE_PARAM_VO_HUE, 32768 );
     writeParameter( XINE_PARAM_VO_SATURATION, 32772 );
@@ -216,18 +216,18 @@ VideoWindow::eject()
 
     if( xine_get_status( m_stream ) == XINE_STATUS_PLAY && //XINE_STATUS_PLAY = playing OR paused
                 length() - time() > 5000 ) // if we are really close to the end, don't remember the position
-        profile->writeEntry( "Position", position() );
+        profile.writeEntry( "Position", position() );
     else
-        profile->deleteEntry( "Position" );
+        profile.deleteEntry( "Position" );
 
     const QSize s = videoWindow()->size();
     const QSize defaultSize = TheStream::defaultVideoSize();
     if( s.width() == defaultSize.width() || s.height() == defaultSize.height() )
-        profile->deleteEntry( "Preferred Size" );
+        profile.deleteEntry( "Preferred Size" );
     else
-        profile->writeEntry( "Preferred Size", s );
+        profile.writeEntry( "Preferred Size", s );
 
-    profile->sync();
+    profile.sync();
 
     m_url = KUrl();
 }
@@ -249,8 +249,8 @@ VideoWindow::load( const KUrl &url )
     debug() << "xine_open()\n";
     if( xine_open( m_stream, url.url().local8Bit() ) )
     {
-        KSharedConfig::Ptr profile = TheStream::profile();
-        #define setParameter( param, default ) xine_set_param( m_stream, param, profile->readNumEntry( QString::number( param ), default ) );
+        KConfigGroup profile = TheStream::profile();
+        #define setParameter( param, default ) xine_set_param( m_stream, param, profile.readEntry<int>( QString::number( param ), default ) );
         setParameter( XINE_PARAM_VO_HUE, 32768 );
         setParameter( XINE_PARAM_VO_SATURATION, 32772 );
         setParameter( XINE_PARAM_VO_CONTRAST, 32772 );

@@ -115,7 +115,7 @@ namespace Codeine
     AdjustSizeButton::eventFilter( QObject *o, QEvent *e )
     {
         if( e->type() == QEvent::Resize ) {
-            const QSize preferredSize = TheStream::profile()->readSizeEntry( "Preferred Size" );
+            const QSize preferredSize = TheStream::profile().readEntry<QSize>( "Preferred Size", QSize() );
             const QSize defaultSize = TheStream::defaultVideoSize();
             const QSize parentSize = parentWidget()->size();
 
