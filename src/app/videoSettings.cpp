@@ -14,8 +14,6 @@
 #include <qslider.h>
 #include <QStyle>
 
-#include <xine.h>
-
 #include "mxcl.library.h"
 #include "videoSettings.h"
 #include "xineEngine.h"
@@ -92,10 +90,10 @@ Codeine::VideoSettingsDialog::VideoSettingsDialog( QWidget *parent )
                 new QLabel( name, frame ); \
                 new SnapSlider( xine_get_param( *Codeine::engine(), PARAM ), frame, name );
 
-    makeSlider( XINE_PARAM_VO_BRIGHTNESS, "brightness" );
-    makeSlider( XINE_PARAM_VO_CONTRAST, "contrast" );
-    makeSlider( XINE_PARAM_VO_SATURATION, "saturation" );
-    makeSlider( XINE_PARAM_VO_HUE, "hue" );
+//     makeSlider( XINE_PARAM_VO_BRIGHTNESS, "brightness" );
+//     makeSlider( XINE_PARAM_VO_CONTRAST, "contrast" );
+//     makeSlider( XINE_PARAM_VO_SATURATION, "saturation" );
+//     makeSlider( XINE_PARAM_VO_HUE, "hue" );
 
     #undef makeSlider
 
@@ -122,10 +120,10 @@ Codeine::VideoSettingsDialog::stateChanged( QWidget *parent, Engine::State state
 
     case Engine::Loaded:
         #define update( param, name ) static_cast<QSlider*>(me->child( name ))->setValue( xine_get_param( *Codeine::engine(), param ) );
-        update( XINE_PARAM_VO_BRIGHTNESS, "brightness" );
-        update( XINE_PARAM_VO_CONTRAST, "contrast" );
-        update( XINE_PARAM_VO_SATURATION, "saturation" );
-        update( XINE_PARAM_VO_HUE, "hue" );
+//         update( XINE_PARAM_VO_BRIGHTNESS, "brightness" );
+//         update( XINE_PARAM_VO_CONTRAST, "contrast" );
+//         update( XINE_PARAM_VO_SATURATION, "saturation" );
+//         update( XINE_PARAM_VO_HUE, "hue" );
         #undef update
 
     default:

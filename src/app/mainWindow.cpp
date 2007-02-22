@@ -29,10 +29,10 @@
 #include <qlayout.h>      //ctor
 #include <QMouseEvent>
 #include <qobject.h>
+#include <QTimer>
 #include <QTimerEvent>
 
 #include "actions.h"
-#include "analyzer.h"
 #include "configfn.h"
 #include "debug.h"
 #include "extern.h"         //dialog creation function definitions
@@ -93,7 +93,6 @@ MainWindow::MainWindow()
     statusBar()->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Maximum );
 
     statusBar()->addWidget( m_titleLabel, 1, false );
-    statusBar()->addWidget( m_analyzer = new Analyzer::Block( this ), 0, true );
     statusBar()->addWidget( m_timeLabel, 0, true );
     setupActions();
     setupGUI();
