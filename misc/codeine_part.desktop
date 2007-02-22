@@ -5,6 +5,7 @@ MimeType=video/x-theora;video/x-ogm;video/x-ms-wmv;video/x-msvideo;video/x-ms-as
 Name=Codeine
 Name[sv]=Kodein
 Comment=Embeddable Video Player
+Comment[de]=Einbettbarer Video-Abspieler
 Comment[ja]=埋め込み可能な動画プレーヤ
 Comment[pt]=Leitor de Vídeo Incorporado
 Comment[pt_BR]=Leitor de Vídeo Incorporado
