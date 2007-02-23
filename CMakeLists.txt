@@ -1,11 +1,6 @@
 project(VideoPlayer)
 
-set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake )
-
 find_package(KDE4 REQUIRED)
-
-#include(KDE4Defaults)
-#include(MacroLibrary)
 
 add_definitions (${QT_DEFINITIONS} ${KDE4_DEFINITIONS} )
 include_directories(
