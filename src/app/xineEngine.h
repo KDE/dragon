@@ -50,10 +50,8 @@ namespace Codeine
       void exit();
 
       bool load( const KUrl &url );
-      bool play( uint = 0 );
+      bool play( qint64 = 0 );
 
-      uint position() const { return 0; }
-      uint time() const { return 0; }
       uint length() const { return 0; }
       
       uint volume() const;
@@ -75,7 +73,7 @@ namespace Codeine
    public slots:
       void pause();
       void record();
-      void seek( uint );
+      void seek( qint64 );
       void stop();
 
       ///special slot, see implementation to facilitate understanding

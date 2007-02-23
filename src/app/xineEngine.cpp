@@ -88,6 +88,7 @@ VideoWindow::init()
 bool
 VideoWindow::load( const KUrl &url )
 {
+    DEBUG_BLOCK
     mxcl::WaitCursor allocateOnStack;
     m_media->setUrl( url );
     m_url = url;
@@ -96,11 +97,12 @@ VideoWindow::load( const KUrl &url )
 }
 
 bool
-VideoWindow::play( uint offset )
+VideoWindow::play( qint64 offset )
 {
+    DEBUG_BLOCK
     mxcl::WaitCursor allocateOnStack;
-    seek( offset );
     m_justLoaded = false;
+    seek( offset );
     m_media->play();
     return true;
 }
@@ -127,6 +129,7 @@ VideoWindow::pause()
 Engine::State
 VideoWindow::state() const
 {
+    DEBUG_BLOCK
     if( m_media->url() == KUrl() )
         return Engine::Empty;
     else if( m_justLoaded )
@@ -160,8 +163,9 @@ VideoWindow::volume() const
 }
 
 void
-VideoWindow::seek( uint pos )
+VideoWindow::seek( qint64 pos )
 {
+    DEBUG_BLOCK
     bool wasPaused = false;
 
     // If we seek to the end the track ended event is sent, but it is
@@ -170,8 +174,6 @@ VideoWindow::seek( uint pos )
     // or keyboard to seek) and this causes the ui to think video is
     // stopped but xine is actually playing the track. Tada!
     // TODO set state based on events from xine only
-    if( pos > 65534 )
-        pos = 65534;
 
     switch( state() ) {
     case Engine::Uninitialised:
@@ -181,10 +183,10 @@ VideoWindow::seek( uint pos )
     case Engine::Empty:
         Debug::warning() << "Seek attempt thwarted! No media loaded!\n";
         return;
-    //case Engine::Loaded:
+    case Engine::Loaded:
     // then the state is changing and we should announce it
-    //    play( pos );
-    //    return;
+        play( pos );
+        return;
     default:
         ;
     }
@@ -195,7 +197,7 @@ VideoWindow::seek( uint pos )
         Debug::warning() << "We won't try to seek as the media is not seekable!\n";
         return;
     }
-
+    m_media->seek( pos );
     const bool fullscreen = toggleAction("fullscreen")->isChecked();
     if( fullscreen ) {
 //        xine_osd_draw_text( m_osd, 0, 0, osd.utf8(), XINE_OSD_TEXT1 );

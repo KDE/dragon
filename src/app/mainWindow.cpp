@@ -317,7 +317,7 @@ void
 MainWindow::saveProperties( KConfig *config )
 {
     config->writeEntry( "url", TheStream::url().url() );
-    config->writeEntry( "time", engine()->time() );
+    config->writeEntry( "time", engine()->currentTime() );
 }
 
 void
@@ -361,7 +361,7 @@ MainWindow::showTime( int pos )
 {
     #define zeroPad( n ) n < 10 ? QString("0%1").arg( n ) : QString::number( n )
 
-    const int ms = (pos == -1) ? engine()->time() : int(engine()->length() * (pos / 65535.0));
+    const int ms = (pos == -1) ? engine()->currentTime() : int(engine()->length() * (pos / 65535.0));
     const int s  = ms / 1000;
     const int m  =  s / 60;
     const int h  =  m / 60;
