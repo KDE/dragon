@@ -1,5 +1,21 @@
-// (C) 2005 Max Howell (max.howell@methylblue.com)
-// See COPYING file for licensing information
+// (C) 2005 Max Howell <max.howell@methylblue.com>
+// (C) 2007 Christoph Pfister <christophpfister@gmail.com>
+// (C) 2007 Ian Monroe <ian@monroe.nu>
+/*
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as published 
+ * by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+
 
 #define CODEINE_DEBUG_PREFIX "engine"
 
@@ -12,6 +28,17 @@
 #include "theStream.h"
 #include "xineEngine.h"
 
+#include <QVBoxLayout>
+
+#include <phonon/videopath.h>
+#include <phonon/audiooutput.h>
+#include <phonon/audiopath.h>
+#include <phonon/mediaobject.h>
+#include <phonon/ui/videowidget.h>
+#include <phonon/ui/seekslider.h>
+#include <phonon/ui/volumeslider.h>
+
+using namespace Phonon;
 
 namespace Codeine {
 
@@ -20,18 +47,30 @@ VideoWindow *VideoWindow::s_instance = 0;
 
 
 VideoWindow::VideoWindow( QWidget *parent )
-        : QWidget( parent, "VideoWindow" )
+        : QWidget( parent )
+        , m_justLoaded( false )
 {
     DEBUG_BLOCK
 
     s_instance = this;
+    setObjectName( "VideoWindow" );
 
-    setWindowFlags( Qt::WNoAutoErase );
-    setMouseTracking( true );
-    setAcceptDrops( true );
-    setUpdatesEnabled( false ); //to stop Qt drawing over us
-    setPaletteBackgroundColor( Qt::black );
-    setFocusPolicy( Qt::ClickFocus );
+    QVBoxLayout *box = new QVBoxLayout( this );
+    box->setMargin(0);
+    box->setSpacing(0);
+    m_vWidget = new VideoWidget( this );
+    box->addWidget( m_vWidget );
+    m_vPath = new VideoPath( this );
+    m_aOutput = new AudioOutput( Phonon::VideoCategory, this );
+    m_aPath = new AudioPath( this );
+    m_media = new MediaObject( this );
+    m_media->addVideoPath( m_vPath );
+    m_vPath->addOutput( m_vWidget );
+    m_media->addAudioPath( m_aPath );
+    m_aPath->addOutput( m_aOutput );
+    m_media->setTickInterval( 350 );
+
+    connect( m_media, SIGNAL(stateChanged(Phonon::State,Phonon::State)), this, SLOT(stateChanged(Phonon::State,Phonon::State)) );
 
 }
 
@@ -51,6 +90,9 @@ bool
 VideoWindow::load( const KUrl &url )
 {
     mxcl::WaitCursor allocateOnStack;
+    m_media->setUrl( url );
+    m_url = url;
+    m_justLoaded = true;
     return true;
 }
 
@@ -58,6 +100,9 @@ bool
 VideoWindow::play( uint offset )
 {
     mxcl::WaitCursor allocateOnStack;
+    seek( offset );
+    m_justLoaded = false;
+    m_media->play();
     return true;
 }
 
@@ -70,26 +115,49 @@ VideoWindow::record()
 void
 VideoWindow::stop()
 {
-    return;
+    m_media->stop();
 }
 
 void
 VideoWindow::pause()
 {
-    return;
+    m_media->pause();
 }
 
 
 Engine::State
 VideoWindow::state() const
 {
-    return Engine::Uninitialised;
+    if( m_media->url() == KUrl() )
+        return Engine::Empty;
+    else if( m_justLoaded )
+        return Engine::Loaded;
+    switch( m_media->state() )
+    {
+
+        case StoppedState:
+            return Engine::TrackEnded;
+        break;
+
+        case LoadingState:
+        case BufferingState:
+        case PlayingState:
+            return Engine::Playing;
+        break;
+
+        case PausedState:
+            return Engine::Paused;
+        break;
+        case ErrorState:
+            return Engine::Uninitialised;
+        break;
+    }
 }
 
 uint
 VideoWindow::volume() const
 {
-    return 0;
+    return static_cast<uint>( m_aOutput->volume() * 1.0 );
 }
 
 void
@@ -114,16 +182,10 @@ VideoWindow::seek( uint pos )
     case Engine::Empty:
         Debug::warning() << "Seek attempt thwarted! No media loaded!\n";
         return;
-    case Engine::Loaded:
-        // then the state is changing and we should announce it
-        play( pos );
-        return;
-    case Engine::Paused:
-        // xine_play unpauses stream if stream was paused
-        // was broken at 1.0.1 still
-        wasPaused = true;
-//        xine_set_param( m_stream, XINE_PARAM_AUDIO_AMP_MUTE, 1 );
-        break;
+    //case Engine::Loaded:
+    // then the state is changing and we should announce it
+    //    play( pos );
+    //    return;
     default:
         ;
     }
@@ -134,8 +196,6 @@ VideoWindow::seek( uint pos )
         Debug::warning() << "We won't try to seek as the media is not seekable!\n";
         return;
     }
-
-    //TODO depend on a version that CAN seek in flacs!
 
     //better feedback
     //NOTE doesn't work! I can't tell why..
@@ -153,9 +213,6 @@ VideoWindow::setStreamParameter( int value )
 {
     return;
 }
-
-
-
 
 void
 VideoWindow::toggleDVDMenu()
@@ -175,6 +232,27 @@ VideoWindow::fileFilter() const
     return "*.avi *.mp3 *.mpg *.mpeg";
 }
 
+qint64
+VideoWindow::currentTime() const
+{
+    return currentTime();
+}
+
+QWidget*
+VideoWindow::newPositionSlider()
+{
+    SeekSlider *seekSlider = new SeekSlider();
+    seekSlider->setMediaProducer( m_media );
+    return seekSlider;
+}
+QWidget*
+VideoWindow::newVolumeSlider()
+{
+    VolumeSlider *volumeSlider = new VolumeSlider();
+    volumeSlider->setObjectName( "volume" );
+    volumeSlider->setAudioOutput( m_aOutput );
+    return volumeSlider;
+}
 } //namespace Codeine
 
 #include "xineEngine.moc"

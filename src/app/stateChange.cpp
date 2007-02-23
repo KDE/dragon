@@ -121,7 +121,7 @@ MainWindow::engineStateChanged( Engine::State state )
             break;
         case Engine::Loaded:
         case Engine::TrackEnded:
-            m_positionSlider->setValue( 0 );
+//            m_positionSlider->setValue( 0 );
             // NO BREAK!
         case Engine::Playing:
         case Engine::Paused:

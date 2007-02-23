@@ -62,7 +62,7 @@ namespace Codeine
 
       virtual bool queryExit();
 
-      QSlider *m_positionSlider;
+      QWidget *m_positionSlider;
       QLabel  *m_timeLabel;
       QLabel  *m_titleLabel;
       QWidget *m_analyzer;

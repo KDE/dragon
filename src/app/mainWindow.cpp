@@ -65,7 +65,7 @@ namespace Codeine {
 
 MainWindow::MainWindow()
         : KMainWindow ()
-        , m_positionSlider( new Slider( this, 65535 ) )
+        , m_positionSlider( 0 )
         , m_timeLabel( new QLabel( " 0:00:00 ", this ) )
         , m_titleLabel( new KSqueezedTextLabel( this ) )
 {
@@ -75,7 +75,9 @@ MainWindow::MainWindow()
 
     kapp->setMainWidget( this );
 
-    new VideoWindow( this );
+    VideoWindow* vw = new VideoWindow( this );
+    m_positionSlider = vw->newPositionSlider();
+
     setCentralWidget( videoWindow() );
     setFocusProxy( videoWindow() ); // essential! See VideoWindow::event(), QEvent::FocusOut
 
@@ -335,7 +337,6 @@ MainWindow::timerEvent( QTimerEvent* )
     if( engine()->state() == Engine::Playing ) {
         ++counter &= 1023;
 
-        m_positionSlider->setValue( engine()->position() );
         if( !m_positionSlider->isEnabled() && counter % 10 == 0 ) // 0.5 seconds
             // usually the slider emits a signal that updates the timeLabel
             // but not if the slider isn't moving because there is no length
@@ -709,7 +710,7 @@ void
 MainWindow::keyPressEvent( QKeyEvent *e )
 {
     #define seek( step ) { \
-            const int new_pos = m_positionSlider->value() step; \
+            const int new_pos = engine()->currentTime() + step; \
             engine()->seek( new_pos > 0 ? (uint)new_pos : 0 ); \
         }
 

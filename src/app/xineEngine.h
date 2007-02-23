@@ -9,12 +9,18 @@
 
 #include <kurl.h>
 
+namespace Phonon {
+    class VideoWidget;
+    class VideoPath;
+    class AudioOutput;
+    class AudioPath;
+    class MediaObject;
+}
+
+#include "phonon/phononnamespace.h" //Phonon::State
+
 namespace Codeine
 {
-   /** Functions declared here are defined in:
-    *    xineEngine.cpp
-    *    videoWindow.cpp
-    */
    class VideoWindow : public QWidget
    {
    Q_OBJECT
@@ -23,8 +29,14 @@ namespace Codeine
 
       VideoWindow( const VideoWindow& ); //disable
       VideoWindow &operator=( const VideoWindow& ); //disable
-      
+
       KUrl m_url;
+      bool m_justLoaded;
+      Phonon::VideoWidget *m_vWidget;
+      Phonon::VideoPath   *m_vPath;
+      Phonon::AudioOutput *m_aOutput;
+      Phonon::AudioPath   *m_aPath;
+      Phonon::MediaObject *m_media;
 
       friend class TheStream;
       friend VideoWindow* const engine();
@@ -43,19 +55,21 @@ namespace Codeine
       uint position() const { return 0; }
       uint time() const { return 0; }
       uint length() const { return 0; }
-
+      
       uint volume() const;
+      QWidget* newPositionSlider();
+      QWidget* newVolumeSlider();
 
       Engine::State state() const;
 
    /// Stuff to do with video and the video window/widget
       static const uint CURSOR_HIDE_TIMEOUT = 2000;
 
-
       void becomePreferredSize();
 
       enum { ExposeEvent = 3000 };
 
+      qint64 currentTime() const;
       QString fileFilter() const;
 
    public slots:
@@ -66,6 +80,7 @@ namespace Codeine
 
       ///special slot, see implementation to facilitate understanding
       void setStreamParameter( int );
+      void stateChanged(Phonon::State,Phonon::State) { emit stateChanged( state() ); }
 
    Q_SIGNALS:
       void stateChanged( Engine::State );
