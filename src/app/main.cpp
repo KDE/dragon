@@ -15,9 +15,9 @@
 static KAboutData aboutData( APP_NAME,
         I18N_NOOP(PRETTY_NAME), APP_VERSION,
         I18N_NOOP("A video player that has a usability focus"), KAboutData::License_GPL_V2,
-        I18N_NOOP("Copyright 2006, Max Howell"), 0,
+        I18N_NOOP("Copyright 2006, Max Howell\nCopyright 2007, Ian Monroe"), 0,
         "http://www.methylblue.com/codeine/",
-        "codeine@methylblue.com" );
+        "codeine@monroe.nu" );
 
 static const KCmdLineOptions options[] = {
     { "+[URL]", I18N_NOOP( "Play 'URL'" ), 0 },
@@ -33,9 +33,8 @@ main( int argc, char **argv )
 
     aboutData.addCredit( "Mike Diehl", I18N_NOOP("Handbook") );
     aboutData.addCredit( "The Kaffeine Developers", I18N_NOOP("Great reference code") );
-    aboutData.addCredit( "Eric Prydz", I18N_NOOP("The video for \"Call on Me\" encouraged plenty of debugging! ;)") );
+    aboutData.addCredit( "Greenleaf", I18N_NOOP("Yatta happened to be the only video on my laptop to test with. :)") );
     aboutData.addCredit( "David Vignoni", I18N_NOOP("The current Codeine icon") );
-    aboutData.addCredit( "Ian Monroe", I18N_NOOP("Patches, advice and moral support") );
 
 
     KCmdLineArgs::init( argc, argv, &aboutData );

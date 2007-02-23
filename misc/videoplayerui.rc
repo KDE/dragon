@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui>
-<kpartgui name="codeine" version="4">
+<kpartgui name="videoplayer" version="4">
 <MenuBar>
    <Menu name="file" noMerge="1"><text>&amp;Play</text>
       <Action name="play_media"/>

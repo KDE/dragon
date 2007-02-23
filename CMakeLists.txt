@@ -21,4 +21,4 @@ include_directories(
 add_definitions(-DQT3_SUPPORT -DQT3_SUPPORT_WARNINGS) 
 
 add_subdirectory( src/app )
-
+add_subdirectory( misc )

@@ -74,8 +74,8 @@ MainWindow::MainWindow()
 
     kapp->setMainWidget( this );
 
-    VideoWindow* vw = new VideoWindow( this );
-    m_positionSlider = vw->newPositionSlider();
+    new VideoWindow( this );
+    m_positionSlider = videoWindow()->newPositionSlider();
 
     setCentralWidget( videoWindow() );
     setFocusProxy( videoWindow() ); // essential! See VideoWindow::event(), QEvent::FocusOut
@@ -97,8 +97,8 @@ MainWindow::MainWindow()
     statusBar()->addWidget( m_timeLabel, 0, true );
     setupActions();
     setupGUI();
-    setStandardToolBarMenuEnabled( false ); //bah to setupGUI()!
-    toolBar()->show(); //it's possible it would be hidden, but we don't want that as no UI way to show it!
+    //setStandardToolBarMenuEnabled( false ); //bah to setupGUI()!
+    //toolBar()->show(); //it's possible it would be hidden, but we don't want that as no UI way to show it!
 
     // only show dvd button when playing a dvd
     {
