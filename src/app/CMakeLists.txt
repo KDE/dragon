@@ -4,7 +4,6 @@ set(videoplayer_SRCS
     videoSettings.cpp
     actions.cpp
     stateChange.cpp
-    slider.cpp
     playDialog.cpp
     listView.cpp
     adjustSizeButton.cpp

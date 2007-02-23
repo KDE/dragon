@@ -108,7 +108,6 @@ MainWindow::engineStateChanged( Engine::State state )
     /// update statusBar
     {
         using namespace Engine;
-        m_analyzer->setShown( state & (Playing | Paused) && TheStream::hasAudio() );
         m_timeLabel->setShown( state & (Playing | Paused) );
     }
     debug() << "updated statusbar" << endl;

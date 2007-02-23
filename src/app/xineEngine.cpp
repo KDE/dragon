@@ -24,7 +24,6 @@
 #include "debug.h"
 #include <klocale.h>
 #include "mxcl.library.h"
-#include "slider.h"
 #include "theStream.h"
 #include "xineEngine.h"
 
@@ -196,11 +195,6 @@ VideoWindow::seek( uint pos )
         Debug::warning() << "We won't try to seek as the media is not seekable!\n";
         return;
     }
-
-    //better feedback
-    //NOTE doesn't work! I can't tell why..
-    Slider::instance()->QSlider::setValue( pos );
-    Slider::instance()->repaint( false );
 
     const bool fullscreen = toggleAction("fullscreen")->isChecked();
     if( fullscreen ) {

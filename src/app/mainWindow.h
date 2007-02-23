@@ -65,7 +65,6 @@ namespace Codeine
       QWidget *m_positionSlider;
       QLabel  *m_timeLabel;
       QLabel  *m_titleLabel;
-      QWidget *m_analyzer;
 
       //undefined
       MainWindow( const MainWindow& );

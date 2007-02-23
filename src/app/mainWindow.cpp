@@ -41,7 +41,6 @@
 #include "mxcl.library.h"
 #include "playDialog.h"  //::play()
 #include "playlistFile.h"
-#include "slider.h"
 #include "theStream.h"
 #include "volumeAction.h"
 #include "xineEngine.h"
@@ -181,7 +180,7 @@ MainWindow::init()
     connect( engine(), SIGNAL(stateChanged( Engine::State )), this, SLOT(engineStateChanged( Engine::State )) );
     connect( engine(), SIGNAL(channelsChanged( const QStringList& )), this, SLOT(setChannels( const QStringList& )) );
     connect( engine(), SIGNAL(titleChanged( const QString& )), m_titleLabel, SLOT(setText( const QString& )) );
-    connect( m_positionSlider, SIGNAL(valueChanged( int )), this, SLOT(showTime( int )) );
+    //connect( m_positionSlider, SIGNAL(valueChanged( int )), this, SLOT(showTime( int )) );
 
     if( !engine()->init() ) {
         KMessageBox::error( this, i18n(
@@ -192,7 +191,6 @@ MainWindow::init()
 
     //would be dangerous for these to65535 happen before the videoWindow() is initialised
     setAcceptDrops( true );
-    connect( m_positionSlider, SIGNAL(sliderReleased( uint )), engine(), SLOT(seek( uint )) );
     connect( statusBar(), SIGNAL(messageChanged( const QString& )), engine(), SLOT(showOSD( const QString& )) );
 
     QApplication::restoreOverrideCursor();
