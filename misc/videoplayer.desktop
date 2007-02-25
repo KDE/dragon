@@ -1,5 +1,8 @@
 [Desktop Entry]
 Name=Video Player
+Name[pt]=Leitor de Vídeo
+Name[pt_BR]=Leitor de Vídeo
+Name[sv]=Videospelare
 Exec=videoplayer %u
 Icon=videoplayer
 Type=Application
