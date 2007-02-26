@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Video Player
 Name[pt]=Leitor de Vídeo
-Name[pt_BR]=Leitor de Vídeo
+Name[pt_BR]=Reprodutor de Vídeo
 Name[sv]=Videospelare
 Exec=videoplayer %u
 Icon=videoplayer
@@ -13,5 +13,5 @@ GenericName=Video Player
 GenericName[de]=Video-Abspieler
 GenericName[ja]=動画プレーヤ
 GenericName[pt]=Leitor de Vídeo
-GenericName[pt_BR]=Leitor de Vídeo
+GenericName[pt_BR]=Reprodutor de Vídeo
 GenericName[sv]=Videospelare
