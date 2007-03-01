@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Video Player
+Name[el]=Αναπαραγωγέας βίντεο
 Name[ja]=動画プレーヤ
 Name[pt]=Leitor de Vídeo
 Name[pt_BR]=Reprodutor de Vídeo
@@ -12,6 +13,7 @@ MimeType=video/x-theora;video/x-ogm;video/x-ms-wmv;video/x-msvideo;video/x-ms-as
 Categories=Qt;KDE;AudioVideo;Player
 GenericName=Video Player
 GenericName[de]=Video-Abspieler
+GenericName[el]=Αναπαραγωγέας βίντεο
 GenericName[ja]=動画プレーヤ
 GenericName[pt]=Leitor de Vídeo
 GenericName[pt_BR]=Reprodutor de Vídeo
