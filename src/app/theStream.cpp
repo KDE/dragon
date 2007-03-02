@@ -6,7 +6,7 @@
 
 #include "mxcl.library.h"
 #include "theStream.h"
-#include "xineEngine.h"
+#include "videoWindow.h"
 
 namespace Codeine
 {

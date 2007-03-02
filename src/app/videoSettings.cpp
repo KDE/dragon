@@ -16,7 +16,7 @@
 
 #include "mxcl.library.h"
 #include "videoSettings.h"
-#include "xineEngine.h"
+#include "videoWindow.h"
 
 extern "C"
 {

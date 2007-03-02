@@ -18,7 +18,7 @@
 #include "adjustSizeButton.h"
 #include "extern.h"
 #include "theStream.h"
-#include "xineEngine.h" //videoWindow()
+#include "videoWindow.h" //videoWindow()
 
 
 QString i18n( const char *text );

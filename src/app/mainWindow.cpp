@@ -43,7 +43,7 @@
 #include "playlistFile.h"
 #include "theStream.h"
 #include "volumeAction.h"
-#include "xineEngine.h"
+#include "videoWindow.h"
 
 #ifndef NO_XTEST_EXTENSION
 extern "C"
@@ -256,7 +256,8 @@ MainWindow::setupActions()
     KStandardAction::quit( kapp, SLOT(quit()), ac );
     //was play_media, never used
     KStandardAction::open( this, SLOT(playMedia()), ac )->setText( i18n("Play &Media...") );
-    connect( new FullScreenAction( this, ac ), SIGNAL(toggled( bool )), SLOT(fullScreenToggled( bool )) );
+    //connect( new FullScreenAction( this, ac ), SIGNAL(toggled( bool )), SLOT(fullScreenToggled( bool )) );
+    new FullScreenAction( this, ac );
 
     new PlayAction( this, SLOT(play()), ac );
     #define addToAc( X ) ac->addAction( X->objectName(), X );
@@ -589,9 +590,8 @@ show_toolbar:
 void
 MainWindow::fullScreenToggled( bool isFullScreen )
 {
+    DEBUG_BLOCK
     static FullScreenToolBarHandler *s_handler;
-
-    DEBUG_FUNC_INFO
 
     if( isFullScreen )
         toolBar()->setPalette( palette() ), // due to 2px spacing in QMainWindow :(
@@ -613,8 +613,8 @@ MainWindow::fullScreenToggled( bool isFullScreen )
     else
         delete s_handler;
 
-    // prevent videoWindow() moving around when mouse moves
-    setCentralWidget( isFullScreen ? 0 : videoWindow() );
+    // prevent videoWindow() moving around when mouse moves 
+    //setCentralWidget( isFullScreen ? 0 : videoWindow() ); //deletes videoWindow() when cleared
 }
 
 void
@@ -652,7 +652,7 @@ MainWindow::setChannels( const QStringList &channels )
 
     //the id is crucial, since the slot this menu is connected to requires
     //that information to set the correct channel
-    //NOTE we subtract 2 in xineEngine because QMenuData doesn't allow negative id
+    //NOTE we subtract 2 in videoWindow because QMenuData doesn't allow negative id
     int id = 2;
     ++it;
     for( QStringList::ConstIterator const end = channels.end(); it != end; ++it, ++id )

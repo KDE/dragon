@@ -25,10 +25,12 @@
 #include <klocale.h>
 #include "mxcl.library.h"
 #include "theStream.h"
-#include "xineEngine.h"
+#include "videoWindow.h"
 
+#include <QContextMenuEvent>
 #include <QVBoxLayout>
 
+#include <kmenu.h>
 #include <phonon/videopath.h>
 #include <phonon/audiooutput.h>
 #include <phonon/audiopath.h>
@@ -129,7 +131,6 @@ VideoWindow::pause()
 Engine::State
 VideoWindow::state() const
 {
-    DEBUG_BLOCK
     if( m_media->url() == KUrl() )
         return Engine::Empty;
     else if( m_justLoaded )
@@ -222,6 +223,12 @@ VideoWindow::showOSD( const QString &message )
     return;
 }
 
+void
+VideoWindow::setFullScreen( bool full )
+{
+     m_vWidget->setFullScreen( full );
+}
+
 QString
 VideoWindow::fileFilter() const
 {
@@ -249,6 +256,22 @@ VideoWindow::newVolumeSlider()
     volumeSlider->setAudioOutput( m_aOutput );
     return volumeSlider;
 }
+
+///////////
+///Protected
+///////////
+void
+VideoWindow::contextMenuEvent( QContextMenuEvent * event )
+{
+    KMenu menu;
+    menu.addAction( action( "play" ) );
+    menu.addAction( action( "fullscreen" ) );
+    menu.addAction( action( "reset_zoom" ) );
+    menu.addAction( action( "xine_settings" ) );
+    menu.exec( event->globalPos() );
+}
+
+
 } //namespace Codeine
 
-#include "xineEngine.moc"
+#include "videoWindow.moc"

@@ -1,21 +1,24 @@
 // (C) 2005 Max Howell (max.howell@methylblue.com)
 // See COPYING file for licensing information
 
+#include "debug.h"
 #include "extern.h"
 #include "fullScreenAction.h"
-#include "xineEngine.h" //videoWindow()
+#include "videoWindow.h" //videoWindow()
 
 #include <kactioncollection.h>
+#include <kmainwindow.h>
 #include <klocale.h>
+#include <ktogglefullscreenaction.h>
 #include <kwin.h>
 #include <QEvent>
 #include <qwidget.h>
 
 FullScreenAction::FullScreenAction( QWidget* window, KActionCollection *parent )
-        : KToggleAction( QString::null, parent )
-        , m_window( window )
-        , m_shouldBeDisabled( false )
-        , m_state( 0 )
+        : KToggleAction( parent )
+        //, m_window( window )
+        //, m_shouldBeDisabled( false )
+        //, m_state( 0 )
 {
  //KToggleAction( QString::null, Qt::Key_F, 0, 0, parent, "fullscreen" )
     setObjectName( "fullscreen" );
@@ -23,33 +26,15 @@ FullScreenAction::FullScreenAction( QWidget* window, KActionCollection *parent )
     parent->addAction( objectName(), this );
     window->installEventFilter( this );
     setChecked( false );
+    setText( i18n("F&ull Screen Mode") );
+    setIcon( KIcon("window_fullscreen") );
+    setCheckedState( KGuiItem( i18n("Exit F&ull Screen Mode"), KIcon("window_nofullscreen") ) );
+    connect( this, SIGNAL( toggled( bool ) ), Codeine::videoWindow(), SLOT( setFullScreen( bool ) ) );
 }
 
-void
-FullScreenAction::setChecked( bool setChecked )
-{
-    KToggleAction::setChecked( setChecked );
 
-    m_window->raise();
 
-    const int id = m_window->winId();
-    if( setChecked ) {
-        setText( i18n("Exit F&ull Screen Mode") );
-        setIcon( KIcon("window_nofullscreen") );
-        m_state = KWin::windowInfo( id, NET::WMState, 0 ).state();
-        KWin::setState( id, NET::FullScreen );
-    }
-    else {
-        setText(i18n("F&ull Screen Mode"));
-        setIcon( KIcon("window_fullscreen") );
-        KWin::clearState( id, NET::FullScreen );
-        KWin::setState( id, m_state ); // get round bug in KWin where it forgets maximisation state
-    }
-
-    if( setChecked == false && m_shouldBeDisabled )
-        setEnabled( false );
-}
-
+/*
 void
 FullScreenAction::setEnabled( bool setEnabled )
 {
@@ -71,40 +56,21 @@ FullScreenAction::setEnabled( bool setEnabled )
     }
 }
 
-/**
- * 
- * @param o 
- * @param e 
- * @return 
- */
 bool
 FullScreenAction::eventFilter( QObject *o, QEvent *e )
 {
     if( o == m_window )
-        switch( e->type() ) {
-            #if QT_VERSION >= 0x030300
-            case QEvent::WindowStateChange:
-            #else
-            case QEvent::ShowFullScreen:
-            case QEvent::ShowNormal:
-            case QEvent::ShowMaximized:
-            case QEvent::ShowMinimized:
-            #endif
-                if (m_window->isFullScreen() != isChecked())
-                    slotToggled( m_window->isFullScreen() ); // setChecked( window->isFullScreen()) wouldn't emit signals
+        if(e->type() == QEvent::WindowStateChange)
+        {
+            if (m_window->isFullScreen() != isChecked())
+                slotToggled( m_window->isFullScreen() ); // setChecked( window->isFullScreen()) wouldn't emit signals
 
-                if (m_window->isFullScreen() && !isEnabled()) {
-                    m_shouldBeDisabled = true;
-                    setEnabled( true );
-                }
-
-                break;
-
-            default:
-                ;
+            if (m_window->isFullScreen() && !isEnabled()) {
+                m_shouldBeDisabled = true;
+                setEnabled( true );
+            }
         }
-
     return false;
 }
-
+ */
 #include "fullScreenAction.moc"

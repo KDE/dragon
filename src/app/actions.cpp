@@ -10,7 +10,7 @@
 
 #include <klocale.h>
 
-#include "xineEngine.h"
+#include "videoWindow.h"
 
 namespace Codeine
 {
@@ -20,7 +20,7 @@ namespace Codeine
           setObjectName( "play" );
           setShortcut( Qt::Key_Space );
           ac->addAction( objectName(), this );
-          connect( this, SIGNAL( trigger() ), receiver, slot );
+  //        connect( this, SIGNAL( toggled( bool ) ), receiver, slot );
      }
 
     void

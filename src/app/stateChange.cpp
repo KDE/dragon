@@ -21,7 +21,7 @@
 #include "mxcl.library.h"
 #include "theStream.h"
 #include "videoSettings.h" //FIXME unfortunate
-#include "xineEngine.h"
+#include "videoWindow.h"
 
 
 //TODO do in Sconstruct

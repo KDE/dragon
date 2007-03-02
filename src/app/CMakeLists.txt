@@ -1,5 +1,5 @@
 set(videoplayer_SRCS
-    xineEngine.cpp
+    videoWindow.cpp
     theStream.cpp
     videoSettings.cpp
     actions.cpp

@@ -15,7 +15,7 @@
 #include "debug.h"
 #include "volumeAction.h"
 #include "volumeAction.moc"
-#include "xineEngine.h"
+#include "videoWindow.h"
 
 
 class VolumeSlider : public Q3Frame
