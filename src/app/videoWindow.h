@@ -71,7 +71,7 @@ namespace Codeine
         QString fileFilter() const;
 
     public slots:
-        void pause();
+        void playPause();
         void record();
         void seek( qint64 );
         void stop();

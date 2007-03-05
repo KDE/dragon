@@ -122,9 +122,12 @@ VideoWindow::stop()
 }
 
 void
-VideoWindow::pause()
+VideoWindow::playPause()
 {
-    m_media->pause();
+    if( m_media->state() == PlayingState )
+        m_media->pause();
+    else
+        m_media->play();
 }
 
 

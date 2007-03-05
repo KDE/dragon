@@ -20,7 +20,7 @@ namespace Codeine
           setObjectName( "play" );
           setShortcut( Qt::Key_Space );
           ac->addAction( objectName(), this );
-  //        connect( this, SIGNAL( toggled( bool ) ), receiver, slot );
+          connect( this, SIGNAL( toggled( bool ) ), receiver, slot );
      }
 
     void

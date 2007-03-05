@@ -66,11 +66,6 @@ MainWindow::engineStateChanged( Engine::State state )
         #undef enableIf
 
         toggleAction( "play" )->setChecked( state == Playing );
-
-        //FIXME bad design to do this way
-        QSlider *volume = (QSlider*)toolBar()->child( "volume" );
-        if (volume)
-            volume->setValue( engine()->volume() );
     }
 
     debug() << "updated actions" << endl;

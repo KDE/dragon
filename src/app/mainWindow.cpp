@@ -450,7 +450,7 @@ MainWindow::play()
 
     case Engine::Playing:
     case Engine::Paused:
-        engine()->pause();
+        engine()->playPause();
         break;
 
     case Engine::Empty:
