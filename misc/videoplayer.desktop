@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Video Player
+Name[bg]=Видео плеър
 Name[br]=Ur soner Video
 Name[de]=Video-Abspieler
 Name[el]=Αναπαραγωγέας βίντεο
@@ -15,6 +16,7 @@ Encoding=UTF-8
 MimeType=video/x-theora;video/x-ogm;video/x-ms-wmv;video/x-msvideo;video/x-ms-asf;video/x-matroska;video/mpeg;video/avi;video/quicktime;video/vnd.rn-realvideo;video/x-flic;
 Categories=Qt;KDE;AudioVideo;Player
 GenericName=Video Player
+GenericName[bg]=Видео плеър
 GenericName[br]=Ur soner Video
 GenericName[de]=Video-Abspieler
 GenericName[el]=Αναπαραγωγέας βίντεο
