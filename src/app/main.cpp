@@ -12,17 +12,12 @@
 #include <X11/Xlib.h>
 
 
-static KAboutData aboutData( APP_NAME,
-        I18N_NOOP(PRETTY_NAME), APP_VERSION,
-        I18N_NOOP("A video player that has a usability focus"), KAboutData::License_GPL_V2,
-        I18N_NOOP("Copyright 2006, Max Howell\nCopyright 2007, Ian Monroe"), 0,
+static KAboutData aboutData( APP_NAME, 0,
+        ki18n(PRETTY_NAME), APP_VERSION,
+        ki18n("A video player that has a usability focus"), KAboutData::License_GPL_V2,
+        ki18n("Copyright 2006, Max Howell\nCopyright 2007, Ian Monroe"), KLocalizedString(),
         "http://www.methylblue.com/codeine/",
         "codeine@monroe.nu" );
-
-static const KCmdLineOptions options[] = {
-    { "+[URL]", I18N_NOOP( "Play 'URL'" ), 0 },
-    { "play-dvd", I18N_NOOP( "Play DVD Video" ), 0 },
-    { 0, 0, 0 } };
 
 int
 main( int argc, char **argv )
@@ -31,13 +26,17 @@ main( int argc, char **argv )
 //    if( !XInitThreads() )
 //        return 1;
 
-    aboutData.addCredit( "Mike Diehl", I18N_NOOP("Handbook") );
-    aboutData.addCredit( "The Kaffeine Developers", I18N_NOOP("Great reference code") );
-    aboutData.addCredit( "Greenleaf", I18N_NOOP("Yatta happened to be the only video on my laptop to test with. :)") );
-    aboutData.addCredit( "David Vignoni", I18N_NOOP("The current Codeine icon") );
+    aboutData.addCredit( ki18n("Mike Diehl"), ki18n("Handbook") );
+    aboutData.addCredit( ki18n("The Kaffeine Developers"), ki18n("Great reference code") );
+    aboutData.addCredit( ki18n("Greenleaf"), ki18n("Yatta happened to be the only video on my laptop to test with. :)") );
+    aboutData.addCredit( ki18n("David Vignoni"), ki18n("The current Codeine icon") );
 
 
     KCmdLineArgs::init( argc, argv, &aboutData );
+
+    KCmdLineOptions options;
+    options.add("+[URL]", ki18n( "Play 'URL'" ));
+    options.add("play-dvd", ki18n( "Play DVD Video" ));
     KCmdLineArgs::addCmdLineOptions( options );
 
     KApplication application;
