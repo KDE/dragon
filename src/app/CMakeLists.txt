@@ -15,7 +15,6 @@ set(videoplayer_SRCS
     main.cpp
     mainWindow.cpp )
 
-kde4_automoc(${videoplayer_SRCS})
 
 kde4_add_executable(videoplayer ${videoplayer_SRCS} )
 
