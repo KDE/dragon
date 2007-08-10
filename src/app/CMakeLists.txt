@@ -20,9 +20,7 @@ kde4_add_executable(videoplayer ${videoplayer_SRCS} )
 
 target_link_libraries(videoplayer 
     ${KDE4_KUTILS_LIBS}
-    ${KDE4_KDEUI_LIBS}
-    ${KDE4_KDECORE_LIBS}
-    ${KDE4_PHONONUI_LIBS}
+    ${KDE4_PHONON_LIBS}
     ${KDE4_KDE3SUPPORT_LIBS} )
 
 install(TARGETS videoplayer DESTINATION ${BIN_INSTALL_DIR})

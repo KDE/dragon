@@ -75,13 +75,11 @@ namespace Debug
 
 
      #ifdef NDEBUG
-          static inline kndbgstream debug()    { return kndbgstream(); }
-          static inline kndbgstream warning() { return kndbgstream(); }
-          static inline kndbgstream error()    { return kndbgstream(); }
-          static inline kndbgstream fatal()    { return kndbgstream(); }
+          static inline kndbgstream debug()    { return kDebugDevNull(); }
+          static inline kndbgstream warning() { return kDebugDevNull(); }
+          static inline kndbgstream error()    { return kDebugDevNull(); }
+          static inline kndbgstream fatal()    { return kDebugDevNull(); }
 
-          typedef kndbgstream DebugStream;
-          
           static inline void debug1( QVariant v ) {}
      #else
           #ifndef DEBUG_PREFIX
@@ -98,17 +96,14 @@ namespace Debug
                 KDEBUG_FATAL = 3
           };
 
-          static inline kdbgstream debug()    { return kdbgstream( indent().data(), 0, KDEBUG_INFO  ) << AMK_PREFIX; }
-          static inline kdbgstream warning() { return kdbgstream( indent().data(), 0, KDEBUG_WARN  ) << AMK_PREFIX << "[WARNING!] "; }
-          static inline kdbgstream error()    { return kdbgstream( indent().data(), 0, KDEBUG_ERROR ) << AMK_PREFIX << "[ERROR!] "; }
-          static inline kdbgstream fatal()    { return kdbgstream( indent().data(), 0, KDEBUG_FATAL ) << AMK_PREFIX; }
+          static inline QDebug debug()   { return kDebugStream( QtDebugMsg,    0 ) << indent().data() << AMK_PREFIX; }
+          static inline QDebug warning() { return kDebugStream( QtWarningMsg,  0 ) << indent().data() << AMK_PREFIX << "[WARNING!] "; }
+          static inline QDebug error()   { return kDebugStream( QtCriticalMsg, 0 ) << indent().data() << AMK_PREFIX << "[ERROR!] "; }
+          static inline QDebug fatal()   { return kDebugStream( QtFatalMsg,    0 ) << indent().data() << AMK_PREFIX; }
 
-          typedef kdbgstream DebugStream;
-          static inline void debug1( QVariant v ) { kdbgstream( indent().data(), 0, KDEBUG_INFO ) << v << endl; }
+          static inline void debug1( QVariant v ) { kDebugStream( QtDebugMsg, 0 ) << indent().data() << v << endl; }
           #undef AMK_PREFIX
      #endif
-
-     typedef kndbgstream NoDebugStream;
 }
 
 using Debug::debug;
@@ -116,7 +111,6 @@ using Debug::debug1;
 using Debug::warning;
 using Debug::error;
 using Debug::fatal;
-using Debug::DebugStream;
 
 /// Standard function announcer
 #define DEBUG_FUNC_INFO { kDebug() << Debug::indent() << k_funcinfo << endl; }

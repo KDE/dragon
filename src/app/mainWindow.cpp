@@ -15,7 +15,7 @@
 #include <kstatusbar.h>
 #include <ktoolbar.h>
 #include <k3urldrag.h>
-#include <kwin.h>
+#include <kwindowsystem.h>
 #include <kxmlguifactory.h>
 
 #include <q3cstring.h>
@@ -63,7 +63,7 @@ namespace Codeine {
 
 
 MainWindow::MainWindow()
-        : KMainWindow ()
+        : KXmlGuiWindow ()
         , m_positionSlider( 0 )
         , m_timeLabel( new QLabel( " 0:00:00 ", this ) )
         , m_titleLabel( new KSqueezedTextLabel( this ) )
@@ -168,7 +168,7 @@ MainWindow::MainWindow()
         //"faster" startup
         //TODO if we have a size stored for this video, do the "faster" route
         QTimer::singleShot( 0, this, SLOT(init()) );
-        QApplication::setOverrideCursor( KCursor::waitCursor() ); }
+        QApplication::setOverrideCursor( Qt::WaitCursor ); }
 }
 
 void
@@ -343,7 +343,7 @@ MainWindow::timerEvent( QTimerEvent* )
 
         #ifndef NO_XTEST_EXTENSION
         if( counter == 0 /*1020*/ ) { // 51 seconds //do at 0 to ensure screensaver doesn't happen before 51 seconds is up (somehow)
-            const bool isOnThisDesktop = KWin::windowInfo( winId(), NET::WMDesktop, 0 ).isOnDesktop( KWin::currentDesktop() );
+            const bool isOnThisDesktop = KWindowSystem::windowInfo( winId(), NET::WMDesktop, 0 ).isOnDesktop( KWindowSystem::currentDesktop() );
 
             if( videoWindow()->isVisible() && isOnThisDesktop ) {
                 int key = XKeysymToKeycode( x11Display(), XK_Shift_R );
@@ -429,7 +429,7 @@ MainWindow::load( const KUrl &url )
         if (!KIO::NetAccess::stat( url, e, 0 ))
             MessageBox::sorry( "There was an internal error with the media slave..." );
         else {
-            QString path = e.stringValue( KIO::UDS_LOCAL_PATH );
+            QString path = e.stringValue( KIO::UDSEntry::UDS_LOCAL_PATH );
             if( !path.isEmpty() )
                 return engine()->load( KUrl::fromPathOrUrl( path ) );
         }
@@ -716,7 +716,7 @@ MainWindow::keyPressEvent( QKeyEvent *e )
     {
         case Qt::Key_Left:  seek( -500 ); break;
         case Qt::Key_Right: seek( +500 ); break;
-        case Key_Escape:     KWin::clearState( winId(), NET::FullScreen );
+        case Key_Escape:     KWindowSystem::clearState( winId(), NET::FullScreen );
         default: ;
     }
 

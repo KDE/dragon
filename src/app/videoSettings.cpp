@@ -2,7 +2,7 @@
 // See COPYING file for licensing information
 
 #include <klocale.h>
-#include <kwin.h>
+#include <kwindowsystem.h>
 
 #include <Q3Frame>
 #include <Q3GridLayout>
@@ -75,8 +75,8 @@ Codeine::VideoSettingsDialog::VideoSettingsDialog( QWidget *parent )
 {
     setObjectName( "video_settings_dialog" );
     XSetTransientForHint( x11Display(), winId(), parent->winId() );
-    KWin::setType( winId(), NET::Utility );
-    KWin::setState( winId(), NET::SkipTaskbar );
+    KWindowSystem::setType( winId(), NET::Utility );
+    KWindowSystem::setState( winId(), NET::SkipTaskbar );
 
     Q3Frame *frame = new Q3Frame( this );
     (new Q3VBoxLayout( this, 10 ))->addWidget( frame );

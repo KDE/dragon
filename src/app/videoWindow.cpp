@@ -31,15 +31,18 @@
 #include <QVBoxLayout>
 
 #include <kmenu.h>
-#include <phonon/videopath.h>
-#include <phonon/audiooutput.h>
-#include <phonon/audiopath.h>
-#include <phonon/mediaobject.h>
-#include <phonon/ui/videowidget.h>
-#include <phonon/ui/seekslider.h>
-#include <phonon/ui/volumeslider.h>
+#include <Phonon/Path>
+#include <Phonon/AudioOutput>
+#include <Phonon/MediaObject>
+#include <Phonon/VideoWidget>
+#include <Phonon/SeekSlider>
+#include <Phonon/VolumeSlider>
 
-using namespace Phonon;
+using Phonon::AudioOutput;
+using Phonon::MediaObject;
+using Phonon::VideoWidget;
+using Phonon::SeekSlider;
+using Phonon::VolumeSlider;
 
 namespace Codeine {
 
@@ -61,14 +64,10 @@ VideoWindow::VideoWindow( QWidget *parent )
     box->setSpacing(0);
     m_vWidget = new VideoWidget( this );
     box->addWidget( m_vWidget );
-    m_vPath = new VideoPath( this );
     m_aOutput = new AudioOutput( Phonon::VideoCategory, this );
-    m_aPath = new AudioPath( this );
     m_media = new MediaObject( this );
-    m_media->addVideoPath( m_vPath );
-    m_vPath->addOutput( m_vWidget );
-    m_media->addAudioPath( m_aPath );
-    m_aPath->addOutput( m_aOutput );
+    Phonon::createPath(m_media, m_vWidget);
+    Phonon::createPath(m_media, m_aOutput);
     m_media->setTickInterval( 350 );
 
     connect( m_media, SIGNAL(stateChanged(Phonon::State,Phonon::State)), this, SLOT(stateChanged(Phonon::State,Phonon::State)) );
@@ -92,7 +91,7 @@ VideoWindow::load( const KUrl &url )
 {
     DEBUG_BLOCK
     mxcl::WaitCursor allocateOnStack;
-    m_media->setUrl( url );
+    m_media->setCurrentSource( url );
     m_url = url;
     m_justLoaded = true;
     return true;
@@ -124,7 +123,7 @@ VideoWindow::stop()
 void
 VideoWindow::playPause()
 {
-    if( m_media->state() == PlayingState )
+    if( m_media->state() == Phonon::PlayingState )
         m_media->pause();
     else
         m_media->play();
@@ -134,27 +133,27 @@ VideoWindow::playPause()
 Engine::State
 VideoWindow::state() const
 {
-    if( m_media->url() == KUrl() )
+    if( m_media->currentSource().type() == Phonon::MediaSource::Invalid )
         return Engine::Empty;
     else if( m_justLoaded )
         return Engine::Loaded;
     switch( m_media->state() )
     {
 
-        case StoppedState:
+        case Phonon::StoppedState:
             return Engine::TrackEnded;
         break;
 
-        case LoadingState:
-        case BufferingState:
-        case PlayingState:
+        case Phonon::LoadingState:
+        case Phonon::BufferingState:
+        case Phonon::PlayingState:
             return Engine::Playing;
         break;
 
-        case PausedState:
+        case Phonon::PausedState:
             return Engine::Paused;
         break;
-        case ErrorState:
+        case Phonon::ErrorState:
             return Engine::Uninitialised;
         break;
     }
@@ -248,7 +247,7 @@ QWidget*
 VideoWindow::newPositionSlider()
 {
     SeekSlider *seekSlider = new SeekSlider();
-    seekSlider->setMediaProducer( m_media );
+    seekSlider->setMediaObject( m_media );
     return seekSlider;
 }
 QWidget*

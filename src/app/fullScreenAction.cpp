@@ -10,7 +10,6 @@
 #include <kmainwindow.h>
 #include <klocale.h>
 #include <ktogglefullscreenaction.h>
-#include <kwin.h>
 #include <QEvent>
 #include <qwidget.h>
 

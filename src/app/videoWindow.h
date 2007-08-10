@@ -11,9 +11,7 @@
 
 namespace Phonon {
      class VideoWidget;
-     class VideoPath;
      class AudioOutput;
-     class AudioPath;
      class MediaObject;
 }
 
@@ -33,9 +31,7 @@ namespace Codeine
         KUrl m_url;
         bool m_justLoaded;
         Phonon::VideoWidget *m_vWidget;
-        Phonon::VideoPath    *m_vPath;
         Phonon::AudioOutput *m_aOutput;
-        Phonon::AudioPath    *m_aPath;
         Phonon::MediaObject *m_media;
 
         friend class TheStream;

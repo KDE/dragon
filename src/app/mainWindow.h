@@ -7,7 +7,7 @@
 #include "codeine.h"
 
 
-#include <KMainWindow>
+#include <kxmlguiwindow.h>
 
 class KUrl;
 class QLabel;
@@ -17,7 +17,7 @@ class QSlider;
 
 namespace Codeine
 {
-   class MainWindow : public KMainWindow
+   class MainWindow : public KXmlGuiWindow
    {
    Q_OBJECT
 
