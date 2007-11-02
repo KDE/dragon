@@ -6,6 +6,7 @@
 
 #include <kconfig.h>
 #include <ksharedconfig.h>
+#include <kconfiggroup.h>
 #include <kglobal.h>
 
 namespace Codeine
