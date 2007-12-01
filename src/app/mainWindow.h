@@ -57,8 +57,8 @@ namespace Codeine
       virtual void dropEvent( QDropEvent* );
       virtual void keyPressEvent( QKeyEvent* );
 
-      virtual void saveProperties( KConfig* );
-      virtual void readProperties( KConfig* );
+//      virtual void saveProperties( KConfig* );
+//      virtual void readProperties( KConfig* );
 
       virtual bool queryExit();
 

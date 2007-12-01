@@ -314,6 +314,7 @@ MainWindow::setupActions()
     #undef addToAc
 }
 
+/*
 void
 MainWindow::saveProperties( KConfig *config )
 {
@@ -327,6 +328,7 @@ MainWindow::readProperties( KConfig *config )
     if( engine()->load( config->readPathEntry( "url" ) ) )
         engine()->play( config->readNumEntry( "time" ) );
 }
+*/
 
 void
 MainWindow::timerEvent( QTimerEvent* )

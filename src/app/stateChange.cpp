@@ -137,7 +137,7 @@ MainWindow::engineStateChanged( Engine::State state )
                 KConfigGroup config = Codeine::config( "General" );
                 const QString prettyUrl = url.prettyUrl();
 
-                QStringList urls = config.readPathListEntry( "Recent Urls" );
+                QStringList urls = config.readPathEntry( "Recent Urls", QStringList() );
                 urls.remove( prettyUrl );
                 config.writePathEntry( "Recent Urls", urls << prettyUrl );
             }
