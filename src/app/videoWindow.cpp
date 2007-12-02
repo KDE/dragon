@@ -169,7 +169,7 @@ void
 VideoWindow::seek( qint64 pos )
 {
     DEBUG_BLOCK
-    bool wasPaused = false;
+//    bool wasPaused = false;
 
     // If we seek to the end the track ended event is sent, but it is
     // delayed as it happens in xine-event loop and before that we are
