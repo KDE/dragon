@@ -298,11 +298,6 @@ MainWindow::setupActions()
     videoSettings->setShortcut( Qt::Key_V );
     connect( videoSettings, SIGNAL( triggered() ), this, SLOT( configure() ) );
     addToAc( videoSettings )
-    
-    KAction* configureAction = new KAction( KIcon("configure"), i18n("Configure xine..."), ac);
-    configureAction->setObjectName( "xine_settings" );
-    connect( configureAction, SIGNAL( triggered() ), this, SLOT( configure() ) );
-    addToAc( configureAction )
 
     KAction* positionSlider = new KAction( i18n("Position Slider"), ac );
     positionSlider->setObjectName( "position_slider" );
@@ -626,9 +621,6 @@ MainWindow::configure()
 
     if( sender == "video_settings" )
         Codeine::showVideoSettingsDialog( this );
-
-//    else if( sender == "xine_settings" )
-//        Codeine::showXineConfigurationDialog( this, *engine() );
 }
 
 void
