@@ -20,7 +20,6 @@
 #include "mainWindow.h"
 #include "mxcl.library.h"
 #include "theStream.h"
-#include "videoSettings.h" //FIXME unfortunate
 #include "videoWindow.h"
 
 
@@ -69,9 +68,6 @@ MainWindow::engineStateChanged( Engine::State state )
     }
 
     debug() << "updated actions" << endl;
-    /// update VideoSettingsDialog instance
-    VideoSettingsDialog::stateChanged( this, state );
-
 
     /// update menus
     {

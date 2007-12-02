@@ -293,12 +293,6 @@ MainWindow::setupActions()
 
  //   new KAction( i18n("&Capture Frame"), "frame_image", Key_C, this, SLOT(captureFrame()), ac, "capture_frame" );
 
-    KAction* videoSettings = new KAction( KIcon( "configure" ), i18n("Video Settings..."), ac );
-    videoSettings->setObjectName( "video_settings" );
-    videoSettings->setShortcut( Qt::Key_V );
-    connect( videoSettings, SIGNAL( triggered() ), this, SLOT( configure() ) );
-    addToAc( videoSettings )
-
     KAction* positionSlider = new KAction( i18n("Position Slider"), ac );
     positionSlider->setObjectName( "position_slider" );
     positionSlider->setDefaultWidget( m_positionSlider );
@@ -612,15 +606,6 @@ MainWindow::fullScreenToggled( bool isFullScreen )
 
     // prevent videoWindow() moving around when mouse moves 
     //setCentralWidget( isFullScreen ? 0 : videoWindow() ); //deletes videoWindow() when cleared
-}
-
-void
-MainWindow::configure()
-{
-    const Q3CString sender = this->sender()->name();
-
-    if( sender == "video_settings" )
-        Codeine::showVideoSettingsDialog( this );
 }
 
 void

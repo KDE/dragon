@@ -32,7 +32,6 @@ namespace Codeine
       void play();
       void playMedia( bool show_welcome_dialog = false );
 
-      void configure();
       void streamInformation();
 
    private slots:

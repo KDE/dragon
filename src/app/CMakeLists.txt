@@ -1,7 +1,6 @@
 set(videoplayer_SRCS
     videoWindow.cpp
     theStream.cpp
-    videoSettings.cpp
     actions.cpp
     stateChange.cpp
     playDialog.cpp

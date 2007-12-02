@@ -62,9 +62,13 @@ namespace Codeine
             return title;
         else if (!title.isEmpty() && !artist.isEmpty())
             return artist + " - " + title;
-        else if (url.protocol() != "http" && !url.fileName().isEmpty()) {
+        else if (url.protocol() != "http" && !url.fileName().isEmpty()) 
+        {
             const QString n = url.fileName();
-            return KUrl::decode_string( n.left( n.findRev( '.' ) ).replace( '_', ' ' ) ); }
+            //toLatin1 sense fromPercentEncoding takes a QByteArray
+            //I'm not sure about this whole method though, should double check that titles make sense
+            return QUrl::fromPercentEncoding( n.left( n.lastIndexOf( '.' ) ).replace( '_', ' ' ).toLatin1() ); 
+        }
         else
             return url.prettyUrl();
     }
