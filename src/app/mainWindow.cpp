@@ -20,6 +20,7 @@
 
 #include <q3cstring.h>
 #include <q3popupmenu.h>  //because XMLGUI is poorly designed
+#include <QActionGroup>
 #include <qdesktopwidget.h>
 #include <QDragEnterEvent>
 #include <QDropEvent>
@@ -141,8 +142,24 @@ MainWindow::MainWindow()
         make_menu( "aspect_ratio_menu", i18n( "Aspect &Ratio" ) );
         #undef make_menu
 
-        Codeine::insertAspectRatioMenuItems( menu ); //so we don't have to include xine.h here
-
+        {
+            m_aspectRatios = new QActionGroup( this );
+            m_aspectRatios->setExclusive( true );
+            #define make_ratio_action( text, objectname ) \
+            { \
+                QAction* ratioAction = new QAction( this, objectname ); \
+                ratioAction->setText( text ); \
+                ratioAction->setToggleAction( true ); \
+                m_aspectRatios->addAction( ratioAction ); \
+                ac->addAction( objectname, ratioAction ); \
+            }
+            make_ratio_action( i18n( "Determine &Automatically" ), "ratio_auto" );
+            make_ratio_action( i18n( "&4:3" ), "ratio_golden" );
+            make_ratio_action( i18n( "Ana&morphic (16:9)" ), "ratio_anamorphic" );
+            #undef make_ratio_action
+            ac->action( "ratio_auto" )->toggle();
+            m_aspectRatios->addTo( ac->action( "aspect_ratio_menu" )->menu() );
+        }
         settings->addSeparator();
     }
     {

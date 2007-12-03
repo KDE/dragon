@@ -75,8 +75,6 @@ MainWindow::engineStateChanged( Engine::State state )
 
         // the toolbar play button is always enabled, but the menu item
         // is disabled if we are empty, this looks more sensible
-        const QMenu* file_menu = menu( "file" );
-        const QMenu* settings_menu = menu( "settings" );
         PlayAction* playAction = static_cast<PlayAction*>( actionCollection()->action("play") );
         playAction->setEnabled( state != Empty );
         playAction->setPlaying( state == Playing );

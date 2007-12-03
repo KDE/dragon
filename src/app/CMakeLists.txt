@@ -7,7 +7,6 @@ set(videoplayer_SRCS
     listView.cpp
     adjustSizeButton.cpp
     fullScreenAction.cpp
-    insertAspectRatioMenuItems.cpp
     playlistFile.cpp
     volumeAction.cpp
     ../mxcl.library.cpp

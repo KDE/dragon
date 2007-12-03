@@ -10,9 +10,11 @@
 #include <kxmlguiwindow.h>
 
 class KUrl;
+class QActionGroup;
 class QLabel;
 class QMenu;
 class QSlider;
+
 
 
 namespace Codeine
@@ -65,6 +67,7 @@ namespace Codeine
       QLabel  *m_timeLabel;
       QLabel  *m_titleLabel;
 
+      QActionGroup *m_aspectRatios;
       //undefined
       MainWindow( const MainWindow& );
       MainWindow &operator=( const MainWindow& );
