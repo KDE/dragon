@@ -60,7 +60,7 @@ MainWindow::engineStateChanged( Engine::State state )
         enableIf( "fullscreen", (Playing | Paused) );
         enableIf( "reset_zoom", ~Empty && !isFullScreen );
         enableIf( "information", ~Empty );
-        enableIf( "video_settings", (Playing | Paused) );
+//        enableIf( "video_settings", (Playing | Paused) );
         enableIf( "volume", (Playing | Paused) );
         #undef enableIf
 
@@ -75,24 +75,16 @@ MainWindow::engineStateChanged( Engine::State state )
 
         // the toolbar play button is always enabled, but the menu item
         // is disabled if we are empty, this looks more sensible
-        QMenu * const file_menu = menu( "file" );
-        QMenu * const settings_menu = menu( "settings" );
-        const int play_id = file_menu->idAt( 2 );
-        file_menu->setItemEnabled( play_id, state != Empty );
-
-        // menus are clearer when handled differently to toolbars
-        // KDE has a shit special action for this, but it stupidly changes
-        // the toolbar icon too.
-        // TODO do this from the playAction since we do it in context menu too
-        const KGuiItem item = (state == Playing) ? KGuiItem( i18n("&Pause"), "player_pause" ) : KGuiItem( i18n("&Play"), "player_play" );
-        file_menu->changeItem( play_id, item.iconSet(), item.text() );
-        file_menu->setItemChecked( play_id, false );
-
-        settings_menu->setItemEnabled( AspectRatioMenuItemId, state & (Playing | Paused) && TheStream::hasVideo() );
+        const QMenu* file_menu = menu( "file" );
+        const QMenu* settings_menu = menu( "settings" );
+        PlayAction* playAction = static_cast<PlayAction*>( actionCollection()->action("play") );
+        playAction->setEnabled( state != Empty );
+        playAction->setPlaying( state == Playing );
+        actionCollection()->action("aspect_ratio_menu")->setEnabled( state & (Playing | Paused) && TheStream::hasVideo() );
 
         // set correct aspect ratio
         if( state == Loaded )
-            static_cast<QMenu*>(child( "aspect_ratio_menu" ))->setItemChecked( TheStream::aspectRatio(), true );
+            actionCollection()->action("aspect_ratio_menu")->menu()->setItemChecked( TheStream::aspectRatio(), true );
     }
     debug() << "updated menus" << endl;
 

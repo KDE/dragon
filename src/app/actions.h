@@ -18,10 +18,11 @@ namespace Codeine
    Q_OBJECT
    public:
       PlayAction( QObject *receiver, const char *slot, KActionCollection* );
-
+      void setPlaying( bool playing );
    protected:
       virtual void setChecked( bool );
    };
 }
 
 #endif
+

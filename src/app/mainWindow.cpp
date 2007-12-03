@@ -123,27 +123,27 @@ MainWindow::MainWindow()
     }
 
     {
-        QMenu *menu = 0, *settings = static_cast<QMenu*>(factory()->container( "settings", this ));
-        int id = SubtitleChannelsMenuItemId, index = 0;
-
+        KActionCollection* ac = actionCollection();
+        QMenu *menu = 0;
+        QAction *menuAction = 0; 
+        QMenu *settings = static_cast<QMenu*>(factory()->container( "settings", this ));
         #define make_menu( name, text ) \
-                menu = new QMenu( text, this ); \
-                menu->setObjectName( name ); \
-                menu->setCheckable( true ); \
+                menu = settings->addMenu( text ); \
+                menuAction = menu->menuAction(); \
+                menuAction->setObjectName( name ); \
+                menuAction->setEnabled( false ); \
                 connect( menu, SIGNAL(activated( int )), engine(), SLOT(setStreamParameter( int )) ); \
                 connect( menu, SIGNAL(aboutToShow()), SLOT(aboutToShowMenu()) ); \
-                settings->insertItem( text, menu, id, index ); \
-                settings->setItemEnabled( id, false ); \
-                id++, index++;
+                ac->addAction( name, menuAction );
 
-        make_menu( "subtitle_channels_menu", i18n( "&Subtitles" ) );
-        make_menu( "audio_channels_menu", i18n( "A&udio Channels" ) );
+ //       make_menu( "subtitle_channels_menu", i18n( "&Subtitles" ) );
+ //       make_menu( "audio_channels_menu", i18n( "A&udio Channels" ) );
         make_menu( "aspect_ratio_menu", i18n( "Aspect &Ratio" ) );
         #undef make_menu
 
         Codeine::insertAspectRatioMenuItems( menu ); //so we don't have to include xine.h here
 
-        settings->insertSeparator( index );
+        settings->addSeparator();
     }
     {
         QObjectList list = toolBar()->queryList( "KToolBarButton" );

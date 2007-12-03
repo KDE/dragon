@@ -18,9 +18,24 @@ namespace Codeine
             : KToggleAction( i18n("Play"), ac )
      {
           setObjectName( "play" );
+          setIcon( KIcon( "media-playback-start" ) );
           setShortcut( Qt::Key_Space );
           ac->addAction( objectName(), this );
           connect( this, SIGNAL( toggled( bool ) ), receiver, slot );
+     }
+
+     void PlayAction::setPlaying( bool playing )
+     {
+        if( playing )
+        {
+            setIcon( KIcon( "media-playback-pause" ) );
+            setText( i18n("&Pause") );
+        }
+        else 
+        {
+            setIcon( KIcon( "media-playback-start" ) );
+            setText( i18n("&Play") );
+        }
      }
 
     void
