@@ -5,9 +5,9 @@
 #define CODEINE_THESTREAM_H
 
 #include "configfn.h"  // needed for inline functions
-#include <kurl.h>    // larger :( but no macros at least
-#include <qsize.h>   // small header
-#include <qstring.h> // small header
+#include <KUrl>    // larger :( but no macros at least
+#include <QSize>   // small header
+#include <QString> // small header
 
 /// for purely static classes
 #define CODEINE_NO_EXPORT( T ) \
@@ -34,6 +34,9 @@ namespace Codeine
       static QSize defaultVideoSize();
 
       static int aspectRatio();
+      static QAction* aspectRatioAction();
+      static void addRatio( int, QAction* );
+
       static int subtitleChannel();
       static int audioChannel();
 
@@ -44,6 +47,8 @@ namespace Codeine
             { return KGlobal::config()->hasGroup( url().prettyUrl() ); }
 
       static    KConfigGroup profile();
+    private:
+      static QHash<int, QAction*> s_aspectRatioActions;
    };
 }
 

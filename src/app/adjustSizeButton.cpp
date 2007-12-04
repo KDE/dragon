@@ -5,14 +5,11 @@
 #include <kguiitem.h>
 #include <kpushbutton.h>
 
-#include <Q3Frame>
-#include <Q3HBoxLayout>
-#include <Q3VBoxLayout>
-#include <qapplication.h>
-#include <qevent.h>
-#include <qlabel.h>
-#include <qlayout.h>
-#include <qpainter.h>
+#include <QApplication>
+#include <QEvent>
+#include <QLabel>
+#include <QLayout>
+#include <QPainter>
 #include <QTimerEvent>
 
 #include "adjustSizeButton.h"
@@ -26,7 +23,7 @@ QString i18n( const char *text );
 namespace Codeine
 {
     AdjustSizeButton::AdjustSizeButton( QWidget *parent )
-            : Q3Frame( parent )
+            : QFrame( parent )
             , m_counter( 0 )
             , m_stage( 1 )
             , m_offset( 0 )
@@ -34,26 +31,34 @@ namespace Codeine
         parent->installEventFilter( this );
 
         setPalette( QApplication::palette() ); //videoWindow has different palette
-        setFrameStyle( Q3Frame::Plain | Q3Frame::Box );
+        setFrameStyle( QFrame::Plain | QFrame::Box );
 
         m_preferred = new KPushButton( KGuiItem( i18n("Preferred Scale"), "viewmag" ), this );
-        connect( m_preferred, SIGNAL(clicked()), qApp->mainWidget(), SLOT(adjustSize()) );
+        connect( m_preferred, SIGNAL(clicked()), Codeine::mainWindow(), SLOT(adjustSize()) );
         connect( m_preferred, SIGNAL(clicked()), SLOT(deleteLater()) );
 
         m_oneToOne = new KPushButton( KGuiItem( i18n("Scale 100%"), "viewmag1" ), this );
         connect( m_oneToOne, SIGNAL(clicked()), (QObject*)videoWindow(), SLOT(resetZoom()) );
         connect( m_oneToOne, SIGNAL(clicked()), SLOT(deleteLater()) );
 
-        Q3BoxLayout *hbox = new Q3HBoxLayout( this, 8, 6 );
-        Q3BoxLayout *vbox = new Q3VBoxLayout( hbox );
+        QBoxLayout *hbox = new QHBoxLayout( this );
+        hbox->setMargin( 8 );
+        hbox->setSpacing( 6 );
+        QBoxLayout *vbox = new QVBoxLayout( this );
+        hbox->addLayout( vbox );
         vbox->addWidget( new QLabel( i18n( "<b>Adjust video scale?" ), this ) );
         vbox->addWidget( m_preferred );
         vbox->addWidget( m_oneToOne );
-        hbox->addWidget( m_thingy = new Q3Frame( this ) );
+        hbox->addWidget( m_thingy = new QFrame( this ) );
 
         m_thingy->setFixedWidth( fontMetrics().width( "X" ) );
-        m_thingy->setFrameStyle( Q3Frame::Plain | Q3Frame::Box );
-        m_thingy->setPaletteForegroundColor( paletteBackgroundColor().dark() );
+        m_thingy->setFrameStyle( QFrame::Plain | QFrame::Box );
+        {
+            QPalette palette;
+            QPalette thisPalette = this->palette();
+            palette.setColor( m_thingy->backgroundRole(), palette.color( QPalette::Window ).darker() );
+            m_thingy->setPalette(palette);
+        }
 
         QEvent e( QEvent::Resize );
         eventFilter( 0, &e );
@@ -67,7 +72,7 @@ namespace Codeine
     void
     AdjustSizeButton::timerEvent( QTimerEvent* )
     {
-        Q3Frame *&h = m_thingy;
+        QFrame *&h = m_thingy;
 
         switch( m_stage )
         {
@@ -84,9 +89,10 @@ namespace Codeine
 
         case 2: //fill in pause timer bar
             if( m_counter < h->height() - 3 )
-                QPainter( h ).fillRect( 2, 2, h->width() - 4, m_counter, palette().active().highlight() );
+                QPainter( h ).fillRect( 2, 2, h->width() - 4, m_counter
+                    , palette().color( QPalette::Active, QPalette::Highlight ) );
 
-            if( !hasMouse() )
+            if( !testAttribute(Qt::WA_UnderMouse)  )
                 m_counter++;
 
             if( m_counter > h->height() + 5 ) //pause for 360ms before lowering
@@ -97,7 +103,7 @@ namespace Codeine
             break;
 
         case 3: //lower
-            if( hasMouse() ) {
+            if( testAttribute(Qt::WA_UnderMouse)  ) {
                 m_stage = 1;
                 m_counter = 0;
                 m_thingy->repaint();
@@ -112,7 +118,7 @@ namespace Codeine
     }
 
     bool
-    AdjustSizeButton::eventFilter( QObject *o, QEvent *e )
+    AdjustSizeButton::eventFilter( QObject */*o*/, QEvent *e )
     {
         if( e->type() == QEvent::Resize ) {
             const QSize preferredSize = TheStream::profile().readEntry<QSize>( "Preferred Size", QSize() );

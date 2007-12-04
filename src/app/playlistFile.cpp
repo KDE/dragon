@@ -7,11 +7,10 @@
 
 #include "codeine.h"
 #include "debug.h"
-#include <kio/netaccess.h>
-#include <klocale.h>
+#include <KIO/NetAccess>
+#include <KLocale>
 #include "playlistFile.h"
-#include <qfile.h>
-#include <q3textstream.h>
+#include <QFile>
 #include <mxcl.library.h>
 
 
@@ -24,9 +23,9 @@ PlaylistFile::PlaylistFile( const KUrl &url )
 
     QString &path = m_path = url.path();
 
-    if( path.endsWith( ".pls", false ) )
+    if( path.endsWith( ".pls", Qt::CaseInsensitive ) )
         m_type = PLS; else
-    if( path.endsWith( ".m3u", false ) )
+    if( path.endsWith( ".m3u", Qt::CaseInsensitive ) )
         m_type = M3U;
     else {
         m_type = Unknown;
@@ -44,7 +43,7 @@ PlaylistFile::PlaylistFile( const KUrl &url )
 
     QFile file( path );
     if( file.open( QIODevice::ReadOnly ) ) {
-        Q3TextStream stream( &file );
+        QTextStream stream( &file );
         switch( m_type ) {
             case M3U: parseM3uFile( stream ); break;
             case PLS: parsePlsFile( stream ); break;
@@ -68,7 +67,7 @@ PlaylistFile::~PlaylistFile()
 
 
 void
-PlaylistFile::parsePlsFile( Q3TextStream &stream )
+PlaylistFile::parsePlsFile( QTextStream &stream )
 {
     DEBUG_BLOCK
 
@@ -91,7 +90,7 @@ PlaylistFile::parsePlsFile( Q3TextStream &stream )
 
 
 void
-PlaylistFile::parseM3uFile( Q3TextStream &stream )
+PlaylistFile::parseM3uFile( QTextStream &stream )
 {
     DEBUG_BLOCK
 
@@ -99,7 +98,7 @@ PlaylistFile::parseM3uFile( Q3TextStream &stream )
     {
         line = stream.readLine();
 
-        if( line.startsWith( "#EXTINF", false ) )
+        if( line.startsWith( "#EXTINF", Qt::CaseInsensitive ) )
             continue;
 
         else if( !line.startsWith( "#" ) && !line.isEmpty() )
@@ -113,7 +112,7 @@ PlaylistFile::parseM3uFile( Q3TextStream &stream )
             if( KUrl::isRelativeUrl( line ) )
                 url.setPath( m_url.directory() + line );
             else
-                url = KUrl::fromPathOrUrl( line );
+                url = KUrl( line );
 
             m_contents += url;
             m_isValid = true;

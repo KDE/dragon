@@ -26,7 +26,10 @@ namespace Codeine
       MainWindow();
      ~MainWindow();
 
+      static MainWindow *s_instance;
+
       friend int ::main( int, char** );
+      friend QWidget* mainWindow();
 
       enum { SubtitleChannelsMenuItemId = 2000, AudioChannelsMenuItemId, AspectRatioMenuItemId };
 
@@ -72,6 +75,9 @@ namespace Codeine
       MainWindow( const MainWindow& );
       MainWindow &operator=( const MainWindow& );
    };
+
 }
+
+
 
 #endif

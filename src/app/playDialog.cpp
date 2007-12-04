@@ -14,9 +14,6 @@
 #include <kpushbutton.h>
 #include <kstandardguiitem.h>
 
-#include <Q3GridLayout>
-#include <Q3HBoxLayout>
-#include <Q3VBoxLayout>
 #include <qfile.h>
 #include <qlabel.h>
 #include <qlayout.h>
@@ -32,35 +29,41 @@ namespace Codeine {
 PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
         : QDialog( parent )
 {
-    setCaption( KDialog::makeStandardCaption( i18n("Play Media") ) );
+    setWindowTitle( KDialog::makeStandardCaption( i18n("Play Media") ) );
 
     QSignalMapper *mapper = new QSignalMapper( this );
     QWidget *o, *closeButton = new KPushButton( KStandardGuiItem::close(), this );
-    Q3BoxLayout *hbox, *vbox = new Q3VBoxLayout( this, 15, 20 );
+    QBoxLayout *hbox = new QVBoxLayout( this );
+    QBoxLayout *vbox = new QVBoxLayout( this );
+    hbox->setMargin( 15 );  vbox->setMargin( 15 );
+    hbox->setSpacing( 20 ); vbox->setSpacing( 20 );
 
     vbox->addWidget( new QLabel( i18n( "What media would you like to play?" ), this ) );
 
-    Q3GridLayout *grid = new Q3GridLayout( vbox, 1, 3, 20 );
+    QGridLayout *grid = new QGridLayout( this );
+    vbox->addLayout( grid );
+    grid->setMargin( 20 );
 
     //TODO use the kguiItems from the actions
     mapper->setMapping( o = new KPushButton( KGuiItem( i18n("Play File..."), "fileopen" ), this ), FILE );
     connect( o, SIGNAL(clicked()), mapper, SLOT(map()) );
-    grid->QLayout::add( o );
+    grid->addWidget( o, 0, 0 );
 
     mapper->setMapping( o = new KPushButton( KGuiItem( i18n("Play VCD"), "cdaudio_unmount" ), this ), VCD );
     connect( o, SIGNAL(clicked()), mapper, SLOT(map()) );
-    grid->QLayout::add( o );
+    grid->addWidget( o, 0, 1 );
 
     mapper->setMapping( o = new KPushButton( KGuiItem( i18n("Play DVD"), "dvd_unmount" ), this ), DVD );
     connect( o, SIGNAL(clicked()), mapper, SLOT(map()) );
-    grid->QLayout::add( o );
+    grid->addWidget( o, 0, 2 );
 
     mapper->setMapping( closeButton, QDialog::Rejected );
     connect( closeButton, SIGNAL(clicked()), mapper, SLOT(map()) );
 
     createRecentFileWidget( vbox );
 
-    hbox = new Q3HBoxLayout( vbox );
+    hbox = new QHBoxLayout( this );
+    vbox->addLayout( hbox );
     hbox->addItem( new QSpacerItem( 10, 10, QSizePolicy::Expanding ) );
 
     if( be_welcome_dialog ) {
@@ -75,7 +78,7 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
 }
 
 void
-PlayDialog::createRecentFileWidget( Q3BoxLayout *layout )
+PlayDialog::createRecentFileWidget( QBoxLayout *layout )
 {
     K3ListView *lv;
     lv = new Codeine::ListView( this );
@@ -92,7 +95,7 @@ PlayDialog::createRecentFileWidget( Q3BoxLayout *layout )
             urls.removeAt( urls.indexOf(it) );
         if( it.protocol() == "file" && !QFile::exists( it.path() ) )
             //remove stale entries
-            urls.remove( it );
+            urls.removeAll( it );
     }
 
     for( KUrl::List::ConstIterator it = urls.begin(), end = urls.end(); it != end; ++it ) {

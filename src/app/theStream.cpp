@@ -1,15 +1,22 @@
 // (C) 2005 Max Howell (max.howell@methylblue.com)
 // See COPYING file for licensing information
 
-#include <kurl.h>
-#include <klocale.h>
+#include <QHash>
+
+#include <KUrl>
+#include <KLocale>
+#include <Phonon/VideoWidget>
 
 #include "mxcl.library.h"
 #include "theStream.h"
 #include "videoWindow.h"
 
+
 namespace Codeine
 {
+
+    QHash<int, QAction*> TheStream::s_aspectRatioActions;
+
     KConfigGroup
     TheStream::profile()
     {
@@ -42,13 +49,30 @@ namespace Codeine
         return QSize();
     }
 
-    int TheStream::aspectRatio()
+    int
+    TheStream::aspectRatio()
+    {
+        return engine()->m_vWidget->aspectRatio();
+    }
+
+    QAction*
+    TheStream::aspectRatioAction()
+    {
+        return s_aspectRatioActions[ engine()->m_vWidget->aspectRatio() ];
+    }
+
+    void
+    TheStream::addRatio( int aspectEnum, QAction* ratioAction )
+    {
+        s_aspectRatioActions[aspectEnum] = ratioAction; 
+    }
+
+    int
+    TheStream::subtitleChannel()
             { return 0; }
 
-    int TheStream::subtitleChannel()
-            { return 0; }
-
-    int TheStream::audioChannel()
+    int
+    TheStream::audioChannel()
             { return 0; }
 
     QString

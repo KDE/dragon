@@ -1,10 +1,10 @@
 // Copyright 2004 Max Howell (max.howell@methylblue.com)
 // See COPYING file for licensing information
 
-#include <kconfig.h>
-#include <klocale.h>
-#include <kglobal.h>
-#include <ktoolbar.h>
+#include <KConfig>
+#include <KLocale>
+#include <KGlobal>
+#include <KToolBar>
 
 #include <q3popupmenu.h>
 #include <Q3MainWindow>
@@ -82,20 +82,21 @@ MainWindow::engineStateChanged( Engine::State state )
 
         // set correct aspect ratio
         if( state == Loaded )
-            actionCollection()->action("aspect_ratio_menu")->menu()->setItemChecked( TheStream::aspectRatio(), true );
+            TheStream::aspectRatioAction()->setChecked( true );
     }
     debug() << "updated menus" << endl;
 
     /// update statusBar
     {
         using namespace Engine;
-        m_timeLabel->setShown( state & (Playing | Paused) );
+        m_timeLabel->setVisible( state & (Playing | Paused) );
     }
     debug() << "updated statusbar" << endl;
 
     /// update position slider
     switch( state )
     {
+        case Engine::Uninitialised:
         case Engine::Empty:
             m_positionSlider->setEnabled( false );
             break;
@@ -106,7 +107,7 @@ MainWindow::engineStateChanged( Engine::State state )
         case Engine::Playing:
         case Engine::Paused:
             m_positionSlider->setEnabled( TheStream::canSeek() );
-            break;
+        
     }
     debug() << "update position slider" << endl;
 
@@ -117,14 +118,14 @@ MainWindow::engineStateChanged( Engine::State state )
         #ifndef NO_SKIP_PR0N
         // ;-)
         const QString url_string = url.url();
-        if( !(url_string.contains( "porn", false ) || url_string.contains( "pr0n", false )) )
+        if( !(url_string.contains( "porn", Qt::CaseInsensitive ) || url_string.contains( "pr0n", Qt::CaseInsensitive )) )
         #endif
             if( url.protocol() != "dvd" && url.protocol() != "vcd" ) {
                 KConfigGroup config = Codeine::config( "General" );
                 const QString prettyUrl = url.prettyUrl();
 
                 QStringList urls = config.readPathEntry( "Recent Urls", QStringList() );
-                urls.remove( prettyUrl );
+                urls.removeAll( prettyUrl );
                 config.writePathEntry( "Recent Urls", urls << prettyUrl );
             }
 
@@ -136,6 +137,7 @@ MainWindow::engineStateChanged( Engine::State state )
     /// set titles
     switch( state )
     {
+        case Engine::Uninitialised:
         case Engine::Empty:
             m_titleLabel->setText( i18n("No media loaded") );
             break;
@@ -151,24 +153,25 @@ MainWindow::engineStateChanged( Engine::State state )
     debug() << "set titles " << endl;
 
     /// set toolbar states
-    QWidget *dvd_button = (QWidget*)toolBar()->child( "toolbutton_toggle_dvd_menu" );
+    QWidget *dvd_button = toolBar()->findChild< QWidget* >( "toolbutton_toggle_dvd_menu" );
     if (dvd_button)
-        dvd_button->setShown( state != Engine::Empty && url.protocol() == "dvd" );
+        dvd_button->setVisible( state != Engine::Empty && url.protocol() == "dvd" );
 
-    if( isFullScreen && !toolbar->hasMouse() ) {
+    if( isFullScreen && !toolbar->testAttribute( Qt::WA_UnderMouse ) ) {
         switch( state ) {
         case Engine::TrackEnded:
             toolbar->show();
 
             if( videoWindow()->isActiveWindow() ) {
                 //FIXME dual-screen this seems to still show
-                QContextMenuEvent e( QContextMenuEvent::Other, QPoint(), Qt::MetaModifier );
+                QContextMenuEvent e( QContextMenuEvent::Other, QPoint() );
                 QApplication::sendEvent( videoWindow(), &e );
             }
             break;
         case Engine::Empty:
         case Engine::Loaded:
         case Engine::Paused:
+        case Engine::Uninitialised:
             toolBar()->show();
             break;
         case Engine::Playing:

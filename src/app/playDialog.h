@@ -4,12 +4,12 @@
 #ifndef CODEINEPLAYDIALOG_H
 #define CODEINEPLAYDIALOG_H
 
-#include <kurl.h>
-#include <qdialog.h>
+#include <KUrl>
+#include <QDialog>
 
 class K3ListView;
-class Q3BoxLayout;
 class Q3ListViewItem;
+class QBoxLayout;
 
 namespace Codeine
 {
@@ -27,7 +27,7 @@ namespace Codeine
       void done( Q3ListViewItem* );
 
    private:
-      void createRecentFileWidget( Q3BoxLayout* );
+      void createRecentFileWidget( QBoxLayout* );
 
       KUrl m_url;
    };

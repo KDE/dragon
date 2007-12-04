@@ -41,10 +41,10 @@ namespace Codeine
     void
     PlayAction::setChecked( bool b )
     {
-        if( videoWindow()->state() == Engine::Empty && sender() && Q3CString(sender()->className()) == "KToolBarButton" ) {
+        if( videoWindow()->state() == Engine::Empty && sender() && QByteArray( sender()->metaObject()->className() ) == "KToolBarButton" ) {
             // clicking play when empty means open PlayMediaDialog, but we have to uncheck the toolbar button
             // as KDElibs sets that checked automatically..
-            ((QToolButton*)sender())->setOn( false );
+            setChecked( false );
         }
         else
             KToggleAction::setChecked( b );

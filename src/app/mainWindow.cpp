@@ -4,32 +4,34 @@
 #include <cstdlib>
 
 
-#include <kapplication.h>
-#include <kcmdlineargs.h>
-#include <kcursor.h>
-#include <kfiledialog.h>      //::open()
-#include <kglobalsettings.h> //::timerEvent()
-#include <kio/netaccess.h>
-#include <klocale.h>
-#include <ksqueezedtextlabel.h>
-#include <kstatusbar.h>
-#include <ktoolbar.h>
+#include <KApplication>
+#include <KCmdLineArgs>
+#include <KCursor>
+#include <KFileDialog>      //::open()
+#include <KGlobalSettings> //::timerEvent()
+#include <KIO/NetAccess>
+#include <KLocale>
+#include <KSqueezedTextLabel>
+#include <KStatusBar>
+#include <KToolBar>
 #include <k3urldrag.h>
-#include <kwindowsystem.h>
-#include <kxmlguifactory.h>
+#include <KWindowSystem>
+#include <KXMLGUIFactory>
+
+#include <Phonon/VideoWidget>
 
 #include <q3cstring.h>
 #include <q3popupmenu.h>  //because XMLGUI is poorly designed
 #include <QActionGroup>
-#include <qdesktopwidget.h>
+#include <QDesktopWidget>
 #include <QDragEnterEvent>
 #include <QDropEvent>
-#include <qevent.h>        //::stateChanged()
+#include <QEvent>        //::stateChanged()
 #include <QKeyEvent>
 #include <QLabel>
-#include <qlayout.h>      //ctor
+#include <QLayout>      //ctor
 #include <QMouseEvent>
-#include <qobject.h>
+#include <QObject>
 #include <QTimer>
 #include <QTimerEvent>
 
@@ -58,9 +60,10 @@ using namespace Qt;
 
 namespace Codeine {
 
-
+    MainWindow *MainWindow::s_instance = 0;
     /// @see codeine.h
-    QWidget *mainWindow() { return kapp->mainWidget(); }
+    QWidget* mainWindow() { return MainWindow::s_instance; }
+
 
 
 MainWindow::MainWindow()
@@ -145,17 +148,18 @@ MainWindow::MainWindow()
         {
             m_aspectRatios = new QActionGroup( this );
             m_aspectRatios->setExclusive( true );
-            #define make_ratio_action( text, objectname ) \
+            #define make_ratio_action( text, objectname, aspectEnum ) \
             { \
                 QAction* ratioAction = new QAction( this, objectname ); \
                 ratioAction->setText( text ); \
                 ratioAction->setToggleAction( true ); \
                 m_aspectRatios->addAction( ratioAction ); \
+                TheStream::addRatio( aspectEnum, ratioAction ); \
                 ac->addAction( objectname, ratioAction ); \
             }
-            make_ratio_action( i18n( "Determine &Automatically" ), "ratio_auto" );
-            make_ratio_action( i18n( "&4:3" ), "ratio_golden" );
-            make_ratio_action( i18n( "Ana&morphic (16:9)" ), "ratio_anamorphic" );
+            make_ratio_action( i18n( "Determine &Automatically" ), "ratio_auto",  Phonon::VideoWidget::AspectRatioAuto );
+            make_ratio_action( i18n( "&4:3" ), "ratio_golden", Phonon::VideoWidget::AspectRatio4_3 );
+            make_ratio_action( i18n( "Ana&morphic (16:9)" ), "ratio_anamorphic", Phonon::VideoWidget::AspectRatio16_9 );
             #undef make_ratio_action
             ac->action( "ratio_auto" )->toggle();
             m_aspectRatios->addTo( ac->action( "aspect_ratio_menu" )->menu() );

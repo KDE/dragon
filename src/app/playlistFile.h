@@ -5,7 +5,7 @@
 #define CODEINE_PLAYLIST_FILE_H
 
 #include <kurl.h>
-#include <Q3TextStream>
+#include <QTextStream>
 
 class PlaylistFile
 {
@@ -22,8 +22,8 @@ public:
 
 private:
    /// both only return first url currently
-   void parsePlsFile( Q3TextStream& );
-   void parseM3uFile( Q3TextStream& );
+   void parsePlsFile( QTextStream& );
+   void parseM3uFile( QTextStream& );
 
    KUrl m_url;
    bool m_isRemoteFile;

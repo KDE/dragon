@@ -4,14 +4,14 @@
 #ifndef CODEINE_ADJUST_SIZE_BUTTON_H
 #define CODEINE_ADJUST_SIZE_BUTTON_H
 
-#include <q3frame.h>
-//Added by qt3to4:
-#include <QEvent>
-#include <QTimerEvent>
+#include <QFrame>
+
+class QEvent;
+class QTimerEvent;
 
 namespace Codeine
 {
-    class AdjustSizeButton : public Q3Frame
+    class AdjustSizeButton : public QFrame
     {
         Q_OBJECT
         int m_counter;
@@ -22,7 +22,7 @@ namespace Codeine
         QWidget *m_preferred;
         QWidget *m_oneToOne;
 
-        Q3Frame *m_thingy;
+        QFrame *m_thingy;
 
     public:
         AdjustSizeButton( QWidget *parent );

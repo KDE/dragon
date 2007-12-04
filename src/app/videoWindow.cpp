@@ -154,6 +154,7 @@ VideoWindow::state() const
             return Engine::Paused;
         break;
         case Phonon::ErrorState:
+        default:
             return Engine::Uninitialised;
         break;
     }
