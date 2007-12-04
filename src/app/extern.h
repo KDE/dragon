@@ -22,6 +22,8 @@
 #ifndef CODEINE_EXTERN_H
 #define CODEINE_EXTERN_H
 
+#include <QMenu>
+
 extern "C"
 {
    typedef struct xine_s xine_t;
