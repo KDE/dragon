@@ -8,7 +8,6 @@ set(videoplayer_SRCS
     adjustSizeButton.cpp
     fullScreenAction.cpp
     playlistFile.cpp
-    volumeAction.cpp
     ../mxcl.library.cpp
     main.cpp
     mainWindow.cpp )

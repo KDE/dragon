@@ -45,7 +45,6 @@
 #include "playDialog.h"  //::play()
 #include "playlistFile.h"
 #include "theStream.h"
-#include "volumeAction.h"
 #include "videoWindow.h"
 
 #ifndef NO_XTEST_EXTENSION
@@ -320,7 +319,6 @@ MainWindow::setupActions()
     addToAc( positionSlider )
    // positionSlider->setAutoSized( true ); PORTING, whats the replacement for this?
 
-    new VolumeAction( toolBar(), ac );
     #undef addToAc
 }
 
