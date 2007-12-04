@@ -1,9 +1,9 @@
 // (C) 2005 Max Howell (max.howell@methylblue.com)
 // See COPYING file for licensing information
 
-#include <klocale.h>
-#include <kguiitem.h>
-#include <kpushbutton.h>
+#include <KLocale>
+#include <KGuiItem>
+#include <KPushButton>
 
 #include <QApplication>
 #include <QEvent>

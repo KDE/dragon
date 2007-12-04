@@ -6,12 +6,12 @@
 #include "fullScreenAction.h"
 #include "videoWindow.h" //videoWindow()
 
-#include <kactioncollection.h>
-#include <kmainwindow.h>
-#include <klocale.h>
-#include <ktogglefullscreenaction.h>
+#include <KActionCollection>
+#include <KMainWindow>
+#include <KLocale>
+#include <KToggleFullScreenAction>
 #include <QEvent>
-#include <qwidget.h>
+#include <QWidget>
 
 FullScreenAction::FullScreenAction( QWidget* window, KActionCollection *parent )
         : KToggleAction( parent )

@@ -4,20 +4,17 @@
 #include "codeine.h"
 #include "mainWindow.h"
 
-#include <kaboutdata.h>
-#include <kapplication.h>
-#include <kcmdlineargs.h>
-#include <klocalizedstring.h>
-
-#include <X11/Xlib.h>
-
+#include <KAboutData>
+#include <KApplication>
+#include <KCmdLineArgs>
+#include <KLocalizedString>
 
 static KAboutData aboutData( APP_NAME, 0,
         ki18n(PRETTY_NAME), APP_VERSION,
         ki18n("A video player that has a usability focus"), KAboutData::License_GPL_V2,
         ki18n("Copyright 2006, Max Howell\nCopyright 2007, Ian Monroe"), KLocalizedString(),
         "http://www.methylblue.com/codeine/",
-        "codeine@monroe.nu" );
+        "ian@monroe.nu" );
 
 int
 main( int argc, char **argv )

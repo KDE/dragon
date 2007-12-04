@@ -4,11 +4,8 @@
 #include "actions.h"
 #include "debug.h"
 
-#include <qtoolbutton.h>
-//Added by qt3to4:
-#include <Q3CString>
-
-#include <klocale.h>
+#include <QToolButton>
+#include <KLocale>
 
 #include "videoWindow.h"
 

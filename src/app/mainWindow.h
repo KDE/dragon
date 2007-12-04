@@ -7,7 +7,7 @@
 #include "codeine.h"
 
 
-#include <kxmlguiwindow.h>
+#include <KXmlGuiWindow>
 
 class KUrl;
 class QActionGroup;

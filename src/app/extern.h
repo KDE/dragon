@@ -11,7 +11,6 @@ extern "C"
    typedef struct xine_s xine_t;
 }
 
-class Q3PopupMenu;
 class QWidget;
 
 namespace Codeine

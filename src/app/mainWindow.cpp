@@ -36,7 +36,6 @@
 #include <QTimerEvent>
 
 #include "actions.h"
-#include "configfn.h"
 #include "debug.h"
 #include "extern.h"         //dialog creation function definitions
 #include "fullScreenAction.h"

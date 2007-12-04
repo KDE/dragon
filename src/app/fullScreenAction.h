@@ -4,7 +4,7 @@
 #ifndef CODEINE_FULLSCREENACTION_H
 #define CODEINE_FULLSCREENACTION_H
 
-#include <ktoggleaction.h>
+#include <KToggleAction>
 
 class KActionCollection;
 

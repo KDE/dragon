@@ -4,8 +4,8 @@
 #ifndef CODEINEACTIONS_H
 #define CODEINEACTIONS_H
 
-#include <ktoggleaction.h>    //baseclass
-#include <kactioncollection.h> //convenience
+#include <KToggleAction>    //baseclass
+#include <KActionCollection> //convenience
 
 namespace Codeine
 {

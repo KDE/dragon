@@ -20,7 +20,6 @@
 #define CODEINE_DEBUG_PREFIX "engine"
 
 #include "actions.h"        //::seek() FIXME unfortunate
-#include "configfn.h"
 #include "debug.h"
 #include <KLocale>
 #include "mxcl.library.h"
