@@ -11,7 +11,5 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/src/app
     )
 
-add_definitions(-DQT3_SUPPORT -DQT3_SUPPORT_WARNINGS) 
-
 add_subdirectory( src/app )
 add_subdirectory( misc )

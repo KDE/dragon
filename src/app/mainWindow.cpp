@@ -31,14 +31,11 @@
 #include <KSqueezedTextLabel>
 #include <KStatusBar>
 #include <KToolBar>
-#include <k3urldrag.h>
 #include <KWindowSystem>
 #include <KXMLGUIFactory>
 
 #include <Phonon/VideoWidget>
 
-#include <q3cstring.h>
-#include <q3popupmenu.h>  //because XMLGUI is poorly designed
 #include <QActionGroup>
 #include <QDesktopWidget>
 #include <QDragEnterEvent>
@@ -116,29 +113,6 @@ MainWindow::MainWindow()
     setupGUI();
     //setStandardToolBarMenuEnabled( false ); //bah to setupGUI()!
     //toolBar()->show(); //it's possible it would be hidden, but we don't want that as no UI way to show it!
-
-    // only show dvd button when playing a dvd
-    {
-        struct KdeIsTehSuck : public QObject
-        {
-            virtual bool eventFilter( QObject*, QEvent *e )
-            {
-                if (e->type() != QEvent::LayoutHint)
-                    return false;
-
-                // basically, KDE shows all tool-buttons, even if they are
-                // hidden after it does any layout operation. Yay for KDE. Yay.
-                QWidget *button = ((KMainWindow*)mainWindow())
-                    ->toolBar()->findChild<QWidget*>( "toolbutton_toggle_dvd_menu" );
-                if (button)
-                    button->setVisible( TheStream::url().protocol() == "dvd" );
-                return false;
-            }
-        } *o;
-        o = new KdeIsTehSuck;
-        toolBar()->installEventFilter( o );
-        o->setParent( this );
-    }
 
     {
         KActionCollection* ac = actionCollection();
@@ -659,11 +633,9 @@ MainWindow::dragEnterEvent( QDragEnterEvent *e )
 void
 MainWindow::dropEvent( QDropEvent *e )
 {
-    KUrl::List list;
-    K3URLDrag::decode( e, list );
-
-    if( !list.isEmpty() )
-        open( list.first() );
+    KUrl::List uriList = KUrl::List::fromMimeData( e->mimeData() );
+    if( !uriList.isEmpty() )
+        open( uriList.first() );
     else
         engineMessage( i18n("Sorry, no media was found in the drop") );
 }

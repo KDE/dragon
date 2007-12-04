@@ -25,8 +25,7 @@
 #include <KUrl>
 #include <QDialog>
 
-class K3ListView;
-class Q3ListViewItem;
+class QListWidgetItem;
 class QBoxLayout;
 
 namespace Codeine
@@ -42,7 +41,7 @@ namespace Codeine
       enum DialogCode { FILE = QDialog::Accepted + 2, VCD, CDDA, DVD, RECENT_FILE };
 
    private slots:
-      void done( Q3ListViewItem* );
+      void done( QListWidgetItem* );
 
    private:
       void createRecentFileWidget( QBoxLayout* );

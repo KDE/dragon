@@ -22,26 +22,20 @@
 #include "listView.cpp"
 #include "playDialog.h"
 
-#include <k3listview.h>
-#include <kapplication.h>
-#include <kconfig.h>
-#include <kdialog.h>
-#include <klocale.h>
-#include <kguiitem.h>
-#include <kpushbutton.h>
-#include <kstandardguiitem.h>
+#include <KApplication>
+#include <KConfig>
+#include <KDialog>
+#include <KLocale>
+#include <KGuiItem>
+#include <KPushButton>
+#include <KStandardGuiItem>
 
-#include <qfile.h>
-#include <qlabel.h>
-#include <qlayout.h>
-#include <qsignalmapper.h>
-
-
-QString i18n( const char *text );
-
+#include <QFile>
+#include <QLabel>
+#include <QLayout>
+#include <QSignalMapper>
 
 namespace Codeine {
-
 
 PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
         : QDialog( parent )
@@ -97,9 +91,9 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
 void
 PlayDialog::createRecentFileWidget( QBoxLayout *layout )
 {
-    K3ListView *lv;
+    QListWidget *lv;
     lv = new Codeine::ListView( this );
-    lv->setColumnText( 1, i18n("Recently Played Media") );
+//    lv->setColumnText( 1, i18n("Recently Played Media") );
 
     const QStringList list1 = KConfigGroup( KGlobal::config(), "General" ).readPathEntry( "Recent Urls", QStringList() );
     KUrl::List urls;
@@ -117,21 +111,23 @@ PlayDialog::createRecentFileWidget( QBoxLayout *layout )
 
     for( KUrl::List::ConstIterator it = urls.begin(), end = urls.end(); it != end; ++it ) {
         const QString fileName = (*it).fileName();
-        new K3ListViewItem( lv, 0, (*it).url(), fileName.isEmpty() ? (*it).prettyUrl() : fileName );
+        //new QTableWidgetItem( lv, 0, (*it).url(), fileName.isEmpty() ? (*it).prettyUrl() : fileName );
+        QListWidgetItem* listItem = new QListWidgetItem(  fileName.isEmpty() ? (*it).prettyUrl() : fileName );
+        lv->addItem( listItem );
     }
 
-    if( lv->childCount() ) {
+    if( lv->count() ) {
         layout->addWidget( lv, 1 );
-        connect( lv, SIGNAL(executed( Q3ListViewItem* )), SLOT(done( Q3ListViewItem* )) );
+        connect( lv, SIGNAL(executed( QListWidget* )), SLOT(done( QListWidget* )) );
     }
     else
         delete lv;
 }
 
 void
-PlayDialog::done( Q3ListViewItem *item )
+PlayDialog::done( QListWidgetItem *item )
 {
-    m_url = item->text( 0 );
+    m_url = item->text();
     QDialog::done( RECENT_FILE );
 }
 
