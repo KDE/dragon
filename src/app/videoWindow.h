@@ -1,4 +1,3 @@
-// (C) 2005 Max Howell (max.howell@methylblue.com)
 /***********************************************************************
  * Copyright 2005  Max Howell <max.howell@methylblue.com>
  *           2007  Ian Monroe <ian@monroe.nu>
