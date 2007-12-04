@@ -84,7 +84,7 @@ PlayDialog::createRecentFileWidget( QBoxLayout *layout )
     lv = new Codeine::ListView( this );
     lv->setColumnText( 1, i18n("Recently Played Media") );
 
-    const QStringList list1 = Codeine::config( "General" ).readPathEntry( "Recent Urls", QStringList() );
+    const QStringList list1 = KConfigGroup( KGlobal::config(), "General" ).readPathEntry( "Recent Urls", QStringList() );
     KUrl::List urls;
 
     foreach( QString s, list1 )

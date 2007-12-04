@@ -44,7 +44,6 @@ namespace Codeine
       void engineStateChanged( Engine::State );
       void init();
       void showTime( int = -1 );
-      void setChannels( const QStringList& );
       void aboutToShowMenu();
       void fullScreenToggled( bool );
 

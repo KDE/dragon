@@ -88,8 +88,6 @@ namespace Codeine
         void stateChanged( Engine::State );
         void statusMessage( const QString& );
         void titleChanged( const QString& );
-        void channelsChanged( const QStringList& );
-    
     };
 
     //global function for general use by Codeine

@@ -75,8 +75,6 @@ MainWindow::MainWindow()
 
 //PORTING?    setWindowState( windowState() ^ Qt::WDestructiveClose ); //we are allocated on the stack
 
-    kapp->setMainWidget( this );
-
     new VideoWindow( this );
     m_positionSlider = videoWindow()->newPositionSlider();
 
@@ -96,8 +94,8 @@ MainWindow::MainWindow()
     // sizeHint width of statusbar seems to get stupidly large quickly
     statusBar()->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Maximum );
 
-    statusBar()->addWidget( m_titleLabel, 1, false );
-    statusBar()->addWidget( m_timeLabel, 0, true );
+    statusBar()->addWidget( m_titleLabel, 1 );
+    statusBar()->addPermanentWidget( m_timeLabel, 0);
     setupActions();
     setupGUI();
     //setStandardToolBarMenuEnabled( false ); //bah to setupGUI()!
@@ -114,15 +112,16 @@ MainWindow::MainWindow()
 
                 // basically, KDE shows all tool-buttons, even if they are
                 // hidden after it does any layout operation. Yay for KDE. Yay.
-                QWidget *button = (QWidget*)((KMainWindow*)mainWindow())->toolBar()->child( "toolbutton_toggle_dvd_menu" );
+                QWidget *button = ((KMainWindow*)mainWindow())
+                    ->toolBar()->findChild<QWidget*>( "toolbutton_toggle_dvd_menu" );
                 if (button)
-                    button->setShown( TheStream::url().protocol() == "dvd" );
+                    button->setVisible( TheStream::url().protocol() == "dvd" );
                 return false;
             }
         } *o;
         o = new KdeIsTehSuck;
         toolBar()->installEventFilter( o );
-        insertChild( o );
+        o->setParent( this );
     }
 
     {
@@ -149,9 +148,10 @@ MainWindow::MainWindow()
             m_aspectRatios->setExclusive( true );
             #define make_ratio_action( text, objectname, aspectEnum ) \
             { \
-                QAction* ratioAction = new QAction( this, objectname ); \
+                QAction* ratioAction = new QAction( this ); \
+                ratioAction->setObjectName( objectname ); \
                 ratioAction->setText( text ); \
-                ratioAction->setToggleAction( true ); \
+                ratioAction->setCheckable( true ); \
                 m_aspectRatios->addAction( ratioAction ); \
                 TheStream::addRatio( aspectEnum, ratioAction ); \
                 ac->addAction( objectname, ratioAction ); \
@@ -160,13 +160,13 @@ MainWindow::MainWindow()
             make_ratio_action( i18n( "&4:3" ), "ratio_golden", Phonon::VideoWidget::AspectRatio4_3 );
             make_ratio_action( i18n( "Ana&morphic (16:9)" ), "ratio_anamorphic", Phonon::VideoWidget::AspectRatio16_9 );
             #undef make_ratio_action
-            ac->action( "ratio_auto" )->toggle();
-            m_aspectRatios->addTo( ac->action( "aspect_ratio_menu" )->menu() );
+            ac->action( "ratio_auto" )->setChecked( true );
+            ac->action( "aspect_ratio_menu" )->menu()->addActions( m_aspectRatios->actions() );
         }
         settings->addSeparator();
     }
     {
-        QObjectList list = toolBar()->queryList( "KToolBarButton" );
+        QObjectList list = toolBar()->findChildren<QObject*>( "KToolBarButton" );
 /*        if (list.isEmpty()) {
                 MessageBox::error( i18n(
                     "<qt>" PRETTY_NAME " could not load its interface, this probably means that " PRETTY_NAME " is not "
@@ -198,7 +198,6 @@ MainWindow::init()
 
     connect( engine(), SIGNAL(statusMessage( const QString& )), this, SLOT(engineMessage( const QString& )) );
     connect( engine(), SIGNAL(stateChanged( Engine::State )), this, SLOT(engineStateChanged( Engine::State )) );
-    connect( engine(), SIGNAL(channelsChanged( const QStringList& )), this, SLOT(setChannels( const QStringList& )) );
     connect( engine(), SIGNAL(titleChanged( const QString& )), m_titleLabel, SLOT(setText( const QString& )) );
     //connect( m_positionSlider, SIGNAL(valueChanged( int )), this, SLOT(showTime( int )) );
 
@@ -351,19 +350,6 @@ MainWindow::timerEvent( QTimerEvent* )
             // but not if the slider isn't moving because there is no length
             showTime();
 
-        #ifndef NO_XTEST_EXTENSION
-        if( counter == 0 /*1020*/ ) { // 51 seconds //do at 0 to ensure screensaver doesn't happen before 51 seconds is up (somehow)
-            const bool isOnThisDesktop = KWindowSystem::windowInfo( winId(), NET::WMDesktop, 0 ).isOnDesktop( KWindowSystem::currentDesktop() );
-
-            if( videoWindow()->isVisible() && isOnThisDesktop ) {
-                int key = XKeysymToKeycode( x11Display(), XK_Shift_R );
-
-                XTestFakeKeyEvent( x11Display(), key, true, CurrentTime );
-                XTestFakeKeyEvent( x11Display(), key, false, CurrentTime );
-                XSync( x11Display(), false );
-            }
-        }
-        #endif
     }
 }
 
@@ -389,7 +375,7 @@ MainWindow::showTime( int pos )
 void
 MainWindow::engineMessage( const QString &message )
 {
-    statusBar()->message( message, 3500 );
+    statusBar()->showMessage( message, 3500 );
 }
 
 bool
@@ -441,7 +427,7 @@ MainWindow::load( const KUrl &url )
         else {
             QString path = e.stringValue( KIO::UDSEntry::UDS_LOCAL_PATH );
             if( !path.isEmpty() )
-                return engine()->load( KUrl::fromPathOrUrl( path ) );
+                return engine()->load( KUrl( path ) );
         }
     }
 
@@ -589,7 +575,7 @@ show_toolbar:
         if (m_stay_hidden_for_a_bit)
             ;
 
-        else if (!m_toolbar->hasMouse())
+        else if ( !m_toolbar->testAttribute( Qt::WA_UnderMouse ) )
             m_toolbar->hide();
 
         m_stay_hidden_for_a_bit = false;
@@ -602,13 +588,6 @@ MainWindow::fullScreenToggled( bool isFullScreen )
 {
     DEBUG_BLOCK
     static FullScreenToolBarHandler *s_handler;
-
-    if( isFullScreen )
-        toolBar()->setPalette( palette() ), // due to 2px spacing in QMainWindow :(
-        setPaletteBackgroundColor( Qt::black ); // due to 2px spacing
-    else
-        toolBar()->unsetPalette(),
-        unsetPalette();
 
     //toolBar()->setMovingEnabled( !isFullScreen );
     toolBar()->setHidden( isFullScreen && engine()->state() == Engine::Playing );
@@ -634,60 +613,31 @@ MainWindow::streamInformation()
 }
 
 void
-MainWindow::setChannels( const QStringList &channels )
-{
-    DEBUG_FUNC_INFO
-
-    //TODO -1 = auto
-
-    QStringList::ConstIterator it = channels.begin();
-
-    QMenu *menu = (QMenu*)child( (*it).latin1() );
-    menu->clear();
-
-    menu->insertItem( i18n("&Determine Automatically"), 1 );
-    menu->insertSeparator();
-
-    //the id is crucial, since the slot this menu is connected to requires
-    //that information to set the correct channel
-    //NOTE we subtract 2 in videoWindow because QMenuData doesn't allow negative id
-    int id = 2;
-    ++it;
-    for( QStringList::ConstIterator const end = channels.end(); it != end; ++it, ++id )
-        menu->insertItem( *it, id );
-
-    menu->insertSeparator();
-    menu->insertItem( i18n("&Off"), 0 );
-
-    id = channels.first() == "subtitle_channels_menu" ? SubtitleChannelsMenuItemId : AudioChannelsMenuItemId;
-    MainWindow::menu( "settings" )->setItemEnabled( id, channels.count() > 1 );
-}
-
-void
 MainWindow::aboutToShowMenu()
 {
-    QMenu *menu = (QMenu*)sender();
-    Q3CString name( sender() ? sender()->name() : 0 );
+//     QMenu *menu = (QMenu*)sender();
+//     QByteArray name( sender() ? sender()->objectName() : 0 );
+// 
+//     // uncheck all items first
+//     for( uint x = 0; x < menu->actions()->count(); ++x )
+//         menu->actions()->at( x )->setChecked( false );
+// 
+//     int id;
+//     if( name == "subtitle_channels_menu" )
+//         id = TheStream::subtitleChannel() + 2;
+//     else if( name == "audio_channels_menu" )
+//         id = TheStream::audioChannel() + 2;
+//     else
+//         id = TheStream::aspectRatio();
 
-    // uncheck all items first
-    for( uint x = 0; x < menu->count(); ++x )
-        menu->setItemChecked( menu->idAt( x ), false );
-
-    int id;
-    if( name == "subtitle_channels_menu" )
-        id = TheStream::subtitleChannel() + 2;
-    else if( name == "audio_channels_menu" )
-        id = TheStream::audioChannel() + 2;
-    else
-        id = TheStream::aspectRatio();
-
-    menu->setItemChecked( id, true );
+    TheStream::aspectRatioAction()->setChecked( true );
 }
 
 void
 MainWindow::dragEnterEvent( QDragEnterEvent *e )
 {
-    e->accept( K3URLDrag::canDecode( e ) );
+    KUrl::List uriList = KUrl::List::fromMimeData( e->mimeData() );
+    e->setAccepted( !uriList.isEmpty() );
 }
 
 void
@@ -733,7 +683,7 @@ MainWindow::menu( const char *name )
 KActionCollection*
 actionCollection()
 {
-    return static_cast<MainWindow*>(kapp->mainWidget())->actionCollection();
+    return static_cast<MainWindow*>(mainWindow())->actionCollection();
 }
 
 /// Convenience class for other classes that need access to the actions
@@ -741,17 +691,15 @@ QAction*
 action( const char *name )
 {
     #define QT_FATAL_ASSERT
-
-    MainWindow *mainWindow = 0;
     KActionCollection *actionCollection = 0;
     QAction *action = 0;
 
-    if( mainWindow = (MainWindow*)kapp->mainWidget() )
-        if( actionCollection = mainWindow->actionCollection() )
+    if( mainWindow() )
+        if( ( actionCollection = ((MainWindow*)mainWindow() )->actionCollection() ) )
             action = actionCollection->action( name );
     if( !action )
         debug() << name << endl;
-    Q_ASSERT( mainWindow );
+    Q_ASSERT( mainWindow() );
     Q_ASSERT( actionCollection );
     Q_ASSERT( action );
 

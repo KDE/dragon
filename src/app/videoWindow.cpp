@@ -22,7 +22,7 @@
 #include "actions.h"        //::seek() FIXME unfortunate
 #include "configfn.h"
 #include "debug.h"
-#include <klocale.h>
+#include <KLocale>
 #include "mxcl.library.h"
 #include "theStream.h"
 #include "videoWindow.h"
@@ -30,7 +30,7 @@
 #include <QContextMenuEvent>
 #include <QVBoxLayout>
 
-#include <kmenu.h>
+#include <KMenu>
 #include <Phonon/Path>
 #include <Phonon/AudioOutput>
 #include <Phonon/MediaObject>

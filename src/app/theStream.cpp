@@ -24,7 +24,7 @@ namespace Codeine
 //         if( url().protocol() == "dvd" )
 //             return Codeine::config( QString( "dvd:/" ) + prettyTitle() );
 //         else
-            return Codeine::config( url().prettyUrl() );
+            return KConfigGroup( KGlobal::config(), url().prettyUrl() );
     }
 
     const KUrl&

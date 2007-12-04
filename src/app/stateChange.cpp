@@ -121,7 +121,7 @@ MainWindow::engineStateChanged( Engine::State state )
         if( !(url_string.contains( "porn", Qt::CaseInsensitive ) || url_string.contains( "pr0n", Qt::CaseInsensitive )) )
         #endif
             if( url.protocol() != "dvd" && url.protocol() != "vcd" ) {
-                KConfigGroup config = Codeine::config( "General" );
+                KConfigGroup config = KConfigGroup( KGlobal::config(), "General" );
                 const QString prettyUrl = url.prettyUrl();
 
                 QStringList urls = config.readPathEntry( "Recent Urls", QStringList() );

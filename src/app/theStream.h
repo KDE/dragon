@@ -4,7 +4,8 @@
 #ifndef CODEINE_THESTREAM_H
 #define CODEINE_THESTREAM_H
 
-#include "configfn.h"  // needed for inline functions
+#include <KConfigGroup>
+#include <KGlobal>
 #include <KUrl>    // larger :( but no macros at least
 #include <QSize>   // small header
 #include <QString> // small header
