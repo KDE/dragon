@@ -51,6 +51,7 @@ namespace Codeine {
 void
 MainWindow::engineStateChanged( Engine::State state )
 {
+    DEBUG_BLOCK
     Q_ASSERT( state != Engine::Uninitialised );
 
     KUrl const &url = TheStream::url();
@@ -75,7 +76,7 @@ MainWindow::engineStateChanged( Engine::State state )
         enableIf( "reset_zoom", ~Empty && !isFullScreen );
         enableIf( "information", ~Empty );
 //        enableIf( "video_settings", (Playing | Paused) );
-        enableIf( "volume", (Playing | Paused) );
+//        enableIf( "volume", (Playing | Paused) );
         #undef enableIf
 
         toggleAction( "play" )->setChecked( state == Playing );

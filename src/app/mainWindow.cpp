@@ -85,7 +85,7 @@ MainWindow::MainWindow()
         , m_titleLabel( new KSqueezedTextLabel( this ) )
 {
     DEBUG_BLOCK
-
+    s_instance = this;
 //PORTING?    setWindowState( windowState() ^ Qt::WDestructiveClose ); //we are allocated on the stack
 
     new VideoWindow( this );
@@ -678,7 +678,6 @@ actionCollection()
 QAction*
 action( const char *name )
 {
-    #define QT_FATAL_ASSERT
     KActionCollection *actionCollection = 0;
     QAction *action = 0;
 

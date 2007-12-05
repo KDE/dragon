@@ -44,14 +44,14 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
 
     QSignalMapper *mapper = new QSignalMapper( this );
     QWidget *o, *closeButton = new KPushButton( KStandardGuiItem::close(), this );
-    QBoxLayout *hbox = new QVBoxLayout( this );
-    QBoxLayout *vbox = new QVBoxLayout( this );
+    QBoxLayout *hbox = new QVBoxLayout();
+    QBoxLayout *vbox = new QVBoxLayout();
     hbox->setMargin( 15 );  vbox->setMargin( 15 );
     hbox->setSpacing( 20 ); vbox->setSpacing( 20 );
 
     vbox->addWidget( new QLabel( i18n( "What media would you like to play?" ), this ) );
 
-    QGridLayout *grid = new QGridLayout( this );
+    QGridLayout *grid = new QGridLayout();
     vbox->addLayout( grid );
     grid->setMargin( 20 );
 
@@ -73,7 +73,7 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
 
     createRecentFileWidget( vbox );
 
-    hbox = new QHBoxLayout( this );
+    hbox = new QHBoxLayout();
     vbox->addLayout( hbox );
     hbox->addItem( new QSpacerItem( 10, 10, QSizePolicy::Expanding ) );
 
@@ -86,6 +86,7 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
     hbox->addWidget( closeButton );
 
     connect( mapper, SIGNAL(mapped( int )), SLOT(done( int )) );
+    setLayout( vbox );
 }
 
 void
