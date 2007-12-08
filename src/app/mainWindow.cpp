@@ -124,7 +124,6 @@ MainWindow::MainWindow()
                 menuAction = menu->menuAction(); \
                 menuAction->setObjectName( name ); \
                 menuAction->setEnabled( false ); \
-                connect( menu, SIGNAL(activated( int )), engine(), SLOT(setStreamParameter( int )) ); \
                 connect( menu, SIGNAL(aboutToShow()), SLOT(aboutToShowMenu()) ); \
                 ac->addAction( name, menuAction );
 
@@ -670,8 +669,10 @@ MainWindow::menu( const char *name )
 void 
 MainWindow::streamSettingChange()
 {
+    DEBUG_BLOCK
     if( sender()->objectName() == "ratio" )
     {
+        debug() << "setting ratio... " << sender();
         TheStream::setRatio( dynamic_cast< QAction* > ( sender() ) );
     }
 }

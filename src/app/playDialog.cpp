@@ -119,7 +119,7 @@ PlayDialog::createRecentFileWidget( QBoxLayout *layout )
 
     if( lv->count() ) {
         layout->addWidget( lv, 1 );
-        connect( lv, SIGNAL(executed( QListWidget* )), SLOT(done( QListWidget* )) );
+        connect( lv, SIGNAL( itemActivated( QListWidgetItem* )), this, SLOT( done( QListWidgetItem* ) ) );
     }
     else
         delete lv;

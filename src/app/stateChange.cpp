@@ -52,8 +52,12 @@ void
 MainWindow::engineStateChanged( Engine::State state )
 {
     DEBUG_BLOCK
-    Q_ASSERT( state != Engine::Uninitialised );
-
+//    Q_ASSERT( state != Engine::Uninitialised );
+    if( state != Engine::Uninitialised )
+    {
+        debug()<< "Engine Uninitialised!" << endl;
+        return;
+    }
     KUrl const &url = TheStream::url();
     bool const isFullScreen = toggleAction("fullscreen")->isChecked();
     QWidget *const toolbar = reinterpret_cast<QWidget*>(toolBar());

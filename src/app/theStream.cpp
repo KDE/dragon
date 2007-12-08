@@ -96,7 +96,8 @@ namespace Codeine
     void
     TheStream::setRatio( QAction* ratioAction )
     {
-        engine()->m_vWidget->setAspectRatio( (Phonon::VideoWidget::AspectRatio) s_aspectRatioActions.key( ratioAction ) );
+        if( ratioAction )
+            engine()->m_vWidget->setAspectRatio( (Phonon::VideoWidget::AspectRatio) s_aspectRatioActions.key( ratioAction ) );
     }
 
     QString
