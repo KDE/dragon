@@ -139,12 +139,13 @@ MainWindow::MainWindow()
             #define make_ratio_action( text, objectname, aspectEnum ) \
             { \
                 QAction* ratioAction = new QAction( this ); \
-                ratioAction->setObjectName( objectname ); \
+                ratioAction->setObjectName( "ratio" ); \
                 ratioAction->setText( text ); \
                 ratioAction->setCheckable( true ); \
                 m_aspectRatios->addAction( ratioAction ); \
                 TheStream::addRatio( aspectEnum, ratioAction ); \
                 ac->addAction( objectname, ratioAction ); \
+                connect( ratioAction, SIGNAL( triggered() ), this, SLOT( streamSettingChange() ) ); \
             }
             make_ratio_action( i18n( "Determine &Automatically" ), "ratio_auto",  Phonon::VideoWidget::AspectRatioAuto );
             make_ratio_action( i18n( "&4:3" ), "ratio_golden", Phonon::VideoWidget::AspectRatio4_3 );
@@ -666,6 +667,14 @@ MainWindow::menu( const char *name )
     return static_cast<QMenu*>(factory()->container( name, this ));
 }
 
+void 
+MainWindow::streamSettingChange()
+{
+    if( sender()->objectName() == "ratio" )
+    {
+        TheStream::setRatio( dynamic_cast< QAction* > ( sender() ) );
+    }
+}
 
 /// Convenience class for other classes that need access to the actionCollection
 KActionCollection*

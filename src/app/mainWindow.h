@@ -64,6 +64,7 @@ namespace Codeine
       void showTime( int = -1 );
       void aboutToShowMenu();
       void fullScreenToggled( bool );
+      void streamSettingChange();
 
    private:
       void setupActions();

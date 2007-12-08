@@ -93,6 +93,12 @@ namespace Codeine
     TheStream::audioChannel()
             { return 0; }
 
+    void
+    TheStream::setRatio( QAction* ratioAction )
+    {
+        engine()->m_vWidget->setAspectRatio( (Phonon::VideoWidget::AspectRatio) s_aspectRatioActions.key( ratioAction ) );
+    }
+
     QString
     TheStream::prettyTitle()
     {

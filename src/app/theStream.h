@@ -54,6 +54,7 @@ namespace Codeine
 
       static int aspectRatio();
       static QAction* aspectRatioAction();
+      static void setRatio( QAction* );
       static void addRatio( int, QAction* );
 
       static int subtitleChannel();
