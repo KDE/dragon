@@ -138,7 +138,6 @@ MainWindow::MainWindow()
             #define make_ratio_action( text, objectname, aspectEnum ) \
             { \
                 QAction* ratioAction = new QAction( this ); \
-                ratioAction->setObjectName( "ratio" ); \
                 ratioAction->setText( text ); \
                 ratioAction->setCheckable( true ); \
                 m_aspectRatios->addAction( ratioAction ); \
@@ -669,10 +668,8 @@ MainWindow::menu( const char *name )
 void 
 MainWindow::streamSettingChange()
 {
-    DEBUG_BLOCK
-    if( sender()->objectName() == "ratio" )
+    if( sender()->objectName().left( 5 ) == "ratio" )
     {
-        debug() << "setting ratio... " << sender();
         TheStream::setRatio( dynamic_cast< QAction* > ( sender() ) );
     }
 }

@@ -56,7 +56,7 @@ MainWindow::engineStateChanged( Engine::State state )
     if( state != Engine::Uninitialised )
     {
         debug()<< "Engine Uninitialised!" << endl;
-        return;
+//        return;
     }
     KUrl const &url = TheStream::url();
     bool const isFullScreen = toggleAction("fullscreen")->isChecked();
@@ -131,7 +131,8 @@ MainWindow::engineStateChanged( Engine::State state )
     debug() << "update position slider" << endl;
 
     /// update recent files list if necessary
-    if( state == Engine::Loaded ) {
+    if( state == Engine::Loaded ) 
+    {
         // update recently played list
 
         #ifndef NO_SKIP_PR0N
