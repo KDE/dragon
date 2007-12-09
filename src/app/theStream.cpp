@@ -25,6 +25,8 @@
 #include <KLocale>
 #include <Phonon/VideoWidget>
 
+#include <xine.h>
+
 #include "mxcl.library.h"
 #include "theStream.h"
 #include "videoWindow.h"
@@ -32,6 +34,8 @@
 
 namespace Codeine
 {
+
+    const char* TheStream::CHANNEL_PROPERTY = "channel";
 
     QHash<int, QAction*> TheStream::s_aspectRatioActions;
 
@@ -87,11 +91,14 @@ namespace Codeine
 
     int
     TheStream::subtitleChannel()
-            { return 0; }
+    {
+        if( engine()->m_xineStream )
+            return xine_get_param( engine()->m_xineStream, XINE_PARAM_SPU_CHANNEL ); 
+    }
 
     int
     TheStream::audioChannel()
-            { return 0; }
+        { return 0; }
 
     void
     TheStream::setRatio( QAction* ratioAction )

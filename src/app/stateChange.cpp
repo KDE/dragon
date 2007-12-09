@@ -177,7 +177,8 @@ MainWindow::engineStateChanged( Engine::State state )
     if (dvd_button)
         dvd_button->setVisible( state != Engine::Empty && url.protocol() == "dvd" );
 
-    if( isFullScreen && !toolbar->testAttribute( Qt::WA_UnderMouse ) ) {
+    if( isFullScreen && !toolbar->testAttribute( Qt::WA_UnderMouse ) ) 
+    {
         switch( state ) {
         case Engine::TrackEnded:
             toolbar->show();

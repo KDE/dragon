@@ -57,6 +57,7 @@ namespace Codeine
       static void setRatio( QAction* );
       static void addRatio( int, QAction* );
 
+      static const char* CHANNEL_PROPERTY;
       static int subtitleChannel();
       static int audioChannel();
 

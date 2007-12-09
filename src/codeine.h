@@ -52,8 +52,8 @@ namespace Codeine
 /// used by mainWindow.h and xineEngine.h
 int main( int, char** );
 
-#define APP_VERSION "1.0.1"
+#define APP_VERSION "2.0-SVN"
 #define APP_NAME "videoplayer"
-#define PRETTY_NAME "Codeine"
+#define PRETTY_NAME "Video Player"
 
 #endif

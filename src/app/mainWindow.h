@@ -65,6 +65,7 @@ namespace Codeine
       void aboutToShowMenu();
       void fullScreenToggled( bool );
       void streamSettingChange();
+      void channelsChanged( QList< QAction* > );
 
    private:
       void setupActions();

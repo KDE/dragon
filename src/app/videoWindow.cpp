@@ -29,6 +29,9 @@
 #include "theStream.h"
 #include "videoWindow.h"
 
+#include <xine.h>
+
+#include <QActionGroup>
 #include <QContextMenuEvent>
 #include <QVBoxLayout>
 
@@ -52,10 +55,11 @@ namespace Codeine {
 
 VideoWindow *VideoWindow::s_instance = 0;
 
-
 VideoWindow::VideoWindow( QWidget *parent )
         : QWidget( parent )
         , m_justLoaded( false )
+        , m_xineStream( 0 )
+        , m_languages( new QActionGroup( this ) )
 {
     DEBUG_BLOCK
 
@@ -72,6 +76,8 @@ VideoWindow::VideoWindow( QWidget *parent )
     Phonon::createPath(m_media, m_vWidget);
     Phonon::createPath(m_media, m_aOutput);
     m_media->setTickInterval( 350 );
+
+    m_languages->setExclusive( true );
 
     connect( m_media, SIGNAL(stateChanged(Phonon::State,Phonon::State)), this, SLOT(stateChanged(Phonon::State,Phonon::State)) );
 
@@ -110,6 +116,13 @@ VideoWindow::play( qint64 offset )
     m_media->play();
     return true;
 }
+bool
+VideoWindow::playDvd()
+{
+    m_media->setCurrentSource( Phonon::MediaSource( Phonon::Dvd ) );
+    m_media->play();
+    return true;
+}
 
 void
 VideoWindow::record()
@@ -136,11 +149,17 @@ VideoWindow::playPause()
 Engine::State
 VideoWindow::state() const
 {
+    state( m_media->state() ); 
+}
+
+Engine::State
+VideoWindow::state( Phonon::State state ) const
+{
     if( m_media->currentSource().type() == Phonon::MediaSource::Invalid )
         return Engine::Empty;
     else if( m_justLoaded )
         return Engine::Loaded;
-    switch( m_media->state() )
+    switch( state )
     {
 
         case Phonon::StoppedState:
@@ -244,7 +263,7 @@ VideoWindow::fileFilter() const
 qint64
 VideoWindow::currentTime() const
 {
-    return currentTime();
+ //   return currentTime();
 }
 
 QWidget*
@@ -261,6 +280,50 @@ VideoWindow::newVolumeSlider()
     volumeSlider->setObjectName( "volume" );
     volumeSlider->setAudioOutput( m_aOutput );
     return volumeSlider;
+}
+
+void
+VideoWindow::refreshXineStream()
+{
+    if( m_media->property( "xine_stream_t" ).canConvert<void*>() )
+    {
+        m_xineStream = (xine_stream_t*) m_media->property( "xine_stream_t" ).value<void*>();
+    }
+    else
+    {
+        m_xineStream = 0;
+    }
+}
+
+void
+VideoWindow::stateChanged(Phonon::State /*beforeState*/, Phonon::State currentState) // slot
+{
+    if( currentState == Phonon::LoadingState )
+    {
+        refreshXineStream();
+        if( m_xineStream )
+        {
+            {
+                QList<QAction*> subActions = m_languages->actions();
+                foreach( QAction* subAction, subActions )
+                    delete subAction;
+            }
+            QByteArray s;
+            debug() << "one xine stream pls: " << m_xineStream;
+            int channels = xine_get_stream_info( m_xineStream, XINE_STREAM_INFO_MAX_SPU_CHANNEL );
+            for( int j = 0; j < channels; j++ )
+            {
+                QAction* lang = new QAction( m_languages );
+                lang->setText( xine_get_spu_lang( m_xineStream, j, s.data() ) ? s : i18n("Channel %1").arg( j+1 ) );
+                lang->setProperty( TheStream::CHANNEL_PROPERTY, j );
+                m_languages->addAction( lang );
+            }
+            emit channelsChanged( m_languages->actions() );
+        }
+        else
+            debug() << "Why is there no m_xineStream?";
+    }
+    emit stateChanged( state( currentState ) ); 
 }
 
 ///////////

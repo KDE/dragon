@@ -26,12 +26,14 @@
 #include <QWidget>
 
 #include <KUrl>
-
+class QActionGroup;
 namespace Phonon {
      class VideoWidget;
      class AudioOutput;
      class MediaObject;
 }
+
+typedef struct xine_stream_s xine_stream_t;
 
 #include "phonon/phononnamespace.h" //Phonon::State
 
@@ -48,6 +50,8 @@ namespace Codeine
 
         KUrl m_url;
         bool m_justLoaded;
+        xine_stream_t* m_xineStream;
+        QActionGroup* m_languages;
         Phonon::VideoWidget *m_vWidget;
         Phonon::AudioOutput *m_aOutput;
         Phonon::MediaObject *m_media;
@@ -65,9 +69,10 @@ namespace Codeine
 
         bool load( const KUrl &url );
         bool play( qint64 = 0 );
+        bool playDvd();
 
         uint length() const { return 0; }
-        
+
         uint volume() const;
         QWidget* newPositionSlider();
         QWidget* newVolumeSlider();
@@ -83,7 +88,9 @@ namespace Codeine
 
         qint64 currentTime() const;
         QString fileFilter() const;
-
+        
+        const xine_stream_t* xineStream() const { return m_xineStream; }
+        
     public slots:
         void playPause();
         void record();
@@ -92,7 +99,7 @@ namespace Codeine
 
         ///special slot, see implementation to facilitate understanding
         void setStreamParameter( int );
-        void stateChanged(Phonon::State,Phonon::State) { emit stateChanged( state() ); }
+        void stateChanged(Phonon::State, Phonon::State);
         
         void toggleDVDMenu();
         void showOSD( const QString& );
@@ -101,11 +108,13 @@ namespace Codeine
     
     protected:
         virtual void contextMenuEvent( QContextMenuEvent * event );
-
-    Q_SIGNALS:
+        void refreshXineStream();
+        Engine::State state( Phonon::State state ) const;
+    signals:
         void stateChanged( Engine::State );
         void statusMessage( const QString& );
         void titleChanged( const QString& );
+        void channelsChanged( QList< QAction* > );
     };
 
     //global function for general use by Codeine

@@ -127,7 +127,7 @@ MainWindow::MainWindow()
                 connect( menu, SIGNAL(aboutToShow()), SLOT(aboutToShowMenu()) ); \
                 ac->addAction( name, menuAction );
 
- //       make_menu( "subtitle_channels_menu", i18n( "&Subtitles" ) );
+        make_menu( "subtitle_channels_menu", i18n( "&Subtitles" ) );
  //       make_menu( "audio_channels_menu", i18n( "A&udio Channels" ) );
         make_menu( "aspect_ratio_menu", i18n( "Aspect &Ratio" ) );
         #undef make_menu
@@ -185,9 +185,10 @@ MainWindow::init()
 {
     DEBUG_BLOCK
 
-    connect( engine(), SIGNAL(statusMessage( const QString& )), this, SLOT(engineMessage( const QString& )) );
-    connect( engine(), SIGNAL(stateChanged( Engine::State )), this, SLOT(engineStateChanged( Engine::State )) );
-    connect( engine(), SIGNAL(titleChanged( const QString& )), m_titleLabel, SLOT(setText( const QString& )) );
+    connect( engine(), SIGNAL( statusMessage( const QString& ) ), this, SLOT( engineMessage( const QString&   ) ) );
+    connect( engine(), SIGNAL( stateChanged( Engine::State ) ), this, SLOT( engineStateChanged( Engine::State ) ) );
+    connect( engine(), SIGNAL( titleChanged( const QString& ) ), m_titleLabel, SLOT( setText( const QString&  ) ) );
+    connect( engine(), SIGNAL( channelsChanged( QList< QAction* > ) ), this, SLOT( channelsChanged( QList< QAction* > ) ) );
     //connect( m_positionSlider, SIGNAL(valueChanged( int )), this, SLOT(showTime( int )) );
 
     if( !engine()->init() ) {
@@ -230,7 +231,7 @@ MainWindow::~MainWindow()
 
     hide(); //so we appear to have quit, and then sound fades out below
 
-    delete videoWindow(); //fades out sound in dtor
+ //   delete videoWindow(); //fades out sound in dtor
 }
 
 bool
@@ -466,7 +467,7 @@ MainWindow::playMedia( bool show_welcome_dialog )
         open( KUrl( "vcd://" ) ); // one / is not enough
         break;
     case PlayDialog::DVD:
-        open( KUrl( "dvd:/" ) );
+        engine()->playDvd();
         break;
     }
 }
@@ -620,6 +621,16 @@ MainWindow::aboutToShowMenu()
 //         id = TheStream::aspectRatio();
 
     TheStream::aspectRatioAction()->setChecked( true );
+    int subId = TheStream::subtitleChannel();
+    QList< QAction* > subs = action("subtitle_channels_menu")->menu()->actions();
+    foreach( QAction* subAction, subs )
+    {
+        if( subAction->property( TheStream::CHANNEL_PROPERTY ).toInt() == subId )
+        {
+            subAction->setChecked( true );
+            break;
+        }
+    }
 }
 
 void
@@ -672,6 +683,12 @@ MainWindow::streamSettingChange()
     {
         TheStream::setRatio( dynamic_cast< QAction* > ( sender() ) );
     }
+}
+
+void
+MainWindow::channelsChanged( QList< QAction* > subActions )
+{
+    action("subtitle_channels_menu")->menu()->addActions( subActions );
 }
 
 /// Convenience class for other classes that need access to the actionCollection
