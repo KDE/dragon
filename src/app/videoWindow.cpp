@@ -129,12 +129,6 @@ VideoWindow::playDvd()
 }
 
 void
-VideoWindow::record()
-{ 
-    return;
-}
-
-void
 VideoWindow::stop()
 {
     m_media->stop();
@@ -234,11 +228,6 @@ VideoWindow::seek( qint64 pos )
     }
 }
 
-void
-VideoWindow::setStreamParameter( int value )
-{
-    return;
-}
 
 void
 VideoWindow::showOSD( const QString &message )
@@ -335,6 +324,7 @@ VideoWindow::updateChannels()
                 lang->setText( xine_get_spu_lang( m_xineStream, j, s ) ? s : i18n("Channel %1", j+1 ) );
                 debug() << "added language " << lang->text();
                 lang->setProperty( TheStream::CHANNEL_PROPERTY, j );
+                connect( lang, SIGNAL( triggered() ), this, SLOT( slotSetSubtitle() ) );
                 m_languages->addAction( lang );
             }
             emit channelsChanged( m_languages->actions() );
@@ -342,6 +332,16 @@ VideoWindow::updateChannels()
     }
     else
         debug() << "\033[0;43mWhy is there no m_xineStream?\033[0m";
+}
+
+void
+VideoWindow::slotSetSubtitle()
+{
+    if( m_xineStream && sender()->property( TheStream::CHANNEL_PROPERTY ).canConvert<int>() )
+    {
+        xine_set_param( m_xineStream, XINE_PARAM_SPU_CHANNEL
+            , sender()->property( TheStream::CHANNEL_PROPERTY ).toInt() );
+    }
 }
 
 void

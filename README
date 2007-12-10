@@ -1,48 +1,37 @@
 INTRODUCTION
-  Codeine is a very simple xine-based media player.
+  Video Player is a very simple Phonon-based media player. It was originally 
+  developed by Max Howell and called Codeine. I ported it to KDE 4.0 and on 
+  Max's suggestion renamed it to Video Player (probably, I might still
+  rename it.)  
 
-  I make the following promises:
+  Similar to Max, I make the following promises:
 
-    * I will not add any substantial features after version 1.0.0
-    * After then, improvements will only be in the realm of usability and bug
-      fixes
+    * I will not add any substantial features after version 2.0.0
+    * After then, improvements will only be in the realm of usability, bug
+      fixes, portability and allowing users to play their media.
 
-  You can rely on Codeine for now and until xine is obsolete to be a simple
-  no-frills video(/media) player.
+  The aim of Video Player is to "just play my video." Precedence will be given
+  to short simple menus and being configuration-free over additional features.
+ 
+  If you do have bugs, feature requests or (even better) features you want 
+  removed, you can usually catch me in #amarok on irc.kde.org using a variation
+  of the nick eean.
 
-  Visit #codeine on freenode.net!
-
-  Max Howell
+  Thanks!
+  Ian Monroe <ian@monroe.nu>
 
 
 REQUIREMENTS
   You will need at least:
 
-    * Qt 3.3.0 (Qt 3.2.x may work, it is just not tested)
-    * KDElibs 3.3.0
-    * xine-lib 1.0.0-rc4
+    * kdelibs 4.0
+    * The Xine backend for Phonon, located in kdebase
+    * xine-lib 1.1
+CMake is also required to build Video Player.
 
-  You also need python installed in order to build Codeine.
+Note that currently Xine is required since Phonon in KDE 4.0 lacks a few
+features (subtitle and multiple audio tracks). For KDE 4.1, Video Player
+should be a pure-Phonon player, with no explicit Xine requirement.
 
-
-INSTALLATION
-  I use scons + bksys as the build system. But you can still do the following:
-
-     % ./configure && make && su -c "make install"
-
-  Or if you have scons installed, simply:
-
-     % scons && su -c "scons install"
-
-  Note that scons is a little silly and this kind of thing doesn't work:
-
-     % ./configure --prefix=/foo/bar --debug=full
-
-  Instead do:
-
-     % ./configure prefix=/foo/bar debug=full
-
-
-TRANSLATIONS
-  I will make the po file available for translation at the 1.0-rc1 stage, if
-  you want to make a translation I thank you in advance :-)
+You could hack the CMake build system and use Video Player without Xine,
+it would probably work fine just without the aforementioned features.

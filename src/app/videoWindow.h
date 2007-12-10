@@ -89,20 +89,18 @@ namespace Codeine
         qint64 currentTime() const;
         QString fileFilter() const;
         
+        
         const xine_stream_t* xineStream() const { return m_xineStream; }
         
     public slots:
         void playPause();
-        void record();
         void seek( qint64 );
         void stop();
-
-        ///special slot, see implementation to facilitate understanding
-        void setStreamParameter( int );
         void stateChanged(Phonon::State, Phonon::State);
-        
+
         void toggleDVDMenu();
         void showOSD( const QString& );
+        void slotSetSubtitle();
         
         void setFullScreen( bool f );
     

@@ -619,10 +619,11 @@ MainWindow::aboutToShowMenu()
 //         id = TheStream::audioChannel() + 2;
 //     else
 //         id = TheStream::aspectRatio();
-
+    DEBUG_BLOCK
     TheStream::aspectRatioAction()->setChecked( true );
     int subId = TheStream::subtitleChannel();
     QList< QAction* > subs = action("subtitle_channels_menu")->menu()->actions();
+    debug() << "subtitle #" << subId << " is going to be checked";
     foreach( QAction* subAction, subs )
     {
         if( subAction->property( TheStream::CHANNEL_PROPERTY ).toInt() == subId )

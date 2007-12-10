@@ -93,7 +93,9 @@ namespace Codeine
     TheStream::subtitleChannel()
     {
         if( engine()->m_xineStream )
-            return xine_get_param( engine()->m_xineStream, XINE_PARAM_SPU_CHANNEL ); 
+            return xine_get_param( engine()->m_xineStream, XINE_PARAM_SPU_CHANNEL );
+        else
+            return -1;
     }
 
     int
