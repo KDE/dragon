@@ -43,6 +43,7 @@
 #include <Phonon/MediaObject>
 #include <Phonon/VideoWidget>
 #include <Phonon/SeekSlider>
+#include <Phonon/VolumeFaderEffect>
 #include <Phonon/VolumeSlider>
 
 using Phonon::AudioOutput;
@@ -75,7 +76,7 @@ VideoWindow::VideoWindow( QWidget *parent )
     m_aOutput = new AudioOutput( Phonon::VideoCategory, this );
     m_media = new MediaObject( this );
     Phonon::createPath(m_media, m_vWidget);
-    Phonon::createPath(m_media, m_aOutput);
+    m_audioPath = Phonon::createPath(m_media, m_aOutput);
     m_media->setTickInterval( 350 );
 
     m_languages->setExclusive( true );
@@ -90,7 +91,23 @@ VideoWindow::VideoWindow( QWidget *parent )
 VideoWindow::~VideoWindow()
 {
     DEBUG_BLOCK
-    return;
+    /* let us never forget, mxcl's cum variable. RIP
+    int cum = 0;
+    for( int v = 99; v >= 0; v-- ) {
+        xine_set_param( m_stream, XINE_PARAM_AUDIO_AMP_LEVEL, v );
+        int sleep = int(32000 * (-std::log10( double(v + 1) ) + 2));
+        ::usleep( sleep );
+        cum += sleep;
+    }
+    debug() << "Total sleep: " << cum << "x10^-6 s\n"; */
+    if( m_media->state() == Phonon::PlayingState )
+    {
+        Phonon::VolumeFaderEffect* faderEffect = new Phonon::VolumeFaderEffect( mainWindow() );
+        m_audioPath.insertEffect( faderEffect );
+        faderEffect->setFadeCurve( Phonon::VolumeFaderEffect::Fade12Decibel );
+        faderEffect->fadeOut( 500 );
+        ::usleep( 700000 );
+    }
 }
 
 bool

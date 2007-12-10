@@ -24,7 +24,7 @@
 
 #include "codeine.h"
 #include <QWidget>
-
+#include <Phonon/Path>
 #include <KUrl>
 class QActionGroup;
 namespace Phonon {
@@ -55,6 +55,7 @@ namespace Codeine
         Phonon::VideoWidget *m_vWidget;
         Phonon::AudioOutput *m_aOutput;
         Phonon::MediaObject *m_media;
+        Phonon::Path m_audioPath;
 
         friend class TheStream;
         friend VideoWindow* const engine();

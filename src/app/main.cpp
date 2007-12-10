@@ -57,8 +57,8 @@ main( int argc, char **argv )
     int returnValue;
 
     {
-        Codeine::MainWindow mainWindow;
-        mainWindow.show();
+        Codeine::MainWindow* mainWindow = new Codeine::MainWindow();
+        mainWindow->show();
 
         returnValue = application.exec();
     }

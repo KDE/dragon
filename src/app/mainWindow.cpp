@@ -227,11 +227,9 @@ MainWindow::init()
 
 MainWindow::~MainWindow()
 {
-    DEBUG_FUNC_INFO
-
+    DEBUG_BLOCK
     hide(); //so we appear to have quit, and then sound fades out below
-
- //   delete videoWindow(); //fades out sound in dtor
+    delete videoWindow(); //fades out sound in dtor
 }
 
 bool
