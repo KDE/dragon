@@ -53,7 +53,7 @@ MainWindow::engineStateChanged( Engine::State state )
 {
     DEBUG_BLOCK
 //    Q_ASSERT( state != Engine::Uninitialised );
-    if( state != Engine::Uninitialised )
+    if( state == Engine::Uninitialised )
     {
         debug()<< "Engine Uninitialised!" << endl;
 //        return;
@@ -134,7 +134,7 @@ MainWindow::engineStateChanged( Engine::State state )
     if( state == Engine::Loaded ) 
     {
         // update recently played list
-
+        debug() << " update recent files list " << endl;
         #ifndef NO_SKIP_PR0N
         // ;-)
         const QString url_string = url.url();
@@ -149,10 +149,10 @@ MainWindow::engineStateChanged( Engine::State state )
                 config.writePathEntry( "Recent Urls", urls << prettyUrl );
             }
 
-        if( TheStream::hasVideo() && !isFullScreen )
+        if( TheStream::hasVideo() && !isFullScreen && false )  //disable for now, it doesn't paint right
             new AdjustSizeButton( reinterpret_cast<QWidget*>(videoWindow()) );
     }
-    debug() << " update recent files list " << endl;
+   
 
     /// set titles
     switch( state )
@@ -190,7 +190,6 @@ MainWindow::engineStateChanged( Engine::State state )
             }
             break;
         case Engine::Empty:
-        case Engine::Loaded:
         case Engine::Paused:
         case Engine::Uninitialised:
             toolBar()->show();

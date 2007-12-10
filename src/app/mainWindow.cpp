@@ -428,15 +428,12 @@ void
 MainWindow::play()
 {
     switch( engine()->state() ) {
-    case Engine::Loaded:
-        engine()->play();
-        break;
-
     case Engine::Playing:
     case Engine::Paused:
         engine()->playPause();
         break;
-
+    case Engine::Loaded:
+        break;
     case Engine::Empty:
     default:
         playMedia();

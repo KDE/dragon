@@ -35,7 +35,7 @@ namespace Codeine
           setIcon( KIcon( "media-playback-start" ) );
           setShortcut( Qt::Key_Space );
           ac->addAction( objectName(), this );
-          connect( this, SIGNAL( toggled( bool ) ), receiver, slot );
+          connect( this, SIGNAL( triggered( bool ) ), receiver, slot );
      }
 
      void PlayAction::setPlaying( bool playing )

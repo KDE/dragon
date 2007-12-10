@@ -174,15 +174,26 @@ VideoWindow::state( Phonon::State state ) const
         return Engine::Empty;
     else if( m_justLoaded )
         return Engine::Loaded;
+    
+/*
+    enum State
+    {
+        Uninitialised = 0,
+        Empty = 1,
+        Loaded = 2,
+        Playing = 4,
+        Paused = 8,
+        TrackEnded = 16
+    }; */
     switch( state )
     {
 
         case Phonon::StoppedState:
             return Engine::TrackEnded;
         break;
-
-        case Phonon::LoadingState:
         case Phonon::BufferingState:
+        case Phonon::LoadingState:
+            return Engine::Loaded;
         case Phonon::PlayingState:
             return Engine::Playing;
         break;
@@ -224,10 +235,6 @@ VideoWindow::seek( qint64 pos )
     case Engine::Empty:
         Debug::warning() << "Seek attempt thwarted! No media loaded!\n";
         return;
-    case Engine::Loaded:
-    // then the state is changing and we should announce it
-        play( pos );
-        return;
     default:
         ;
     }
@@ -247,7 +254,7 @@ VideoWindow::seek( qint64 pos )
 
 
 void
-VideoWindow::showOSD( const QString &message )
+VideoWindow::showOSD( const QString &/*message*/ )
 {
     return;
 }
@@ -267,7 +274,7 @@ VideoWindow::fileFilter() const
 qint64
 VideoWindow::currentTime() const
 {
- //   return currentTime();
+   return m_media->currentTime();
 }
 
 QWidget*
@@ -304,8 +311,12 @@ DEBUG_BLOCK
 }
 
 void
-VideoWindow::stateChanged(Phonon::State currentState, Phonon::State /*oldstate*/) // slot
+VideoWindow::stateChanged(Phonon::State currentState, Phonon::State oldstate) // slot
 {
+DEBUG_BLOCK
+    QStringList states;
+    states << "Loading" << "Stopped" << "Playing" << "Buffering" << "Paused" << "Error";
+    debug() << "going from " << states.at(oldstate) << " to " << states.at(currentState);
     if( currentState == Phonon::LoadingState )
         m_xineStream = 0;
     if( currentState == Phonon::PlayingState )
