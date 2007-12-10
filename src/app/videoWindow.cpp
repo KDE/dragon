@@ -33,6 +33,7 @@
 
 #include <QActionGroup>
 #include <QContextMenuEvent>
+#include <QTimer>
 #include <QVBoxLayout>
 
 #include <KLocale>
@@ -80,7 +81,10 @@ VideoWindow::VideoWindow( QWidget *parent )
     m_languages->setExclusive( true );
 
     connect( m_media, SIGNAL(stateChanged(Phonon::State,Phonon::State)), this, SLOT(stateChanged(Phonon::State,Phonon::State)) );
-
+    QTimer *timer = new QTimer( this );
+    timer->setInterval( 5 * 1000 );
+    connect( timer, SIGNAL( timeout() ), this, SLOT( updateChannels() ) );
+    timer->start();
 }
 
 VideoWindow::~VideoWindow()
@@ -300,16 +304,29 @@ VideoWindow::stateChanged(Phonon::State currentState, Phonon::State /*oldstate*/
         m_xineStream = 0;
     if( currentState == Phonon::PlayingState )
     {
-        debug() << "hooray, a playing state";
         refreshXineStream();
-        if( m_xineStream )
+        updateChannels();
+    }
+    emit stateChanged( state( currentState ) ); 
+}
+
+void
+VideoWindow::updateChannels()
+{
+    static xine_stream_t* lastStream = 0;
+    static int lastChannels = 0;
+    if( m_xineStream )
+    {
+        int channels = xine_get_stream_info( m_xineStream, XINE_STREAM_INFO_MAX_SPU_CHANNEL );
+        if( (lastStream != m_xineStream ) || ( channels != lastChannels ) )
         {
+            lastChannels = channels;
+            lastStream = m_xineStream;
             {
                 QList<QAction*> subActions = m_languages->actions();
                 foreach( QAction* subAction, subActions )
                     delete subAction;
             }
-            int channels = xine_get_stream_info( m_xineStream, XINE_STREAM_INFO_MAX_SPU_CHANNEL );
             debug() << "\033[0;43mOne xine stream pls: " << m_xineStream << "\033[0m" << ' ' << channels;
             for( int j = 0; j < channels; j++ )
             {
@@ -322,10 +339,9 @@ VideoWindow::stateChanged(Phonon::State currentState, Phonon::State /*oldstate*/
             }
             emit channelsChanged( m_languages->actions() );
         }
-        else
-            debug() << "\033[0;43mWhy is there no m_xineStream?\033[0m";
     }
-    emit stateChanged( state( currentState ) ); 
+    else
+        debug() << "\033[0;43mWhy is there no m_xineStream?\033[0m";
 }
 
 void

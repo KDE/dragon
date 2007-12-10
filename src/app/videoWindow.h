@@ -110,6 +110,8 @@ namespace Codeine
         virtual void contextMenuEvent( QContextMenuEvent * event );
         void refreshXineStream();
         Engine::State state( Phonon::State state ) const;
+    private slots:
+        void updateChannels();
     signals:
         void stateChanged( Engine::State );
         void statusMessage( const QString& );
