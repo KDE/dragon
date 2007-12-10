@@ -149,7 +149,7 @@ VideoWindow::playPause()
 Engine::State
 VideoWindow::state() const
 {
-    state( m_media->state() ); 
+    return state( m_media->state() ); 
 }
 
 Engine::State
@@ -237,12 +237,6 @@ VideoWindow::setStreamParameter( int value )
 }
 
 void
-VideoWindow::toggleDVDMenu()
-{
-    return;
-}
-
-void
 VideoWindow::showOSD( const QString &message )
 {
     return;
@@ -285,21 +279,28 @@ VideoWindow::newVolumeSlider()
 void
 VideoWindow::refreshXineStream()
 {
-    if( m_media->property( "xine_stream_t" ).canConvert<void*>() )
+DEBUG_BLOCK
+   // if( m_media->property( "xine_stream_t" ).canConvert<void*>() )
+    if( m_media->property( "xine_stream_t" ).isValid() )
     {
+        debug() << "value property " <<  m_media->property( "xine_stream_t" ).type();
         m_xineStream = (xine_stream_t*) m_media->property( "xine_stream_t" ).value<void*>();
     }
     else
     {
+        debug() << "mrrrrrr, xine_stream_t is invalid";
         m_xineStream = 0;
     }
 }
 
 void
-VideoWindow::stateChanged(Phonon::State /*beforeState*/, Phonon::State currentState) // slot
+VideoWindow::stateChanged(Phonon::State currentState, Phonon::State /*oldstate*/) // slot
 {
     if( currentState == Phonon::LoadingState )
+        m_xineStream = 0;
+    if( currentState == Phonon::PlayingState )
     {
+        debug() << "hooray, a playing state";
         refreshXineStream();
         if( m_xineStream )
         {
@@ -308,22 +309,36 @@ VideoWindow::stateChanged(Phonon::State /*beforeState*/, Phonon::State currentSt
                 foreach( QAction* subAction, subActions )
                     delete subAction;
             }
-            QByteArray s;
-            debug() << "one xine stream pls: " << m_xineStream;
             int channels = xine_get_stream_info( m_xineStream, XINE_STREAM_INFO_MAX_SPU_CHANNEL );
+            debug() << "\033[0;43mOne xine stream pls: " << m_xineStream << "\033[0m" << ' ' << channels;
             for( int j = 0; j < channels; j++ )
             {
+                char s[128];
                 QAction* lang = new QAction( m_languages );
-                lang->setText( xine_get_spu_lang( m_xineStream, j, s.data() ) ? s : i18n("Channel %1").arg( j+1 ) );
+                lang->setText( xine_get_spu_lang( m_xineStream, j, s ) ? s : i18n("Channel %1", j+1 ) );
+                debug() << "added language " << lang->text();
                 lang->setProperty( TheStream::CHANNEL_PROPERTY, j );
                 m_languages->addAction( lang );
             }
             emit channelsChanged( m_languages->actions() );
         }
         else
-            debug() << "Why is there no m_xineStream?";
+            debug() << "\033[0;43mWhy is there no m_xineStream?\033[0m";
     }
     emit stateChanged( state( currentState ) ); 
+}
+
+void
+VideoWindow::toggleDVDMenu()
+{
+    if( m_xineStream )
+    {
+        xine_event_t e;
+        e.type = XINE_EVENT_INPUT_MENU1;
+        e.data = NULL;
+        e.data_length = 0;
+        xine_event_send( m_xineStream, &e );
+    }
 }
 
 ///////////

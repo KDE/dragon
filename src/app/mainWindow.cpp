@@ -688,7 +688,14 @@ MainWindow::streamSettingChange()
 void
 MainWindow::channelsChanged( QList< QAction* > subActions )
 {
-    action("subtitle_channels_menu")->menu()->addActions( subActions );
+DEBUG_BLOCK
+    if( subActions.isEmpty() )
+          action("subtitle_channels_menu")->setEnabled( false );
+    else
+    {
+        action("subtitle_channels_menu")->menu()->addActions( subActions );
+        action("subtitle_channels_menu")->setEnabled( true );
+    }
 }
 
 /// Convenience class for other classes that need access to the actionCollection
