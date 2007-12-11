@@ -26,7 +26,7 @@
 #include <QDialog>
 
 class QListWidgetItem;
-class QBoxLayout;
+class QGridLayout;
 
 namespace Codeine
 {
@@ -41,10 +41,10 @@ namespace Codeine
       enum DialogCode { FILE = QDialog::Accepted + 2, VCD, CDDA, DVD, RECENT_FILE };
 
    private slots:
-      void done( QListWidgetItem* );
+      virtual void done( QListWidgetItem* );
 
    private:
-      void createRecentFileWidget( QBoxLayout* );
+      void createRecentFileWidget( QGridLayout* );
 
       KUrl m_url;
    };

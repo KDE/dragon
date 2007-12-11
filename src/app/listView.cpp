@@ -23,17 +23,18 @@
 #define CODEINELISTVIEW_CPP
 
 #include <QHeaderView>
-#include <QListWidget>
+#include <KListWidget>
 
 namespace Codeine
 {
-    class ListView : public QListWidget
+    class ListView : public KListWidget
     {
         public:
             ListView( QWidget *parent ) 
-                : QListWidget( parent )
+                : KListWidget( parent )
             {
                 setSizePolicy( QSizePolicy::Minimum, QSizePolicy::Minimum );
+                setAlternatingRowColors( true );
             }
     };
 }

@@ -19,6 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
+#include "debug.h"
 #include "listView.cpp"
 #include "playDialog.h"
 
@@ -44,37 +45,38 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
 
     QSignalMapper *mapper = new QSignalMapper( this );
     QWidget *o, *closeButton = new KPushButton( KStandardGuiItem::close(), this );
-    QBoxLayout *hbox = new QVBoxLayout();
     QBoxLayout *vbox = new QVBoxLayout();
-    hbox->setMargin( 15 );  vbox->setMargin( 15 );
-    hbox->setSpacing( 20 ); vbox->setSpacing( 20 );
+    //vbox->setMargin( 0 );
+    vbox->setSpacing( 15 );
+//    hbox->setMargin( 15 );  vbox->setMargin( 15 );
+//    hbox->setSpacing( 20 ); vbox->setSpacing( 20 );
 
     vbox->addWidget( new QLabel( i18n( "What media would you like to play?" ), this ) );
 
     QGridLayout *grid = new QGridLayout();
     vbox->addLayout( grid );
-    grid->setMargin( 20 );
+    grid->setMargin( 0 );
+    grid->setVerticalSpacing( 20 );
 
     //TODO use the kguiItems from the actions
-    mapper->setMapping( o = new KPushButton( KGuiItem( i18n("Play File..."), "fileopen" ), this ), FILE );
+    mapper->setMapping( o = new KPushButton( KGuiItem( i18n("Play File..."), "folder-video" ), this ), FILE );
     connect( o, SIGNAL(clicked()), mapper, SLOT(map()) );
     grid->addWidget( o, 0, 0 );
 
-    mapper->setMapping( o = new KPushButton( KGuiItem( i18n("Play VCD"), "cdaudio_unmount" ), this ), VCD );
+    mapper->setMapping( o = new KPushButton( KGuiItem( i18n("Play VCD"), "media-optical" ), this ), VCD );
     connect( o, SIGNAL(clicked()), mapper, SLOT(map()) );
     grid->addWidget( o, 0, 1 );
 
-    mapper->setMapping( o = new KPushButton( KGuiItem( i18n("Play DVD"), "dvd_unmount" ), this ), DVD );
+    mapper->setMapping( o = new KPushButton( KGuiItem( i18n("Play DVD"), "cd" ), this ), DVD );
     connect( o, SIGNAL(clicked()), mapper, SLOT(map()) );
     grid->addWidget( o, 0, 2 );
 
     mapper->setMapping( closeButton, QDialog::Rejected );
     connect( closeButton, SIGNAL(clicked()), mapper, SLOT(map()) );
 
-    createRecentFileWidget( vbox );
+    createRecentFileWidget( grid );
 
-    hbox = new QHBoxLayout();
-    vbox->addLayout( hbox );
+    QBoxLayout *hbox = new QHBoxLayout();
     hbox->addItem( new QSpacerItem( 10, 10, QSizePolicy::Expanding ) );
 
     if( be_welcome_dialog ) {
@@ -86,11 +88,12 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
     hbox->addWidget( closeButton );
 
     connect( mapper, SIGNAL(mapped( int )), SLOT(done( int )) );
+    vbox->addLayout( hbox );
     setLayout( vbox );
 }
 
 void
-PlayDialog::createRecentFileWidget( QBoxLayout *layout )
+PlayDialog::createRecentFileWidget( QGridLayout *layout )
 {
     QListWidget *lv;
     lv = new Codeine::ListView( this );
@@ -112,14 +115,16 @@ PlayDialog::createRecentFileWidget( QBoxLayout *layout )
 
     for( KUrl::List::ConstIterator it = urls.begin(), end = urls.end(); it != end; ++it ) {
         const QString fileName = (*it).fileName();
+        KUrl url = (*it);
         //new QTableWidgetItem( lv, 0, (*it).url(), fileName.isEmpty() ? (*it).prettyUrl() : fileName );
         QListWidgetItem* listItem = new QListWidgetItem(  fileName.isEmpty() ? (*it).prettyUrl() : fileName );
+        listItem->setData( 0xdecade, QVariant::fromValue( url ) );
         lv->addItem( listItem );
     }
 
     if( lv->count() ) {
-        layout->addWidget( lv, 1 );
-        connect( lv, SIGNAL( itemActivated( QListWidgetItem* )), this, SLOT( done( QListWidgetItem* ) ) );
+        layout->addWidget( lv, 1, 0, 1, -1);
+        connect( lv, SIGNAL( executed( QListWidgetItem* )), this, SLOT( done( QListWidgetItem* ) ) );
     }
     else
         delete lv;
@@ -128,7 +133,7 @@ PlayDialog::createRecentFileWidget( QBoxLayout *layout )
 void
 PlayDialog::done( QListWidgetItem *item )
 {
-    m_url = item->text();
+    m_url = item->data( 0xdecade ).value<KUrl>();
     QDialog::done( RECENT_FILE );
 }
 

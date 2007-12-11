@@ -44,7 +44,7 @@ FullScreenAction::FullScreenAction( QWidget* window, KActionCollection *parent )
     window->installEventFilter( this );
     setChecked( false );
     setText( i18n("F&ull Screen Mode") );
-    setIcon( KIcon("window_fullscreen") );
+    setIcon( KIcon("view-fullscreen") );
     setCheckedState( KGuiItem( i18n("Exit F&ull Screen Mode"), KIcon("window_nofullscreen") ) );
     connect( this, SIGNAL( toggled( bool ) ), Codeine::videoWindow(), SLOT( setFullScreen( bool ) ) );
 }
