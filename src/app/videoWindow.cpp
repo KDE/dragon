@@ -100,6 +100,8 @@ VideoWindow::~VideoWindow()
         cum += sleep;
     }
     debug() << "Total sleep: " << cum << "x10^-6 s\n"; */
+    eject();
+
     if( m_media->state() == Phonon::PlayingState )
     {
         Phonon::VolumeFaderEffect* faderEffect = new Phonon::VolumeFaderEffect( mainWindow() );
@@ -121,8 +123,8 @@ VideoWindow::load( const KUrl &url )
 {
     DEBUG_BLOCK
     mxcl::WaitCursor allocateOnStack;
+    eject();
     m_media->setCurrentSource( url );
-    m_url = url;
     m_justLoaded = true;
     return true;
 }
@@ -140,6 +142,7 @@ VideoWindow::play( qint64 offset )
 bool
 VideoWindow::playDvd()
 {
+    eject();
     m_media->setCurrentSource( Phonon::MediaSource( Phonon::Dvd ) );
     m_media->play();
     return true;
@@ -277,6 +280,12 @@ VideoWindow::currentTime() const
    return m_media->currentTime();
 }
 
+qint64
+VideoWindow::length() const
+{
+    return m_media->totalTime();
+}
+
 QWidget*
 VideoWindow::newPositionSlider()
 {
@@ -399,6 +408,33 @@ VideoWindow::contextMenuEvent( QContextMenuEvent * event )
     menu.exec( event->globalPos() );
 }
 
+///////////
+///Private
+///////////
+void
+VideoWindow::eject()
+{
+    if( m_media->currentSource().type() == Phonon::MediaSource::Invalid )
+        return;
+
+    KConfigGroup profile = TheStream::profile(); // the config profile for this video file
+
+    Phonon::State state = m_media->state();
+    if( ( state == Phonon::PlayingState || state == Phonon::PausedState )
+            && ( m_media->remainingTime() > 5000 ) ) // if we are really close to the end, don't remember the position
+        profile.writeEntry( "Position", currentTime() );
+    else
+        profile.deleteEntry( "Position" );
+
+    const QSize s = videoWindow()->size();
+    const QSize defaultSize = TheStream::defaultVideoSize();
+    if( defaultSize.isValid() && ( s.width() == defaultSize.width() || s.height() == defaultSize.height() ) )
+        profile.deleteEntry( "Preferred Size" );
+    else
+        profile.writeEntry( "Preferred Size", s );
+
+    profile.sync();
+}
 
 } //namespace Codeine
 

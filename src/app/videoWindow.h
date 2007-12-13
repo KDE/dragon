@@ -47,8 +47,8 @@ namespace Codeine
 
         VideoWindow( const VideoWindow& ); //disable
         VideoWindow &operator=( const VideoWindow& ); //disable
+        void eject();
 
-        KUrl m_url;
         bool m_justLoaded;
         xine_stream_t* m_xineStream;
         QActionGroup* m_languages;
@@ -66,13 +66,12 @@ namespace Codeine
        ~VideoWindow();
 
         bool init();
-        void exit();
 
         bool load( const KUrl &url );
         bool play( qint64 = 0 );
         bool playDvd();
 
-        uint length() const { return 0; }
+        qint64 length() const;
 
         uint volume() const;
         QWidget* newPositionSlider();

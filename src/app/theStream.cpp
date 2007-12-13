@@ -23,10 +23,15 @@
 
 #include <KUrl>
 #include <KLocale>
+#include <Phonon/MediaObject>
+#include <Phonon/MediaSource>
 #include <Phonon/VideoWidget>
+#include <Solid/Device>
+#include <Solid/StorageVolume>
 
 #include <xine.h>
 
+#include "debug.h"
 #include "mxcl.library.h"
 #include "theStream.h"
 #include "videoWindow.h"
@@ -42,20 +47,34 @@ namespace Codeine
     KConfigGroup
     TheStream::profile()
     {
-//TODO a unique id for discs, and then even to also record chapters etc.
-//         if( url().protocol() == "dvd" )
-//             return Codeine::config( QString( "dvd:/" ) + prettyTitle() );
-//         else
-            return KConfigGroup( KGlobal::config(), url().prettyUrl() );
+        Phonon::MediaSource::Type current = videoWindow()->m_media->currentSource().type();
+        if( current == Phonon::MediaSource::Disc )
+        {
+            QList< Solid::Device > deviceList = Solid::Device::listFromType( Solid::DeviceInterface::OpticalDisc );
+            if( !deviceList.isEmpty() )
+            {
+                Solid::StorageVolume* disc = deviceList.first().as<Solid::StorageVolume>();
+                if( disc )
+                {
+                    QString uuid = disc->uuid();
+                    debug() << "Disc has UUID " << uuid;
+                    return KConfigGroup( KGlobal::config(), QString("disc:") + uuid );
+                }
+            }
+        }
+        //if not a disc, or Solid fails
+        return KConfigGroup( KGlobal::config(), url().prettyUrl() );
     }
 
     const KUrl&
     TheStream::url()
-            { return VideoWindow::s_instance->m_url; }
+    { 
+        return videoWindow()->m_media->currentSource().url();
+    }
 
     bool
     TheStream::canSeek()
-            { return true; }
+            { return videoWindow()->m_media->isSeekable(); }
 
     bool
     TheStream::hasAudio()
@@ -63,12 +82,17 @@ namespace Codeine
 
     bool
     TheStream::hasVideo()
-            { return true; }
+            { return videoWindow()->m_media->hasVideo(); }
 
     QSize
     TheStream::defaultVideoSize()
     {
-        return QSize();
+      return !engine()->m_xineStream
+            ? QSize()
+            : QSize(
+                  xine_get_stream_info( engine()->m_xineStream, XINE_STREAM_INFO_VIDEO_WIDTH ),
+                  xine_get_stream_info( engine()->m_xineStream, XINE_STREAM_INFO_VIDEO_HEIGHT ) );
+
     }
 
     int
@@ -112,7 +136,7 @@ namespace Codeine
     QString
     TheStream::prettyTitle()
     {
-        const KUrl &url        = VideoWindow::s_instance->m_url;
+        const KUrl& url      = videoWindow()->m_media->currentSource().url();
         const QString artist = QString();
         const QString title  = QString();
 
