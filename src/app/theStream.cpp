@@ -66,7 +66,7 @@ namespace Codeine
         return KConfigGroup( KGlobal::config(), url().prettyUrl() );
     }
 
-    const KUrl&
+    KUrl
     TheStream::url()
     { 
         return videoWindow()->m_media->currentSource().url();

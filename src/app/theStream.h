@@ -44,7 +44,7 @@ namespace Codeine
    CODEINE_NO_EXPORT( TheStream )
 
    public:
-      static const KUrl& url();
+      static KUrl url();
 
       static bool canSeek();
       static bool hasAudio();
