@@ -55,13 +55,8 @@ main( int argc, char **argv )
 
     KApplication application;
     int returnValue;
-
-    {
-        Codeine::MainWindow* mainWindow = new Codeine::MainWindow();
-        mainWindow->show();
-
-        returnValue = application.exec();
-    }
-
+    Codeine::MainWindow* mainWindow = new Codeine::MainWindow();
+    mainWindow->show();
+    returnValue = application.exec();
     return returnValue;
 }

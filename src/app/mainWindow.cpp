@@ -79,7 +79,7 @@ namespace Codeine {
 
 
 MainWindow::MainWindow()
-        : KXmlGuiWindow ()
+        : KXmlGuiWindow()
         , m_positionSlider( 0 )
         , m_timeLabel( new QLabel( " 0:00:00 ", this ) )
         , m_titleLabel( new KSqueezedTextLabel( this ) )
@@ -260,7 +260,7 @@ MainWindow::setupActions()
 
     KActionCollection * const ac = actionCollection();
 
-    KStandardAction::quit( kapp, SLOT(quit()), ac );
+    KStandardAction::quit( kapp, SLOT( closeAllWindows() ), ac );
     //was play_media, never used
     KStandardAction::open( this, SLOT(playMedia()), ac )->setText( i18n("Play &Media...") );
     //connect( new FullScreenAction( this, ac ), SIGNAL(toggled( bool )), SLOT(fullScreenToggled( bool )) );

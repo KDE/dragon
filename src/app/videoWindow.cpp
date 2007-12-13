@@ -151,6 +151,7 @@ VideoWindow::playDvd()
 void
 VideoWindow::stop()
 {
+    eject();
     m_media->stop();
 }
 
@@ -241,13 +242,7 @@ VideoWindow::seek( qint64 pos )
     default:
         ;
     }
-
-    if( !TheStream::canSeek() ) {
-        // for http streaming it is not a good idea to seek as xine freezes
-        // and/or just breaks, this is xine 1.0.1
-        Debug::warning() << "We won't try to seek as the media is not seekable!\n";
-        return;
-    }
+    m_media->pause(); //pausing first gives Phonon a chance to recognize seekable media
     m_media->seek( pos );
     const bool fullscreen = toggleAction("fullscreen")->isChecked();
     if( fullscreen ) {
@@ -414,13 +409,14 @@ VideoWindow::contextMenuEvent( QContextMenuEvent * event )
 void
 VideoWindow::eject()
 {
+DEBUG_BLOCK
     if( m_media->currentSource().type() == Phonon::MediaSource::Invalid )
         return;
 
     KConfigGroup profile = TheStream::profile(); // the config profile for this video file
 
     Phonon::State state = m_media->state();
-    if( ( state == Phonon::PlayingState || state == Phonon::PausedState )
+    if( ( ( state == Phonon::PlayingState || state == Phonon::PausedState ) )
             && ( m_media->remainingTime() > 5000 ) ) // if we are really close to the end, don't remember the position
         profile.writeEntry( "Position", currentTime() );
     else

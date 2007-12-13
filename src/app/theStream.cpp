@@ -56,12 +56,26 @@ namespace Codeine
                 Solid::StorageVolume* disc = deviceList.first().as<Solid::StorageVolume>();
                 if( disc )
                 {
+                    QString discLabel = "disc:";
                     QString uuid = disc->uuid();
-                    debug() << "Disc has UUID " << uuid;
+                    QString label = disc->label();
+                    if( !uuid.isEmpty() )
+                        discLabel += uuid;
+                    else if ( !label.isEmpty() )
+                        discLabel += label;
+                    else
+                        discLabel = QString::null;
+                    debug() << "Disc has UUID " << uuid << " and label " << disc->label() << " so writing " << discLabel;
                     return KConfigGroup( KGlobal::config(), QString("disc:") + uuid );
                 }
+                else
+                    debug() << "profile: doesn't convert into Solid::StorageVolume";
             }
+            else
+                debug() << "profile: empty device list";
         }
+        else
+            debug() << "profile: Not a Phonon::MediaSource::Disc";
         //if not a disc, or Solid fails
         return KConfigGroup( KGlobal::config(), url().prettyUrl() );
     }
@@ -87,12 +101,7 @@ namespace Codeine
     QSize
     TheStream::defaultVideoSize()
     {
-      return !engine()->m_xineStream
-            ? QSize()
-            : QSize(
-                  xine_get_stream_info( engine()->m_xineStream, XINE_STREAM_INFO_VIDEO_WIDTH ),
-                  xine_get_stream_info( engine()->m_xineStream, XINE_STREAM_INFO_VIDEO_HEIGHT ) );
-
+      return videoWindow()->m_vWidget->sizeHint();
     }
 
     int

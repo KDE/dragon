@@ -82,7 +82,7 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
     if( be_welcome_dialog ) {
         QWidget *w = new KPushButton( KStandardGuiItem::quit(), this );
         hbox->addWidget( w );
-        connect( w, SIGNAL(clicked()), kapp, SLOT(quit()) );
+        connect( w, SIGNAL(clicked()), kapp, SLOT( closeAllWindows() ) );
     }
 
     hbox->addWidget( closeButton );
