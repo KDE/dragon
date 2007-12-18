@@ -48,7 +48,6 @@
 #include <QMouseEvent>
 #include <QObject>
 #include <QTimer>
-#include <QTimerEvent>
 
 #include "actions.h"
 #include "debug.h"
@@ -181,7 +180,6 @@ MainWindow::init()
     connect( engine(), SIGNAL( stateChanged( Engine::State ) ), this, SLOT( engineStateChanged( Engine::State ) ) );
     connect( engine(), SIGNAL( titleChanged( const QString& ) ), m_titleLabel, SLOT( setText( const QString&  ) ) );
     connect( engine(), SIGNAL( channelsChanged( QList< QAction* > ) ), this, SLOT( channelsChanged( QList< QAction* > ) ) );
-    //connect( m_positionSlider, SIGNAL(valueChanged( int )), this, SLOT(showTime( int )) );
 
     if( !engine()->init() ) {
         KMessageBox::error( this, i18n(
@@ -212,9 +210,6 @@ MainWindow::init()
     else
         //session management must be done after the videoWindow() has been initialised
         restore( 1, false );
-
-    //don't do until videoWindow() is initialised!
-    startTimer( 50 );
 }
 
 MainWindow::~MainWindow()
@@ -279,44 +274,11 @@ MainWindow::setupActions()
     #undef addToAc
 }
 
-/*
 void
-MainWindow::saveProperties( KConfig *config )
-{
-    config->writeEntry( "url", TheStream::url().url() );
-    config->writeEntry( "time", engine()->currentTime() );
-}
-
-void
-MainWindow::readProperties( KConfig *config )
-{
-    if( engine()->load( config->readPathEntry( "url" ) ) )
-        engine()->play( config->readNumEntry( "time" ) );
-}
-*/
-
-void
-MainWindow::timerEvent( QTimerEvent* )
-{
-    static int counter = 0;
-
-    if( engine()->state() == Engine::Playing ) {
-        ++counter &= 1023;
-
-        if( !m_positionSlider->isEnabled() && counter % 10 == 0 ) // 0.5 seconds
-            // usually the slider emits a signal that updates the timeLabel
-            // but not if the slider isn't moving because there is no length
-            showTime();
-
-    }
-}
-
-void
-MainWindow::showTime( int pos )
+MainWindow::showTime( qint64 ms )
 {
     #define zeroPad( n ) n < 10 ? QString("0%1").arg( n ) : QString::number( n )
 
-    const int ms = (pos == -1) ? engine()->currentTime() : int(engine()->length() * (pos / 65535.0));
     const int s  = ms / 1000;
     const int m  =  s / 60;
     const int h  =  m / 60;

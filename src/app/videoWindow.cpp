@@ -77,7 +77,8 @@ VideoWindow::VideoWindow( QWidget *parent )
     m_media = new MediaObject( this );
     Phonon::createPath(m_media, m_vWidget);
     m_audioPath = Phonon::createPath(m_media, m_aOutput);
-    m_media->setTickInterval( 350 );
+    m_media->setTickInterval( 1000 );
+    connect( m_media, SIGNAL( tick( qint64 ) ), mainWindow(), SLOT( showTime( qint64 ) ) );
 
     m_languages->setExclusive( true );
 

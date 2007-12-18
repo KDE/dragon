@@ -65,8 +65,6 @@ namespace Codeine
             else
                 debug() << "profile: empty device list";
         }
-        else
-            debug() << "profile: Not a Phonon::MediaSource::Disc";
         //if not a disc, or Solid fails
         return KConfigGroup( KGlobal::config(), url().prettyUrl() );
     }

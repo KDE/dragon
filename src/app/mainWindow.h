@@ -33,8 +33,6 @@ class QLabel;
 class QMenu;
 class QSlider;
 
-
-
 namespace Codeine
 {
    class MainWindow : public KXmlGuiWindow
@@ -56,12 +54,12 @@ namespace Codeine
       void playMedia( bool show_welcome_dialog = false );
       void setFullScreen( bool full );
       void streamInformation();
+      void showTime( qint64 );
 
    private slots:
       void engineMessage( const QString& );
       void engineStateChanged( Engine::State );
       void init();
-      void showTime( int = -1 );
       void aboutToShowMenu();
       void streamSettingChange();
       void channelsChanged( QList< QAction* > );
@@ -74,7 +72,6 @@ namespace Codeine
 
       QMenu *menu( const char *name );
 
-      virtual void timerEvent( QTimerEvent* );
       virtual void dragEnterEvent( QDragEnterEvent* );
       virtual void dropEvent( QDropEvent* );
       virtual void keyPressEvent( QKeyEvent* );
