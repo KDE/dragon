@@ -233,19 +233,19 @@ MainWindow::setupActions()
 
     new PlayAction( this, SLOT(play()), ac );
     #define addToAc( X ) ac->addAction( X->objectName(), X );
-    KAction* playerStop = new KAction( KIcon("player_stop"), i18n("Stop"), ac );
+    KAction* playerStop = new KAction( KIcon("media-playback-stop"), i18n("Stop"), ac );
     playerStop->setObjectName( "stop" );
     playerStop->setShortcut( Qt::Key_S );
     connect( playerStop, SIGNAL( triggered() ), engine(), SLOT( stop() ) );
     addToAc( playerStop )
 
-    KAction* recordAction = new KToggleAction( KIcon("player_record"), i18n("Record"), ac );
+    KAction* recordAction = new KToggleAction( KIcon("media-record"), i18n("Record"), ac );
     recordAction->setObjectName( "record" );
     recordAction->setShortcut( Qt::CTRL + Qt::Key_R );
     connect( recordAction, SIGNAL( triggered() ), engine(), SLOT( record() ) );
     addToAc( recordAction )
 
-    KAction* resetZoom = new KAction( KIcon("viewmag1"), i18n("Reset Video Scale"), ac );
+    KAction* resetZoom = new KAction( KIcon("zoom-best-fit"), i18n("Reset Video Scale"), ac );
     resetZoom->setObjectName( "reset_zoom" );
     resetZoom->setShortcut( Qt::Key_Equal );
     connect( resetZoom, SIGNAL( triggered() ), videoWindow(), SLOT( resetZoom() ) );

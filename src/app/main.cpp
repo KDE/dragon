@@ -31,7 +31,7 @@ static KAboutData aboutData( APP_NAME, 0,
         ki18n("A video player that has a usability focus"), KAboutData::License_GPL_V2,
         ki18n("Copyright 2006, Max Howell\nCopyright 2007, Ian Monroe"), KLocalizedString(),
         "http://www.methylblue.com/codeine/",
-        "ian@monroe.nu" );
+        "videoplayer@monroe.nu" );
 
 int
 main( int argc, char **argv )
