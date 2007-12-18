@@ -295,15 +295,15 @@ void
 VideoWindow::refreshXineStream()
 {
 DEBUG_BLOCK
-   // if( m_media->property( "xine_stream_t" ).canConvert<void*>() )
-    if( m_media->property( "xine_stream_t" ).isValid() )
+   if( m_media->property( "xine_stream_t" ).canConvert<void*>() )
+  //  if( m_media->property( "xine_stream_t" ).isValid() )
     {
         debug() << "value property " <<  m_media->property( "xine_stream_t" ).type();
         m_xineStream = (xine_stream_t*) m_media->property( "xine_stream_t" ).value<void*>();
     }
     else
     {
-        debug() << "mrrrrrr, xine_stream_t is invalid";
+        debug() << "mrrrrrr, QVariant property xine_stream_t isn't a void*.";
         m_xineStream = 0;
     }
 }

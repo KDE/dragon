@@ -88,9 +88,9 @@ MainWindow::MainWindow()
 {
     DEBUG_BLOCK
     s_instance = this;
-//PORTING?    setWindowState( windowState() ^ Qt::WDestructiveClose ); //we are allocated on the stack
-
+    setMouseTracking( true );
     new VideoWindow( this );
+    videoWindow()->setMouseTracking( true );
     m_positionSlider = videoWindow()->newPositionSlider();
 
     setCentralWidget( videoWindow() );
@@ -461,10 +461,13 @@ MainWindow::setFullScreen( bool isFullScreen )
     menuBar()->setHidden( isFullScreen );
     statusBar()->setHidden( isFullScreen );
 
-    if (isFullScreen)
+    if( isFullScreen )
         s_handler = new FullScreenToolBarHandler( this );
     else
+    {
+        action( "fullscreen" )->setEnabled( videoWindow()->state() & ( Engine::Playing | Engine::Paused) );
         delete s_handler;
+    }
     // prevent videoWindow() moving around when mouse moves 
     //setCentralWidget( isFullScreen ? 0 : videoWindow() ); //deletes videoWindow() when cleared
 }

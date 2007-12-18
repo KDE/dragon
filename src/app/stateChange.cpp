@@ -76,7 +76,7 @@ MainWindow::engineStateChanged( Engine::State state )
 
         #define enableIf( name, criteria ) action( name )->setEnabled( state & criteria );
         enableIf( "stop", (Playing | Paused) );
-        enableIf( "fullscreen", (Playing | Paused) );
+        enableIf( "fullscreen", (Playing | Paused) || isFullScreen );
         enableIf( "reset_zoom", ~Empty && !isFullScreen );
         enableIf( "information", ~Empty );
 //        enableIf( "video_settings", (Playing | Paused) );
