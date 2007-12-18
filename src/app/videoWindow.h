@@ -71,6 +71,8 @@ namespace Codeine
         bool play( qint64 = 0 );
         bool playDvd();
 
+        void relativeSeek( qint64 );
+
         qint64 length() const;
 
         uint volume() const;
@@ -101,9 +103,10 @@ namespace Codeine
         void toggleDVDMenu();
         void showOSD( const QString& );
         void slotSetSubtitle();
-        
+        void resetZoom();
     protected:
         virtual void contextMenuEvent( QContextMenuEvent * event );
+        virtual QSize sizeHint() const;
         void refreshXineStream();
         Engine::State state( Phonon::State state ) const;
     private slots:

@@ -149,6 +149,16 @@ VideoWindow::playDvd()
 }
 
 void
+VideoWindow::relativeSeek( qint64 step )
+{
+    m_media->pause();
+    const qint64 new_pos = currentTime() + step;
+    if( new_pos > 0 )
+        seek( new_pos );
+    play();
+}
+
+void
 VideoWindow::stop()
 {
     eject();
@@ -257,6 +267,13 @@ VideoWindow::showOSD( const QString &/*message*/ )
     return;
 }
 
+void
+VideoWindow::resetZoom()
+{
+   TheStream::profile().deleteEntry( "Preferred Size" );
+   mainWindow()->adjustSize();
+}
+
 QString
 VideoWindow::fileFilter() const
 {
@@ -287,7 +304,7 @@ VideoWindow::newVolumeSlider()
 {
     VolumeSlider *volumeSlider = new VolumeSlider();
     volumeSlider->setObjectName( "volume" );
-    volumeSlider->setAudioOutput( m_aOutput );
+//     volumeSlider->setAudioOutput( m_aOutput );
     return volumeSlider;
 }
 
@@ -321,6 +338,9 @@ DEBUG_BLOCK
     {
         refreshXineStream();
         updateChannels();
+        //m_vWidget->updateGeometry();
+        //updateGeometry();
+        ( (QWidget*) mainWindow() )->adjustSize();
     }
     emit stateChanged( state( currentState ) ); 
 }
@@ -394,6 +414,20 @@ VideoWindow::contextMenuEvent( QContextMenuEvent * event )
     menu.addAction( action( "fullscreen" ) );
     menu.addAction( action( "reset_zoom" ) );
     menu.exec( event->globalPos() );
+}
+
+QSize
+VideoWindow::sizeHint() const //virtual
+{
+   QSize s = TheStream::profile().readEntry<QSize>( "Preferred Size", QSize() );
+
+   if( !s.isValid() )
+      s = TheStream::defaultVideoSize();
+
+   if( s.isValid() && !s.isNull() )
+      return s;
+
+   return minimumSizeHint();
 }
 
 ///////////

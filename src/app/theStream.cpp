@@ -56,17 +56,8 @@ namespace Codeine
                 Solid::StorageVolume* disc = deviceList.first().as<Solid::StorageVolume>();
                 if( disc )
                 {
-                    QString discLabel = "disc:";
-                    QString uuid = disc->uuid();
-                    QString label = disc->label();
-                    if( !uuid.isEmpty() )
-                        discLabel += uuid;
-                    else if ( !label.isEmpty() )
-                        discLabel += label;
-                    else
-                        discLabel = QString::null;
-                    debug() << "Disc has UUID " << uuid << " and label " << disc->label() << " so writing " << discLabel;
-                    return KConfigGroup( KGlobal::config(), QString("disc:") + uuid );
+                    QString discLabel = QString("disc:%1,%2").arg( disc->uuid(), disc->label() );
+                    return KConfigGroup( KGlobal::config(), discLabel );
                 }
                 else
                     debug() << "profile: doesn't convert into Solid::StorageVolume";

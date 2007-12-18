@@ -62,16 +62,6 @@
 #include "theStream.h"
 #include "videoWindow.h"
 
-#ifndef NO_XTEST_EXTENSION
-extern "C"
-{
-    #include <X11/extensions/XTest.h>
-    #include <X11/keysym.h>
-}
-#endif
-
-using namespace Qt;
-
 namespace Codeine {
 
     MainWindow *MainWindow::s_instance = 0;
@@ -102,7 +92,7 @@ MainWindow::MainWindow()
 
     m_titleLabel->setMargin( 2 );
     m_timeLabel->setFont( KGlobalSettings::fixedFont() );
-    m_timeLabel->setAlignment( AlignCenter );
+    m_timeLabel->setAlignment( Qt::AlignCenter );
     m_timeLabel->setMinimumSize( m_timeLabel->sizeHint() );
 
     // work around a bug in KStatusBar
@@ -530,16 +520,11 @@ MainWindow::dropEvent( QDropEvent *e )
 void
 MainWindow::keyPressEvent( QKeyEvent *e )
 {
-    #define seek( step ) { \
-            const int new_pos = engine()->currentTime() + step; \
-            engine()->seek( new_pos > 0 ? (uint)new_pos : 0 ); \
-        }
-
     switch( e->key() )
     {
-        case Qt::Key_Left:  seek( -500 ); break;
-        case Qt::Key_Right: seek( +500 ); break;
-        case Key_Escape:     KWindowSystem::clearState( winId(), NET::FullScreen );
+        case Qt::Key_Left:  engine()->relativeSeek( -5000 ); break;
+        case Qt::Key_Right: engine()->relativeSeek( 5000 ); break;
+        case Qt::Key_Escape:    action("fullscreen")->setChecked( false );
         default: ;
     }
 
