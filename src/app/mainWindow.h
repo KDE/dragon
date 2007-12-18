@@ -54,7 +54,7 @@ namespace Codeine
    public slots:
       void play();
       void playMedia( bool show_welcome_dialog = false );
-
+      void setFullScreen( bool full );
       void streamInformation();
 
    private slots:
@@ -63,7 +63,6 @@ namespace Codeine
       void init();
       void showTime( int = -1 );
       void aboutToShowMenu();
-      void fullScreenToggled( bool );
       void streamSettingChange();
       void channelsChanged( QList< QAction* > );
 
@@ -82,8 +81,6 @@ namespace Codeine
 
 //      virtual void saveProperties( KConfig* );
 //      virtual void readProperties( KConfig* );
-
-      virtual bool queryExit();
 
       QWidget *m_positionSlider;
       QLabel  *m_timeLabel;

@@ -257,12 +257,6 @@ VideoWindow::showOSD( const QString &/*message*/ )
     return;
 }
 
-void
-VideoWindow::setFullScreen( bool full )
-{
-     m_vWidget->setFullScreen( full );
-}
-
 QString
 VideoWindow::fileFilter() const
 {
@@ -399,7 +393,6 @@ VideoWindow::contextMenuEvent( QContextMenuEvent * event )
     menu.addAction( action( "play" ) );
     menu.addAction( action( "fullscreen" ) );
     menu.addAction( action( "reset_zoom" ) );
-    menu.addAction( action( "xine_settings" ) );
     menu.exec( event->globalPos() );
 }
 

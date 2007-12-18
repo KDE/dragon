@@ -102,8 +102,6 @@ namespace Codeine
         void showOSD( const QString& );
         void slotSetSubtitle();
         
-        void setFullScreen( bool f );
-    
     protected:
         virtual void contextMenuEvent( QContextMenuEvent * event );
         void refreshXineStream();

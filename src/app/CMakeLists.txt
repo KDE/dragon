@@ -7,6 +7,7 @@ set(videoplayer_SRCS
     listView.cpp
     adjustSizeButton.cpp
     fullScreenAction.cpp
+    fullScreenToolBarHandler.cpp
     playlistFile.cpp
     ../mxcl.library.cpp
     main.cpp

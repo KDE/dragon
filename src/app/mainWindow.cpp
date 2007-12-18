@@ -28,6 +28,7 @@
 #include <KGlobalSettings> //::timerEvent()
 #include <KIO/NetAccess>
 #include <KLocale>
+#include <KMenuBar>
 #include <KSqueezedTextLabel>
 #include <KStatusBar>
 #include <KToolBar>
@@ -53,6 +54,7 @@
 #include "debug.h"
 #include "extern.h"         //dialog creation function definitions
 #include "fullScreenAction.h"
+#include "fullScreenToolBarHandler.h"
 #include "mainWindow.h"
 #include "mxcl.library.h"
 #include "playDialog.h"  //::play()
@@ -232,27 +234,6 @@ MainWindow::~MainWindow()
     delete videoWindow(); //fades out sound in dtor
 }
 
-bool
-MainWindow::queryExit()
-{
-    if( toggleAction( "fullscreen" )->isChecked() ) {
-        // there seems to be no other way to stop KMainWindow
-        // saving the window state without any controls
-        fullScreenToggled( false );
-        showNormal();
-        QApplication::sendPostedEvents( this, 0 );
-        // otherwise KMainWindow saves the screensize as maximised
-        Codeine::MessageBox::sorry(
-                "This annoying messagebox is to get round a bug in either KDE or Qt. "
-                "Just press OK and Codeine will quit." );
-        //NOTE not actually needed
-        saveAutoSaveSettings();
-        hide();
-    }
-
-    return true;
-}
-
 void
 MainWindow::setupActions()
 {
@@ -263,7 +244,6 @@ MainWindow::setupActions()
     KStandardAction::quit( kapp, SLOT( closeAllWindows() ), ac );
     //was play_media, never used
     KStandardAction::open( this, SLOT(playMedia()), ac )->setText( i18n("Play &Media...") );
-    //connect( new FullScreenAction( this, ac ), SIGNAL(toggled( bool )), SLOT(fullScreenToggled( bool )) );
     new FullScreenAction( this, ac );
 
     new PlayAction( this, SLOT(play()), ac );
@@ -467,126 +447,24 @@ MainWindow::playMedia( bool show_welcome_dialog )
     }
 }
 
-class FullScreenToolBarHandler : QObject
-{
-    KToolBar *m_toolbar;
-    int m_timer_id;
-    bool m_stay_hidden_for_a_bit;
-    QPoint m_home;
-
-public:
-    FullScreenToolBarHandler( KMainWindow *parent )
-            : QObject( parent )
-            , m_toolbar( parent->toolBar() )
-            , m_timer_id( 0 )
-            , m_stay_hidden_for_a_bit( false )
-    {
-        DEBUG_BLOCK
-
-        parent->installEventFilter( this );
-        m_toolbar->installEventFilter( this );
-    }
-
-    bool eventFilter( QObject *o, QEvent *e )
-    {
-        if (o == parent() && e->type() == QEvent::MouseMove) {
-            killTimer( m_timer_id );
-
-            QMouseEvent const * const me = (QMouseEvent*)e;
-            if (m_stay_hidden_for_a_bit) {
-                // wait for a small pause before showing the toolbar again
-                // usage = user removes mouse from toolbar after using it
-                // toolbar disappears (usage is over) but usually we show
-                // toolbar immediately when mouse is moved.. so we need this hack
-
-                // HACK if user thrusts mouse to top, we assume they really want the toolbar
-                // back. Is hack as 80% of users have at top, but 20% at bottom, we don't cater
-                // for the 20% as lots more code, for now.
-                if (me->pos().y() < m_toolbar->height())
-                    goto show_toolbar;
-
-                m_timer_id = startTimer( 100 );
-            }
-            else {
-                if (m_toolbar->isHidden()) {
-                    if (m_home.isNull())
-                        m_home = me->pos();
-                    else if ((m_home - me->pos()).manhattanLength() > 6)
-                        // then cursor has moved far enough to trigger show toolbar
-show_toolbar:
-                        m_toolbar->show(),
-                        m_home = QPoint();
-                    else
-                        // cursor hasn't moved far enough yet
-                        // don't reset timer below, return instead
-                        return false;
-                }
-
-                // reset the hide timer
-                m_timer_id = startTimer( VideoWindow::CURSOR_HIDE_TIMEOUT );
-            }
-        }
-
-        if (o == parent() && e->type() == QEvent::Resize)
-        {
-            //we aren't managed by mainWindow when at FullScreen
-            videoWindow()->move( 0, 0 );
-            videoWindow()->resize( ((QWidget*)o)->size() );
-            videoWindow()->lower();
-        }
-
-        if (o == m_toolbar)
-            switch (e->type()) {
-                case QEvent::Enter:
-                    m_stay_hidden_for_a_bit = false;
-                    killTimer( m_timer_id );
-                break;
-
-                case QEvent::Leave:
-                    m_toolbar->hide();
-                    m_stay_hidden_for_a_bit = true;
-                    killTimer( m_timer_id );
-                    m_timer_id = startTimer( 100 );
-                break;
-
-                default: break;
-            }
-
-        return false;
-    }
-
-    void timerEvent( QTimerEvent* )
-    {
-        if (m_stay_hidden_for_a_bit)
-            ;
-
-        else if ( !m_toolbar->testAttribute( Qt::WA_UnderMouse ) )
-            m_toolbar->hide();
-
-        m_stay_hidden_for_a_bit = false;
-    }
-};
-
-
 void
-MainWindow::fullScreenToggled( bool isFullScreen )
+MainWindow::setFullScreen( bool isFullScreen )
 {
     DEBUG_BLOCK
+    debug() << "Setting full screen to " << isFullScreen;
+    mainWindow()->setWindowState( mainWindow()->windowState() ^ Qt::WindowFullScreen );
+    //setWindowState( windowState() & ( full ? Qt::WindowFullScreen : ~Qt::WindowFullScreen ) );
     static FullScreenToolBarHandler *s_handler;
 
     //toolBar()->setMovingEnabled( !isFullScreen );
     toolBar()->setHidden( isFullScreen && engine()->state() == Engine::Playing );
-
-    reinterpret_cast<QWidget*>(menuBar())->setHidden( isFullScreen );
+    menuBar()->setHidden( isFullScreen );
     statusBar()->setHidden( isFullScreen );
-
-    setMouseTracking( isFullScreen ); /// @see mouseMoveEvent()
 
     if (isFullScreen)
         s_handler = new FullScreenToolBarHandler( this );
     else
         delete s_handler;
-
     // prevent videoWindow() moving around when mouse moves 
     //setCentralWidget( isFullScreen ? 0 : videoWindow() ); //deletes videoWindow() when cleared
 }

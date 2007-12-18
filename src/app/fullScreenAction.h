@@ -29,7 +29,6 @@ class KActionCollection;
 /**
  * @class FullSCreenAction
  * @author Ian Monroe
- * @short Just calls Phonon::VideoWidget->setFullScreen essentionally
  */
 class FullScreenAction : public KToggleAction
 {
