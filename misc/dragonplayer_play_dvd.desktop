@@ -6,16 +6,5 @@ X-KDE-Priority=TopLevel
 
 [Desktop Action Play]
 Name=Play DVD with Dragon Player
-Name[bg]=Изпълнение на DVD с Codeine
-Name[de]=DVD mit Codeine abspielen
-Name[el]=Αναπαραγωγή DVD με το Codeine
-Name[es]=Reproduce un DVD con Codeine
-Name[et]=Esita DVD Codeine'iga
-Name[ja]=Codeine で DVD を再生
-Name[nl]=DVD met Codeine afspelen
-Name[pt]=Ler o DVD com o Codeine
-Name[pt_BR]=Reproduzir DVD com o Codeine
-Name[sv]=Spela dvd med Kodein
-Name[xx]=xxPlay DVD with Codeinexx
 Icon=dragonplayer
 Exec=dragon --play-dvd %u
