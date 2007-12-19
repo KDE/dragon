@@ -26,7 +26,7 @@
    <Separator lineSeparator="false"/>
    <Action name="position_slider"/>
    <Separator lineSeparator="false"/>
-   <Action name="toggle_dvd_menu"/>
+<!--   <Action name="toggle_dvd_menu"/> -->
    <Action name="fullscreen"/>
 </ToolBar>
 

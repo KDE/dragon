@@ -5,7 +5,7 @@ Encoding=UTF-8
 X-KDE-Priority=TopLevel
 
 [Desktop Action Play]
-Name=Play DVD with Codeine
+Name=Play DVD with Dragon Player
 Name[bg]=Изпълнение на DVD с Codeine
 Name[de]=DVD mit Codeine abspielen
 Name[el]=Αναπαραγωγή DVD με το Codeine
@@ -17,5 +17,5 @@ Name[pt]=Ler o DVD com o Codeine
 Name[pt_BR]=Reproduzir DVD com o Codeine
 Name[sv]=Spela dvd med Kodein
 Name[xx]=xxPlay DVD with Codeinexx
-Icon=codeine
-Exec=codeine --play-dvd %u
+Icon=dragonplayer
+Exec=dragon --play-dvd %u

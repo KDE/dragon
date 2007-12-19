@@ -14,11 +14,11 @@ set(videoplayer_SRCS
     mainWindow.cpp )
 
 
-kde4_add_executable(videoplayer ${videoplayer_SRCS} )
+kde4_add_executable(dragon ${videoplayer_SRCS} )
 
-target_link_libraries(videoplayer 
+target_link_libraries(dragon 
     ${KDE4_KUTILS_LIBS}
     ${KDE4_PHONON_LIBS}
     ${XINE_LIBRARY} )
 
-install(TARGETS videoplayer DESTINATION ${BIN_INSTALL_DIR})
+install(TARGETS dragon DESTINATION ${BIN_INSTALL_DIR})

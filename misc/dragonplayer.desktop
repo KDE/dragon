@@ -1,19 +1,7 @@
 [Desktop Entry]
-Name=Video Player
-Name[bg]=Видео плеър
-Name[br]=Ur soner Video
-Name[de]=Video-Abspieler
-Name[el]=Αναπαραγωγέας βίντεο
-Name[es]=Reproductor de vídeo
-Name[et]=Videomängija
-Name[ja]=動画プレーヤ
-Name[ms]=Pemain Video
-Name[pt]=Leitor de Vídeo
-Name[pt_BR]=Reprodutor de Vídeo
-Name[sv]=Videospelare
-Name[xx]=xxVideo Playerxx
-Exec=videoplayer %u
-Icon=videoplayer
+Name=Dragon Player
+Exec=dragon %u
+Icon=dragonplayer
 Type=Application
 Encoding=UTF-8
 MimeType=video/x-theora;video/x-ogm;video/x-ms-wmv;video/x-msvideo;video/x-ms-asf;video/x-matroska;video/mpeg;video/avi;video/quicktime;video/vnd.rn-realvideo;video/x-flic;

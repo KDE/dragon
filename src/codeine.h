@@ -53,7 +53,7 @@ namespace Codeine
 int main( int, char** );
 
 #define APP_VERSION "2.0-SVN"
-#define APP_NAME "videoplayer"
-#define PRETTY_NAME "Video Player"
+#define APP_NAME "dragonplayer"
+#define PRETTY_NAME "Dragon Player"
 
 #endif
