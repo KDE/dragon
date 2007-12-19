@@ -1,11 +1,7 @@
 [Desktop Entry]
-Name=Dragon Player
-Exec=dragon %u
-Icon=dragonplayer
 Type=Application
-Encoding=UTF-8
-MimeType=video/x-theora;video/x-ogm;video/x-ms-wmv;video/x-msvideo;video/x-ms-asf;video/x-matroska;video/mpeg;video/avi;video/quicktime;video/vnd.rn-realvideo;video/x-flic;
-Categories=Qt;KDE;AudioVideo;Player
+Version=1.0
+Name=Dragon Player
 GenericName=Video Player
 GenericName[bg]=Видео плеър
 GenericName[br]=Ur soner Video
@@ -20,3 +16,8 @@ GenericName[pt]=Leitor de Vídeo
 GenericName[pt_BR]=Reprodutor de Vídeo
 GenericName[sv]=Videospelare
 GenericName[xx]=xxVideo Playerxx
+Icon=dragonplayer
+TryExec=dragon
+Exec=dragon %u
+MimeType=video/x-theora;video/x-ogm;video/x-ms-wmv;video/x-msvideo;video/x-ms-asf;video/x-matroska;video/mpeg;video/avi;video/quicktime;video/vnd.rn-realvideo;video/x-flic;
+Categories=Qt;KDE;AudioVideo;Player;
