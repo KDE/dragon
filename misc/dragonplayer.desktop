@@ -2,6 +2,7 @@
 Type=Application
 Version=1.0
 Name=Dragon Player
+Name[sv]=Dragon
 GenericName=Video Player
 GenericName[bg]=Видео плеър
 GenericName[br]=Ur soner Video
