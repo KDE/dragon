@@ -30,16 +30,12 @@ static KAboutData aboutData( APP_NAME, 0,
         ki18n(PRETTY_NAME), APP_VERSION,
         ki18n("A video player that has a usability focus"), KAboutData::License_GPL_V2,
         ki18n("Copyright 2006, Max Howell\nCopyright 2007, Ian Monroe"), KLocalizedString(),
-        "http://www.methylblue.com/codeine/",
-        "videoplayer@monroe.nu" );
+        "http://dragonplayer.org",
+        "imonroe@dragonplayer.org" );
 
 int
 main( int argc, char **argv )
 {
-    //we need to do this, says adrianS from SuSE
-//    if( !XInitThreads() )
-//        return 1;
-
     aboutData.addCredit( ki18n("Mike Diehl"), ki18n("Handbook") );
     aboutData.addCredit( ki18n("The Kaffeine Developers"), ki18n("Great reference code") );
     aboutData.addCredit( ki18n("Greenleaf"), ki18n("Yatta happened to be the only video on my laptop to test with. :)") );

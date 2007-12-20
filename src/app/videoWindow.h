@@ -90,15 +90,15 @@ namespace Codeine
 
         qint64 currentTime() const;
         QString fileFilter() const;
-        
-        
+
         const xine_stream_t* xineStream() const { return m_xineStream; }
-        
+
     public slots:
         void playPause();
         void seek( qint64 );
         void stop();
-        void stateChanged(Phonon::State, Phonon::State);
+        void stateChanged( Phonon::State, Phonon::State );
+        void settingChanged( int );
 
         void toggleDVDMenu();
         void showOSD( const QString& );

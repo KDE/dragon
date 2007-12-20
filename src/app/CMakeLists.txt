@@ -12,6 +12,7 @@ set(videoplayer_SRCS
     ../mxcl.library.cpp
     main.cpp
     mainWindow.cpp )
+kde4_add_ui_files(videoplayer_SRCS videoSettingsWidget.ui)
 
 
 kde4_add_executable(dragon ${videoplayer_SRCS} )

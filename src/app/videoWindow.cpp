@@ -116,7 +116,7 @@ VideoWindow::~VideoWindow()
 bool
 VideoWindow::init()
 {
-    return true;
+    return m_media->state() != Phonon::ErrorState;
 }
 
 bool
@@ -344,6 +344,21 @@ DEBUG_BLOCK
         ( (QWidget*) mainWindow() )->adjustSize();
     }
     emit stateChanged( state( currentState ) ); 
+}
+
+void
+VideoWindow::settingChanged( int setting )
+{
+    const QString name = sender()->objectName();
+    const double dSetting = static_cast<double>( setting ) * 0.01;
+    if( name == "brightnessSlider" )
+    {
+        m_vWidget->setBrightness( dSetting );
+    }
+    else if( name == "contrastSlider" )
+    {
+        m_vWidget->setContrast( dSetting );
+    }
 }
 
 void

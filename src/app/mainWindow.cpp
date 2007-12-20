@@ -39,6 +39,7 @@
 
 #include <QActionGroup>
 #include <QDesktopWidget>
+#include <QDockWidget>
 #include <QDragEnterEvent>
 #include <QDropEvent>
 #include <QEvent>        //::stateChanged()
@@ -59,6 +60,7 @@
 #include "playDialog.h"  //::play()
 #include "playlistFile.h"
 #include "theStream.h"
+#include "ui_videoSettingsWidget.h"
 #include "videoWindow.h"
 
 namespace Codeine {
@@ -111,16 +113,16 @@ MainWindow::MainWindow()
         QAction *menuAction = 0; 
         QMenu *settings = static_cast<QMenu*>(factory()->container( "settings", this ));
         #define make_menu( name, text ) \
-                menu = settings->addMenu( text ); \
+                menu = new QMenu( text ); \
+                settings->insertMenu( ac->action("fullscreen"), menu ); \
                 menuAction = menu->menuAction(); \
                 menuAction->setObjectName( name ); \
                 menuAction->setEnabled( false ); \
                 connect( menu, SIGNAL(aboutToShow()), SLOT(aboutToShowMenu()) ); \
                 ac->addAction( name, menuAction );
-
+        make_menu( "aspect_ratio_menu", i18n( "Aspect &Ratio" ) );
         make_menu( "subtitle_channels_menu", i18n( "&Subtitles" ) );
  //       make_menu( "audio_channels_menu", i18n( "A&udio Channels" ) );
-        make_menu( "aspect_ratio_menu", i18n( "Aspect &Ratio" ) );
         #undef make_menu
 
         {
@@ -144,19 +146,7 @@ MainWindow::MainWindow()
             ac->action( "aspect_ratio_menu" )->menu()->addActions( m_aspectRatios->actions() );
         }
         settings->addSeparator();
-    }
-    {
-        QObjectList list = toolBar()->findChildren<QObject*>( "KToolBarButton" );
-/*        if (list.isEmpty()) {
-                MessageBox::error( i18n(
-                    "<qt>" PRETTY_NAME " could not load its interface, this probably means that " PRETTY_NAME " is not "
-                    "installed to the correct prefix. If you installed from packages please contact the packager, if "
-                    "you installed from source please try running the <b>configure</b> script again like this: "
-                    "<pre> % ./configure --prefix=`kde-config --prefix`</pre>" ) );
-
-                std::exit( 1 );
-        }
-                */
+        settings->addAction( ac->action("video_settings") );
     }
     KXMLGUIClient::stateChanged( "empty" );
 
@@ -197,7 +187,7 @@ MainWindow::init()
     if( !kapp->isSessionRestored() ) {
         KCmdLineArgs &args = *KCmdLineArgs::parsedArgs();
         if (args.isSet( "play-dvd" ))
-            open( KUrl( "dvd:/" ) );
+            engine()->playDvd();
         else if (args.count() > 0 ) {
             open( args.url( 0 ) );
             args.clear();
@@ -269,7 +259,11 @@ MainWindow::setupActions()
     positionSlider->setObjectName( "position_slider" );
     positionSlider->setDefaultWidget( m_positionSlider );
     addToAc( positionSlider )
-   // positionSlider->setAutoSized( true ); PORTING, whats the replacement for this?
+
+    KAction* videoSettings = new KAction( i18n("Video Settings"), ac );
+    videoSettings->setObjectName( "video_settings" );
+    connect( videoSettings, SIGNAL( triggered() ), this, SLOT( showVideoSettings() ) );
+    addToAc( videoSettings )
 
     #undef addToAc
 }
@@ -290,6 +284,21 @@ MainWindow::showTime( qint64 ms )
     time.prepend( QString::number( h ) ); //hours
 
     m_timeLabel->setText( time );
+}
+
+void
+MainWindow::showVideoSettings()
+{
+    QDockWidget* leftDock = new QDockWidget( this );
+    leftDock->setFeatures( QDockWidget::NoDockWidgetFeatures );
+    QWidget* videoSettingsWidget = new QWidget( leftDock );
+    Ui::VideoSettingsWidget ui;
+    ui.setupUi( videoSettingsWidget );
+    videoSettingsWidget->adjustSize();
+    leftDock->adjustSize();
+    addDockWidget( Qt::LeftDockWidgetArea, leftDock );
+    connect( ui.brightnessSlider, SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
+    connect( ui.contrastSlider,   SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
 }
 
 void
