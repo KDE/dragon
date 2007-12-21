@@ -103,7 +103,7 @@ MainWindow::MainWindow()
     statusBar()->addWidget( m_titleLabel, 1 );
     statusBar()->addPermanentWidget( m_timeLabel, 0);
     setupActions();
-    setupGUI();
+    
     //setStandardToolBarMenuEnabled( false ); //bah to setupGUI()!
     //toolBar()->show(); //it's possible it would be hidden, but we don't want that as no UI way to show it!
 
@@ -111,10 +111,8 @@ MainWindow::MainWindow()
         KActionCollection* ac = actionCollection();
         QMenu *menu = 0;
         QAction *menuAction = 0; 
-        QMenu *settings = static_cast<QMenu*>(factory()->container( "settings", this ));
         #define make_menu( name, text ) \
                 menu = new QMenu( text ); \
-                settings->insertMenu( ac->action("fullscreen"), menu ); \
                 menuAction = menu->menuAction(); \
                 menuAction->setObjectName( name ); \
                 menuAction->setEnabled( false ); \
@@ -145,9 +143,10 @@ MainWindow::MainWindow()
             ac->action( "ratio_auto" )->setChecked( true );
             ac->action( "aspect_ratio_menu" )->menu()->addActions( m_aspectRatios->actions() );
         }
-        settings->addSeparator();
-        settings->addAction( ac->action("video_settings") );
     }
+
+    setupGUI(); //load xml dragonplayerui.rc file
+
     KXMLGUIClient::stateChanged( "empty" );
 
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
@@ -183,7 +182,7 @@ MainWindow::init()
     connect( statusBar(), SIGNAL(messageChanged( const QString& )), engine(), SLOT(showOSD( const QString& )) );
 
     QApplication::restoreOverrideCursor();
-
+    engineStateChanged( Engine::Empty );
     if( !kapp->isSessionRestored() ) {
         KCmdLineArgs &args = *KCmdLineArgs::parsedArgs();
         if (args.isSet( "play-dvd" ))
@@ -200,6 +199,7 @@ MainWindow::init()
     else
         //session management must be done after the videoWindow() has been initialised
         restore( 1, false );
+    
 }
 
 MainWindow::~MainWindow()
@@ -290,8 +290,10 @@ void
 MainWindow::showVideoSettings()
 {
     QDockWidget* leftDock = new QDockWidget( this );
+    leftDock->setObjectName("left_dock");
     leftDock->setFeatures( QDockWidget::NoDockWidgetFeatures );
     QWidget* videoSettingsWidget = new QWidget( leftDock );
+    leftDock->setWidget( videoSettingsWidget );
     Ui::VideoSettingsWidget ui;
     ui.setupUi( videoSettingsWidget );
     videoSettingsWidget->adjustSize();
@@ -299,6 +301,7 @@ MainWindow::showVideoSettings()
     addDockWidget( Qt::LeftDockWidgetArea, leftDock );
     connect( ui.brightnessSlider, SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
     connect( ui.contrastSlider,   SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
+    connect( ui.closeButton, SIGNAL( clicked( bool ) ), leftDock, SLOT( deleteLater() ) );
 }
 
 void
