@@ -36,6 +36,7 @@
 #include <QTimer>
 #include <QVBoxLayout>
 
+#include <KApplication>
 #include <KLocale>
 #include <KMenu>
 #include <Phonon/Path>
@@ -59,6 +60,7 @@ VideoWindow *VideoWindow::s_instance = 0;
 
 VideoWindow::VideoWindow( QWidget *parent )
         : QWidget( parent )
+        , m_cursorTimer( new QTimer( this ) )
         , m_justLoaded( false )
         , m_xineStream( 0 )
         , m_languages( new QActionGroup( this ) )
@@ -83,10 +85,14 @@ VideoWindow::VideoWindow( QWidget *parent )
     m_languages->setExclusive( true );
 
     connect( m_media, SIGNAL(stateChanged(Phonon::State,Phonon::State)), this, SLOT(stateChanged(Phonon::State,Phonon::State)) );
-    QTimer *timer = new QTimer( this );
-    timer->setInterval( 5 * 1000 );
-    connect( timer, SIGNAL( timeout() ), this, SLOT( updateChannels() ) );
-    timer->start();
+    {
+        QTimer *timer = new QTimer( this );
+        timer->setInterval( 5 * 1000 );
+        connect( timer, SIGNAL( timeout() ), this, SLOT( updateChannels() ) );
+        timer->start();
+    }
+    connect( m_cursorTimer, SIGNAL( timeout() ), this, SLOT( hideCursor() ) );
+    m_cursorTimer->setSingleShot( true );
 }
 
 VideoWindow::~VideoWindow()
@@ -397,6 +403,13 @@ VideoWindow::updateChannels()
 }
 
 void
+VideoWindow::hideCursor()
+{
+   DEBUG_BLOCK
+   kapp->setOverrideCursor( Qt::BlankCursor );
+}
+
+void
 VideoWindow::slotSetSubtitle()
 {
     if( m_xineStream && sender()->property( TheStream::CHANNEL_PROPERTY ).canConvert<int>() )
@@ -422,6 +435,34 @@ VideoWindow::toggleDVDMenu()
 ///////////
 ///Protected
 ///////////
+bool
+VideoWindow::event( QEvent* event )
+{
+    DEBUG_BLOCK
+    switch( event->type() )
+    {
+      case QEvent::Leave:
+         m_cursorTimer->stop(), debug() << "stop cursorTimer";
+      break;
+      case QEvent::FocusOut:
+         // if the user summons some dialog via a shortcut or whatever we need to ensure
+         // the mouse gets shown, because if it is modal, we won't get mouse events after
+         // it is shown! This works because we are always the focus widget.
+         // @see MainWindow::MainWindow where we setFocusProxy()
+      case QEvent::Enter:
+      case QEvent::MouseMove:
+      case QEvent::MouseButtonPress:
+         kapp->restoreOverrideCursor();
+         if( hasFocus() )
+            // see above comment
+            debug() << "cursor will disappear in 2000 seconds";
+            m_cursorTimer->start( CURSOR_HIDE_TIMEOUT );
+         break;
+      default: ;
+    }
+    return false;
+}
+
 void
 VideoWindow::contextMenuEvent( QContextMenuEvent * event )
 {

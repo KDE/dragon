@@ -390,11 +390,15 @@ MainWindow::playMedia( bool show_welcome_dialog )
 {
     PlayDialog dialog( this, show_welcome_dialog );
 
+    runDialog:
     switch( dialog.exec() ) {
     case PlayDialog::FILE: {
         const QString filter = engine()->fileFilter() + '|' + i18n("Supported Media Formats") + "\n*|" + i18n("All Files");
         const KUrl url = KFileDialog::getOpenUrl( KUrl(":default"), filter, this, i18n("Select A File To Play") );
-        open( url );
+        if( url.isEmpty() )
+            goto runDialog;
+        else
+            open( url );
         } break;
     case PlayDialog::RECENT_FILE:
         open( dialog.url() );

@@ -26,7 +26,10 @@
 #include <QWidget>
 #include <Phonon/Path>
 #include <KUrl>
+
 class QActionGroup;
+class QTimer;
+
 namespace Phonon {
      class VideoWidget;
      class AudioOutput;
@@ -49,9 +52,11 @@ namespace Codeine
         VideoWindow &operator=( const VideoWindow& ); //disable
         void eject();
 
+        QTimer* m_cursorTimer;
         bool m_justLoaded;
         xine_stream_t* m_xineStream;
         QActionGroup* m_languages;
+
         Phonon::VideoWidget *m_vWidget;
         Phonon::AudioOutput *m_aOutput;
         Phonon::MediaObject *m_media;
@@ -105,12 +110,14 @@ namespace Codeine
         void slotSetSubtitle();
         void resetZoom();
     protected:
+        virtual bool event( QEvent* e );
         virtual void contextMenuEvent( QContextMenuEvent * event );
         virtual QSize sizeHint() const;
         void refreshXineStream();
         Engine::State state( Phonon::State state ) const;
     private slots:
         void updateChannels();
+        void hideCursor();
     signals:
         void stateChanged( Engine::State );
         void statusMessage( const QString& );
