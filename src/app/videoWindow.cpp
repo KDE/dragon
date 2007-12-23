@@ -357,6 +357,7 @@ VideoWindow::settingChanged( int setting )
 {
     const QString name = sender()->objectName();
     const double dSetting = static_cast<double>( setting ) * 0.01;
+    debug() << "setting " << name << " to " << dSetting;
     if( name == "brightnessSlider" )
     {
         m_vWidget->setBrightness( dSetting );
@@ -364,6 +365,14 @@ VideoWindow::settingChanged( int setting )
     else if( name == "contrastSlider" )
     {
         m_vWidget->setContrast( dSetting );
+    }
+    else if( name == "hueSlider" )
+    {
+        m_vWidget->setHue( dSetting );
+    }
+    else if( name == "saturationSlider" )
+    {
+        m_vWidget->setSaturation( dSetting );
     }
 }
 
@@ -438,7 +447,6 @@ VideoWindow::toggleDVDMenu()
 bool
 VideoWindow::event( QEvent* event )
 {
-    DEBUG_BLOCK
     switch( event->type() )
     {
       case QEvent::Leave:

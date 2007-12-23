@@ -2,7 +2,7 @@
 <kpartgui name="dragonplayer" version="4">
 <MenuBar>
    <Menu name="file" noMerge="1"><text>&amp;Play</text>
-      <Action name="play_media"/>
+      <Action name="file_open"/>
       <Separator/>
       <Action name="play"/>
       <Action name="stop"/>

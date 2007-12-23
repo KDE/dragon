@@ -88,10 +88,6 @@ MainWindow::MainWindow()
     setCentralWidget( videoWindow() );
     setFocusProxy( videoWindow() ); // essential! See VideoWindow::event(), QEvent::FocusOut
 
-    // these have no affect beccause "KDE Knows Best" FFS
-    //setDockEnabled( toolBar(), Qt::DockRight, false ); //doesn't make sense due to our large horizontal slider
-    //setDockEnabled( toolBar(), Qt::DockLeft, false ); //as above
-
     m_titleLabel->setMargin( 2 );
     m_timeLabel->setFont( KGlobalSettings::fixedFont() );
     m_timeLabel->setAlignment( Qt::AlignCenter );
@@ -147,7 +143,11 @@ MainWindow::MainWindow()
     }
 
     setupGUI(); //load xml dragonplayerui.rc file
-
+    //must be done after setupGUI:
+    {
+        toolBar()->setAllowedAreas( Qt::TopToolBarArea | Qt::BottomToolBarArea );
+        toolBar()->setFloatable( false );
+    }
     KXMLGUIClient::stateChanged( "empty" );
 
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
@@ -218,7 +218,6 @@ MainWindow::setupActions()
     KActionCollection * const ac = actionCollection();
 
     KStandardAction::quit( kapp, SLOT( closeAllWindows() ), ac );
-    //was play_media, never used
     KStandardAction::open( this, SLOT(playMedia()), ac )->setText( i18n("Play &Media...") );
     new FullScreenAction( this, ac );
 
@@ -301,6 +300,8 @@ MainWindow::showVideoSettings()
     addDockWidget( Qt::LeftDockWidgetArea, m_leftDock );
     connect( ui.brightnessSlider, SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
     connect( ui.contrastSlider,   SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
+    connect( ui.hueSlider,        SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
+    connect( ui.saturationSlider, SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
     connect( ui.closeButton, SIGNAL( clicked( bool ) ), m_leftDock, SLOT( deleteLater() ) );
 }
 
