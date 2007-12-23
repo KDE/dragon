@@ -9,5 +9,6 @@ Name=Play DVD with Dragon Player
 Name[pt]=Ler o DVD com o Dragon Player
 Name[pt_BR]=Ler o DVD com o Dragon Player
 Name[sv]=Spela dvd med Dragon
+Name[xx]=xxPlay DVD with Dragon Playerxx
 Icon=dragonplayer
 Exec=dragon --play-dvd %u
