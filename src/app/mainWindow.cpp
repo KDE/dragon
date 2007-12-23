@@ -73,6 +73,7 @@ namespace Codeine {
 
 MainWindow::MainWindow()
         : KXmlGuiWindow()
+        , m_leftDock( 0 )
         , m_positionSlider( 0 )
         , m_timeLabel( new QLabel( " 0:00:00 ", this ) )
         , m_titleLabel( new KSqueezedTextLabel( this ) )
@@ -289,19 +290,18 @@ MainWindow::showTime( qint64 ms )
 void
 MainWindow::showVideoSettings()
 {
-    QDockWidget* leftDock = new QDockWidget( this );
-    leftDock->setObjectName("left_dock");
-    leftDock->setFeatures( QDockWidget::NoDockWidgetFeatures );
-    QWidget* videoSettingsWidget = new QWidget( leftDock );
-    leftDock->setWidget( videoSettingsWidget );
+    m_leftDock = new QDockWidget( this );
+    m_leftDock->setObjectName("left_dock");
+    m_leftDock->setFeatures( QDockWidget::NoDockWidgetFeatures );
+    QWidget* videoSettingsWidget = new QWidget( m_leftDock );
+    m_leftDock->setWidget( videoSettingsWidget );
     Ui::VideoSettingsWidget ui;
     ui.setupUi( videoSettingsWidget );
     videoSettingsWidget->adjustSize();
-    leftDock->adjustSize();
-    addDockWidget( Qt::LeftDockWidgetArea, leftDock );
+    addDockWidget( Qt::LeftDockWidgetArea, m_leftDock );
     connect( ui.brightnessSlider, SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
     connect( ui.contrastSlider,   SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
-    connect( ui.closeButton, SIGNAL( clicked( bool ) ), leftDock, SLOT( deleteLater() ) );
+    connect( ui.closeButton, SIGNAL( clicked( bool ) ), m_leftDock, SLOT( deleteLater() ) );
 }
 
 void
@@ -421,10 +421,12 @@ MainWindow::setFullScreen( bool isFullScreen )
     static FullScreenToolBarHandler *s_handler;
 
     //toolBar()->setMovingEnabled( !isFullScreen );
-    toolBar()->setHidden( isFullScreen && engine()->state() == Engine::Playing );
+    toolBar()->setHidden( isFullScreen );
     menuBar()->setHidden( isFullScreen );
     statusBar()->setHidden( isFullScreen );
-
+    if( m_leftDock )
+        m_leftDock->setHidden( isFullScreen );
+    
     if( isFullScreen )
         s_handler = new FullScreenToolBarHandler( this );
     else

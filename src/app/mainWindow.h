@@ -24,6 +24,7 @@
 
 #include "codeine.h"
 
+#include <QPointer>
 
 #include <KXmlGuiWindow>
 
@@ -80,9 +81,10 @@ namespace Codeine
 //      virtual void saveProperties( KConfig* );
 //      virtual void readProperties( KConfig* );
 
-      QWidget *m_positionSlider;
-      QLabel  *m_timeLabel;
-      QLabel  *m_titleLabel;
+      QPointer<QDockWidget> m_leftDock;
+      QWidget     *m_positionSlider;
+      QLabel      *m_timeLabel;
+      QLabel      *m_titleLabel;
 
       QActionGroup *m_aspectRatios;
       //undefined
