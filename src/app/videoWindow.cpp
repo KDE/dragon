@@ -117,6 +117,8 @@ VideoWindow::~VideoWindow()
         faderEffect->fadeOut( 500 );
         ::usleep( 700000 );
     }
+    else
+        m_media->stop(); //hangs if its destroyed while paused?
 }
 
 bool

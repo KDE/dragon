@@ -262,7 +262,8 @@ MainWindow::setupActions()
 
     KAction* videoSettings = new KAction( i18n("Video Settings"), ac );
     videoSettings->setObjectName( "video_settings" );
-    connect( videoSettings, SIGNAL( triggered() ), this, SLOT( showVideoSettings() ) );
+    videoSettings->setCheckable( true );
+    connect( videoSettings, SIGNAL( toggled( bool ) ), this, SLOT( showVideoSettings( bool ) ) );
     addToAc( videoSettings )
 
     #undef addToAc
@@ -287,22 +288,29 @@ MainWindow::showTime( qint64 ms )
 }
 
 void
-MainWindow::showVideoSettings()
+MainWindow::showVideoSettings( bool show )
 {
-    m_leftDock = new QDockWidget( this );
-    m_leftDock->setObjectName("left_dock");
-    m_leftDock->setFeatures( QDockWidget::NoDockWidgetFeatures );
-    QWidget* videoSettingsWidget = new QWidget( m_leftDock );
-    m_leftDock->setWidget( videoSettingsWidget );
-    Ui::VideoSettingsWidget ui;
-    ui.setupUi( videoSettingsWidget );
-    videoSettingsWidget->adjustSize();
-    addDockWidget( Qt::LeftDockWidgetArea, m_leftDock );
-    connect( ui.brightnessSlider, SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
-    connect( ui.contrastSlider,   SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
-    connect( ui.hueSlider,        SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
-    connect( ui.saturationSlider, SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
-    connect( ui.closeButton, SIGNAL( clicked( bool ) ), m_leftDock, SLOT( deleteLater() ) );
+    if( show )
+    {
+        m_leftDock = new QDockWidget( this );
+        m_leftDock->setObjectName("left_dock");
+        m_leftDock->setFeatures( QDockWidget::NoDockWidgetFeatures );
+        QWidget* videoSettingsWidget = new QWidget( m_leftDock );
+        m_leftDock->setWidget( videoSettingsWidget );
+        Ui::VideoSettingsWidget ui;
+        ui.setupUi( videoSettingsWidget );
+        videoSettingsWidget->adjustSize();
+        addDockWidget( Qt::LeftDockWidgetArea, m_leftDock );
+        connect( ui.brightnessSlider, SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
+        connect( ui.contrastSlider,   SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
+        connect( ui.hueSlider,        SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
+        connect( ui.saturationSlider, SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
+        connect( ui.closeButton, SIGNAL( clicked( bool ) ), m_leftDock, SLOT( deleteLater() ) );
+    }
+    else 
+    {
+        delete m_leftDock;
+    }
 }
 
 void

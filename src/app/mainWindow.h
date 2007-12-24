@@ -56,7 +56,7 @@ namespace Codeine
       void setFullScreen( bool full );
       void streamInformation();
       void showTime( qint64 );
-      void showVideoSettings();
+      void showVideoSettings( bool );
 
    private slots:
       void engineMessage( const QString& );
