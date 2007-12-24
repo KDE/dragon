@@ -2,10 +2,11 @@
    Fix hang on close when paused
    Restore cursor hiding over the playing video widget
    Restore video settings widget (contrast, brightness), as a sidebar instead of a window.
+   Beginning restoration of KPart
 2.0-alpha1
    New maintainer: Ian Monroe
    Renamed to Dragon Player
-   Ported to Qt4, KDE4 and Phonon. Many feature regressions.
+   Ported to Qt4, KDE4 and Phonon. Many feature regressions. None of Codeine's bugs though... a whole new set!
 
 1.0.1
    Mute button for KPart

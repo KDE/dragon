@@ -1,4 +1,5 @@
 install(FILES dragonplayer.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+install(FILES dragonplayer_part.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
 install(FILES dragonplayerrc DESTINATION ${CONFIG_INSTALL_DIR})
 install(FILES dragonplayer_play_dvd.desktop DESTINATION ${SERVICES_INSTALL_DIR}/ServiceMenus)
 install(FILES dragonplayerui.rc DESTINATION ${DATA_INSTALL_DIR}/dragonplayer)

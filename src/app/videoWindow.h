@@ -95,6 +95,7 @@ namespace Codeine
 
         qint64 currentTime() const;
         QString fileFilter() const;
+        int videoSetting( const QString& );
 
         const xine_stream_t* xineStream() const { return m_xineStream; }
 

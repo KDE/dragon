@@ -36,8 +36,8 @@ namespace Codeine
    class VideoWindow;
    class XineEngine;
 
-   VideoWindow* const engine(); //defined in xineEngine.h
-   VideoWindow* const videoWindow(); //defined in xineEngine.h
+   VideoWindow* const engine();
+   VideoWindow* const videoWindow();
 
    void showVideoSettingsDialog( QWidget* );
    void showXineConfigurationDialog( QWidget*, xine_t* );

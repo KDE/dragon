@@ -301,10 +301,14 @@ MainWindow::showVideoSettings( bool show )
         ui.setupUi( videoSettingsWidget );
         videoSettingsWidget->adjustSize();
         addDockWidget( Qt::LeftDockWidgetArea, m_leftDock );
-        connect( ui.brightnessSlider, SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
-        connect( ui.contrastSlider,   SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
-        connect( ui.hueSlider,        SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
-        connect( ui.saturationSlider, SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
+        QList<QSlider*> sliders;
+        sliders << ui.brightnessSlider << ui.contrastSlider << ui.hueSlider <<  ui.saturationSlider;
+        foreach( QSlider* slider, sliders )
+        {
+             connect( slider, SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
+             slider->setValue( engine()->videoSetting( slider->objectName() ) );
+        }
+        connect( ui.closeButton, SIGNAL( clicked( bool ) ), action( "video_settings" ), SLOT( setChecked( bool ) ) );
         connect( ui.closeButton, SIGNAL( clicked( bool ) ), m_leftDock, SLOT( deleteLater() ) );
     }
     else 

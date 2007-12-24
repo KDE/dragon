@@ -111,7 +111,7 @@ VideoWindow::~VideoWindow()
 
     if( m_media->state() == Phonon::PlayingState )
     {
-        Phonon::VolumeFaderEffect* faderEffect = new Phonon::VolumeFaderEffect( mainWindow() );
+        Phonon::VolumeFaderEffect* faderEffect = new Phonon::VolumeFaderEffect( this );
         m_audioPath.insertEffect( faderEffect );
         faderEffect->setFadeCurve( Phonon::VolumeFaderEffect::Fade12Decibel );
         faderEffect->fadeOut( 500 );
@@ -263,10 +263,6 @@ VideoWindow::seek( qint64 pos )
     }
     m_media->pause(); //pausing first gives Phonon a chance to recognize seekable media
     m_media->seek( pos );
-    const bool fullscreen = toggleAction("fullscreen")->isChecked();
-    if( fullscreen ) {
-//        xine_osd_draw_text( m_osd, 0, 0, osd.utf8(), XINE_OSD_TEXT1 );
-    }
 }
 
 
@@ -279,8 +275,9 @@ VideoWindow::showOSD( const QString &/*message*/ )
 void
 VideoWindow::resetZoom()
 {
-   TheStream::profile().deleteEntry( "Preferred Size" );
-   mainWindow()->adjustSize();
+    TheStream::profile().deleteEntry( "Preferred Size" );
+    if( mainWindow() )
+        mainWindow()->adjustSize();
 }
 
 QString
@@ -349,7 +346,8 @@ DEBUG_BLOCK
         updateChannels();
         //m_vWidget->updateGeometry();
         //updateGeometry();
-        ( (QWidget*) mainWindow() )->adjustSize();
+        if( mainWindow() )
+            ( (QWidget*) mainWindow() )->adjustSize();
     }
     emit stateChanged( state( currentState ) ); 
 }
@@ -443,6 +441,29 @@ VideoWindow::toggleDVDMenu()
     }
 }
 
+int
+VideoWindow::videoSetting( const QString& setting )
+{
+    double dValue = 0.0;
+    if( setting == "brightnessSlider" )
+    {
+        dValue = m_vWidget->brightness();
+    }
+    else if( setting == "contrastSlider" )
+    {
+        dValue = m_vWidget->contrast();
+    }
+    else if( setting == "hueSlider" )
+    {
+        dValue = m_vWidget->hue();
+    }
+    else if( setting == "saturationSlider" )
+    {
+        dValue = m_vWidget->saturation();
+    }
+    return static_cast<int>( dValue * 100.0 );
+}
+
 ///////////
 ///Protected
 ///////////
@@ -477,9 +498,12 @@ void
 VideoWindow::contextMenuEvent( QContextMenuEvent * event )
 {
     KMenu menu;
-    menu.addAction( action( "play" ) );
-    menu.addAction( action( "fullscreen" ) );
-    menu.addAction( action( "reset_zoom" ) );
+    if( action( "play" ) )
+    {
+        menu.addAction( action( "play" ) );
+        menu.addAction( action( "fullscreen" ) );
+        menu.addAction( action( "reset_zoom" ) );
+    }
     menu.exec( event->globalPos() );
 }
 
