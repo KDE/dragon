@@ -37,16 +37,17 @@
 
 namespace Codeine
 {
-   typedef KParts::GenericFactory<Codeine::Part> Factory;
+ //  typedef KParts::GenericFactory<Codeine::Part> Factory;
 }
 
-
-K_EXPORT_COMPONENT_FACTORY( libdragonpart, Codeine::Factory )
-
+//K_EXPORT_COMPONENT_FACTORY( libdragonpart, Codeine::Factory )
+//K_EXPORT_PLUGIN( Codeine::Factory )
+K_PLUGIN_FACTORY(CodeineFactory, registerPlugin<Codeine::Part>();)
+K_EXPORT_PLUGIN(CodeineFactory("libdragon"))
 
 namespace Codeine
 {
-    Part::Part( QWidget* parentWidget, QObject* parent, const QStringList& /*args*/ )
+    Part::Part( QWidget* parentWidget, QObject* parent, const QList<QVariant>& /*args*/ )
             : ReadOnlyPart( parent )
             , m_statusBarExtension( new KParts::StatusBarExtension( this ) )
     {
@@ -78,7 +79,7 @@ namespace Codeine
     }
 
     bool
-    Part::openURL( const KUrl &url )
+    Part::openUrl( const KUrl &url )
     {
         DEBUG_BLOCK
         debug() << "playing " << url;
@@ -109,6 +110,13 @@ namespace Codeine
             "imonroe@dragonplayer.org" );
     }
 
+    bool 
+    Part::openFile() //pure virtual in base class
+    {
+        DEBUG_BLOCK
+        return false; 
+    }
+
     QAction*
     action( const char* ) { return 0; }
     ///fake mainWindow for VideoWindow
@@ -116,3 +124,5 @@ namespace Codeine
     mainWindow() { return 0;}
 
 }
+
+#include "part.moc"
