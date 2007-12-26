@@ -408,7 +408,7 @@ VideoWindow::updateChannels()
         }
     }
     else
-        debug() << "\033[0;43mWhy is there no m_xineStream?\033[0m";
+        debug() << "\033[0;43mWhy is there no m_xineStream?\033[0m" << m_media->state();
 }
 
 void
@@ -467,6 +467,7 @@ VideoWindow::videoSetting( const QString& setting )
 ///////////
 ///Protected
 ///////////
+
 bool
 VideoWindow::event( QEvent* event )
 {
@@ -489,7 +490,7 @@ VideoWindow::event( QEvent* event )
             debug() << "cursor will disappear in 2000 seconds";
             m_cursorTimer->start( CURSOR_HIDE_TIMEOUT );
          break;
-      default: ;
+      default: return QWidget::event( event );
     }
     return false;
 }
@@ -497,6 +498,7 @@ VideoWindow::event( QEvent* event )
 void
 VideoWindow::contextMenuEvent( QContextMenuEvent * event )
 {
+    DEBUG_BLOCK
     KMenu menu;
     if( action( "play" ) )
     {

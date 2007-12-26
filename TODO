@@ -3,5 +3,6 @@ Before 2.0:
 *Audio channel selection
 
 Eventually:
+*un-modal PlayDialog
 *external subtitle support
 *live previews of previously played videos (maybe)
