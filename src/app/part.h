@@ -40,7 +40,7 @@ class Part : public KParts::ReadOnlyPart
     public:
         Part(QWidget* parentWidget, QObject* parent, const QList<QVariant>& /*args*/ );
 
-        virtual bool closeURL();
+        virtual bool closeUrl();
 
         static KAboutData *createAboutData();
 

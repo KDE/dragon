@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Icon=dragonplayer
-MimeType=video/x-theora;video/x-ogm;video/x-ms-wmv;video/x-msvideo;video/x-ms-asf;video/x-matroska;video/mpeg;video/avi;video/quicktime;video/vnd.rn-realvideo;video/x-flic;
+MimeType=video/x-theora;video/x-ogm;video/x-ms-wmv;video/x-msvideo;video/x-ms-asf;video/x-matroska;video/mpeg;video/avi;video/quicktime;video/vnd.rn-realvideo;video/x-flic;video/mp4;
 Name=Dragon Player
 Name[et]=Dragon videomängija
 Name[sv]=Dragon
@@ -11,5 +11,5 @@ Comment[pt]=Leitor de Vídeo Incorporado
 Comment[pt_BR]=Leitor de Vídeo Incorporado
 ServiceTypes=KParts/ReadOnlyPart
 Type=Service
-X-KDE-Library=libdragonpart
+X-KDE-Library=dragonpart
 InitialPreference=9

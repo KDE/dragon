@@ -89,7 +89,7 @@ namespace Codeine
     }
 
     bool
-    Part::closeURL()
+    Part::closeUrl()
     {
         DEBUG_BLOCK
         m_url = KUrl();

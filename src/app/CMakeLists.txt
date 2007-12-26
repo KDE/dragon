@@ -30,7 +30,7 @@ set(videoplayer_part_SRCS
     ${videoplayer_common_SRCS}
     part.cpp )
 
-kde4_add_plugin(dragonpart WITH_PREFIX ${videoplayer_part_SRCS})
+kde4_add_plugin(dragonpart ${videoplayer_part_SRCS})
 
 target_link_libraries(dragonpart
     ${KDE4_KDECORE_LIBS}
