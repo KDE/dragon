@@ -19,6 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
+#include "theStream.h"
+
 #include <QHash>
 
 #include <KUrl>
@@ -33,7 +35,6 @@
 
 #include "debug.h"
 #include "mxcl.library.h"
-#include "theStream.h"
 #include "videoWindow.h"
 
 
@@ -147,13 +148,19 @@ namespace Codeine
             const QString n = url.fileName();
             //toLatin1 sense fromPercentEncoding takes a QByteArray
             //I'm not sure about this whole method though, should double check that titles make sense
-            return QUrl::fromPercentEncoding( n.left( n.lastIndexOf( '.' ) ).replace( '_', ' ' ).toLatin1() ); 
+            return QUrl::fromPercentEncoding( n.left( n.lastIndexOf( '.' ) ).replace( '_', ' ' ).toLatin1() ); //krazy:exclude-qclasses
         }
         else
             return url.prettyUrl();
     }
 
+    bool
+    TheStream::hasProfile()
+    { 
+        return KGlobal::config()->hasGroup( url().prettyUrl() );
+    }
 
+/*
     static inline QString
     entryHelper( const QString &plate, const QString &s1, const QString &s2 )
     {
@@ -218,4 +225,6 @@ namespace Codeine
 // 
 //         return s;
     }
+*/
 }
+

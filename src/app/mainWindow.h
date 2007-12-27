@@ -54,7 +54,6 @@ namespace Codeine
       void play();
       void playMedia( bool show_welcome_dialog = false );
       void setFullScreen( bool full );
-      void streamInformation();
       void showTime( qint64 );
       void showVideoSettings( bool );
 

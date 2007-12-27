@@ -23,11 +23,12 @@
 
 #define CODEINE_DEBUG_PREFIX "engine"
 
+#include "videoWindow.h"
+
 #include "actions.h"        //::seek() FIXME unfortunate
 #include "debug.h"
 #include "mxcl.library.h"
 #include "theStream.h"
-#include "videoWindow.h"
 
 #include <xine.h>
 
@@ -500,7 +501,7 @@ VideoWindow::contextMenuEvent( QContextMenuEvent * event )
 {
     DEBUG_BLOCK
     KMenu menu;
-    if( action( "play" ) )
+    if( mainWindow() )
     {
         menu.addAction( action( "play" ) );
         menu.addAction( action( "fullscreen" ) );

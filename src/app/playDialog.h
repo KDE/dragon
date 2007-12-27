@@ -34,7 +34,7 @@ namespace Codeine
    {
    Q_OBJECT
    public:
-      PlayDialog( QWidget*, bool show_welcome_dialog = false );
+      explicit PlayDialog( QWidget*, bool show_welcome_dialog = false );
 
       const KUrl &url() const { return m_url; }
 

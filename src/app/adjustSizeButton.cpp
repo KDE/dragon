@@ -19,6 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
+#include "adjustSizeButton.h"
+
 #include <KLocale>
 #include <KGuiItem>
 #include <KPushButton>
@@ -30,7 +32,6 @@
 #include <QPainter>
 #include <QTimerEvent>
 
-#include "adjustSizeButton.h"
 #include "extern.h"
 #include "theStream.h"
 #include "videoWindow.h" //videoWindow()
@@ -64,7 +65,7 @@ namespace Codeine
         hbox->setSpacing( 6 );
         QBoxLayout *vbox = new QVBoxLayout( this );
         hbox->addLayout( vbox );
-        vbox->addWidget( new QLabel( i18n( "<b>Adjust video scale?" ), this ) );
+        vbox->addWidget( new QLabel( i18n( "<b>Adjust video scale?</b>" ), this ) );
         vbox->addWidget( m_preferred );
         vbox->addWidget( m_oneToOne );
         hbox->addWidget( m_thingy = new QFrame( this ) );

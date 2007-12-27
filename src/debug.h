@@ -26,8 +26,6 @@
 #include <q3cstring.h>
 #include <QObject>
 #include <QVariant>
-//Added by qt3to4:
-#include <Q3ValueList>
 #include <sys/time.h>
 
 #include <QApplication>
@@ -237,21 +235,7 @@ namespace Debug
 }
 
 
-#include <QVariant>
-
-namespace Debug
-{
-     /**
-      * @class Debug::List
-      * @short You can pass anything to this and it will output it as a list
-      *
-      *      debug() << (Debug::List() << anInt << aString << aQStringList << aDouble) << endl;
-      */
-
-     typedef Q3ValueList<QVariant> List;
-}
-
-#include <kmessagebox.h>
+#include <KMessageBox>
 
 namespace Codeine
 {

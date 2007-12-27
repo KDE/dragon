@@ -22,12 +22,12 @@
 
 //TODO error messages that vary depending on if the file is remote or not
 
+#include "playlistFile.h"
 
 #include "codeine.h"
 #include "debug.h"
 #include <KIO/NetAccess>
 #include <KLocale>
-#include "playlistFile.h"
 #include <QFile>
 #include <mxcl.library.h>
 
@@ -54,7 +54,7 @@ PlaylistFile::PlaylistFile( const KUrl &url )
     if( m_isRemoteFile ) {
         path = QString();
         if( !KIO::NetAccess::download( url, path, Codeine::mainWindow() ) ) {
-            m_error = i18n( "Codeine could not download the remote playlist: %1" ).arg( url.prettyUrl() );
+            m_error = i18n( "Codeine could not download the remote playlist: %1", url.prettyUrl() );
             return;
         }
     }
@@ -69,11 +69,11 @@ PlaylistFile::PlaylistFile( const KUrl &url )
         }
 
         if( m_contents.isEmpty() )
-            m_error = i18n( "<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is empty?" ).arg( path ),
+            m_error = i18n( "<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is empty?</qt>", path ),
             m_isValid = false;
     }
     else
-        m_error = i18n( "Codeine could not open the file: %1" ).arg( path );
+        m_error = i18n( "Codeine could not open the file: %1", path );
 }
 
 
@@ -119,12 +119,12 @@ PlaylistFile::parseM3uFile( QTextStream &stream )
         if( line.startsWith( "#EXTINF", Qt::CaseInsensitive ) )
             continue;
 
-        else if( !line.startsWith( "#" ) && !line.isEmpty() )
+        else if( !line.startsWith( '#' ) && !line.isEmpty() )
         {
             KUrl url;
 
             // KUrl::isRelativeUrl() expects absolute URLs to start with a protocol, so prepend it if missing
-            if( line.startsWith( "/" ) )
+            if( line.startsWith( '/' ) )
                 line.prepend( "file://" );
 
             if( KUrl::isRelativeUrl( line ) )

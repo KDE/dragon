@@ -19,27 +19,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
-#include "fullScreenAction.h"
 
-#include "codeine.h"
-#include "extern.h"
+#ifndef CODEINE_PARTTOOLBAR_H
+#define CODEINE_PARTTOOLBAR_H
 
-#include <KActionCollection>
-#include <KMainWindow>
-#include <KLocale>
+#include <ktoolbar.h>
 
-FullScreenAction::FullScreenAction( QWidget* window, KActionCollection *parent )
-        : KToggleAction( parent )
+
+class MouseOverToolBar : public KToolBar
 {
-    setObjectName( "fullscreen" );
-    setShortcut( Qt::Key_F );
-    parent->addAction( objectName(), this );
-    window->installEventFilter( this );
-    setChecked( false );
-    setText( i18n("F&ull Screen Mode") );
-    setIcon( KIcon("view-fullscreen") );
-    setCheckedState( KGuiItem( i18n("Exit F&ull Screen Mode"), KIcon("view-restore") ) );
-    connect( this, SIGNAL( toggled( bool ) ), Codeine::mainWindow(), SLOT( setFullScreen( bool ) ) );
-}
+   virtual bool eventFilter( QObject*, QEvent* );
 
-#include "fullScreenAction.moc"
+public:
+   MouseOverToolBar( QWidget *parent );
+};
+
+#endif

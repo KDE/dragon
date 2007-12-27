@@ -37,6 +37,8 @@
    bool operator==( const T& ); \
    bool operator!=( const T& );
 
+class QAction;
+
 namespace Codeine
 {
    class TheStream
@@ -62,12 +64,10 @@ namespace Codeine
       static int audioChannel();
 
       static QString prettyTitle();
-      static QString information();
 
-      static inline bool hasProfile()
-            { return KGlobal::config()->hasGroup( url().prettyUrl() ); }
+      static bool hasProfile();
 
-      static    KConfigGroup profile();
+      static KConfigGroup profile();
     private:
       static QHash<int, QAction*> s_aspectRatioActions;
    };

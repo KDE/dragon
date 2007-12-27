@@ -19,27 +19,42 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
-#include "fullScreenAction.h"
+#include "partToolBar.h"
 
-#include "codeine.h"
-#include "extern.h"
+#include <QApplication>
+#include <QEvent>
+#include <QResizeEvent>
 
-#include <KActionCollection>
-#include <KMainWindow>
-#include <KLocale>
-
-FullScreenAction::FullScreenAction( QWidget* window, KActionCollection *parent )
-        : KToggleAction( parent )
+MouseOverToolBar::MouseOverToolBar( QWidget *parent )
+      : KToolBar( parent )
 {
-    setObjectName( "fullscreen" );
-    setShortcut( Qt::Key_F );
-    parent->addAction( objectName(), this );
-    window->installEventFilter( this );
-    setChecked( false );
-    setText( i18n("F&ull Screen Mode") );
-    setIcon( KIcon("view-fullscreen") );
-    setCheckedState( KGuiItem( i18n("Exit F&ull Screen Mode"), KIcon("view-restore") ) );
-    connect( this, SIGNAL( toggled( bool ) ), Codeine::mainWindow(), SLOT( setFullScreen( bool ) ) );
+   parent->installEventFilter( this );
+ //  move( 0, 0 ); //TODO necessary?
+   hide();
+
+   setPalette( QApplication::palette() ); //videoWindow palette has a black background
 }
 
-#include "fullScreenAction.moc"
+bool
+MouseOverToolBar::eventFilter( QObject */*o*/, QEvent *e )
+{
+   switch( e->type() )
+   {
+   /*case QEvent::Resize:
+      resize( static_cast<QResizeEvent*>(e)->size().width(), sizeHint().height() );
+      break;*/
+
+   case QEvent::Enter:
+      show();
+      break;
+
+   case QEvent::Leave:
+      hide();
+      break;
+
+   default:
+      ;
+   }
+
+   return false;
+}

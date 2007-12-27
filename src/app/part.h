@@ -22,6 +22,8 @@
 #ifndef CODEINE_PART_H
 #define CODEINE_PART_H
 
+#include "codeine.h"
+
 #include <QList>
 
 #include <KParts/StatusBarExtension>
@@ -34,29 +36,35 @@ class QSlider;
 
 namespace Codeine
 {
-class Part : public KParts::ReadOnlyPart
-{
-    Q_OBJECT
-    public:
-        Part(QWidget* parentWidget, QObject* parent, const QList<QVariant>& /*args*/ );
+    class PlayAction;
 
-        virtual bool closeUrl();
+    class Part : public KParts::ReadOnlyPart
+    {
+        Q_OBJECT
+        public:
+            Part(QWidget* parentWidget, QObject* parent, const QList<QVariant>& /*args*/ );
 
-        static KAboutData *createAboutData();
+            virtual bool closeUrl();
 
-    public slots:
-        virtual bool openUrl( const KUrl& );
+            static KAboutData *createAboutData();
 
-    protected:
-        virtual bool openFile();
+        public slots:
+            virtual bool openUrl( const KUrl& );
 
-    private:
-        KUrl m_url;
-        KParts::StatusBarExtension *m_statusBarExtension;
-        QSlider *m_slider;
+        private slots:
+            void engineStateChanged( Engine::State state );
+            void videoContextMenu( const QPoint & pos );
 
-        KStatusBar *statusBar() { return m_statusBarExtension->statusBar(); }
-    };
+        protected:
+            virtual bool openFile();
+
+        private:
+            KUrl m_url;
+            KParts::StatusBarExtension *m_statusBarExtension;
+            Codeine::PlayAction* m_playPause;
+
+           KStatusBar *statusBar() { return m_statusBarExtension->statusBar(); }
+        };
 }
 
 #endif

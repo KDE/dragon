@@ -27,8 +27,8 @@
 
 namespace Codeine
 {
-   KActionCollection *actionCollection(); ///defined in mainWindow.cpp
-   QAction *action( const char* ); ///defined in mainWindow.cpp
+   KActionCollection *actionCollection(); ///defined in mainWindow.cpp, part.cpp
+   QAction *action( const char* ); ///defined in mainWindow.cpp, part.cpp
    inline KToggleAction *toggleAction( const char *name ) { return (KToggleAction*)action( name ); }
 
    class PlayAction : public KToggleAction
@@ -37,7 +37,6 @@ namespace Codeine
    public:
       PlayAction( QObject *receiver, const char *slot, KActionCollection* );
       void setPlaying( bool playing );
-   protected:
       virtual void setChecked( bool );
    };
 }

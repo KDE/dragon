@@ -78,7 +78,6 @@ MainWindow::engineStateChanged( Engine::State state )
         enableIf( "stop", (Playing | Paused) );
         enableIf( "fullscreen", (Playing | Paused) || isFullScreen );
         enableIf( "reset_zoom", ~Empty && !isFullScreen );
-        enableIf( "information", ~Empty );
         enableIf( "video_settings", (Playing | Paused) );
 //        enableIf( "volume", (Playing | Paused) );
         #undef enableIf

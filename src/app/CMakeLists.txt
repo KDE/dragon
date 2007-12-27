@@ -1,11 +1,11 @@
 set(videoplayer_common_SRCS
     theStream.cpp
+    actions.cpp
     ../mxcl.library.cpp
     videoWindow.cpp )
 
 set(videoplayer_app_SRCS
     ${videoplayer_common_SRCS}
-    actions.cpp
     stateChange.cpp
     playDialog.cpp
     listView.cpp
@@ -28,7 +28,8 @@ install(TARGETS dragon DESTINATION ${BIN_INSTALL_DIR})
 
 set(videoplayer_part_SRCS
     ${videoplayer_common_SRCS}
-    part.cpp )
+    part.cpp
+    partToolBar.cpp )
 
 kde4_add_plugin(dragonpart ${videoplayer_part_SRCS})
 

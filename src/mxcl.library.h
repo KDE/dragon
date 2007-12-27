@@ -24,7 +24,7 @@
 
 namespace mxcl
 {
-   /// Allocate on stack, wait cursor will be shown during existance
+   /// Allocate on stack, wait cursor will be shown during existence
    struct WaitCursor
    {
       WaitCursor();

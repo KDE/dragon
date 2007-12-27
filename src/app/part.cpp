@@ -19,29 +19,26 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
+#include "part.h"
+
+#include "actions.h"
 #include "codeine.h"
 #include "debug.h"
-#include "part.h"
+#include "partToolBar.h"
+#include "videoWindow.h"
 
 #include <KAction>
 #include <KAboutData>
 #include <KActionCollection>
+#include <KMenu>
 #include <KParts/GenericFactory>
 #include <KToggleAction>
 
 #include <QSlider>
 #include <QTimer>
 #include <QTimerEvent>
+#include <QVBoxLayout>
 
-#include "videoWindow.h"
-
-namespace Codeine
-{
- //  typedef KParts::GenericFactory<Codeine::Part> Factory;
-}
-
-//K_EXPORT_COMPONENT_FACTORY( libdragonpart, Codeine::Factory )
-//K_EXPORT_PLUGIN( Codeine::Factory )
 K_PLUGIN_FACTORY(CodeineFactory, registerPlugin<Codeine::Part>();)
 K_EXPORT_PLUGIN(CodeineFactory("libdragon"))
 
@@ -50,32 +47,43 @@ namespace Codeine
     Part::Part( QWidget* parentWidget, QObject* parent, const QList<QVariant>& /*args*/ )
             : ReadOnlyPart( parent )
             , m_statusBarExtension( new KParts::StatusBarExtension( this ) )
+            , m_playPause( 0 )
     {
         KActionCollection * const ac = actionCollection();
 
-        setWidget( new VideoWindow( parentWidget ) ); //, widgetName 
+        setWidget( new QWidget( parentWidget ) ); //, widgetName 
+        QBoxLayout* layout = new QVBoxLayout();
+        layout->setContentsMargins( 0, 0, 0, 0 );
 
-        if( !videoWindow()->init() )
-            //FIXME this will terminate the host, eg Konqueror
-            Debug::fatal() << "Couldn't init xine!\n";
+        KToolBar *toolBar = new MouseOverToolBar( widget() );
+        layout->addWidget( toolBar );
+        layout->addWidget( new VideoWindow( widget() ) );
 
-        KAction *play = new KToggleAction( KIcon("play"), i18n("Play"), ac );
-        play->setObjectName( "player_play" );
-        play->setShortcut( Qt::Key_Space );
-        connect( play, SIGNAL( triggered() ), videoWindow(), SLOT( playPause() ) );
-        ac->addAction( play->objectName(), play );
-    //      KAction *mute = new KToggleAction( i18n("Mute"), "player_mute", Qt::Key_M, videoWindow(), SLOT(toggleMute()), actionCollection(), "mute" );
-    //      KToolBar *toolBar = new MouseOverToolBar( widget() );
-    //      toolBar->addAction( play );
-    //      mute->plug( toolBar );
+        m_playPause = new Codeine::PlayAction( videoWindow(), SLOT( playPause() ), ac );
+        toolBar->addAction( m_playPause );
+        {
+            QWidget* slider = videoWindow()->newPositionSlider();
+            KAction* sliderAction = new KAction( i18n("Position Slider"), ac );
+            sliderAction->setObjectName( "position_slider" );
+            sliderAction->setDefaultWidget( slider );
+            ac->addAction( sliderAction->objectName(), sliderAction );
+            toolBar->addAction( sliderAction );
+        }
+        connect( engine(), SIGNAL( stateChanged( Engine::State ) ), this, SLOT( engineStateChanged( Engine::State ) ) );
+        videoWindow()->setContextMenuPolicy( Qt::CustomContextMenu );
+        connect( videoWindow(), SIGNAL( customContextMenuRequested() ), this, SLOT( videoContextMenu() ) );
 
-    /*      m_slider = new QSlider( Qt::Horizontal, toolBar, "slider" );
-        m_slider->setMaxValue( 65535 );
-        toolBar->setStretchableWidget( m_slider );
-        toolBar->addSeparator(); //FIXME ugly */
-        QObject *o = (QObject*)statusBar();
+        widget()->setLayout( layout );
+//      KAction *mute = new KToggleAction( i18n("Mute"), "player_mute", Qt::Key_M, videoWindow(), SLOT(toggleMute()), actionCollection(), "mute" );
+/*        QObject *o = (QObject*)statusBar();
         connect( videoWindow(), SIGNAL(statusMessage( const QString& )), o, SLOT(message( const QString& )) );
-        connect( videoWindow(), SIGNAL(titleChanged( const QString& )), o, SLOT(message( const QString& )) ); //FIXME
+        connect( videoWindow(), SIGNAL(titleChanged( const QString& )), o, SLOT(message( const QString& )) ); *///FIXME
+    }
+
+    void
+    Part::engineStateChanged( Engine::State state )
+    {
+        m_playPause->setChecked( state == Engine::Playing );
     }
 
     bool
@@ -116,9 +124,17 @@ namespace Codeine
         DEBUG_BLOCK
         return false; 
     }
+    
+    void
+    Part::videoContextMenu( const QPoint & pos )
+    {
+        KMenu menu;
+        menu.addAction( m_playPause );
+        menu.exec( pos );
+    }
 
     QAction*
-    action( const char* ) { return 0; }
+    action( const char* /*actionName*/ ) { return 0; }
     ///fake mainWindow for VideoWindow
     QWidget*
     mainWindow() { return 0;}

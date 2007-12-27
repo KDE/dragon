@@ -19,6 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
+#include "mainWindow.h"
+
 #include <cstdlib>
 
 #include <KApplication>
@@ -55,7 +57,6 @@
 #include "extern.h"         //dialog creation function definitions
 #include "fullScreenAction.h"
 #include "fullScreenToolBarHandler.h"
-#include "mainWindow.h"
 #include "mxcl.library.h"
 #include "playDialog.h"  //::play()
 #include "playlistFile.h"
@@ -229,23 +230,11 @@ MainWindow::setupActions()
     connect( playerStop, SIGNAL( triggered() ), engine(), SLOT( stop() ) );
     addToAc( playerStop )
 
-    KAction* recordAction = new KToggleAction( KIcon("media-record"), i18n("Record"), ac );
-    recordAction->setObjectName( "record" );
-    recordAction->setShortcut( Qt::CTRL + Qt::Key_R );
-    connect( recordAction, SIGNAL( triggered() ), engine(), SLOT( record() ) );
-    addToAc( recordAction )
-
     KAction* resetZoom = new KAction( KIcon("zoom-best-fit"), i18n("Reset Video Scale"), ac );
     resetZoom->setObjectName( "reset_zoom" );
     resetZoom->setShortcut( Qt::Key_Equal );
     connect( resetZoom, SIGNAL( triggered() ), videoWindow(), SLOT( resetZoom() ) );
     addToAc( resetZoom )
-
-    KAction* mediaInfo = new KAction( KIcon("messagebox_info"), i18n("Media Information"), ac );
-    mediaInfo->setObjectName( "information" );
-    mediaInfo->setShortcut( Qt::Key_I );
-    connect( mediaInfo, SIGNAL( triggered() ), this, SLOT( streamInformation() ) );
-    addToAc( mediaInfo )
 
     KAction* dvdMenu = new KAction( KIcon("dvd_unmount"), i18n("Menu Toggle"), ac );
     dvdMenu->setObjectName( "toggle_dvd_menu" );
@@ -453,12 +442,6 @@ MainWindow::setFullScreen( bool isFullScreen )
     }
     // prevent videoWindow() moving around when mouse moves 
     //setCentralWidget( isFullScreen ? 0 : videoWindow() ); //deletes videoWindow() when cleared
-}
-
-void
-MainWindow::streamInformation()
-{
-    MessageBox::information( TheStream::information(), i18n("Media Information") );
 }
 
 void
