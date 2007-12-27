@@ -34,12 +34,15 @@
 
 #include <QActionGroup>
 #include <QContextMenuEvent>
+#include <QLabel>
 #include <QTimer>
 #include <QVBoxLayout>
 
 #include <KApplication>
 #include <KLocale>
 #include <KMenu>
+#include <KStandardDirs>
+
 #include <Phonon/Path>
 #include <Phonon/AudioOutput>
 #include <Phonon/MediaObject>
@@ -65,6 +68,7 @@ VideoWindow::VideoWindow( QWidget *parent )
         , m_justLoaded( false )
         , m_xineStream( 0 )
         , m_languages( new QActionGroup( this ) )
+        , m_logo( new QLabel( this ) )
 {
     DEBUG_BLOCK
 
@@ -75,6 +79,7 @@ VideoWindow::VideoWindow( QWidget *parent )
     box->setMargin(0);
     box->setSpacing(0);
     m_vWidget = new VideoWidget( this );
+    m_vWidget->hide();
     box->addWidget( m_vWidget );
     m_aOutput = new AudioOutput( Phonon::VideoCategory, this );
     m_media = new MediaObject( this );
@@ -94,6 +99,20 @@ VideoWindow::VideoWindow( QWidget *parent )
     }
     connect( m_cursorTimer, SIGNAL( timeout() ), this, SLOT( hideCursor() ) );
     m_cursorTimer->setSingleShot( true );
+    {
+        m_logo->setAutoFillBackground( true );
+        QPalette pal;
+        pal.setColor( QPalette::Window, Qt::white );
+        m_logo->setPalette( pal );
+        QLayout* layout = new QVBoxLayout( m_logo );
+        layout->setAlignment( Qt::AlignCenter );
+        QLabel* logoImage = new QLabel( m_logo );
+        logoImage->setPixmap( KStandardDirs::locate( "appdata",  "dragonlogo.png" ) );
+        layout->addWidget( logoImage );
+        m_logo->setLayout( layout );
+        box->addWidget( m_logo );
+        m_logo->show();
+    }
 }
 
 VideoWindow::~VideoWindow()
@@ -343,6 +362,9 @@ DEBUG_BLOCK
         m_xineStream = 0;
     if( currentState == Phonon::PlayingState )
     {
+        delete m_logo;
+        m_logo = 0;
+        m_vWidget->show();
         refreshXineStream();
         updateChannels();
         //m_vWidget->updateGeometry();

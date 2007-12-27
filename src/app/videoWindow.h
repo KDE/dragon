@@ -56,6 +56,7 @@ namespace Codeine
         bool m_justLoaded;
         xine_stream_t* m_xineStream;
         QActionGroup* m_languages;
+        QWidget* m_logo;
 
         Phonon::VideoWidget *m_vWidget;
         Phonon::AudioOutput *m_aOutput;
