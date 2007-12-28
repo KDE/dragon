@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1.2-Based Variant V1.0//EN" "dtd/kdex.dtd" [
   <!ENTITY kappname "&codeine;">
-  <!ENTITY codeine "<application>Codeine</application>">
+  <!ENTITY codeine "<application>Dragon Player</application>">
 
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE"><!-- change language only here -->
@@ -25,6 +25,11 @@ as Authors, publish date, the abstract, and Keywords -->
 <affiliation>
 <address><email>madpenguin8@yahoo.com</email></address>
 </affiliation>
+<firstname>Ian</firstname>
+<surname>Monroe</surname>
+<affiliation>
+<address><email>imonroe@dragonplayer.org</email></address>
+</affiliation>
 </author>
 </authorgroup>
 
@@ -33,6 +38,10 @@ as Authors, publish date, the abstract, and Keywords -->
 <copyright>
 <year>2004</year>
 <holder>Mike Diehl</holder>
+</copyright>
+<copyright>
+<year>2007</year>
+<holder>Ian Monroe</holder>
 </copyright>
 <!-- Translators: put here the copyright notice of the translation -->
 <!-- Put here the FDL notice.  Read the explanation in fdl-notice.docbook
@@ -46,14 +55,14 @@ Please respect the format of the date (DD/MM/YYYY) and of the version
 (V.MM.LL), it could be used by automation scripts.
 Do NOT change these in the translation. -->
 
-<date>10/19/2004</date>
-<releaseinfo>1</releaseinfo>
+<date>28/12/2007</date>
+<releaseinfo>2</releaseinfo>
 
 <!-- Abstract about this handbook -->
 
 <abstract>
 <para>
-&codeine; is a simple media player for the K Desktop Environment. &codeine; is a front end to the xine multi-media player.
+&codeine; is a simple video player for KDE.
 </para>
 </abstract>
 
@@ -64,7 +73,10 @@ Please at least include KDE, the KDE package it is in, the name
 <keywordset>
 <keyword>KDE</keyword>
 <keyword>Codeine</keyword>
-<keyword>xine</keyword>
+<keyword>Phonon</keyword>
+<keyword>Dragon</keyword>
+<keyword>Player</keyword>
+<keyword>Dragon Player</keyword>
 <keyword>video</keyword>
 <keyword>multi-media</keyword>
 </keywordset>
@@ -93,55 +105,11 @@ consistent documentation style across all KDE apps. -->
 
 
 <para>
-&codeine; is a simple media player using the xine backend. &codeine; is a no frills media player that is especially usefull for short video clips where most other media players would just get in the way.
+&codeine; is a simple media player using Phonon technology. &codeine; is a no frills media player that excels at playing DVDs and movie files without getting in your way.
 </para>
 
 </chapter>
 
-
-<chapter id="configuring">
-<title>Configuring &codeine;</title>
-
-<para></para>
-
-</chapter>
-
-
-<chapter id="using">
-<title>Using &codeine;</title>
-
-<sect1 id="starting">
-<title>Starting &codeine;</title>
-<para>&codeine; can be started from the K-Menu, or from the command-line</para>
-
-<sect2 id="starting-from-the-menu">
-<title>From the K-Menu</title>
-
-<para>
-Open the &kde; program menu by clicking on the <guiicon>big K</guiicon> icon on your panel. This will raise the <guimenu>program menu</guimenu>. Move your cursor up the menu to the <guimenu>Multimedia</guimenu> menu item. Choose <guimenuitem>&codeine;</guimenuitem>.
-</para>
-
-</sect2>
-
-
-<sect2 id="starting-from-the-command-line">
-<title>From the Command Line</title>
-
-<para>
-You can start &codeine; by typing it's name on the command line. If you include a file name it will play the file.
-</para>
-
-<informalexample>
-<screen>
-<prompt>%</prompt><userinput><command>codeine</command> <option><replaceable>movie.avi</replaceable></option></userinput>
-</screen>
-</informalexample>
-
-</sect2>
-</sect1>
-
-
-</chapter>
 
 
 
@@ -157,25 +125,20 @@ You can start &codeine; by typing it's name on the command line. If you include 
 <keycombo><keycap>Ctrl</keycap><keycap>o</keycap></keycombo>
 </shortcut>
 <guimenu>Play</guimenu>
-<guimenuitem>Play File..</guimenuitem>
+<guimenuitem>Play Media...</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Opens a file dialog to choose a file to play.</action></para></listitem>
+<listitem><para><action>Opens the Play Media dialog, allowing you to Play a DVD, VCD or a video file.</action></para></listitem>
 </varlistentry>
 
 <varlistentry>
 <term><menuchoice>
+<shortcut>
+<keycombo><keycap>Space</keycap></keycombo>
+</shortcut>
 <guimenu>Play</guimenu>
-<guimenuitem>Play Audio-CD</guimenuitem>
+<guimenuitem>Play/Pause</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Plays an Audio-CD that is in your CD-Rom drive.</action></para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Play</guimenu>
-<guimenuitem>Play DVD</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Plays a DVD that is in your DVD drive.</action></para></listitem>
+<listitem><para><action>If a movie is loaded, this option allows you to pause or resume playback.</action></para></listitem>
 </varlistentry>
 
 
@@ -189,7 +152,6 @@ You can start &codeine; by typing it's name on the command line. If you include 
 </menuchoice></term>
 <listitem><para><action>Quits &codeine;.</action></para></listitem>
 </varlistentry>
-
 </variablelist>
 </sect1>
 
@@ -198,23 +160,32 @@ You can start &codeine; by typing it's name on the command line. If you include 
 <title>The Settings Menu</title>
 <variablelist>
 
-
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guisubmenu>Toolbars</guisubmenu>
-<guimenuitem>Show Main Toolbar</guimenuitem>
+<guimenuitem>Full Screen Mode</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Enables or disable the main application toolbar.</action></para></listitem>
+<listitem><para><action>
+    While playing a movie, you can enter full screen mode. This uses the entire monitor to display the movie
+</action></para></listitem>
 </varlistentry>
 
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guisubmenu>Toolbars</guisubmenu>
-<guimenuitem>Show DVD Toolbar</guimenuitem>
+<guimenuitem>Aspect Ratio</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Enables or disable the DVD toolbar.</action></para></listitem>
+<listitem><para><action>This menu lets you pick the aspect ratio of the playing movie. The aspect ratio is width of movie compared to the height.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Subtitle</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>
+This menu is active if there are any subtitles available from the currently playing movie. Note that it may take a few seconds after playback begins before the subtitles become available.
+</action></para></listitem>
 </varlistentry>
 
 <varlistentry>
@@ -230,15 +201,15 @@ You can start &codeine; by typing it's name on the command line. If you include 
 <guimenu>Settings</guimenu>
 <guimenuitem>Configure Toolbars...</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Allows you to configure the &codeine; toolbar options.</action></para></listitem>
+<listitem><para><action>Allows you to configure the &codeine; what buttons are available on the toolbar.</action></para></listitem>
 </varlistentry>
 
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Configure Video...</guimenuitem>
+<guimenuitem>Show Toolbar</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Opens a dialog for configuring the video output settings. The settings include: contrast, brightness, saturation, and hue.</action></para></listitem>
+<listitem><para><action>Enables or disable the main application toolbar.</action></para></listitem>
 </varlistentry>
 
 </variablelist>
@@ -351,7 +322,7 @@ distribution. -->
 <sect1 id="kapp">
 <title>&codeine;</title>
 <para>Program copyright 2004 Max B. Howell <email>max.howell@methylblue.com</email></para>
-
+<para>Program copyright 2007 Ian A. Monroe <email>imonroe@dragonplayer.org</email></para>
 &underGPL;
 
 </sect1>
@@ -361,6 +332,9 @@ distribution. -->
 
 <para>
 Documentation copyright 2004 Mike Diehl <email>madpenguin8@yahoo.com</email>
+</para>
+<para>
+Documentation copyright 2007 Ian Monroe <email>imonroe@dragonplayer.org</email>
 </para>
 
 &underFDL;
@@ -377,12 +351,10 @@ Documentation copyright 2004 Mike Diehl <email>madpenguin8@yahoo.com</email>
 
 <itemizedlist>
 <title>Required:</title>
-<listitem><para>KDELIBS 3.2 <ulink url="http://www.kde.org"></ulink></para></listitem>
-<listitem><para>xine-lib 1.0-rc4 <ulink url="http://xine.sourceforge.net"></ulink></para></listitem>
+<listitem><para>Kdelibs 4.0 <ulink url="http://www.kde.org"></ulink></para></listitem>
+<listitem><para>Kdebase 4.0 <ulink url="http://www.kde.org"></ulink></para></listitem>
+<listitem><para>xine-lib 1.1 <ulink url="http://xinehq.de"></ulink></para></listitem>
 </itemizedlist>
-
-<note><para>If you obtain these dependencies via a packaging system, you must
-also install the devel versions of these packages!</para></note>
 
 </chapter>
 
@@ -395,7 +367,7 @@ also install the devel versions of these packages!</para></note>
 
 <para>
 &codeine; is not yet part of the KDE project, it can be found at:
-<ulink url="http://www.methylblue.com/codeine/">http://www.methylblue.com/codeine/</ulink>.
+<ulink url="http://www.dragonplayer.org">http://www.dragonplayer.org</ulink>.
 </para>
 </sect1>
 
