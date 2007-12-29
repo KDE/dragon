@@ -25,6 +25,8 @@ as Authors, publish date, the abstract, and Keywords -->
 <affiliation>
 <address><email>madpenguin8@yahoo.com</email></address>
 </affiliation>
+</author>
+<author>
 <firstname>Ian</firstname>
 <surname>Monroe</surname>
 <affiliation>
@@ -181,7 +183,7 @@ consistent documentation style across all KDE apps. -->
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Subtitle</guimenuitem>
+<guimenuitem>Subtitles</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>
 This menu is active if there are any subtitles available from the currently playing movie. Note that it may take a few seconds after playback begins before the subtitles become available.

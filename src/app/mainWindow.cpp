@@ -57,6 +57,7 @@
 #include "extern.h"         //dialog creation function definitions
 #include "fullScreenAction.h"
 #include "fullScreenToolBarHandler.h"
+#include "messageBox.h"
 #include "mxcl.library.h"
 #include "playDialog.h"  //::play()
 #include "playlistFile.h"
