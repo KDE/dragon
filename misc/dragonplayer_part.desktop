@@ -9,6 +9,7 @@ Name[xx]=xxDragon Playerxx
 Comment=Embeddable Video Player
 Comment[pt]=Leitor de Vídeo Incorporado
 Comment[pt_BR]=Leitor de Vídeo Incorporado
+Comment[sv]=Inbäddad videospelare
 ServiceTypes=KParts/ReadOnlyPart
 Type=Service
 X-KDE-Library=dragonpart
