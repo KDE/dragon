@@ -60,15 +60,15 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
     grid->setVerticalSpacing( 20 );
 
     //TODO use the kguiItems from the actions
-    mapper->setMapping( o = new KPushButton( KGuiItem( i18n("Play File..."), "folder-video" ), this ), FILE );
+    mapper->setMapping( o = new KPushButton( KGuiItem( i18n("Play File..."), "document-open" ), this ), FILE );
     connect( o, SIGNAL(clicked()), mapper, SLOT(map()) );
     grid->addWidget( o, 0, 0 );
 
-    mapper->setMapping( o = new KPushButton( KGuiItem( i18n("Play VCD"), "media-optical" ), this ), VCD );
+    mapper->setMapping( o = new KPushButton( KGuiItem( i18n("Play VCD"), "media-optical-video" ), this ), VCD );
     connect( o, SIGNAL(clicked()), mapper, SLOT(map()) );
     grid->addWidget( o, 0, 1 );
 
-    mapper->setMapping( o = new KPushButton( KGuiItem( i18n("Play DVD"), "cd" ), this ), DVD );
+    mapper->setMapping( o = new KPushButton( KGuiItem( i18n("Play DVD"), "media-optical-video" ), this ), DVD );
     connect( o, SIGNAL(clicked()), mapper, SLOT(map()) );
     grid->addWidget( o, 0, 2 );
 
