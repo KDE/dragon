@@ -13,6 +13,7 @@
       <Action name="fullscreen"/>
       <Action name="aspect_ratio_menu"/>
       <Action name="subtitle_channels_menu"/>
+      <Action name="audio_channels_menu"/>
       <Separator/>
       <Action name="video_settings"/>
       <Separator/>
@@ -23,9 +24,8 @@
 
 <ToolBar name="mainToolBar"><text>Main Toolbar</text>
    <Action name="play"/>
-   <Separator lineSeparator="false"/>
    <Action name="position_slider"/>
-   <Separator lineSeparator="false"/>
+<!--   <Separator lineSeparator="false"/> -->
 <!--   <Action name="toggle_dvd_menu"/> -->
    <Action name="fullscreen"/>
 </ToolBar>

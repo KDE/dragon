@@ -1,8 +1,34 @@
-Before 2.0-rc1:
-*add all the basic features to the KPart
-*Audio channel selection
+Version 2.1+
 
-Eventually:
-*un-modal PlayDialog
+_Certainly_:
 *external subtitle support
-*live previews of previously played videos (maybe)
+*'o' in fullscreen mode shows OSD of length and elapsed time info, <-- emulate mplayer
+*indiciate remote media somehow in PlayDialog
+*DBus interface, subset of the VideoLAN Dbus API
+
+_Thoughts_:
+*PlayDialog optimization
+    *show an icon in the previously played list, indicating whether its audio or video. 
+    *allow filtering by audio/video? too confusing?
+*improve volume control if needed
+    *Chapter skipping, menu button
+*More feedback at playback end
+        ->Playback finished message (amaroK statusbar code?)
+*refactor: get rid of Engine::Status, just use Phonon's status
+*use libkcddb, have the videoWindow display list of tracks in audio cd and highlight currently playing song. Have a button for the "edit cd" libkcddb dialog.
+->something similar for pls/m3u files?
+
+_Probably Not_:
+*live previews of previously played videos
+
+
+Before 2.0-rc1:
+*add all the basic features to the KPart (done)
+*Audio channel selection (done?)
+*remember audio channel and subtitle selections
+*test VCDs, audio CDs
+*hide the videowidget when playing audio (done)
+*test the PLS code
+*have a volume somehow (done)
+*app wide volume state saving (done)
+*accurate file filter for open file dialog

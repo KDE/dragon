@@ -3,6 +3,9 @@
    Restore cursor hiding over the playing video widget
    Restore video settings widget (contrast, brightness), as a sidebar instead of a window.
    Beginning restoration of KPart
+   Save video settings
+   Audio channel selectable
+
 2.0-alpha1
    New maintainer: Ian Monroe
    Renamed to Dragon Player

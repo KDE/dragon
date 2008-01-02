@@ -123,7 +123,12 @@ namespace Codeine
 
     int
     TheStream::audioChannel()
-        { return 0; }
+    {
+        if( engine()->m_xineStream )
+            return xine_get_param( engine()->m_xineStream, XINE_PARAM_AUDIO_CHANNEL_LOGICAL );
+        else
+            return -1;
+    }
 
     void
     TheStream::setRatio( QAction* ratioAction )

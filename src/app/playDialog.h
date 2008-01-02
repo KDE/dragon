@@ -38,7 +38,7 @@ namespace Codeine
 
       const KUrl &url() const { return m_url; }
 
-      enum DialogCode { FILE = QDialog::Accepted + 2, VCD, CDDA, DVD, RECENT_FILE };
+      enum DialogCode { FILE = QDialog::Accepted + 2, VCD, DVD, RECENT_FILE };
 
    private slots:
       virtual void done( QListWidgetItem* );

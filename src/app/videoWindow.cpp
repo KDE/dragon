@@ -67,7 +67,8 @@ VideoWindow::VideoWindow( QWidget *parent )
         , m_cursorTimer( new QTimer( this ) )
         , m_justLoaded( false )
         , m_xineStream( 0 )
-        , m_languages( new QActionGroup( this ) )
+        , m_subLanguages( new QActionGroup( this ) )
+        , m_audioLanguages( new QActionGroup( this ) )
         , m_logo( new QLabel( this ) )
 {
     DEBUG_BLOCK
@@ -88,7 +89,8 @@ VideoWindow::VideoWindow( QWidget *parent )
     m_media->setTickInterval( 1000 );
     connect( m_media, SIGNAL( tick( qint64 ) ), mainWindow(), SLOT( showTime( qint64 ) ) );
 
-    m_languages->setExclusive( true );
+    m_subLanguages->setExclusive( true );
+    m_audioLanguages->setExclusive( true );
 
     connect( m_media, SIGNAL(stateChanged(Phonon::State,Phonon::State)), this, SLOT(stateChanged(Phonon::State,Phonon::State)) );
     {
@@ -113,6 +115,10 @@ VideoWindow::VideoWindow( QWidget *parent )
         box->addWidget( m_logo );
         m_logo->show();
     }
+    {
+        KConfigGroup config = KGlobal::config()->group( "General" ); 
+        m_aOutput->setVolume( config.readEntry<double>( "Volume", 1.0 ) );
+    }
 }
 
 VideoWindow::~VideoWindow()
@@ -127,7 +133,10 @@ VideoWindow::~VideoWindow()
         cum += sleep;
     }
     debug() << "Total sleep: " << cum << "x10^-6 s\n"; */
+
     eject();
+    KConfigGroup config = KGlobal::config()->group( "General" );
+    config.writeEntry( "Volume", static_cast<double>( m_aOutput->volume() ) );
 
     if( m_media->state() == Phonon::PlayingState )
     {
@@ -330,7 +339,8 @@ VideoWindow::newVolumeSlider()
 {
     VolumeSlider *volumeSlider = new VolumeSlider();
     volumeSlider->setObjectName( "volume" );
-//     volumeSlider->setAudioOutput( m_aOutput );
+    volumeSlider->setAudioOutput( m_aOutput );
+    volumeSlider->setMuteVisible( false ); //button gives no feedback if its on or off :(
     return volumeSlider;
 }
 
@@ -400,35 +410,71 @@ VideoWindow::settingChanged( int setting )
 }
 
 void
+VideoWindow::loadSettings()
+{
+    if( TheStream::hasProfile() )
+    {
+        KConfigGroup profile = TheStream::profile();
+        m_vWidget->setBrightness( profile.readEntry<double>( "Brightness", 0.0 ) );
+        m_vWidget->setContrast( profile.readEntry<double>( "Contrast", 0.0 ) );
+        m_vWidget->setHue( profile.readEntry<double>( "Hue", 0.0 ) );
+        m_vWidget->setSaturation( profile.readEntry<double>( "Saturation", 0.0 ) );
+    }
+    else
+    {
+        m_vWidget->setBrightness( 0.0 );
+        m_vWidget->setContrast( 0.0 );
+        m_vWidget->setHue( 0.0 );
+        m_vWidget->setSaturation( 0.0 );
+    }
+}
+
+void
 VideoWindow::updateChannels()
 {
     static xine_stream_t* lastStream = 0;
-    static int lastChannels = 0;
+    static int lastSubChannels = 0;
+    static int lastAudioChannels = 0;
     if( m_xineStream )
     {
-        int channels = xine_get_stream_info( m_xineStream, XINE_STREAM_INFO_MAX_SPU_CHANNEL );
-        if( (lastStream != m_xineStream ) || ( channels != lastChannels ) )
-        {
-            lastChannels = channels;
-            lastStream = m_xineStream;
-            {
-                QList<QAction*> subActions = m_languages->actions();
-                foreach( QAction* subAction, subActions )
-                    delete subAction;
-            }
-            debug() << "\033[0;43mOne xine stream pls: " << m_xineStream << "\033[0m" << ' ' << channels;
-            for( int j = 0; j < channels; j++ )
-            {
-                char s[128];
-                QAction* lang = new QAction( m_languages );
-                lang->setText( xine_get_spu_lang( m_xineStream, j, s ) ? s : i18n("Channel %1", j+1 ) );
-                debug() << "added language " << lang->text();
-                lang->setProperty( TheStream::CHANNEL_PROPERTY, j );
-                connect( lang, SIGNAL( triggered() ), this, SLOT( slotSetSubtitle() ) );
-                m_languages->addAction( lang );
-            }
-            emit channelsChanged( m_languages->actions() );
+        int channels;
+        #define LOAD_CHANNELS( STREAM_INFO, lastChannels, actiongroup, xine_get_lang, slotSet, signalChannelsChanged ) \
+        channels = xine_get_stream_info( m_xineStream, XINE_STREAM_INFO_MAX_SPU_CHANNEL ); \
+        if( (lastStream != m_xineStream ) || ( channels != lastChannels ) ) \
+        { \
+            lastChannels = channels; \
+            lastStream = m_xineStream; \
+            { \
+                QList<QAction*> subActions = actiongroup->actions(); \
+                foreach( QAction* subAction, subActions ) \
+                    delete subAction; \
+            } \
+            debug() << "\033[0;43mOne xine stream pls: " << m_xineStream << "\033[0m" << ' ' << channels; \
+            for( int j = 0; j < channels; j++ ) \
+            { \
+                char s[128]; \
+                QAction* lang = new QAction( actiongroup ); \
+                lang->setText( xine_get_lang( m_xineStream, j, s ) ? s : i18n("Channel %1", j+1 ) ); \
+                debug() << "added language " << lang->text(); \
+                lang->setProperty( TheStream::CHANNEL_PROPERTY, j ); \
+                connect( lang, SIGNAL( triggered() ), this, SLOT( slotSet() ) ); \
+                actiongroup->addAction( lang ); \
+            } \
+            emit signalChannelsChanged( actiongroup->actions() ); \
         }
+        LOAD_CHANNELS( XINE_STREAM_INFO_MAX_SPU_CHANNEL
+            , lastSubChannels
+            , m_subLanguages
+            , xine_get_spu_lang
+            , slotSetSubtitle
+            , subChannelsChanged )
+        LOAD_CHANNELS( XINE_STREAM_INFO_MAX_AUDIO_CHANNEL
+            , lastAudioChannels
+            , m_audioLanguages
+            , xine_get_audio_lang
+            , slotSetAudio
+            , audioChannelsChanged )
+        #undef LOAD_CHANNELS
     }
     else
         debug() << "\033[0;43mWhy is there no m_xineStream?\033[0m" << m_media->state();
@@ -441,15 +487,20 @@ VideoWindow::hideCursor()
    kapp->setOverrideCursor( Qt::BlankCursor );
 }
 
-void
-VideoWindow::slotSetSubtitle()
-{
-    if( m_xineStream && sender()->property( TheStream::CHANNEL_PROPERTY ).canConvert<int>() )
-    {
-        xine_set_param( m_xineStream, XINE_PARAM_SPU_CHANNEL
-            , sender()->property( TheStream::CHANNEL_PROPERTY ).toInt() );
-    }
+#define SLOT_SET_CHANNEL( function, XINE_PARAM_CHANNEL )                                                            \
+void                                                                                                                \
+VideoWindow::function()                                                                                             \
+{                                                                                                                   \
+    if( m_xineStream && sender()->property( TheStream::CHANNEL_PROPERTY ).canConvert<int>() )                       \
+    {                                                                                                               \
+        xine_set_param( m_xineStream, XINE_PARAM_CHANNEL                                                            \
+            , sender()->property( TheStream::CHANNEL_PROPERTY ).toInt() );                                          \
+    }                                                                                                               \
 }
+
+SLOT_SET_CHANNEL( slotSetSubtitle, XINE_PARAM_SPU_CHANNEL )
+SLOT_SET_CHANNEL( slotSetAudio, XINE_PARAM_AUDIO_CHANNEL_LOGICAL )
+#undef SLOT_SET_CHANNEL
 
 void
 VideoWindow::toggleDVDMenu()
@@ -572,6 +623,10 @@ DEBUG_BLOCK
     else
         profile.writeEntry( "Preferred Size", s );
 
+    profile.writeEntry( "Contrast", m_vWidget->contrast() );
+    profile.writeEntry( "Brightness", m_vWidget->brightness() );
+    profile.writeEntry( "Hue", m_vWidget->hue() );
+    profile.writeEntry( "Saturation", m_vWidget->saturation() );
     profile.sync();
 }
 

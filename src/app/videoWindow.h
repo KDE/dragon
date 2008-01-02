@@ -55,7 +55,8 @@ namespace Codeine
         QTimer* m_cursorTimer;
         bool m_justLoaded;
         xine_stream_t* m_xineStream;
-        QActionGroup* m_languages;
+        QActionGroup* m_subLanguages;
+        QActionGroup* m_audioLanguages;
         QWidget* m_logo;
 
         Phonon::VideoWidget *m_vWidget;
@@ -84,6 +85,7 @@ namespace Codeine
         uint volume() const;
         QWidget* newPositionSlider();
         QWidget* newVolumeSlider();
+        void loadSettings();
 
         Engine::State state() const;
 
@@ -110,6 +112,7 @@ namespace Codeine
         void toggleDVDMenu();
         void showOSD( const QString& );
         void slotSetSubtitle();
+        void slotSetAudio();
         void resetZoom();
     protected:
         virtual bool event( QEvent* e );
@@ -124,7 +127,8 @@ namespace Codeine
         void stateChanged( Engine::State );
         void statusMessage( const QString& );
         void titleChanged( const QString& );
-        void channelsChanged( QList< QAction* > );
+        void subChannelsChanged( QList< QAction* > );
+        void audioChannelsChanged( QList< QAction* > );
     };
 
     //global function for general use by Codeine

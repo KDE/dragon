@@ -24,6 +24,7 @@
 
 #include "codeine.h"
 
+#include <QList>
 #include <QPointer>
 
 #include <KXmlGuiWindow>
@@ -34,8 +35,11 @@ class QLabel;
 class QMenu;
 class QSlider;
 
+class FullScreenAction;
+
 namespace Codeine
 {
+   class PlayDialog;
    class MainWindow : public KXmlGuiWindow
    {
    Q_OBJECT
@@ -50,12 +54,15 @@ namespace Codeine
 
       enum { SubtitleChannelsMenuItemId = 2000, AudioChannelsMenuItemId, AspectRatioMenuItemId };
 
+   public:
+      void openRecentFile( const KUrl& );
    public slots:
       void play();
       void playMedia( bool show_welcome_dialog = false );
       void setFullScreen( bool full );
       void showTime( qint64 );
       void showVideoSettings( bool );
+      void playDialogResult( int result );
 
    private slots:
       void engineMessage( const QString& );
@@ -63,13 +70,15 @@ namespace Codeine
       void init();
       void aboutToShowMenu();
       void streamSettingChange();
-      void channelsChanged( QList< QAction* > );
+      void subChannelsChanged( QList< QAction* > );
+      void audioChannelsChanged( QList< QAction* > );
 
    private:
+      bool open( const KUrl& );
       void setupActions();
+      void updateSliders();
 
       bool load( const KUrl& );
-      bool open( const KUrl& );
 
       QMenu *menu( const char *name );
 
@@ -84,6 +93,10 @@ namespace Codeine
       QWidget     *m_positionSlider;
       QLabel      *m_timeLabel;
       QLabel      *m_titleLabel;
+      QWidget     *m_volumeSlider;
+      QList<QSlider*> m_sliders;
+      PlayDialog  *m_playDialog;
+      FullScreenAction *m_fullScreenAction;
 
       QActionGroup *m_aspectRatios;
       //undefined

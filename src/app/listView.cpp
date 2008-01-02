@@ -33,7 +33,7 @@ namespace Codeine
             ListView( QWidget *parent ) 
                 : KListWidget( parent )
             {
-                setSizePolicy( QSizePolicy::Minimum, QSizePolicy::Minimum );
+        //       setSizePolicy( QSizePolicy::Minimum, QSizePolicy::Minimum );
                 setAlternatingRowColors( true );
             }
     };

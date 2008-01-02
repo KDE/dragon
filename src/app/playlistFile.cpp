@@ -95,7 +95,7 @@ PlaylistFile::parsePlsFile( QTextStream &stream )
             const KUrl url = line.section( '=', -1 );
             const QString title = stream.readLine().section( '=', -1 );
 
-            debug() << url << endl << title << endl;
+            debug() << url << endl << title;
 
             m_contents += url;
             m_isValid = true;
@@ -128,7 +128,7 @@ PlaylistFile::parseM3uFile( QTextStream &stream )
                 line.prepend( "file://" );
 
             if( KUrl::isRelativeUrl( line ) )
-                url.setPath( m_url.directory() + line );
+                url.setPath( m_url.directory() + '/' + line );
             else
                 url = KUrl( line );
 

@@ -186,7 +186,17 @@ consistent documentation style across all KDE apps. -->
 <guimenuitem>Subtitles</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>
-This menu is active if there are any subtitles available from the currently playing movie. Note that it may take a few seconds after playback begins before the subtitles become available.
+This menu is active if there are any subtitles available from the currently playing movie. Note that it may take a few seconds of playback before the subtitles become available.
+</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Audio Channels</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>
+This menu is active if there are any additional audio channels available. For instance, some DVDs have additional languages. Note that it may take a few seconds of playback before the audio channels become available.
 </action></para></listitem>
 </varlistentry>
 

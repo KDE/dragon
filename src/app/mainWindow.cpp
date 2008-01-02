@@ -79,6 +79,9 @@ MainWindow::MainWindow()
         , m_positionSlider( 0 )
         , m_timeLabel( new QLabel( " 0:00:00 ", this ) )
         , m_titleLabel( new KSqueezedTextLabel( this ) )
+        , m_volumeSlider( 0 )
+        , m_playDialog( 0 )
+        , m_fullScreenAction( 0 )
 {
     DEBUG_BLOCK
     s_instance = this;
@@ -99,8 +102,6 @@ MainWindow::MainWindow()
     // sizeHint width of statusbar seems to get stupidly large quickly
     statusBar()->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Maximum );
 
-    statusBar()->addWidget( m_titleLabel, 1 );
-    statusBar()->addPermanentWidget( m_timeLabel, 0);
     setupActions();
     
     //setStandardToolBarMenuEnabled( false ); //bah to setupGUI()!
@@ -116,10 +117,10 @@ MainWindow::MainWindow()
                 menuAction->setObjectName( name ); \
                 menuAction->setEnabled( false ); \
                 connect( menu, SIGNAL(aboutToShow()), SLOT(aboutToShowMenu()) ); \
-                ac->addAction( name, menuAction );
+                ac->addAction( menuAction->objectName(), menuAction );
         make_menu( "aspect_ratio_menu", i18n( "Aspect &Ratio" ) );
         make_menu( "subtitle_channels_menu", i18n( "&Subtitles" ) );
- //       make_menu( "audio_channels_menu", i18n( "A&udio Channels" ) );
+        make_menu( "audio_channels_menu", i18n( "&Audio Channels" ) );
         #undef make_menu
 
         {
@@ -156,11 +157,13 @@ MainWindow::MainWindow()
     if( args->count() || args->isSet( "play-dvd" ) || kapp->isSessionRestored() )
         //we need to resize the window, so we can't show the window yet
         init();
-    else {
+    else 
+    {
         //"faster" startup
         //TODO if we have a size stored for this video, do the "faster" route
         QTimer::singleShot( 0, this, SLOT(init()) );
-        QApplication::setOverrideCursor( Qt::WaitCursor ); }
+        QApplication::setOverrideCursor( Qt::WaitCursor ); 
+    }
 }
 
 void
@@ -171,7 +174,8 @@ MainWindow::init()
     connect( engine(), SIGNAL( statusMessage( const QString& ) ), this, SLOT( engineMessage( const QString&   ) ) );
     connect( engine(), SIGNAL( stateChanged( Engine::State ) ), this, SLOT( engineStateChanged( Engine::State ) ) );
     connect( engine(), SIGNAL( titleChanged( const QString& ) ), m_titleLabel, SLOT( setText( const QString&  ) ) );
-    connect( engine(), SIGNAL( channelsChanged( QList< QAction* > ) ), this, SLOT( channelsChanged( QList< QAction* > ) ) );
+    connect( engine(), SIGNAL( subChannelsChanged( QList< QAction* > ) ), this, SLOT( subChannelsChanged( QList< QAction* > ) ) );
+    connect( engine(), SIGNAL( audioChannelsChanged( QList< QAction* > ) ), this, SLOT( audioChannelsChanged( QList< QAction* > ) ) );
 
     if( !engine()->init() ) {
         KMessageBox::error( this, i18n(
@@ -183,6 +187,10 @@ MainWindow::init()
     //would be dangerous for these to65535 happen before the videoWindow() is initialised
     setAcceptDrops( true );
     connect( statusBar(), SIGNAL(messageChanged( const QString& )), engine(), SLOT(showOSD( const QString& )) );
+    statusBar()->addWidget( m_titleLabel, 2 );
+    m_volumeSlider = engine()->newVolumeSlider();
+    statusBar()->addPermanentWidget( m_volumeSlider, 1 );
+    statusBar()->addPermanentWidget( m_timeLabel, 0);
 
     QApplication::restoreOverrideCursor();
     engineStateChanged( Engine::Empty );
@@ -202,7 +210,6 @@ MainWindow::init()
     else
         //session management must be done after the videoWindow() has been initialised
         restore( 1, false );
-    
 }
 
 MainWindow::~MainWindow()
@@ -221,7 +228,7 @@ MainWindow::setupActions()
 
     KStandardAction::quit( kapp, SLOT( closeAllWindows() ), ac );
     KStandardAction::open( this, SLOT(playMedia()), ac )->setText( i18n("Play &Media...") );
-    new FullScreenAction( this, ac );
+    m_fullScreenAction = new FullScreenAction( this, ac );
 
     new PlayAction( this, SLOT(play()), ac );
     #define addToAc( X ) ac->addAction( X->objectName(), X );
@@ -291,20 +298,26 @@ MainWindow::showVideoSettings( bool show )
         ui.setupUi( videoSettingsWidget );
         videoSettingsWidget->adjustSize();
         addDockWidget( Qt::LeftDockWidgetArea, m_leftDock );
-        QList<QSlider*> sliders;
-        sliders << ui.brightnessSlider << ui.contrastSlider << ui.hueSlider <<  ui.saturationSlider;
-        foreach( QSlider* slider, sliders )
-        {
+        m_sliders.clear();
+        m_sliders << ui.brightnessSlider << ui.contrastSlider << ui.hueSlider <<  ui.saturationSlider;
+        updateSliders();
+        foreach( QSlider* slider, m_sliders )
              connect( slider, SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
-             slider->setValue( engine()->videoSetting( slider->objectName() ) );
-        }
+
         connect( ui.closeButton, SIGNAL( clicked( bool ) ), action( "video_settings" ), SLOT( setChecked( bool ) ) );
         connect( ui.closeButton, SIGNAL( clicked( bool ) ), m_leftDock, SLOT( deleteLater() ) );
     }
-    else 
+    else
     {
         delete m_leftDock;
     }
+}
+
+void
+MainWindow::updateSliders()
+{
+    foreach( QSlider* slider, m_sliders )
+        slider->setValue( engine()->videoSetting( slider->objectName() ) );
 }
 
 void
@@ -317,14 +330,15 @@ bool
 MainWindow::open( const KUrl &url )
 {
     DEBUG_BLOCK
-    debug() << url << endl;
+    debug() << url;
 
     if( load( url ) ) {
         const int offset = TheStream::hasProfile()
                 // adjust offset if we have session history for this video
                 ? TheStream::profile().readEntry<int>( "Position", 0 )
                 : 0;
-
+        engine()->loadSettings();
+        updateSliders();
         return engine()->play( offset );
     }
 
@@ -391,23 +405,38 @@ MainWindow::play()
 void
 MainWindow::playMedia( bool show_welcome_dialog )
 {
-    PlayDialog dialog( this, show_welcome_dialog );
+    DEBUG_BLOCK
+    if( ! m_playDialog )
+    {
+        m_playDialog = new Codeine::PlayDialog( this, show_welcome_dialog );
+        m_playDialog->show();
+    }
+    else
+    {
+        debug() << "playdialog not null";
+    }
+}
 
-    runDialog:
-    switch( dialog.exec() ) {
+void
+MainWindow::playDialogResult( int result )
+{
+    DEBUG_BLOCK
+    switch( result ) {
     case PlayDialog::FILE: {
         const QString filter = engine()->fileFilter() + '|' + i18n("Supported Media Formats") + "\n*|" + i18n("All Files");
         const KUrl url = KFileDialog::getOpenUrl( KUrl(":default"), filter, this, i18n("Select A File To Play") );
         if( url.isEmpty() )
-            goto runDialog;
+        {
+//            delete m_playDialog;
+//            m_playDialog = new Codeine::PlayDialog( this, false );
+             debug() << "returning, blah";
+            return;
+        }
         else
             open( url );
         } break;
     case PlayDialog::RECENT_FILE:
-        open( dialog.url() );
-        break;
-    case PlayDialog::CDDA:
-        open( KUrl( "cdda:/1" ) );
+       
         break;
     case PlayDialog::VCD:
         open( KUrl( "vcd://" ) ); // one / is not enough
@@ -416,6 +445,16 @@ MainWindow::playMedia( bool show_welcome_dialog )
         engine()->playDvd();
         break;
     }
+    m_playDialog->deleteLater();
+    m_playDialog = 0;
+}
+
+void
+MainWindow::openRecentFile( const KUrl& url )
+{
+    m_playDialog->deleteLater();
+    m_playDialog = 0;
+    open( url );
 }
 
 void
@@ -448,31 +487,32 @@ MainWindow::setFullScreen( bool isFullScreen )
 void
 MainWindow::aboutToShowMenu()
 {
-//     QMenu *menu = (QMenu*)sender();
-//     QByteArray name( sender() ? sender()->objectName() : 0 );
-// 
-//     // uncheck all items first
-//     for( uint x = 0; x < menu->actions()->count(); ++x )
-//         menu->actions()->at( x )->setChecked( false );
-// 
-//     int id;
-//     if( name == "subtitle_channels_menu" )
-//         id = TheStream::subtitleChannel() + 2;
-//     else if( name == "audio_channels_menu" )
-//         id = TheStream::audioChannel() + 2;
-//     else
-//         id = TheStream::aspectRatio();
     DEBUG_BLOCK
     TheStream::aspectRatioAction()->setChecked( true );
-    int subId = TheStream::subtitleChannel();
-    QList< QAction* > subs = action("subtitle_channels_menu")->menu()->actions();
-    debug() << "subtitle #" << subId << " is going to be checked";
-    foreach( QAction* subAction, subs )
     {
-        if( subAction->property( TheStream::CHANNEL_PROPERTY ).toInt() == subId )
+        int subId = TheStream::subtitleChannel();
+        QList< QAction* > subs = action("subtitle_channels_menu")->menu()->actions();
+        debug() << "subtitle #" << subId << " is going to be checked";
+        foreach( QAction* subAction, subs )
         {
-            subAction->setChecked( true );
-            break;
+            if( subAction->property( TheStream::CHANNEL_PROPERTY ).toInt() == subId )
+            {
+                subAction->setChecked( true );
+                break;
+            }
+        }
+    }
+    {
+        int audioId = TheStream::audioChannel();
+        QList< QAction* > audios = action("audio_channels_menu")->menu()->actions();
+        debug() << "audio #" << audioId << " is going to be checked";
+        foreach( QAction* audioAction, audios )
+        {
+            if( audioAction->property( TheStream::CHANNEL_PROPERTY ).toInt() == audioId )
+            {
+                audioAction->setChecked( true );
+                break;
+            }
         }
     }
 }
@@ -524,18 +564,23 @@ MainWindow::streamSettingChange()
     }
 }
 
-void
-MainWindow::channelsChanged( QList< QAction* > subActions )
-{
-DEBUG_BLOCK
-    if( subActions.isEmpty() )
-          action("subtitle_channels_menu")->setEnabled( false );
-    else
-    {
-        action("subtitle_channels_menu")->menu()->addActions( subActions );
-        action("subtitle_channels_menu")->setEnabled( true );
-    }
+#define CHANNELS_CHANGED( function, actionName ) \
+void \
+MainWindow::function( QList< QAction* > subActions ) \
+{ \
+DEBUG_BLOCK \
+    if( subActions.isEmpty() ) \
+          action( actionName )->setEnabled( false ); \
+    else \
+    { \
+        action( actionName )->menu()->addActions( subActions ); \
+        action( actionName )->setEnabled( true ); \
+    } \
 }
+
+CHANNELS_CHANGED( subChannelsChanged  , "subtitle_channels_menu" )
+CHANNELS_CHANGED( audioChannelsChanged, "audio_channels_menu" )
+#undef CHANNELS_CHANGED
 
 /// Convenience class for other classes that need access to the actionCollection
 KActionCollection*
@@ -555,7 +600,7 @@ action( const char *name )
         if( ( actionCollection = ((MainWindow*)mainWindow() )->actionCollection() ) )
             action = actionCollection->action( name );
     if( !action )
-        debug() << name << endl;
+        debug() << name;
     Q_ASSERT( mainWindow() );
     Q_ASSERT( actionCollection );
     Q_ASSERT( action );

@@ -35,6 +35,7 @@ class FullScreenAction : public KToggleAction
 Q_OBJECT
 public:
     FullScreenAction( QWidget *window, KActionCollection* );
+    void setWidgetVisibility( bool );
 };
 
 #endif

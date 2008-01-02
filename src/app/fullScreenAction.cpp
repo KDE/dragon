@@ -22,6 +22,7 @@
 #include "fullScreenAction.h"
 
 #include "codeine.h"
+#include "debug.h"
 #include "extern.h"
 
 #include <KActionCollection>
@@ -36,10 +37,24 @@ FullScreenAction::FullScreenAction( QWidget* window, KActionCollection *parent )
     parent->addAction( objectName(), this );
     window->installEventFilter( this );
     setChecked( false );
-    setText( i18n("F&ull Screen Mode") );
+    setText( i18n("F&ull Screen") );
     setIcon( KIcon("view-fullscreen") );
-    setCheckedState( KGuiItem( i18n("Exit F&ull Screen Mode"), KIcon("view-restore") ) );
+    setCheckedState( KGuiItem( i18n("Exit F&ull Screen"), KIcon("view-restore") ) );
     connect( this, SIGNAL( toggled( bool ) ), Codeine::mainWindow(), SLOT( setFullScreen( bool ) ) );
+}
+
+void
+FullScreenAction::setWidgetVisibility( bool visible )
+{
+    QList< QWidget* > widgets = createdWidgets();
+    debug() << "going to set " << widgets.count() << " buttons to " << visible;
+    foreach( QWidget* button, widgets )
+        button->setVisible( visible );
+    if( defaultWidget() )
+    {
+        debug() << "hooray!";
+        defaultWidget()->setVisible( visible );
+    }
 }
 
 #include "fullScreenAction.moc"

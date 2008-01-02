@@ -23,6 +23,7 @@
 
 #include "debug.h"
 #include "listView.cpp"
+#include "mainWindow.h"
 
 #include <KApplication>
 #include <KConfig>
@@ -64,16 +65,12 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
     connect( o, SIGNAL(clicked()), mapper, SLOT(map()) );
     grid->addWidget( o, 0, 0 );
 
-    mapper->setMapping( o = new KPushButton( KGuiItem( i18n("Play VCD"), "media-optical-video" ), this ), VCD );
+    mapper->setMapping( o = new KPushButton( KGuiItem( i18n("Play Disc"), "media-optical-video" ), this ), DVD );
     connect( o, SIGNAL(clicked()), mapper, SLOT(map()) );
     grid->addWidget( o, 0, 1 );
 
-    mapper->setMapping( o = new KPushButton( KGuiItem( i18n("Play DVD"), "media-optical-video" ), this ), DVD );
-    connect( o, SIGNAL(clicked()), mapper, SLOT(map()) );
-    grid->addWidget( o, 0, 2 );
-
     mapper->setMapping( closeButton, QDialog::Rejected );
-    connect( closeButton, SIGNAL(clicked()), mapper, SLOT(map()) );
+    connect( closeButton, SIGNAL(clicked()), mapper, SLOT( map() ) );
 
     createRecentFileWidget( grid );
 
@@ -88,7 +85,7 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
 
     hbox->addWidget( closeButton );
 
-    connect( mapper, SIGNAL(mapped( int )), SLOT(done( int )) );
+    connect( mapper, SIGNAL(mapped( int )), mainWindow(), SLOT( playDialogResult( int ) ) );
     vbox->addLayout( hbox );
     setLayout( vbox );
 }
@@ -96,8 +93,7 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
 void
 PlayDialog::createRecentFileWidget( QGridLayout *layout )
 {
-    QListWidget *lv;
-    lv = new Codeine::ListView( this );
+    QListWidget *lv = new Codeine::ListView( this );
 //    lv->setColumnText( 1, i18n("Recently Played Media") );
 
     const QStringList list1 = KConfigGroup( KGlobal::config(), "General" ).readPathEntry( "Recent Urls", QStringList() );
@@ -135,7 +131,7 @@ void
 PlayDialog::done( QListWidgetItem *item )
 {
     m_url = item->data( 0xdecade ).value<KUrl>();
-    QDialog::done( RECENT_FILE );
+    ((Codeine::MainWindow*) mainWindow() )->openRecentFile( m_url );
 }
 
 }

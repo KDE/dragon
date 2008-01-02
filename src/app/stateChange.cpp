@@ -19,19 +19,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
+#include "mainWindow.h"
+
 #include <KConfig>
 #include <KLocale>
 #include <KGlobal>
 #include <KToolBar>
+#include <KXMLGUIFactory>
 
 #include <QContextMenuEvent>
 #include <QEvent>
 #include <QLabel>
+#include <QToolButton>
 
 #include "actions.h"
 #include "adjustSizeButton.h"
 #include "debug.h"
-#include "mainWindow.h"
+#include "fullScreenAction.h"
 #include "mxcl.library.h"
 #include "theStream.h"
 #include "videoWindow.h"
@@ -52,11 +56,9 @@ void
 MainWindow::engineStateChanged( Engine::State state )
 {
     DEBUG_BLOCK
-//    Q_ASSERT( state != Engine::Uninitialised );
     if( state == Engine::Uninitialised )
     {
-        debug()<< "Engine Uninitialised!" << endl;
-//        return;
+        warning() << "Engine Uninitialised!";
     }
     KUrl const &url = TheStream::url();
     bool const isFullScreen = toggleAction("fullscreen")->isChecked();
@@ -85,7 +87,7 @@ MainWindow::engineStateChanged( Engine::State state )
         toggleAction( "play" )->setChecked( state == Playing );
     }
 
-    debug() << "updated actions" << endl;
+    debug() << "updated actions";
 
     /// update menus
     {
@@ -102,38 +104,38 @@ MainWindow::engineStateChanged( Engine::State state )
         if( state == Loaded )
             TheStream::aspectRatioAction()->setChecked( true );
     }
-    debug() << "updated menus" << endl;
+    debug() << "updated menus";
 
     /// update statusBar
     {
         using namespace Engine;
         m_timeLabel->setVisible( state & (Playing | Paused) );
     }
-    debug() << "updated statusbar" << endl;
+    debug() << "updated statusbar";
 
     /// update position slider
     switch( state )
     {
         case Engine::Uninitialised:
-        case Engine::Empty:
-            m_positionSlider->setEnabled( false );
-            break;
         case Engine::Loaded:
         case Engine::TrackEnded:
-//            m_positionSlider->setValue( 0 );
-            // NO BREAK!
+        case Engine::Empty:
+            m_positionSlider->setEnabled( false );
+            m_volumeSlider->setEnabled( false );
+            break;
         case Engine::Playing:
         case Engine::Paused:
             m_positionSlider->setEnabled( TheStream::canSeek() );
-        
+            m_volumeSlider->setEnabled( true );
+            break;
     }
-    debug() << "update position slider" << endl;
+    debug() << "update position slider";
 
     /// update recent files list if necessary
     if( state == Engine::Loaded ) 
     {
         // update recently played list
-        debug() << " update recent files list " << endl;
+        debug() << " update recent files list ";
         #ifndef NO_SKIP_PR0N
         // ;-)
         const QString url_string = url.url();
@@ -169,7 +171,7 @@ MainWindow::engineStateChanged( Engine::State state )
             m_titleLabel->setText( TheStream::prettyTitle() );
             break;
     }
-    debug() << "set titles " << endl;
+    debug() << "set titles ";
 
     /// set toolbar states
     QWidget *dvd_button = toolBar()->findChild< QWidget* >( "toolbutton_toggle_dvd_menu" );
@@ -198,6 +200,32 @@ MainWindow::engineStateChanged( Engine::State state )
             break;
         }
     }
+    
+    ///hide videoWindow if audio-only
+    if( state == Engine::Playing )
+    {
+        bool hasVideo = TheStream::hasVideo();
+        videoWindow()->setVisible( hasVideo );
+        m_fullScreenAction->setEnabled( hasVideo );
+    }
+    /*
+    videoWindow()->setVisible( hasVideo );
+    toolBar()->dumpObjectTree();
+    debug() << "boo";
+    QList<QObject*> list = toolBar()->findChildren<QObject *>( "" );
+    foreach( QObject* obj, list )
+    {
+        debug() << QString("*%1*").arg( obj->metaObject()->className() ) << (obj->metaObject()->className() == "QToolButton");
+        if(  QString("*%1*").arg( obj->metaObject()->className() ) == "*QToolButton*" )
+        {
+            debug() << "its a tool button!";
+            if( static_cast<QToolButton*>( obj )->defaultAction() == m_fullScreenAction )
+            {
+                debug() << "hiding? " << hasVideo;
+                static_cast<QWidget*>( obj )->setVisible( hasVideo );
+            }
+        }
+    }*/
 }
 
 }
