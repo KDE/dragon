@@ -238,13 +238,13 @@ MainWindow::setupActions()
     connect( playerStop, SIGNAL( triggered() ), engine(), SLOT( stop() ) );
     addToAc( playerStop )
 
-    KAction* resetZoom = new KAction( KIcon("zoom-best-fit"), i18n("Reset Video Scale"), ac );
+    KAction* resetZoom = new KAction( KIcon("zoom-fit-best"), i18n("Reset Video Scale"), ac );
     resetZoom->setObjectName( "reset_zoom" );
     resetZoom->setShortcut( Qt::Key_Equal );
     connect( resetZoom, SIGNAL( triggered() ), videoWindow(), SLOT( resetZoom() ) );
     addToAc( resetZoom )
 
-    KAction* dvdMenu = new KAction( KIcon("dvd_unmount"), i18n("Menu Toggle"), ac );
+    KAction* dvdMenu = new KAction( KIcon("media-optical-video"), i18n("Menu Toggle"), ac );
     dvdMenu->setObjectName( "toggle_dvd_menu" );
     dvdMenu->setShortcut( Qt::Key_R );
     connect( dvdMenu, SIGNAL( triggered() ), engine(), SLOT( toggleDVDMenu() ) );
