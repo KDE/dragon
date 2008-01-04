@@ -20,6 +20,8 @@
  ***********************************************************************/
 
 #include "mainWindow.h"
+#include "timeLabel.h"
+
 
 #include <cstdlib>
 
@@ -77,7 +79,7 @@ MainWindow::MainWindow()
         : KXmlGuiWindow()
         , m_leftDock( 0 )
         , m_positionSlider( 0 )
-        , m_timeLabel( new QLabel( " 0:00:00 ", this ) )
+        , m_timeLabel( new TimeLabel(this) )
         , m_titleLabel( new KSqueezedTextLabel( this ) )
         , m_volumeSlider( 0 )
         , m_playDialog( 0 )
@@ -88,15 +90,13 @@ MainWindow::MainWindow()
     setMouseTracking( true );
     new VideoWindow( this );
     videoWindow()->setMouseTracking( true );
+
     m_positionSlider = videoWindow()->newPositionSlider();
 
     setCentralWidget( videoWindow() );
     setFocusProxy( videoWindow() ); // essential! See VideoWindow::event(), QEvent::FocusOut
 
     m_titleLabel->setMargin( 2 );
-    m_timeLabel->setFont( KGlobalSettings::fixedFont() );
-    m_timeLabel->setAlignment( Qt::AlignCenter );
-    m_timeLabel->setMinimumSize( m_timeLabel->sizeHint() );
 
     // work around a bug in KStatusBar
     // sizeHint width of statusbar seems to get stupidly large quickly
@@ -119,8 +119,8 @@ MainWindow::MainWindow()
                 connect( menu, SIGNAL(aboutToShow()), SLOT(aboutToShowMenu()) ); \
                 ac->addAction( menuAction->objectName(), menuAction );
         make_menu( "aspect_ratio_menu", i18n( "Aspect &Ratio" ) );
-        make_menu( "subtitle_channels_menu", i18n( "&Subtitles" ) );
         make_menu( "audio_channels_menu", i18n( "&Audio Channels" ) );
+        make_menu( "subtitle_channels_menu", i18n( "&Subtitles" ) );
         #undef make_menu
 
         {
@@ -266,23 +266,6 @@ MainWindow::setupActions()
     #undef addToAc
 }
 
-void
-MainWindow::showTime( qint64 ms )
-{
-    #define zeroPad( n ) n < 10 ? QString("0%1").arg( n ) : QString::number( n )
-
-    const int s  = ms / 1000;
-    const int m  =  s / 60;
-    const int h  =  m / 60;
-
-    QString time = zeroPad( s % 60 ); //seconds
-    time.prepend( ':' );
-    time.prepend( zeroPad( m % 60 ) ); //minutes
-    time.prepend( ':' );
-    time.prepend( QString::number( h ) ); //hours
-
-    m_timeLabel->setText( time );
-}
 
 void
 MainWindow::showVideoSettings( bool show )
@@ -312,6 +295,20 @@ MainWindow::showVideoSettings( bool show )
         delete m_leftDock;
     }
 }
+
+//this is just because I can't connect directly from videoWindow to timeLabel FIXME
+void
+MainWindow::updateCurrentPlayingTime( const qint64 time )
+{
+    m_timeLabel->newCurrentTime(time);
+}
+
+void
+MainWindow::updateTotalPlayingTime( const qint64 time )
+{
+    m_timeLabel->newTotalTime(time);
+}
+
 
 void
 MainWindow::updateSliders()

@@ -23,6 +23,7 @@
 #define CODEINEMAINWINDOW_H
 
 #include "codeine.h"
+#include "timeLabel.h"
 
 #include <QList>
 #include <QPointer>
@@ -60,8 +61,9 @@ namespace Codeine
       void play();
       void playMedia( bool show_welcome_dialog = false );
       void setFullScreen( bool full );
-      void showTime( qint64 );
       void showVideoSettings( bool );
+      void updateCurrentPlayingTime(qint64);
+      void updateTotalPlayingTime(qint64);
       void playDialogResult( int result );
 
    private slots:
@@ -91,7 +93,7 @@ namespace Codeine
 
       QPointer<QDockWidget> m_leftDock;
       QWidget     *m_positionSlider;
-      QLabel      *m_timeLabel;
+      TimeLabel   *m_timeLabel;
       QLabel      *m_titleLabel;
       QWidget     *m_volumeSlider;
       QList<QSlider*> m_sliders;

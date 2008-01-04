@@ -14,6 +14,7 @@ set(videoplayer_app_SRCS
     fullScreenToolBarHandler.cpp
     playlistFile.cpp
     main.cpp
+    timeLabel.cpp
     mainWindow.cpp )
 kde4_add_ui_files(videoplayer_app_SRCS videoSettingsWidget.ui)
 

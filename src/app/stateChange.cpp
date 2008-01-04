@@ -200,14 +200,14 @@ MainWindow::engineStateChanged( Engine::State state )
             break;
         }
     }
-    
+    /*
     ///hide videoWindow if audio-only
     if( state == Engine::Playing )
     {
         bool hasVideo = TheStream::hasVideo();
         videoWindow()->setVisible( hasVideo );
         m_fullScreenAction->setEnabled( hasVideo );
-    }
+    }*/
     /*
     videoWindow()->setVisible( hasVideo );
     toolBar()->dumpObjectTree();

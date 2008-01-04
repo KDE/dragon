@@ -100,7 +100,7 @@ PlayDialog::createRecentFileWidget( QGridLayout *layout )
     KUrl::List urls;
 
     foreach( QString s, list1 )
-        urls += s;
+        urls.prepend(s); //copy the stringlist individually into a KURL list in reverse order
 
     foreach( KUrl it, urls) {
         while( urls.count( it ) > 1 )
@@ -119,6 +119,7 @@ PlayDialog::createRecentFileWidget( QGridLayout *layout )
         lv->addItem( listItem );
     }
 
+    //delete list view widget if there are no items in it
     if( lv->count() ) {
         layout->addWidget( lv, 1, 0, 1, -1);
         connect( lv, SIGNAL( executed( QListWidgetItem* )), this, SLOT( done( QListWidgetItem* ) ) );

@@ -24,6 +24,7 @@
 #define CODEINE_DEBUG_PREFIX "engine"
 
 #include "videoWindow.h"
+#include "timeLabel.h"
 
 #include "actions.h"        //::seek() FIXME unfortunate
 #include "debug.h"
@@ -87,7 +88,11 @@ VideoWindow::VideoWindow( QWidget *parent )
     Phonon::createPath(m_media, m_vWidget);
     m_audioPath = Phonon::createPath(m_media, m_aOutput);
     m_media->setTickInterval( 1000 );
-    connect( m_media, SIGNAL( tick( qint64 ) ), mainWindow(), SLOT( showTime( qint64 ) ) );
+    connect( m_media, SIGNAL( tick( qint64 ) ), mainWindow(), SLOT( updateCurrentPlayingTime( qint64 ) ) );
+    connect( m_media, SIGNAL( totalTimeChanged( qint64 ) ), mainWindow(), SLOT( updateTotalPlayingTime( qint64 ) ) );
+
+    connect( m_media, SIGNAL( hasVideoChanged( bool ) ), m_vWidget, SLOT( setVisible( bool ) ) ); //hide video widget if no video to show
+    connect( m_media, SIGNAL( hasVideoChanged( bool ) ), m_logo, SLOT( setHidden( bool ) ) );    //can this be done as 1 line with above?
 
     m_subLanguages->setExclusive( true );
     m_audioLanguages->setExclusive( true );
@@ -370,10 +375,9 @@ DEBUG_BLOCK
     debug() << "going from " << states.at(oldstate) << " to " << states.at(currentState);
     if( currentState == Phonon::LoadingState )
         m_xineStream = 0;
-    if( currentState == Phonon::PlayingState )
+    if( currentState == Phonon::PlayingState && m_media->hasVideo() )
     {
-        delete m_logo;
-        m_logo = 0;
+        m_logo->hide();
         m_vWidget->show();
         refreshXineStream();
         updateChannels();
@@ -484,7 +488,8 @@ void
 VideoWindow::hideCursor()
 {
    DEBUG_BLOCK
-   kapp->setOverrideCursor( Qt::BlankCursor );
+   if(m_media->hasVideo())
+       kapp->setOverrideCursor( Qt::BlankCursor );
 }
 
 #define SLOT_SET_CHANNEL( function, XINE_PARAM_CHANNEL )                                                            \
