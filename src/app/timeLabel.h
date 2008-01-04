@@ -1,7 +1,7 @@
 #ifndef TIMELABEL_H
 #define TIMELABEL_H
 
-#include <QLabel.h>
+#include <QLabel>
 
 class TimeLabel : public QLabel
 {

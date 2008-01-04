@@ -18,7 +18,7 @@
  ***************************************************************************/
 
 #include "timeLabel.h"
-#include <QLabel.h>
+#include <QLabel>
 #include <KGlobalSettings>
 
 TimeLabel::TimeLabel( QWidget *parent ) : QLabel( " 0:00:00 ", parent )
