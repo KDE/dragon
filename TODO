@@ -31,4 +31,4 @@ Before 2.0-rc1:
 *test the PLS code
 *have a volume somehow (done)
 *app wide volume state saving (done)
-*accurate file filter for open file dialog
+*accurate file filter for open file dialog (ask Vir)
