@@ -21,21 +21,22 @@
 #include <QLabel>
 #include <KGlobalSettings>
 
-TimeLabel::TimeLabel( QWidget *parent ) : QLabel( " 0:00:00 ", parent )
+TimeLabel::TimeLabel( QWidget *parent ) 
+    : QLabel( " 0:00:00 ", parent )
+    , m_currentTime( 0 )
 {
     setFont( KGlobalSettings::fixedFont() );
     setAlignment( Qt::AlignCenter );
     setMinimumSize( sizeHint() );
-    currentTime=0;
 }
 
 void
 TimeLabel::mousePressEvent( QMouseEvent * )
 {
-    if(timeFormat==SHOW_REMAINING)
-        timeFormat=SHOW_COMPLETED;
+    if( timeFormat == SHOW_REMAINING )
+        timeFormat = SHOW_COMPLETED;
     else
-        timeFormat=SHOW_REMAINING;
+        timeFormat = SHOW_REMAINING;
     updateTime();
 }
 
@@ -44,10 +45,10 @@ TimeLabel::updateTime()
 {
     qint64 ms;
     #define zeroPad( n ) n < 10 ? QString("0%1").arg( n ) : QString::number( n )
-    if(timeFormat==SHOW_REMAINING)
-        ms=totalTime-currentTime;
+    if( timeFormat==SHOW_REMAINING )
+        ms = m_totalTime - m_currentTime;
     else
-        ms=currentTime;
+        ms = m_currentTime;
     const int s  = ms / 1000;
     const int m  =  s / 60;
     const int h  =  m / 60;
@@ -56,21 +57,21 @@ TimeLabel::updateTime()
     time.prepend( zeroPad( m % 60 ) ); //minutes
     time.prepend( ':' );
     time.prepend( QString::number( h ) ); //hours
-    if(timeFormat==SHOW_REMAINING)
+    if( timeFormat == SHOW_REMAINING )
         time.prepend('-');
     setText( time );
 }
 
 void
-TimeLabel::newCurrentTime(qint64 time)
+TimeLabel::setCurrentTime( qint64 time )
 {
-    currentTime=time;
+    m_currentTime = time;
     updateTime();
 }
 
 void
-TimeLabel::newTotalTime(qint64 time)
+TimeLabel::setTotalTime( qint64 time )
 {
-    totalTime=time;
+    m_totalTime = time;
     updateTime();
 }

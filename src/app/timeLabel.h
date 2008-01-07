@@ -7,16 +7,17 @@ class TimeLabel : public QLabel
 {
     Q_OBJECT
     public:
-       explicit TimeLabel( QWidget *parent);
+       explicit TimeLabel( QWidget *parent );
        virtual void mousePressEvent( QMouseEvent * );
        virtual void updateTime();
-       enum TimeFormats {SHOW_REMAINING,SHOW_COMPLETED};
+       enum TimeFormats { SHOW_REMAINING,SHOW_COMPLETED };
        TimeFormats timeFormat;
-
-       virtual void newCurrentTime(qint64);
-       virtual void newTotalTime(qint64);
+    public slots:
+       void setCurrentTime( qint64 );
+       void setTotalTime( qint64 );
     private:
-       qint64 currentTime,totalTime;
+       qint64 m_currentTime;
+       qint64 m_totalTime;
 };
 
 #endif 

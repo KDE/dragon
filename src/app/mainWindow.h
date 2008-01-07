@@ -62,8 +62,6 @@ namespace Codeine
       void playMedia( bool show_welcome_dialog = false );
       void setFullScreen( bool full );
       void showVideoSettings( bool );
-      void updateCurrentPlayingTime(qint64);
-      void updateTotalPlayingTime(qint64);
       void playDialogResult( int result );
 
    private slots:

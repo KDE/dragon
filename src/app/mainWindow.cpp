@@ -92,6 +92,8 @@ MainWindow::MainWindow()
     videoWindow()->setMouseTracking( true );
 
     m_positionSlider = videoWindow()->newPositionSlider();
+    connect( videoWindow(), SIGNAL( tick( qint64) ), m_timeLabel, SLOT( setCurrentTime( qint64 ) ) );
+    connect( videoWindow(), SIGNAL( totalTimeChanged( qint64 ) ), m_timeLabel, SLOT( setCurrentTime( qint64 ) ) );
 
     setCentralWidget( videoWindow() );
     setFocusProxy( videoWindow() ); // essential! See VideoWindow::event(), QEvent::FocusOut
@@ -295,20 +297,6 @@ MainWindow::showVideoSettings( bool show )
         delete m_leftDock;
     }
 }
-
-//this is just because I can't connect directly from videoWindow to timeLabel FIXME
-void
-MainWindow::updateCurrentPlayingTime( const qint64 time )
-{
-    m_timeLabel->newCurrentTime(time);
-}
-
-void
-MainWindow::updateTotalPlayingTime( const qint64 time )
-{
-    m_timeLabel->newTotalTime(time);
-}
-
 
 void
 MainWindow::updateSliders()

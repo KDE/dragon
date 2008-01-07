@@ -88,8 +88,8 @@ VideoWindow::VideoWindow( QWidget *parent )
     Phonon::createPath(m_media, m_vWidget);
     m_audioPath = Phonon::createPath(m_media, m_aOutput);
     m_media->setTickInterval( 1000 );
-    connect( m_media, SIGNAL( tick( qint64 ) ), mainWindow(), SLOT( updateCurrentPlayingTime( qint64 ) ) );
-    connect( m_media, SIGNAL( totalTimeChanged( qint64 ) ), mainWindow(), SLOT( updateTotalPlayingTime( qint64 ) ) );
+    connect( m_media, SIGNAL( tick( qint64 ) ), this, SIGNAL( tick( qint64 ) ) );
+    connect( m_media, SIGNAL( totalTimeChanged( qint64 ) ), this, SIGNAL( totalTimeChanged( qint64 ) ) );
 
     connect( m_media, SIGNAL( hasVideoChanged( bool ) ), m_vWidget, SLOT( setVisible( bool ) ) ); //hide video widget if no video to show
     connect( m_media, SIGNAL( hasVideoChanged( bool ) ), m_logo, SLOT( setHidden( bool ) ) );    //can this be done as 1 line with above?

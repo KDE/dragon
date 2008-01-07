@@ -129,6 +129,8 @@ namespace Codeine
         void titleChanged( const QString& );
         void subChannelsChanged( QList< QAction* > );
         void audioChannelsChanged( QList< QAction* > );
+        void tick( qint64 );
+        void totalTimeChanged( qint64 );
     };
 
     //global function for general use by Codeine
