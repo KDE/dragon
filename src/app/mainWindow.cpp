@@ -93,7 +93,7 @@ MainWindow::MainWindow()
 
     m_positionSlider = videoWindow()->newPositionSlider();
     connect( videoWindow(), SIGNAL( tick( qint64) ), m_timeLabel, SLOT( setCurrentTime( qint64 ) ) );
-    connect( videoWindow(), SIGNAL( totalTimeChanged( qint64 ) ), m_timeLabel, SLOT( setCurrentTime( qint64 ) ) );
+    connect( videoWindow(), SIGNAL( totalTimeChanged( qint64 ) ), m_timeLabel, SLOT( setTotalTime( qint64 ) ) );
 
     setCentralWidget( videoWindow() );
     setFocusProxy( videoWindow() ); // essential! See VideoWindow::event(), QEvent::FocusOut
