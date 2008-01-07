@@ -1,2 +1,2 @@
 #! /usr/bin/env bash
-$XGETTEXT *.cpp -o $podir/videoplayer.pot
+$XGETTEXT *.cpp -o $podir/dragonplayer.pot
