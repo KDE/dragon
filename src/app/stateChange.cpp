@@ -81,7 +81,7 @@ MainWindow::engineStateChanged( Engine::State state )
         enableIf( "fullscreen", (Playing | Paused) || isFullScreen );
         enableIf( "reset_zoom", ~Empty && !isFullScreen );
         enableIf( "video_settings", (Playing | Paused) );
-//        enableIf( "volume", (Playing | Paused) );
+        enableIf( "volume", (Playing | Paused) );
         #undef enableIf
 
         toggleAction( "play" )->setChecked( state == Playing );
@@ -121,12 +121,14 @@ MainWindow::engineStateChanged( Engine::State state )
         case Engine::TrackEnded:
         case Engine::Empty:
             m_positionSlider->setEnabled( false );
-            m_volumeSlider->setEnabled( false );
+            if( m_volumeSlider )
+                m_volumeSlider->setEnabled( false );
             break;
         case Engine::Playing:
         case Engine::Paused:
             m_positionSlider->setEnabled( TheStream::canSeek() );
-            m_volumeSlider->setEnabled( true );
+            if( m_volumeSlider )
+                m_volumeSlider->setEnabled( true );
             break;
     }
     debug() << "update position slider";

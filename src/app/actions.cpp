@@ -22,47 +22,69 @@
 #include "debug.h"
 
 #include <QToolButton>
+
+#include <KIcon>
 #include <KLocale>
 
 #include "videoWindow.h"
 
-namespace Codeine
+Codeine::PlayAction::PlayAction( QObject *receiver, const char *slot, KActionCollection *ac )
+        : KToggleAction( i18n("Play"), ac )
 {
-    PlayAction::PlayAction( QObject *receiver, const char *slot, KActionCollection *ac )
-            : KToggleAction( i18n("Play"), ac )
-     {
-          setObjectName( "play" );
-          setIcon( KIcon( "media-playback-start" ) );
-          setShortcut( Qt::Key_Space );
-          ac->addAction( objectName(), this );
-          connect( this, SIGNAL( triggered( bool ) ), receiver, slot );
-     }
+    setObjectName( "play" );
+    setIcon( KIcon( "media-playback-start" ) );
+    setShortcut( Qt::Key_Space );
+    ac->addAction( objectName(), this );
+    connect( this, SIGNAL( triggered( bool ) ), receiver, slot );
+}
 
-     void PlayAction::setPlaying( bool playing )
-     {
-        if( playing )
-        {
-            setIcon( KIcon( "media-playback-pause" ) );
-            setText( i18n("&Pause") );
-        }
-        else 
-        {
-            setIcon( KIcon( "media-playback-start" ) );
-            setText( i18n("&Play") );
-        }
-     }
-
-    void
-    PlayAction::setChecked( bool b )
+void 
+Codeine::PlayAction::setPlaying( bool playing )
+{
+    if( playing )
     {
-        if( videoWindow()->state() == Engine::Empty && sender() && QByteArray( sender()->metaObject()->className() ) == "KToolBarButton" ) {
-            // clicking play when empty means open PlayMediaDialog, but we have to uncheck the toolbar button
-            // as KDElibs sets that checked automatically..
-            setChecked( false );
-        }
-        else
-            KToggleAction::setChecked( b );
+        setIcon( KIcon( "media-playback-pause" ) );
+        setText( i18n("&Pause") );
     }
+    else
+    {
+        setIcon( KIcon( "media-playback-start" ) );
+        setText( i18n("&Play") );
+    }
+}
+
+void
+Codeine::PlayAction::setChecked( bool b )
+{
+    if( videoWindow()->state() == Engine::Empty && sender() && QByteArray( sender()->metaObject()->className() ) == "KToolBarButton" ) {
+        // clicking play when empty means open PlayMediaDialog, but we have to uncheck the toolbar button
+        // as KDElibs sets that checked automatically..
+        setChecked( false );
+    }
+    else
+        KToggleAction::setChecked( b );
+}
+/////////////////////////////////////////////////////
+///Codeine::VolumeAction
+////////////////////////////////////////////////////
+Codeine::VolumeAction::VolumeAction( QObject *receiver, const char *slot, KActionCollection *ac )
+        : KToggleAction( i18n("Volume"), ac )
+{
+    setObjectName( "volume" );
+    setIcon( KIcon( "player-volume" ) );
+//    setShortcut( Qt::Key_Space );
+    ac->addAction( objectName(), this );
+    connect( this, SIGNAL( triggered( bool ) ), receiver, slot );
+    connect( engine(), SIGNAL( mutedChanged( bool ) ), this, SLOT( mutedChanged( bool ) ) );
+}
+
+void
+Codeine::VolumeAction::mutedChanged( bool mute )
+{
+    if( mute )
+        setIcon( KIcon( "player-volume-muted" ) );
+    else
+        setIcon( KIcon( "player-volume" ) );
 }
 
 #include "actions.moc"

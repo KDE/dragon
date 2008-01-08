@@ -39,6 +39,15 @@ namespace Codeine
       void setPlaying( bool playing );
       virtual void setChecked( bool );
    };
+
+   class VolumeAction : public KToggleAction
+   {
+   Q_OBJECT
+   public:
+        VolumeAction( QObject *receiver, const char *slot, KActionCollection* );
+   private slots:
+        void mutedChanged( bool );
+   };
 }
 
 #endif

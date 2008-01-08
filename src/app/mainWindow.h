@@ -61,7 +61,8 @@ namespace Codeine
       void play();
       void playMedia( bool show_welcome_dialog = false );
       void setFullScreen( bool full );
-      void showVideoSettings( bool );
+      void toggleVideoSettings( bool );
+      void toggleVolumeSlider( bool );
       void playDialogResult( int result );
 
    private slots:
@@ -90,10 +91,11 @@ namespace Codeine
 //      virtual void readProperties( KConfig* );
 
       QPointer<QDockWidget> m_leftDock;
+      QPointer<QDockWidget> m_rightDock;
       QWidget     *m_positionSlider;
+      QWidget     *m_volumeSlider;
       TimeLabel   *m_timeLabel;
       QLabel      *m_titleLabel;
-      QWidget     *m_volumeSlider;
       QList<QSlider*> m_sliders;
       PlayDialog  *m_playDialog;
       FullScreenAction *m_fullScreenAction;

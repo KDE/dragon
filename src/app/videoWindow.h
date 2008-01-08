@@ -131,6 +131,7 @@ namespace Codeine
         void audioChannelsChanged( QList< QAction* > );
         void tick( qint64 );
         void totalTimeChanged( qint64 );
+        void mutedChanged( bool );
     };
 
     //global function for general use by Codeine

@@ -90,6 +90,8 @@ VideoWindow::VideoWindow( QWidget *parent )
     m_media->setTickInterval( 1000 );
     connect( m_media, SIGNAL( tick( qint64 ) ), this, SIGNAL( tick( qint64 ) ) );
     connect( m_media, SIGNAL( totalTimeChanged( qint64 ) ), this, SIGNAL( totalTimeChanged( qint64 ) ) );
+    connect( m_aOutput, SIGNAL( mutedChanged( bool ) ), this, SIGNAL( mutedChanged( bool ) ) );
+
 
     connect( m_media, SIGNAL( hasVideoChanged( bool ) ), m_vWidget, SLOT( setVisible( bool ) ) ); //hide video widget if no video to show
     connect( m_media, SIGNAL( hasVideoChanged( bool ) ), m_logo, SLOT( setHidden( bool ) ) );    //can this be done as 1 line with above?
@@ -345,7 +347,8 @@ VideoWindow::newVolumeSlider()
     VolumeSlider *volumeSlider = new VolumeSlider();
     volumeSlider->setObjectName( "volume" );
     volumeSlider->setAudioOutput( m_aOutput );
-    volumeSlider->setMuteVisible( false ); //button gives no feedback if its on or off :(
+    volumeSlider->setMuteVisible( true );
+    volumeSlider->setOrientation( Qt::Vertical );
     return volumeSlider;
 }
 

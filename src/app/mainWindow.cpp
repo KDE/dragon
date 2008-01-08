@@ -79,9 +79,9 @@ MainWindow::MainWindow()
         : KXmlGuiWindow()
         , m_leftDock( 0 )
         , m_positionSlider( 0 )
+        , m_volumeSlider( 0 )
         , m_timeLabel( new TimeLabel(this) )
         , m_titleLabel( new KSqueezedTextLabel( this ) )
-        , m_volumeSlider( 0 )
         , m_playDialog( 0 )
         , m_fullScreenAction( 0 )
 {
@@ -190,8 +190,7 @@ MainWindow::init()
     setAcceptDrops( true );
     connect( statusBar(), SIGNAL(messageChanged( const QString& )), engine(), SLOT(showOSD( const QString& )) );
     statusBar()->addWidget( m_titleLabel, 2 );
-    m_volumeSlider = engine()->newVolumeSlider();
-    statusBar()->addPermanentWidget( m_volumeSlider, 1 );
+//    statusBar()->addPermanentWidget( m_volumeSlider, 1 );
     statusBar()->addPermanentWidget( m_timeLabel, 0);
 
     QApplication::restoreOverrideCursor();
@@ -232,7 +231,9 @@ MainWindow::setupActions()
     KStandardAction::open( this, SLOT(playMedia()), ac )->setText( i18n("Play &Media...") );
     m_fullScreenAction = new FullScreenAction( this, ac );
 
-    new PlayAction( this, SLOT(play()), ac );
+    new PlayAction( this, SLOT( play() ), ac );
+    new VolumeAction( this, SLOT( toggleVolumeSlider( bool ) ), ac );
+
     #define addToAc( X ) ac->addAction( X->objectName(), X );
     KAction* playerStop = new KAction( KIcon("media-playback-stop"), i18n("Stop"), ac );
     playerStop->setObjectName( "stop" );
@@ -262,7 +263,7 @@ MainWindow::setupActions()
     KAction* videoSettings = new KAction( i18n("Video Settings"), ac );
     videoSettings->setObjectName( "video_settings" );
     videoSettings->setCheckable( true );
-    connect( videoSettings, SIGNAL( toggled( bool ) ), this, SLOT( showVideoSettings( bool ) ) );
+    connect( videoSettings, SIGNAL( toggled( bool ) ), this, SLOT( toggleVideoSettings( bool ) ) );
     addToAc( videoSettings )
 
     #undef addToAc
@@ -270,7 +271,7 @@ MainWindow::setupActions()
 
 
 void
-MainWindow::showVideoSettings( bool show )
+MainWindow::toggleVideoSettings( bool show )
 {
     if( show )
     {
@@ -295,6 +296,23 @@ MainWindow::showVideoSettings( bool show )
     else
     {
         delete m_leftDock;
+    }
+}
+
+void
+MainWindow::toggleVolumeSlider( bool show )
+{
+    if( show )
+    {
+        m_rightDock = new QDockWidget( this );
+        m_rightDock->setFeatures( QDockWidget::NoDockWidgetFeatures );
+        m_volumeSlider = engine()->newVolumeSlider();
+        m_rightDock->setWidget( m_volumeSlider );
+        addDockWidget( Qt::RightDockWidgetArea, m_rightDock );
+    }
+    else
+    {
+        delete m_rightDock;
     }
 }
 

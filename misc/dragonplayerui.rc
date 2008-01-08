@@ -25,8 +25,7 @@
 <ToolBar name="mainToolBar"><text>Main Toolbar</text>
    <Action name="play"/>
    <Action name="position_slider"/>
-<!--   <Separator lineSeparator="false"/> -->
-<!--   <Action name="toggle_dvd_menu"/> -->
+   <Action name="volume" />
    <Action name="fullscreen"/>
 </ToolBar>
 
