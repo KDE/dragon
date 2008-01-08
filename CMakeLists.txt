@@ -6,6 +6,10 @@ set( CMAKE_MODULE_PATH    ${CMAKE_MODULE_PATH}
 
 find_package(KDE4 REQUIRED)
 find_package(Xine REQUIRED)
+if(NOT XINE_XCB_FOUND )
+    message( FATAL_ERROR "Xine and phonon-xine must be compiled with XCB support.")
+endif(NOT XINE_XCB_FOUND )
+
 
 add_definitions (${QT_DEFINITIONS} ${KDE4_DEFINITIONS} )
 include_directories(
