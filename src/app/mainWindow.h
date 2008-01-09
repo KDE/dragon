@@ -93,7 +93,7 @@ namespace Codeine
       QPointer<QDockWidget> m_leftDock;
       QPointer<QDockWidget> m_rightDock;
       QWidget     *m_positionSlider;
-      QWidget     *m_volumeSlider;
+      QPointer<QWidget> m_volumeSlider;
       TimeLabel   *m_timeLabel;
       QLabel      *m_titleLabel;
       QList<QSlider*> m_sliders;

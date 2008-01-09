@@ -307,6 +307,7 @@ MainWindow::toggleVolumeSlider( bool show )
         m_rightDock = new QDockWidget( this );
         m_rightDock->setFeatures( QDockWidget::NoDockWidgetFeatures );
         m_volumeSlider = engine()->newVolumeSlider();
+        m_volumeSlider->setParent( m_rightDock );
         m_rightDock->setWidget( m_volumeSlider );
         addDockWidget( Qt::RightDockWidgetArea, m_rightDock );
     }
