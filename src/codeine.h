@@ -52,7 +52,7 @@ namespace Codeine
 /// used by mainWindow.h and xineEngine.h
 int main( int, char** );
 
-#define APP_VERSION "2.0-SVN"
+#define APP_VERSION "2.0-beta1"
 #define APP_NAME "dragonplayer"
 #define PRETTY_NAME "Dragon Player"
 

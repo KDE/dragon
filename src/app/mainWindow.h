@@ -97,7 +97,7 @@ namespace Codeine
       TimeLabel   *m_timeLabel;
       QLabel      *m_titleLabel;
       QList<QSlider*> m_sliders;
-      PlayDialog  *m_playDialog;
+      QPointer<PlayDialog> m_playDialog;
       FullScreenAction *m_fullScreenAction;
 
       QActionGroup *m_aspectRatios;

@@ -1,11 +1,12 @@
-2.0-alpha2
+2.0-beta1
    Fix hang on close when paused
    Restore cursor hiding over the playing video widget
    Restore video settings widget (contrast, brightness), as a sidebar instead of a window.
-   Beginning restoration of KPart
+   Restore KPart
    Save video settings
    Audio channel selectable
-   Volume slider toolbar   
+   Volume slider toolbar. Volume saved globally, not per-file.    
+   Imported Amarok's runtime-selectable debug() system
 
 2.0-alpha1
    New maintainer: Ian Monroe

@@ -25,10 +25,11 @@ _Probably Not_:
 Before 2.0-rc1:
 *add all the basic features to the KPart (done)
 *Audio channel selection (done?)
-*remember audio channel and subtitle selections
-*test VCDs, audio CDs
 *hide the videowidget when playing audio (done)
-*test the PLS code
 *have a volume somehow (done)
 *app wide volume state saving (done)
 *accurate file filter for open file dialog (ask Vir)
+*fix: status bar looses title on resize
+*test the PLS code
+*remember audio channel and subtitle selections
+*test VCDs, audio CDs
