@@ -81,7 +81,7 @@ MainWindow::MainWindow()
         , m_positionSlider( 0 )
         , m_volumeSlider( 0 )
         , m_timeLabel( new TimeLabel(this) )
-        , m_titleLabel( new KSqueezedTextLabel( this ) )
+        , m_titleLabel( new QLabel( this ) )
         , m_playDialog( 0 )
         , m_fullScreenAction( 0 )
 {
@@ -99,6 +99,7 @@ MainWindow::MainWindow()
     setFocusProxy( videoWindow() ); // essential! See VideoWindow::event(), QEvent::FocusOut
 
     m_titleLabel->setMargin( 2 );
+    m_titleLabel->setSizePolicy(QSizePolicy( QSizePolicy::Expanding, QSizePolicy::Fixed ));
 
     // work around a bug in KStatusBar
     // sizeHint width of statusbar seems to get stupidly large quickly
@@ -176,6 +177,7 @@ MainWindow::init()
     connect( engine(), SIGNAL( statusMessage( const QString& ) ), this, SLOT( engineMessage( const QString&   ) ) );
     connect( engine(), SIGNAL( stateChanged( Engine::State ) ), this, SLOT( engineStateChanged( Engine::State ) ) );
     connect( engine(), SIGNAL( titleChanged( const QString& ) ), m_titleLabel, SLOT( setText( const QString&  ) ) );
+    connect( engine(), SIGNAL( titleChanged( const QString& ) ), this, SLOT( setCaption( const QString& ) ) );
     connect( engine(), SIGNAL( subChannelsChanged( QList< QAction* > ) ), this, SLOT( subChannelsChanged( QList< QAction* > ) ) );
     connect( engine(), SIGNAL( audioChannelsChanged( QList< QAction* > ) ), this, SLOT( audioChannelsChanged( QList< QAction* > ) ) );
 
@@ -189,9 +191,10 @@ MainWindow::init()
     //would be dangerous for these to65535 happen before the videoWindow() is initialised
     setAcceptDrops( true );
     connect( statusBar(), SIGNAL(messageChanged( const QString& )), engine(), SLOT(showOSD( const QString& )) );
-    statusBar()->addWidget( m_titleLabel, 2 );
-//    statusBar()->addPermanentWidget( m_volumeSlider, 1 );
-    statusBar()->addPermanentWidget( m_timeLabel, 0);
+    //statusBar()->insertPermanentItem( "hello world", 0, 0 );
+    statusBar()->addPermanentWidget( m_titleLabel, 100 );
+    statusBar()->addPermanentWidget( m_timeLabel );
+
 
     QApplication::restoreOverrideCursor();
     engineStateChanged( Engine::Empty );
@@ -327,6 +330,7 @@ MainWindow::updateSliders()
 void
 MainWindow::engineMessage( const QString &message )
 {
+    DEBUG_BLOCK
     statusBar()->showMessage( message, 3500 );
 }
 

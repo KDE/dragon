@@ -1,3 +1,6 @@
+2.0-rc1
+   Fix status bar title disappearing on window resize
+
 2.0-beta1
    Fix hang on close when paused
    Restore cursor hiding over the playing video widget

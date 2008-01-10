@@ -461,6 +461,7 @@ VideoWindow::updateChannels()
             { \
                 char s[128]; \
                 QAction* lang = new QAction( actiongroup ); \
+                lang->setCheckable( true ); \
                 lang->setText( xine_get_lang( m_xineStream, j, s ) ? s : i18n("Channel %1", j+1 ) ); \
                 debug() << "added language " << lang->text(); \
                 lang->setProperty( TheStream::CHANNEL_PROPERTY, j ); \
@@ -635,6 +636,12 @@ DEBUG_BLOCK
     profile.writeEntry( "Brightness", m_vWidget->brightness() );
     profile.writeEntry( "Hue", m_vWidget->hue() );
     profile.writeEntry( "Saturation", m_vWidget->saturation() );
+    const int subtitle = TheStream::subtitleChannel();
+    const int audio = TheStream::audioChannel();
+    if( subtitle != -1 )
+        profile.writeEntry( "Subtitle", subtitle );
+    if( audio != -1 )
+        profile.writeEntry( "AudioChannel", audio );
     profile.sync();
 }
 

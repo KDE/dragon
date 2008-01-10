@@ -5,6 +5,8 @@ _Certainly_:
 *'o' in fullscreen mode shows OSD of length and elapsed time info, <-- emulate mplayer
 *indiciate remote media somehow in PlayDialog
 *DBus interface, subset of the VideoLAN Dbus API
+*resume DVD playback, probably requires remembering chapter and stuff which might need 
+more Phonon API
 
 _Thoughts_:
 *PlayDialog optimization
@@ -31,5 +33,8 @@ Before 2.0-rc1:
 *accurate file filter for open file dialog (ask Vir)
 *fix: status bar looses title on resize
 *test the PLS code
-*remember audio channel and subtitle selections
+*audio channel and subtitles...
+	*record their setting for between sessions
+        *subtitles needs an "off" option
+        *does audio need an "auto" or is that the same as the first option?
 *test VCDs, audio CDs
