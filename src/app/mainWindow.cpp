@@ -577,7 +577,7 @@ void \
 MainWindow::function( QList< QAction* > subActions ) \
 { \
 DEBUG_BLOCK \
-    if( subActions.isEmpty() ) \
+    if( subActions.size() <= 2 ) \
           action( actionName )->setEnabled( false ); \
     else \
     { \

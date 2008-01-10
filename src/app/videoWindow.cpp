@@ -44,11 +44,12 @@
 #include <KMenu>
 #include <KStandardDirs>
 
-#include <Phonon/Path>
 #include <Phonon/AudioOutput>
+#include <Phonon/MediaController>
 #include <Phonon/MediaObject>
-#include <Phonon/VideoWidget>
+#include <Phonon/Path>
 #include <Phonon/SeekSlider>
+#include <Phonon/VideoWidget>
 #include <Phonon/VolumeFaderEffect>
 #include <Phonon/VolumeSlider>
 
@@ -57,6 +58,7 @@ using Phonon::MediaObject;
 using Phonon::VideoWidget;
 using Phonon::SeekSlider;
 using Phonon::VolumeSlider;
+using Phonon::MediaController;
 
 namespace Codeine {
 
@@ -85,6 +87,7 @@ VideoWindow::VideoWindow( QWidget *parent )
     box->addWidget( m_vWidget );
     m_aOutput = new AudioOutput( Phonon::VideoCategory, this );
     m_media = new MediaObject( this );
+    m_controller = new MediaController( m_media );
     Phonon::createPath(m_media, m_vWidget);
     m_audioPath = Phonon::createPath(m_media, m_aOutput);
     m_media->setTickInterval( 1000 );
@@ -96,8 +99,26 @@ VideoWindow::VideoWindow( QWidget *parent )
     connect( m_media, SIGNAL( hasVideoChanged( bool ) ), m_vWidget, SLOT( setVisible( bool ) ) ); //hide video widget if no video to show
     connect( m_media, SIGNAL( hasVideoChanged( bool ) ), m_logo, SLOT( setHidden( bool ) ) );    //can this be done as 1 line with above?
 
-    m_subLanguages->setExclusive( true );
-    m_audioLanguages->setExclusive( true );
+    {
+        m_subLanguages->setExclusive( true );
+        QAction* turnOff = new QAction( i18n("&DVD Subtitle Selection"), m_subLanguages );
+        turnOff->setCheckable( true );
+        turnOff->setProperty( TheStream::CHANNEL_PROPERTY, -1 );
+        connect( turnOff, SIGNAL( triggered() ), this, SLOT( slotSetSubtitle() ) );
+
+        QAction* seperator = new QAction( m_subLanguages );
+        seperator->setSeparator( true );
+    }
+    {
+        m_audioLanguages->setExclusive( true );
+        QAction* autoLang = new QAction( i18n("&Auto"), m_audioLanguages );
+        autoLang->setProperty( TheStream::CHANNEL_PROPERTY, -1 );
+        autoLang->setCheckable( true );
+        connect( autoLang, SIGNAL( triggered() ), this, SLOT( slotSetAudio() ) );
+
+        QAction* seperator = new QAction( m_audioLanguages );
+        seperator->setSeparator( true );
+    }
 
     connect( m_media, SIGNAL(stateChanged(Phonon::State,Phonon::State)), this, SLOT(stateChanged(Phonon::State,Phonon::State)) );
     {
@@ -373,6 +394,7 @@ void
 VideoWindow::stateChanged(Phonon::State currentState, Phonon::State oldstate) // slot
 {
 DEBUG_BLOCK
+debug() << "chapters: " << m_controller->availableChapters() << " titles: " << m_controller->availableTitles();
     QStringList states;
     states << "Loading" << "Stopped" << "Playing" << "Buffering" << "Paused" << "Error";
     debug() << "going from " << states.at(oldstate) << " to " << states.at(currentState);
@@ -388,6 +410,7 @@ DEBUG_BLOCK
         //updateGeometry();
         if( mainWindow() )
             ( (QWidget*) mainWindow() )->adjustSize();
+        
     }
     emit stateChanged( state( currentState ) ); 
 }
@@ -453,8 +476,8 @@ VideoWindow::updateChannels()
             lastStream = m_xineStream; \
             { \
                 QList<QAction*> subActions = actiongroup->actions(); \
-                foreach( QAction* subAction, subActions ) \
-                    delete subAction; \
+                while( 2 < subActions.size() ) \
+                    delete subActions.takeAt( 2 ); \
             } \
             debug() << "\033[0;43mOne xine stream pls: " << m_xineStream << "\033[0m" << ' ' << channels; \
             for( int j = 0; j < channels; j++ ) \
@@ -500,10 +523,13 @@ VideoWindow::hideCursor()
 void                                                                                                                \
 VideoWindow::function()                                                                                             \
 {                                                                                                                   \
+    debug() << " function ";                                                                                        \
     if( m_xineStream && sender()->property( TheStream::CHANNEL_PROPERTY ).canConvert<int>() )                       \
     {                                                                                                               \
         xine_set_param( m_xineStream, XINE_PARAM_CHANNEL                                                            \
             , sender()->property( TheStream::CHANNEL_PROPERTY ).toInt() );                                          \
+        debug() << "setting to " <<  sender()->property( TheStream::CHANNEL_PROPERTY ).toInt() << "and its now " << \
+            xine_get_param( m_xineStream, XINE_PARAM_CHANNEL );                                                     \
     }                                                                                                               \
 }
 
@@ -603,7 +629,7 @@ VideoWindow::sizeHint() const //virtual
    if( s.isValid() && !s.isNull() )
       return s;
 
-   return minimumSizeHint();
+   return QWidget::sizeHint();
 }
 
 ///////////
@@ -636,12 +662,20 @@ DEBUG_BLOCK
     profile.writeEntry( "Brightness", m_vWidget->brightness() );
     profile.writeEntry( "Hue", m_vWidget->hue() );
     profile.writeEntry( "Saturation", m_vWidget->saturation() );
-    const int subtitle = TheStream::subtitleChannel();
-    const int audio = TheStream::audioChannel();
-    if( subtitle != -1 )
-        profile.writeEntry( "Subtitle", subtitle );
-    if( audio != -1 )
-        profile.writeEntry( "AudioChannel", audio );
+    {
+        const int subtitle = TheStream::subtitleChannel();
+        const int audio = TheStream::audioChannel();
+
+        if( subtitle != -1 )
+            profile.writeEntry( "Subtitle", subtitle );
+        else
+            profile.deleteEntry( "Subtitle" );
+
+        if( audio != -1 )
+            profile.writeEntry( "AudioChannel", audio );
+        else
+            profile.deleteEntry( "AudioChannel" );
+    }
     profile.sync();
 }
 

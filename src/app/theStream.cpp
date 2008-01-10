@@ -118,7 +118,7 @@ namespace Codeine
         if( engine()->m_xineStream )
             return xine_get_param( engine()->m_xineStream, XINE_PARAM_SPU_CHANNEL );
         else
-            return -1;
+            return -1; //off
     }
 
     int
@@ -127,7 +127,7 @@ namespace Codeine
         if( engine()->m_xineStream )
             return xine_get_param( engine()->m_xineStream, XINE_PARAM_AUDIO_CHANNEL_LOGICAL );
         else
-            return -1;
+            return -1; //auto
     }
 
     void

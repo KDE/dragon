@@ -34,6 +34,7 @@ namespace Phonon {
      class VideoWidget;
      class AudioOutput;
      class MediaObject;
+     class MediaController;
 }
 
 typedef struct xine_stream_s xine_stream_t;
@@ -62,6 +63,7 @@ namespace Codeine
         Phonon::VideoWidget *m_vWidget;
         Phonon::AudioOutput *m_aOutput;
         Phonon::MediaObject *m_media;
+        Phonon::MediaController *m_controller;
         Phonon::Path m_audioPath;
 
         friend class TheStream;
