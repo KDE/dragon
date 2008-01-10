@@ -2,8 +2,11 @@
 Type=Application
 Version=1.0
 Name=Dragon Player
+Name[sv]=Dragon
 GenericName=Video Player
-GenericName[ga]=Seinnteoir Físe
+GenericName[pt]=Leitor de Vídeo
+GenericName[pt_BR]=Leitor de Vídeo
+GenericName[sv]=Videospelare
 Icon=dragonplayer
 TryExec=dragon
 Exec=dragon %u
