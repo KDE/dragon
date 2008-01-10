@@ -36,11 +36,12 @@ static KAboutData aboutData( APP_NAME, 0,
 int
 main( int argc, char **argv )
 {
+    aboutData.addCredit( ki18n("David Edmundson"), ki18n("Improvements and polish") );
+    aboutData.addCredit( ki18n("Matthias Kretz"), ki18n("Creator of Phonon") );
     aboutData.addCredit( ki18n("Mike Diehl"), ki18n("Handbook") );
     aboutData.addCredit( ki18n("The Kaffeine Developers"), ki18n("Great reference code") );
     aboutData.addCredit( ki18n("Greenleaf"), ki18n("Yatta happened to be the only video on my laptop to test with. :)") );
     aboutData.addCredit( ki18n("David Vignoni"), ki18n("The current Codeine icon") );
-
 
     KCmdLineArgs::init( argc, argv, &aboutData );
 

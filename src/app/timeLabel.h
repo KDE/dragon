@@ -28,14 +28,15 @@ class TimeLabel : public QLabel
     Q_OBJECT
     public:
        explicit TimeLabel( QWidget *parent );
+       virtual ~TimeLabel();
        virtual void mousePressEvent( QMouseEvent * );
        virtual void updateTime();
        enum TimeFormats { SHOW_REMAINING,SHOW_COMPLETED };
-       TimeFormats timeFormat;
     public slots:
        void setCurrentTime( qint64 );
        void setTotalTime( qint64 );
     private:
+       TimeFormats m_timeFormat;
        qint64 m_currentTime;
        qint64 m_totalTime;
 };

@@ -21,6 +21,9 @@
 
 #include "timeLabel.h"
 #include <QLabel>
+
+#include <KConfigGroup>
+#include <KGlobal>
 #include <KGlobalSettings>
 
 TimeLabel::TimeLabel( QWidget *parent ) 
@@ -30,15 +33,23 @@ TimeLabel::TimeLabel( QWidget *parent )
     setFont( KGlobalSettings::fixedFont() );
     setAlignment( Qt::AlignCenter );
     setMinimumSize( sizeHint() );
+    KConfigGroup config = KGlobal::config()->group( "General" );
+    m_timeFormat = static_cast<TimeFormats>( config.readEntry<int>( "TimeFormat", static_cast<int>( SHOW_COMPLETED ) ) );
+}
+
+TimeLabel::~TimeLabel()
+{
+    KConfigGroup config = KGlobal::config()->group( "General" );
+    config.writeEntry( "TimeFormat", static_cast<int>( m_timeFormat ) );
 }
 
 void
 TimeLabel::mousePressEvent( QMouseEvent * )
 {
-    if( timeFormat == SHOW_REMAINING )
-        timeFormat = SHOW_COMPLETED;
+    if( m_timeFormat == SHOW_REMAINING )
+        m_timeFormat = SHOW_COMPLETED;
     else
-        timeFormat = SHOW_REMAINING;
+        m_timeFormat = SHOW_REMAINING;
     updateTime();
 }
 
@@ -47,7 +58,7 @@ TimeLabel::updateTime()
 {
     qint64 ms;
     #define zeroPad( n ) n < 10 ? QString("0%1").arg( n ) : QString::number( n )
-    if( timeFormat==SHOW_REMAINING )
+    if( m_timeFormat == SHOW_REMAINING )
         ms = m_totalTime - m_currentTime;
     else
         ms = m_currentTime;
@@ -59,7 +70,7 @@ TimeLabel::updateTime()
     time.prepend( zeroPad( m % 60 ) ); //minutes
     time.prepend( ':' );
     time.prepend( QString::number( h ) ); //hours
-    if( timeFormat == SHOW_REMAINING )
+    if( m_timeFormat == SHOW_REMAINING )
         time.prepend('-');
     setText( time );
 }
