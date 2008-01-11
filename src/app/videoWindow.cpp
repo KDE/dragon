@@ -340,7 +340,7 @@ VideoWindow::resetZoom()
 QString
 VideoWindow::fileFilter() const
 {
-    return "*.avi *.mp3 *.mpg *.mpeg";
+    return "*.avi *.mp3 *.mpg *.mpeg *.ogg *.mkv *.mp4";
 }
 
 qint64
@@ -449,6 +449,8 @@ VideoWindow::loadSettings()
         m_vWidget->setContrast( profile.readEntry<double>( "Contrast", 0.0 ) );
         m_vWidget->setHue( profile.readEntry<double>( "Hue", 0.0 ) );
         m_vWidget->setSaturation( profile.readEntry<double>( "Saturation", 0.0 ) );
+        setAudioChannel( profile.readEntry<int>( "AudioChannel", -1 ) );
+        setSubtitle( profile.readEntry<int>( "Subtitle",  -1 ) );
     }
     else
     {
@@ -477,7 +479,7 @@ VideoWindow::updateChannels()
             { \
                 QList<QAction*> subActions = actiongroup->actions(); \
                 while( 2 < subActions.size() ) \
-                    delete subActions.takeAt( 2 ); \
+                    delete subActions.takeLast(); \
             } \
             debug() << "\033[0;43mOne xine stream pls: " << m_xineStream << "\033[0m" << ' ' << channels; \
             for( int j = 0; j < channels; j++ ) \
@@ -519,22 +521,28 @@ VideoWindow::hideCursor()
        kapp->setOverrideCursor( Qt::BlankCursor );
 }
 
-#define SLOT_SET_CHANNEL( function, XINE_PARAM_CHANNEL )                                                            \
+#define SLOT_SET_CHANNEL( settingFunction, slotFunction, XINE_PARAM_CHANNEL )                                                            \
 void                                                                                                                \
-VideoWindow::function()                                                                                             \
+VideoWindow::settingFunction( int channel )                                                                                             \
 {                                                                                                                   \
     debug() << " function ";                                                                                        \
     if( m_xineStream && sender()->property( TheStream::CHANNEL_PROPERTY ).canConvert<int>() )                       \
     {                                                                                                               \
         xine_set_param( m_xineStream, XINE_PARAM_CHANNEL                                                            \
-            , sender()->property( TheStream::CHANNEL_PROPERTY ).toInt() );                                          \
+            , channel );                                          \
         debug() << "setting to " <<  sender()->property( TheStream::CHANNEL_PROPERTY ).toInt() << "and its now " << \
             xine_get_param( m_xineStream, XINE_PARAM_CHANNEL );                                                     \
     }                                                                                                               \
+}                                                                                                                   \
+void                                                                                                                \
+VideoWindow::slotFunction()                                                                                         \
+{                                                                                                                   \
+     settingFunction( sender()->property( TheStream::CHANNEL_PROPERTY ).toInt() );                                  \
 }
 
-SLOT_SET_CHANNEL( slotSetSubtitle, XINE_PARAM_SPU_CHANNEL )
-SLOT_SET_CHANNEL( slotSetAudio, XINE_PARAM_AUDIO_CHANNEL_LOGICAL )
+
+SLOT_SET_CHANNEL( setSubtitle, slotSetSubtitle, XINE_PARAM_SPU_CHANNEL )
+SLOT_SET_CHANNEL( setAudioChannel, slotSetAudio, XINE_PARAM_AUDIO_CHANNEL_LOGICAL )
 #undef SLOT_SET_CHANNEL
 
 void

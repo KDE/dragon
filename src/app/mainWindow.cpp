@@ -80,7 +80,7 @@ MainWindow::MainWindow()
         , m_leftDock( 0 )
         , m_positionSlider( 0 )
         , m_volumeSlider( 0 )
-        , m_timeLabel( new TimeLabel(this) )
+        , m_timeLabel( 0 )
         , m_titleLabel( new QLabel( this ) )
         , m_playDialog( 0 )
         , m_fullScreenAction( 0 )
@@ -92,9 +92,7 @@ MainWindow::MainWindow()
     videoWindow()->setMouseTracking( true );
 
     m_positionSlider = videoWindow()->newPositionSlider();
-    connect( videoWindow(), SIGNAL( tick( qint64) ), m_timeLabel, SLOT( setCurrentTime( qint64 ) ) );
-    connect( videoWindow(), SIGNAL( totalTimeChanged( qint64 ) ), m_timeLabel, SLOT( setTotalTime( qint64 ) ) );
-
+    
     setCentralWidget( videoWindow() );
     setFocusProxy( videoWindow() ); // essential! See VideoWindow::event(), QEvent::FocusOut
 
@@ -192,8 +190,12 @@ MainWindow::init()
     setAcceptDrops( true );
     connect( statusBar(), SIGNAL(messageChanged( const QString& )), engine(), SLOT(showOSD( const QString& )) );
     //statusBar()->insertPermanentItem( "hello world", 0, 0 );
+    m_timeLabel = new TimeLabel( statusBar() );
+    connect( videoWindow(), SIGNAL( tick( qint64) ), m_timeLabel, SLOT( setCurrentTime( qint64 ) ) );
+    connect( videoWindow(), SIGNAL( totalTimeChanged( qint64 ) ), m_timeLabel, SLOT( setTotalTime( qint64 ) ) );
     statusBar()->addPermanentWidget( m_titleLabel, 100 );
     statusBar()->addPermanentWidget( m_timeLabel );
+
 
 
     QApplication::restoreOverrideCursor();

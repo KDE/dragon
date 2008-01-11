@@ -1,6 +1,9 @@
 2.0-rc1
    Fix status bar title disappearing on window resize
-
+   Can turn off subtitles
+   Can revert to the 'auto' audio channel
+   Save subtitle and audio channel selection
+ 
 2.0-beta1
    Fix hang on close when paused
    Restore cursor hiding over the playing video widget

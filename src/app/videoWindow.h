@@ -122,6 +122,8 @@ namespace Codeine
         virtual QSize sizeHint() const;
         void refreshXineStream();
         Engine::State state( Phonon::State state ) const;
+        void setSubtitle( int channel );
+        void setAudioChannel( int channel );
     private slots:
         void updateChannels();
         void hideCursor();
