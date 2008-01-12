@@ -143,7 +143,7 @@ MainWindow::engineStateChanged( Engine::State state )
         const QString url_string = url.url();
         if( !(url_string.contains( "porn", Qt::CaseInsensitive ) || url_string.contains( "pr0n", Qt::CaseInsensitive )) )
         #endif
-            if( url.protocol() != "dvd" && url.protocol() != "vcd" ) {
+            if( url.protocol() != "dvd" && url.protocol() != "vcd" && url.prettyUrl()!="") {
                 KConfigGroup config = KConfigGroup( KGlobal::config(), "General" );
                 const QString prettyUrl = url.prettyUrl();
 
@@ -175,11 +175,25 @@ MainWindow::engineStateChanged( Engine::State state )
     }
     debug() << "set titles ";
 
-    /// set toolbar states
-    QWidget *dvd_button = toolBar()->findChild< QWidget* >( "toolbutton_toggle_dvd_menu" );
-    if (dvd_button)
-        dvd_button->setVisible( state != Engine::Empty && url.protocol() == "dvd" );
 
+    //enable/disbale DVD specific buttons
+    QWidget *dvd_button = toolBar()->findChild< QWidget* >( "toolbutton_toggle_dvd_menu" );
+    if(videoWindow()->isDVD())
+    {
+        if (dvd_button)
+        {
+            dvd_button->setVisible(true);
+        }
+        action("toggle_dvd_menu")->setEnabled( true );
+    }
+    else
+    {
+        if (dvd_button)
+        {
+            dvd_button->setVisible(false);
+        }
+        action("toggle_dvd_menu")->setEnabled( false );
+    }
     if( isFullScreen && !toolbar->testAttribute( Qt::WA_UnderMouse ) ) 
     {
         switch( state ) {

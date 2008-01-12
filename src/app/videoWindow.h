@@ -83,6 +83,7 @@ namespace Codeine
         void relativeSeek( qint64 );
 
         qint64 length() const;
+        bool isDVD() const;
 
         uint volume() const;
         QWidget* newPositionSlider();

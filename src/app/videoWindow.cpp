@@ -355,6 +355,12 @@ VideoWindow::length() const
     return m_media->totalTime();
 }
 
+bool
+VideoWindow::isDVD() const
+{
+    return m_media->currentSource().discType() == Phonon::Dvd;
+}
+
 QWidget*
 VideoWindow::newPositionSlider()
 {
@@ -622,6 +628,10 @@ VideoWindow::contextMenuEvent( QContextMenuEvent * event )
         menu.addAction( action( "play" ) );
         menu.addAction( action( "fullscreen" ) );
         menu.addAction( action( "reset_zoom" ) );
+        if(isDVD()) 
+        {
+            menu.addAction( action( "toggle_dvd_menu" ) );
+        }
     }
     menu.exec( event->globalPos() );
 }
@@ -670,6 +680,7 @@ DEBUG_BLOCK
     profile.writeEntry( "Brightness", m_vWidget->brightness() );
     profile.writeEntry( "Hue", m_vWidget->hue() );
     profile.writeEntry( "Saturation", m_vWidget->saturation() );
+    profile.writeEntry( "IsVideo",m_media->hasVideo());
     {
         const int subtitle = TheStream::subtitleChannel();
         const int audio = TheStream::audioChannel();
