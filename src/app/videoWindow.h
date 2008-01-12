@@ -120,6 +120,7 @@ namespace Codeine
     protected:
         virtual bool event( QEvent* e );
         virtual void contextMenuEvent( QContextMenuEvent * event );
+        virtual void mouseDoubleClickEvent( QMouseEvent* );
         virtual QSize sizeHint() const;
         void refreshXineStream();
         Engine::State state( Phonon::State state ) const;

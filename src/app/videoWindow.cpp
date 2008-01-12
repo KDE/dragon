@@ -636,6 +636,12 @@ VideoWindow::contextMenuEvent( QContextMenuEvent * event )
     menu.exec( event->globalPos() );
 }
 
+void 
+VideoWindow::mouseDoubleClickEvent( QMouseEvent* )
+{
+    action("fullscreen")->toggle();
+}
+
 QSize
 VideoWindow::sizeHint() const //virtual
 {

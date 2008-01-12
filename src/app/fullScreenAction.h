@@ -22,15 +22,15 @@
 #ifndef CODEINE_FULLSCREENACTION_H
 #define CODEINE_FULLSCREENACTION_H
 
-#include <KToggleAction>
+#include <KToggleFullScreenAction>
 
 class KActionCollection;
 
 /**
- * @class FullSCreenAction
+ * @class FullScreenAction
  * @author Ian Monroe
  */
-class FullScreenAction : public KToggleAction
+class FullScreenAction : public KToggleFullScreenAction
 {
 Q_OBJECT
 public:

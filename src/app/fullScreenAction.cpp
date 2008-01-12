@@ -30,16 +30,11 @@
 #include <KLocale>
 
 FullScreenAction::FullScreenAction( QWidget* window, KActionCollection *parent )
-        : KToggleAction( parent )
+        : KToggleFullScreenAction( window, parent )
 {
     setObjectName( "fullscreen" );
     setShortcut( Qt::Key_F );
     parent->addAction( objectName(), this );
-    window->installEventFilter( this );
-    setChecked( false );
-    setText( i18n("F&ull Screen") );
-    setIcon( KIcon("view-fullscreen") );
-    setCheckedState( KGuiItem( i18n("Exit F&ull Screen"), KIcon("view-restore") ) );
     connect( this, SIGNAL( toggled( bool ) ), Codeine::mainWindow(), SLOT( setFullScreen( bool ) ) );
 }
 
