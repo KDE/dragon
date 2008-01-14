@@ -38,3 +38,5 @@ Before 2.0-rc1:
         *subtitles needs an "off" option
         *does audio need an "auto" or is that the same as the first option?
 *test VCDs, audio CDs
+*turn off screensaver when something is playing
+*crash on Stop, then playing the same track
