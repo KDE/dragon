@@ -10,15 +10,15 @@ more Phonon API
 
 _Thoughts_:
 *PlayDialog optimization
-    *show an icon in the previously played list, indicating whether its audio or video. 
+    *show an icon in the previously played list, indicating whether its audio or video. (done)
     *allow filtering by audio/video? too confusing?
 *improve volume control if needed
-    *Chapter skipping, menu button
+*Chapter skipping
 *More feedback at playback end
         ->Playback finished message (amaroK statusbar code?)
 *refactor: get rid of Engine::Status, just use Phonon's status
 *use libkcddb, have the videoWindow display list of tracks in audio cd and highlight currently playing song. Have a button for the "edit cd" libkcddb dialog.
-->something similar for pls/m3u files?
+->something similar for pls/m3u files? people would probably want to edit the playlist then...
 
 _Probably Not_:
 *live previews of previously played videos
@@ -38,5 +38,5 @@ Before 2.0-rc1:
         *subtitles needs an "off" option
         *does audio need an "auto" or is that the same as the first option?
 *test VCDs, audio CDs
-*turn off screensaver when something is playing
+*turn off screensaver when something is playing (done? testing needed)
 *crash on Stop, then playing the same track

@@ -84,6 +84,7 @@ MainWindow::MainWindow()
         , m_titleLabel( new QLabel( this ) )
         , m_playDialog( 0 )
         , m_fullScreenAction( 0 )
+        , m_stopScreenSaver( 0 )
 {
     DEBUG_BLOCK
     s_instance = this;

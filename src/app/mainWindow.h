@@ -30,6 +30,7 @@
 
 #include <KXmlGuiWindow>
 
+class KNotificationRestrictions;
 class KUrl;
 class QActionGroup;
 class QLabel;
@@ -99,6 +100,7 @@ namespace Codeine
       QList<QSlider*> m_sliders;
       QPointer<PlayDialog> m_playDialog;
       FullScreenAction *m_fullScreenAction;
+      KNotificationRestrictions *m_stopScreenSaver;
 
       QActionGroup *m_aspectRatios;
       //undefined

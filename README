@@ -35,3 +35,10 @@ should be a pure-Phonon player, with no explicit Xine requirement.
 
 You could hack the CMake build system and use Video Player without Xine,
 it would probably work fine just without the aforementioned features.
+
+DEBUG MESSAGES
+Dragon Player will output additional messages to the console if in your
+dragonplayerrc file (normally located at ~/.kde4/share/config/dragonplayerrc)
+you add the line:
+Debug Enabled=true
+under the [General] header.

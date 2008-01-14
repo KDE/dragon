@@ -24,6 +24,7 @@
 #include <KConfig>
 #include <KLocale>
 #include <KGlobal>
+#include <KNotificationRestrictions>
 #include <KToolBar>
 #include <KXMLGUIFactory>
 
@@ -155,7 +156,24 @@ MainWindow::engineStateChanged( Engine::State state )
         if( TheStream::hasVideo() && !isFullScreen && false )  //disable for now, it doesn't paint right
             new AdjustSizeButton( reinterpret_cast<QWidget*>(videoWindow()) );
     }
-   
+
+    /// turn off screensaver
+    if( state == Engine::Playing )
+    {
+        if( !m_stopScreenSaver )
+        {
+            debug() << "screensaver off";
+            m_stopScreenSaver = new KNotificationRestrictions( KNotificationRestrictions::NonCriticalServices, this );
+        }
+        else
+            warning() << "m_stopScreenSaver not null";
+    }
+    else if( state & ( Engine::TrackEnded | Engine::Empty ) )
+    {
+        delete m_stopScreenSaver;
+        m_stopScreenSaver = 0;
+        debug() << "screensaver on";
+    }
 
     /// set titles
     switch( state )
