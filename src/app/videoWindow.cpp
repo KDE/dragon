@@ -229,6 +229,7 @@ VideoWindow::stop()
 {
     eject();
     m_media->stop();
+    m_media->setCurrentSource( Phonon::MediaSource() ); //set the current source to invalid
 }
 
 void
@@ -532,18 +533,16 @@ void                                                                            
 VideoWindow::settingFunction( int channel )                                                                                             \
 {                                                                                                                   \
     debug() << " function ";                                                                                        \
-    if( m_xineStream && sender()->property( TheStream::CHANNEL_PROPERTY ).canConvert<int>() )                       \
+    if( m_xineStream )                                                                                              \
     {                                                                                                               \
-        xine_set_param( m_xineStream, XINE_PARAM_CHANNEL                                                            \
-            , channel );                                          \
-        debug() << "setting to " <<  sender()->property( TheStream::CHANNEL_PROPERTY ).toInt() << "and its now " << \
-            xine_get_param( m_xineStream, XINE_PARAM_CHANNEL );                                                     \
+        xine_set_param( m_xineStream, XINE_PARAM_CHANNEL, channel );                                                \
     }                                                                                                               \
 }                                                                                                                   \
 void                                                                                                                \
 VideoWindow::slotFunction()                                                                                         \
 {                                                                                                                   \
-     settingFunction( sender()->property( TheStream::CHANNEL_PROPERTY ).toInt() );                                  \
+    if( sender() && sender()->property( TheStream::CHANNEL_PROPERTY ).canConvert<int>() )                           \
+        settingFunction( sender()->property( TheStream::CHANNEL_PROPERTY ).toInt() );                               \
 }
 
 

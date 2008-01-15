@@ -31,12 +31,15 @@ Before 2.0-rc1:
 *have a volume somehow (done)
 *app wide volume state saving (done)
 *accurate file filter for open file dialog (ask Vir)
-*fix: status bar looses title on resize
+*fix: status bar looses title on resize (fixed)
 *test the PLS code
 *audio channel and subtitles...
-	*record their setting for between sessions
-        *subtitles needs an "off" option
-        *does audio need an "auto" or is that the same as the first option?
+	*record their setting for between sessions (done?)
+        *subtitles needs an "off" option (done)
+        *does audio need an "auto" or is that the same as the first option? (not same, still confusing)
+                  the deal is that "auto" for both subtitle and audio channel means what is picked by the user in the DVD menu
+                  If the user picks something in the DVD menu, this does not change what xine says the subtitle or audio
+                  channel is. This sucks!
 *test VCDs, audio CDs
 *turn off screensaver when something is playing (done? testing needed)
-*crash on Stop, then playing the same track
+*crash on Stop, then playing the same track (fixed)
