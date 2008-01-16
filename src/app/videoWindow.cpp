@@ -233,14 +233,32 @@ VideoWindow::stop()
 }
 
 void
-VideoWindow::playPause()
+VideoWindow::pause()
 {
-    if( m_media->state() == Phonon::PlayingState )
-        m_media->pause();
-    else
-        m_media->play();
+    m_media->pause();
 }
 
+QString
+VideoWindow::urlOrDisc()
+{
+    Phonon::MediaSource source = m_media->currentSource();
+    switch( source.type() )
+    {
+        case Phonon::MediaSource::Invalid:
+            return "Invalid"; //no i18n, used for DBus responses
+            break;
+        case Phonon::MediaSource::Url:
+        case Phonon::MediaSource::LocalFile:
+            return source.url().toString();
+            break;
+        case Phonon::MediaSource::Disc:
+            return source.deviceName();
+            break;
+        case Phonon::MediaSource::Stream:
+            return "Data Stream";
+            break;
+    }
+}
 
 Engine::State
 VideoWindow::state() const
@@ -289,10 +307,16 @@ VideoWindow::state( Phonon::State state ) const
     }
 }
 
-uint
+qreal
 VideoWindow::volume() const
 {
-    return static_cast<uint>( m_aOutput->volume() * 1.0 );
+    return m_aOutput->volume();
+}
+
+void
+VideoWindow::setVolume( qreal vol )
+{
+    m_aOutput->setVolume( vol );
 }
 
 void

@@ -35,6 +35,7 @@
 
 #include "actions.h"
 #include "adjustSizeButton.h"
+#include "dbus/playerDbusHandler.h"
 #include "debug.h"
 #include "fullScreenAction.h"
 #include "mxcl.library.h"
@@ -137,6 +138,7 @@ MainWindow::engineStateChanged( Engine::State state )
     /// update recent files list if necessary
     if( state == Engine::Loaded ) 
     {
+        emit fileChanged( engine()->urlOrDisc() );
         // update recently played list
         debug() << " update recent files list ";
         #ifndef NO_SKIP_PR0N
@@ -233,6 +235,21 @@ MainWindow::engineStateChanged( Engine::State state )
             toolBar()->hide();
             break;
         }
+    } 
+    switch( state )
+    {
+        case Engine::TrackEnded:
+        case Engine::Empty:
+            emit dbusStatusChanged( PlayerDbusHandler::Stopped ), debug() << "dbus: stopped";
+            break;
+        case Engine::Paused:
+            emit dbusStatusChanged( PlayerDbusHandler::Paused ), debug() << "dbus: paused";
+            break;
+        case Engine::Playing:
+            emit dbusStatusChanged( PlayerDbusHandler::Playing ), debug() << "dbus: playing";
+            break;
+        break;
+        default: break;
     }
     /*
     ///hide videoWindow if audio-only

@@ -35,7 +35,6 @@ FullScreenAction::FullScreenAction( QWidget* window, KActionCollection *parent )
     setObjectName( "fullscreen" );
     setShortcut( Qt::Key_F );
     parent->addAction( objectName(), this );
-    connect( this, SIGNAL( toggled( bool ) ), Codeine::mainWindow(), SLOT( setFullScreen( bool ) ) );
 }
 
 void

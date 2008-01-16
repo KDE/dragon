@@ -4,11 +4,14 @@ _Certainly_:
 *external subtitle support
 *'o' in fullscreen mode shows OSD of length and elapsed time info, <-- emulate mplayer
 *indiciate remote media somehow in PlayDialog
-*DBus interface, subset of the VideoLAN Dbus API
+*DBus interface, subset of the VideoLAN Dbus API (done)
 *resume DVD playback, probably requires remembering chapter and stuff which might need 
 more Phonon API
+*Look into using LiveConnectExtension to provide a WMP or RealPlayer-like 
+JavaScript interface for the kpart. KMplayer apparently does this.
 
 _Thoughts_:
+*a movie-like rolling credits instead of the about dialog
 *PlayDialog optimization
     *show an icon in the previously played list, indicating whether its audio or video. (done)
     *allow filtering by audio/video? too confusing?

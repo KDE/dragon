@@ -85,7 +85,12 @@ namespace Codeine
         qint64 length() const;
         bool isDVD() const;
 
-        uint volume() const;
+        ///stuff for dbus:
+        void pause();
+        qreal volume() const;
+        void setVolume( qreal );
+        QString urlOrDisc();
+
         QWidget* newPositionSlider();
         QWidget* newVolumeSlider();
         void loadSettings();
@@ -106,7 +111,6 @@ namespace Codeine
         const xine_stream_t* xineStream() const { return m_xineStream; }
 
     public slots:
-        void playPause();
         void seek( qint64 );
         void stop();
         void stateChanged( Phonon::State, Phonon::State );

@@ -15,7 +15,11 @@ set(videoplayer_app_SRCS
     playlistFile.cpp
     main.cpp
     timeLabel.cpp
-    mainWindow.cpp )
+    mainWindow.cpp 
+    ../dbus/playerDbusHandler.cpp )
+
+qt4_add_dbus_adaptor( videoplayer_app_SRCS ../dbus/org.kde.dragon.player.xml ../dbus/playerDbusHandler.h PlayerDbusHandler )
+
 kde4_add_ui_files(videoplayer_app_SRCS videoSettingsWidget.ui)
 
 kde4_add_executable(dragon ${videoplayer_app_SRCS} )

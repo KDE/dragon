@@ -54,19 +54,23 @@ namespace Codeine
       friend int ::main( int, char** );
       friend QWidget* mainWindow();
 
-      enum { SubtitleChannelsMenuItemId = 2000, AudioChannelsMenuItemId, AspectRatioMenuItemId };
-
    public:
       void openRecentFile( const KUrl& );
+      bool open( const KUrl& );
+
+   signals:
+      void dbusStatusChanged( int );
+      void fileChanged( QString );
+
    public slots:
       void play();
       void playMedia( bool show_welcome_dialog = false );
-      void setFullScreen( bool full );
       void toggleVideoSettings( bool );
       void toggleVolumeSlider( bool );
       void playDialogResult( int result );
 
    private slots:
+      void setFullScreen( bool full );
       void engineMessage( const QString& );
       void engineStateChanged( Engine::State );
       void init();
@@ -76,7 +80,6 @@ namespace Codeine
       void audioChannelsChanged( QList< QAction* > );
 
    private:
-      bool open( const KUrl& );
       void setupActions();
       void updateSliders();
 

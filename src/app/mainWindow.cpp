@@ -55,6 +55,7 @@
 #include <QTimer>
 
 #include "actions.h"
+#include "dbus/playerDbusHandler.h"
 #include "debug.h"
 #include "extern.h"         //dialog creation function definitions
 #include "fullScreenAction.h"
@@ -172,7 +173,6 @@ void
 MainWindow::init()
 {
     DEBUG_BLOCK
-
     connect( engine(), SIGNAL( statusMessage( const QString& ) ), this, SLOT( engineMessage( const QString&   ) ) );
     connect( engine(), SIGNAL( stateChanged( Engine::State ) ), this, SLOT( engineStateChanged( Engine::State ) ) );
     connect( engine(), SIGNAL( titleChanged( const QString& ) ), m_titleLabel, SLOT( setText( const QString&  ) ) );
@@ -197,7 +197,7 @@ MainWindow::init()
     statusBar()->addPermanentWidget( m_titleLabel, 100 );
     statusBar()->addPermanentWidget( m_timeLabel );
 
-
+    new PlayerDbusHandler( this );
 
     QApplication::restoreOverrideCursor();
     engineStateChanged( Engine::Empty );
@@ -236,6 +236,7 @@ MainWindow::setupActions()
     KStandardAction::quit( kapp, SLOT( closeAllWindows() ), ac );
     KStandardAction::open( this, SLOT(playMedia()), ac )->setText( i18n("Play &Media...") );
     m_fullScreenAction = new FullScreenAction( this, ac );
+    connect( m_fullScreenAction, SIGNAL( toggled( bool ) ), Codeine::mainWindow(), SLOT( setFullScreen( bool ) ) );
 
     new PlayAction( this, SLOT( play() ), ac );
     new VolumeAction( this, SLOT( toggleVolumeSlider( bool ) ), ac );
@@ -401,8 +402,10 @@ MainWindow::play()
 {
     switch( engine()->state() ) {
     case Engine::Playing:
+        engine()->pause();
+        break;
     case Engine::Paused:
-        engine()->playPause();
+        engine()->play();
         break;
     case Engine::Loaded:
         break;
