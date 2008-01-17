@@ -4,6 +4,7 @@
    Can revert to the 'auto' audio channel
    Save subtitle and audio channel selection
    New DBus API under /Player. Based on MPRIS.
+   Fix pausing and then playing causing the window size to revert.
  
 2.0-beta1
    Fix hang on close when paused
