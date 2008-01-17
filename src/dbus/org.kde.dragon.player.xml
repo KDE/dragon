@@ -1,6 +1,7 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
 "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 
+
 <node>
   <interface name="org.kde.Dragon.Player">
 
@@ -40,6 +41,15 @@
         <arg type="i" direction="out"/>
     </method>
 
+    <method name="GetMetaData">
+        <arg type="a{sv}" direction="out"/>
+        <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QVariantMap"/>
+    </method>
+
+    <method name="GetCaps">
+        <arg type="i" direction="out" />
+    </method>
+
     <signal name="TrackChange">
         <arg type="s"/>
     </signal>
@@ -47,5 +57,11 @@
     <signal name="StatusChange">
         <arg type="i"/>
     </signal>
+
+    <signal name="CapsChange">
+        <arg type="i" />
+    </signal>
+
+  </signal>
   </interface>
 </node>

@@ -93,6 +93,7 @@ VideoWindow::VideoWindow( QWidget *parent )
     m_media->setTickInterval( 1000 );
     connect( m_media, SIGNAL( tick( qint64 ) ), this, SIGNAL( tick( qint64 ) ) );
     connect( m_media, SIGNAL( totalTimeChanged( qint64 ) ), this, SIGNAL( totalTimeChanged( qint64 ) ) );
+    connect( m_media, SIGNAL( seekableChanged( bool ) ), this, SIGNAL( seekableChanged( bool ) ) );
     connect( m_aOutput, SIGNAL( mutedChanged( bool ) ), this, SIGNAL( mutedChanged( bool ) ) );
 
 
@@ -239,7 +240,7 @@ VideoWindow::pause()
 }
 
 QString
-VideoWindow::urlOrDisc()
+VideoWindow::urlOrDisc() const
 {
     Phonon::MediaSource source = m_media->currentSource();
     switch( source.type() )
@@ -257,8 +258,24 @@ VideoWindow::urlOrDisc()
         case Phonon::MediaSource::Stream:
             return "Data Stream";
             break;
+        default:
+            return "Error";
+            break;
     }
 }
+
+QMultiMap<QString, QString> 
+VideoWindow::metaData() const
+{
+    return m_media->metaData();
+}
+
+bool
+VideoWindow::isSeekable() const
+{
+    return m_media->isSeekable();
+}
+
 
 Engine::State
 VideoWindow::state() const

@@ -23,7 +23,10 @@
 #define CODEINE_VIDEOWINDOW_H
 
 #include "codeine.h"
+
+#include <QMultiMap>
 #include <QWidget>
+
 #include <Phonon/Path>
 #include <KUrl>
 
@@ -89,7 +92,9 @@ namespace Codeine
         void pause();
         qreal volume() const;
         void setVolume( qreal );
-        QString urlOrDisc();
+        QString urlOrDisc() const;
+        QMultiMap<QString, QString> metaData() const;
+        bool isSeekable() const;
 
         QWidget* newPositionSlider();
         QWidget* newVolumeSlider();
@@ -142,6 +147,7 @@ namespace Codeine
         void tick( qint64 );
         void totalTimeChanged( qint64 );
         void mutedChanged( bool );
+        void seekableChanged( bool );
     };
 
     //global function for general use by Codeine

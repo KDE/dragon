@@ -33,6 +33,10 @@ PlayerDbusHandler::PlayerDbusHandler(QObject *parent)
     QObject* pa = new PlayerAdaptor( this );
     connect( Codeine::mainWindow(), SIGNAL( fileChanged( QString ) ), pa, SIGNAL( TrackChange( QString ) ) );
     connect( Codeine::mainWindow(), SIGNAL( dbusStatusChanged( int ) ), pa, SIGNAL( StatusChange( int ) ) );
+
+    connect( Codeine::engine(), SIGNAL( seekableChanged( bool ) ), this, SLOT( capsChangeSlot() )  );
+    connect( this, SIGNAL( CapsChange( int ) ), pa, SIGNAL( CapsChange( int ) ) );
+
     QDBusConnection::sessionBus().registerObject("/Player", this);
 }
 
@@ -42,7 +46,8 @@ PlayerDbusHandler::~PlayerDbusHandler()
 }
 //from the first integer of http://wiki.xmms2.xmms.se/index.php/MPRIS#GetStatus
 //0 = Playing, 1 = Paused, 2 = Stopped.
-int PlayerDbusHandler::GetStatus()
+int
+PlayerDbusHandler::GetStatus()
 {
     Engine::State state = Codeine::engine()->state();
     if( state == Engine::Playing )
@@ -53,49 +58,101 @@ int PlayerDbusHandler::GetStatus()
         return Stopped;
 }
 
-void PlayerDbusHandler::Load(const QString &url)
+void
+PlayerDbusHandler::Load(const QString &url)
 {
     static_cast<Codeine::MainWindow*>( Codeine::mainWindow() )->open( KUrl( url ) );
 }
 
-void PlayerDbusHandler::PlayPause()
+void
+PlayerDbusHandler::PlayPause()
 {
     static_cast<Codeine::MainWindow*>( Codeine::mainWindow() )->play();
 }
 
-void PlayerDbusHandler::Pause()
+void
+PlayerDbusHandler::Pause()
 {
     Codeine::engine()->pause();
 }
 
-void PlayerDbusHandler::Play()
+void
+PlayerDbusHandler::Play()
 {
     Codeine::engine()->play();
 }
 
 //position is specified in milliseconds
-int PlayerDbusHandler::PositionGet()
+int
+PlayerDbusHandler::PositionGet()
 {
     return static_cast<int>( Codeine::engine()->currentTime() );
 }
 
-void PlayerDbusHandler::PositionSet( int time )
+void
+PlayerDbusHandler::PositionSet( int time )
 {
     Codeine::engine()->seek( time );
 }
 
-void PlayerDbusHandler::Stop()
+void
+PlayerDbusHandler::Stop()
 {
     Codeine::engine()->stop();
 }
 
-int PlayerDbusHandler::VolumeGet()
+int
+PlayerDbusHandler::VolumeGet()
 {
     return static_cast<int>( Codeine::engine()->volume() );
 }
 
-void PlayerDbusHandler::VolumeSet( int vol )
+void
+PlayerDbusHandler::VolumeSet( int vol )
 {
     Codeine::engine()->setVolume( static_cast<qreal>( vol ) );
 }
 
+//see http://wiki.xmms2.xmms.se/index.php/MPRIS_Metadata
+QVariantMap
+PlayerDbusHandler::GetMetaData()
+{
+    QVariantMap ret;
+    QMultiMap<QString, QString> stringMap = Codeine::engine()->metaData();
+    QMultiMap<QString, QString>::const_iterator i = stringMap.constBegin();
+    while( i != stringMap.constEnd() ) 
+    {
+        bool number = false;
+        int value = i.value().toInt( &number );
+        if( number && ( i.key().toLower() != "tracknumber" ) ) //tracknumber always string, according to MPRIS spec
+            ret[ i.key().toLower() ] = value;
+        else
+            ret[ i.key().toLower() ] = QVariant( i.value() );
+        ++i;
+    }
+    ret[ "location" ] = QVariant( Codeine::engine()->urlOrDisc() );
+    return ret;
+}
+
+int
+PlayerDbusHandler::GetCaps()
+{
+    int caps = NONE;
+    if( static_cast<Codeine::MainWindow*>( Codeine::mainWindow() )->action("play")->isEnabled() )
+    {
+        caps |= CAN_PAUSE;
+        caps |= CAN_PLAY;
+    }
+    if( Codeine::engine()->isSeekable() )
+        caps |= CAN_SEEK;
+    caps |= CAN_PROVIDE_METADATA; //though it might be empty...
+    return caps;
+}
+
+void
+PlayerDbusHandler::capsChangeSlot()
+{
+    emit CapsChange( GetCaps() );
+}
+
+#include "playerDbusHandler.moc"

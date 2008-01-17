@@ -43,6 +43,7 @@ Before 2.0-rc1:
                   the deal is that "auto" for both subtitle and audio channel means what is picked by the user in the DVD menu
                   If the user picks something in the DVD menu, this does not change what xine says the subtitle or audio
                   channel is. This sucks!
-*test VCDs, audio CDs
+*test VCDs, audio CDs -> add Solid magic, test with two drives
 *turn off screensaver when something is playing (done? testing needed)
 *crash on Stop, then playing the same track (fixed)
+*figure out what the volume value means in Phonon, adapt setVolume and volume DBus methods to be 0-100 range.
