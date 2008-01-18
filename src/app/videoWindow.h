@@ -81,6 +81,7 @@ namespace Codeine
 
         bool load( const KUrl &url );
         bool play( qint64 = 0 );
+        bool resume();
         bool playDvd();
 
         void relativeSeek( qint64 );

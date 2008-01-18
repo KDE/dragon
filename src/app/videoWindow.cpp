@@ -206,6 +206,14 @@ VideoWindow::play( qint64 offset )
     m_media->play();
     return true;
 }
+
+bool
+VideoWindow::resume()
+{
+    m_media->play();
+    return true;
+}
+
 bool
 VideoWindow::playDvd()
 {
@@ -259,9 +267,9 @@ VideoWindow::urlOrDisc() const
             return "Data Stream";
             break;
         default:
-            return "Error";
             break;
     }
+    return "Error";
 }
 
 QMultiMap<QString, QString> 

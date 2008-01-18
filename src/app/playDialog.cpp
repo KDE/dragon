@@ -130,14 +130,14 @@ PlayDialog::createRecentFileWidget( QGridLayout *layout )
     //delete list view widget if there are no items in it
     if( lv->count() ) {
         layout->addWidget( lv, 1, 0, 1, -1);
-        connect( lv, SIGNAL( executed( QListWidgetItem* )), this, SLOT( done( QListWidgetItem* ) ) );
+        connect( lv, SIGNAL( executed( QListWidgetItem* )), this, SLOT( finished( QListWidgetItem* ) ) );
     }
     else
         delete lv;
 }
 
 void
-PlayDialog::done( QListWidgetItem *item )
+PlayDialog::finished( QListWidgetItem *item )
 {
     m_url = item->data( 0xdecade ).value<KUrl>();
     ((Codeine::MainWindow*) mainWindow() )->openRecentFile( m_url );

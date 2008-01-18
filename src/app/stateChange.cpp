@@ -234,6 +234,8 @@ MainWindow::engineStateChanged( Engine::State state )
         case Engine::Playing:
             toolBar()->hide();
             break;
+        case Engine::Loaded:
+            break;
         }
     } 
     switch( state )

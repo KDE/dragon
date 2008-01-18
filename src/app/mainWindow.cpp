@@ -405,13 +405,13 @@ MainWindow::play()
         engine()->pause();
         break;
     case Engine::Paused:
-        engine()->play();
+        engine()->resume();
         break;
     case Engine::Loaded:
         break;
     case Engine::Empty:
     default:
-        playMedia();
+        engine()->play();
         break;
     }
 }

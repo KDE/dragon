@@ -41,7 +41,7 @@ namespace Codeine
       enum DialogCode { FILE = QDialog::Accepted + 2, VCD, DVD, RECENT_FILE };
 
    private slots:
-      virtual void done( QListWidgetItem* );
+      virtual void finished( QListWidgetItem* );
 
    private:
       void createRecentFileWidget( QGridLayout* );

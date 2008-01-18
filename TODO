@@ -47,4 +47,5 @@ Before 2.0-rc1:
 *turn off screensaver when something is playing (done? testing needed)
 *crash on Stop, then playing the same track (fixed)
 *figure out what the volume value means in Phonon, adapt setVolume and volume DBus methods to be 0-100 range.
-*if a track ends and the user clicks play, they get the play media dialog again instead of it re-playing. Fix this.
+*if a track ends and the user clicks play, they get the play media dialog again instead of it re-playing. (fixed)
+*pause/unpause restarts (fixed)
