@@ -20,7 +20,6 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/src/app
     )
 
-add_subdirectory( doc/dragonplayer )
 add_subdirectory( src/app )
 add_subdirectory( misc )
 add_subdirectory( cmake )
