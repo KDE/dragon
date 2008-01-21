@@ -19,9 +19,18 @@ _Thoughts_:
 *Chapter skipping
 *More feedback at playback end
         ->Playback finished message (amaroK statusbar code?)
+        ->play next file button - be smart enough to know that 100 > 20
 *refactor: get rid of Engine::Status, just use Phonon's status
 *use libkcddb, have the videoWindow display list of tracks in audio cd and highlight currently playing song. Have a button for the "edit cd" libkcddb dialog.
 ->something similar for pls/m3u files? people would probably want to edit the playlist then...
+*a super-awesome open file dialog or integrated widget
+   **it would indicate which files you've already watched, and for how long
+   **use dolphin-part? or from scratch. or creating a new view to a DirModel. or extending somthing else.
+*nepomuk++ 
+   **make use of tags, ratings, summaries.
+   **in file open dialog/widget
+   **and perhaps at the end of playback, let people rate and such
+   **feed back usage data into the social web stuff
 
 _Probably Not_:
 *live previews of previously played videos
