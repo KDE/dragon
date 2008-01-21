@@ -18,6 +18,7 @@ include_directories(
     ${KDE4_INCLUDES}
     ${CMAKE_CURRENT_SOURCE_DIR}/src
     ${CMAKE_CURRENT_SOURCE_DIR}/src/app
+    ${XINE_INCLUDE_DIR}
     )
 
 add_subdirectory( src/app )
