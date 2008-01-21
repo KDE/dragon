@@ -6,8 +6,5 @@ X-KDE-Priority=TopLevel
 
 [Desktop Action Play]
 Name=Play DVD with Dragon Player
-Name[pt]=Reproduzir o DVD com o Dragon Player
-Name[pt_BR]=Reproduzir o DVD com o Dragon Player
-Name[sv]=Spela dvd med Dragon videospelare
 Icon=dragonplayer
 Exec=dragon --play-dvd %u
