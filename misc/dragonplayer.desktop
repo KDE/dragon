@@ -2,7 +2,12 @@
 Type=Application
 Version=1.0
 Name=Dragon Player
+Name[ko]=Dragon 플레이어
+Name[zh_TW]=神龍播放器
 GenericName=Video Player
+GenericName[ga]=Seinnteoir Físe
+GenericName[ko]=동영상 재생기
+GenericName[zh_TW]=影像播放器
 Icon=dragonplayer
 X-DocPath=dragonplayer/index.html
 TryExec=dragon
