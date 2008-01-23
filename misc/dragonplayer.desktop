@@ -2,11 +2,16 @@
 Type=Application
 Version=1.0
 Name=Dragon Player
+Name[el]=Αναπαραγωγέας Dragon
 Name[ko]=Dragon 플레이어
+Name[sv]=Dragon videospelare
 Name[zh_TW]=神龍播放器
 GenericName=Video Player
+GenericName[el]=Αναπαραγωγέας βίντεο
 GenericName[ga]=Seinnteoir Físe
 GenericName[ko]=동영상 재생기
+GenericName[lt]=Video grotuvas
+GenericName[sv]=Videospelare
 GenericName[zh_TW]=影像播放器
 Icon=dragonplayer
 X-DocPath=dragonplayer/index.html
