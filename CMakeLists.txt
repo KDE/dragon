@@ -1,9 +1,5 @@
 project(VideoPlayer)
 
-set( CMAKE_MODULE_PATH    ${CMAKE_MODULE_PATH}
-                          ${CMAKE_CURRENT_SOURCE_DIR}/cmake )
-
-
 add_definitions (${QT_DEFINITIONS} ${KDE4_DEFINITIONS} )
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}/src
@@ -16,4 +12,3 @@ include_directories(
 
 add_subdirectory( src/app )
 add_subdirectory( misc )
-add_subdirectory( cmake )
