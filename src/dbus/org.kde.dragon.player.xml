@@ -3,7 +3,7 @@
 
 
 <node>
-  <interface name="org.kde.Dragon.Player">
+  <interface name="org.freedesktop.MediaPlayer">
 
     <method name="Load">
         <arg type="s" direction="in" />

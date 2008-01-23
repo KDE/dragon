@@ -56,6 +56,7 @@
 
 #include "actions.h"
 #include "dbus/playerDbusHandler.h"
+#include "dbus/rootDbusHandler.h"
 #include "debug.h"
 #include "extern.h"         //dialog creation function definitions
 #include "fullScreenAction.h"
@@ -198,6 +199,7 @@ MainWindow::init()
     statusBar()->addPermanentWidget( m_timeLabel );
 
     new PlayerDbusHandler( this );
+    new RootDbusHandler( this );
 
     QApplication::restoreOverrideCursor();
     engineStateChanged( Engine::Empty );

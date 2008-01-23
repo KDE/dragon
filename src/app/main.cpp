@@ -36,6 +36,7 @@ static KAboutData aboutData( APP_NAME, 0,
 int
 main( int argc, char **argv )
 {
+    aboutData.setOrganizationDomain( "mpris.org" ); //for DBus
     aboutData.addCredit( ki18n("David Edmundson"), ki18n("Improvements and polish") );
     aboutData.addCredit( ki18n("Matthias Kretz"), ki18n("Creator of Phonon") );
     aboutData.addCredit( ki18n("Mike Diehl"), ki18n("Handbook") );

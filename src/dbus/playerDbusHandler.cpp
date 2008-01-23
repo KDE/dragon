@@ -30,7 +30,7 @@
 PlayerDbusHandler::PlayerDbusHandler(QObject *parent)
     : QObject(parent)
 {
-    QObject* pa = new PlayerAdaptor( this );
+    QObject* pa = new MediaPlayerAdaptor( this );
     connect( Codeine::mainWindow(), SIGNAL( fileChanged( QString ) ), pa, SIGNAL( TrackChange( QString ) ) );
     connect( Codeine::mainWindow(), SIGNAL( dbusStatusChanged( int ) ), pa, SIGNAL( StatusChange( int ) ) );
 
@@ -104,13 +104,13 @@ PlayerDbusHandler::Stop()
 int
 PlayerDbusHandler::VolumeGet()
 {
-    return static_cast<int>( Codeine::engine()->volume() );
+    return static_cast<int>( Codeine::engine()->volume() * 100.0 );
 }
 
 void
 PlayerDbusHandler::VolumeSet( int vol )
 {
-    Codeine::engine()->setVolume( static_cast<qreal>( vol ) );
+    Codeine::engine()->setVolume( vol / 100.0 );
 }
 
 //see http://wiki.xmms2.xmms.se/index.php/MPRIS_Metadata

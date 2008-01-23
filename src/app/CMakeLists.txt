@@ -16,9 +16,11 @@ set(videoplayer_app_SRCS
     main.cpp
     timeLabel.cpp
     mainWindow.cpp 
-    ../dbus/playerDbusHandler.cpp )
+    ../dbus/playerDbusHandler.cpp
+    ../dbus/rootDbusHandler.cpp )
 
 qt4_add_dbus_adaptor( videoplayer_app_SRCS ../dbus/org.kde.dragon.player.xml ../dbus/playerDbusHandler.h PlayerDbusHandler )
+qt4_add_dbus_adaptor( videoplayer_app_SRCS ../dbus/root.xml ../dbus/rootDbusHandler.h RootDbusHandler RootDbusHandler RootDbusHandlerBase )
 
 kde4_add_ui_files(videoplayer_app_SRCS videoSettingsWidget.ui)
 
