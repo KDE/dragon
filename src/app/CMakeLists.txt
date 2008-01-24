@@ -41,9 +41,7 @@ set(videoplayer_part_SRCS
 kde4_add_plugin(dragonpart ${videoplayer_part_SRCS})
 
 target_link_libraries(dragonpart
-    ${KDE4_KDECORE_LIBS}
     ${KDE4_KPARTS_LIBS}
-    ${KDE4_KDEUI_LIBS}
     ${KDE4_PHONON_LIBS}
     ${XINE_LIBRARY} )
 

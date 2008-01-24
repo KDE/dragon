@@ -34,8 +34,7 @@ class QWidget;
 namespace Codeine
 {
    class VideoWindow;
-   class XineEngine;
-
+   
    VideoWindow* const engine();
    VideoWindow* const videoWindow();
 

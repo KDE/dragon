@@ -31,7 +31,6 @@
 #include <KUrl>
 
 class KAboutData;
-class QSlider;
 
 
 namespace Codeine
