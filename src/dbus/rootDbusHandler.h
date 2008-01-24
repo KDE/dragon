@@ -32,6 +32,7 @@ public:
 
     QString Identity();
     void Quit();
+    float MprisVersion();
 };
 
 #endif

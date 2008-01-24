@@ -11,5 +11,9 @@
       <method name="Quit">
       </method>
 
+      <method name="MprisVersion">
+          <arg type="f" direction="out"/>
+      </method>
+
   </interface>
 </node>

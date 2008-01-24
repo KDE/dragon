@@ -50,4 +50,10 @@ RootDbusHandler::Quit()
     kapp->closeAllWindows();
 }
 
+float
+RootDbusHandler::MprisVersion()
+{
+    return 1.0;
+}
+
 #include "rootDbusHandler.moc"

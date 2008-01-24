@@ -31,6 +31,7 @@ PlayerDbusHandler::PlayerDbusHandler(QObject *parent)
     : QObject(parent)
 {
     QObject* pa = new MediaPlayerAdaptor( this );
+    setObjectName("PlayerDbusHandler");
     connect( Codeine::mainWindow(), SIGNAL( fileChanged( QString ) ), pa, SIGNAL( TrackChange( QString ) ) );
     connect( Codeine::mainWindow(), SIGNAL( dbusStatusChanged( int ) ), pa, SIGNAL( StatusChange( int ) ) );
 
@@ -56,12 +57,6 @@ PlayerDbusHandler::GetStatus()
         return Paused;
     else
         return Stopped;
-}
-
-void
-PlayerDbusHandler::Load(const QString &url)
-{
-    static_cast<Codeine::MainWindow*>( Codeine::mainWindow() )->open( KUrl( url ) );
 }
 
 void

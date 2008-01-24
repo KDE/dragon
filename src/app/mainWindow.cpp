@@ -57,6 +57,7 @@
 #include "actions.h"
 #include "dbus/playerDbusHandler.h"
 #include "dbus/rootDbusHandler.h"
+#include "dbus/trackListDbusHandler.h"
 #include "debug.h"
 #include "extern.h"         //dialog creation function definitions
 #include "fullScreenAction.h"
@@ -200,6 +201,7 @@ MainWindow::init()
 
     new PlayerDbusHandler( this );
     new RootDbusHandler( this );
+    new TrackListDbusHandler( this );
 
     QApplication::restoreOverrideCursor();
     engineStateChanged( Engine::Empty );

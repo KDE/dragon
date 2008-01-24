@@ -5,10 +5,6 @@
 <node>
   <interface name="org.freedesktop.MediaPlayer">
 
-    <method name="Load">
-        <arg type="s" direction="in" />
-    </method>
-
     <method name="Pause">
     </method>
 
@@ -62,6 +58,5 @@
         <arg type="i" />
     </signal>
 
-  </signal>
   </interface>
 </node>
