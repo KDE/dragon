@@ -390,7 +390,7 @@ VideoWindow::resetZoom()
 QString
 VideoWindow::fileFilter() const
 {
-    return "*.avi *.mp3 *.mpg *.mpeg *.ogg *.mkv *.mp4";
+    return "*.avi *.mp3 *.mpg *.mpeg *.ogg *.mkv *.mp4 *.m4v *.mov" ;
 }
 
 qint64
