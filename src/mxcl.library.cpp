@@ -20,7 +20,6 @@
 
 #include "mxcl.library.h"
 #include <QApplication>
-#include <KCursor>
 
 
 namespace mxcl

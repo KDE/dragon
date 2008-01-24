@@ -21,7 +21,6 @@
 #include "actions.h"
 #include "debug.h"
 
-#include <QToolButton>
 
 #include <KIcon>
 #include <KLocale>

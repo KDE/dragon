@@ -26,8 +26,6 @@
 #include "extern.h"
 
 #include <KActionCollection>
-#include <KMainWindow>
-#include <KLocale>
 
 FullScreenAction::FullScreenAction( QWidget* window, KActionCollection *parent )
         : KToggleFullScreenAction( window, parent )

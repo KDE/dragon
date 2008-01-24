@@ -34,7 +34,6 @@
 #include <KConfigGroup>
 #include <KDebug>
 #include <QApplication>
-#include <QMutex>
 #include <QObject>
 
 #include <iostream>

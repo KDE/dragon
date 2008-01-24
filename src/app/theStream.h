@@ -23,7 +23,6 @@
 #define CODEINE_THESTREAM_H
 
 #include <KConfigGroup>
-#include <KGlobal>
 #include <KUrl>    // larger :( but no macros at least
 #include <QSize>   // small header
 #include <QString> // small header

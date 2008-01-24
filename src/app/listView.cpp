@@ -22,7 +22,6 @@
 #ifndef CODEINELISTVIEW_CPP
 #define CODEINELISTVIEW_CPP
 
-#include <QHeaderView>
 #include <KListWidget>
 
 namespace Codeine

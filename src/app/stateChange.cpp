@@ -26,11 +26,8 @@
 #include <KGlobal>
 #include <KNotificationRestrictions>
 #include <KToolBar>
-#include <KXMLGUIFactory>
 
 #include <QContextMenuEvent>
-#include <QEvent>
-#include <QLabel>
 #include <QToolButton>
 
 #include "actions.h"
