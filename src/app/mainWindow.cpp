@@ -443,12 +443,12 @@ MainWindow::playDialogResult( int result )
     DEBUG_BLOCK
     switch( result ) {
     case PlayDialog::FILE: {
-        
-        const KUrl url = KFileDialog::getOpenUrl( KUrl("kfiledialog:///dragonplayer"),Phonon::BackendCapabilities::availableMimeTypes().join(" ") , this, i18n("Select A File To Play") );
+        QStringList mimeFilter=Phonon::BackendCapabilities::availableMimeTypes();
+        //temporary fixes for MimeTypes that Xine does support but it doesn't return - this is a Xine bug.
+        mimeFilter << "audio/x-flac";
+        const KUrl url = KFileDialog::getOpenUrl( KUrl("kfiledialog:///dragonplayer"),mimeFilter.join(" "), this, i18n("Select A File To Play") );
         if( url.isEmpty() )
         {
-//            delete m_playDialog;
-//            m_playDialog = new Codeine::PlayDialog( this, false );
              debug() << "returning, blah";
             return;
         }

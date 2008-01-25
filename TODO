@@ -42,7 +42,7 @@ Before 2.0-rc1:
 *hide the videowidget when playing audio (done)
 *have a volume somehow (done)
 *app wide volume state saving (done)
-*accurate file filter for open file dialog (ask Vir)
+*accurate file filter for open file dialog (done)
 *fix: status bar looses title on resize (fixed)
 *test the PLS code
 *audio channel and subtitles...
