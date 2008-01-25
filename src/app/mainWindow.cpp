@@ -70,6 +70,8 @@
 #include "ui_videoSettingsWidget.h"
 #include "videoWindow.h"
 
+#include <phonon/backendcapabilities.h>
+
 namespace Codeine {
 
     MainWindow *MainWindow::s_instance = 0;
@@ -441,8 +443,8 @@ MainWindow::playDialogResult( int result )
     DEBUG_BLOCK
     switch( result ) {
     case PlayDialog::FILE: {
-        const QString filter = engine()->fileFilter() + '|' + i18n("Supported Media Formats") + "\n*|" + i18n("All Files");
-        const KUrl url = KFileDialog::getOpenUrl( KUrl(":default"), filter, this, i18n("Select A File To Play") );
+        
+        const KUrl url = KFileDialog::getOpenUrl( KUrl("kfiledialog:///dragonplayer"),Phonon::BackendCapabilities::availableMimeTypes().join(" ") , this, i18n("Select A File To Play") );
         if( url.isEmpty() )
         {
 //            delete m_playDialog;

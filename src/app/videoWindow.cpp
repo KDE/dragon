@@ -387,12 +387,6 @@ VideoWindow::resetZoom()
         mainWindow()->adjustSize();
 }
 
-QString
-VideoWindow::fileFilter() const
-{
-    return "*.avi *.mp3 *.mpg *.mpeg *.ogg *.mkv *.mp4 *.m4v *.mov" ;
-}
-
 qint64
 VideoWindow::currentTime() const
 {
