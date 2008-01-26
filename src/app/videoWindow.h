@@ -28,6 +28,7 @@
 #include <QWidget>
 
 #include <Phonon/Path>
+#include <Solid/Device>
 #include <KUrl>
 
 class QActionGroup;
@@ -38,6 +39,10 @@ namespace Phonon {
      class AudioOutput;
      class MediaObject;
      class MediaController;
+}
+
+namespace Solid {
+    class OpticalDisc;
 }
 
 typedef struct xine_stream_s xine_stream_t;
@@ -83,6 +88,7 @@ namespace Codeine
         bool play( qint64 = 0 );
         bool resume();
         bool playDvd();
+        bool playDisc( const Solid::Device& );
 
         void relativeSeek( qint64 );
 
@@ -90,12 +96,14 @@ namespace Codeine
         bool isDVD() const;
 
         ///stuff for dbus:
+        //{
         void pause();
         qreal volume() const;
         void setVolume( qreal );
         QString urlOrDisc() const;
         QMultiMap<QString, QString> metaData() const;
         bool isSeekable() const;
+        //}
 
         QWidget* newPositionSlider();
         QWidget* newVolumeSlider();

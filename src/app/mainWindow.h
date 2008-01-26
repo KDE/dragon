@@ -80,6 +80,7 @@ namespace Codeine
       void audioChannelsChanged( QList< QAction* > );
 
    private:
+      void playDisc();
       void setupActions();
       void updateSliders();
 

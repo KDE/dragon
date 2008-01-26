@@ -53,6 +53,10 @@
 #include <Phonon/VolumeFaderEffect>
 #include <Phonon/VolumeSlider>
 
+#include <Solid/Block>
+#include <Solid/Device>
+#include <Solid/OpticalDisc>
+
 using Phonon::AudioOutput;
 using Phonon::MediaObject;
 using Phonon::VideoWidget;
@@ -221,6 +225,52 @@ VideoWindow::playDvd()
     m_media->setCurrentSource( Phonon::MediaSource( Phonon::Dvd ) );
     m_media->play();
     return true;
+}
+
+bool
+VideoWindow::playDisc(const Solid::Device& device )
+{
+DEBUG_BLOCK
+    QString devicePath;
+    {
+        const Solid::Block* block = device.as<const Solid::Block>();
+        if( block )
+            devicePath = block->device();
+        else
+        {
+            debug() << "device was not a block";
+            return false;
+        }
+    }
+    const Solid::OpticalDisc* disc = device.as<const Solid::OpticalDisc>();
+    if( disc )
+    {
+        Phonon::DiscType phononType = Phonon::NoDisc;
+        {
+            Solid::OpticalDisc::ContentTypes solidType = disc->availableContent();
+            if( solidType & Solid::OpticalDisc::VideoDvd )
+                phononType = Phonon::Dvd;
+            else if( solidType & ( Solid::OpticalDisc::VideoCd | Solid::OpticalDisc::SuperVideoCd ) )
+                phononType = Phonon::Vcd;
+            else if( solidType &  Solid::OpticalDisc::Audio )
+                phononType = Phonon::Cd;
+            else
+            {
+                debug() << "not a playable disc type: " << disc->availableContent() << " type";
+                return false;
+            }
+        }
+        eject();
+        m_media->setCurrentSource( Phonon::MediaSource( phononType, devicePath ) );
+        debug() << "actually playing the disc at " << devicePath;
+        m_media->play();
+        return true;
+    }
+    else
+    {
+        debug() << "device was not a disc";
+        return false;
+    }
 }
 
 void

@@ -118,11 +118,11 @@ PlayDialog::createRecentFileWidget( QGridLayout *layout )
         listItem->setData( 0xdecade, QVariant::fromValue( url ) );
         if(KConfigGroup( KGlobal::config(), (*it).prettyUrl()).readPathEntry( "IsVideo", QString() )=="false")
         {
-            listItem->setIcon(KIcon("audio-x-generic"));
+            listItem->setIcon( KIcon( "audio-x-generic" ) );
         }
         else
         {
-            listItem->setIcon(KIcon("video-x-generic"));
+            listItem->setIcon( KIcon( "video-x-generic" ) );
         }
         lv->addItem( listItem );
     }

@@ -8,11 +8,13 @@ set(videoplayer_app_SRCS
     ${videoplayer_common_SRCS}
     stateChange.cpp
     playDialog.cpp
+    discSelectionDialog.cpp
     listView.cpp
     adjustSizeButton.cpp
     fullScreenAction.cpp
     fullScreenToolBarHandler.cpp
     playlistFile.cpp
+    discSelectionDialog.cpp
     main.cpp
     timeLabel.cpp
     mainWindow.cpp 

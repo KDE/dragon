@@ -41,6 +41,9 @@
 
 #include <Phonon/VideoWidget>
 
+#include <Solid/Device>
+#include <Solid/OpticalDisc>
+
 #include <QActionGroup>
 #include <QDesktopWidget>
 #include <QDockWidget>
@@ -55,6 +58,7 @@
 #include <QTimer>
 
 #include "actions.h"
+#include "discSelectionDialog.h"
 #include "dbus/playerDbusHandler.h"
 #include "dbus/rootDbusHandler.h"
 #include "dbus/trackListDbusHandler.h"
@@ -462,11 +466,44 @@ MainWindow::playDialogResult( int result )
         open( KUrl( "vcd://" ) ); // one / is not enough
         break;
     case PlayDialog::DVD:
-        engine()->playDvd();
+        playDisc();
         break;
     }
     m_playDialog->deleteLater();
     m_playDialog = 0;
+}
+
+void
+MainWindow::playDisc()
+{
+DEBUG_BLOCK
+    QList< Solid::Device > deviceList = Solid::Device::listFromType( Solid::DeviceInterface::OpticalDisc );
+    QList< Solid::Device > playableDiscs;
+    foreach( Solid::Device device, deviceList )
+    {
+        const Solid::OpticalDisc* disc = device.as<const Solid::OpticalDisc>();
+        if( disc )
+        {
+            if( disc->availableContent() & ( Solid::OpticalDisc::VideoDvd | Solid::OpticalDisc::VideoCd | Solid::OpticalDisc::SuperVideoCd |  Solid::OpticalDisc::Audio ) )
+                playableDiscs << device;
+        
+        }
+    }
+    if( !deviceList.isEmpty() )
+    {
+        if( deviceList.size() > 1 ) //more then one disc, show user a selection box
+        {
+            debug() << "> 1 possible discs, showing dialog";
+            new DiscSelectionDialog( this, playableDiscs );
+        }
+        else //only one optical disc inserted, play whatever it is
+        {
+            debug() << "playing disc", engine()->playDisc( deviceList.first() );
+        }
+    }
+    else
+        engine()->playDvd(), debug() << "no disc in drive or Solid isn't working";
+
 }
 
 void
