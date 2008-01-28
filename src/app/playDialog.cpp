@@ -88,6 +88,7 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
     connect( mapper, SIGNAL(mapped( int )), mainWindow(), SLOT( playDialogResult( int ) ) );
     vbox->addLayout( hbox );
     setLayout( vbox );
+    setAttribute( Qt::WA_DeleteOnClose, true );
 }
 
 void
