@@ -477,28 +477,31 @@ void
 MainWindow::playDisc()
 {
 DEBUG_BLOCK
-    QList< Solid::Device > deviceList = Solid::Device::listFromType( Solid::DeviceInterface::OpticalDisc );
     QList< Solid::Device > playableDiscs;
-    foreach( Solid::Device device, deviceList )
     {
-        const Solid::OpticalDisc* disc = device.as<const Solid::OpticalDisc>();
-        if( disc )
-        {
-            if( disc->availableContent() & ( Solid::OpticalDisc::VideoDvd | Solid::OpticalDisc::VideoCd | Solid::OpticalDisc::SuperVideoCd |  Solid::OpticalDisc::Audio ) )
-                playableDiscs << device;
+        QList< Solid::Device > deviceList = Solid::Device::listFromType( Solid::DeviceInterface::OpticalDisc );
         
+        foreach( Solid::Device device, deviceList )
+        {
+            const Solid::OpticalDisc* disc = device.as<const Solid::OpticalDisc>();
+            if( disc )
+            {
+                if( disc->availableContent() & ( Solid::OpticalDisc::VideoDvd | Solid::OpticalDisc::VideoCd | Solid::OpticalDisc::SuperVideoCd |  Solid::OpticalDisc::Audio ) )
+                    playableDiscs << device;
+            
+            }
         }
     }
-    if( !deviceList.isEmpty() )
+    if( !playableDiscs.isEmpty() )
     {
-        if( deviceList.size() > 1 ) //more then one disc, show user a selection box
+        if( playableDiscs.size() > 1 ) //more then one disc, show user a selection box
         {
             debug() << "> 1 possible discs, showing dialog";
             new DiscSelectionDialog( this, playableDiscs );
         }
         else //only one optical disc inserted, play whatever it is
         {
-            debug() << "playing disc", engine()->playDisc( deviceList.first() );
+            debug() << "playing disc", engine()->playDisc( playableDiscs.first() );
         }
     }
     else

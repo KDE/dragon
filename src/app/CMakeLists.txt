@@ -14,7 +14,6 @@ set(videoplayer_app_SRCS
     fullScreenAction.cpp
     fullScreenToolBarHandler.cpp
     playlistFile.cpp
-    discSelectionDialog.cpp
     main.cpp
     timeLabel.cpp
     mainWindow.cpp 

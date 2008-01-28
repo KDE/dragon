@@ -1,5 +1,5 @@
 INTRODUCTION
-  Video Player is a very simple Phonon-based media player. It was originally 
+  Dragon Player is a very simple Phonon-based media player. It was originally 
   developed by Max Howell and called Codeine. I ported it to KDE 4.0 and on 
   Max's suggestion renamed it to Video Player (probably, I might still
   rename it.)  
@@ -10,7 +10,7 @@ INTRODUCTION
     * After then, improvements will only be in the realm of usability, bug
       fixes, portability and allowing users to play their media.
 
-  The aim of Video Player is to "just play my video." Precedence will be given
+  The aim of Dragon Player is to "just play my video." Precedence will be given
   to short simple menus and being configuration-free over additional features.
  
   If you do have bugs, feature requests or (even better) features you want 
