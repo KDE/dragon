@@ -39,7 +39,7 @@ public:
          CAN_PAUSE             = 1 << 2,
          CAN_PLAY              = 1 << 3,
          CAN_SEEK              = 1 << 4,
-         CAN_PROVIDE_METADATA  = 1 << 5,
+         CAN_PROVIDE_METADATA  = 1 << 5
          //CAN_HAS_TRACKLIST     = 1 << 6 can I haz cheeseburger? no...
      };
 public slots:
