@@ -13,6 +13,7 @@ Name[ko]=Dragon 플레이어로 DVD 보기
 Name[nds]=DVD mit den Draken-Speler afspelen
 Name[sv]=Spela dvd med Dragon videospelare
 Name[tr]=DVDyi Dragon Player ile Oynat
+Name[zh_CN]=以 Dragon Player 播放 DVD
 Name[zh_TW]=用神龍播放器播放 DVD
 Icon=dragonplayer
 Exec=dragon --play-dvd %u
