@@ -396,6 +396,13 @@ VideoWindow::setVolume( qreal vol )
 }
 
 void
+VideoWindow::mute(bool muted)
+{
+    m_aOutput->setMuted( muted );
+}
+
+
+void
 VideoWindow::seek( qint64 pos )
 {
     DEBUG_BLOCK

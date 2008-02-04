@@ -128,6 +128,7 @@ namespace Codeine
         void stop();
         void stateChanged( Phonon::State, Phonon::State );
         void settingChanged( int );
+        void mute( bool );
 
         void toggleDVDMenu();
         void showOSD( const QString& );

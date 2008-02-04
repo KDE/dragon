@@ -258,6 +258,12 @@ MainWindow::setupActions()
     connect( playerStop, SIGNAL( triggered() ), engine(), SLOT( stop() ) );
     addToAc( playerStop )
 
+    KToggleAction* mute = new KToggleAction( KIcon("player-volume-muted"), i18n("Mute"), ac );
+    mute->setObjectName( "mute" );
+    mute->setShortcut( Qt::Key_M );
+    connect( mute, SIGNAL( toggled( bool ) ), videoWindow(), SLOT( mute( bool ) ) );
+    addToAc( mute )
+
     KAction* resetZoom = new KAction( KIcon("zoom-fit-best"), i18n("Reset Video Scale"), ac );
     resetZoom->setObjectName( "reset_zoom" );
     resetZoom->setShortcut( Qt::Key_Equal );
