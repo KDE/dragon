@@ -206,7 +206,8 @@ VideoWindow::play( qint64 offset )
     DEBUG_BLOCK
     mxcl::WaitCursor allocateOnStack;
     m_justLoaded = false;
-    seek( offset );
+    if( offset > 0 )
+        seek( offset );
     m_media->play();
     return true;
 }
