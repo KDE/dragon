@@ -78,6 +78,7 @@ namespace Codeine
       void streamSettingChange();
       void subChannelsChanged( QList< QAction* > );
       void audioChannelsChanged( QList< QAction* > );
+      void mutedChanged( bool );
 
    private:
       void playDisc();

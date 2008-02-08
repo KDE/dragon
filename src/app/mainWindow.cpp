@@ -187,6 +187,7 @@ MainWindow::init()
     connect( engine(), SIGNAL( titleChanged( const QString& ) ), this, SLOT( setCaption( const QString& ) ) );
     connect( engine(), SIGNAL( subChannelsChanged( QList< QAction* > ) ), this, SLOT( subChannelsChanged( QList< QAction* > ) ) );
     connect( engine(), SIGNAL( audioChannelsChanged( QList< QAction* > ) ), this, SLOT( audioChannelsChanged( QList< QAction* > ) ) );
+    connect( engine(), SIGNAL( mutedChanged( bool ) ), this, SLOT( mutedChanged( bool ) ) );
 
     if( !engine()->init() ) {
         KMessageBox::error( this, i18n(
@@ -338,6 +339,22 @@ MainWindow::toggleVolumeSlider( bool show )
     {
         delete m_rightDock;
     }
+}
+
+void
+MainWindow::mutedChanged( bool mute )
+{
+    if( m_volumeSlider )
+      {
+        if( mute )
+          {
+            m_volumeSlider->setDisabled ( mute );
+          }
+          else
+          {
+            m_volumeSlider->setDisabled ( mute );
+          }
+      }
 }
 
 void

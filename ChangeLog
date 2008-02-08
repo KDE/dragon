@@ -1,6 +1,8 @@
 2.0.0
    Fixed issue where if the user ESCed the play media dialog it wouldn't reappear.
    Pressing 'M' causes mute
+   Stop() Hack (now the last frame of the video disapper)
+   The volumeSlider is locked if the mute is active
 
 2.0-rc1
    Fix status bar title disappearing on window resize
