@@ -290,6 +290,8 @@ VideoWindow::stop()
     eject();
     m_media->stop();
     m_media->setCurrentSource( Phonon::MediaSource() ); //set the current source to invalid
+    m_vWidget->hide();
+    m_logo->show();
 }
 
 void
