@@ -345,10 +345,7 @@ void
 MainWindow::mutedChanged( bool mute )
 {
     if( m_volumeSlider )
-        if( mute )
-            m_volumeSlider->setDisabled ( mute );
-          else
-            m_volumeSlider->setDisabled ( mute );
+        m_volumeSlider->setDisabled ( mute );
 }
 
 void
