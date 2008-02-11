@@ -741,7 +741,8 @@ VideoWindow::contextMenuEvent( QContextMenuEvent * event )
 void 
 VideoWindow::mouseDoubleClickEvent( QMouseEvent* )
 {
-    action("fullscreen")->toggle();
+    if( mainWindow() ) //TODO: add full screen mode to kpart
+        action("fullscreen")->toggle();
 }
 
 QSize

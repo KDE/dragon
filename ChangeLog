@@ -3,7 +3,8 @@
    Pressing 'M' causes mute
    Return to the logo when playback is explictly stopped
    The volumeSlider is locked if the mute is active
-   New Icon
+   New Icon 
+   Fixed crash on double click in KPart Bug #157579
 
 2.0-rc1
    Fix status bar title disappearing on window resize
