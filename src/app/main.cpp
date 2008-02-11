@@ -30,8 +30,7 @@ static KAboutData aboutData( APP_NAME, 0,
         ki18n(PRETTY_NAME), APP_VERSION,
         ki18n("A video player that has a usability focus"), KAboutData::License_GPL_V2,
         ki18n("Copyright 2006, Max Howell\nCopyright 2007, Ian Monroe\n\nIRC:\nirc.freenode.net #dragonplayer\n\nFeedback:\nimonroe@dragonplayer.org"), KLocalizedString(),
-        "http://dragonplayer.org",
-        "imonroe@dragonplayer.org" );
+        "http://dragonplayer.org" );
 
 int
 main( int argc, char **argv )
@@ -39,10 +38,10 @@ main( int argc, char **argv )
     aboutData.setOrganizationDomain( "mpris.org" ); //for DBus
     aboutData.addCredit( ki18n("David Edmundson"), ki18n("Improvements and polish") );
     aboutData.addCredit( ki18n("Matthias Kretz"), ki18n("Creator of Phonon") );
+    aboutData.addCredit( ki18n("Eugene Trounev"), ki18n("Dragon Player icon") );
     aboutData.addCredit( ki18n("Mike Diehl"), ki18n("Handbook") );
     aboutData.addCredit( ki18n("The Kaffeine Developers"), ki18n("Great reference code") );
     aboutData.addCredit( ki18n("Greenleaf"), ki18n("Yatta happened to be the only video on my laptop to test with. :)") );
-    aboutData.addCredit( ki18n("David Vignoni"), ki18n("The current Codeine icon") );
 
     KCmdLineArgs::init( argc, argv, &aboutData );
 

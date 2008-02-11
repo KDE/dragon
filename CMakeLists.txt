@@ -1,4 +1,4 @@
-project(VideoPlayer)
+project(DragonPlayer)
 
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}/src
