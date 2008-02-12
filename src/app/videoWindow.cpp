@@ -403,12 +403,6 @@ VideoWindow::mute(bool muted)
     m_aOutput->setMuted( muted );
 }
 
-bool
-VideoWindow::isMuted()
-{
-    return m_aOutput->isMuted();
-}
-
 void
 VideoWindow::seek( qint64 pos )
 {

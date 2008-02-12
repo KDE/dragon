@@ -187,7 +187,6 @@ MainWindow::init()
     connect( engine(), SIGNAL( titleChanged( const QString& ) ), this, SLOT( setCaption( const QString& ) ) );
     connect( engine(), SIGNAL( subChannelsChanged( QList< QAction* > ) ), this, SLOT( subChannelsChanged( QList< QAction* > ) ) );
     connect( engine(), SIGNAL( audioChannelsChanged( QList< QAction* > ) ), this, SLOT( audioChannelsChanged( QList< QAction* > ) ) );
-    connect( engine(), SIGNAL( mutedChanged( bool ) ), this, SLOT( mutedChanged( bool ) ) );
 
     if( !engine()->init() ) {
         KMessageBox::error( this, i18n(
@@ -333,20 +332,12 @@ MainWindow::toggleVolumeSlider( bool show )
         m_volumeSlider = engine()->newVolumeSlider();
         m_volumeSlider->setParent( m_rightDock );
         m_rightDock->setWidget( m_volumeSlider );
-        m_volumeSlider->setDisabled ( engine()->isMuted() );
         addDockWidget( Qt::RightDockWidgetArea, m_rightDock );
     }
     else
     {
         delete m_rightDock;
     }
-}
-
-void
-MainWindow::mutedChanged( bool mute )
-{
-    if( m_volumeSlider )
-        m_volumeSlider->setDisabled ( mute );
 }
 
 void
