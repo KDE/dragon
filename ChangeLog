@@ -1,9 +1,13 @@
+2.0.1
+   Removed the locking of the volumeSlider if the mute is active
+
 2.0.0
    Fixed issue where if the user ESCed the play media dialog it wouldn't reappear.
    Pressing 'M' causes mute
    Return to the logo when playback is explictly stopped
    New Icon 
    Fixed crash on double click in KPart Bug #157579
+   The volumeSlider is locked if the mute is active
 
 2.0-rc1
    Fix status bar title disappearing on window resize
