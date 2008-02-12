@@ -333,6 +333,7 @@ MainWindow::toggleVolumeSlider( bool show )
         m_volumeSlider = engine()->newVolumeSlider();
         m_volumeSlider->setParent( m_rightDock );
         m_rightDock->setWidget( m_volumeSlider );
+        m_volumeSlider->setDisabled ( isMuted() );
         addDockWidget( Qt::RightDockWidgetArea, m_rightDock );
     }
     else
@@ -346,6 +347,12 @@ MainWindow::mutedChanged( bool mute )
 {
     if( m_volumeSlider )
         m_volumeSlider->setDisabled ( mute );
+}
+
+bool
+MainWindow::isMuted()
+{
+    return engine()->isMuted();
 }
 
 void
