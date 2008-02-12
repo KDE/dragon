@@ -86,7 +86,6 @@ namespace Codeine
       void updateSliders();
 
       bool load( const KUrl& );
-      bool isMuted();
 
       QMenu *menu( const char *name );
 
