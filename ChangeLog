@@ -1,3 +1,11 @@
+2.1
+   Added CheckBox for Mute in the right dockbar
+   Chapter +/- 1 (bugged, I think is a Phonon bug :S )
+   Fixed a Mute bug
+   Adopted the KMix way to manage the volume
+   V for Volume
+   In the FullScreen mode, the volume disappear (bug fix)
+
 2.0.1
    Removed the locking of the volumeSlider if the mute is active
 
@@ -5,7 +13,7 @@
    Fixed issue where if the user ESCed the play media dialog it wouldn't reappear.
    Pressing 'M' causes mute
    Return to the logo when playback is explictly stopped
-   New Icon 
+   New Icon
    Fixed crash on double click in KPart Bug #157579
    The volumeSlider is locked if the mute is active
 

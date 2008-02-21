@@ -89,8 +89,11 @@ namespace Codeine
         bool resume();
         bool playDvd();
         bool playDisc( const Solid::Device& );
+        bool isMuted();
 
         void relativeSeek( qint64 );
+
+        void show_volume( bool );
 
         qint64 length() const;
         bool isDVD() const;
@@ -135,6 +138,9 @@ namespace Codeine
         void slotSetSubtitle();
         void slotSetAudio();
         void resetZoom();
+        void prev_chapter();
+        void next_chapter();
+
     protected:
         virtual bool event( QEvent* e );
         virtual void contextMenuEvent( QContextMenuEvent * event );
@@ -157,6 +163,7 @@ namespace Codeine
         void totalTimeChanged( qint64 );
         void mutedChanged( bool );
         void seekableChanged( bool );
+        void showVolume( bool );
     };
 
     //global function for general use by Codeine

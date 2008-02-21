@@ -71,7 +71,7 @@ Codeine::VolumeAction::VolumeAction( QObject *receiver, const char *slot, KActio
 {
     setObjectName( "volume" );
     setIcon( KIcon( "player-volume" ) );
-//    setShortcut( Qt::Key_Space );
+    setShortcut( Qt::Key_V );
     ac->addAction( objectName(), this );
     connect( this, SIGNAL( triggered( bool ) ), receiver, slot );
     connect( engine(), SIGNAL( mutedChanged( bool ) ), this, SLOT( mutedChanged( bool ) ) );

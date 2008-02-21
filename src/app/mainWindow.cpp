@@ -187,6 +187,8 @@ MainWindow::init()
     connect( engine(), SIGNAL( titleChanged( const QString& ) ), this, SLOT( setCaption( const QString& ) ) );
     connect( engine(), SIGNAL( subChannelsChanged( QList< QAction* > ) ), this, SLOT( subChannelsChanged( QList< QAction* > ) ) );
     connect( engine(), SIGNAL( audioChannelsChanged( QList< QAction* > ) ), this, SLOT( audioChannelsChanged( QList< QAction* > ) ) );
+    connect( engine(), SIGNAL( showVolume( bool ) ), this, SLOT ( showVolume( bool ) ) );
+    connect( engine(), SIGNAL( mutedChanged( bool ) ), this, SLOT( mutedChanged( bool ) ) );
 
     if( !engine()->init() ) {
         KMessageBox::error( this, i18n(
@@ -276,7 +278,20 @@ MainWindow::setupActions()
     connect( dvdMenu, SIGNAL( triggered() ), engine(), SLOT( toggleDVDMenu() ) );
     addToAc( dvdMenu )
 
- //   new KAction( i18n("&Capture Frame"), "frame_image", Key_C, this, SLOT(captureFrame()), ac, "capture_frame" );
+/*
+    KAction* capture = new KAction( KIcon("frame-image"), i18n("Capture Frame"), ac );
+    capture->setObjectName( "frame_image" );
+    capture->setShortcut( Qt::Key_C );
+    connect( capture, SIGNAL( triggered() ), engine(), SLOT( captureFrame() ) );
+    addToAc( capture )
+*/
+/*
+    KToggleAction* OSDShow = new KToggleAction( i18n("Show OSD"), ac );
+    OSDShow->setObjectName( "show_OSD" );
+    OSDShow->setShortcut( Qt::Key_O );
+    connect( OSDShow, SIGNAL( toggled( bool ) ), this, SLOT(  ) );
+    addToAc( OSDShow )
+*/
 
     KAction* positionSlider = new KAction( i18n("Position Slider"), ac );
     positionSlider->setObjectName( "position_slider" );
@@ -289,9 +304,20 @@ MainWindow::setupActions()
     connect( videoSettings, SIGNAL( toggled( bool ) ), this, SLOT( toggleVideoSettings( bool ) ) );
     addToAc( videoSettings )
 
+    KAction* prev_chapter = new KAction( KIcon("frame-image"), i18n("Previous chapter"), ac );
+    prev_chapter->setObjectName( "prev_chapter" );
+    prev_chapter->setShortcut( Qt::Key_Comma );
+    connect( prev_chapter, SIGNAL( triggered() ), engine(), SLOT( prev_chapter() ) );
+    addToAc( prev_chapter )
+
+    KAction* next_chapter = new KAction( KIcon("frame-image"), i18n("Next chapter"), ac );
+    next_chapter->setObjectName( "next_chapter" );
+    next_chapter->setShortcut( Qt::Key_Period );
+    connect( next_chapter, SIGNAL( triggered() ), engine(), SLOT( next_chapter() ) );
+    addToAc( next_chapter )
+
     #undef addToAc
 }
-
 
 void
 MainWindow::toggleVideoSettings( bool show )
@@ -327,17 +353,42 @@ MainWindow::toggleVolumeSlider( bool show )
 {
     if( show )
     {
+        m_volumeSlider = engine()->newVolumeSlider();
+        m_volumeSlider->setDisabled ( engine()->isMuted() );
+
+        m_muteCheckBox = new QCheckBox();
+        m_muteCheckBox->setText( i18n( "Mute " ) );
+        m_muteCheckBox->setChecked ( engine()->isMuted() );
+        connect( m_muteCheckBox, SIGNAL( toggled( bool ) ), videoWindow(), SLOT( mute( bool ) ) );
+
+        QVBoxLayout *layout = new QVBoxLayout();
+        layout->addWidget(m_volumeSlider);
+        layout->addWidget(m_muteCheckBox);
+
+        QWidget *dock = new QWidget;
+        dock->setLayout(layout);
+
         m_rightDock = new QDockWidget( this );
         m_rightDock->setFeatures( QDockWidget::NoDockWidgetFeatures );
-        m_volumeSlider = engine()->newVolumeSlider();
-        m_volumeSlider->setParent( m_rightDock );
-        m_rightDock->setWidget( m_volumeSlider );
+        dock->setParent( m_rightDock );
+        m_rightDock->setWidget( dock );
         addDockWidget( Qt::RightDockWidgetArea, m_rightDock );
     }
     else
     {
+        disconnect( m_muteCheckBox, SIGNAL( toggled( bool ) ), videoWindow(), SLOT( mute( bool ) ) );
         delete m_rightDock;
     }
+}
+
+void
+MainWindow::mutedChanged( bool mute )
+{
+    if( m_rightDock )
+      {
+        m_volumeSlider->setDisabled ( mute );
+        m_muteCheckBox->setChecked ( mute );
+      }
 }
 
 void
@@ -538,7 +589,9 @@ MainWindow::setFullScreen( bool isFullScreen )
     statusBar()->setHidden( isFullScreen );
     if( m_leftDock )
         m_leftDock->setHidden( isFullScreen );
-    
+    if( m_rightDock )
+        m_rightDock->setHidden( isFullScreen );
+
     if( isFullScreen )
         s_handler = new FullScreenToolBarHandler( this );
     else
@@ -548,6 +601,13 @@ MainWindow::setFullScreen( bool isFullScreen )
     }
     // prevent videoWindow() moving around when mouse moves 
     //setCentralWidget( isFullScreen ? 0 : videoWindow() ); //deletes videoWindow() when cleared
+}
+
+void
+MainWindow::showVolume( bool visible)
+{
+    if( m_rightDock )
+        m_rightDock->setVisible( visible );
 }
 
 void
@@ -673,6 +733,7 @@ action( const char *name )
 
     return action;
 }
+
 
 } //namespace Codeine
 

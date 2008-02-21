@@ -27,6 +27,7 @@
 
 #include <QList>
 #include <QPointer>
+#include <QCheckBox>
 
 #include <KXmlGuiWindow>
 
@@ -36,6 +37,7 @@ class QActionGroup;
 class QLabel;
 class QMenu;
 class QSlider;
+class QCheckBox;
 
 class FullScreenAction;
 
@@ -78,6 +80,8 @@ namespace Codeine
       void streamSettingChange();
       void subChannelsChanged( QList< QAction* > );
       void audioChannelsChanged( QList< QAction* > );
+      void showVolume( bool );
+      void mutedChanged( bool );
 
    private:
       void playDisc();
@@ -99,6 +103,7 @@ namespace Codeine
       QPointer<QDockWidget> m_rightDock;
       QWidget     *m_positionSlider;
       QPointer<QWidget> m_volumeSlider;
+      QCheckBox *m_muteCheckBox;
       TimeLabel   *m_timeLabel;
       QLabel      *m_titleLabel;
       QList<QSlider*> m_sliders;

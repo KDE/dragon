@@ -100,9 +100,8 @@ VideoWindow::VideoWindow( QWidget *parent )
     connect( m_media, SIGNAL( seekableChanged( bool ) ), this, SIGNAL( seekableChanged( bool ) ) );
     connect( m_aOutput, SIGNAL( mutedChanged( bool ) ), this, SIGNAL( mutedChanged( bool ) ) );
 
-
     connect( m_media, SIGNAL( hasVideoChanged( bool ) ), m_vWidget, SLOT( setVisible( bool ) ) ); //hide video widget if no video to show
-    connect( m_media, SIGNAL( hasVideoChanged( bool ) ), m_logo, SLOT( setHidden( bool ) ) );    //can this be done as 1 line with above?
+    connect( m_media, SIGNAL( hasVideoChanged( bool ) ), m_logo, SLOT( setHidden( bool ) ) );
 
     {
         m_subLanguages->setExclusive( true );
@@ -285,6 +284,12 @@ VideoWindow::relativeSeek( qint64 step )
 }
 
 void
+VideoWindow::show_volume( bool visible)
+{
+    emit showVolume( visible );
+}
+
+void
 VideoWindow::stop()
 {
     eject();
@@ -403,6 +408,12 @@ VideoWindow::mute(bool muted)
     m_aOutput->setMuted( muted );
 }
 
+bool
+VideoWindow::isMuted()
+{
+    return m_aOutput->isMuted();
+}
+
 void
 VideoWindow::seek( qint64 pos )
 {
@@ -430,7 +441,6 @@ VideoWindow::seek( qint64 pos )
     m_media->pause(); //pausing first gives Phonon a chance to recognize seekable media
     m_media->seek( pos );
 }
-
 
 void
 VideoWindow::showOSD( const QString &/*message*/ )
@@ -477,7 +487,7 @@ VideoWindow::newVolumeSlider()
     VolumeSlider *volumeSlider = new VolumeSlider();
     volumeSlider->setObjectName( "volume" );
     volumeSlider->setAudioOutput( m_aOutput );
-    volumeSlider->setMuteVisible( true );
+    volumeSlider->setMuteVisible( false );
     volumeSlider->setOrientation( Qt::Vertical );
     return volumeSlider;
 }
@@ -687,6 +697,18 @@ VideoWindow::videoSetting( const QString& setting )
     }
     return static_cast<int>( dValue * 100.0 );
 }
+
+void
+VideoWindow::prev_chapter()
+  {
+    m_controller->setCurrentChapter(m_controller->currentChapter() - 1);
+  }
+
+void
+VideoWindow::next_chapter()
+  {
+    m_controller->setCurrentChapter(m_controller->currentChapter() + 1);
+  }
 
 ///////////
 ///Protected

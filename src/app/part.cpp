@@ -74,7 +74,7 @@ namespace Codeine
         connect( videoWindow(), SIGNAL( customContextMenuRequested() ), this, SLOT( videoContextMenu() ) );
 
         widget()->setLayout( layout );
-//      KAction *mute = new KToggleAction( i18n("Mute"), "player_mute", Qt::Key_M, videoWindow(), SLOT(toggleMute()), actionCollection(), "mute" );
+
 /*        QObject *o = (QObject*)statusBar();
         connect( videoWindow(), SIGNAL(statusMessage( const QString& )), o, SLOT(message( const QString& )) );
         connect( videoWindow(), SIGNAL(titleChanged( const QString& )), o, SLOT(message( const QString& )) ); *///FIXME

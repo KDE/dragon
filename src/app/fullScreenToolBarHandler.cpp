@@ -85,6 +85,7 @@ Codeine::FullScreenToolBarHandler::eventFilter( QObject *o, QEvent *e )
 show_toolbar:
                     debug() << "show toolbar";
                     m_toolbar->show(),
+                    videoWindow()->show_volume( true );
                     m_home = QPoint();
                 }
                 else
@@ -117,6 +118,7 @@ show_toolbar:
             break;
 
             case QEvent::Leave:
+                videoWindow()->show_volume( false );
                 m_toolbar->hide();
                 m_stay_hidden_for_a_bit = true;
                 killTimer( m_timer_id );
@@ -135,8 +137,10 @@ Codeine::FullScreenToolBarHandler::timerEvent( QTimerEvent* )
     if (m_stay_hidden_for_a_bit)
         ;
 
-    else if ( !m_toolbar->testAttribute( Qt::WA_UnderMouse ) )
+    else if ( !m_toolbar->testAttribute( Qt::WA_UnderMouse ) ){
         m_toolbar->hide();
+        videoWindow()->show_volume( false );
+        }
 
     m_stay_hidden_for_a_bit = false;
 }
