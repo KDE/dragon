@@ -93,8 +93,6 @@ namespace Codeine
 
         void relativeSeek( qint64 );
 
-        void show_volume( bool );
-
         qint64 length() const;
         bool isDVD() const;
 
@@ -163,7 +161,6 @@ namespace Codeine
         void totalTimeChanged( qint64 );
         void mutedChanged( bool );
         void seekableChanged( bool );
-        void showVolume( bool );
     };
 
     //global function for general use by Codeine

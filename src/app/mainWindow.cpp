@@ -187,7 +187,6 @@ MainWindow::init()
     connect( engine(), SIGNAL( titleChanged( const QString& ) ), this, SLOT( setCaption( const QString& ) ) );
     connect( engine(), SIGNAL( subChannelsChanged( QList< QAction* > ) ), this, SLOT( subChannelsChanged( QList< QAction* > ) ) );
     connect( engine(), SIGNAL( audioChannelsChanged( QList< QAction* > ) ), this, SLOT( audioChannelsChanged( QList< QAction* > ) ) );
-    connect( engine(), SIGNAL( showVolume( bool ) ), this, SLOT ( showVolume( bool ) ) );
     connect( engine(), SIGNAL( mutedChanged( bool ) ), this, SLOT( mutedChanged( bool ) ) );
 
     if( !engine()->init() ) {

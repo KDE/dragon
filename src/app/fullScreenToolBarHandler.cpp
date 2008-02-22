@@ -23,6 +23,7 @@
 
 #include "debug.h"
 #include "videoWindow.h"
+#include "mainWindow.h"
 
 #include <QEvent>
 #include <QMouseEvent>
@@ -85,7 +86,7 @@ Codeine::FullScreenToolBarHandler::eventFilter( QObject *o, QEvent *e )
 show_toolbar:
                     debug() << "show toolbar";
                     m_toolbar->show(),
-                    videoWindow()->show_volume( true );
+                    static_cast<Codeine::MainWindow*>( Codeine::mainWindow() )->showVolume( true );
                     m_home = QPoint();
                 }
                 else
@@ -118,7 +119,7 @@ show_toolbar:
             break;
 
             case QEvent::Leave:
-                videoWindow()->show_volume( false );
+                static_cast<Codeine::MainWindow*>( Codeine::mainWindow() )->showVolume( false );
                 m_toolbar->hide();
                 m_stay_hidden_for_a_bit = true;
                 killTimer( m_timer_id );
@@ -135,11 +136,12 @@ void
 Codeine::FullScreenToolBarHandler::timerEvent( QTimerEvent* )
 {
     if (m_stay_hidden_for_a_bit)
+
         ;
 
     else if ( !m_toolbar->testAttribute( Qt::WA_UnderMouse ) ){
+        static_cast<Codeine::MainWindow*>( Codeine::mainWindow() )->showVolume( false );
         m_toolbar->hide();
-        videoWindow()->show_volume( false );
         }
 
     m_stay_hidden_for_a_bit = false;

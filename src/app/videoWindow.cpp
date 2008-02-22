@@ -284,12 +284,6 @@ VideoWindow::relativeSeek( qint64 step )
 }
 
 void
-VideoWindow::show_volume( bool visible)
-{
-    emit showVolume( visible );
-}
-
-void
 VideoWindow::stop()
 {
     eject();

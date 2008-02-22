@@ -59,6 +59,7 @@ namespace Codeine
    public:
       void openRecentFile( const KUrl& );
       bool open( const KUrl& );
+      void showVolume( bool );
 
    signals:
       void dbusStatusChanged( int );
@@ -80,7 +81,6 @@ namespace Codeine
       void streamSettingChange();
       void subChannelsChanged( QList< QAction* > );
       void audioChannelsChanged( QList< QAction* > );
-      void showVolume( bool );
       void mutedChanged( bool );
 
    private:
