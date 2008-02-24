@@ -306,13 +306,13 @@ MainWindow::setupActions()
     KAction* prev_chapter = new KAction( KIcon("frame-image"), i18n("Previous chapter"), ac );
     prev_chapter->setObjectName( "prev_chapter" );
     prev_chapter->setShortcut( Qt::Key_Comma );
-    connect( prev_chapter, SIGNAL( triggered() ), engine(), SLOT( prev_chapter() ) );
+    connect( prev_chapter, SIGNAL( triggered() ), engine(), SLOT( prevChapter() ) );
     addToAc( prev_chapter )
 
     KAction* next_chapter = new KAction( KIcon("frame-image"), i18n("Next chapter"), ac );
     next_chapter->setObjectName( "next_chapter" );
     next_chapter->setShortcut( Qt::Key_Period );
-    connect( next_chapter, SIGNAL( triggered() ), engine(), SLOT( next_chapter() ) );
+    connect( next_chapter, SIGNAL( triggered() ), engine(), SLOT( nextChapter() ) );
     addToAc( next_chapter )
 
     #undef addToAc

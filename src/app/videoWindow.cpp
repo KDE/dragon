@@ -693,13 +693,13 @@ VideoWindow::videoSetting( const QString& setting )
 }
 
 void
-VideoWindow::prev_chapter()
+VideoWindow::prevChapter()
   {
     m_controller->setCurrentChapter(m_controller->currentChapter() - 1);
   }
 
 void
-VideoWindow::next_chapter()
+VideoWindow::nextChapter()
   {
     m_controller->setCurrentChapter(m_controller->currentChapter() + 1);
   }

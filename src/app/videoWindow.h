@@ -136,8 +136,8 @@ namespace Codeine
         void slotSetSubtitle();
         void slotSetAudio();
         void resetZoom();
-        void prev_chapter();
-        void next_chapter();
+        void prevChapter();
+        void nextChapter();
 
     protected:
         virtual bool event( QEvent* e );
