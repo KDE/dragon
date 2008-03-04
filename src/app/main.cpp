@@ -29,7 +29,7 @@
 static KAboutData aboutData( APP_NAME, 0,
         ki18n(PRETTY_NAME), APP_VERSION,
         ki18n("A video player that has a usability focus"), KAboutData::License_GPL_V2,
-        ki18n("Copyright 2006, Max Howell\nCopyright 2007, Ian Monroe\n\nIRC:\nirc.freenode.net #dragonplayer\n\nFeedback:\nimonroe@dragonplayer.org"), KLocalizedString(),
+        ki18n("Copyright 2006, Max Howell\nCopyright 2007, Ian Monroe"), ki18n("IRC:\nirc.freenode.net #dragonplayer\n\nFeedback:\nimonroe@dragonplayer.org"),
         "http://dragonplayer.org" );
 
 int
