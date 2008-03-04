@@ -148,6 +148,7 @@ MainWindow::MainWindow()
                 connect( ratioAction, SIGNAL( triggered() ), this, SLOT( streamSettingChange() ) ); \
             }
             make_ratio_action( i18n( "Determine &Automatically" ), "ratio_auto",  Phonon::VideoWidget::AspectRatioAuto );
+            make_ratio_action( i18n( "&Window Size" ), "ratio_window", Phonon::VideoWidget::AspectRatioWidget );
             make_ratio_action( i18n( "&4:3" ), "ratio_golden", Phonon::VideoWidget::AspectRatio4_3 );
             make_ratio_action( i18n( "Ana&morphic (16:9)" ), "ratio_anamorphic", Phonon::VideoWidget::AspectRatio16_9 );
             #undef make_ratio_action
