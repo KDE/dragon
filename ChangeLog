@@ -6,6 +6,7 @@
    V for Volume
    In the FullScreen mode, the volume disappear (bug fix)
    Added the modality to have the video of the window dimentions
+   Whishlist #158737. PageUP bring you 10% forward, PageDOWN 10% backward
 
 2.0.1
    Removed the locking of the volumeSlider if the mute is active
