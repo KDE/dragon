@@ -238,6 +238,16 @@ MainWindow::~MainWindow()
     delete videoWindow(); //fades out sound in dtor
 }
 
+void MainWindow::wheelEvent (QWheelEvent *event)
+ {
+    if (event->delta() > 0) {
+	engine()->tenForward();
+      } else {
+	engine()->tenBack();
+    }
+    event->accept();
+ }
+
 void
 MainWindow::setupActions()
 {
@@ -315,6 +325,18 @@ MainWindow::setupActions()
     next_chapter->setShortcut( Qt::Key_Period );
     connect( next_chapter, SIGNAL( triggered() ), engine(), SLOT( nextChapter() ) );
     addToAc( next_chapter )
+
+    KAction* tenBack = new KAction( KIcon("frame-image"), i18n("Return 10% back"), ac );
+    tenBack->setObjectName( "ten_back" );
+    tenBack->setShortcut( Qt::Key_PageDown );
+    connect( tenBack, SIGNAL( triggered() ), engine(), SLOT( tenBack() ) );
+    addToAc( tenBack )
+
+    KAction* tenForward = new KAction( KIcon("frame-image"), i18n("Go 10% forward"), ac );
+    tenForward->setObjectName( "ten_forward" );
+    tenForward->setShortcut( Qt::Key_PageUp );
+    connect( tenForward, SIGNAL( triggered() ), engine(), SLOT( tenForward() ) );
+    addToAc( tenForward )
 
     #undef addToAc
 }

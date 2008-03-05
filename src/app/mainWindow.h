@@ -115,6 +115,9 @@ namespace Codeine
       //undefined
       MainWindow( const MainWindow& );
       MainWindow &operator=( const MainWindow& );
+
+   protected:
+      void wheelEvent ( QWheelEvent * event );
    };
 
 }

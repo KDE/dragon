@@ -475,6 +475,7 @@ VideoWindow::newPositionSlider()
     seekSlider->setMediaObject( m_media );
     return seekSlider;
 }
+
 QWidget*
 VideoWindow::newVolumeSlider()
 {
@@ -702,6 +703,22 @@ void
 VideoWindow::nextChapter()
   {
     m_controller->setCurrentChapter(m_controller->currentChapter() + 1);
+  }
+
+void
+VideoWindow::tenBack()
+  {
+    qint64 newTime = m_media->currentTime() - (m_media->totalTime() / 10);
+    if (newTime > 0)
+	m_media -> seek (newTime);
+  }
+
+void
+VideoWindow::tenForward()
+  {
+    qint64 newTime = m_media->currentTime() + (m_media->totalTime() / 10);
+    if (newTime < m_media->totalTime())
+	m_media -> seek (newTime);
   }
 
 ///////////
