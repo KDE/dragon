@@ -240,9 +240,9 @@ MainWindow::~MainWindow()
 void MainWindow::wheelEvent (QWheelEvent *event)
  {
     if (event->delta() > 0) {
-	engine()->tenForward();
-      } else {
 	engine()->tenBack();
+      } else {
+	engine()->tenForward();
     }
     event->accept();
  }
