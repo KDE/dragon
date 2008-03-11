@@ -325,12 +325,14 @@ MainWindow::setupActions()
     connect( next_chapter, SIGNAL( triggered() ), engine(), SLOT( nextChapter() ) );
     addToAc( next_chapter )
 
+    // xgettext: no-c-format
     KAction* tenBack = new KAction( KIcon("frame-image"), i18n("Return 10% back"), ac );
     tenBack->setObjectName( "ten_back" );
     tenBack->setShortcut( Qt::Key_PageDown );
     connect( tenBack, SIGNAL( triggered() ), engine(), SLOT( tenBack() ) );
     addToAc( tenBack )
 
+    // xgettext: no-c-format
     KAction* tenForward = new KAction( KIcon("frame-image"), i18n("Go 10% forward"), ac );
     tenForward->setObjectName( "ten_forward" );
     tenForward->setShortcut( Qt::Key_PageUp );
