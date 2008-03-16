@@ -25,6 +25,7 @@
 
 #include <KUrl>
 #include <KLocale>
+#include <Phonon/MediaController>
 #include <Phonon/MediaObject>
 #include <Phonon/MediaSource>
 #include <Phonon/VideoWidget>
@@ -115,19 +116,13 @@ namespace Codeine
     int
     TheStream::subtitleChannel()
     {
-        if( engine()->m_xineStream )
-            return xine_get_param( engine()->m_xineStream, XINE_PARAM_SPU_CHANNEL );
-        else
-            return -1; //off
+        return engine()->m_controller->currentSubtitleStream().index();
     }
 
     int
     TheStream::audioChannel()
     {
-        if( engine()->m_xineStream )
-            return xine_get_param( engine()->m_xineStream, XINE_PARAM_AUDIO_CHANNEL_LOGICAL );
-        else
-            return -1; //auto
+        return engine()->m_controller->currentAudioStream().index();
     }
 
     void

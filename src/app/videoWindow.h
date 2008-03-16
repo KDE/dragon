@@ -28,6 +28,7 @@
 #include <QWidget>
 
 #include <Phonon/Path>
+#include <Phonon/ObjectDescription>
 #include <Solid/Device>
 #include <KUrl>
 
@@ -77,6 +78,10 @@ namespace Codeine
         friend class TheStream;
         friend VideoWindow* const engine();
         friend VideoWindow* const videoWindow();
+
+        template<class ChannelDescription>
+        void updateActionGroup( QActionGroup* channelActions, const QList<ChannelDescription>& availableChannels
+            , const char* actionSlot );
 
     public:
         VideoWindow( QWidget *parent );

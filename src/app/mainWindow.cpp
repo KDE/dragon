@@ -649,6 +649,7 @@ MainWindow::aboutToShowMenu()
                 subAction->setChecked( true );
                 break;
             }
+            debug() << subAction->property( TheStream::CHANNEL_PROPERTY ).toInt() << " not checked.";
         }
     }
     {

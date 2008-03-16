@@ -103,6 +103,8 @@ VideoWindow::VideoWindow( QWidget *parent )
     connect( m_media, SIGNAL( hasVideoChanged( bool ) ), m_vWidget, SLOT( setVisible( bool ) ) ); //hide video widget if no video to show
     connect( m_media, SIGNAL( hasVideoChanged( bool ) ), m_logo, SLOT( setHidden( bool ) ) );
 
+    connect( m_controller, SIGNAL( availableSubtitlesChanged() ), this, SLOT( updateChannels() ) );
+
     {
         m_subLanguages->setExclusive( true );
         QAction* turnOff = new QAction( i18n("&DVD Subtitle Selection"), m_subLanguages );
@@ -125,12 +127,6 @@ VideoWindow::VideoWindow( QWidget *parent )
     }
 
     connect( m_media, SIGNAL(stateChanged(Phonon::State,Phonon::State)), this, SLOT(stateChanged(Phonon::State,Phonon::State)) );
-    {
-        QTimer *timer = new QTimer( this );
-        timer->setInterval( 5 * 1000 );
-        connect( timer, SIGNAL( timeout() ), this, SLOT( updateChannels() ) );
-        timer->start();
-    }
     connect( m_cursorTimer, SIGNAL( timeout() ), this, SLOT( hideCursor() ) );
     m_cursorTimer->setSingleShot( true );
     {
@@ -140,9 +136,9 @@ VideoWindow::VideoWindow( QWidget *parent )
         m_logo->setPalette( pal );
         QLayout* layout = new QVBoxLayout( m_logo );
         layout->setAlignment( Qt::AlignCenter );
-        QLabel* logoImage = new QLabel( m_logo );
-        logoImage->setPixmap( KStandardDirs::locate( "appdata",  "dragonlogo.png" ) );
-        layout->addWidget( logoImage );
+//        QLabel* logoImage = new QLabel( m_logo );
+//        logoImage->setPixmap( KStandardDirs::locate( "appdata",  "dragonlogo.png" ) );
+//        layout->addWidget( logoImage );
         m_logo->setLayout( layout );
         box->addWidget( m_logo );
         m_logo->show();
@@ -575,56 +571,35 @@ VideoWindow::loadSettings()
     }
 }
 
+template<class ChannelDescription> void
+VideoWindow::updateActionGroup( QActionGroup* channelActions
+    , const QList<ChannelDescription>& availableChannels
+    , const char* actionSlot )
+{
+    {
+        QList<QAction*> subActions = channelActions->actions();
+        while( 2 < subActions.size() )
+            delete subActions.takeLast();
+    }
+    foreach( ChannelDescription channel, availableChannels )
+    {
+        QAction* lang = new QAction( channelActions );
+        debug() << "the text is: \"" << channel.name() << "\" and index " << channel.index();
+        lang->setCheckable( true );
+        lang->setText( channel.name() );
+        lang->setProperty( TheStream::CHANNEL_PROPERTY, channel.index() );
+        connect( lang, SIGNAL( triggered() ), this, actionSlot );
+    }
+}
+
 void
 VideoWindow::updateChannels()
 {
-    static xine_stream_t* lastStream = 0;
-    static int lastSubChannels = 0;
-    static int lastAudioChannels = 0;
-    if( m_xineStream )
-    {
-        int channels;
-        #define LOAD_CHANNELS( STREAM_INFO, lastChannels, actiongroup, xine_get_lang, slotSet, signalChannelsChanged ) \
-        channels = xine_get_stream_info( m_xineStream, XINE_STREAM_INFO_MAX_SPU_CHANNEL ); \
-        if( (lastStream != m_xineStream ) || ( channels != lastChannels ) ) \
-        { \
-            lastChannels = channels; \
-            lastStream = m_xineStream; \
-            { \
-                QList<QAction*> subActions = actiongroup->actions(); \
-                while( 2 < subActions.size() ) \
-                    delete subActions.takeLast(); \
-            } \
-            debug() << "\033[0;43mOne xine stream pls: " << m_xineStream << "\033[0m" << ' ' << channels; \
-            for( int j = 0; j < channels; j++ ) \
-            { \
-                char s[128]; \
-                QAction* lang = new QAction( actiongroup ); \
-                lang->setCheckable( true ); \
-                lang->setText( xine_get_lang( m_xineStream, j, s ) ? s : i18n("Channel %1", j+1 ) ); \
-                debug() << "added language " << lang->text(); \
-                lang->setProperty( TheStream::CHANNEL_PROPERTY, j ); \
-                connect( lang, SIGNAL( triggered() ), this, SLOT( slotSet() ) ); \
-                actiongroup->addAction( lang ); \
-            } \
-            emit signalChannelsChanged( actiongroup->actions() ); \
-        }
-        LOAD_CHANNELS( XINE_STREAM_INFO_MAX_SPU_CHANNEL
-            , lastSubChannels
-            , m_subLanguages
-            , xine_get_spu_lang
-            , slotSetSubtitle
-            , subChannelsChanged )
-        LOAD_CHANNELS( XINE_STREAM_INFO_MAX_AUDIO_CHANNEL
-            , lastAudioChannels
-            , m_audioLanguages
-            , xine_get_audio_lang
-            , slotSetAudio
-            , audioChannelsChanged )
-        #undef LOAD_CHANNELS
-    }
-    else
-        debug() << "\033[0;43mWhy is there no m_xineStream?\033[0m" << m_media->state();
+    DEBUG_BLOCK
+    updateActionGroup( m_subLanguages, m_controller->availableSubtitleStreams(), SLOT( slotSetSubtitle() ) );
+    emit subChannelsChanged( m_subLanguages->actions() );
+    updateActionGroup( m_audioLanguages, m_controller->availableAudioStreams(), SLOT( slotSetAudio() ) );
+    emit audioChannelsChanged( m_audioLanguages->actions() );
 }
 
 void
@@ -635,27 +610,39 @@ VideoWindow::hideCursor()
        kapp->setOverrideCursor( Qt::BlankCursor );
 }
 
-#define SLOT_SET_CHANNEL( settingFunction, slotFunction, XINE_PARAM_CHANNEL )                                                            \
-void                                                                                                                \
-VideoWindow::settingFunction( int channel )                                                                                             \
-{                                                                                                                   \
-    debug() << " function ";                                                                                        \
-    if( m_xineStream )                                                                                              \
-    {                                                                                                               \
-        xine_set_param( m_xineStream, XINE_PARAM_CHANNEL, channel );                                                \
-    }                                                                                                               \
-}                                                                                                                   \
-void                                                                                                                \
-VideoWindow::slotFunction()                                                                                         \
-{                                                                                                                   \
-    if( sender() && sender()->property( TheStream::CHANNEL_PROPERTY ).canConvert<int>() )                           \
-        settingFunction( sender()->property( TheStream::CHANNEL_PROPERTY ).toInt() );                               \
+void
+VideoWindow::setSubtitle( int channel )
+{
+    DEBUG_BLOCK
+    Phonon::SubtitleStreamDescription desc = Phonon::SubtitleStreamDescription::fromIndex( channel );
+    debug() << "using index: " << channel << " returned desc has index: " << desc.index();
+    m_controller->setCurrentSubtitleStream( desc );
 }
 
+void
+VideoWindow::slotSetSubtitle()
+{
+    DEBUG_BLOCK
+    if( sender() && sender()->property( TheStream::CHANNEL_PROPERTY ).canConvert<int>() )
+        setSubtitle( sender()->property( TheStream::CHANNEL_PROPERTY ).toInt() );
+}
 
-SLOT_SET_CHANNEL( setSubtitle, slotSetSubtitle, XINE_PARAM_SPU_CHANNEL )
-SLOT_SET_CHANNEL( setAudioChannel, slotSetAudio, XINE_PARAM_AUDIO_CHANNEL_LOGICAL )
-#undef SLOT_SET_CHANNEL
+void
+VideoWindow::setAudioChannel( int channel )
+{
+    DEBUG_BLOCK
+    Phonon::AudioStreamDescription desc = Phonon::AudioStreamDescription::fromIndex( channel );
+    debug() << "using index: " << channel << " returned desc has index: " << desc.index();
+    m_controller->setCurrentAudioStream( desc );
+}
+
+void
+VideoWindow::slotSetAudio()
+{
+    DEBUG_BLOCK
+    if( sender() && sender()->property( TheStream::CHANNEL_PROPERTY ).canConvert<int>() )
+        setAudioChannel( sender()->property( TheStream::CHANNEL_PROPERTY ).toInt() );
+}
 
 void
 VideoWindow::toggleDVDMenu()
