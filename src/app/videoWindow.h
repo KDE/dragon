@@ -95,7 +95,7 @@ namespace Codeine
         bool playDvd();
         bool playDisc( const Solid::Device& );
         bool isMuted();
-
+        bool mouseUnderWidget();
         void relativeSeek( qint64 );
 
         qint64 length() const;

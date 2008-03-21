@@ -215,6 +215,13 @@ VideoWindow::resume()
 }
 
 bool
+VideoWindow::mouseUnderWidget()
+{
+	return m_vWidget->underMouse();
+}
+
+
+bool
 VideoWindow::playDvd()
 {
     eject();
@@ -606,7 +613,7 @@ void
 VideoWindow::hideCursor()
 {
    DEBUG_BLOCK
-   if(m_media->hasVideo())
+   if(m_media->hasVideo() && m_vWidget->underMouse() )
        kapp->setOverrideCursor( Qt::BlankCursor );
 }
 

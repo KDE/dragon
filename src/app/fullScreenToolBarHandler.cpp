@@ -136,10 +136,9 @@ void
 Codeine::FullScreenToolBarHandler::timerEvent( QTimerEvent* )
 {
     if (m_stay_hidden_for_a_bit)
-
         ;
 
-    else if ( !m_toolbar->testAttribute( Qt::WA_UnderMouse ) ){
+    else if ( videoWindow()->mouseUnderWidget() ){
         static_cast<Codeine::MainWindow*>( Codeine::mainWindow() )->showVolume( false );
         m_toolbar->hide();
         }
