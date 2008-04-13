@@ -6,6 +6,7 @@ X-KDE-Priority=TopLevel
 
 [Desktop Action Play]
 Name=Play DVD with Dragon Player
+Name[ca]=Reprodueix DVD amb el Dragon Player
 Name[da]=Afspil dvd med Dragon Player
 Name[el]=Αναπαραγωγή DVD με το Dragon
 Name[ga]=Seinn DVD le Dragon Player
