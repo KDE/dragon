@@ -150,6 +150,7 @@ MainWindow::MainWindow()
             make_ratio_action( i18n( "Determine &Automatically" ), "ratio_auto",  Phonon::VideoWidget::AspectRatioAuto );
             make_ratio_action( i18n( "&4:3" ), "ratio_golden", Phonon::VideoWidget::AspectRatio4_3 );
             make_ratio_action( i18n( "Ana&morphic (16:9)" ), "ratio_anamorphic", Phonon::VideoWidget::AspectRatio16_9 );
+	    make_ratio_action( i18n( "&Window Size" ), "ratio_window", Phonon::VideoWidget::AspectRatioWidget );
             #undef make_ratio_action
             ac->action( "ratio_auto" )->setChecked( true );
             ac->action( "aspect_ratio_menu" )->menu()->addActions( m_aspectRatios->actions() );
