@@ -603,9 +603,9 @@ void
 VideoWindow::updateChannels()
 {
     DEBUG_BLOCK
-    updateActionGroup( m_subLanguages, m_controller->availableSubtitleStreams(), SLOT( slotSetSubtitle() ) );
+    updateActionGroup( m_subLanguages, m_controller->availableSubtitles(), SLOT( slotSetSubtitle() ) );
     emit subChannelsChanged( m_subLanguages->actions() );
-    updateActionGroup( m_audioLanguages, m_controller->availableAudioStreams(), SLOT( slotSetAudio() ) );
+    updateActionGroup( m_audioLanguages, m_controller->availableAudioChannels(), SLOT( slotSetAudio() ) );
     emit audioChannelsChanged( m_audioLanguages->actions() );
 }
 
@@ -621,9 +621,9 @@ void
 VideoWindow::setSubtitle( int channel )
 {
     DEBUG_BLOCK
-    Phonon::SubtitleStreamDescription desc = Phonon::SubtitleStreamDescription::fromIndex( channel );
+    Phonon::SubtitleDescription desc = Phonon::SubtitleDescription::fromIndex( channel );
     debug() << "using index: " << channel << " returned desc has index: " << desc.index();
-    m_controller->setCurrentSubtitleStream( desc );
+    m_controller->setCurrentSubtitle( desc );
 }
 
 void
@@ -638,9 +638,9 @@ void
 VideoWindow::setAudioChannel( int channel )
 {
     DEBUG_BLOCK
-    Phonon::AudioStreamDescription desc = Phonon::AudioStreamDescription::fromIndex( channel );
+    Phonon::AudioChannelDescription desc = Phonon::AudioChannelDescription::fromIndex( channel );
     debug() << "using index: " << channel << " returned desc has index: " << desc.index();
-    m_controller->setCurrentAudioStream( desc );
+    m_controller->setCurrentAudioChannel( desc );
 }
 
 void

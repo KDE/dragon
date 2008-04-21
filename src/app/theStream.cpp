@@ -116,13 +116,13 @@ namespace Codeine
     int
     TheStream::subtitleChannel()
     {
-        return engine()->m_controller->currentSubtitleStream().index();
+        return engine()->m_controller->currentSubtitle().index();
     }
 
     int
     TheStream::audioChannel()
     {
-        return engine()->m_controller->currentAudioStream().index();
+        return engine()->m_controller->currentAudioChannel().index();
     }
 
     void
