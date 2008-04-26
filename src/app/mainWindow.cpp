@@ -562,7 +562,7 @@ DEBUG_BLOCK
     {
         QList< Solid::Device > deviceList = Solid::Device::listFromType( Solid::DeviceInterface::OpticalDisc );
         
-        foreach( Solid::Device device, deviceList )
+        foreach( const Solid::Device &device, deviceList )
         {
             const Solid::OpticalDisc* disc = device.as<const Solid::OpticalDisc>();
             if( disc )

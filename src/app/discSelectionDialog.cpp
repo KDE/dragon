@@ -93,7 +93,7 @@ DiscSelectionDialog::DiscSelectionDialog( QWidget* parent, const QList< Solid::D
     setCaption( i18n("Select a Disc") );
     
     QLabel* questionLabel = new QLabel( i18n( "Select a disc to play." ) );
-    foreach( const Solid::Device device, deviceList )
+    foreach( const Solid::Device &device, deviceList )
     {
         new SolidListItem( m_listWidget, device );
     }

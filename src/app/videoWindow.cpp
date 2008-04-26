@@ -588,7 +588,7 @@ VideoWindow::updateActionGroup( QActionGroup* channelActions
         while( 2 < subActions.size() )
             delete subActions.takeLast();
     }
-    foreach( ChannelDescription channel, availableChannels )
+    foreach( const ChannelDescription &channel, availableChannels )
     {
         QAction* lang = new QAction( channelActions );
         debug() << "the text is: \"" << channel.name() << "\" and index " << channel.index();

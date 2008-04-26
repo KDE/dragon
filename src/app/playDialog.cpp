@@ -100,10 +100,10 @@ PlayDialog::createRecentFileWidget( QGridLayout *layout )
     const QStringList list1 = KConfigGroup( KGlobal::config(), "General" ).readPathEntry( "Recent Urls", QStringList() );
     KUrl::List urls;
 
-    foreach( QString s, list1 )
+    foreach( const QString &s, list1 )
         urls.prepend(s); //copy the stringlist individually into a KURL list in reverse order
 
-    foreach( KUrl it, urls) {
+    foreach( const KUrl &it, urls) {
         while( urls.count( it ) > 1 )
             urls.removeAt( urls.indexOf(it) );
         if( it.protocol() == "file" && !QFile::exists( it.path() ) )
