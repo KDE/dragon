@@ -370,13 +370,13 @@ VideoWindow::state( Phonon::State state ) const
         case Phonon::StoppedState:
             return Engine::TrackEnded;
         break;
-        case Phonon::BufferingState:
         case Phonon::LoadingState:
             return Engine::Loaded;
+		break;
         case Phonon::PlayingState:
             return Engine::Playing;
         break;
-
+        case Phonon::BufferingState:
         case Phonon::PausedState:
             return Engine::Paused;
         break;
@@ -515,8 +515,11 @@ debug() << "chapters: " << m_controller->availableChapters() << " titles: " << m
     QStringList states;
     states << "Loading" << "Stopped" << "Playing" << "Buffering" << "Paused" << "Error";
     debug() << "going from " << states.at(oldstate) << " to " << states.at(currentState);
+
     if( currentState == Phonon::LoadingState )
         m_xineStream = 0;
+
+    //N.B this code is also run when coming out of Paused state, as Phonon goes Paused->Buffering->Playing (but at least this saves doing it twice)
     if( currentState == Phonon::PlayingState && oldstate != Phonon::PausedState && m_media->hasVideo() )
     {
         m_logo->hide();
@@ -525,8 +528,6 @@ debug() << "chapters: " << m_controller->availableChapters() << " titles: " << m
         updateChannels();
         //m_vWidget->updateGeometry();
         //updateGeometry();
-        if( mainWindow() )
-            ( (QWidget*) mainWindow() )->adjustSize();
         
     }
     emit stateChanged( state( currentState ) ); 
