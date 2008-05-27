@@ -34,7 +34,7 @@ target_link_libraries(dragon
     ${KDE4_PHONON_LIBS}
     ${XINE_LIBRARY} )
 
-install(TARGETS dragon DESTINATION ${BIN_INSTALL_DIR})
+install(TARGETS dragon ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 set(videoplayer_part_SRCS
     ${videoplayer_common_SRCS}
