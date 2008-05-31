@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1.2-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
   <!ENTITY kappname "&codeine;">
   <!ENTITY codeine "<application>Dragon Player</application>">
 
@@ -33,9 +33,8 @@ as Authors, publish date, the abstract, and Keywords -->
 <address><email>imonroe@dragonplayer.org</email></address>
 </affiliation>
 </author>
-</authorgroup>
-
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
+</authorgroup>
 
 <copyright>
 <year>2004</year>
@@ -64,7 +63,7 @@ Do NOT change these in the translation. -->
 
 <abstract>
 <para>
-&codeine; is a simple video player for KDE.
+&codeine; is a simple video player for &kde;.
 </para>
 </abstract>
 
@@ -349,6 +348,8 @@ Documentation copyright 2004 Mike Diehl <email>madpenguin8@yahoo.com</email>
 Documentation copyright 2007 Ian Monroe <email>imonroe@dragonplayer.org</email>
 </para>
 
+
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
 &underFDL;
 
 </sect1>
@@ -378,7 +379,7 @@ Documentation copyright 2007 Ian Monroe <email>imonroe@dragonplayer.org</email>
 <title>How to obtain &codeine;</title>
 
 <para>
-&codeine; is not yet part of the KDE project, it can be found at:
+&codeine; is not yet part of the &kde; project, it can be found at:
 <ulink url="http://www.dragonplayer.org">http://www.dragonplayer.org</ulink>.
 </para>
 </sect1>
