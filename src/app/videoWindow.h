@@ -64,6 +64,7 @@ namespace Codeine
 
         QTimer* m_cursorTimer;
         bool m_justLoaded;
+		bool m_adjustedSize;
         xine_stream_t* m_xineStream;
         QActionGroup* m_subLanguages;
         QActionGroup* m_audioLanguages;

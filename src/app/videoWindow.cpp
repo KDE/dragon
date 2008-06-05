@@ -73,6 +73,7 @@ VideoWindow::VideoWindow( QWidget *parent )
         : QWidget( parent )
         , m_cursorTimer( new QTimer( this ) )
         , m_justLoaded( false )
+		, m_adjustedSize( false)
         , m_xineStream( 0 )
         , m_subLanguages( new QActionGroup( this ) )
         , m_audioLanguages( new QActionGroup( this ) )
@@ -192,6 +193,7 @@ VideoWindow::load( const KUrl &url )
     eject();
     m_media->setCurrentSource( url );
     m_justLoaded = true;
+	m_adjustedSize=false;
     return true;
 }
 
@@ -519,6 +521,8 @@ debug() << "chapters: " << m_controller->availableChapters() << " titles: " << m
     if( currentState == Phonon::LoadingState )
         m_xineStream = 0;
 
+
+
     //N.B this code is also run when coming out of Paused state, as Phonon goes Paused->Buffering->Playing (but at least this saves doing it twice)
     if( currentState == Phonon::PlayingState && oldstate != Phonon::PausedState && m_media->hasVideo() )
     {
@@ -526,6 +530,13 @@ debug() << "chapters: " << m_controller->availableChapters() << " titles: " << m
         m_vWidget->show();
         refreshXineStream();
         updateChannels();
+
+		if(m_adjustedSize==false)
+		{
+		  ( (QWidget*) mainWindow() )->adjustSize();
+		  m_adjustedSize=true;
+		  debug() << "adjusting siaze to video resolution";
+		}
         //m_vWidget->updateGeometry();
         //updateGeometry();
         
