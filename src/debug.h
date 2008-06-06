@@ -33,6 +33,8 @@
 #include <KConfig>
 #include <KConfigGroup>
 #include <KDebug>
+#include <KCmdLineArgs>
+
 #include <QApplication>
 #include <QObject>
 
@@ -101,6 +103,12 @@ namespace Debug
 
     inline bool debugEnabled()
     {
+		KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+        if(args->isSet("debug"))
+        {
+			return true;
+        }
+
         KConfigGroup config = KGlobal::config()->group( "General" );
         const bool debug = config.readEntry( "Debug Enabled", false );
         return debug;

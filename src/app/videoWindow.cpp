@@ -368,17 +368,16 @@ VideoWindow::state( Phonon::State state ) const
     }; */
     switch( state )
     {
-
         case Phonon::StoppedState:
             return Engine::TrackEnded;
         break;
+        case Phonon::BufferingState:
         case Phonon::LoadingState:
             return Engine::Loaded;
 		break;
         case Phonon::PlayingState:
             return Engine::Playing;
         break;
-        case Phonon::BufferingState:
         case Phonon::PausedState:
             return Engine::Paused;
         break;
@@ -522,7 +521,6 @@ debug() << "chapters: " << m_controller->availableChapters() << " titles: " << m
         m_xineStream = 0;
 
 
-
     //N.B this code is also run when coming out of Paused state, as Phonon goes Paused->Buffering->Playing (but at least this saves doing it twice)
     if( currentState == Phonon::PlayingState && oldstate != Phonon::PausedState && m_media->hasVideo() )
     {
@@ -535,7 +533,7 @@ debug() << "chapters: " << m_controller->availableChapters() << " titles: " << m
 		{
 		  ( (QWidget*) mainWindow() )->adjustSize();
 		  m_adjustedSize=true;
-		  debug() << "adjusting siaze to video resolution";
+		  debug() << "adjusting size to video resolution";
 		}
         //m_vWidget->updateGeometry();
         //updateGeometry();
@@ -831,8 +829,11 @@ DEBUG_BLOCK
     profile.writeEntry( "Saturation", m_vWidget->saturation() );
     profile.writeEntry( "IsVideo",m_media->hasVideo());
     {
+		debug() << "trying to fetch subtitle information";
         const int subtitle = TheStream::subtitleChannel();
         const int audio = TheStream::audioChannel();
+		debug() << "fetched subtitle information";
+
 
         if( subtitle != -1 )
             profile.writeEntry( "Subtitle", subtitle );
