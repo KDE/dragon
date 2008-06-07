@@ -829,10 +829,13 @@ DEBUG_BLOCK
     profile.writeEntry( "Saturation", m_vWidget->saturation() );
     profile.writeEntry( "IsVideo",m_media->hasVideo());
     {
-		debug() << "trying to fetch subtitle information";
-        const int subtitle = TheStream::subtitleChannel();
-        const int audio = TheStream::audioChannel();
-		debug() << "fetched subtitle information";
+        //this if clause - is to prevent a crash from bug 162721 (a Phonon bug), remove when fixed
+        if(m_media->hasVideo())
+        {
+          debug() << "trying to fetch subtitle information";
+          const int subtitle = TheStream::subtitleChannel();
+          const int audio = TheStream::audioChannel();
+          debug() << "fetched subtitle information";
 
 
         if( subtitle != -1 )
@@ -844,6 +847,8 @@ DEBUG_BLOCK
             profile.writeEntry( "AudioChannel", audio );
         else
             profile.deleteEntry( "AudioChannel" );
+        }
+
     }
     profile.sync();
 }
