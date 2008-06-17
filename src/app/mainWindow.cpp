@@ -531,6 +531,8 @@ MainWindow::playDialogResult( int result )
         QStringList mimeFilter=Phonon::BackendCapabilities::availableMimeTypes();
         //temporary fixes for MimeTypes that Xine does support but it doesn't return - this is a Xine bug.
         mimeFilter << "audio/x-flac";
+        mimeFilter << "video/mp4";
+
         const KUrl url = KFileDialog::getOpenUrl( KUrl("kfiledialog:///dragonplayer"),mimeFilter.join(" "), this, i18n("Select A File To Play") );
         if( url.isEmpty() )
         {
