@@ -110,6 +110,7 @@ namespace Codeine
       QPointer<PlayDialog> m_playDialog;
       FullScreenAction *m_fullScreenAction;
       KNotificationRestrictions *m_stopScreenSaver;
+	  bool	m_toolbarIsHidden;
 
       QActionGroup *m_aspectRatios;
       //undefined

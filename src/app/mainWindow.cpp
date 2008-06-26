@@ -94,6 +94,7 @@ MainWindow::MainWindow()
         , m_playDialog( 0 )
         , m_fullScreenAction( 0 )
         , m_stopScreenSaver( 0 )
+		, m_toolbarIsHidden(false)
 {
     DEBUG_BLOCK
     s_instance = this;
@@ -606,11 +607,17 @@ MainWindow::setFullScreen( bool isFullScreen )
     DEBUG_BLOCK
     debug() << "Setting full screen to " << isFullScreen;
     mainWindow()->setWindowState( mainWindow()->windowState() ^ Qt::WindowFullScreen );
-    //setWindowState( windowState() & ( full ? Qt::WindowFullScreen : ~Qt::WindowFullScreen ) );
     static FullScreenToolBarHandler *s_handler;
 
-    //toolBar()->setMovingEnabled( !isFullScreen );
-    toolBar()->setHidden( isFullScreen );
+	if(isFullScreen)
+	{
+	  m_toolbarIsHidden=toolBar()->isHidden();
+	  toolBar()->setHidden( false );
+	}
+	else
+	{
+	  toolBar()->setHidden(m_toolbarIsHidden);
+	}
     menuBar()->setHidden( isFullScreen );
     statusBar()->setHidden( isFullScreen );
     if( m_leftDock )
