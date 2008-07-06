@@ -148,7 +148,9 @@ namespace Codeine
             const QString n = url.fileName();
             //toLatin1 sense fromPercentEncoding takes a QByteArray
             //I'm not sure about this whole method though, should double check that titles make sense
-            return QUrl::fromPercentEncoding( n.left( n.lastIndexOf( '.' ) ).replace( '_', ' ' ).toLatin1() ); //krazy:exclude-qclasses
+            //using QString::toLatin1() will display "????" in titlelabel. Should be QString::toUtf8().   patched by nihui, Jul.6th, 2008
+            return QUrl::fromPercentEncoding( n.left( n.lastIndexOf( '.' ) ).replace( '_', ' ' ).toUtf8() ); //krazy:exclude-qclasses
+
         }
         else
             return url.prettyUrl();

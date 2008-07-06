@@ -95,6 +95,7 @@ void
 PlayDialog::createRecentFileWidget( QGridLayout *layout )
 {
     QListWidget *lv = new Codeine::ListView( this );
+    lv->setSelectionMode(QAbstractItemView::SingleSelection);
 //    lv->setColumnText( 1, i18n("Recently Played Media") );
 
     const QStringList list1 = KConfigGroup( KGlobal::config(), "General" ).readPathEntry( "Recent Urls", QStringList() );
