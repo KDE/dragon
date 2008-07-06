@@ -174,7 +174,7 @@ namespace Codeine
     {
 	QString s;
 
-        foreach( QString str, entries )
+        foreach( const QString& str, entries )
             if( !str.isEmpty() )
                 s += str;
 
