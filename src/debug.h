@@ -104,7 +104,7 @@ namespace Debug
     inline bool debugEnabled()
     {
 		KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-        if(args->isSet("debug"))
+        if(args->appName() == "dragon" && args->isSet("debug"))
         {
 			return true;
         }
