@@ -476,7 +476,7 @@ MainWindow::load( const KUrl &url )
         //#define UDS_LOCAL_PATH (72 | KIO::UDS_STRING)
         KIO::UDSEntry e;
         if (!KIO::NetAccess::stat( url, e, 0 ))
-            MessageBox::sorry( "There was an internal error with the media slave..." );
+            MessageBox::sorry( i18n("There was an internal error with the media slave...") );
         else {
             QString path = e.stringValue( KIO::UDSEntry::UDS_LOCAL_PATH );
             if( !path.isEmpty() )
