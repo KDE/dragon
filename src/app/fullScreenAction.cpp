@@ -32,6 +32,7 @@ FullScreenAction::FullScreenAction( QWidget* window, KActionCollection *parent )
 {
     setObjectName( "fullscreen" );
     setShortcut( Qt::Key_F );
+    setAutoRepeat(false);
     parent->addAction( objectName(), this );
 }
 
