@@ -42,11 +42,13 @@
 #include <KApplication>
 #include <KLocale>
 #include <KMenu>
+#include <KMimeType>
 #include <KStandardDirs>
 
 #include <Phonon/AudioOutput>
 #include <Phonon/MediaController>
 #include <Phonon/MediaObject>
+#include <Phonon/MediaSource>
 #include <Phonon/Path>
 #include <Phonon/SeekSlider>
 #include <Phonon/VideoWidget>
@@ -191,9 +193,15 @@ VideoWindow::load( const KUrl &url )
     DEBUG_BLOCK
     mxcl::WaitCursor allocateOnStack;
     eject();
-    m_media->setCurrentSource( url );
+
+    KMimeType::Ptr mimeType = KMimeType::findByUrl( url );
+    kDebug() << "detected mimetype: " << mimeType->name();
+    if( mimeType->is( "application/x-cd-image" ) )
+        m_media->setCurrentSource( Phonon::MediaSource( Phonon::Dvd, url.path() ) );
+    else
+        m_media->setCurrentSource( url );
     m_justLoaded = true;
-	m_adjustedSize=false;
+    m_adjustedSize=false;
     return true;
 }
 

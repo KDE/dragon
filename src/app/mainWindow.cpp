@@ -533,6 +533,7 @@ MainWindow::playDialogResult( int result )
         //temporary fixes for MimeTypes that Xine does support but it doesn't return - this is a Xine bug.
         mimeFilter << "audio/x-flac";
         mimeFilter << "video/mp4";
+        mimeFilter << "application/x-cd-image"; // added for *.iso images
 
         const KUrl url = KFileDialog::getOpenUrl( KUrl("kfiledialog:///dragonplayer"),mimeFilter.join(" "), this, i18n("Select A File To Play") );
         if( url.isEmpty() )
