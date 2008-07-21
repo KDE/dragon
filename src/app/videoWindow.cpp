@@ -195,8 +195,8 @@ VideoWindow::load( const KUrl &url )
     eject();
 
     KMimeType::Ptr mimeType = KMimeType::findByUrl( url );
-    kDebug() << "detected mimetype: " << mimeType->name();
-    if( mimeType->is( "application/x-cd-image" ) )
+    debug() << "detected mimetype: " << mimeType->name();
+    if( mimeType->is( "application/x-cd-image" ) || mimeType->is( "inode/directory" ) )
         m_media->setCurrentSource( Phonon::MediaSource( Phonon::Dvd, url.path() ) );
     else
         m_media->setCurrentSource( url );
