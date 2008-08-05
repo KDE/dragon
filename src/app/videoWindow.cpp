@@ -458,8 +458,7 @@ void
 VideoWindow::resetZoom()
 {
     TheStream::profile().deleteEntry( "Preferred Size" );
-    if( mainWindow() )
-        mainWindow()->adjustSize();
+    window()->adjustSize();
 }
 
 qint64
@@ -539,7 +538,7 @@ debug() << "chapters: " << m_controller->availableChapters() << " titles: " << m
 
 		if(m_adjustedSize==false)
 		{
-		  ( (QWidget*) mainWindow() )->adjustSize();
+                    window()->adjustSize();
 		  m_adjustedSize=true;
 		  debug() << "adjusting size to video resolution";
 		}
