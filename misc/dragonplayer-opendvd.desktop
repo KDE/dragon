@@ -1,0 +1,9 @@
+[Desktop Entry]
+X-KDE-Solid-Predicate=[[ StorageVolume.ignored == false AND OpticalDisc.availableContent == 'Data|VideoDvd' ] OR [ StorageVolume.ignored == false AND OpticalDisc.availableContent == 'Data|VideoDvd' ]]
+Type=Service
+Actions=open;
+
+[Desktop Action open]
+Name=Open with Video Player (Dragon Player)
+Exec=dragonplayer %f
+Icon=dragonplayer
