@@ -68,4 +68,4 @@ Comment[zh_TW]=嵌入式影像播放器
 X-KDE-ServiceTypes=KParts/ReadOnlyPart
 X-KDE-Library=dragonpart
 InitialPreference=9
-MimeType=video/x-theora;video/x-theora+ogg;video/x-ogm;video/x-ogm+ogg;video/x-ms-wmv;video/x-msvideo;video/x-ms-asf;video/x-matroska;video/mpeg;video/avi;video/quicktime;video/vnd.rn-realvideo;video/x-flic;video/mp4;
+MimeType=video/ogg;video/x-theora;video/x-theora+ogg;video/x-ogm;video/x-ogm+ogg;video/x-ms-wmv;video/x-msvideo;video/x-ms-asf;video/x-matroska;video/mpeg;video/avi;video/quicktime;video/vnd.rn-realvideo;video/x-flic;video/mp4;
