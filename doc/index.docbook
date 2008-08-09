@@ -112,8 +112,6 @@ consistent documentation style across all KDE apps. -->
 </chapter>
 
 
-
-
 <chapter id="commands">
 <title>Menu and Command Reference</title>
 
@@ -123,7 +121,7 @@ consistent documentation style across all KDE apps. -->
 <varlistentry>
 <term><menuchoice>
 <shortcut>
-<keycombo><keycap>Ctrl</keycap><keycap>o</keycap></keycombo>
+<keycombo>&Ctrl;<keycap>O</keycap></keycombo>
 </shortcut>
 <guimenu>Play</guimenu>
 <guimenuitem>Play Media...</guimenuitem>
@@ -137,16 +135,27 @@ consistent documentation style across all KDE apps. -->
 <keycombo><keycap>Space</keycap></keycombo>
 </shortcut>
 <guimenu>Play</guimenu>
-<guimenuitem>Play/Pause</guimenuitem>
+<guimenuitem>Play</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>If a movie is loaded, this option allows you to pause or resume playback.</action></para></listitem>
+<listitem><para><action>If a movie is loaded, this option allows you to pause playback.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo><keycap>S</keycap></keycombo>
+</shortcut>
+<guimenu>Play</guimenu>
+<guimenuitem>Stopp</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>If a movie is loaded, this option allows you to resume playback.</action></para></listitem>
 </varlistentry>
 
 
 <varlistentry>
 <term><menuchoice>
 <shortcut>
-<keycombo><keycap>Ctrl</keycap><keycap>q</keycap></keycombo>
+<keycombo>&Ctrl;<keycap>Q</keycap></keycombo>
 </shortcut>
 <guimenu>Play</guimenu>
 <guimenuitem>Quit</guimenuitem>
@@ -163,6 +172,9 @@ consistent documentation style across all KDE apps. -->
 
 <varlistentry>
 <term><menuchoice>
+<shortcut>
+<keycombo><keycap>F</keycap></keycombo>
+</shortcut>
 <guimenu>Settings</guimenu>
 <guimenuitem>Full Screen Mode</guimenuitem>
 </menuchoice></term>
@@ -174,7 +186,7 @@ consistent documentation style across all KDE apps. -->
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Aspect Ratio</guimenuitem>
+<guisubmenu>Aspect Ratio</guisubmenu>
 </menuchoice></term>
 <listitem><para><action>This menu lets you pick the aspect ratio of the playing movie. The aspect ratio is width of movie compared to the height.</action></para></listitem>
 </varlistentry>
@@ -182,7 +194,7 @@ consistent documentation style across all KDE apps. -->
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Subtitles</guimenuitem>
+<guisubmenu>Subtitles</guisubmenu>
 </menuchoice></term>
 <listitem><para><action>
 This menu is active if there are any subtitles available from the currently playing movie. Note that it may take a few seconds of playback before the subtitles become available.
@@ -192,10 +204,32 @@ This menu is active if there are any subtitles available from the currently play
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Audio Channels</guimenuitem>
+<guisubmenu>Audio Channels</guisubmenu>
 </menuchoice></term>
 <listitem><para><action>
 This menu is active if there are any additional audio channels available. For instance, some DVDs have additional languages. Note that it may take a few seconds of playback before the audio channels become available.
+</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo><keycap>R</keycap></keycombo>
+</shortcut>
+<guimenu>Settings</guimenu>
+<guimenuitem>Menu Toggle</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>
+    To be written</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Videosettings</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>
+    To be written
 </action></para></listitem>
 </varlistentry>
 
@@ -228,52 +262,9 @@ This menu is active if there are any additional audio channels available. For in
 
 <sect1 id="help_menu">
 <title>The Help Menu</title>
-<variablelist>
 
-<varlistentry>
-<term><menuchoice>
-<guimenu>Help</guimenu>
-<guimenuitem>&codeine; Handbook</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Opens this help document.</action></para></listitem>
-</varlistentry>
+&help.menu.documentation;
 
-<varlistentry>
-<term><menuchoice>
-<shortcut>
-<keycombo><keycap>Shift</keycap><keycap>F1</keycap></keycombo>
-</shortcut>
-<guimenu>Help</guimenu>
-<guimenuitem>What's This?</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Activates the "What's This?" mouse cursor allowing you to click an object to get a "What's this?" tooltip.</action></para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Help</guimenu>
-<guimenuitem>Report Bug...</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Starts the bug report tool dialog window.</action></para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Help</guimenu>
-<guimenuitem>About &codeine;</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Starts the About &codeine; dialog window.</action></para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Help</guimenu>
-<guimenuitem>About KDE</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Starts the About &kde; dialog window.</action></para></listitem>
-</varlistentry>
-
-</variablelist>
 </sect1>
 
 
@@ -379,7 +370,7 @@ Documentation copyright 2007 Ian Monroe <email>imonroe@dragonplayer.org</email>
 <title>How to obtain &codeine;</title>
 
 <para>
-&codeine; is not yet part of the &kde; project, it can be found at:
+&codeine; is part of the &kde; multimedia module, it can be found at:
 <ulink url="http://www.dragonplayer.org">http://www.dragonplayer.org</ulink>.
 </para>
 </sect1>
