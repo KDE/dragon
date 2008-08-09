@@ -5,5 +5,5 @@ Actions=open;
 
 [Desktop Action open]
 Name=Open with Video Player (Dragon Player)
-Exec=dragonplayer %f
+Exec=dragon --play-dvd
 Icon=dragonplayer
