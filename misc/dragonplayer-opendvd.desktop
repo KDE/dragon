@@ -5,5 +5,9 @@ Actions=open;
 
 [Desktop Action open]
 Name=Open with Video Player (Dragon Player)
+Name[pt]=Abrir com o Leitor de Vídeo (Dragon Player)
+Name[pt_BR]=Abrir com o Leitor de Vídeo (Dragon Player)
+Name[uk]=Відкрити у програвачі відео (Програвач Dragon)
+Name[zh_TW]=以影像播放器（神龍播放器）開啟
 Exec=dragon --play-dvd
 Icon=dragonplayer
