@@ -5,6 +5,9 @@ Actions=open;
 
 [Desktop Action open]
 Name=Open with Video Player (Dragon Player)
+Name[ga]=Oscail le seinnteoir físe (Dragon Player)
+Name[gl]=Abrir co reprodutor de vídeo (Dragon Player)
+Name[nds]=Mit Videafspeler opmaken (Draken-Speler)
 Name[pt]=Abrir com o Leitor de Vídeo (Dragon Player)
 Name[pt_BR]=Abrir com o Leitor de Vídeo (Dragon Player)
 Name[sv]=Öppna med videospelare (Dragon)
