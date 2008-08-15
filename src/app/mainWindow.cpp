@@ -607,7 +607,7 @@ MainWindow::setFullScreen( bool isFullScreen )
 {
     DEBUG_BLOCK
     debug() << "Setting full screen to " << isFullScreen;
-    mainWindow()->setWindowState( mainWindow()->windowState() ^ Qt::WindowFullScreen );
+    mainWindow()->setWindowState( (isFullScreen ? Qt::WindowFullScreen : Qt::WindowNoState ));
     static FullScreenToolBarHandler *s_handler;
 
 	if(isFullScreen)
@@ -633,8 +633,6 @@ MainWindow::setFullScreen( bool isFullScreen )
         action( "fullscreen" )->setEnabled( videoWindow()->state() & ( Engine::Playing | Engine::Paused) );
         delete s_handler;
     }
-    // prevent videoWindow() moving around when mouse moves 
-    //setCentralWidget( isFullScreen ? 0 : videoWindow() ); //deletes videoWindow() when cleared
 }
 
 void
