@@ -146,7 +146,7 @@ consistent documentation style across all KDE apps. -->
 <keycombo><keycap>S</keycap></keycombo>
 </shortcut>
 <guimenu>Play</guimenu>
-<guimenuitem>Stopp</guimenuitem>
+<guimenuitem>Stop</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>If a movie is loaded, this option allows you to resume playback.</action></para></listitem>
 </varlistentry>
