@@ -58,7 +58,7 @@ target_link_libraries(dragonpart
     ${KDE4_SOLID_LIBS})
 
 if(XINE_XCB_FOUND)
-target_link_libraries(dragon
+target_link_libraries(dragonpart
     ${XINE_LIBRARY})
 endif(XINE_XCB_FOUND)
 
