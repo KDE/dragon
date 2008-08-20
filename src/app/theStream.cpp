@@ -32,7 +32,9 @@
 #include <Solid/Device>
 #include <Solid/StorageVolume>
 
+#ifdef HAVE_XINE
 #include <xine.h>
+#endif
 
 #include "debug.h"
 #include "mxcl.library.h"

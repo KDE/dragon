@@ -21,7 +21,7 @@
 #include "rootDbusHandler.h"
 
 #include "debug.h"
-#include "RootDbusHandler.h"
+#include "RootDbusHandlerBase.h"
 
 #include <KAboutData>
 #include <KApplication>

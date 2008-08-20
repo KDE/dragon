@@ -1,3 +1,7 @@
+if(XINE_XCB_FOUND)
+    add_definitions(-DHAVE_XINE)
+endif(XINE_XCB_FOUND)
+
 set(videoplayer_common_SRCS
     theStream.cpp
     actions.cpp
@@ -22,7 +26,7 @@ set(videoplayer_app_SRCS
     ../dbus/trackListDbusHandler.cpp )
 
 qt4_add_dbus_adaptor( videoplayer_app_SRCS ../dbus/org.kde.dragon.player.xml ../dbus/playerDbusHandler.h PlayerDbusHandler )
-qt4_add_dbus_adaptor( videoplayer_app_SRCS ../dbus/root.xml ../dbus/rootDbusHandler.h RootDbusHandler RootDbusHandler RootDbusHandlerBase )
+qt4_add_dbus_adaptor( videoplayer_app_SRCS ../dbus/root.xml ../dbus/rootDbusHandler.h RootDbusHandler RootDbusHandlerBase RootDbusHandlerBase )
 qt4_add_dbus_adaptor( videoplayer_app_SRCS ../dbus/tracklist.xml ../dbus/trackListDbusHandler.h TrackListDbusHandler TrackListDbusAdaptor TrackListDbusAdaptor )
 
 kde4_add_ui_files(videoplayer_app_SRCS videoSettingsWidget.ui)
@@ -32,8 +36,12 @@ kde4_add_executable(dragon ${videoplayer_app_SRCS} )
 target_link_libraries(dragon
     ${KDE4_KUTILS_LIBS}
     ${KDE4_PHONON_LIBS}
-    ${KDE4_SOLID_LIBS}
-    ${XINE_LIBRARY} )
+    ${KDE4_SOLID_LIBS})
+
+if(XINE_XCB_FOUND)
+target_link_libraries(dragon
+    ${XINE_LIBRARY})
+endif(XINE_XCB_FOUND)
 
 install(TARGETS dragon ${INSTALL_TARGETS_DEFAULT_ARGS})
 
@@ -47,7 +55,11 @@ kde4_add_plugin(dragonpart ${videoplayer_part_SRCS})
 target_link_libraries(dragonpart
     ${KDE4_KPARTS_LIBS}
     ${KDE4_PHONON_LIBS}
-    ${KDE4_SOLID_LIBS}
-    ${XINE_LIBRARY} )
+    ${KDE4_SOLID_LIBS})
+
+if(XINE_XCB_FOUND)
+target_link_libraries(dragon
+    ${XINE_LIBRARY})
+endif(XINE_XCB_FOUND)
 
 install(TARGETS dragonpart DESTINATION ${PLUGIN_INSTALL_DIR} )

@@ -31,7 +31,9 @@
 #include "mxcl.library.h"
 #include "theStream.h"
 
+#ifdef HAVE_XINE
 #include <xine.h>
+#endif
 
 #include <QActionGroup>
 #include <QContextMenuEvent>
@@ -58,6 +60,10 @@
 #include <Solid/Block>
 #include <Solid/Device>
 #include <Solid/OpticalDisc>
+
+#ifdef Q_WS_WIN
+#include <windows.h>
+#endif
 
 using Phonon::AudioOutput;
 using Phonon::MediaObject;
@@ -175,7 +181,11 @@ VideoWindow::~VideoWindow()
         m_audioPath.insertEffect( faderEffect );
         faderEffect->setFadeCurve( Phonon::VolumeFaderEffect::Fade12Decibel );
         faderEffect->fadeOut( 500 );
+#ifndef Q_WS_WIN
         ::usleep( 700000 );
+#else
+        ::Sleep( 700 );
+#endif
     }
     else
         m_media->stop(); //hangs if its destroyed while paused?
@@ -671,6 +681,7 @@ VideoWindow::slotSetAudio()
 void
 VideoWindow::toggleDVDMenu()
 {
+#ifdef HAVE_XINE
     if( m_xineStream )
     {
         xine_event_t e;
@@ -679,6 +690,7 @@ VideoWindow::toggleDVDMenu()
         e.data_length = 0;
         xine_event_send( m_xineStream, &e );
     }
+#endif
 }
 
 int
