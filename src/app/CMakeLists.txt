@@ -35,6 +35,8 @@ kde4_add_executable(dragon ${videoplayer_app_SRCS} )
 
 target_link_libraries(dragon
     ${KDE4_KUTILS_LIBS}
+    ${KDE4_KIO_LIBS}
+    ${KDE4_KDEUI_LIBS}
     ${KDE4_PHONON_LIBS}
     ${KDE4_SOLID_LIBS})
 
@@ -54,6 +56,8 @@ kde4_add_plugin(dragonpart ${videoplayer_part_SRCS})
 
 target_link_libraries(dragonpart
     ${KDE4_KPARTS_LIBS}
+    ${KDE4_KIO_LIBS}
+    ${KDE4_KDEUI_LIBS}
     ${KDE4_PHONON_LIBS}
     ${KDE4_SOLID_LIBS})
 
