@@ -132,23 +132,23 @@ consistent documentation style across all KDE apps. -->
 <varlistentry>
 <term><menuchoice>
 <shortcut>
-<keycombo><keycap>Space</keycap></keycombo>
+<keycap>Space</keycap>
 </shortcut>
 <guimenu>Play</guimenu>
-<guimenuitem>Play</guimenuitem>
+<guimenuitem>Play/Pause</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>If a movie is loaded, this option allows you to pause playback.</action></para></listitem>
+<listitem><para><action>If a movie is loaded, this option allows you to pause and resume playback.</action></para></listitem>
 </varlistentry>
 
 <varlistentry>
 <term><menuchoice>
 <shortcut>
-<keycombo><keycap>S</keycap></keycombo>
+<keycap>S</keycap>
 </shortcut>
 <guimenu>Play</guimenu>
 <guimenuitem>Stop</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>If a movie is loaded, this option allows you to resume playback.</action></para></listitem>
+<listitem><para><action>If a movie is loaded, this option allows you to stop playback.</action></para></listitem>
 </varlistentry>
 
 
@@ -173,7 +173,7 @@ consistent documentation style across all KDE apps. -->
 <varlistentry>
 <term><menuchoice>
 <shortcut>
-<keycombo><keycap>F</keycap></keycombo>
+<keycap>F</keycap>
 </shortcut>
 <guimenu>Settings</guimenu>
 <guimenuitem>Full Screen Mode</guimenuitem>
