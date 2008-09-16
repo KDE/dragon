@@ -546,15 +546,13 @@ debug() << "chapters: " << m_controller->availableChapters() << " titles: " << m
         refreshXineStream();
         updateChannels();
 
-		if(m_adjustedSize==false)
-		{
-                    window()->adjustSize();
-		  m_adjustedSize=true;
-		  debug() << "adjusting size to video resolution";
-		}
-        //m_vWidget->updateGeometry();
-        //updateGeometry();
-        
+        if(m_adjustedSize==false)
+        {
+           if( mainWindow() )
+             ( (QWidget*) mainWindow() )->adjustSize();
+          m_adjustedSize=true;
+          debug() << "adjusting size to video resolution";
+        }     
     }
     emit stateChanged( state( currentState ) ); 
 }
