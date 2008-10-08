@@ -54,7 +54,7 @@ PlaylistFile::PlaylistFile( const KUrl &url )
     if( m_isRemoteFile ) {
         path = QString();
         if( !KIO::NetAccess::download( url, path, Codeine::mainWindow() ) ) {
-            m_error = i18n( "Codeine could not download the remote playlist: %1", url.prettyUrl() );
+            m_error = i18n( "Dragon Player could not download the remote playlist: %1", url.prettyUrl() );
             return;
         }
     }
@@ -73,7 +73,7 @@ PlaylistFile::PlaylistFile( const KUrl &url )
             m_isValid = false;
     }
     else
-        m_error = i18n( "Codeine could not open the file: %1", path );
+        m_error = i18n( "Dragon Player could not open the file: %1", path );
 }
 
 

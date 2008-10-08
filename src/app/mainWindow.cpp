@@ -455,7 +455,7 @@ MainWindow::load( const KUrl &url )
      //FileWatch the file that is opened
 
     if( url.isEmpty() ) {
-        MessageBox::sorry( i18n( "Codeine was asked to open an empty URL; it cannot." ) );
+        MessageBox::sorry( i18n( "Dragon Player was asked to open an empty URL; it cannot." ) );
         return false;
     }
 
