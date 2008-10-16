@@ -579,7 +579,7 @@ DEBUG_BLOCK
     }
     if( !playableDiscs.isEmpty() )
     {
-        if( playableDiscs.size() > 1 ) //more then one disc, show user a selection box
+        if( playableDiscs.size() > 1 ) //more than one disc, show user a selection box
         {
             debug() << "> 1 possible discs, showing dialog";
             new DiscSelectionDialog( this, playableDiscs );

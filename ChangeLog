@@ -27,7 +27,7 @@
    New DBus API under /Player and /TrackList. A full implementation of MPRIS.
    Fix pausing and then playing causing the window size to revert.
    A new smart "Play Disc" button that plays whatever kind of media is inserted and
-     if more then one disc is inserted it lets you pick which disc to play.
+     if more than one disc is inserted it lets you pick which disc to play.
    As a result, Video CD's and Audio CD's are now supported.
    
 2.0-beta1
