@@ -13,14 +13,14 @@ set(videoplayer_app_SRCS
     stateChange.cpp
     playDialog.cpp
     discSelectionDialog.cpp
-    listView.cpp
     adjustSizeButton.cpp
     fullScreenAction.cpp
     fullScreenToolBarHandler.cpp
     playlistFile.cpp
     main.cpp
     timeLabel.cpp
-    mainWindow.cpp 
+    mainWindow.cpp
+	recentlyPlayedList.cpp
     ../dbus/playerDbusHandler.cpp
     ../dbus/rootDbusHandler.cpp
     ../dbus/trackListDbusHandler.cpp )

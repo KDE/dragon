@@ -22,8 +22,9 @@
 #include "playDialog.h"
 
 #include "debug.h"
-#include "listView.cpp"
 #include "mainWindow.h"
+#include "recentlyPlayedList.h"
+
 
 #include <KApplication>
 #include <KConfig>
@@ -94,40 +95,8 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
 void
 PlayDialog::createRecentFileWidget( QGridLayout *layout )
 {
-    QListWidget *lv = new Codeine::ListView( this );
-    lv->setSelectionMode(QAbstractItemView::SingleSelection);
-//    lv->setColumnText( 1, i18n("Recently Played Media") );
+    RecentlyPlayedList *lv = new RecentlyPlayedList( this );
 
-    const QStringList list1 = KConfigGroup( KGlobal::config(), "General" ).readPathEntry( "Recent Urls", QStringList() );
-    KUrl::List urls;
-
-    foreach( const QString &s, list1 )
-        urls.prepend(s); //copy the stringlist individually into a KURL list in reverse order
-
-    foreach( const KUrl &it, urls) {
-        while( urls.count( it ) > 1 )
-            urls.removeAt( urls.indexOf(it) );
-        if( it.protocol() == "file" && !QFile::exists( it.path() ) )
-            //remove stale entries
-            urls.removeAll( it );
-    }
-
-    for( KUrl::List::ConstIterator it = urls.begin(), end = urls.end(); it != end; ++it ) {
-        const QString fileName = (*it).fileName();
-        KUrl url = (*it);
-        //new QTableWidgetItem( lv, 0, (*it).url(), fileName.isEmpty() ? (*it).prettyUrl() : fileName );
-        QListWidgetItem* listItem = new QListWidgetItem(  fileName.isEmpty() ? (*it).prettyUrl() : fileName );
-        listItem->setData( 0xdecade, QVariant::fromValue( url ) );
-        if(KConfigGroup( KGlobal::config(), (*it).prettyUrl()).readPathEntry( "IsVideo", QString() )=="false")
-        {
-            listItem->setIcon( KIcon( "audio-x-generic" ) );
-        }
-        else
-        {
-            listItem->setIcon( KIcon( "video-x-generic" ) );
-        }
-        lv->addItem( listItem );
-    }
 
     //delete list view widget if there are no items in it
     if( lv->count() ) {
