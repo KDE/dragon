@@ -121,8 +121,8 @@ VideoWindow::VideoWindow( QWidget *parent )
         turnOff->setProperty( TheStream::CHANNEL_PROPERTY, -1 );
         connect( turnOff, SIGNAL( triggered() ), this, SLOT( slotSetSubtitle() ) );
 
-        QAction* seperator = new QAction( m_subLanguages );
-        seperator->setSeparator( true );
+        QAction* separator = new QAction( m_subLanguages );
+        separator->setSeparator( true );
     }
     {
         m_audioLanguages->setExclusive( true );
@@ -131,8 +131,8 @@ VideoWindow::VideoWindow( QWidget *parent )
         autoLang->setCheckable( true );
         connect( autoLang, SIGNAL( triggered() ), this, SLOT( slotSetAudio() ) );
 
-        QAction* seperator = new QAction( m_audioLanguages );
-        seperator->setSeparator( true );
+        QAction* separator = new QAction( m_audioLanguages );
+        separator->setSeparator( true );
     }
 
     connect( m_media, SIGNAL(stateChanged(Phonon::State,Phonon::State)), this, SLOT(stateChanged(Phonon::State,Phonon::State)) );

@@ -485,7 +485,7 @@ MainWindow::load( const KUrl &url )
     }
 
     //let xine handle invalid, etc, KUrlS
-    //TODO it handles non-existant files with bad error message
+    //TODO it handles non-existing files with bad error message
     return engine()->load( url );
 }
 

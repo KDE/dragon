@@ -193,7 +193,7 @@ MainWindow::engineStateChanged( Engine::State state )
     debug() << "set titles ";
 
 
-    //enable/disbale DVD specific buttons
+    // enable/disable DVD specific buttons
     QWidget *dvd_button = toolBar()->findChild< QWidget* >( "toolbutton_toggle_dvd_menu" );
     if(videoWindow()->isDVD())
     {
