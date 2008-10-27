@@ -42,10 +42,6 @@ namespace Phonon {
      class MediaController;
 }
 
-namespace Solid {
-    class OpticalDisc;
-}
-
 typedef struct xine_stream_s xine_stream_t;
 
 #include "phonon/phononnamespace.h" //Phonon::State
