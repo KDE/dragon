@@ -140,7 +140,7 @@ MainWindow::MainWindow()
             m_aspectRatios->setExclusive( true );
             #define make_ratio_action( text, objectname, aspectEnum ) \
             { \
-                QAction* ratioAction = new QAction( this ); \
+                KAction* ratioAction = new KAction( this ); \
                 ratioAction->setText( text ); \
                 ratioAction->setCheckable( true ); \
                 m_aspectRatios->addAction( ratioAction ); \
