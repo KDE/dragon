@@ -193,8 +193,8 @@ MainWindow::init()
 
     if( !engine()->init() ) {
         KMessageBox::error( this, i18n(
-            "<qt>xine could not be successfully initialised. " PRETTY_NAME " will now exit. "
-            "You can try to identify what is wrong with your xine installation using the <b>xine-check</b> command at a command-prompt.") );
+            "<qt>xine could not be successfully initialised. Dragon Player will now exit. "
+            "You can try to identify what is wrong with your xine installation using the <b>xine-check</b> command at a command-prompt.</qt>") );
         std::exit( 2 );
     }
 

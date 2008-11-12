@@ -109,9 +109,9 @@ namespace Codeine
     Part::createAboutData()
     {
         // generic factory expects this on the heap
-        //return new KAboutData( APP_NAME, PRETTY_NAME, APP_VERSION );
+        //return new KAboutData( APP_NAME, "Dragon Player", APP_VERSION );
         return new KAboutData( APP_NAME, 0,
-            ki18n(PRETTY_NAME), APP_VERSION,
+            ki18n("Dragon Player"), APP_VERSION,
             ki18n("A video player that has a usability focus"), KAboutData::License_GPL_V2,
             ki18n("Copyright 2006, Max Howell\nCopyright 2007, Ian Monroe"), KLocalizedString(),
             "http://dragonplayer.org",
