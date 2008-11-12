@@ -54,6 +54,5 @@ int main( int, char** );
 
 #define APP_VERSION "2.0"
 #define APP_NAME "dragonplayer"
-#define PRETTY_NAME "Dragon Player"
 
 #endif
