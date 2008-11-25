@@ -242,9 +242,9 @@ MainWindow::~MainWindow()
 void MainWindow::wheelEvent (QWheelEvent *event)
  {
     if (event->delta() > 0) {
-	engine()->tenBack();
+	engine()->tenPercentBack();
       } else {
-	engine()->tenForward();
+	engine()->tenPercentForward();
     }
     event->accept();
  }
@@ -328,19 +328,30 @@ MainWindow::setupActions()
     addToAc( next_chapter )
 
     // xgettext: no-c-format
-    KAction* tenBack = new KAction( KIcon("frame-image"), i18n("Return 10% back"), ac );
-    tenBack->setObjectName( "ten_back" );
-    tenBack->setShortcut( Qt::Key_PageDown );
-    connect( tenBack, SIGNAL( triggered() ), engine(), SLOT( tenBack() ) );
-    addToAc( tenBack )
+    KAction* tenPercentBack = new KAction( KIcon("frame-image"), i18n("Return 10% back"), ac );
+    tenPercentBack->setObjectName( "ten_percent_back" );
+    tenPercentBack->setShortcut( Qt::Key_PageUp );
+    connect( tenPercentBack, SIGNAL( triggered() ), engine(), SLOT( tenPercentBack() ) );
+    addToAc( tenPercentBack )
 
     // xgettext: no-c-format
-    KAction* tenForward = new KAction( KIcon("frame-image"), i18n("Go 10% forward"), ac );
-    tenForward->setObjectName( "ten_forward" );
-    tenForward->setShortcut( Qt::Key_PageUp );
-    connect( tenForward, SIGNAL( triggered() ), engine(), SLOT( tenForward() ) );
-    addToAc( tenForward )
+    KAction* tenPercentForward = new KAction( KIcon("frame-image"), i18n("Go 10% forward"), ac );
+    tenPercentForward->setObjectName( "ten_percent_forward" );
+    tenPercentForward->setShortcut( Qt::Key_PageDown );
+    connect( tenPercentForward, SIGNAL( triggered() ), engine(), SLOT( tenPercentForward() ) );
+    addToAc( tenPercentForward )
 
+    KAction* tenSecondsBack = new KAction( KIcon("frame-image"), i18n("Return 10 seconds back"), ac );
+    tenSecondsBack->setObjectName( "ten_seconds_back" );
+    tenSecondsBack->setShortcut( Qt::Key_Minus );
+    connect( tenSecondsBack, SIGNAL( triggered() ), engine(), SLOT( tenSecondsBack() ) );
+    addToAc( tenSecondsBack )
+
+    KAction* tenSecondsForward = new KAction( KIcon("frame-image"), i18n("Go 10 seconds forward"), ac );
+    tenSecondsForward->setObjectName( "ten_seconds_forward" );
+    tenSecondsForward->setShortcut( Qt::Key_Plus );
+    connect( tenSecondsForward, SIGNAL( triggered() ), engine(), SLOT( tenSecondsForward() ) );
+    addToAc( tenSecondsForward )
     #undef addToAc
 }
 

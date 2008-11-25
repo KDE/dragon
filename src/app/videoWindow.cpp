@@ -727,22 +727,40 @@ VideoWindow::nextChapter()
   }
 
 void
-VideoWindow::tenBack()
-  {
-    qint64 newTime = m_media->currentTime() - (m_media->totalTime() / 10);
-    if (newTime > 0)
-	m_media -> seek (newTime);
-      else
-        m_media -> seek ( 0 ) ;
+VideoWindow::tenPercentBack()
+{
+  qint64 newTime = m_media->currentTime() - (m_media->totalTime() / 10);
+  if (newTime > 0)
+    m_media -> seek (newTime);
+  else
+    m_media -> seek ( 0 ) ;
   }
 
 void
-VideoWindow::tenForward()
-  {
-    qint64 newTime = m_media->currentTime() + (m_media->totalTime() / 10);
-    if (newTime < m_media->totalTime())
+VideoWindow::tenPercentForward()
+{
+  qint64 newTime = m_media->currentTime() + (m_media->totalTime() / 10);
+  if (newTime < m_media->totalTime())
 	m_media -> seek (newTime);
-  }
+}
+
+void
+VideoWindow::tenSecondsBack()
+{
+  qint64 newTime = m_media->currentTime() - 10;
+  if (newTime > 0)
+    m_media -> seek (newTime);
+  else
+    m_media -> seek ( 0 ) ;
+}
+
+void
+VideoWindow::tenSecondsForward()
+{
+  qint64 newTime = m_media->currentTime() + 10;
+  if (newTime < m_media->totalTime())
+    m_media -> seek (newTime);
+}
 
 ///////////
 ///Protected

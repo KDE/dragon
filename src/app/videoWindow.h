@@ -141,8 +141,10 @@ namespace Codeine
 
         void prevChapter();
         void nextChapter();
-	void tenBack();
-	void tenForward();
+        void tenPercentBack();
+        void tenPercentForward();
+        void tenSecondsBack();
+        void tenSecondsForward();
 
     protected:
         virtual bool event( QEvent* e );
