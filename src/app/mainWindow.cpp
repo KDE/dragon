@@ -94,7 +94,8 @@ MainWindow::MainWindow()
         , m_playDialog( 0 )
         , m_fullScreenAction( 0 )
         , m_stopScreenSaver( 0 )
-		, m_toolbarIsHidden(false)
+        , m_toolbarIsHidden(false)
+        , m_statusbarIsHidden(false)
 {
     DEBUG_BLOCK
     s_instance = this;
@@ -623,15 +624,17 @@ MainWindow::setFullScreen( bool isFullScreen )
 
 	if(isFullScreen)
 	{
+      m_statusbarIsHidden=statusBar()->isHidden();
 	  m_toolbarIsHidden=toolBar()->isHidden();
 	  toolBar()->setHidden( false );
+      statusBar()->setHidden( true );
 	}
 	else
 	{
+      statusBar()->setHidden(m_statusbarIsHidden);
 	  toolBar()->setHidden(m_toolbarIsHidden);
 	}
     menuBar()->setHidden( isFullScreen );
-    statusBar()->setHidden( isFullScreen );
     if( m_leftDock )
         m_leftDock->setHidden( isFullScreen );
     if( m_rightDock )

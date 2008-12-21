@@ -111,6 +111,7 @@ namespace Codeine
       FullScreenAction *m_fullScreenAction;
       KNotificationRestrictions *m_stopScreenSaver;
 	  bool	m_toolbarIsHidden;
+      bool  m_statusbarIsHidden;
 
       QActionGroup *m_aspectRatios;
       //undefined
