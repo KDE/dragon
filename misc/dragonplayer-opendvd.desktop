@@ -5,6 +5,7 @@ Actions=open;
 
 [Desktop Action open]
 Name=Open with Video Player (Dragon Player)
+Name[ar]=افتح باستخدام مشغل الفيديو (مشغل دارجن)
 Name[bg]=Отваряне с видео плеър (Dragon)
 Name[ca]=Obre amb el reproductor de vídeo (Dragon Player)
 Name[cs]=Otevřít ve video přehrávači (Gragon)

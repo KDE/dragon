@@ -2,6 +2,7 @@
 Type=Application
 Version=1.0
 Name=Dragon Player
+Name[ar]=مشغل دراجن
 Name[bg]=Dragon
 Name[cs]=Přehrávač Dragon
 Name[el]=Αναπαραγωγέας Dragon
@@ -20,6 +21,7 @@ Name[uk]=Програвач Dragon
 Name[x-test]=xxDragon Playerxx
 Name[zh_TW]=神龍播放器
 GenericName=Video Player
+GenericName[ar]=مشغل فيديو
 GenericName[bg]=Видео плеър
 GenericName[ca]=Reproductor de vídeo
 GenericName[cs]=Přehrávač videa
