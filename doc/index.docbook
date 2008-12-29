@@ -246,7 +246,7 @@ This menu is active if there are any additional audio channels available. For in
 <guimenu>Settings</guimenu>
 <guimenuitem>Configure Toolbars...</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Allows you to configure the &codeine; what buttons are available on the toolbar.</action></para></listitem>
+<listitem><para><action>Allows you to configure what buttons are available on the toolbar.</action></para></listitem>
 </varlistentry>
 
 <varlistentry>
