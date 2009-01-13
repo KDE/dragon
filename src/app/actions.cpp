@@ -55,7 +55,8 @@ Codeine::PlayAction::setPlaying( bool playing )
 void
 Codeine::PlayAction::setChecked( bool b )
 {
-    if( videoWindow()->state() == Engine::Empty && sender() && QByteArray( sender()->metaObject()->className() ) == "KToolBarButton" ) {
+    //should read if not empty (m_media->currentSource().type() == Phonon::MediaSource::Invalid)
+    if( false && sender() && QByteArray( sender()->metaObject()->className() ) == "KToolBarButton" ) {
         // clicking play when empty means open PlayMediaDialog, but we have to uncheck the toolbar button
         // as KDElibs sets that checked automatically..
         setChecked( false );

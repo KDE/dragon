@@ -8,8 +8,7 @@
 
 #include <QFile>
 #include <QContextMenuEvent>
-#include <KDebug>
-
+#include "debug.h"
 
 //this is a widget for dispaying the rcently played items in a list. It is subclassed so that we can hook up a context menu
 RecentlyPlayedList::RecentlyPlayedList(QWidget *parent)
@@ -62,7 +61,7 @@ void
 RecentlyPlayedList::contextMenuEvent(QContextMenuEvent * event )
 {
   KMenu menu;
-  kdDebug() << "Loading Menu";
+  debug() << "Loading Menu";
   menu.addAction(KIcon("list-remove"),"Remove Entry",this,SLOT(removeEntry()));
   menu.addAction(KIcon("list-remove"),"Clear List",this,SLOT(clearList()));
   menu.exec( event->globalPos() );

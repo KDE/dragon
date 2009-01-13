@@ -1,6 +1,7 @@
 /***********************************************************************
  * Copyright 2004  Max Howell <max.howell@methylblue.com>
  *           2007  Ian Monroe <ian@monroe.nu>
+*            2008  David Edmundson <kde@davidedmundson.co.uk>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -52,112 +53,92 @@ namespace Codeine {
 
 
 void
-MainWindow::engineStateChanged( Engine::State state )
+MainWindow::engineStateChanged( Phonon::State state )
 {
-    DEBUG_BLOCK
-    if( state == Engine::Uninitialised )
-    {
-        warning() << "Engine Uninitialised!";
-    }
-    KUrl const &url = TheStream::url();
     bool const isFullScreen = toggleAction("fullscreen")->isChecked();
+    bool const hasMedia = TheStream::hasMedia();
     QWidget *const toolbar = reinterpret_cast<QWidget*>(toolBar());
 
-    Debug::Block block( state == Engine::Empty
-            ? "State: Empty" : state == Engine::Loaded
-            ? "State: Loaded" : state == Engine::Playing
-            ? "State: Playing" : state == Engine::Paused
-            ? "State: Paused" : state == Engine::TrackEnded
-            ? "State: TrackEnded" : "State: Unknown" );
-
-
-    /// update actions
+    switch(state)
     {
-        using namespace Engine;
-
-        #define enableIf( name, criteria ) action( name )->setEnabled( state & criteria );
-        enableIf( "stop", (Playing | Paused) );
-        enableIf( "fullscreen", (Playing | Paused) || isFullScreen );
-        enableIf( "reset_zoom", ~Empty && !isFullScreen );
-        enableIf( "video_settings", (Playing | Paused) );
-        enableIf( "volume", (Playing | Paused) );
-        #undef enableIf
-
-        toggleAction( "play" )->setChecked( state == Playing );
+      case Phonon::LoadingState:
+        debug() << "Loading state";
+        break;
+      case Phonon::StoppedState:
+        debug() << "Stopped state";
+        break;
+      case Phonon::PlayingState:
+        debug() << "Playing state";
+        break;
+      case Phonon::BufferingState:
+        debug() << "Buffering state";
+        break;
+      case Phonon::PausedState:
+        debug() << "Paused state";
+        break;
+      case Phonon::ErrorState:
+        debug() << "Error state";
+        break;
     }
+
+//     using namespace Engine;
+
+    bool enable = FALSE;
+    if(state == Phonon::PlayingState || state == Phonon::PausedState)
+    {
+      enable=TRUE;
+    }
+    action("stop")->setEnabled(enable);
+    action("video_settings")->setEnabled(enable);
+    action("volume")->setEnabled(enable);
+    action("fullscreen")->setEnabled(enable || isFullScreen);
+    action("reset_zoom")->setEnabled(hasMedia && !isFullScreen);
+    toggleAction( "play" )->setChecked(state == Phonon::PlayingState);
+
+    m_timeLabel->setVisible(enable);
+
 
     debug() << "updated actions";
 
     /// update menus
     {
-        using namespace Engine;
-
         // the toolbar play button is always enabled, but the menu item
         // is disabled if we are empty, this looks more sensible
         PlayAction* playAction = static_cast<PlayAction*>( actionCollection()->action("play") );
-        playAction->setEnabled( state != Empty );
-        playAction->setPlaying( state == Playing );
-        actionCollection()->action("aspect_ratio_menu")->setEnabled( state & (Playing | Paused) && TheStream::hasVideo() );
+        playAction->setEnabled( hasMedia );
+        playAction->setPlaying( state == Phonon::PlayingState );
+        actionCollection()->action("aspect_ratio_menu")->setEnabled(( state == Phonon::PlayingState || state == Phonon::PausedState) && TheStream::hasVideo() );
 
         // set correct aspect ratio
-        if( state == Loaded )
+        if( state != Phonon::LoadingState )
             TheStream::aspectRatioAction()->setChecked( true );
     }
     debug() << "updated menus";
 
-    /// update statusBar
-    {
-        using namespace Engine;
-        m_timeLabel->setVisible( state & (Playing | Paused) );
-    }
-    debug() << "updated statusbar";
-
     /// update position slider
     switch( state )
     {
-        case Engine::Uninitialised:
-        case Engine::Loaded:
-        case Engine::TrackEnded:
-        case Engine::Empty:
+        case Phonon::LoadingState:/*drop through*/
+        case Phonon::StoppedState:
             m_positionSlider->setEnabled( false );
             if( m_volumeSlider )
                 m_volumeSlider->setEnabled( false );
             break;
-        case Engine::Playing:
-        case Engine::Paused:
+        case Phonon::BufferingState:/*drop through*/
+        case Phonon::PlayingState:/*drop through*/
+        case Phonon::PausedState:
             m_positionSlider->setEnabled( TheStream::canSeek() );
             if( m_volumeSlider )
                 m_volumeSlider->setEnabled( true );
             break;
+        case Phonon::ErrorState:
+          debug() << "Phonon is in error state, leaving sliders as is";
     }
     debug() << "update position slider";
 
-    /// update recent files list if necessary
-    if( state == Engine::Loaded ) 
-    {
-        emit fileChanged( engine()->urlOrDisc() );
-        // update recently played list
-        debug() << " update recent files list ";
-        #ifndef NO_SKIP_PR0N
-        // ;-)
-        const QString url_string = url.url();
-        if( !(url_string.contains( "porn", Qt::CaseInsensitive ) || url_string.contains( "pr0n", Qt::CaseInsensitive )) )
-        #endif
-            if( url.protocol() != "dvd" && url.protocol() != "vcd" && url.prettyUrl()!="") {
-                KConfigGroup config = KConfigGroup( KGlobal::config(), "General" );
-                const QString prettyUrl = url.prettyUrl();
-
-                QStringList urls = config.readPathEntry( "Recent Urls", QStringList() );
-                urls.removeAll( prettyUrl );
-                config.writePathEntry( "Recent Urls", urls << prettyUrl );
-            }
-
-        if( TheStream::hasVideo() && !isFullScreen && false )  //disable for now, it doesn't paint right
-            new AdjustSizeButton( reinterpret_cast<QWidget*>(videoWindow()) );
-    }
 
     /// turn off screensaver
-    if( state == Engine::Playing )
+    if( state == Phonon::PlayingState )
     {
         if( !m_stopScreenSaver )
         {
@@ -167,28 +148,25 @@ MainWindow::engineStateChanged( Engine::State state )
         else
             warning() << "m_stopScreenSaver not null";
     }
-    else if( state & ( Engine::TrackEnded | Engine::Empty ) )
+    else if( Phonon::StoppedState || !TheStream::hasMedia()  )
     {
         delete m_stopScreenSaver;
         m_stopScreenSaver = 0;
         debug() << "screensaver on";
     }
 
-    /// set titles
-    switch( state )
+	//if there's something loaded
+	if(! TheStream::hasMedia())
     {
-        case Engine::Uninitialised:
-        case Engine::Empty:
-            m_titleLabel->setText( i18n("No media loaded") );
-            break;
-        case Engine::Paused:
-            m_titleLabel->setText( i18n("Paused") );
-            break;
-        case Engine::Loaded:
-        case Engine::Playing:
-        case Engine::TrackEnded:
-            m_titleLabel->setText( TheStream::prettyTitle() );
-            break;
+        m_titleLabel->setText( i18n("No media loaded") );
+    }
+    else if( state == Phonon::PausedState)
+    {
+        m_titleLabel->setText( i18n("Paused") );
+    }
+    else
+    {
+        m_titleLabel->setText( TheStream::prettyTitle() );
     }
     debug() << "set titles ";
 
@@ -212,7 +190,7 @@ MainWindow::engineStateChanged( Engine::State state )
         action("toggle_dvd_menu")->setEnabled( false );
     }
     if( isFullScreen && !toolbar->testAttribute( Qt::WA_UnderMouse ) ) 
-    {
+    {/*
         switch( state ) {
         case Engine::TrackEnded:
             toolbar->show();
@@ -228,54 +206,53 @@ MainWindow::engineStateChanged( Engine::State state )
         case Engine::Uninitialised:
             toolBar()->show();
             break;
-        case Engine::Playing:
+        case Phonon::PlayingState:
             toolBar()->hide();
             break;
         case Engine::Loaded:
             break;
-        }
+        }*/
     } 
     switch( state )
     {
-        case Engine::TrackEnded:
-        case Engine::Empty:
+        case Phonon::StoppedState:
             emit dbusStatusChanged( PlayerDbusHandler::Stopped ), debug() << "dbus: stopped";
             break;
-        case Engine::Paused:
+        case Phonon::PausedState:
             emit dbusStatusChanged( PlayerDbusHandler::Paused ), debug() << "dbus: paused";
             break;
-        case Engine::Playing:
+        case Phonon::PlayingState:
             emit dbusStatusChanged( PlayerDbusHandler::Playing ), debug() << "dbus: playing";
             break;
-        break;
-        default: break;
+        default:/*If none of these states don't emit anything*/
+            break;
     }
-    /*
-    ///hide videoWindow if audio-only
-    if( state == Engine::Playing )
-    {
-        bool hasVideo = TheStream::hasVideo();
-        videoWindow()->setVisible( hasVideo );
-        m_fullScreenAction->setEnabled( hasVideo );
-    }*/
-    /*
-    videoWindow()->setVisible( hasVideo );
-    toolBar()->dumpObjectTree();
-    debug() << "boo";
-    QList<QObject*> list = toolBar()->findChildren<QObject *>( "" );
-    foreach( QObject* obj, list )
-    {
-        debug() << QString("*%1*").arg( obj->metaObject()->className() ) << (obj->metaObject()->className() == "QToolButton");
-        if(  QString("*%1*").arg( obj->metaObject()->className() ) == "*QToolButton*" )
-        {
-            debug() << "its a tool button!";
-            if( static_cast<QToolButton*>( obj )->defaultAction() == m_fullScreenAction )
-            {
-                debug() << "hiding? " << hasVideo;
-                static_cast<QWidget*>( obj )->setVisible( hasVideo );
-            }
-        }
-    }*/
-}
+}//engineStateChanged
 
-}
+
+void
+MainWindow::engineMediaChanged(Phonon::MediaSource /*newSource*/)
+{
+ // update recently played list
+debug() << " update recent files list ";
+
+//TODO fetch this from the Media source
+KUrl const &url = TheStream::url();
+const QString url_string = url.url();
+
+#ifndef NO_SKIP_PR0N
+// ;-)
+if( !(url_string.contains( "porn", Qt::CaseInsensitive ) || url_string.contains( "pr0n", Qt::CaseInsensitive )) )
+#endif
+  if( url.protocol() != "dvd" && url.protocol() != "vcd" && url.prettyUrl()!="")
+  {
+    KConfigGroup config = KConfigGroup( KGlobal::config(), "General" );
+    const QString prettyUrl = url.prettyUrl();
+    QStringList urls = config.readPathEntry( "Recent Urls", QStringList() );
+    urls.removeAll( prettyUrl );
+    config.writePathEntry( "Recent Urls", urls << prettyUrl );
+  }
+
+}//engineMediaChanged
+
+}//namespace

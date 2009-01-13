@@ -50,6 +50,7 @@ namespace Codeine
       static bool canSeek();
       static bool hasAudio();
       static bool hasVideo();
+      static bool hasMedia();
 
       static QSize defaultVideoSize();
 

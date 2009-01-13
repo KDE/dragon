@@ -28,6 +28,7 @@
 #include <QList>
 #include <QPointer>
 #include <QCheckBox>
+#include <Phonon>
 
 #include <KXmlGuiWindow>
 
@@ -63,7 +64,6 @@ namespace Codeine
 
    signals:
       void dbusStatusChanged( int );
-      void fileChanged( QString );
 
    public slots:
       void play();
@@ -75,7 +75,8 @@ namespace Codeine
    private slots:
       void setFullScreen( bool full );
       void engineMessage( const QString& );
-      void engineStateChanged( Engine::State );
+      void engineStateChanged( Phonon::State );
+      void engineMediaChanged( Phonon::MediaSource );
       void init();
       void aboutToShowMenu();
       void streamSettingChange();

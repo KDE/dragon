@@ -23,7 +23,7 @@
 
 #include <KMessageBox>
 namespace Codeine {
-    extern class VideoWindow* const videoWindow();
+    static class VideoWindow* videoWindow();
     namespace MessageBox
     {
         static inline void error( const QString &message )

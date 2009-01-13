@@ -69,7 +69,7 @@ namespace Codeine
             ac->addAction( sliderAction->objectName(), sliderAction );
             toolBar->addAction( sliderAction );
         }
-        connect( engine(), SIGNAL( stateChanged( Engine::State ) ), this, SLOT( engineStateChanged( Engine::State ) ) );
+        connect( engine(), SIGNAL( stateChanged( Phonon::State ) ), this, SLOT( engineStateChanged( Phonon::State ) ) );
         videoWindow()->setContextMenuPolicy( Qt::CustomContextMenu );
         connect( videoWindow(), SIGNAL( customContextMenuRequested() ), this, SLOT( videoContextMenu() ) );
 
@@ -81,9 +81,9 @@ namespace Codeine
     }
 
     void
-    Part::engineStateChanged( Engine::State state )
+    Part::engineStateChanged( Phonon::State state )
     {
-        m_playPause->setChecked( state == Engine::Playing );
+        m_playPause->setChecked( state == Phonon::PlayingState );
     }
 
     bool

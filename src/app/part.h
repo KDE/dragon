@@ -29,6 +29,7 @@
 #include <KParts/StatusBarExtension>
 #include <KParts/Part>
 #include <KUrl>
+#include <Phonon>
 
 class KAboutData;
 
@@ -51,7 +52,7 @@ namespace Codeine
             virtual bool openUrl( const KUrl& );
 
         private slots:
-            void engineStateChanged( Engine::State state );
+            void engineStateChanged( Phonon::State state );
             void videoContextMenu( const QPoint & pos );
 
         protected:

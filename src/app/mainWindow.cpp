@@ -183,9 +183,10 @@ MainWindow::MainWindow()
 void
 MainWindow::init()
 {
-    DEBUG_BLOCK
+//     DEBUG_BLOCK
     connect( engine(), SIGNAL( statusMessage( const QString& ) ), this, SLOT( engineMessage( const QString&   ) ) );
-    connect( engine(), SIGNAL( stateChanged( Engine::State ) ), this, SLOT( engineStateChanged( Engine::State ) ) );
+    connect( engine(), SIGNAL( stateChanged( Phonon::State ) ), this, SLOT( engineStateChanged( Phonon::State ) ) );
+    connect( engine(), SIGNAL( currentSourceChanged( Phonon::MediaSource ) ), this, SLOT( engineMediaChanged( Phonon::MediaSource ) ) );
     connect( engine(), SIGNAL( titleChanged( const QString& ) ), m_titleLabel, SLOT( setText( const QString&  ) ) );
     connect( engine(), SIGNAL( titleChanged( const QString& ) ), this, SLOT( setCaption( const QString& ) ) );
     connect( engine(), SIGNAL( subChannelsChanged( QList< QAction* > ) ), this, SLOT( subChannelsChanged( QList< QAction* > ) ) );
@@ -214,7 +215,8 @@ MainWindow::init()
     new TrackListDbusHandler( this );
 
     QApplication::restoreOverrideCursor();
-    engineStateChanged( Engine::Empty );
+    engineStateChanged(Phonon::StoppedState);//set everything as it would be in stopped state
+
     if( !kapp->isSessionRestored() ) {
         KCmdLineArgs &args = *KCmdLineArgs::parsedArgs();
         if (args.isSet( "play-dvd" ))
@@ -453,6 +455,7 @@ MainWindow::open( const KUrl &url )
                 // adjust offset if we have session history for this video
                 ? TheStream::profile().readEntry<int>( "Position", 0 )
                 : 0;
+        debug() << "Initial offset is "<< offset;
         engine()->loadSettings();
         updateSliders();
         return engine()->play( offset );
@@ -505,17 +508,13 @@ void
 MainWindow::play()
 {
     switch( engine()->state() ) {
-    case Engine::Playing:
+    case Phonon::PlayingState:
         engine()->pause();
         break;
-    case Engine::Paused:
+    case Phonon::PausedState:
         engine()->resume();
         break;
-    case Engine::Loaded:
-        break;
-    case Engine::Empty:
     default:
-        engine()->play();
         break;
     }
 }
@@ -644,7 +643,7 @@ MainWindow::setFullScreen( bool isFullScreen )
         s_handler = new FullScreenToolBarHandler( this );
     else
     {
-        action( "fullscreen" )->setEnabled( videoWindow()->state() & ( Engine::Playing | Engine::Paused) );
+        action( "fullscreen" )->setEnabled( videoWindow()->state() ==  Phonon::PlayingState || videoWindow()->state() ==  Phonon::PausedState);
         delete s_handler;
     }
 }

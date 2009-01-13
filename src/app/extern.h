@@ -23,7 +23,7 @@
 #define CODEINE_EXTERN_H
 
 #include <QMenu>
-
+//I think this whole file is deprecated - Dave
 extern "C"
 {
    typedef struct xine_s xine_t;
@@ -35,8 +35,6 @@ namespace Codeine
 {
    class VideoWindow;
    
-   VideoWindow* const engine();
-   VideoWindow* const videoWindow();
 
    void showVideoSettingsDialog( QWidget* );
    void showXineConfigurationDialog( QWidget*, xine_t* );

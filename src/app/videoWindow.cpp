@@ -105,6 +105,7 @@ VideoWindow::VideoWindow( QWidget *parent )
     m_audioPath = Phonon::createPath(m_media, m_aOutput);
     m_media->setTickInterval( 1000 );
     connect( m_media, SIGNAL( tick( qint64 ) ), this, SIGNAL( tick( qint64 ) ) );
+    connect( m_media, SIGNAL( currentSourceChanged( Phonon::MediaSource ) ), this, SIGNAL( currentSourceChanged( Phonon::MediaSource ) ) );
     connect( m_media, SIGNAL( totalTimeChanged( qint64 ) ), this, SIGNAL( totalTimeChanged( qint64 ) ) );
     connect( m_media, SIGNAL( seekableChanged( bool ) ), this, SIGNAL( seekableChanged( bool ) ) );
     connect( m_aOutput, SIGNAL( mutedChanged( bool ) ), this, SIGNAL( mutedChanged( bool ) ) );
@@ -360,50 +361,10 @@ VideoWindow::isSeekable() const
 }
 
 
-Engine::State
+Phonon::State
 VideoWindow::state() const
 {
-    return state( m_media->state() ); 
-}
-
-Engine::State
-VideoWindow::state( Phonon::State state ) const
-{
-    if( m_media->currentSource().type() == Phonon::MediaSource::Invalid )
-        return Engine::Empty;
-    else if( m_justLoaded )
-        return Engine::Loaded;
-    
-/*
-    enum State
-    {
-        Uninitialised = 0,
-        Empty = 1,
-        Loaded = 2,
-        Playing = 4,
-        Paused = 8,
-        TrackEnded = 16
-    }; */
-    switch( state )
-    {
-        case Phonon::StoppedState:
-            return Engine::TrackEnded;
-        break;
-        case Phonon::BufferingState:
-        case Phonon::LoadingState:
-            return Engine::Loaded;
-		break;
-        case Phonon::PlayingState:
-            return Engine::Playing;
-        break;
-        case Phonon::PausedState:
-            return Engine::Paused;
-        break;
-        case Phonon::ErrorState:
-        default:
-            return Engine::Uninitialised;
-        break;
-    }
+    return m_media->state(); 
 }
 
 qreal
@@ -443,17 +404,6 @@ VideoWindow::seek( qint64 pos )
     // stopped but xine is actually playing the track. Tada!
     // TODO set state based on events from xine only
 
-    switch( state() ) {
-    case Engine::Uninitialised:
-        //NOTE should never happen
-        Debug::warning() << "Seek attempt thwarted! xine not initialised!\n";
-        return;
-    case Engine::Empty:
-        Debug::warning() << "Seek attempt thwarted! No media loaded!\n";
-        return;
-    default:
-        ;
-    }
     m_media->pause(); //pausing first gives Phonon a chance to recognize seekable media
     m_media->seek( pos );
 }
@@ -554,7 +504,7 @@ debug() << "chapters: " << m_controller->availableChapters() << " titles: " << m
           debug() << "adjusting size to video resolution";
         }     
     }
-    emit stateChanged( state( currentState ) ); 
+    emit stateChanged( currentState ); 
 }
 
 void

@@ -91,6 +91,13 @@ namespace Codeine
     TheStream::hasVideo()
             { return videoWindow()->m_media->hasVideo(); }
 
+
+    bool
+    TheStream::hasMedia()
+    {
+        return videoWindow()->m_media->currentSource().type() != Phonon::MediaSource::Invalid;
+    }
+
     QSize
     TheStream::defaultVideoSize()
     {
