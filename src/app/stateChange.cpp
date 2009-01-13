@@ -236,6 +236,7 @@ MainWindow::engineMediaChanged(Phonon::MediaSource /*newSource*/)
  // update recently played list
 debug() << " update recent files list ";
 
+emit fileChanged( engine()->urlOrDisc() );
 //TODO fetch this from the Media source
 KUrl const &url = TheStream::url();
 const QString url_string = url.url();

@@ -64,6 +64,7 @@ namespace Codeine
 
    signals:
       void dbusStatusChanged( int );
+      void fileChanged( QString );
 
    public slots:
       void play();
