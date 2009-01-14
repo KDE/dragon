@@ -29,8 +29,7 @@
 #include <KParts/StatusBarExtension>
 #include <KParts/Part>
 #include <KUrl>
-#include <Phonon>
-
+#include <Phonon/MediaSource>
 class KAboutData;
 
 

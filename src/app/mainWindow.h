@@ -28,8 +28,7 @@
 #include <QList>
 #include <QPointer>
 #include <QCheckBox>
-#include <Phonon>
-
+#include <Phonon/MediaSource>
 #include <KXmlGuiWindow>
 
 class KNotificationRestrictions;
