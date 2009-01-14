@@ -177,8 +177,8 @@ namespace Codeine
     //videoWindow() is const for Xlib-thread-safety reasons
 
     //rearranged from previous non-static functions due to compiler warning
-    static inline VideoWindow* engine() {return VideoWindow::s_instance;};
-    static inline VideoWindow* videoWindow() {return VideoWindow::s_instance; };
+    static inline VideoWindow* engine() {return VideoWindow::s_instance;}
+    static inline VideoWindow* videoWindow() {return VideoWindow::s_instance; }
 }
 
 #endif
