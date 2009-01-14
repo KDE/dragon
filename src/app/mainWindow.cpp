@@ -187,6 +187,9 @@ MainWindow::init()
     connect( engine(), SIGNAL( statusMessage( const QString& ) ), this, SLOT( engineMessage( const QString&   ) ) );
     connect( engine(), SIGNAL( stateChanged( Phonon::State ) ), this, SLOT( engineStateChanged( Phonon::State ) ) );
     connect( engine(), SIGNAL( currentSourceChanged( Phonon::MediaSource ) ), this, SLOT( engineMediaChanged( Phonon::MediaSource ) ) );
+    connect( engine(), SIGNAL( seekableChanged( bool ) ), this, SLOT( engineSeekableChanged( bool ) ) );
+
+
     connect( engine(), SIGNAL( titleChanged( const QString& ) ), m_titleLabel, SLOT( setText( const QString&  ) ) );
     connect( engine(), SIGNAL( titleChanged( const QString& ) ), this, SLOT( setCaption( const QString& ) ) );
     connect( engine(), SIGNAL( subChannelsChanged( QList< QAction* > ) ), this, SLOT( subChannelsChanged( QList< QAction* > ) ) );
@@ -216,6 +219,7 @@ MainWindow::init()
 
     QApplication::restoreOverrideCursor();
     engineStateChanged(Phonon::StoppedState);//set everything as it would be in stopped state
+    engineSeekableChanged(false);
 
     if( !kapp->isSessionRestored() ) {
         KCmdLineArgs &args = *KCmdLineArgs::parsedArgs();

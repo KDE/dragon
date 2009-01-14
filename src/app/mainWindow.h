@@ -75,14 +75,16 @@ namespace Codeine
    private slots:
       void setFullScreen( bool full );
       void engineMessage( const QString& );
-      void engineStateChanged( Phonon::State );
-      void engineMediaChanged( Phonon::MediaSource );
       void init();
       void aboutToShowMenu();
       void streamSettingChange();
       void subChannelsChanged( QList< QAction* > );
       void audioChannelsChanged( QList< QAction* > );
       void mutedChanged( bool );
+      //in stateChange.cpp
+      void engineStateChanged( Phonon::State );
+      void engineMediaChanged( Phonon::MediaSource );
+      void engineSeekableChanged(bool);
 
    private:
       void playDisc();

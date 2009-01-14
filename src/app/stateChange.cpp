@@ -91,6 +91,8 @@ MainWindow::engineStateChanged( Phonon::State state )
     action("stop")->setEnabled(enable);
     action("video_settings")->setEnabled(enable);
     action("volume")->setEnabled(enable);
+    if( m_volumeSlider )
+      m_volumeSlider->setEnabled(enable); 
     action("fullscreen")->setEnabled(enable || isFullScreen);
     action("reset_zoom")->setEnabled(hasMedia && !isFullScreen);
     toggleAction( "play" )->setChecked(state == Phonon::PlayingState);
@@ -114,28 +116,6 @@ MainWindow::engineStateChanged( Phonon::State state )
             TheStream::aspectRatioAction()->setChecked( true );
     }
     debug() << "updated menus";
-
-    /// update position slider
-    switch( state )
-    {
-        case Phonon::LoadingState:/*drop through*/
-        case Phonon::StoppedState:
-            m_positionSlider->setEnabled( false );
-            if( m_volumeSlider )
-                m_volumeSlider->setEnabled( false );
-            break;
-        case Phonon::BufferingState:/*drop through*/
-        case Phonon::PlayingState:/*drop through*/
-        case Phonon::PausedState:
-            m_positionSlider->setEnabled( TheStream::canSeek() );
-            if( m_volumeSlider )
-                m_volumeSlider->setEnabled( true );
-            break;
-        case Phonon::ErrorState:
-          debug() << "Phonon is in error state, leaving sliders as is";
-    }
-    debug() << "update position slider";
-
 
     /// turn off screensaver
     if( state == Phonon::PlayingState )
@@ -255,5 +235,12 @@ if( !(url_string.contains( "porn", Qt::CaseInsensitive ) || url_string.contains(
   }
 
 }//engineMediaChanged
+
+void MainWindow::engineSeekableChanged(bool canSeek)
+{
+  debug() << "seekable changed to " << canSeek;
+  m_positionSlider->setEnabled( canSeek );
+  //TODO connect/disconnect the jump forward/back here.
+}//engineSeekableChanged
 
 }//namespace
