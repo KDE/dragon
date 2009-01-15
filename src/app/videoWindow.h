@@ -129,6 +129,7 @@ namespace Codeine
         const xine_stream_t* xineStream() const { return m_xineStream; }
 
     public slots:
+        void playPause();
         void seek( qint64 );
         void stop();
         void stateChanged( Phonon::State, Phonon::State );

@@ -300,6 +300,7 @@ DEBUG_BLOCK
 void
 VideoWindow::relativeSeek( qint64 step )
 {
+    debug() << "** relative seek";
     m_media->pause();
     const qint64 new_pos = currentTime() + step;
     if( new_pos > 0 )
@@ -321,6 +322,15 @@ void
 VideoWindow::pause()
 {
     m_media->pause();
+}
+
+void
+VideoWindow::playPause()
+{
+  if(m_media->state() == Phonon::PlayingState)
+    pause();
+  else
+    resume();
 }
 
 QString
@@ -405,6 +415,8 @@ VideoWindow::seek( qint64 pos )
     // TODO set state based on events from xine only
 
     m_media->pause(); //pausing first gives Phonon a chance to recognize seekable media
+    if(!isSeekable())
+      debug() << "****************************** Attempting to seek before we can do so";
     m_media->seek( pos );
 }
 
