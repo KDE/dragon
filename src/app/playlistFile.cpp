@@ -41,9 +41,9 @@ PlaylistFile::PlaylistFile( const KUrl &url )
 
     QString &path = m_path = url.path();
 
-    if( path.endsWith( ".pls", Qt::CaseInsensitive ) )
+    if( path.endsWith( QString(".pls"), Qt::CaseInsensitive ) )
         m_type = PLS; else
-    if( path.endsWith( ".m3u", Qt::CaseInsensitive ) )
+    if( path.endsWith( QString(".m3u"), Qt::CaseInsensitive ) )
         m_type = M3U;
     else {
         m_type = Unknown;
@@ -52,7 +52,7 @@ PlaylistFile::PlaylistFile( const KUrl &url )
     }
 
     if( m_isRemoteFile ) {
-        path = QString();
+        path.clear();
         if( !KIO::NetAccess::download( url, path, Codeine::mainWindow() ) ) {
             m_error = i18n( "Dragon Player could not download the remote playlist: %1", url.prettyUrl() );
             return;
@@ -91,7 +91,7 @@ PlaylistFile::parsePlsFile( QTextStream &stream )
 
     for( QString line = stream.readLine(); !line.isNull(); )
     {
-        if( line.startsWith( "File" ) ) {
+        if( line.startsWith( QString("File") ) ) {
             const KUrl url = line.section( '=', -1 );
             const QString title = stream.readLine().section( '=', -1 );
 
@@ -116,7 +116,7 @@ PlaylistFile::parseM3uFile( QTextStream &stream )
     {
         line = stream.readLine();
 
-        if( line.startsWith( "#EXTINF", Qt::CaseInsensitive ) )
+        if( line.startsWith( QString("#EXTINF"), Qt::CaseInsensitive ) )
             continue;
 
         else if( !line.startsWith( '#' ) && !line.isEmpty() )

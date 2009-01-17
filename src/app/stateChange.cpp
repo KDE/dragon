@@ -225,7 +225,7 @@ const QString url_string = url.url();
 // ;-)
 if( !(url_string.contains( "porn", Qt::CaseInsensitive ) || url_string.contains( "pr0n", Qt::CaseInsensitive )) )
 #endif
-  if( url.protocol() != "dvd" && url.protocol() != "vcd" && url.prettyUrl()!="")
+  if( url.protocol() != "dvd" && url.protocol() != "vcd" && !url.prettyUrl().isEmpty())
   {
     KConfigGroup config = KConfigGroup( KGlobal::config(), "General" );
     const QString prettyUrl = url.prettyUrl();

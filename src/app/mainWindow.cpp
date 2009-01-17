@@ -226,7 +226,7 @@ MainWindow::init()
         if (args.isSet( "play-dvd" ))
             engine()->playDvd();
         else if (args.count() > 0 ) {
-            open( args.url( 0 ) );
+            this->open( args.url( 0 ) );
             args.clear();
             adjustSize(); //will resize us to reflect the videoWindow's sizeHint()
         }
@@ -278,7 +278,7 @@ MainWindow::setupActions()
     connect( playerStop, SIGNAL( triggered() ), engine(), SLOT( stop() ) );
     addToAc( playerStop )
 
-    KToggleAction* mute = new KToggleAction( KIcon("player-volume-muted"), i18n("Mute"), ac );
+    KToggleAction* mute = new KToggleAction( KIcon("player-volume-muted"), i18nc( "Mute the sound output", "Mute"), ac );
     mute->setObjectName( "mute" );
     mute->setShortcut( Qt::Key_M );
     connect( mute, SIGNAL( toggled( bool ) ), videoWindow(), SLOT( mute( bool ) ) );
@@ -400,7 +400,7 @@ MainWindow::toggleVolumeSlider( bool show )
         m_volumeSlider->setDisabled ( engine()->isMuted() );
 
         m_muteCheckBox = new QCheckBox();
-        m_muteCheckBox->setText( i18n( "Mute " ) );
+        m_muteCheckBox->setText( i18nc( "Mute the sound output", "Mute " ) );
         m_muteCheckBox->setChecked ( engine()->isMuted() );
         connect( m_muteCheckBox, SIGNAL( toggled( bool ) ), videoWindow(), SLOT( mute( bool ) ) );
 
@@ -553,17 +553,17 @@ MainWindow::playDialogResult( int result )
         const KUrl url = KFileDialog::getOpenUrl( KUrl("kfiledialog:///dragonplayer"),mimeFilter.join(" "), this, i18n("Select A File To Play") );
         if( url.isEmpty() )
         {
-             debug() << "returning, blah";
+             debug() << "URL empty in MainWindow::playDialogResult()";
             return;
         }
         else
-            open( url );
+            this->open( url );
         } break;
     case PlayDialog::RECENT_FILE:
        
         break;
     case PlayDialog::VCD:
-        open( KUrl( "vcd://" ) ); // one / is not enough
+        this->open( KUrl( "vcd://" ) ); // one / is not enough
         break;
     case PlayDialog::DVD:
         playDisc();
@@ -614,7 +614,7 @@ MainWindow::openRecentFile( const KUrl& url )
 {
     m_playDialog->deleteLater();
     m_playDialog = 0;
-    open( url );
+    this->open( url );
 }
 
 void
@@ -705,7 +705,7 @@ MainWindow::dropEvent( QDropEvent *e )
 {
     KUrl::List uriList = KUrl::List::fromMimeData( e->mimeData() );
     if( !uriList.isEmpty() )
-        open( uriList.first() );
+        this->open( uriList.first() );
     else
         engineMessage( i18n("Sorry, no media was found in the drop") );
 }

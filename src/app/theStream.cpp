@@ -145,8 +145,8 @@ namespace Codeine
     TheStream::prettyTitle()
     {
         const KUrl& url      = videoWindow()->m_media->currentSource().url();
-        const QString artist = QString();
-        const QString title  = QString();
+        const QString artist;
+        const QString title;
 
         if (hasVideo() && !title.isEmpty())
             return title;

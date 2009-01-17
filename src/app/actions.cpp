@@ -68,7 +68,7 @@ Codeine::PlayAction::setChecked( bool b )
 ///Codeine::VolumeAction
 ////////////////////////////////////////////////////
 Codeine::VolumeAction::VolumeAction( QObject *receiver, const char *slot, KActionCollection *ac )
-        : KToggleAction( i18n("Volume"), ac )
+        : KToggleAction( i18nc( "Volume of sound output", "Volume"), ac )
 {
     setObjectName( "volume" );
     setIcon( KIcon( "player-volume" ) );

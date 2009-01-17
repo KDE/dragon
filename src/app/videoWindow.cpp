@@ -414,9 +414,7 @@ VideoWindow::seek( qint64 pos )
     // stopped but xine is actually playing the track. Tada!
     // TODO set state based on events from xine only
 
-    m_media->pause(); //pausing first gives Phonon a chance to recognize seekable media
-    if(!isSeekable())
-      debug() << "****************************** Attempting to seek before we can do so";
+    m_media->pause(); //pausing first gives Phonon a chance to recognize seekable media;
     m_media->seek( pos );
 }
 
