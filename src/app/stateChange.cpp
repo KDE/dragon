@@ -31,6 +31,8 @@
 #include <QContextMenuEvent>
 #include <QToolButton>
 
+#include <solid/powermanagement.h>
+
 #include "actions.h"
 #include "adjustSizeButton.h"
 #include "dbus/playerDbusHandler.h"
@@ -120,6 +122,7 @@ MainWindow::engineStateChanged( Phonon::State state )
     /// turn off screensaver
     if( state == Phonon::PlayingState )
     {
+        m_stopSleepCookie = Solid::PowerManagement::beginSuppressingSleep("DragonPlayer: watching a film");
         if( !m_stopScreenSaver )
         {
             debug() << "screensaver off";
@@ -128,8 +131,9 @@ MainWindow::engineStateChanged( Phonon::State state )
         else
             warning() << "m_stopScreenSaver not null";
     }
-    else if( Phonon::StoppedState || !TheStream::hasMedia()  )
+    else if( Phonon::StoppedState || !TheStream::hasMedia() )
     {
+        Solid::PowerManagement::stopSuppressingSleep(m_stopSleepCookie);
         delete m_stopScreenSaver;
         m_stopScreenSaver = 0;
         debug() << "screensaver on";

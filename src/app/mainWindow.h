@@ -114,7 +114,10 @@ namespace Codeine
       QList<QSlider*> m_sliders;
       QPointer<PlayDialog> m_playDialog;
       FullScreenAction *m_fullScreenAction;
+
       KNotificationRestrictions *m_stopScreenSaver;
+      int m_stopSleepCookie;
+
 	  bool	m_toolbarIsHidden;
       bool  m_statusbarIsHidden;
 
