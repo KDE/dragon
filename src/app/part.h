@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
-#ifndef CODEINE_PART_H
-#define CODEINE_PART_H
+#ifndef DRAGONPLAYER_PART_H
+#define DRAGONPLAYER_PART_H
 
 #include "codeine.h"
 

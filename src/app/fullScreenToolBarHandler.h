@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
-#ifndef CODEINE_FULLSCREENTOOLBARHANDLER_H
-#define CODEINE_FULLSCREENTOOLBARHANDLER_H
+#ifndef DRAGONPLAYER_FULLSCREENTOOLBARHANDLER_H
+#define DRAGONPLAYER_FULLSCREENTOOLBARHANDLER_H
 
 #include <QObject>
 #include <QPoint>

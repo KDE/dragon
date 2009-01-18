@@ -21,7 +21,7 @@
  ***********************************************************************/
 
 
-#define CODEINE_DEBUG_PREFIX "engine"
+#define DRAGONPLAYER_DEBUG_PREFIX "engine"
 
 #include "videoWindow.h"
 #include "timeLabel.h"

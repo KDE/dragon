@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
-#ifndef CODEINE_PLAYERDBUSHANDLER_H
-#define CODEINE_PLAYERDBUSHANDLER_H
+#ifndef DRAGONPLAYER_PLAYERDBUSHANDLER_H
+#define DRAGONPLAYER_PLAYERDBUSHANDLER_H
 
 #include <QObject>
 #include <QVariantMap>

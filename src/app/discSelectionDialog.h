@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
  
-#ifndef CODEINE_DISCSELECTIONDIALOG_H
-#define CODEINE_DISCSELECTIONDIALOG_H
+#ifndef DRAGONPLAYER_DISCSELECTIONDIALOG_H
+#define DRAGONPLAYER_DISCSELECTIONDIALOG_H
 
 #include <QList>
 

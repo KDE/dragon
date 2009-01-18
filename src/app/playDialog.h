@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
-#ifndef CODEINEPLAYDIALOG_H
-#define CODEINEPLAYDIALOG_H
+#ifndef DRAGONPLAYERPLAYDIALOG_H
+#define DRAGONPLAYERPLAYDIALOG_H
 
 #include <KUrl>
 #include <QDialog>

@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
-#ifndef CODEINE_MESSAGEBOX
-#define CODEINE_MESSAGEBOX
+#ifndef DRAGONPLAYER_MESSAGEBOX
+#define DRAGONPLAYER_MESSAGEBOX
 
 #include <KMessageBox>
 namespace Codeine {

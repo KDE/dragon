@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
-#ifndef CODEINE_FULLSCREENACTION_H
-#define CODEINE_FULLSCREENACTION_H
+#ifndef DRAGONPLAYER_FULLSCREENACTION_H
+#define DRAGONPLAYER_FULLSCREENACTION_H
 
 #include <KToggleFullScreenAction>
 

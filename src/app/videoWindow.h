@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
-#ifndef CODEINE_VIDEOWINDOW_H
-#define CODEINE_VIDEOWINDOW_H
+#ifndef DRAGONPLAYER_VIDEOWINDOW_H
+#define DRAGONPLAYER_VIDEOWINDOW_H
 
 #include "codeine.h"
 

@@ -17,8 +17,8 @@
   * You should have received a copy of the GNU General Public License
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   ***********************************************************************/
-  #ifndef CODEINE_H
-  #define CODEINE_H
+  #ifndef DRAGONPLAYER_H
+  #define DRAGONPLAYER_H
 
   // try to keep this file light. It gets included by
   // practically every implementation and many headers

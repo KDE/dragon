@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
-#ifndef CODEINE_PLAYLIST_FILE_H
-#define CODEINE_PLAYLIST_FILE_H
+#ifndef DRAGONPLAYER_PLAYLIST_FILE_H
+#define DRAGONPLAYER_PLAYLIST_FILE_H
 
 #include <KUrl>
 #include <QTextStream>

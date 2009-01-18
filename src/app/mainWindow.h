@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
-#ifndef CODEINEMAINWINDOW_H
-#define CODEINEMAINWINDOW_H
+#ifndef DRAGONPLAYERMAINWINDOW_H
+#define DRAGONPLAYERMAINWINDOW_H
 
 #include "codeine.h"
 #include "timeLabel.h"
