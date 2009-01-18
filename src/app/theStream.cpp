@@ -40,7 +40,6 @@
 #include "mxcl.library.h"
 #include "videoWindow.h"
 
-
 namespace Codeine
 {
 
@@ -145,8 +144,17 @@ namespace Codeine
     TheStream::prettyTitle()
     {
         const KUrl& url      = videoWindow()->m_media->currentSource().url();
-        const QString artist;
-        const QString title;
+        QString artist, title;
+        
+        QStringList artists = videoWindow()->m_media->metaData("ARTIST");
+        if (!artists.isEmpty()) {
+            artist = artists.first();
+        }
+        
+        QStringList titles = videoWindow()->m_media->metaData("TITLE");
+        if (!titles.isEmpty()) {
+            title  = titles.first();
+        }
 
         if (hasVideo() && !title.isEmpty())
             return title;

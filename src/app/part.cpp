@@ -74,10 +74,6 @@ namespace Codeine
         connect( videoWindow(), SIGNAL( customContextMenuRequested() ), this, SLOT( videoContextMenu() ) );
 
         widget()->setLayout( layout );
-
-/*        QObject *o = (QObject*)statusBar();
-        connect( videoWindow(), SIGNAL(statusMessage( const QString& )), o, SLOT(message( const QString& )) );
-        connect( videoWindow(), SIGNAL(titleChanged( const QString& )), o, SLOT(message( const QString& )) ); *///FIXME
     }
 
     void

@@ -184,14 +184,11 @@ void
 MainWindow::init()
 {
 //     DEBUG_BLOCK
-    connect( engine(), SIGNAL( statusMessage( const QString& ) ), this, SLOT( engineMessage( const QString&   ) ) );
     connect( engine(), SIGNAL( stateChanged( Phonon::State ) ), this, SLOT( engineStateChanged( Phonon::State ) ) );
     connect( engine(), SIGNAL( currentSourceChanged( Phonon::MediaSource ) ), this, SLOT( engineMediaChanged( Phonon::MediaSource ) ) );
     connect( engine(), SIGNAL( seekableChanged( bool ) ), this, SLOT( engineSeekableChanged( bool ) ) );
+    connect( engine(), SIGNAL( metaDataChanged () ), this, SLOT( engineMetaDataChanged() ) );
 
-
-    connect( engine(), SIGNAL( titleChanged( const QString& ) ), m_titleLabel, SLOT( setText( const QString&  ) ) );
-    connect( engine(), SIGNAL( titleChanged( const QString& ) ), this, SLOT( setCaption( const QString& ) ) );
     connect( engine(), SIGNAL( subChannelsChanged( QList< QAction* > ) ), this, SLOT( subChannelsChanged( QList< QAction* > ) ) );
     connect( engine(), SIGNAL( audioChannelsChanged( QList< QAction* > ) ), this, SLOT( audioChannelsChanged( QList< QAction* > ) ) );
     connect( engine(), SIGNAL( mutedChanged( bool ) ), this, SLOT( mutedChanged( bool ) ) );
@@ -738,6 +735,24 @@ MainWindow::streamSettingChange()
     {
         TheStream::setRatio( dynamic_cast< QAction* > ( sender() ) );
     }
+}
+
+void
+MainWindow::updateTitleBarText()
+{
+    if( !TheStream::hasMedia() )
+    {
+        m_titleLabel->setText( i18n("No media loaded") );
+    }
+    else if( engine()->state() == Phonon::PausedState )
+    {
+        m_titleLabel->setText( i18n("Paused") );
+    }
+    else
+    {
+        m_titleLabel->setText( TheStream::prettyTitle() );
+    }
+    debug() << "set titles ";
 }
 
 #define CHANNELS_CHANGED( function, actionName ) \

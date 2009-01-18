@@ -83,10 +83,10 @@ MainWindow::engineStateChanged( Phonon::State state )
 
 //     using namespace Engine;
 
-    bool enable = FALSE;
+    bool enable = false;
     if(state == Phonon::PlayingState || state == Phonon::PausedState)
     {
-      enable=TRUE;
+      enable = true;
     }
     action("stop")->setEnabled(enable);
     action("video_settings")->setEnabled(enable);
@@ -134,22 +134,8 @@ MainWindow::engineStateChanged( Phonon::State state )
         m_stopScreenSaver = 0;
         debug() << "screensaver on";
     }
-
-	//if there's something loaded
-	if(! TheStream::hasMedia())
-    {
-        m_titleLabel->setText( i18n("No media loaded") );
-    }
-    else if( state == Phonon::PausedState)
-    {
-        m_titleLabel->setText( i18n("Paused") );
-    }
-    else
-    {
-        m_titleLabel->setText( TheStream::prettyTitle() );
-    }
-    debug() << "set titles ";
-
+    
+    updateTitleBarText();
 
     // enable/disable DVD specific buttons
     QWidget *dvd_button = toolBar()->findChild< QWidget* >( "toolbutton_toggle_dvd_menu" );
@@ -213,26 +199,26 @@ MainWindow::engineStateChanged( Phonon::State state )
 void
 MainWindow::engineMediaChanged(Phonon::MediaSource /*newSource*/)
 {
- // update recently played list
-debug() << " update recent files list ";
+    // update recently played list
+    debug() << " update recent files list ";
 
-emit fileChanged( engine()->urlOrDisc() );
-//TODO fetch this from the Media source
-KUrl const &url = TheStream::url();
-const QString url_string = url.url();
+    emit fileChanged( engine()->urlOrDisc() );
+    //TODO fetch this from the Media source
+    KUrl const &url = TheStream::url();
+    const QString url_string = url.url();
 
-#ifndef NO_SKIP_PR0N
-// ;-)
-if( !(url_string.contains( "porn", Qt::CaseInsensitive ) || url_string.contains( "pr0n", Qt::CaseInsensitive )) )
-#endif
-  if( url.protocol() != "dvd" && url.protocol() != "vcd" && !url.prettyUrl().isEmpty())
-  {
-    KConfigGroup config = KConfigGroup( KGlobal::config(), "General" );
-    const QString prettyUrl = url.prettyUrl();
-    QStringList urls = config.readPathEntry( "Recent Urls", QStringList() );
-    urls.removeAll( prettyUrl );
-    config.writePathEntry( "Recent Urls", urls << prettyUrl );
-  }
+    #ifndef NO_SKIP_PR0N
+    // ;-)
+    if( !(url_string.contains( "porn", Qt::CaseInsensitive ) || url_string.contains( "pr0n", Qt::CaseInsensitive )) )
+    #endif
+    if( url.protocol() != "dvd" && url.protocol() != "vcd" && !url.prettyUrl().isEmpty())
+    {
+        KConfigGroup config = KConfigGroup( KGlobal::config(), "General" );
+        const QString prettyUrl = url.prettyUrl();
+        QStringList urls = config.readPathEntry( "Recent Urls", QStringList() );
+        urls.removeAll( prettyUrl );
+        config.writePathEntry( "Recent Urls", urls << prettyUrl );
+    }
 
 }//engineMediaChanged
 
@@ -242,5 +228,12 @@ void MainWindow::engineSeekableChanged(bool canSeek)
   m_positionSlider->setEnabled( canSeek );
   //TODO connect/disconnect the jump forward/back here.
 }//engineSeekableChanged
+
+
+void MainWindow::engineMetaDataChanged()
+{
+    debug() << "metaDataChanged";
+    updateTitleBarText();
+}
 
 }//namespace

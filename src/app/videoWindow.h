@@ -163,8 +163,6 @@ namespace Codeine
         void hideCursor();
     signals:
         void stateChanged( const Phonon::State );
-        void statusMessage( const QString& );
-        void titleChanged( const QString& );
         void subChannelsChanged( QList< QAction* > );
         void audioChannelsChanged( QList< QAction* > );
         void tick( qint64 );
@@ -172,6 +170,7 @@ namespace Codeine
         void totalTimeChanged( qint64 );
         void mutedChanged( bool );
         void seekableChanged( bool );
+        void metaDataChanged();
     };
 
     //global function for general use by Codeine

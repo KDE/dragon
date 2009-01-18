@@ -85,11 +85,13 @@ namespace Codeine
       void engineStateChanged( Phonon::State );
       void engineMediaChanged( Phonon::MediaSource );
       void engineSeekableChanged(bool);
+      void engineMetaDataChanged();
 
    private:
       void playDisc();
       void setupActions();
       void updateSliders();
+      void updateTitleBarText();
 
       bool load( const KUrl& );
 
