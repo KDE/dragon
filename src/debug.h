@@ -140,19 +140,12 @@ namespace Debug
     static inline kdbgstream warning() { QString ind = indent(); return dbgstream() << qPrintable( "dragonplayer: " + ind + AMK_PREFIX + " [WARNING!]" ); }
     static inline kdbgstream error()   { QString ind = indent(); return dbgstream() << qPrintable( "dragonplayer: " + ind + AMK_PREFIX + " [ERROR!]" ); }
     static inline kdbgstream fatal()   { QString ind = indent(); return dbgstream() << qPrintable( "dragonplayer: " + ind + AMK_PREFIX ); }
-
-    typedef kdbgstream DebugStream;
-
-    #undef AMK_PREFIX
-
-    typedef kndbgstream NoDebugStream;
 }
 
 using Debug::debug;
 using Debug::warning;
 using Debug::error;
 using Debug::fatal;
-using Debug::DebugStream;
 
 /// Standard function announcer
 #define DEBUG_FUNC_INFO { kDebug() << Debug::indent(); }
