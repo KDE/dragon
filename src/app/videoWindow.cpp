@@ -496,11 +496,9 @@ debug() << "chapters: " << m_controller->availableChapters() << " titles: " << m
     debug() << "going from " << states.at(oldstate) << " to " << states.at(currentState);
 
     if( currentState == Phonon::LoadingState )
-        m_xineStream = 0;
-
-
-    //N.B this code is also run when coming out of Paused state, as Phonon goes Paused->Buffering->Playing (but at least this saves doing it twice)
-    if( currentState == Phonon::PlayingState && oldstate != Phonon::PausedState && m_media->hasVideo() )
+      m_xineStream = 0;
+    
+    if( currentState == Phonon::PlayingState  && m_media->hasVideo() )
     {
         m_logo->hide();
         m_vWidget->show();
