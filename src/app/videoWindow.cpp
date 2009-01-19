@@ -312,10 +312,12 @@ VideoWindow::relativeSeek( qint64 step )
 void
 VideoWindow::stop()
 {
+    debug() << "Stop called";
     eject();
     m_media->stop();
-    m_media->setCurrentSource( Phonon::MediaSource() ); //set the current source to invalid
-    m_vWidget->hide();
+    m_media->setCurrentSource(Phonon::MediaSource()); //set the current source to    Phonon::MediaSource::Empty
+    debug() << "Media source valid? "<<  TheStream::hasMedia();
+      m_vWidget->hide();
     m_logo->show();
 }
 
@@ -341,6 +343,7 @@ VideoWindow::urlOrDisc() const
     switch( source.type() )
     {
         case Phonon::MediaSource::Invalid:
+        case Phonon::MediaSource::Empty:
             return "Invalid"; //no i18n, used for DBus responses
             break;
         case Phonon::MediaSource::Url:
@@ -800,6 +803,10 @@ VideoWindow::eject()
 DEBUG_BLOCK
     if( m_media->currentSource().type() == Phonon::MediaSource::Invalid )
         return;
+
+    if( m_media->currentSource().type() == Phonon::MediaSource::Empty )
+        return;
+
 
     KConfigGroup profile = TheStream::profile(); // the config profile for this video file
 

@@ -94,7 +94,12 @@ namespace Codeine
     bool
     TheStream::hasMedia()
     {
-        return videoWindow()->m_media->currentSource().type() != Phonon::MediaSource::Invalid;
+        if(videoWindow()->m_media->currentSource().type() == Phonon::MediaSource::Invalid)
+          return false;
+        if(videoWindow()->m_media->currentSource().type() == Phonon::MediaSource::Empty)
+          return false;
+        //otherwise 
+        return true;
     }
 
     QSize

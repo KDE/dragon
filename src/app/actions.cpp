@@ -20,6 +20,7 @@
  ***********************************************************************/
 #include "actions.h"
 #include "debug.h"
+#include "theStream.h"
 
 
 #include <KIcon>
@@ -55,8 +56,8 @@ Codeine::PlayAction::setPlaying( bool playing )
 void
 Codeine::PlayAction::setChecked( bool b )
 {
-    //should read if not empty (m_media->currentSource().type() == Phonon::MediaSource::Invalid)
-    if( false && sender() && QByteArray( sender()->metaObject()->className() ) == "KToolBarButton" ) {
+
+    if( TheStream::hasMedia() && sender() && QByteArray( sender()->metaObject()->className() ) == "KToolBarButton" ) {
         // clicking play when empty means open PlayMediaDialog, but we have to uncheck the toolbar button
         // as KDElibs sets that checked automatically..
         setChecked( false );
