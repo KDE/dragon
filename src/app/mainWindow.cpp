@@ -516,6 +516,9 @@ MainWindow::play()
     case Phonon::PausedState:
         engine()->resume();
         break;
+    case Phonon::StoppedState:
+        engine()->play();
+        break;
     default:
         break;
     }
