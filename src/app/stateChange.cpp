@@ -91,7 +91,7 @@ MainWindow::engineStateChanged( Phonon::State state )
       enable = true;
     }
     action("stop")->setEnabled(enable);
-    action("video_settings")->setEnabled(enable);
+    action("video_settings")->setEnabled(enable && TheStream::hasVideo());
     action("volume")->setEnabled(enable);
     if( m_volumeSlider )
       m_volumeSlider->setEnabled(enable); 

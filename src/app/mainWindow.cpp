@@ -188,7 +188,7 @@ MainWindow::init()
     connect( engine(), SIGNAL( stateChanged( Phonon::State ) ), this, SLOT( engineStateChanged( Phonon::State ) ) );
     connect( engine(), SIGNAL( currentSourceChanged( Phonon::MediaSource ) ), this, SLOT( engineMediaChanged( Phonon::MediaSource ) ) );
     connect( engine(), SIGNAL( seekableChanged( bool ) ), this, SLOT( engineSeekableChanged( bool ) ) );
-    connect( engine(), SIGNAL( metaDataChanged () ), this, SLOT( engineMetaDataChanged() ) );
+    connect( engine(), SIGNAL( metaDataChanged() ), this, SLOT( engineMetaDataChanged() ) );
 
     connect( engine(), SIGNAL( subChannelsChanged( QList< QAction* > ) ), this, SLOT( subChannelsChanged( QList< QAction* > ) ) );
     connect( engine(), SIGNAL( audioChannelsChanged( QList< QAction* > ) ), this, SLOT( audioChannelsChanged( QList< QAction* > ) ) );
@@ -386,6 +386,7 @@ MainWindow::toggleVideoSettings( bool show )
     }
     else
     {
+        m_sliders.clear();
         delete m_leftDock;
     }
 }
