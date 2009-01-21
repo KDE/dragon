@@ -378,8 +378,9 @@ MainWindow::toggleVideoSettings( bool show )
         m_sliders << ui.brightnessSlider << ui.contrastSlider << ui.hueSlider <<  ui.saturationSlider;
         updateSliders();
         foreach( QSlider* slider, m_sliders )
-             connect( slider, SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
-
+             connect( slider, SIGNAL( valueChanged( int ) ), engine(), SLOT( settingChanged( int ) ) );
+        
+        connect( ui.defaultsButton, SIGNAL( clicked( bool ) ), this, SLOT( restoreDefaultVideoSettings() ) );
         connect( ui.closeButton, SIGNAL( clicked( bool ) ), action( "video_settings" ), SLOT( setChecked( bool ) ) );
         connect( ui.closeButton, SIGNAL( clicked( bool ) ), m_leftDock, SLOT( deleteLater() ) );
     }
@@ -387,6 +388,13 @@ MainWindow::toggleVideoSettings( bool show )
     {
         delete m_leftDock;
     }
+}
+
+void
+MainWindow::restoreDefaultVideoSettings()
+{
+    foreach( QSlider* slider, m_sliders )
+        slider->setValue(0);
 }
 
 void

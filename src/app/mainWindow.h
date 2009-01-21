@@ -71,6 +71,7 @@ namespace Codeine
       void toggleVideoSettings( bool );
       void toggleVolumeSlider( bool );
       void playDialogResult( int result );
+      void restoreDefaultVideoSettings();
 
    private slots:
       void setFullScreen( bool full );

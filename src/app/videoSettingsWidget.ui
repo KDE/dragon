@@ -122,6 +122,13 @@
       </spacer>
      </item>
      <item>
+      <widget class="QPushButton" name="defaultsButton" >
+       <property name="text" >
+        <string>Restore Defaults</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="closeButton" >
        <property name="text" >
         <string>Close</string>
