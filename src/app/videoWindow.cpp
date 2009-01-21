@@ -418,9 +418,9 @@ VideoWindow::seek( qint64 pos )
     // stopped but xine is actually playing the track. Tada!
     // TODO set state based on events from xine only
 
-    m_media->pause(); //pausing first gives Phonon a chance to recognize seekable media;
-    m_media->seek( pos );
-}
+      m_media->pause(); //pausing first gives Phonon a chance to recognize seekable media;
+      m_media->seek( pos );
+}   
 
 void
 VideoWindow::showOSD( const QString &/*message*/ )
@@ -610,7 +610,8 @@ VideoWindow::setSubtitle( int channel )
     DEBUG_BLOCK
     Phonon::SubtitleDescription desc = Phonon::SubtitleDescription::fromIndex( channel );
     debug() << "using index: " << channel << " returned desc has index: " << desc.index();
-    m_controller->setCurrentSubtitle( desc );
+    if(desc.isValid())  
+      m_controller->setCurrentSubtitle( desc );
 }
 
 void
@@ -627,7 +628,8 @@ VideoWindow::setAudioChannel( int channel )
     DEBUG_BLOCK
     Phonon::AudioChannelDescription desc = Phonon::AudioChannelDescription::fromIndex( channel );
     debug() << "using index: " << channel << " returned desc has index: " << desc.index();
-    m_controller->setCurrentAudioChannel( desc );
+    if(desc.isValid())
+      m_controller->setCurrentAudioChannel( desc );
 }
 
 void
