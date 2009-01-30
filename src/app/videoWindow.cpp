@@ -8,7 +8,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License or (at your option) version 3 or any later version
  * accepted by the membership of KDE e.V. (or its successor approved
- * by the membership of KDE e.V.), which shall act as a proxy 
+ * by the membership of KDE e.V.), which shall act as a proxy
  * defined in Section 14 of version 3 of the license.
  *
  * This program is distributed in the hope that it will be useful,
@@ -20,6 +20,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
+#include <config.h>
 
 #define DRAGONPLAYER_DEBUG_PREFIX "engine"
 
@@ -65,6 +66,10 @@
 #include <windows.h>
 #endif
 
+#if defined(HAVE_UNISTD_H)
+#include <unistd.h>
+#endif
+
 using Phonon::AudioOutput;
 using Phonon::MediaObject;
 using Phonon::VideoWidget;
@@ -81,7 +86,7 @@ VideoWindow::VideoWindow( QWidget *parent )
         : QWidget( parent )
         , m_cursorTimer( new QTimer( this ) )
         , m_justLoaded( false )
-		, m_adjustedSize( false)
+        , m_adjustedSize( false)
         , m_xineStream( 0 )
         , m_subLanguages( new QActionGroup( this ) )
         , m_audioLanguages( new QActionGroup( this ) )
@@ -155,7 +160,7 @@ VideoWindow::VideoWindow( QWidget *parent )
         m_logo->show();
     }
     {
-        KConfigGroup config = KGlobal::config()->group( "General" ); 
+        KConfigGroup config = KGlobal::config()->group( "General" );
         m_aOutput->setVolume( config.readEntry<double>( "Volume", 1.0 ) );
     }
 }
@@ -362,7 +367,7 @@ VideoWindow::urlOrDisc() const
     return "Error";
 }
 
-QMultiMap<QString, QString> 
+QMultiMap<QString, QString>
 VideoWindow::metaData() const
 {
     return m_media->metaData();
@@ -378,7 +383,7 @@ VideoWindow::isSeekable() const
 Phonon::State
 VideoWindow::state() const
 {
-    return m_media->state(); 
+    return m_media->state();
 }
 
 qreal
@@ -420,7 +425,7 @@ VideoWindow::seek( qint64 pos )
 
       m_media->pause(); //pausing first gives Phonon a chance to recognize seekable media;
       m_media->seek( pos );
-}   
+}
 
 void
 VideoWindow::showOSD( const QString &/*message*/ )
@@ -500,7 +505,7 @@ debug() << "chapters: " << m_controller->availableChapters() << " titles: " << m
 
     if( currentState == Phonon::LoadingState )
       m_xineStream = 0;
-    
+
     if( currentState == Phonon::PlayingState  && m_media->hasVideo() )
     {
         m_logo->hide();
@@ -514,9 +519,9 @@ debug() << "chapters: " << m_controller->availableChapters() << " titles: " << m
              ( (QWidget*) mainWindow() )->adjustSize();
           m_adjustedSize=true;
           debug() << "adjusting size to video resolution";
-        }     
+        }
     }
-    emit stateChanged( currentState ); 
+    emit stateChanged( currentState );
 }
 
 void
@@ -610,7 +615,7 @@ VideoWindow::setSubtitle( int channel )
     DEBUG_BLOCK
     Phonon::SubtitleDescription desc = Phonon::SubtitleDescription::fromIndex( channel );
     debug() << "using index: " << channel << " returned desc has index: " << desc.index();
-    if(desc.isValid())  
+    if(desc.isValid())
       m_controller->setCurrentSubtitle( desc );
 }
 
@@ -767,7 +772,7 @@ VideoWindow::contextMenuEvent( QContextMenuEvent * event )
         menu.addAction( action( "play" ) );
         menu.addAction( action( "fullscreen" ) );
         menu.addAction( action( "reset_zoom" ) );
-        if(isDVD()) 
+        if(isDVD())
         {
             menu.addAction( action( "toggle_dvd_menu" ) );
         }
@@ -775,7 +780,7 @@ VideoWindow::contextMenuEvent( QContextMenuEvent * event )
     menu.exec( event->globalPos() );
 }
 
-void 
+void
 VideoWindow::mouseDoubleClickEvent( QMouseEvent* )
 {
     if( mainWindow() ) //TODO: add full screen mode to kpart
