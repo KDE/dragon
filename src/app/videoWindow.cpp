@@ -20,6 +20,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
+#include <config.h>
 
 #define CODEINE_DEBUG_PREFIX "engine"
 
@@ -63,6 +64,10 @@
 
 #ifdef Q_WS_WIN
 #include <windows.h>
+#endif
+
+#if defined(HAVE_UNISTD_H)
+#include <unistd.h>
 #endif
 
 using Phonon::AudioOutput;
