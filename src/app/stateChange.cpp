@@ -101,6 +101,7 @@ MainWindow::engineStateChanged( Phonon::State state )
 
     m_timeLabel->setVisible(enable);
 
+    selectMainWidget();
 
     debug() << "updated actions";
 
@@ -203,6 +204,8 @@ MainWindow::engineStateChanged( Phonon::State state )
 void
 MainWindow::engineMediaChanged(Phonon::MediaSource /*newSource*/)
 {
+    m_audioView->updateText();
+
     // update recently played list
     debug() << " update recent files list ";
 
@@ -238,6 +241,13 @@ void MainWindow::engineMetaDataChanged()
 {
     debug() << "metaDataChanged";
     updateTitleBarText();
+    m_audioView->updateText();
+}
+
+void MainWindow::engineHasVideoChanged(bool hasVideo)
+{
+  debug() << "hasVideo changed";
+  selectMainWidget();
 }
 
 }//namespace

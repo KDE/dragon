@@ -21,6 +21,8 @@ set(videoplayer_app_SRCS
     timeLabel.cpp
     mainWindow.cpp
 	recentlyPlayedList.cpp
+    audioView.cpp
+    loadView.cpp
     ../dbus/playerDbusHandler.cpp
     ../dbus/rootDbusHandler.cpp
     ../dbus/trackListDbusHandler.cpp )
@@ -29,7 +31,7 @@ qt4_add_dbus_adaptor( videoplayer_app_SRCS ../dbus/org.kde.dragon.player.xml ../
 qt4_add_dbus_adaptor( videoplayer_app_SRCS ../dbus/root.xml ../dbus/rootDbusHandler.h RootDbusHandler RootDbusHandlerBase RootDbusHandlerBase )
 qt4_add_dbus_adaptor( videoplayer_app_SRCS ../dbus/tracklist.xml ../dbus/trackListDbusHandler.h TrackListDbusHandler TrackListDbusAdaptor TrackListDbusAdaptor )
 
-kde4_add_ui_files(videoplayer_app_SRCS videoSettingsWidget.ui)
+kde4_add_ui_files(videoplayer_app_SRCS videoSettingsWidget.ui loadView.ui)
 
 kde4_add_executable(dragon ${videoplayer_app_SRCS} )
 

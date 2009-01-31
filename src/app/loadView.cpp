@@ -1,5 +1,5 @@
 /***********************************************************************
- * Copyright 2008 David Edmundson
+ * Copyright 2008  David Edmundson <kde@davidedmundson.co.uk>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,29 +18,28 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
-#ifndef RECENTLYPLAYEDLIST_H
-#define RECENTLYPLAYEDLIST_H
+#include "loadView.h"
+#include <QLabel>
+#include <KStandardDirs>
 
-#include <KListWidget>
-#include <KConfigGroup>
-#include <KUrl>
 
-class RecentlyPlayedList : public KListWidget
+namespace Codeine
 {
-  Q_OBJECT
-  public:
-	explicit RecentlyPlayedList(QWidget*);
-  private:
-	virtual void contextMenuEvent(QContextMenuEvent*);
-	virtual void loadEntries();
-	KConfigGroup* configGroup;
-  public slots:
-	virtual void removeEntry();
-	virtual void clearList();
-    virtual void itemDoubleClicked(QListWidgetItem*);
-  signals:
-    void itemDoubleClicked(KUrl);
-};
+
+LoadView::LoadView( QWidget *parent) 
+    : QWidget( parent )
+{
+  setupUi(this);
+  
+  m_playDiskButton->setIcon(KIcon("media-optical"));
+  m_playDiskButton->setIconSize(QSize(64,64));
+  m_playFileButton->setIcon(KIcon("folder"));
+  m_playFileButton->setIconSize(QSize(64,64));
+  connect(m_playDiskButton,SIGNAL(released()),this,SIGNAL(openDVDPressed()));
+  connect(m_playFileButton,SIGNAL(released()),this,SIGNAL(openFilePressed())); 
+  connect(m_recentlyPlayed,SIGNAL(itemDoubleClicked(KUrl)),this,SIGNAL(loadUrl(KUrl)));
+}
 
 
-#endif
+
+}

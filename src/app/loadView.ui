@@ -1,0 +1,48 @@
+<ui version="4.0" >
+ <class>LoadView</class>
+ <widget class="QWidget" name="LoadView" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>294</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout" >
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout" >
+     <item>
+      <widget class="QPushButton" name="m_playFileButton" >
+       <property name="text" >
+        <string>Play File</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="m_playDiskButton" >
+       <property name="text" >
+        <string>Play Disk</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="RecentlyPlayedList" name="m_recentlyPlayed" />
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>RecentlyPlayedList</class>
+   <extends>QListWidget</extends>
+   <header>recentlyPlayedList.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

@@ -178,6 +178,21 @@ namespace Codeine
             return url.prettyUrl();
     }
 
+    QString
+    TheStream::fullTitle()
+    {/*
+      QString artist,album,title;
+      QStringList artists = m_mediaObject->metaData(Phonon::ArtistMetaData);
+      QStringList albums = m_mediaObject->metaData(Phonon::AlbumMetaData);
+      QStringList titles = m_mediaObject->metaData(Phonon::TitleMetaData)
+      title = (title ? titles.join(" ") : "" );
+      album = (albums ? albums.join(" "): "" );
+      artist = (artists ? artists.join(" "): "" );
+
+      return title + "\n" + album + "\n" + artist;*/
+      return "";
+    }
+
     bool
     TheStream::hasProfile()
     { 

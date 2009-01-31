@@ -1,5 +1,5 @@
 /***********************************************************************
- * Copyright 2008 David Edmundson
+ * Copyright 2008  David Edmundson <kde@davidedmundson.co.uk>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,29 +18,41 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
-#ifndef RECENTLYPLAYEDLIST_H
-#define RECENTLYPLAYEDLIST_H
+#include "audioView.h"
+#include "theStream.h"
 
-#include <KListWidget>
-#include <KConfigGroup>
-#include <KUrl>
-
-class RecentlyPlayedList : public KListWidget
+namespace Codeine
 {
-  Q_OBJECT
-  public:
-	explicit RecentlyPlayedList(QWidget*);
-  private:
-	virtual void contextMenuEvent(QContextMenuEvent*);
-	virtual void loadEntries();
-	KConfigGroup* configGroup;
-  public slots:
-	virtual void removeEntry();
-	virtual void clearList();
-    virtual void itemDoubleClicked(QListWidgetItem*);
-  signals:
-    void itemDoubleClicked(KUrl);
-};
+
+AudioView::AudioView( QWidget *parent) 
+    : QWidget( parent )
+{
+   m_message = QString();
+   setAutoFillBackground(true);
+   QPalette pal;
+   pal.setColor( QPalette::Window, Qt::black );
+   setPalette( pal );
+}
+
+void
+AudioView::updateText()
+{
+    m_message = TheStream::prettyTitle();
+    repaint();
+}
+
+void
+AudioView::paintEvent(QPaintEvent* event)
+{
+  QPainter painter(this);
+  painter.setPen(Qt::white);
+  painter.drawText(rect(), Qt::AlignCenter, m_message);
+}
 
 
-#endif
+AudioView::~AudioView()
+{
+}
+
+}
+#include "audioView.moc"

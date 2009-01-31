@@ -56,6 +56,7 @@
 #include <QMouseEvent>
 #include <QObject>
 #include <QTimer>
+#include <QStackedWidget>
 
 #include "actions.h"
 #include "discSelectionDialog.h"
@@ -73,6 +74,8 @@
 #include "theStream.h"
 #include "ui_videoSettingsWidget.h"
 #include "videoWindow.h"
+#include "audioView.h"
+#include "loadView.h"
 
 #include <phonon/backendcapabilities.h>
 
@@ -91,22 +94,34 @@ MainWindow::MainWindow()
         , m_volumeSlider( 0 )
         , m_timeLabel( 0 )
         , m_titleLabel( new QLabel( this ) )
+        , m_mainView( 0 )
         , m_playDialog( 0 )
         , m_fullScreenAction( 0 )
         , m_stopScreenSaver( 0 )
         , m_stopSleepCookie( -1 )
         , m_toolbarIsHidden(false)
         , m_statusbarIsHidden(false)
+        , m_audioView(new AudioView(this) )
+        , m_loadView( new LoadView(this) )
 {
     DEBUG_BLOCK
     s_instance = this;
     setMouseTracking( true );
+
+    m_mainView = new QStackedWidget(this);
+
     new VideoWindow( this );
     videoWindow()->setMouseTracking( true );
 
     m_positionSlider = videoWindow()->newPositionSlider();
     
-    setCentralWidget( videoWindow() );
+    m_mainView->addWidget(m_loadView);
+    m_mainView->addWidget(m_audioView);
+    m_mainView->addWidget(videoWindow());
+    m_mainView->setCurrentWidget(m_loadView);
+
+    setCentralWidget( m_mainView );
+
     setFocusProxy( videoWindow() ); // essential! See VideoWindow::event(), QEvent::FocusOut
 
     m_titleLabel->setMargin( 2 );
@@ -153,7 +168,7 @@ MainWindow::MainWindow()
             make_ratio_action( i18n( "Determine &Automatically" ), "ratio_auto",  Phonon::VideoWidget::AspectRatioAuto );
             make_ratio_action( i18n( "&4:3" ), "ratio_golden", Phonon::VideoWidget::AspectRatio4_3 );
             make_ratio_action( i18n( "Ana&morphic (16:9)" ), "ratio_anamorphic", Phonon::VideoWidget::AspectRatio16_9 );
-	    make_ratio_action( i18n( "&Window Size" ), "ratio_window", Phonon::VideoWidget::AspectRatioWidget );
+            make_ratio_action( i18n( "&Window Size" ), "ratio_window", Phonon::VideoWidget::AspectRatioWidget );
             #undef make_ratio_action
             ac->action( "ratio_auto" )->setChecked( true );
             ac->action( "aspect_ratio_menu" )->menu()->addActions( m_aspectRatios->actions() );
@@ -185,10 +200,17 @@ void
 MainWindow::init()
 {
 //     DEBUG_BLOCK
+    //connect the stuff in loadView
+    connect( m_loadView, SIGNAL(openDVDPressed()), this, SLOT(playDisc()) );
+    connect( m_loadView, SIGNAL(openFilePressed()), this, SLOT(openFileDialog()) );
+    connect( m_loadView, SIGNAL(loadUrl(KUrl)), this, SLOT(open(KUrl)) );
+
+    //connect the video player
     connect( engine(), SIGNAL( stateChanged( Phonon::State ) ), this, SLOT( engineStateChanged( Phonon::State ) ) );
     connect( engine(), SIGNAL( currentSourceChanged( Phonon::MediaSource ) ), this, SLOT( engineMediaChanged( Phonon::MediaSource ) ) );
     connect( engine(), SIGNAL( seekableChanged( bool ) ), this, SLOT( engineSeekableChanged( bool ) ) );
     connect( engine(), SIGNAL( metaDataChanged() ), this, SLOT( engineMetaDataChanged() ) );
+    connect( engine(), SIGNAL( hasVideoChanged( bool ) ), this, SLOT( engineHasVideoChanged( bool ) ) );
 
     connect( engine(), SIGNAL( subChannelsChanged( QList< QAction* > ) ), this, SLOT( subChannelsChanged( QList< QAction* > ) ) );
     connect( engine(), SIGNAL( audioChannelsChanged( QList< QAction* > ) ), this, SLOT( audioChannelsChanged( QList< QAction* > ) ) );
@@ -228,9 +250,6 @@ MainWindow::init()
             args.clear();
             adjustSize(); //will resize us to reflect the videoWindow's sizeHint()
         }
-        else
-            //show the welcome dialog
-            playMedia( true ); // true = show in style of welcome dialog
     }
     else
         //session management must be done after the videoWindow() has been initialised
@@ -262,7 +281,8 @@ MainWindow::setupActions()
     KActionCollection * const ac = actionCollection();
 
     KStandardAction::quit( kapp, SLOT( closeAllWindows() ), ac );
-    KStandardAction::open( this, SLOT(playMedia()), ac )->setText( i18n("Play &Media...") );
+
+    KStandardAction::open( engine(), SLOT(stop()), ac )->setText( i18n("Play &Media...") );
     m_fullScreenAction = new FullScreenAction( this, ac );
     connect( m_fullScreenAction, SIGNAL( toggled( bool ) ), Codeine::mainWindow(), SLOT( setFullScreen( bool ) ) );
 
@@ -396,6 +416,23 @@ MainWindow::restoreDefaultVideoSettings()
 {
     foreach( QSlider* slider, m_sliders )
         slider->setValue(0);
+}
+
+void
+MainWindow::selectMainWidget()
+{
+  if(! TheStream::hasMedia())
+  {
+    m_mainView->setCurrentWidget(m_loadView);
+  }
+  else if(TheStream::hasVideo())
+  {
+    m_mainView->setCurrentWidget(engine());
+  }
+  else
+  {
+    m_mainView->setCurrentWidget(m_audioView);
+  }
 }
 
 void
@@ -533,6 +570,7 @@ MainWindow::play()
     }
 }
 
+/*
 void
 MainWindow::playMedia( bool show_welcome_dialog )
 {
@@ -547,7 +585,29 @@ MainWindow::playMedia( bool show_welcome_dialog )
         debug() << "playdialog not null";
     }
 }
+*/
 
+void
+MainWindow::openFileDialog()
+{
+       QStringList mimeFilter=Phonon::BackendCapabilities::availableMimeTypes();
+        //temporary fixes for MimeTypes that Xine does support but it doesn't return - this is a Xine bug.
+        mimeFilter << "audio/x-flac";
+        mimeFilter << "video/mp4";
+        mimeFilter << "application/x-cd-image"; // added for *.iso images
+
+        const KUrl url = KFileDialog::getOpenUrl( KUrl("kfiledialog:///dragonplayer"),mimeFilter.join(" "), this, i18n("Select A File To Play") );
+        if( url.isEmpty() )
+        {
+            debug() << "URL empty in MainWindow::playDialogResult()";
+            return;
+        }
+        else
+        {
+            load( url );
+        }
+}
+/*
 void
 MainWindow::playDialogResult( int result )
 {
@@ -581,7 +641,7 @@ MainWindow::playDialogResult( int result )
     }
     m_playDialog->deleteLater();
     m_playDialog = 0;
-}
+}*/
 
 void
 MainWindow::playDisc()

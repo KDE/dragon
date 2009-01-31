@@ -24,9 +24,12 @@
 
 #include "codeine.h"
 #include "timeLabel.h"
+#include "audioView.h"
+#include "loadView.h"
 
 #include <QList>
 #include <QPointer>
+#include <QStackedWidget>
 #include <QCheckBox>
 #include <Phonon/MediaSource>
 #include <KXmlGuiWindow>
@@ -58,7 +61,6 @@ namespace Codeine
 
    public:
       void openRecentFile( const KUrl& );
-      bool open( const KUrl& );
       void showVolume( bool );
 
    signals:
@@ -66,12 +68,14 @@ namespace Codeine
       void fileChanged( QString );
 
    public slots:
+      bool open( const KUrl& );
+      void playDisc();
+      void openFileDialog();
       void play();
-      void playMedia( bool show_welcome_dialog = false );
       void toggleVideoSettings( bool );
       void toggleVolumeSlider( bool );
-      void playDialogResult( int result );
       void restoreDefaultVideoSettings();
+      void selectMainWidget();
 
    private slots:
       void setFullScreen( bool full );
@@ -85,16 +89,18 @@ namespace Codeine
       //in stateChange.cpp
       void engineStateChanged( Phonon::State );
       void engineMediaChanged( Phonon::MediaSource );
-      void engineSeekableChanged(bool);
+      void engineSeekableChanged( bool );
       void engineMetaDataChanged();
+      void engineHasVideoChanged( bool );
+
+
 
    private:
-      void playDisc();
+      bool load( const KUrl& );
       void setupActions();
       void updateSliders();
       void updateTitleBarText();
 
-      bool load( const KUrl& );
 
       QMenu *menu( const char *name );
 
@@ -104,6 +110,10 @@ namespace Codeine
 
 //      virtual void saveProperties( KConfig* );
 //      virtual void readProperties( KConfig* );
+
+      QStackedWidget *m_mainView;
+      AudioView *m_audioView;
+      LoadView *m_loadView;
 
       QPointer<QDockWidget> m_leftDock;
       QPointer<QDockWidget> m_rightDock;

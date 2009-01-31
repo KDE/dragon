@@ -64,6 +64,7 @@ namespace Codeine
       static int audioChannel();
 
       static QString prettyTitle();
+      static QString fullTitle();
 
       static bool hasProfile();
 

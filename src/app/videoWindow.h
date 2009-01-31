@@ -171,6 +171,7 @@ namespace Codeine
         void mutedChanged( bool );
         void seekableChanged( bool );
         void metaDataChanged();
+        void hasVideoChanged( bool );
     };
 
     //global function for general use by Codeine
