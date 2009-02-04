@@ -8,7 +8,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License or (at your option) version 3 or any later version
  * accepted by the membership of KDE e.V. (or its successor approved
- * by the membership of KDE e.V.), which shall act as a proxy 
+ * by the membership of KDE e.V.), which shall act as a proxy
  * defined in Section 14 of version 3 of the license.
  *
  * This program is distributed in the hope that it will be useful,
@@ -22,7 +22,7 @@
 
 #include <config.h>
 
-#define CODEINE_DEBUG_PREFIX "engine"
+#define DRAGONPLAYER_DEBUG_PREFIX "engine"
 
 #include "videoWindow.h"
 #include "timeLabel.h"
@@ -86,7 +86,7 @@ VideoWindow::VideoWindow( QWidget *parent )
         : QWidget( parent )
         , m_cursorTimer( new QTimer( this ) )
         , m_justLoaded( false )
-		, m_adjustedSize( false)
+        , m_adjustedSize( false)
         , m_xineStream( 0 )
         , m_subLanguages( new QActionGroup( this ) )
         , m_audioLanguages( new QActionGroup( this ) )
@@ -110,8 +110,10 @@ VideoWindow::VideoWindow( QWidget *parent )
     m_audioPath = Phonon::createPath(m_media, m_aOutput);
     m_media->setTickInterval( 1000 );
     connect( m_media, SIGNAL( tick( qint64 ) ), this, SIGNAL( tick( qint64 ) ) );
+    connect( m_media, SIGNAL( currentSourceChanged( Phonon::MediaSource ) ), this, SIGNAL( currentSourceChanged( Phonon::MediaSource ) ) );
     connect( m_media, SIGNAL( totalTimeChanged( qint64 ) ), this, SIGNAL( totalTimeChanged( qint64 ) ) );
     connect( m_media, SIGNAL( seekableChanged( bool ) ), this, SIGNAL( seekableChanged( bool ) ) );
+    connect( m_media, SIGNAL( metaDataChanged() ), this, SIGNAL( metaDataChanged() ) );
     connect( m_aOutput, SIGNAL( mutedChanged( bool ) ), this, SIGNAL( mutedChanged( bool ) ) );
 
     connect( m_media, SIGNAL( hasVideoChanged( bool ) ), m_vWidget, SLOT( setVisible( bool ) ) ); //hide video widget if no video to show
@@ -158,7 +160,7 @@ VideoWindow::VideoWindow( QWidget *parent )
         m_logo->show();
     }
     {
-        KConfigGroup config = KGlobal::config()->group( "General" ); 
+        KConfigGroup config = KGlobal::config()->group( "General" );
         m_aOutput->setVolume( config.readEntry<double>( "Volume", 1.0 ) );
     }
 }
@@ -304,6 +306,7 @@ DEBUG_BLOCK
 void
 VideoWindow::relativeSeek( qint64 step )
 {
+    debug() << "** relative seek";
     m_media->pause();
     const qint64 new_pos = currentTime() + step;
     if( new_pos > 0 )
@@ -314,10 +317,12 @@ VideoWindow::relativeSeek( qint64 step )
 void
 VideoWindow::stop()
 {
+    debug() << "Stop called";
     eject();
     m_media->stop();
-    m_media->setCurrentSource( Phonon::MediaSource() ); //set the current source to invalid
-    m_vWidget->hide();
+    m_media->setCurrentSource(Phonon::MediaSource()); //set the current source to    Phonon::MediaSource::Empty
+    debug() << "Media source valid? "<<  TheStream::hasMedia();
+      m_vWidget->hide();
     m_logo->show();
 }
 
@@ -327,6 +332,15 @@ VideoWindow::pause()
     m_media->pause();
 }
 
+void
+VideoWindow::playPause()
+{
+  if(m_media->state() == Phonon::PlayingState)
+    pause();
+  else
+    resume();
+}
+
 QString
 VideoWindow::urlOrDisc() const
 {
@@ -334,6 +348,7 @@ VideoWindow::urlOrDisc() const
     switch( source.type() )
     {
         case Phonon::MediaSource::Invalid:
+        case Phonon::MediaSource::Empty:
             return "Invalid"; //no i18n, used for DBus responses
             break;
         case Phonon::MediaSource::Url:
@@ -352,7 +367,7 @@ VideoWindow::urlOrDisc() const
     return "Error";
 }
 
-QMultiMap<QString, QString> 
+QMultiMap<QString, QString>
 VideoWindow::metaData() const
 {
     return m_media->metaData();
@@ -365,50 +380,10 @@ VideoWindow::isSeekable() const
 }
 
 
-Engine::State
+Phonon::State
 VideoWindow::state() const
 {
-    return state( m_media->state() ); 
-}
-
-Engine::State
-VideoWindow::state( Phonon::State state ) const
-{
-    if( m_media->currentSource().type() == Phonon::MediaSource::Invalid )
-        return Engine::Empty;
-    else if( m_justLoaded )
-        return Engine::Loaded;
-    
-/*
-    enum State
-    {
-        Uninitialised = 0,
-        Empty = 1,
-        Loaded = 2,
-        Playing = 4,
-        Paused = 8,
-        TrackEnded = 16
-    }; */
-    switch( state )
-    {
-        case Phonon::StoppedState:
-            return Engine::TrackEnded;
-        break;
-        case Phonon::BufferingState:
-        case Phonon::LoadingState:
-            return Engine::Loaded;
-		break;
-        case Phonon::PlayingState:
-            return Engine::Playing;
-        break;
-        case Phonon::PausedState:
-            return Engine::Paused;
-        break;
-        case Phonon::ErrorState:
-        default:
-            return Engine::Uninitialised;
-        break;
-    }
+    return m_media->state();
 }
 
 qreal
@@ -448,19 +423,8 @@ VideoWindow::seek( qint64 pos )
     // stopped but xine is actually playing the track. Tada!
     // TODO set state based on events from xine only
 
-    switch( state() ) {
-    case Engine::Uninitialised:
-        //NOTE should never happen
-        Debug::warning() << "Seek attempt thwarted! xine not initialised!\n";
-        return;
-    case Engine::Empty:
-        Debug::warning() << "Seek attempt thwarted! No media loaded!\n";
-        return;
-    default:
-        ;
-    }
-    m_media->pause(); //pausing first gives Phonon a chance to recognize seekable media
-    m_media->seek( pos );
+      m_media->pause(); //pausing first gives Phonon a chance to recognize seekable media;
+      m_media->seek( pos );
 }
 
 void
@@ -540,11 +504,9 @@ debug() << "chapters: " << m_controller->availableChapters() << " titles: " << m
     debug() << "going from " << states.at(oldstate) << " to " << states.at(currentState);
 
     if( currentState == Phonon::LoadingState )
-        m_xineStream = 0;
+      m_xineStream = 0;
 
-
-    //N.B this code is also run when coming out of Paused state, as Phonon goes Paused->Buffering->Playing (but at least this saves doing it twice)
-    if( currentState == Phonon::PlayingState && oldstate != Phonon::PausedState && m_media->hasVideo() )
+    if( currentState == Phonon::PlayingState  && m_media->hasVideo() )
     {
         m_logo->hide();
         m_vWidget->show();
@@ -557,9 +519,9 @@ debug() << "chapters: " << m_controller->availableChapters() << " titles: " << m
              ( (QWidget*) mainWindow() )->adjustSize();
           m_adjustedSize=true;
           debug() << "adjusting size to video resolution";
-        }     
+        }
     }
-    emit stateChanged( state( currentState ) ); 
+    emit stateChanged( currentState );
 }
 
 void
@@ -653,7 +615,8 @@ VideoWindow::setSubtitle( int channel )
     DEBUG_BLOCK
     Phonon::SubtitleDescription desc = Phonon::SubtitleDescription::fromIndex( channel );
     debug() << "using index: " << channel << " returned desc has index: " << desc.index();
-    m_controller->setCurrentSubtitle( desc );
+    if(desc.isValid())
+      m_controller->setCurrentSubtitle( desc );
 }
 
 void
@@ -670,7 +633,8 @@ VideoWindow::setAudioChannel( int channel )
     DEBUG_BLOCK
     Phonon::AudioChannelDescription desc = Phonon::AudioChannelDescription::fromIndex( channel );
     debug() << "using index: " << channel << " returned desc has index: " << desc.index();
-    m_controller->setCurrentAudioChannel( desc );
+    if(desc.isValid())
+      m_controller->setCurrentAudioChannel( desc );
 }
 
 void
@@ -808,7 +772,7 @@ VideoWindow::contextMenuEvent( QContextMenuEvent * event )
         menu.addAction( action( "play" ) );
         menu.addAction( action( "fullscreen" ) );
         menu.addAction( action( "reset_zoom" ) );
-        if(isDVD()) 
+        if(isDVD())
         {
             menu.addAction( action( "toggle_dvd_menu" ) );
         }
@@ -816,7 +780,7 @@ VideoWindow::contextMenuEvent( QContextMenuEvent * event )
     menu.exec( event->globalPos() );
 }
 
-void 
+void
 VideoWindow::mouseDoubleClickEvent( QMouseEvent* )
 {
     if( mainWindow() ) //TODO: add full screen mode to kpart
@@ -846,6 +810,10 @@ VideoWindow::eject()
 DEBUG_BLOCK
     if( m_media->currentSource().type() == Phonon::MediaSource::Invalid )
         return;
+
+    if( m_media->currentSource().type() == Phonon::MediaSource::Empty )
+        return;
+
 
     KConfigGroup profile = TheStream::profile(); // the config profile for this video file
 

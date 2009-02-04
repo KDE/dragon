@@ -20,6 +20,7 @@
  ***********************************************************************/
 #include "actions.h"
 #include "debug.h"
+#include "theStream.h"
 
 
 #include <KIcon>
@@ -55,7 +56,8 @@ Codeine::PlayAction::setPlaying( bool playing )
 void
 Codeine::PlayAction::setChecked( bool b )
 {
-    if( videoWindow()->state() == Engine::Empty && sender() && QByteArray( sender()->metaObject()->className() ) == "KToolBarButton" ) {
+
+    if( TheStream::hasMedia() && sender() && QByteArray( sender()->metaObject()->className() ) == "KToolBarButton" ) {
         // clicking play when empty means open PlayMediaDialog, but we have to uncheck the toolbar button
         // as KDElibs sets that checked automatically..
         setChecked( false );
@@ -67,7 +69,7 @@ Codeine::PlayAction::setChecked( bool b )
 ///Codeine::VolumeAction
 ////////////////////////////////////////////////////
 Codeine::VolumeAction::VolumeAction( QObject *receiver, const char *slot, KActionCollection *ac )
-        : KToggleAction( i18n("Volume"), ac )
+        : KToggleAction( i18nc( "Volume of sound output", "Volume"), ac )
 {
     setObjectName( "volume" );
     setIcon( KIcon( "player-volume" ) );

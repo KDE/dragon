@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
-#ifndef CODEINE_PART_H
-#define CODEINE_PART_H
+#ifndef DRAGONPLAYER_PART_H
+#define DRAGONPLAYER_PART_H
 
 #include "codeine.h"
 
@@ -29,7 +29,7 @@
 #include <KParts/StatusBarExtension>
 #include <KParts/Part>
 #include <KUrl>
-
+#include <Phonon/MediaSource>
 class KAboutData;
 
 
@@ -51,7 +51,7 @@ namespace Codeine
             virtual bool openUrl( const KUrl& );
 
         private slots:
-            void engineStateChanged( Engine::State state );
+            void engineStateChanged( Phonon::State state );
             void videoContextMenu( const QPoint & pos );
 
         protected:

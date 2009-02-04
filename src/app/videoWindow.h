@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
-#ifndef CODEINE_VIDEOWINDOW_H
-#define CODEINE_VIDEOWINDOW_H
+#ifndef DRAGONPLAYER_VIDEOWINDOW_H
+#define DRAGONPLAYER_VIDEOWINDOW_H
 
 #include "codeine.h"
 
@@ -28,6 +28,8 @@
 #include <QWidget>
 
 #include <Phonon/Path>
+#include <Phonon/MediaSource>
+
 #include <Phonon/ObjectDescription>
 #include <Solid/Device>
 #include <KUrl>
@@ -52,8 +54,10 @@ namespace Codeine
     {
     Q_OBJECT
 
+      public:
         static VideoWindow *s_instance;
 
+      private:
         VideoWindow( const VideoWindow& ); //disable
         VideoWindow &operator=( const VideoWindow& ); //disable
         void eject();
@@ -73,8 +77,6 @@ namespace Codeine
         Phonon::Path m_audioPath;
 
         friend class TheStream;
-        friend VideoWindow* const engine();
-        friend VideoWindow* const videoWindow();
 
         template<class ChannelDescription>
         void updateActionGroup( QActionGroup* channelActions, const QList<ChannelDescription>& availableChannels
@@ -112,7 +114,7 @@ namespace Codeine
         QWidget* newVolumeSlider();
         void loadSettings();
 
-        Engine::State state() const;
+        Phonon::State state() const;
 
     /// Stuff to do with video and the video window/widget
         static const uint CURSOR_HIDE_TIMEOUT = 2000;
@@ -127,6 +129,7 @@ namespace Codeine
         const xine_stream_t* xineStream() const { return m_xineStream; }
 
     public slots:
+        void playPause();
         void seek( qint64 );
         void stop();
         void stateChanged( Phonon::State, Phonon::State );
@@ -152,28 +155,30 @@ namespace Codeine
         virtual void mouseDoubleClickEvent( QMouseEvent* );
         virtual QSize sizeHint() const;
         void refreshXineStream();
-        Engine::State state( Phonon::State state ) const;
+        Phonon::State state( Phonon::State state ) const;
         void setSubtitle( int channel );
         void setAudioChannel( int channel );
     private slots:
         void updateChannels();
         void hideCursor();
     signals:
-        void stateChanged( Engine::State );
-        void statusMessage( const QString& );
-        void titleChanged( const QString& );
+        void stateChanged( const Phonon::State );
         void subChannelsChanged( QList< QAction* > );
         void audioChannelsChanged( QList< QAction* > );
         void tick( qint64 );
+        void currentSourceChanged( const Phonon::MediaSource);
         void totalTimeChanged( qint64 );
         void mutedChanged( bool );
         void seekableChanged( bool );
+        void metaDataChanged();
     };
 
     //global function for general use by Codeine
     //videoWindow() is const for Xlib-thread-safety reasons
-    inline VideoWindow* const videoWindow() { return VideoWindow::s_instance; }
-    inline VideoWindow* const engine() { return VideoWindow::s_instance; }
+
+    //rearranged from previous non-static functions due to compiler warning
+    static inline VideoWindow* engine() {return VideoWindow::s_instance;}
+    static inline VideoWindow* videoWindow() {return VideoWindow::s_instance; }
 }
 
 #endif

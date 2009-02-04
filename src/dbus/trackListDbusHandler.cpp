@@ -62,9 +62,9 @@ int TrackListDbusHandler::GetCurrentTrack()
 
 int TrackListDbusHandler::GetLength()
 {
-    if( Codeine::engine()->state() > Engine::Empty )
-        return 1;
-    else
+//     if( Codeine::engine()->state() > Engine::Empty )
+//         return 1;
+//     else
         return 0;
 }
 

@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
-#ifndef CODEINE_ADJUST_SIZE_BUTTON_H
-#define CODEINE_ADJUST_SIZE_BUTTON_H
+#ifndef DRAGONPLAYER_ADJUST_SIZE_BUTTON_H
+#define DRAGONPLAYER_ADJUST_SIZE_BUTTON_H
 
 #include <QFrame>
 

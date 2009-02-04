@@ -17,8 +17,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
-#ifndef CODEINE_TRACKLISTDBUSHANDLER_H
-#define CODEINE_TRACKLISTDBUSHANDLER_H
+#ifndef DRAGONPLAYER_TRACKLISTDBUSHANDLER_H
+#define DRAGONPLAYER_TRACKLISTDBUSHANDLER_H
 
 #include <QObject>
 #include <QVariantMap>

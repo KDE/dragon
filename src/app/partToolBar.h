@@ -20,8 +20,8 @@
  ***********************************************************************/
 
 
-#ifndef CODEINE_PARTTOOLBAR_H
-#define CODEINE_PARTTOOLBAR_H
+#ifndef DRAGONPLAYER_PARTTOOLBAR_H
+#define DRAGONPLAYER_PARTTOOLBAR_H
 
 #include <ktoolbar.h>
 

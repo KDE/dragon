@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
-#ifndef CODEINEMAINWINDOW_H
-#define CODEINEMAINWINDOW_H
+#ifndef DRAGONPLAYERMAINWINDOW_H
+#define DRAGONPLAYERMAINWINDOW_H
 
 #include "codeine.h"
 #include "timeLabel.h"
@@ -28,7 +28,7 @@
 #include <QList>
 #include <QPointer>
 #include <QCheckBox>
-
+#include <Phonon/MediaSource>
 #include <KXmlGuiWindow>
 
 class KNotificationRestrictions;
@@ -71,22 +71,28 @@ namespace Codeine
       void toggleVideoSettings( bool );
       void toggleVolumeSlider( bool );
       void playDialogResult( int result );
+      void restoreDefaultVideoSettings();
 
    private slots:
       void setFullScreen( bool full );
       void engineMessage( const QString& );
-      void engineStateChanged( Engine::State );
       void init();
       void aboutToShowMenu();
       void streamSettingChange();
       void subChannelsChanged( QList< QAction* > );
       void audioChannelsChanged( QList< QAction* > );
       void mutedChanged( bool );
+      //in stateChange.cpp
+      void engineStateChanged( Phonon::State );
+      void engineMediaChanged( Phonon::MediaSource );
+      void engineSeekableChanged(bool);
+      void engineMetaDataChanged();
 
    private:
       void playDisc();
       void setupActions();
       void updateSliders();
+      void updateTitleBarText();
 
       bool load( const KUrl& );
 
@@ -109,7 +115,10 @@ namespace Codeine
       QList<QSlider*> m_sliders;
       QPointer<PlayDialog> m_playDialog;
       FullScreenAction *m_fullScreenAction;
+
       KNotificationRestrictions *m_stopScreenSaver;
+      int m_stopSleepCookie;
+
 	  bool	m_toolbarIsHidden;
       bool  m_statusbarIsHidden;
 

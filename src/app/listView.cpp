@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
-#ifndef CODEINELISTVIEW_CPP
-#define CODEINELISTVIEW_CPP
+#ifndef DRAGONPLAYERLISTVIEW_CPP
+#define DRAGONPLAYERLISTVIEW_CPP
 
 #include <KListWidget>
 

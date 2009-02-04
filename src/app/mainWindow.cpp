@@ -94,6 +94,7 @@ MainWindow::MainWindow()
         , m_playDialog( 0 )
         , m_fullScreenAction( 0 )
         , m_stopScreenSaver( 0 )
+        , m_stopSleepCookie( -1 )
         , m_toolbarIsHidden(false)
         , m_statusbarIsHidden(false)
 {
@@ -183,11 +184,12 @@ MainWindow::MainWindow()
 void
 MainWindow::init()
 {
-    DEBUG_BLOCK
-    connect( engine(), SIGNAL( statusMessage( const QString& ) ), this, SLOT( engineMessage( const QString&   ) ) );
-    connect( engine(), SIGNAL( stateChanged( Engine::State ) ), this, SLOT( engineStateChanged( Engine::State ) ) );
-    connect( engine(), SIGNAL( titleChanged( const QString& ) ), m_titleLabel, SLOT( setText( const QString&  ) ) );
-    connect( engine(), SIGNAL( titleChanged( const QString& ) ), this, SLOT( setCaption( const QString& ) ) );
+//     DEBUG_BLOCK
+    connect( engine(), SIGNAL( stateChanged( Phonon::State ) ), this, SLOT( engineStateChanged( Phonon::State ) ) );
+    connect( engine(), SIGNAL( currentSourceChanged( Phonon::MediaSource ) ), this, SLOT( engineMediaChanged( Phonon::MediaSource ) ) );
+    connect( engine(), SIGNAL( seekableChanged( bool ) ), this, SLOT( engineSeekableChanged( bool ) ) );
+    connect( engine(), SIGNAL( metaDataChanged() ), this, SLOT( engineMetaDataChanged() ) );
+
     connect( engine(), SIGNAL( subChannelsChanged( QList< QAction* > ) ), this, SLOT( subChannelsChanged( QList< QAction* > ) ) );
     connect( engine(), SIGNAL( audioChannelsChanged( QList< QAction* > ) ), this, SLOT( audioChannelsChanged( QList< QAction* > ) ) );
     connect( engine(), SIGNAL( mutedChanged( bool ) ), this, SLOT( mutedChanged( bool ) ) );
@@ -214,13 +216,15 @@ MainWindow::init()
     new TrackListDbusHandler( this );
 
     QApplication::restoreOverrideCursor();
-    engineStateChanged( Engine::Empty );
+    engineStateChanged(Phonon::StoppedState);//set everything as it would be in stopped state
+    engineSeekableChanged(false);
+
     if( !kapp->isSessionRestored() ) {
         KCmdLineArgs &args = *KCmdLineArgs::parsedArgs();
         if (args.isSet( "play-dvd" ))
             engine()->playDvd();
         else if (args.count() > 0 ) {
-            open( args.url( 0 ) );
+            this->open( args.url( 0 ) );
             args.clear();
             adjustSize(); //will resize us to reflect the videoWindow's sizeHint()
         }
@@ -272,7 +276,7 @@ MainWindow::setupActions()
     connect( playerStop, SIGNAL( triggered() ), engine(), SLOT( stop() ) );
     addToAc( playerStop )
 
-    KToggleAction* mute = new KToggleAction( KIcon("player-volume-muted"), i18n("Mute"), ac );
+    KToggleAction* mute = new KToggleAction( KIcon("player-volume-muted"), i18nc( "Mute the sound output", "Mute"), ac );
     mute->setObjectName( "mute" );
     mute->setShortcut( Qt::Key_M );
     connect( mute, SIGNAL( toggled( bool ) ), videoWindow(), SLOT( mute( bool ) ) );
@@ -374,15 +378,23 @@ MainWindow::toggleVideoSettings( bool show )
         m_sliders << ui.brightnessSlider << ui.contrastSlider << ui.hueSlider <<  ui.saturationSlider;
         updateSliders();
         foreach( QSlider* slider, m_sliders )
-             connect( slider, SIGNAL( sliderMoved( int ) ), engine(), SLOT( settingChanged( int ) ) );
-
+             connect( slider, SIGNAL( valueChanged( int ) ), engine(), SLOT( settingChanged( int ) ) );
+        
         connect( ui.closeButton, SIGNAL( clicked( bool ) ), action( "video_settings" ), SLOT( setChecked( bool ) ) );
         connect( ui.closeButton, SIGNAL( clicked( bool ) ), m_leftDock, SLOT( deleteLater() ) );
     }
     else
     {
+        m_sliders.clear();
         delete m_leftDock;
     }
+}
+
+void
+MainWindow::restoreDefaultVideoSettings()
+{
+    foreach( QSlider* slider, m_sliders )
+        slider->setValue(0);
 }
 
 void
@@ -394,7 +406,7 @@ MainWindow::toggleVolumeSlider( bool show )
         m_volumeSlider->setDisabled ( engine()->isMuted() );
 
         m_muteCheckBox = new QCheckBox();
-        m_muteCheckBox->setText( i18n( "Mute " ) );
+        m_muteCheckBox->setText( i18nc( "Mute the sound output", "Mute " ) );
         m_muteCheckBox->setChecked ( engine()->isMuted() );
         connect( m_muteCheckBox, SIGNAL( toggled( bool ) ), videoWindow(), SLOT( mute( bool ) ) );
 
@@ -453,6 +465,7 @@ MainWindow::open( const KUrl &url )
                 // adjust offset if we have session history for this video
                 ? TheStream::profile().readEntry<int>( "Position", 0 )
                 : 0;
+        debug() << "Initial offset is "<< offset;
         engine()->loadSettings();
         updateSliders();
         return engine()->play( offset );
@@ -505,17 +518,16 @@ void
 MainWindow::play()
 {
     switch( engine()->state() ) {
-    case Engine::Playing:
+    case Phonon::PlayingState:
         engine()->pause();
         break;
-    case Engine::Paused:
+    case Phonon::PausedState:
         engine()->resume();
         break;
-    case Engine::Loaded:
-        break;
-    case Engine::Empty:
-    default:
+    case Phonon::StoppedState:
         engine()->play();
+        break;
+    default:
         break;
     }
 }
@@ -550,17 +562,17 @@ MainWindow::playDialogResult( int result )
         const KUrl url = KFileDialog::getOpenUrl( KUrl("kfiledialog:///dragonplayer"),mimeFilter.join(" "), this, i18n("Select A File To Play") );
         if( url.isEmpty() )
         {
-             debug() << "returning, blah";
+             debug() << "URL empty in MainWindow::playDialogResult()";
             return;
         }
         else
-            open( url );
+            this->open( url );
         } break;
     case PlayDialog::RECENT_FILE:
        
         break;
     case PlayDialog::VCD:
-        open( KUrl( "vcd://" ) ); // one / is not enough
+        this->open( KUrl( "vcd://" ) ); // one / is not enough
         break;
     case PlayDialog::DVD:
         playDisc();
@@ -611,7 +623,7 @@ MainWindow::openRecentFile( const KUrl& url )
 {
     m_playDialog->deleteLater();
     m_playDialog = 0;
-    open( url );
+    this->open( url );
 }
 
 void
@@ -644,7 +656,7 @@ MainWindow::setFullScreen( bool isFullScreen )
         s_handler = new FullScreenToolBarHandler( this );
     else
     {
-        action( "fullscreen" )->setEnabled( videoWindow()->state() & ( Engine::Playing | Engine::Paused) );
+        action( "fullscreen" )->setEnabled( videoWindow()->state() ==  Phonon::PlayingState || videoWindow()->state() ==  Phonon::PausedState);
         delete s_handler;
     }
 }
@@ -702,7 +714,7 @@ MainWindow::dropEvent( QDropEvent *e )
 {
     KUrl::List uriList = KUrl::List::fromMimeData( e->mimeData() );
     if( !uriList.isEmpty() )
-        open( uriList.first() );
+        this->open( uriList.first() );
     else
         engineMessage( i18n("Sorry, no media was found in the drop") );
 }
@@ -735,6 +747,24 @@ MainWindow::streamSettingChange()
     {
         TheStream::setRatio( dynamic_cast< QAction* > ( sender() ) );
     }
+}
+
+void
+MainWindow::updateTitleBarText()
+{
+    if( !TheStream::hasMedia() )
+    {
+        m_titleLabel->setText( i18n("No media loaded") );
+    }
+    else if( engine()->state() == Phonon::PausedState )
+    {
+        m_titleLabel->setText( i18n("Paused") );
+    }
+    else
+    {
+        m_titleLabel->setText( TheStream::prettyTitle() );
+    }
+    debug() << "set titles ";
 }
 
 #define CHANNELS_CHANGED( function, actionName ) \

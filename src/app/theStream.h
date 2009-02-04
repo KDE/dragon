@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
-#ifndef CODEINE_THESTREAM_H
-#define CODEINE_THESTREAM_H
+#ifndef DRAGONPLAYER_THESTREAM_H
+#define DRAGONPLAYER_THESTREAM_H
 
 #include <KConfigGroup>
 #include <KUrl>    // larger :( but no macros at least
@@ -28,7 +28,7 @@
 #include <QString> // small header
 
 /// for purely static classes
-#define CODEINE_NO_EXPORT( T ) \
+#define DRAGONPLAYER_NO_EXPORT( T ) \
    T(); \
   ~T(); \
    T( const T& ); \
@@ -42,7 +42,7 @@ namespace Codeine
 {
    class TheStream
    {
-   CODEINE_NO_EXPORT( TheStream )
+   DRAGONPLAYER_NO_EXPORT( TheStream )
 
    public:
       static KUrl url();
@@ -50,6 +50,7 @@ namespace Codeine
       static bool canSeek();
       static bool hasAudio();
       static bool hasVideo();
+      static bool hasMedia();
 
       static QSize defaultVideoSize();
 

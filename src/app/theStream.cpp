@@ -40,7 +40,6 @@
 #include "mxcl.library.h"
 #include "videoWindow.h"
 
-
 namespace Codeine
 {
 
@@ -91,6 +90,18 @@ namespace Codeine
     TheStream::hasVideo()
             { return videoWindow()->m_media->hasVideo(); }
 
+
+    bool
+    TheStream::hasMedia()
+    {
+        if(videoWindow()->m_media->currentSource().type() == Phonon::MediaSource::Invalid)
+          return false;
+        if(videoWindow()->m_media->currentSource().type() == Phonon::MediaSource::Empty)
+          return false;
+        //otherwise 
+        return true;
+    }
+
     QSize
     TheStream::defaultVideoSize()
     {
@@ -138,8 +149,17 @@ namespace Codeine
     TheStream::prettyTitle()
     {
         const KUrl& url      = videoWindow()->m_media->currentSource().url();
-        const QString artist = QString();
-        const QString title  = QString();
+        QString artist, title;
+        
+        QStringList artists = videoWindow()->m_media->metaData("ARTIST");
+        if (!artists.isEmpty()) {
+            artist = artists.first();
+        }
+        
+        QStringList titles = videoWindow()->m_media->metaData("TITLE");
+        if (!titles.isEmpty()) {
+            title  = titles.first();
+        }
 
         if (hasVideo() && !title.isEmpty())
             return title;

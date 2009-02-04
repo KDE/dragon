@@ -19,11 +19,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
-#ifndef CODEINE_EXTERN_H
-#define CODEINE_EXTERN_H
+#ifndef DRAGONPLAYER_EXTERN_H
+#define DRAGONPLAYER_EXTERN_H
 
 #include <QMenu>
-
+//I think this whole file is deprecated - Dave
 extern "C"
 {
    typedef struct xine_s xine_t;
@@ -35,8 +35,6 @@ namespace Codeine
 {
    class VideoWindow;
    
-   VideoWindow* const engine();
-   VideoWindow* const videoWindow();
 
    void showVideoSettingsDialog( QWidget* );
    void showXineConfigurationDialog( QWidget*, xine_t* );

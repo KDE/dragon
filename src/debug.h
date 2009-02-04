@@ -22,8 +22,8 @@
 // Author:   
 // Author:   
 
-#ifndef AMAROK_DEBUG_H
-#define AMAROK_DEBUG_H
+#ifndef DRAGONPLAYER_DEBUG_H
+#define DRAGONPLAYER_DEBUG_H
 
 // We always want debug output available at runtime
 #undef QT_NO_DEBUG_OUTPUT
@@ -136,23 +136,16 @@ namespace Debug
     };
 
         
-    static inline kdbgstream debug()   { QString ind = indent(); return dbgstream() << qPrintable( "amarok: " + ind + AMK_PREFIX ); }
-    static inline kdbgstream warning() { QString ind = indent(); return dbgstream() << qPrintable( "amarok: " + ind + AMK_PREFIX + " [WARNING!]" ); }
-    static inline kdbgstream error()   { QString ind = indent(); return dbgstream() << qPrintable( "amarok: " + ind + AMK_PREFIX + " [ERROR!]" ); }
-    static inline kdbgstream fatal()   { QString ind = indent(); return dbgstream() << qPrintable( "amarok: " + ind + AMK_PREFIX ); }
-
-    typedef kdbgstream DebugStream;
-
-    #undef AMK_PREFIX
-
-    typedef kndbgstream NoDebugStream;
+    static inline kdbgstream debug()   { QString ind = indent(); return dbgstream() << qPrintable( "dragonplayer: " + ind + AMK_PREFIX ); }
+    static inline kdbgstream warning() { QString ind = indent(); return dbgstream() << qPrintable( "dragonplayer: " + ind + AMK_PREFIX + " [WARNING!]" ); }
+    static inline kdbgstream error()   { QString ind = indent(); return dbgstream() << qPrintable( "dragonplayer: " + ind + AMK_PREFIX + " [ERROR!]" ); }
+    static inline kdbgstream fatal()   { QString ind = indent(); return dbgstream() << qPrintable( "dragonplayer: " + ind + AMK_PREFIX ); }
 }
 
 using Debug::debug;
 using Debug::warning;
 using Debug::error;
 using Debug::fatal;
-using Debug::DebugStream;
 
 /// Standard function announcer
 #define DEBUG_FUNC_INFO { kDebug() << Debug::indent(); }
@@ -164,10 +157,10 @@ using Debug::DebugStream;
 #define DEBUG_BLOCK Debug::Block uniquelyNamedStackAllocatedStandardBlock( __PRETTY_FUNCTION__ );
 
 /// Use this to remind yourself to finish the implementation of a function
-#define AMAROK_NOTIMPLEMENTED warning() << "NOT-IMPLEMENTED: " << __PRETTY_FUNCTION__ << endl;
+#define DRAGONPLAYER_NOTIMPLEMENTED warning() << "NOT-IMPLEMENTED: " << __PRETTY_FUNCTION__ << endl;
 
 /// Use this to alert other developers to stop using a function
-#define AMAROK_DEPRECATED warning() << "DEPRECATED: " << __PRETTY_FUNCTION__ << endl;
+#define DRAGONPLAYER_DEPRECATED warning() << "DEPRECATED: " << __PRETTY_FUNCTION__ << endl;
 
 
 namespace Debug
@@ -208,7 +201,7 @@ namespace Debug
 
             gettimeofday( &m_start, 0 );
 
-            dbgstream() << "amarok: BEGIN:" << label;
+            dbgstream() << "dragonplayer: BEGIN:" << label;
             Debug::modifieableIndent() += "  ";
         }
 
@@ -230,7 +223,7 @@ namespace Debug
             double duration = double(end.tv_sec) + (double(end.tv_usec) / 1000000.0);
 
             Debug::modifieableIndent().truncate( Debug::indent().length() - 2 );
-            dbgstream() << "amarok: END__:" << m_label
+            dbgstream() << "dragonplayer: END__:" << m_label
                         << "- Took" << qPrintable( QString::number( duration, 'g', 2 ) + "s" );
         }
     };

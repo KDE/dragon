@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
-#ifndef CODEINEACTIONS_H
-#define CODEINEACTIONS_H
+#ifndef DRAGONPLAYERACTIONS_H
+#define DRAGONPLAYERACTIONS_H
 
 #include <KToggleAction>    //baseclass
 #include <KActionCollection> //convenience

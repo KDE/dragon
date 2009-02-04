@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
-#ifndef CODEINE_ROOTDBUSHANDLER_H
-#define CODEINE_ROOTDBUSHANDLER_H
+#ifndef DRAGONPLAYER_ROOTDBUSHANDLER_H
+#define DRAGONPLAYER_ROOTDBUSHANDLER_H
 
 #include <QObject>
 

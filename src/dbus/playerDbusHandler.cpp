@@ -50,10 +50,10 @@ PlayerDbusHandler::~PlayerDbusHandler()
 int
 PlayerDbusHandler::GetStatus()
 {
-    Engine::State state = Codeine::engine()->state();
-    if( state == Engine::Playing )
+    Phonon::State state = Codeine::engine()->state();
+    if( state == Phonon::PlayingState )
         return Playing;
-    else if( state == Engine::Paused )
+    else if( state == Phonon::PausedState )
         return Paused;
     else
         return Stopped;
