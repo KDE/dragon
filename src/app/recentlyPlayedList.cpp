@@ -82,8 +82,8 @@ RecentlyPlayedList::contextMenuEvent(QContextMenuEvent * event )
 {
   KMenu menu;
   debug() << "Loading Menu";
-  menu.addAction(KIcon("list-remove"),"Remove Entry",this,SLOT(removeEntry()));
-  menu.addAction(KIcon("list-remove"),"Clear List",this,SLOT(clearList()));
+  menu.addAction(KIcon("list-remove"),i18n("Remove Entry"),this,SLOT(removeEntry()));
+  menu.addAction(KIcon("list-remove"),i18n("Clear List"),this,SLOT(clearList()));
   menu.exec( event->globalPos() );
 }
 
