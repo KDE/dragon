@@ -22,7 +22,7 @@
      <item>
       <widget class="QPushButton" name="m_playDiskButton" >
        <property name="text" >
-        <string>Play Disk</string>
+        <string>Play Disc</string>
        </property>
       </widget>
      </item>
