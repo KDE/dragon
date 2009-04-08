@@ -89,20 +89,20 @@ namespace Codeine {
 
 MainWindow::MainWindow()
         : KXmlGuiWindow()
+        , m_mainView( 0 )
+        , m_audioView(new AudioView(this) )
+        , m_loadView( new LoadView(this) )
         , m_leftDock( 0 )
         , m_positionSlider( 0 )
         , m_volumeSlider( 0 )
         , m_timeLabel( 0 )
         , m_titleLabel( new QLabel( this ) )
-        , m_mainView( 0 )
         , m_playDialog( 0 )
         , m_fullScreenAction( 0 )
         , m_stopScreenSaver( 0 )
         , m_stopSleepCookie( -1 )
         , m_toolbarIsHidden(false)
         , m_statusbarIsHidden(false)
-        , m_audioView(new AudioView(this) )
-        , m_loadView( new LoadView(this) )
 {
     DEBUG_BLOCK
     s_instance = this;
