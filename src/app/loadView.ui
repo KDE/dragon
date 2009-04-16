@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>LoadView</class>
- <widget class="QWidget" name="LoadView" >
-  <property name="geometry" >
+ <widget class="QWidget" name="LoadView">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,31 +10,32 @@
     <height>294</height>
    </rect>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout" >
-   <item>
-    <layout class="QHBoxLayout" name="horizontalLayout" >
-     <item>
-      <widget class="QPushButton" name="m_playFileButton" >
-       <property name="text" >
-        <string>Play File</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="m_playDiskButton" >
-       <property name="text" >
-        <string>Play Disc</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="KPushButton" name="m_playFileButton">
+     <property name="text">
+      <string>Play File</string>
+     </property>
+    </widget>
    </item>
-   <item>
-    <widget class="RecentlyPlayedList" name="m_recentlyPlayed" />
+   <item row="0" column="1">
+    <widget class="KPushButton" name="m_playDiskButton">
+     <property name="text">
+      <string>Play Disc</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="2">
+    <widget class="RecentlyPlayedList" name="m_recentlyPlayed"/>
    </item>
   </layout>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>KPushButton</class>
+   <extends></extends>
+   <header>kpushbutton.h</header>
+  </customwidget>
   <customwidget>
    <class>RecentlyPlayedList</class>
    <extends>QListWidget</extends>
