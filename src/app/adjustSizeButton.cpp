@@ -26,6 +26,7 @@
 #include <KPushButton>
 
 #include <QApplication>
+#include <QVBoxLayout>
 #include <QEvent>
 #include <QLabel>
 #include <QLayout>
@@ -39,7 +40,7 @@
 
 QString i18n( const char *text );
 
-namespace Codeine
+namespace Dragon
 {
     AdjustSizeButton::AdjustSizeButton( QWidget *parent )
             : QFrame( parent )
@@ -53,7 +54,7 @@ namespace Codeine
         setFrameStyle( QFrame::Plain | QFrame::Box );
 
         m_preferred = new KPushButton( KGuiItem( i18n("Preferred Scale"), "viewmag" ), this );
-        connect( m_preferred, SIGNAL(clicked()), Codeine::mainWindow(), SLOT(adjustSize()) );
+        connect( m_preferred, SIGNAL(clicked()), Dragon::mainWindow(), SLOT(adjustSize()) );
         connect( m_preferred, SIGNAL(clicked()), SLOT(deleteLater()) );
 
         m_oneToOne = new KPushButton( KGuiItem( i18n("Scale 100%"), "viewmag1" ), this );

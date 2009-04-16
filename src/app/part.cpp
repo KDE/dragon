@@ -39,10 +39,10 @@
 #include <QTimerEvent>
 #include <QVBoxLayout>
 
-K_PLUGIN_FACTORY(CodeineFactory, registerPlugin<Codeine::Part>();)
+K_PLUGIN_FACTORY(CodeineFactory, registerPlugin<Dragon::Part>();)
 K_EXPORT_PLUGIN(CodeineFactory("libdragon"))
 
-namespace Codeine
+namespace Dragon
 {
     Part::Part( QWidget* parentWidget, QObject* parent, const QList<QVariant>& /*args*/ )
             : ReadOnlyPart( parent )
@@ -59,7 +59,7 @@ namespace Codeine
         layout->addWidget( toolBar );
         layout->addWidget( new VideoWindow( widget() ) );
 
-        m_playPause = new Codeine::PlayAction( videoWindow(), SLOT( playPause() ), ac );
+        m_playPause = new Dragon::PlayAction( videoWindow(), SLOT( playPause() ), ac );
         toolBar->addAction( m_playPause );
         {
             QWidget* slider = videoWindow()->newPositionSlider();
@@ -110,8 +110,8 @@ namespace Codeine
             ki18n("Dragon Player"), APP_VERSION,
             ki18n("A video player that has a usability focus"), KAboutData::License_GPL_V2,
             ki18n("Copyright 2006, Max Howell\nCopyright 2007, Ian Monroe"), KLocalizedString(),
-            "http://dragonplayer.org",
-            "imonroe@dragonplayer.org" );
+            "http://multimedia.kde.org",
+            "imonroe@kde.org" );
     }
 
     bool 

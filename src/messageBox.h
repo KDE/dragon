@@ -22,7 +22,7 @@
 #define DRAGONPLAYER_MESSAGEBOX
 
 #include <KMessageBox>
-namespace Codeine {
+namespace Dragon {
     static class VideoWindow* videoWindow();
     namespace MessageBox
     {

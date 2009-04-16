@@ -39,7 +39,7 @@
 #include <QLayout>
 #include <QSignalMapper>
 
-namespace Codeine {
+namespace Dragon {
 
 PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
         : QDialog( parent )
@@ -111,7 +111,7 @@ void
 PlayDialog::finished( QListWidgetItem *item )
 {
     m_url = item->data( 0xdecade ).value<KUrl>();
-    ((Codeine::MainWindow*) mainWindow() )->openRecentFile( m_url );
+    ((Dragon::MainWindow*) mainWindow() )->openRecentFile( m_url );
 }
 
 }

@@ -7,7 +7,7 @@
 
 using Phonon::MediaObject;
 
-namespace Codeine
+namespace Dragon
 {
 
 class AudioView : public QWidget

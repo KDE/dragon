@@ -28,7 +28,7 @@
 
 #include "videoWindow.h"
 
-Codeine::PlayAction::PlayAction( QObject *receiver, const char *slot, KActionCollection *ac )
+Dragon::PlayAction::PlayAction( QObject *receiver, const char *slot, KActionCollection *ac )
         : KToggleAction( i18n("Play"), ac )
 {
     setObjectName( "play" );
@@ -39,7 +39,7 @@ Codeine::PlayAction::PlayAction( QObject *receiver, const char *slot, KActionCol
 }
 
 void 
-Codeine::PlayAction::setPlaying( bool playing )
+Dragon::PlayAction::setPlaying( bool playing )
 {
     if( playing )
     {
@@ -54,7 +54,7 @@ Codeine::PlayAction::setPlaying( bool playing )
 }
 
 void
-Codeine::PlayAction::setChecked( bool b )
+Dragon::PlayAction::setChecked( bool b )
 {
 
     if( TheStream::hasMedia() && sender() && QByteArray( sender()->metaObject()->className() ) == "KToolBarButton" ) {
@@ -68,7 +68,7 @@ Codeine::PlayAction::setChecked( bool b )
 /////////////////////////////////////////////////////
 ///Codeine::VolumeAction
 ////////////////////////////////////////////////////
-Codeine::VolumeAction::VolumeAction( QObject *receiver, const char *slot, KActionCollection *ac )
+Dragon::VolumeAction::VolumeAction( QObject *receiver, const char *slot, KActionCollection *ac )
         : KToggleAction( i18nc( "Volume of sound output", "Volume"), ac )
 {
     setObjectName( "volume" );
@@ -80,7 +80,7 @@ Codeine::VolumeAction::VolumeAction( QObject *receiver, const char *slot, KActio
 }
 
 void
-Codeine::VolumeAction::mutedChanged( bool mute )
+Dragon::VolumeAction::mutedChanged( bool mute )
 {
     if( mute )
         setIcon( KIcon( "player-volume-muted" ) );

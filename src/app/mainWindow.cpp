@@ -79,7 +79,7 @@
 
 #include <phonon/backendcapabilities.h>
 
-namespace Codeine {
+namespace Dragon {
 
     MainWindow *MainWindow::s_instance = 0;
     /// @see codeine.h
@@ -284,7 +284,7 @@ MainWindow::setupActions()
 
     KStandardAction::open( engine(), SLOT(stop()), ac )->setText( i18n("Play &Media...") );
     m_fullScreenAction = new FullScreenAction( this, ac );
-    connect( m_fullScreenAction, SIGNAL( toggled( bool ) ), Codeine::mainWindow(), SLOT( setFullScreen( bool ) ) );
+    connect( m_fullScreenAction, SIGNAL( toggled( bool ) ), Dragon::mainWindow(), SLOT( setFullScreen( bool ) ) );
 
     new PlayAction( this, SLOT( play() ), ac );
     new VolumeAction( this, SLOT( toggleVolumeSlider( bool ) ), ac );
@@ -569,23 +569,6 @@ MainWindow::play()
         break;
     }
 }
-
-/*
-void
-MainWindow::playMedia( bool show_welcome_dialog )
-{
-    DEBUG_BLOCK
-    if( ! m_playDialog )
-    {
-        m_playDialog = new Codeine::PlayDialog( this, show_welcome_dialog );
-        m_playDialog->show();
-    }
-    else
-    {
-        debug() << "playdialog not null";
-    }
-}
-*/
 
 void
 MainWindow::openFileDialog()
@@ -873,6 +856,6 @@ action( const char *name )
 }
 
 
-} //namespace Codeine
+} //namespace Dragon
 
 #include "mainWindow.moc"

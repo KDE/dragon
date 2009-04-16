@@ -51,7 +51,7 @@
 //TODO make convenience function to get fullscreen state
 
 
-namespace Codeine {
+namespace Dragon {
 
 
 void

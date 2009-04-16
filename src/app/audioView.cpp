@@ -21,7 +21,7 @@
 #include "audioView.h"
 #include "theStream.h"
 
-namespace Codeine
+namespace Dragon
 {
 
 AudioView::AudioView( QWidget *parent) 

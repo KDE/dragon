@@ -31,7 +31,7 @@ extern "C"
 
 class QWidget;
 
-namespace Codeine
+namespace Dragon
 {
    class VideoWindow;
    

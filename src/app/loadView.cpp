@@ -23,7 +23,7 @@
 #include <KStandardDirs>
 
 
-namespace Codeine
+namespace Dragon
 {
 
 LoadView::LoadView( QWidget *parent) 

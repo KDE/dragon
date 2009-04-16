@@ -25,7 +25,7 @@
 #include <KToggleAction>    //baseclass
 #include <KActionCollection> //convenience
 
-namespace Codeine
+namespace Dragon
 {
    KActionCollection *actionCollection(); ///defined in mainWindow.cpp, part.cpp
    QAction *action( const char* ); ///defined in mainWindow.cpp, part.cpp

@@ -38,7 +38,7 @@
 
 class QAction;
 
-namespace Codeine
+namespace Dragon
 {
    class TheStream
    {

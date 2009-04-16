@@ -53,7 +53,7 @@ PlaylistFile::PlaylistFile( const KUrl &url )
 
     if( m_isRemoteFile ) {
         path.clear();
-        if( !KIO::NetAccess::download( url, path, Codeine::mainWindow() ) ) {
+        if( !KIO::NetAccess::download( url, path, Dragon::mainWindow() ) ) {
             m_error = i18n( "Dragon Player could not download the remote playlist: %1", url.prettyUrl() );
             return;
         }

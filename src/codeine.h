@@ -29,7 +29,7 @@ namespace Engine
  class QWidget;
 
 
-  namespace Codeine
+  namespace Dragon
   {
 	  QWidget *mainWindow(); //defined in mainWindow.cpp
   }

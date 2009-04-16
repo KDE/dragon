@@ -4,7 +4,7 @@
 #include <KUrl>
 #include "ui_loadView.h"
 
-namespace Codeine
+namespace Dragon
 {
 
 class LoadView : public QWidget, private Ui_LoadView

@@ -48,7 +48,7 @@ typedef struct xine_stream_s xine_stream_t;
 
 #include "phonon/phononnamespace.h" //Phonon::State
 
-namespace Codeine
+namespace Dragon
 {
     class VideoWindow : public QWidget
     {
@@ -174,8 +174,7 @@ namespace Codeine
         void hasVideoChanged( bool );
     };
 
-    //global function for general use by Codeine
-    //videoWindow() is const for Xlib-thread-safety reasons
+    //global function for general use by Dragon Player
 
     //rearranged from previous non-static functions due to compiler warning
     static inline VideoWindow* engine() {return VideoWindow::s_instance;}

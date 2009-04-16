@@ -28,7 +28,7 @@
 class QListWidgetItem;
 class QGridLayout;
 
-namespace Codeine
+namespace Dragon
 {
    class PlayDialog : public QDialog
    {

@@ -107,7 +107,7 @@ DiscSelectionDialog::DiscSelectionDialog( QWidget* parent, const QList< Solid::D
     connect( m_listWidget, SIGNAL( itemDoubleClicked( QListWidgetItem* ) ), this, SLOT( discItemSelected( QListWidgetItem* ) ) );
     connect( this, SIGNAL( okClicked() ), this, SLOT( okClicked() ) );
     connect( this, SIGNAL( cancelClicked() ), this, SLOT( deleteLater() ) );
-    connect( this, SIGNAL( cancelClicked() ), Codeine::mainWindow(), SLOT( playMedia() ) );
+    connect( this, SIGNAL( cancelClicked() ), Dragon::mainWindow(), SLOT( playMedia() ) );
     show();    
 }
 
@@ -131,7 +131,7 @@ DiscSelectionDialog::openItem( QListWidgetItem *item )
     if( item )
     {
         const SolidListItem* solidItem = static_cast<SolidListItem*>( item );
-        Codeine::engine()->playDisc( solidItem->device() );
+        Dragon::engine()->playDisc( solidItem->device() );
     }
 }
 

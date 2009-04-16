@@ -29,7 +29,7 @@ class KMainWindow;
 class QTimerEvent;
 class KToolBar;
 
-namespace Codeine 
+namespace Dragon 
 {
     class FullScreenToolBarHandler : QObject
     {

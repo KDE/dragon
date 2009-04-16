@@ -27,7 +27,7 @@
 class QEvent;
 class QTimerEvent;
 
-namespace Codeine
+namespace Dragon
 {
     class AdjustSizeButton : public QFrame
     {

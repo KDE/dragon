@@ -77,7 +77,7 @@ using Phonon::SeekSlider;
 using Phonon::VolumeSlider;
 using Phonon::MediaController;
 
-namespace Codeine {
+namespace Dragon {
 
 
 VideoWindow *VideoWindow::s_instance = 0;
@@ -861,6 +861,6 @@ DEBUG_BLOCK
     profile.sync();
 }
 
-} //namespace Codeine
+} //namespace Dragon
 
 #include "videoWindow.moc"

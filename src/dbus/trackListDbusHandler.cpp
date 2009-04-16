@@ -44,7 +44,7 @@ TrackListDbusHandler::AddTrack(const QString& url, bool playImmediately)
 //todo, figure out if actually successful
     if( playImmediately )
     {
-        static_cast<Codeine::MainWindow*>( Codeine::mainWindow() )->open( KUrl( url ) );
+        static_cast<Dragon::MainWindow*>( Dragon::mainWindow() )->open( KUrl( url ) );
         return 0;
     }
     else
@@ -62,9 +62,6 @@ int TrackListDbusHandler::GetCurrentTrack()
 
 int TrackListDbusHandler::GetLength()
 {
-//     if( Codeine::engine()->state() > Engine::Empty )
-//         return 1;
-//     else
         return 0;
 }
 

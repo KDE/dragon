@@ -32,10 +32,10 @@ PlayerDbusHandler::PlayerDbusHandler(QObject *parent)
 {
     QObject* pa = new MediaPlayerAdaptor( this );
     setObjectName("PlayerDbusHandler");
-    connect( Codeine::mainWindow(), SIGNAL( fileChanged( QString ) ), pa, SIGNAL( TrackChange( QString ) ) );
-    connect( Codeine::mainWindow(), SIGNAL( dbusStatusChanged( int ) ), pa, SIGNAL( StatusChange( int ) ) );
+    connect( Dragon::mainWindow(), SIGNAL( fileChanged( QString ) ), pa, SIGNAL( TrackChange( QString ) ) );
+    connect( Dragon::mainWindow(), SIGNAL( dbusStatusChanged( int ) ), pa, SIGNAL( StatusChange( int ) ) );
 
-    connect( Codeine::engine(), SIGNAL( seekableChanged( bool ) ), this, SLOT( capsChangeSlot() )  );
+    connect( Dragon::engine(), SIGNAL( seekableChanged( bool ) ), this, SLOT( capsChangeSlot() )  );
     connect( this, SIGNAL( CapsChange( int ) ), pa, SIGNAL( CapsChange( int ) ) );
 
     QDBusConnection::sessionBus().registerObject("/Player", this);
@@ -50,7 +50,7 @@ PlayerDbusHandler::~PlayerDbusHandler()
 int
 PlayerDbusHandler::GetStatus()
 {
-    Phonon::State state = Codeine::engine()->state();
+    Phonon::State state = Dragon::engine()->state();
     if( state == Phonon::PlayingState )
         return Playing;
     else if( state == Phonon::PausedState )
@@ -62,50 +62,50 @@ PlayerDbusHandler::GetStatus()
 void
 PlayerDbusHandler::PlayPause()
 {
-    static_cast<Codeine::MainWindow*>( Codeine::mainWindow() )->play();
+    static_cast<Dragon::MainWindow*>( Dragon::mainWindow() )->play();
 }
 
 void
 PlayerDbusHandler::Pause()
 {
-    Codeine::engine()->pause();
+    Dragon::engine()->pause();
 }
 
 void
 PlayerDbusHandler::Play()
 {
-    Codeine::engine()->play();
+    Dragon::engine()->play();
 }
 
 //position is specified in milliseconds
 int
 PlayerDbusHandler::PositionGet()
 {
-    return static_cast<int>( Codeine::engine()->currentTime() );
+    return static_cast<int>( Dragon::engine()->currentTime() );
 }
 
 void
 PlayerDbusHandler::PositionSet( int time )
 {
-    Codeine::engine()->seek( time );
+    Dragon::engine()->seek( time );
 }
 
 void
 PlayerDbusHandler::Stop()
 {
-    Codeine::engine()->stop();
+    Dragon::engine()->stop();
 }
 
 int
 PlayerDbusHandler::VolumeGet()
 {
-    return static_cast<int>( Codeine::engine()->volume() * 100.0 );
+    return static_cast<int>( Dragon::engine()->volume() * 100.0 );
 }
 
 void
 PlayerDbusHandler::VolumeSet( int vol )
 {
-    Codeine::engine()->setVolume( vol / 100.0 );
+    Dragon::engine()->setVolume( vol / 100.0 );
 }
 
 //see http://wiki.xmms2.xmms.se/index.php/MPRIS_Metadata
@@ -113,7 +113,7 @@ QVariantMap
 PlayerDbusHandler::GetMetaData()
 {
     QVariantMap ret;
-    QMultiMap<QString, QString> stringMap = Codeine::engine()->metaData();
+    QMultiMap<QString, QString> stringMap = Dragon::engine()->metaData();
     QMultiMap<QString, QString>::const_iterator i = stringMap.constBegin();
     while( i != stringMap.constEnd() ) 
     {
@@ -125,7 +125,7 @@ PlayerDbusHandler::GetMetaData()
             ret[ i.key().toLower() ] = QVariant( i.value() );
         ++i;
     }
-    ret[ "location" ] = QVariant( Codeine::engine()->urlOrDisc() );
+    ret[ "location" ] = QVariant( Dragon::engine()->urlOrDisc() );
     return ret;
 }
 
@@ -133,12 +133,12 @@ int
 PlayerDbusHandler::GetCaps()
 {
     int caps = NONE;
-    if( static_cast<Codeine::MainWindow*>( Codeine::mainWindow() )->action("play")->isEnabled() )
+    if( static_cast<Dragon::MainWindow*>( Dragon::mainWindow() )->action("play")->isEnabled() )
     {
         caps |= CAN_PAUSE;
         caps |= CAN_PLAY;
     }
-    if( Codeine::engine()->isSeekable() )
+    if( Dragon::engine()->isSeekable() )
         caps |= CAN_SEEK;
     caps |= CAN_PROVIDE_METADATA; //though it might be empty...
     return caps;

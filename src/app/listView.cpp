@@ -24,7 +24,7 @@
 
 #include <KListWidget>
 
-namespace Codeine
+namespace Dragon
 {
     class ListView : public KListWidget
     {

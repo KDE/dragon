@@ -53,7 +53,7 @@ main( int argc, char **argv )
 
     KApplication application;
     int returnValue;
-    Codeine::MainWindow* mainWindow = new Codeine::MainWindow();
+    Dragon::MainWindow* mainWindow = new Dragon::MainWindow();
     mainWindow->show();
     returnValue = application.exec();
     return returnValue;

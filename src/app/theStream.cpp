@@ -40,7 +40,7 @@
 #include "mxcl.library.h"
 #include "videoWindow.h"
 
-namespace Codeine
+namespace Dragon
 {
 
     const char* TheStream::CHANNEL_PROPERTY = "channel";

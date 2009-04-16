@@ -44,7 +44,7 @@ class QCheckBox;
 
 class FullScreenAction;
 
-namespace Codeine
+namespace Dragon
 {
    class PlayDialog;
    class MainWindow : public KXmlGuiWindow

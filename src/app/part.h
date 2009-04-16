@@ -33,7 +33,7 @@
 class KAboutData;
 
 
-namespace Codeine
+namespace Dragon
 {
     class PlayAction;
 
@@ -60,7 +60,7 @@ namespace Codeine
         private:
             KUrl m_url;
             KParts::StatusBarExtension *m_statusBarExtension;
-            Codeine::PlayAction* m_playPause;
+            Dragon::PlayAction* m_playPause;
 
            KStatusBar *statusBar() { return m_statusBarExtension->statusBar(); }
         };

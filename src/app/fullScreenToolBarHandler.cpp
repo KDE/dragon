@@ -33,7 +33,7 @@
 #include <KMainWindow>
 
 
-Codeine::FullScreenToolBarHandler::FullScreenToolBarHandler( KMainWindow *parent )
+Dragon::FullScreenToolBarHandler::FullScreenToolBarHandler( KMainWindow *parent )
         : QObject( parent )
         , m_toolbar( parent->toolBar() )
         , m_timer_id( 0 )
@@ -46,7 +46,7 @@ Codeine::FullScreenToolBarHandler::FullScreenToolBarHandler( KMainWindow *parent
 }
 
 bool 
-Codeine::FullScreenToolBarHandler::eventFilter( QObject *o, QEvent *e )
+Dragon::FullScreenToolBarHandler::eventFilter( QObject *o, QEvent *e )
 {
     if (o == parent() && e->type() == QEvent::MouseMove) {
         DEBUG_FUNC_INFO
@@ -86,7 +86,7 @@ Codeine::FullScreenToolBarHandler::eventFilter( QObject *o, QEvent *e )
 show_toolbar:
                     debug() << "show toolbar";
                     m_toolbar->show(),
-                    static_cast<Codeine::MainWindow*>( Codeine::mainWindow() )->showVolume( true );
+                    static_cast<Dragon::MainWindow*>( Dragon::mainWindow() )->showVolume( true );
                     m_home = QPoint();
                 }
                 else
@@ -99,7 +99,7 @@ show_toolbar:
             }
 
             // reset the hide timer
-            m_timer_id = startTimer( Codeine::VideoWindow::CURSOR_HIDE_TIMEOUT );
+            m_timer_id = startTimer( Dragon::VideoWindow::CURSOR_HIDE_TIMEOUT );
         }
     }
 
@@ -119,7 +119,7 @@ show_toolbar:
             break;
 
             case QEvent::Leave:
-                static_cast<Codeine::MainWindow*>( Codeine::mainWindow() )->showVolume( false );
+                static_cast<Dragon::MainWindow*>( Dragon::mainWindow() )->showVolume( false );
                 m_toolbar->hide();
                 m_stay_hidden_for_a_bit = true;
                 killTimer( m_timer_id );
@@ -133,13 +133,13 @@ show_toolbar:
 }
 
 void 
-Codeine::FullScreenToolBarHandler::timerEvent( QTimerEvent* )
+Dragon::FullScreenToolBarHandler::timerEvent( QTimerEvent* )
 {
     if (m_stay_hidden_for_a_bit)
         ;
 
     else if ( videoWindow()->mouseUnderWidget() ){
-        static_cast<Codeine::MainWindow*>( Codeine::mainWindow() )->showVolume( false );
+        static_cast<Dragon::MainWindow*>( Dragon::mainWindow() )->showVolume( false );
         m_toolbar->hide();
         }
 
