@@ -24,7 +24,7 @@
 #include <QObject>
 #include <QVariantMap>
 #include "mpristypes.h"
-#include <phononnamespace.h>
+#include <phonon/phononnamespace.h>
 
 class PlayerDbusHandler : public QObject
 {
