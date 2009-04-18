@@ -23,6 +23,7 @@
 #include "codeine.h"
 #include "mainWindow.h"
 #include "playerDbusHandler.h"
+#include "theStream.h"
 #include "TrackListDbusAdaptor.h"
 #include "videoWindow.h"
 
@@ -31,7 +32,12 @@
 TrackListDbusHandler::TrackListDbusHandler(QObject *parent)
     : QObject(parent)
 {
-    new TrackListDbusAdaptor( this );
+    QObject* pa = new TrackListDbusAdaptor( this );
+    setObjectName("TrackListDbusHandler");
+
+    connect( Dragon::engine(), SIGNAL( currentSourceChanged( Phonon::MediaSource ) ), this, SLOT( slotTrackChange() )  );
+    connect( this, SIGNAL( TrackListChange( int ) ), pa, SIGNAL( TrackListChange( int ) ) );
+
     QDBusConnection::sessionBus().registerObject("/TrackList", this);
 }
 
@@ -41,11 +47,12 @@ TrackListDbusHandler::~TrackListDbusHandler()
 int
 TrackListDbusHandler::AddTrack(const QString& url, bool playImmediately)
 {
-//todo, figure out if actually successful
     if( playImmediately )
     {
-        static_cast<Dragon::MainWindow*>( Dragon::mainWindow() )->open( KUrl( url ) );
-        return 0;
+        if ( static_cast<Dragon::MainWindow*>( Dragon::mainWindow() )->open( KUrl( url ) ) )
+            return 0;
+        else
+            return -1;
     }
     else
         return -1;
@@ -62,6 +69,9 @@ int TrackListDbusHandler::GetCurrentTrack()
 
 int TrackListDbusHandler::GetLength()
 {
+    if( Dragon::TheStream::hasMedia() )
+        return 1;
+    else
         return 0;
 }
 
@@ -70,16 +80,24 @@ TrackListDbusHandler::GetMetadata(int position)
 {
     if( position == 0 )
     {
-        return parent()->findChild<PlayerDbusHandler *>("PlayerDbusHandler")->GetMetaData();
+        return parent()->findChild<PlayerDbusHandler *>("PlayerDbusHandler")->GetMetadata();
     }
     else
         return QVariantMap();
 }
 
-void TrackListDbusHandler::SetLoop(bool)
+void
+TrackListDbusHandler::SetLoop(bool)
 {  }
 
-void TrackListDbusHandler::SetRandom(bool)
+void
+TrackListDbusHandler::SetRandom(bool)
 {  }
+
+void
+TrackListDbusHandler::slotTrackChange()
+{
+    emit TrackListChange(GetLength());
+}
 
 #include "trackListDbusHandler.moc"

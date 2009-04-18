@@ -12,7 +12,8 @@
       </method>
 
       <method name="MprisVersion">
-          <arg type="f" direction="out"/>
+          <arg type="(qq)" direction="out"/>
+          <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="MprisSpecVersion"/>
       </method>
 
   </interface>

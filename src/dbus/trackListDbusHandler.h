@@ -37,6 +37,12 @@ public:
     QVariantMap GetMetadata(int);
     void SetLoop(bool);
     void SetRandom(bool);
+
+signals:
+    void TrackListChange(int);
+
+private slots:
+    void slotTrackChange();
 };
 
 #endif

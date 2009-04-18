@@ -5,6 +5,12 @@
 <node>
   <interface name="org.freedesktop.MediaPlayer">
 
+    <method name="Next">
+    </method>
+
+    <method name="Prev">
+    </method>
+
     <method name="Pause">
     </method>
 
@@ -14,11 +20,17 @@
     <method name="Play">
     </method>
 
+    <!-- not part of the MPRIS spec -->
     <method name="PlayPause">
     </method>
 
+    <method name="Repeat">
+        <arg type="b" direction="in" />
+    </method>
+
     <method name="GetStatus">
-        <arg type="i" direction="out"/>
+        <arg type="(iiii)" direction="out"/>
+        <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="MprisStatus" />
     </method>
 
     <method name="VolumeSet">
@@ -37,7 +49,7 @@
         <arg type="i" direction="out"/>
     </method>
 
-    <method name="GetMetaData">
+    <method name="GetMetadata">
         <arg type="a{sv}" direction="out"/>
         <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QVariantMap"/>
     </method>
@@ -47,11 +59,13 @@
     </method>
 
     <signal name="TrackChange">
-        <arg type="s"/>
+        <arg type="a{sv}"/>
+        <annotation name="com.trolltech.QtDBus.QtTypeName.In0" value="QVariantMap"/>
     </signal>
 
     <signal name="StatusChange">
-        <arg type="i"/>
+        <arg type="(iiii)"/>
+        <annotation name="com.trolltech.QtDBus.QtTypeName.In0" value="MprisStatus"/>
     </signal>
 
     <signal name="CapsChange">

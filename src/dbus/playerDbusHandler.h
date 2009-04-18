@@ -23,6 +23,8 @@
 
 #include <QObject>
 #include <QVariantMap>
+#include "mpristypes.h"
+#include <phononnamespace.h>
 
 class PlayerDbusHandler : public QObject
 {
@@ -30,34 +32,32 @@ Q_OBJECT
 public:
     PlayerDbusHandler(QObject *parent);
     virtual ~PlayerDbusHandler();
-    enum DbusStatus { Playing = 0, Paused = 1, Stopped = 2 };
-    //http://wiki.xmms2.xmms.se/index.php/MPRIS#GetCaps
-    enum DbusCaps {
-         NONE                  = 0,
-         //CAN_GO_NEXT           = 1 << 0, dragon player can never go next or previous
-         //CAN_GO_PREV           = 1 << 1,
-         CAN_PAUSE             = 1 << 2,
-         CAN_PLAY              = 1 << 3,
-         CAN_SEEK              = 1 << 4,
-         CAN_PROVIDE_METADATA  = 1 << 5
-         //CAN_HAS_TRACKLIST     = 1 << 6 can I haz cheeseburger? no...
-     };
 public slots:
-    int GetStatus();
+    MprisStatus GetStatus();
+    void Next(); // no-op
+    void Prev(); // no-op
     void Pause();
     void Play();
     void PlayPause();
+    void Repeat(bool on); // no-op
     int PositionGet();
     void PositionSet(int in0);
     void Stop();
     int VolumeGet();
     void VolumeSet(int in0);
     int GetCaps();
-    QVariantMap GetMetaData();
+    QVariantMap GetMetadata();
 signals:
     void CapsChange( int );
+    void StatusChange( MprisStatus );
+    void TrackChange( QVariantMap );
 private slots:
     void capsChangeSlot();
+    void statusChangeSlot( Phonon::State state );
+    void metadataChangeSlot();
+private:
+    MprisStatus::PlayMode PhononStateToMprisState( Phonon::State );
+    MprisStatus::PlayMode m_lastEmittedState;
 };
 
 #endif

@@ -23,6 +23,8 @@
 
 #include <QObject>
 
+#include "mpristypes.h"
+
 class RootDbusHandler : public QObject
 {
     Q_OBJECT
@@ -32,7 +34,7 @@ public:
 
     QString Identity();
     void Quit();
-    float MprisVersion();
+    MprisSpecVersion MprisVersion();
 };
 
 #endif

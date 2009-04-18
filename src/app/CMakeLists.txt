@@ -23,6 +23,7 @@ set(videoplayer_app_SRCS
 	recentlyPlayedList.cpp
     audioView.cpp
     loadView.cpp
+    ../dbus/mpristypes.cpp
     ../dbus/playerDbusHandler.cpp
     ../dbus/rootDbusHandler.cpp
     ../dbus/trackListDbusHandler.cpp )

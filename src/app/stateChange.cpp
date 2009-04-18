@@ -183,21 +183,8 @@ MainWindow::engineStateChanged( Phonon::State state )
         case Engine::Loaded:
             break;
         }*/
-    } 
-    switch( state )
-    {
-        case Phonon::StoppedState:
-            emit dbusStatusChanged( PlayerDbusHandler::Stopped ), debug() << "dbus: stopped";
-            break;
-        case Phonon::PausedState:
-            emit dbusStatusChanged( PlayerDbusHandler::Paused ), debug() << "dbus: paused";
-            break;
-        case Phonon::PlayingState:
-            emit dbusStatusChanged( PlayerDbusHandler::Playing ), debug() << "dbus: playing";
-            break;
-        default:/*If none of these states don't emit anything*/
-            break;
     }
+    emit relayStatusChanged( state );
 }//engineStateChanged
 
 

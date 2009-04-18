@@ -1,5 +1,6 @@
 /***********************************************************************
  * Copyright 2008  Ian Monroe <ian@monroe.nu>
+ * Copyright 2009  Alex Merry <alex.merry@kdemail.net>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -28,15 +29,25 @@
 #include "playeradaptor.h" //from builddir
 
 PlayerDbusHandler::PlayerDbusHandler(QObject *parent)
-    : QObject(parent)
+    : QObject(parent),
+      m_lastEmittedState(MprisStatus::Stopped)
 {
+    qDBusRegisterMetaType<MprisStatus>();
+
     QObject* pa = new MediaPlayerAdaptor( this );
     setObjectName("PlayerDbusHandler");
-    connect( Dragon::mainWindow(), SIGNAL( fileChanged( QString ) ), pa, SIGNAL( TrackChange( QString ) ) );
-    connect( Dragon::mainWindow(), SIGNAL( dbusStatusChanged( int ) ), pa, SIGNAL( StatusChange( int ) ) );
 
+    // catch changes to the enabled state of the play button:
+    connect( Dragon::mainWindow(), SIGNAL( relayStatusChanged( Phonon::State ) ), this, SLOT( capsChangeSlot() )  );
+    // the seekable status is reflected in the caps:
     connect( Dragon::engine(), SIGNAL( seekableChanged( bool ) ), this, SLOT( capsChangeSlot() )  );
     connect( this, SIGNAL( CapsChange( int ) ), pa, SIGNAL( CapsChange( int ) ) );
+
+    connect( Dragon::mainWindow(), SIGNAL( relayStatusChanged( Phonon::State ) ), this, SLOT( statusChangeSlot( Phonon::State ) )  );
+    connect( this, SIGNAL( StatusChange( MprisStatus ) ), pa, SIGNAL( StatusChange( MprisStatus ) ) );
+
+    connect( Dragon::engine(), SIGNAL( metaDataChanged() ), this, SLOT( metadataChangeSlot() )  );
+    connect( this, SIGNAL( TrackChange( QVariantMap ) ), pa, SIGNAL( TrackChange( QVariantMap ) ) );
 
     QDBusConnection::sessionBus().registerObject("/Player", this);
 }
@@ -47,22 +58,36 @@ PlayerDbusHandler::~PlayerDbusHandler()
 }
 //from the first integer of http://wiki.xmms2.xmms.se/index.php/MPRIS#GetStatus
 //0 = Playing, 1 = Paused, 2 = Stopped.
-int
+MprisStatus
 PlayerDbusHandler::GetStatus()
 {
     Phonon::State state = Dragon::engine()->state();
-    if( state == Phonon::PlayingState )
-        return Playing;
-    else if( state == Phonon::PausedState )
-        return Paused;
-    else
-        return Stopped;
+    return MprisStatus( PhononStateToMprisState( state ) );
 }
 
 void
 PlayerDbusHandler::PlayPause()
 {
     static_cast<Dragon::MainWindow*>( Dragon::mainWindow() )->play();
+}
+
+void
+PlayerDbusHandler::Repeat(bool on)
+{
+    Q_UNUSED(on);
+    // no-op
+}
+
+void
+PlayerDbusHandler::Next()
+{
+    // no-op
+}
+
+void
+PlayerDbusHandler::Prev()
+{
+    // no-op
 }
 
 void
@@ -110,7 +135,7 @@ PlayerDbusHandler::VolumeSet( int vol )
 
 //see http://wiki.xmms2.xmms.se/index.php/MPRIS_Metadata
 QVariantMap
-PlayerDbusHandler::GetMetaData()
+PlayerDbusHandler::GetMetadata()
 {
     QVariantMap ret;
     QMultiMap<QString, QString> stringMap = Dragon::engine()->metaData();
@@ -132,7 +157,7 @@ PlayerDbusHandler::GetMetaData()
 int
 PlayerDbusHandler::GetCaps()
 {
-    int caps = NONE;
+    int caps = NO_CAPS;
     if( static_cast<Dragon::MainWindow*>( Dragon::mainWindow() )->action("play")->isEnabled() )
     {
         caps |= CAN_PAUSE;
@@ -148,6 +173,37 @@ void
 PlayerDbusHandler::capsChangeSlot()
 {
     emit CapsChange( GetCaps() );
+}
+
+void
+PlayerDbusHandler::statusChangeSlot( Phonon::State state )
+{
+    MprisStatus::PlayMode newState = PhononStateToMprisState( state );
+    if ( newState != m_lastEmittedState )
+    {
+        emit StatusChange( newState );
+        m_lastEmittedState = newState;
+    }
+}
+
+void
+PlayerDbusHandler::metadataChangeSlot()
+{
+    emit TrackChange( GetMetadata() );
+}
+
+MprisStatus::PlayMode
+PlayerDbusHandler::PhononStateToMprisState( Phonon::State state )
+{
+    switch( state )
+    {
+        case Phonon::PlayingState:
+            return MprisStatus::Playing;
+        case Phonon::PausedState:
+            return MprisStatus::Paused;
+        default:
+            return MprisStatus::Stopped;
+    }
 }
 
 #include "playerDbusHandler.moc"

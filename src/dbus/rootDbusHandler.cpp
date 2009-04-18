@@ -1,5 +1,6 @@
 /***********************************************************************
  * Copyright 2008  Ian Monroe <ian@monroe.nu>
+ * Copyright 2009  Alex Merry <alex.merry@kdemail.net>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -30,8 +31,11 @@
 RootDbusHandler::RootDbusHandler( QObject* parent )
     : QObject( parent )
 {
+    qDBusRegisterMetaType<MprisSpecVersion>();
     new RootDbusHandlerBase( this );
-    debug() << "registering root? " << QDBusConnection::sessionBus().registerObject("/", this);
+    setObjectName("RootDbusHandler");
+    bool successful = QDBusConnection::sessionBus().registerObject("/", this);
+    debug() << "registering root? " << successful;
 }
 
 RootDbusHandler::~RootDbusHandler()
@@ -50,10 +54,13 @@ RootDbusHandler::Quit()
     kapp->closeAllWindows();
 }
 
-float
+MprisSpecVersion
 RootDbusHandler::MprisVersion()
 {
-    return 1.0;
+    struct MprisSpecVersion version;
+    version.major = 1;
+    version.minor = 0;
+    return version;
 }
 
 #include "rootDbusHandler.moc"
