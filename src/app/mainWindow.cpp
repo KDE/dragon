@@ -233,6 +233,7 @@ MainWindow::init()
     statusBar()->addPermanentWidget( m_titleLabel, 100 );
     statusBar()->addPermanentWidget( m_timeLabel );
 
+    Mpris::registerTypes();
     new PlayerDbusHandler( this );
     new RootDbusHandler( this );
     new TrackListDbusHandler( this );

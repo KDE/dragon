@@ -31,7 +31,6 @@
 RootDbusHandler::RootDbusHandler( QObject* parent )
     : QObject( parent )
 {
-    qDBusRegisterMetaType<MprisSpecVersion>();
     new RootDbusHandlerBase( this );
     setObjectName("RootDbusHandler");
     bool successful = QDBusConnection::sessionBus().registerObject("/", this);
@@ -54,10 +53,10 @@ RootDbusHandler::Quit()
     kapp->closeAllWindows();
 }
 
-MprisSpecVersion
+Mpris::Version
 RootDbusHandler::MprisVersion()
 {
-    struct MprisSpecVersion version;
+    Mpris::Version version;
     version.major = 1;
     version.minor = 0;
     return version;

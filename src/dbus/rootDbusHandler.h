@@ -34,7 +34,7 @@ public:
 
     QString Identity();
     void Quit();
-    MprisSpecVersion MprisVersion();
+    Mpris::Version MprisVersion();
 };
 
 #endif

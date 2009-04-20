@@ -30,10 +30,8 @@
 
 PlayerDbusHandler::PlayerDbusHandler(QObject *parent)
     : QObject(parent),
-      m_lastEmittedState(MprisStatus::Stopped)
+      m_lastEmittedState(Mpris::Status::Stopped)
 {
-    qDBusRegisterMetaType<MprisStatus>();
-
     QObject* pa = new MediaPlayerAdaptor( this );
     setObjectName("PlayerDbusHandler");
 
@@ -44,7 +42,7 @@ PlayerDbusHandler::PlayerDbusHandler(QObject *parent)
     connect( this, SIGNAL( CapsChange( int ) ), pa, SIGNAL( CapsChange( int ) ) );
 
     connect( Dragon::mainWindow(), SIGNAL( relayStatusChanged( Phonon::State ) ), this, SLOT( statusChangeSlot( Phonon::State ) )  );
-    connect( this, SIGNAL( StatusChange( MprisStatus ) ), pa, SIGNAL( StatusChange( MprisStatus ) ) );
+    connect( this, SIGNAL( StatusChange( Mpris::Status ) ), pa, SIGNAL( StatusChange( Mpris::Status ) ) );
 
     connect( Dragon::engine(), SIGNAL( metaDataChanged() ), this, SLOT( metadataChangeSlot() )  );
     connect( this, SIGNAL( TrackChange( QVariantMap ) ), pa, SIGNAL( TrackChange( QVariantMap ) ) );
@@ -58,11 +56,11 @@ PlayerDbusHandler::~PlayerDbusHandler()
 }
 //from the first integer of http://wiki.xmms2.xmms.se/index.php/MPRIS#GetStatus
 //0 = Playing, 1 = Paused, 2 = Stopped.
-MprisStatus
+Mpris::Status
 PlayerDbusHandler::GetStatus()
 {
     Phonon::State state = Dragon::engine()->state();
-    return MprisStatus( PhononStateToMprisState( state ) );
+    return Mpris::Status( PhononStateToMprisState( state ) );
 }
 
 void
@@ -157,15 +155,15 @@ PlayerDbusHandler::GetMetadata()
 int
 PlayerDbusHandler::GetCaps()
 {
-    int caps = NO_CAPS;
+    int caps = Mpris::NO_CAPS;
     if( static_cast<Dragon::MainWindow*>( Dragon::mainWindow() )->action("play")->isEnabled() )
     {
-        caps |= CAN_PAUSE;
-        caps |= CAN_PLAY;
+        caps |= Mpris::CAN_PAUSE;
+        caps |= Mpris::CAN_PLAY;
     }
     if( Dragon::engine()->isSeekable() )
-        caps |= CAN_SEEK;
-    caps |= CAN_PROVIDE_METADATA; //though it might be empty...
+        caps |= Mpris::CAN_SEEK;
+    caps |= Mpris::CAN_PROVIDE_METADATA; //though it might be empty...
     return caps;
 }
 
@@ -178,7 +176,7 @@ PlayerDbusHandler::capsChangeSlot()
 void
 PlayerDbusHandler::statusChangeSlot( Phonon::State state )
 {
-    MprisStatus::PlayMode newState = PhononStateToMprisState( state );
+    Mpris::Status::PlayMode newState = PhononStateToMprisState( state );
     if ( newState != m_lastEmittedState )
     {
         emit StatusChange( newState );
@@ -192,17 +190,17 @@ PlayerDbusHandler::metadataChangeSlot()
     emit TrackChange( GetMetadata() );
 }
 
-MprisStatus::PlayMode
+Mpris::Status::PlayMode
 PlayerDbusHandler::PhononStateToMprisState( Phonon::State state )
 {
     switch( state )
     {
         case Phonon::PlayingState:
-            return MprisStatus::Playing;
+            return Mpris::Status::Playing;
         case Phonon::PausedState:
-            return MprisStatus::Paused;
+            return Mpris::Status::Paused;
         default:
-            return MprisStatus::Stopped;
+            return Mpris::Status::Stopped;
     }
 }
 

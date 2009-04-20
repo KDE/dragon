@@ -1,5 +1,10 @@
 /*
- * Copyright 2008  Alex Merry <alex.merry@kdemail.net>
+ * mpristypes.cpp
+ *
+ * From the MPRIS Tester project.
+ * See http://www.qt-apps.org/content/show.php/MPRIS+Tester?content=85539
+ *
+ * Copyright 2008, 2009  Alex Merry <alex.merry@kdemail.net>
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -24,8 +29,9 @@
  */
 #include "mpristypes.h"
 
-// Marshall the MprisSpecVersion data into a D-BUS argument
-QDBusArgument &operator<<(QDBusArgument &argument, const MprisSpecVersion &version)
+#include <QtDBus>
+
+QDBusArgument &operator<<(QDBusArgument &argument, const Mpris::Version &version)
 {
     argument.beginStructure();
     argument << version.major << version.minor;
@@ -33,8 +39,7 @@ QDBusArgument &operator<<(QDBusArgument &argument, const MprisSpecVersion &versi
     return argument;
 }
 
-// Retrieve the MprisSpecVersion data from the D-BUS argument
-const QDBusArgument &operator>>(const QDBusArgument &argument, MprisSpecVersion &version)
+const QDBusArgument &operator>>(const QDBusArgument &argument, Mpris::Version &version)
 {
     argument.beginStructure();
     argument >> version.major >> version.minor;
@@ -42,8 +47,7 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, MprisSpecVersion 
     return argument;
 }
 
-// Marshall the MprisStatus data into a D-BUS argument
-QDBusArgument &operator<<(QDBusArgument &argument, const MprisStatus &status)
+QDBusArgument &operator<<(QDBusArgument &argument, const Mpris::Status &status)
 {
     argument.beginStructure();
     argument << (qint32)status.play;
@@ -54,8 +58,7 @@ QDBusArgument &operator<<(QDBusArgument &argument, const MprisStatus &status)
     return argument;
 }
 
-// Retrieve the MprisStatus data from the D-BUS argument
-const QDBusArgument &operator>>(const QDBusArgument &argument, MprisStatus &status)
+const QDBusArgument &operator>>(const QDBusArgument &argument, Mpris::Status &status)
 {
     qint32 play, random, trackRepeat, playlistRepeat;
 
@@ -66,12 +69,18 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, MprisStatus &stat
     argument >> playlistRepeat;
     argument.endStructure();
 
-    status.play = (MprisStatus::PlayMode)play;
-    status.random = (MprisStatus::RandomMode)random;
-    status.trackRepeat = (MprisStatus::TrackRepeatMode)trackRepeat;
-    status.playlistRepeat = (MprisStatus::PlaylistRepeatMode)playlistRepeat;
+    status.play = (Mpris::Status::PlayMode)play;
+    status.random = (Mpris::Status::RandomMode)random;
+    status.trackRepeat = (Mpris::Status::TrackRepeatMode)trackRepeat;
+    status.playlistRepeat = (Mpris::Status::PlaylistRepeatMode)playlistRepeat;
 
     return argument;
+}
+
+void Mpris::registerTypes()
+{
+    qDBusRegisterMetaType<Mpris::Version>();
+    qDBusRegisterMetaType<Mpris::Status>();
 }
 
 // vim: sw=4 sts=4 et tw=100

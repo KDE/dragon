@@ -1,5 +1,10 @@
 /*
- * Copyright 2009  Alex Merry <alex.merry@kdemail.net>
+ * mpristypes.h
+ *
+ * From the MPRIS Tester project.
+ * See http://www.qt-apps.org/content/show.php/MPRIS+Tester?content=85539
+ *
+ * Copyright 2008, 2009  Alex Merry <alex.merry@kdemail.net>
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -22,82 +27,100 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-#ifndef MPRISDEFS_H
-#define MPRISDEFS_H
+#ifndef MPRISTYPES_H
+#define MPRISTYPES_H
 
 #include <QDBusArgument>
+#include <QFlags>
 
-enum MprisCaps {
-    NO_CAPS               = 0,
-    CAN_GO_NEXT           = 1 << 0,
-    CAN_GO_PREV           = 1 << 1,
-    CAN_PAUSE             = 1 << 2,
-    CAN_PLAY              = 1 << 3,
-    CAN_SEEK              = 1 << 4,
-    CAN_PROVIDE_METADATA  = 1 << 5,
-    CAN_HAS_TRACKLIST     = 1 << 6,
-    UNKNOWN_CAP           = 1 << 7
-};
-
-
-struct MprisSpecVersion
+namespace Mpris
 {
-    quint16 major;
-    quint16 minor;
-};
-
-Q_DECLARE_METATYPE(MprisSpecVersion)
-
-// Marshall the MprisSpecVersion data into a D-BUS argument
-QDBusArgument &operator<<(QDBusArgument &argument, const MprisSpecVersion &version);
-// Retrieve the MprisSpecVersion data from the D-BUS argument
-const QDBusArgument &operator>>(const QDBusArgument &argument, MprisSpecVersion &version);
-
-
-struct MprisStatus
-{
-    enum PlayMode {
-        Playing = 0,
-        Paused = 1,
-        Stopped = 2
+    /**
+     * The bit values for the capabilities flags
+     */
+    enum Cap {
+        NO_CAPS               = 0,
+        CAN_GO_NEXT           = 1 << 0,
+        CAN_GO_PREV           = 1 << 1,
+        CAN_PAUSE             = 1 << 2,
+        CAN_PLAY              = 1 << 3,
+        CAN_SEEK              = 1 << 4,
+        CAN_PROVIDE_METADATA  = 1 << 5,
+        CAN_HAS_TRACKLIST     = 1 << 6,
+        ALL_KNOWN_CAPS        = (1 << 7) - 1
     };
+    Q_DECLARE_FLAGS(Caps, Cap)
 
-    enum RandomMode {
-        Linear = 0,
-        Random = 1
-    };
 
-    enum TrackRepeatMode {
-        GoToNext = 0,
-        RepeatCurrent = 1
-    };
-
-    enum PlaylistRepeatMode {
-        StopWhenFinished = 0,
-        PlayForever = 1
-    };
-
-    MprisStatus(PlayMode _play = Stopped,
-                    RandomMode _random = Linear,
-                    TrackRepeatMode _trackRepeat = GoToNext,
-                    PlaylistRepeatMode _playlistRepeat = StopWhenFinished)
-        : play(_play),
-          random(_random),
-          trackRepeat(_trackRepeat),
-          playlistRepeat(_playlistRepeat)
+    struct Version
     {
-    }
-    PlayMode           play;
-    RandomMode         random;
-    TrackRepeatMode    trackRepeat;
-    PlaylistRepeatMode playlistRepeat;
-};
+        quint16 major;
+        quint16 minor;
+    };
 
-Q_DECLARE_METATYPE(MprisStatus)
 
-// Marshall the MprisStatus data into a D-BUS argument
-QDBusArgument &operator<<(QDBusArgument &argument, const MprisStatus &status);
-// Retrieve the MprisStatus data from the D-BUS argument
-const QDBusArgument &operator>>(const QDBusArgument &argument, MprisStatus &status);
+    struct Status
+    {
+        enum PlayMode {
+            Playing = 0,
+            Paused = 1,
+            Stopped = 2
+        };
 
-#endif // MPRISDEFS_H
+        enum RandomMode {
+            Linear = 0,
+            Random = 1
+        };
+
+        enum TrackRepeatMode {
+            GoToNext = 0,
+            RepeatCurrent = 1
+        };
+
+        enum PlaylistRepeatMode {
+            StopWhenFinished = 0,
+            PlayForever = 1
+        };
+
+        Status(PlayMode _play = Stopped,
+               RandomMode _random = Linear,
+               TrackRepeatMode _trackRepeat = GoToNext,
+               PlaylistRepeatMode _playlistRepeat = StopWhenFinished)
+            : play(_play),
+              random(_random),
+              trackRepeat(_trackRepeat),
+              playlistRepeat(_playlistRepeat)
+        {
+        }
+        PlayMode           play;
+        RandomMode         random;
+        TrackRepeatMode    trackRepeat;
+        PlaylistRepeatMode playlistRepeat;
+    };
+
+    /**
+     * Registers the D-Bus types with the Qt metadata system.
+     *
+     * This MUST be called before using either Status or Version in any
+     * D-Bus calls (including making calls that return those types).
+     */
+    void registerTypes();
+} // namespace Mpris
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(Mpris::Caps)
+
+Q_DECLARE_METATYPE(Mpris::Version)
+
+Q_DECLARE_METATYPE(Mpris::Status)
+
+// Marshall the Mpris::Version data into a D-BUS argument
+QDBusArgument &operator<<(QDBusArgument &argument, const Mpris::Version &version);
+// Retrieve the Mpris::Version data from the D-BUS argument
+const QDBusArgument &operator>>(const QDBusArgument &argument, Mpris::Version &version);
+
+// Marshall the Mpris::Status data into a D-BUS argument
+QDBusArgument &operator<<(QDBusArgument &argument, const Mpris::Status &status);
+// Retrieve the Mpris::Status data from the D-BUS argument
+const QDBusArgument &operator>>(const QDBusArgument &argument, Mpris::Status &status);
+
+#endif // MPRISTYPES_H

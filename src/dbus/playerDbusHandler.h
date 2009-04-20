@@ -33,7 +33,7 @@ public:
     PlayerDbusHandler(QObject *parent);
     virtual ~PlayerDbusHandler();
 public slots:
-    MprisStatus GetStatus();
+    Mpris::Status GetStatus();
     void Next(); // no-op
     void Prev(); // no-op
     void Pause();
@@ -41,23 +41,23 @@ public slots:
     void PlayPause();
     void Repeat(bool on); // no-op
     int PositionGet();
-    void PositionSet(int in0);
+    void PositionSet( int msec );
     void Stop();
     int VolumeGet();
-    void VolumeSet(int in0);
+    void VolumeSet( int percent );
     int GetCaps();
     QVariantMap GetMetadata();
 signals:
     void CapsChange( int );
-    void StatusChange( MprisStatus );
+    void StatusChange( Mpris::Status );
     void TrackChange( QVariantMap );
 private slots:
     void capsChangeSlot();
     void statusChangeSlot( Phonon::State state );
     void metadataChangeSlot();
 private:
-    MprisStatus::PlayMode PhononStateToMprisState( Phonon::State );
-    MprisStatus::PlayMode m_lastEmittedState;
+    Mpris::Status::PlayMode PhononStateToMprisState( Phonon::State );
+    Mpris::Status::PlayMode m_lastEmittedState;
 };
 
 #endif
