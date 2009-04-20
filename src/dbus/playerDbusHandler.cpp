@@ -24,6 +24,7 @@
 #include "codeine.h"
 #include "extern.h"
 #include "mainWindow.h"
+#include "theStream.h"
 #include "videoWindow.h"
 
 #include "playeradaptor.h" //from builddir
@@ -35,13 +36,13 @@ PlayerDbusHandler::PlayerDbusHandler(QObject *parent)
     QObject* pa = new MediaPlayerAdaptor( this );
     setObjectName("PlayerDbusHandler");
 
-    // catch changes to the enabled state of the play button:
-    connect( Dragon::mainWindow(), SIGNAL( relayStatusChanged( Phonon::State ) ), this, SLOT( capsChangeSlot() )  );
+    // the presence of media is reflected in the caps:
+    connect( Dragon::engine(), SIGNAL( currentSourceChanged( Phonon::MediaSource ) ), this, SLOT( capsChangeSlot() )  );
     // the seekable status is reflected in the caps:
     connect( Dragon::engine(), SIGNAL( seekableChanged( bool ) ), this, SLOT( capsChangeSlot() )  );
     connect( this, SIGNAL( CapsChange( int ) ), pa, SIGNAL( CapsChange( int ) ) );
 
-    connect( Dragon::mainWindow(), SIGNAL( relayStatusChanged( Phonon::State ) ), this, SLOT( statusChangeSlot( Phonon::State ) )  );
+    connect( Dragon::engine(), SIGNAL( stateChanged( Phonon::State ) ), this, SLOT( statusChangeSlot( Phonon::State ) )  );
     connect( this, SIGNAL( StatusChange( Mpris::Status ) ), pa, SIGNAL( StatusChange( Mpris::Status ) ) );
 
     connect( Dragon::engine(), SIGNAL( metaDataChanged() ), this, SLOT( metadataChangeSlot() )  );
@@ -156,7 +157,7 @@ int
 PlayerDbusHandler::GetCaps()
 {
     int caps = Mpris::NO_CAPS;
-    if( static_cast<Dragon::MainWindow*>( Dragon::mainWindow() )->action("play")->isEnabled() )
+    if( Dragon::TheStream::hasMedia() )
     {
         caps |= Mpris::CAN_PAUSE;
         caps |= Mpris::CAN_PLAY;

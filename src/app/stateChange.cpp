@@ -184,7 +184,6 @@ MainWindow::engineStateChanged( Phonon::State state )
             break;
         }*/
     }
-    emit relayStatusChanged( state );
 }//engineStateChanged
 
 

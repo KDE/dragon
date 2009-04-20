@@ -64,7 +64,6 @@ namespace Dragon
       void showVolume( bool );
 
    signals:
-      void relayStatusChanged( Phonon::State );
       void fileChanged( QString );
 
    public slots:
