@@ -109,6 +109,7 @@ MainWindow::MainWindow()
     setMouseTracking( true );
 
     m_mainView = new QStackedWidget(this);
+    m_mainView->setMouseTracking( true );
 
     new VideoWindow( this );
     videoWindow()->setMouseTracking( true );
