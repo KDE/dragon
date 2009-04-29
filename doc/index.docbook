@@ -30,7 +30,7 @@ as Authors, publish date, the abstract, and Keywords -->
 <firstname>Ian</firstname>
 <surname>Monroe</surname>
 <affiliation>
-<address><email>imonroe@dragonplayer.org</email></address>
+<address><email>imonroe@kde.org</email></address>
 </affiliation>
 </author>
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
@@ -324,7 +324,7 @@ distribution. -->
 <sect1 id="kapp">
 <title>&codeine;</title>
 <para>Program copyright 2004 Max B. Howell <email>max.howell@methylblue.com</email></para>
-<para>Program copyright 2007 Ian A. Monroe <email>imonroe@dragonplayer.org</email></para>
+<para>Program copyright 2007 Ian A. Monroe <email>imonroe@kde.org</email></para>
 &underGPL;
 
 </sect1>
@@ -336,7 +336,7 @@ distribution. -->
 Documentation copyright 2004 Mike Diehl <email>madpenguin8@yahoo.com</email>
 </para>
 <para>
-Documentation copyright 2007 Ian Monroe <email>imonroe@dragonplayer.org</email>
+Documentation copyright 2007 Ian Monroe <email>imonroe@kde.org</email>
 </para>
 
 
@@ -371,7 +371,7 @@ Documentation copyright 2007 Ian Monroe <email>imonroe@dragonplayer.org</email>
 
 <para>
 &codeine; is part of the &kde; multimedia module, it can be found at:
-<ulink url="http://www.dragonplayer.org">http://www.dragonplayer.org</ulink>.
+<ulink url="http://multimedia.kde.org">http://multimedia.kde.org</ulink>.
 </para>
 </sect1>
 
