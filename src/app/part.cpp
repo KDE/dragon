@@ -110,8 +110,8 @@ namespace Codeine
             ki18n("Dragon Player"), APP_VERSION,
             ki18n("A video player that has a usability focus"), KAboutData::License_GPL_V2,
             ki18n("Copyright 2006, Max Howell\nCopyright 2007, Ian Monroe"), KLocalizedString(),
-            "http://dragonplayer.org",
-            "imonroe@dragonplayer.org" );
+            "http://multimedia.kde.org",
+            "imonroe@kde.org" );
     }
 
     bool 
