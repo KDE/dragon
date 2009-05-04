@@ -15,7 +15,7 @@
      <item row="0" column="0" >
       <widget class="QLabel" name="brightnessLabel" >
        <property name="text" >
-        <string>Brightness</string>
+        <string>Brightness:</string>
        </property>
       </widget>
      </item>
@@ -38,7 +38,7 @@
      <item row="1" column="0" >
       <widget class="QLabel" name="contrastLabel" >
        <property name="text" >
-        <string>Contrast</string>
+        <string>Contrast:</string>
        </property>
       </widget>
      </item>
@@ -61,7 +61,7 @@
      <item row="2" column="0" >
       <widget class="QLabel" name="hueLabel" >
        <property name="text" >
-        <string>Hue</string>
+        <string>Hue:</string>
        </property>
       </widget>
      </item>
@@ -84,7 +84,7 @@
      <item row="3" column="0" >
       <widget class="QLabel" name="saturationLabel" >
        <property name="text" >
-        <string>Saturation</string>
+        <string>Saturation:</string>
        </property>
       </widget>
      </item>
