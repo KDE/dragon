@@ -342,39 +342,39 @@ MainWindow::setupActions()
     connect( videoSettings, SIGNAL( toggled( bool ) ), this, SLOT( toggleVideoSettings( bool ) ) );
     addToAc( videoSettings )
 
-    KAction* prev_chapter = new KAction( KIcon("frame-image"), i18n("Previous chapter"), ac );
+    KAction* prev_chapter = new KAction( KIcon("frame-image"), i18n("Previous Chapter"), ac );
     prev_chapter->setObjectName( "prev_chapter" );
     prev_chapter->setShortcut( Qt::Key_Comma );
     connect( prev_chapter, SIGNAL( triggered() ), engine(), SLOT( prevChapter() ) );
     addToAc( prev_chapter )
 
-    KAction* next_chapter = new KAction( KIcon("frame-image"), i18n("Next chapter"), ac );
+    KAction* next_chapter = new KAction( KIcon("frame-image"), i18n("Next Chapter"), ac );
     next_chapter->setObjectName( "next_chapter" );
     next_chapter->setShortcut( Qt::Key_Period );
     connect( next_chapter, SIGNAL( triggered() ), engine(), SLOT( nextChapter() ) );
     addToAc( next_chapter )
 
     // xgettext: no-c-format
-    KAction* tenPercentBack = new KAction( KIcon("frame-image"), i18n("Return 10% back"), ac );
+    KAction* tenPercentBack = new KAction( KIcon("frame-image"), i18n("Return 10% Back"), ac );
     tenPercentBack->setObjectName( "ten_percent_back" );
     tenPercentBack->setShortcut( Qt::Key_PageUp );
     connect( tenPercentBack, SIGNAL( triggered() ), engine(), SLOT( tenPercentBack() ) );
     addToAc( tenPercentBack )
 
     // xgettext: no-c-format
-    KAction* tenPercentForward = new KAction( KIcon("frame-image"), i18n("Go 10% forward"), ac );
+    KAction* tenPercentForward = new KAction( KIcon("frame-image"), i18n("Go 10% Forward"), ac );
     tenPercentForward->setObjectName( "ten_percent_forward" );
     tenPercentForward->setShortcut( Qt::Key_PageDown );
     connect( tenPercentForward, SIGNAL( triggered() ), engine(), SLOT( tenPercentForward() ) );
     addToAc( tenPercentForward )
 
-    KAction* tenSecondsBack = new KAction( KIcon("frame-image"), i18n("Return 10 seconds back"), ac );
+    KAction* tenSecondsBack = new KAction( KIcon("frame-image"), i18n("Return 10 Seconds Back"), ac );
     tenSecondsBack->setObjectName( "ten_seconds_back" );
     tenSecondsBack->setShortcut( Qt::Key_Minus );
     connect( tenSecondsBack, SIGNAL( triggered() ), engine(), SLOT( tenSecondsBack() ) );
     addToAc( tenSecondsBack )
 
-    KAction* tenSecondsForward = new KAction( KIcon("frame-image"), i18n("Go 10 seconds forward"), ac );
+    KAction* tenSecondsForward = new KAction( KIcon("frame-image"), i18n("Go 10 Seconds Forward"), ac );
     tenSecondsForward->setObjectName( "ten_seconds_forward" );
     tenSecondsForward->setShortcut( Qt::Key_Plus );
     connect( tenSecondsForward, SIGNAL( triggered() ), engine(), SLOT( tenSecondsForward() ) );
@@ -581,7 +581,7 @@ MainWindow::openFileDialog()
         mimeFilter << "video/mp4";
         mimeFilter << "application/x-cd-image"; // added for *.iso images
 
-        const KUrl url = KFileDialog::getOpenUrl( KUrl("kfiledialog:///dragonplayer"),mimeFilter.join(" "), this, i18n("Select A File To Play") );
+        const KUrl url = KFileDialog::getOpenUrl( KUrl("kfiledialog:///dragonplayer"),mimeFilter.join(" "), this, i18n("Select File to Play") );
         if( url.isEmpty() )
         {
             debug() << "URL empty in MainWindow::playDialogResult()";
@@ -605,7 +605,7 @@ MainWindow::playDialogResult( int result )
         mimeFilter << "video/mp4";
         mimeFilter << "application/x-cd-image"; // added for *.iso images
 
-        const KUrl url = KFileDialog::getOpenUrl( KUrl("kfiledialog:///dragonplayer"),mimeFilter.join(" "), this, i18n("Select A File To Play") );
+        const KUrl url = KFileDialog::getOpenUrl( KUrl("kfiledialog:///dragonplayer"),mimeFilter.join(" "), this, i18n("Select File to Play") );
         if( url.isEmpty() )
         {
              debug() << "URL empty in MainWindow::playDialogResult()";
