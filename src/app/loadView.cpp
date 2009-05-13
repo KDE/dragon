@@ -19,9 +19,12 @@
  ***********************************************************************/
 
 #include "loadView.h"
+#include "codeine.h"
+
 #include <QLabel>
 #include <KIcon>
 #include <KIconLoader>
+
 
 namespace Dragon
 {
@@ -35,11 +38,18 @@ LoadView::LoadView( QWidget *parent )
     m_playDiskButton->setIconSize( QSize( KIconLoader::SizeMedium, KIconLoader::SizeMedium ) );
     m_playFileButton->setIcon( KIcon( "folder" ) );
     m_playFileButton->setIconSize( QSize( KIconLoader::SizeMedium, KIconLoader::SizeMedium ) );
+    
     connect( m_playDiskButton, SIGNAL( released() ), this, SIGNAL( openDVDPressed() ) );
     connect( m_playFileButton, SIGNAL( released() ), this, SIGNAL( openFilePressed() ) );
     connect( m_recentlyPlayed, SIGNAL( itemDoubleClicked( KUrl ) ), this, SIGNAL( loadUrl( KUrl ) ) );
 }
 
-
+void
+LoadView::setThumbnail(QWidget *object)
+{
+  object->setParent(m_vThumb);
+  object->resize(m_vThumb->size());
+  object->show();
+}
 
 }

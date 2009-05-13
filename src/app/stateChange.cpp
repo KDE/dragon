@@ -55,12 +55,12 @@ namespace Dragon {
 
 
 void
-MainWindow::engineStateChanged( Phonon::State state )
+MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
 {
     bool const isFullScreen = toggleAction("fullscreen")->isChecked();
     bool const hasMedia = TheStream::hasMedia();
     QWidget *const toolbar = reinterpret_cast<QWidget*>(toolBar());
-
+    
     switch(state)
     {
       case Phonon::LoadingState:
@@ -100,8 +100,6 @@ MainWindow::engineStateChanged( Phonon::State state )
     toggleAction( "play" )->setChecked(state == Phonon::PlayingState);
 
     m_timeLabel->setVisible(enable);
-
-    selectMainWidget();
 
     debug() << "updated actions";
 
@@ -233,7 +231,18 @@ void MainWindow::engineMetaDataChanged()
 void MainWindow::engineHasVideoChanged(bool hasVideo)
 {
   debug() << "hasVideo changed";
-  selectMainWidget();
+  if( TheStream::hasVideo() )
+  {
+    if( m_mainView->indexOf(engine()) == -1 )
+      m_mainView->addWidget(engine());
+    m_mainView->setCurrentWidget(engine());
+    m_currentWidget = engine();
+  }
+  else
+  {
+    m_mainView->setCurrentWidget(m_audioView);
+    m_currentWidget = m_audioView;
+  }
 }
 
 }//namespace

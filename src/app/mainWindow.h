@@ -74,7 +74,9 @@ namespace Dragon
       void toggleVideoSettings( bool );
       void toggleVolumeSlider( bool );
       void restoreDefaultVideoSettings();
-      void selectMainWidget();
+      void toggleLoadView();
+
+
 
    private slots:
       void setFullScreen( bool full );
@@ -86,7 +88,7 @@ namespace Dragon
       void audioChannelsChanged( QList< QAction* > );
       void mutedChanged( bool );
       //in stateChange.cpp
-      void engineStateChanged( Phonon::State );
+      void engineStateChanged( Phonon::State, Phonon::State = Phonon::StoppedState);
       void engineMediaChanged( Phonon::MediaSource );
       void engineSeekableChanged( bool );
       void engineMetaDataChanged();
@@ -113,6 +115,7 @@ namespace Dragon
       QStackedWidget *m_mainView;
       AudioView *m_audioView;
       LoadView *m_loadView;
+      QWidget *m_currentWidget;
 
       QPointer<QDockWidget> m_leftDock;
       QPointer<QDockWidget> m_rightDock;

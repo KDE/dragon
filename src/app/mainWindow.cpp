@@ -92,6 +92,7 @@ MainWindow::MainWindow()
         , m_mainView( 0 )
         , m_audioView(new AudioView(this) )
         , m_loadView( new LoadView(this) )
+        , m_currentWidget( new QWidget(this) )
         , m_leftDock( 0 )
         , m_positionSlider( 0 )
         , m_volumeSlider( 0 )
@@ -120,6 +121,8 @@ MainWindow::MainWindow()
     m_mainView->addWidget(m_audioView);
     m_mainView->addWidget(videoWindow());
     m_mainView->setCurrentWidget(m_loadView);
+    
+    m_currentWidget = m_loadView;
 
     setCentralWidget( m_mainView );
 
@@ -207,7 +210,7 @@ MainWindow::init()
     connect( m_loadView, SIGNAL(loadUrl(KUrl)), this, SLOT(open(KUrl)) );
 
     //connect the video player
-    connect( engine(), SIGNAL( stateChanged( Phonon::State ) ), this, SLOT( engineStateChanged( Phonon::State ) ) );
+    connect( engine(), SIGNAL( stateUpdated( Phonon::State, Phonon::State ) ), this, SLOT( engineStateChanged( Phonon::State, Phonon::State ) ) );
     connect( engine(), SIGNAL( currentSourceChanged( Phonon::MediaSource ) ), this, SLOT( engineMediaChanged( Phonon::MediaSource ) ) );
     connect( engine(), SIGNAL( seekableChanged( bool ) ), this, SLOT( engineSeekableChanged( bool ) ) );
     connect( engine(), SIGNAL( metaDataChanged() ), this, SLOT( engineMetaDataChanged() ) );
@@ -284,7 +287,7 @@ MainWindow::setupActions()
 
     KStandardAction::quit( kapp, SLOT( closeAllWindows() ), ac );
 
-    KStandardAction::open( engine(), SLOT(stop()), ac )->setText( i18n("Play &Media...") );
+    KStandardAction::open( this, SLOT(toggleLoadView()), ac )->setText( i18n("Play &Media...") );
     m_fullScreenAction = new FullScreenAction( this, ac );
     connect( m_fullScreenAction, SIGNAL( toggled( bool ) ), Dragon::mainWindow(), SLOT( setFullScreen( bool ) ) );
 
@@ -421,20 +424,35 @@ MainWindow::restoreDefaultVideoSettings()
 }
 
 void
-MainWindow::selectMainWidget()
+MainWindow::toggleLoadView()
 {
-  if(! TheStream::hasMedia())
+  DEBUG_BLOCK;
+  if( engine()->state() == Phonon::PlayingState && TheStream::hasVideo() )
   {
-    m_mainView->setCurrentWidget(m_loadView);
+    engine()->playPause();
   }
-  else if(TheStream::hasVideo())
-  {
-    m_mainView->setCurrentWidget(engine());
-  }
-  else
-  {
-    m_mainView->setCurrentWidget(m_audioView);
-  }
+    if( m_mainView->currentWidget() == m_loadView )
+    {
+      if( m_mainView->indexOf(m_currentWidget) == -1 )
+      {
+        m_mainView->addWidget(m_currentWidget);
+        engine()->playPause();
+      }
+      m_mainView->setCurrentWidget(m_currentWidget);
+      engine()->isPreview(false);
+    }
+    else if( m_currentWidget != m_audioView )
+    {
+      debug() << "setting Thumbnail for video Widget";
+      m_mainView->setCurrentWidget(m_loadView);
+      m_mainView->removeWidget(m_currentWidget);
+      engine()->isPreview(true);
+      m_loadView->setThumbnail(m_currentWidget);
+    }
+    else 
+    {
+      m_mainView->setCurrentWidget(m_loadView);
+    }
 }
 
 void
@@ -508,6 +526,11 @@ MainWindow::open( const KUrl &url )
         debug() << "Initial offset is "<< offset;
         engine()->loadSettings();
         updateSliders();
+        if( TheStream::hasVideo() )
+          m_currentWidget = engine();
+        else
+          m_currentWidget = m_audioView;
+        m_mainView->setCurrentWidget(m_currentWidget);
         return engine()->play( offset );
     }
 
@@ -548,6 +571,9 @@ MainWindow::load( const KUrl &url )
                 return engine()->load( KUrl( path ) );
         }
     }
+    
+    if( m_mainView->indexOf(engine()) == -1 )
+      toggleLoadView();
 
     //let xine handle invalid, etc, KUrlS
     //TODO it handles non-existing files with bad error message
@@ -563,9 +589,16 @@ MainWindow::play()
         break;
     case Phonon::PausedState:
         engine()->resume();
+        if( m_mainView->currentWidget() == m_loadView )
+          toggleLoadView();
         break;
     case Phonon::StoppedState:
+        if( TheStream::hasVideo() )
+          m_currentWidget = engine();
+        else
+          m_currentWidget = m_audioView;
         engine()->play();
+        m_mainView->setCurrentWidget(engine());
         break;
     default:
         break;

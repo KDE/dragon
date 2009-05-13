@@ -42,7 +42,7 @@ PlayerDbusHandler::PlayerDbusHandler(QObject *parent)
     connect( Dragon::engine(), SIGNAL( seekableChanged( bool ) ), this, SLOT( capsChangeSlot() )  );
     connect( this, SIGNAL( CapsChange( int ) ), pa, SIGNAL( CapsChange( int ) ) );
 
-    connect( Dragon::engine(), SIGNAL( stateChanged( Phonon::State ) ), this, SLOT( statusChangeSlot( Phonon::State ) )  );
+    connect( Dragon::engine(), SIGNAL( stateUpdated( Phonon::State, Phonon::State ) ), this, SLOT( statusChangeSlot( Phonon::State ) )  );
     connect( this, SIGNAL( StatusChange( Mpris::Status ) ), pa, SIGNAL( StatusChange( Mpris::Status ) ) );
 
     connect( Dragon::engine(), SIGNAL( metaDataChanged() ), this, SLOT( metadataChangeSlot() )  );

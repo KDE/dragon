@@ -69,6 +69,7 @@ namespace Dragon
         QActionGroup* m_subLanguages;
         QActionGroup* m_audioLanguages;
         QWidget* m_logo;
+        bool m_isPreview;
 
         Phonon::VideoWidget *m_vWidget;
         Phonon::AudioOutput *m_aOutput;
@@ -95,6 +96,7 @@ namespace Dragon
         bool playDisc( const Solid::Device& );
         bool isMuted();
         bool mouseUnderWidget();
+        bool isPreview(const bool &v = 0);
         void relativeSeek( qint64 );
 
         qint64 length() const;
@@ -102,7 +104,7 @@ namespace Dragon
 
         ///stuff for dbus:
         //{
-        void pause();
+
         qreal volume() const;
         void setVolume( qreal );
         QString urlOrDisc() const;
@@ -129,6 +131,7 @@ namespace Dragon
         const xine_stream_t* xineStream() const { return m_xineStream; }
 
     public slots:
+        void pause();
         void playPause();
         void seek( qint64 );
         void stop();
@@ -162,7 +165,7 @@ namespace Dragon
         void updateChannels();
         void hideCursor();
     signals:
-        void stateChanged( const Phonon::State );
+        void stateUpdated( const Phonon::State, const Phonon::State );
         void subChannelsChanged( QList< QAction* > );
         void audioChannelsChanged( QList< QAction* > );
         void tick( qint64 );

@@ -41,8 +41,10 @@
 #include <QLabel>
 #include <QTimer>
 #include <QVBoxLayout>
+#include <QPainter>
 
 #include <KApplication>
+#include <KIcon>
 #include <KLocale>
 #include <KMenu>
 #include <KMimeType>
@@ -93,6 +95,8 @@ VideoWindow::VideoWindow( QWidget *parent )
         , m_logo( new QLabel( this ) )
 {
     DEBUG_BLOCK
+    
+    m_isPreview = false;
 
     s_instance = this;
     setObjectName( "VideoWindow" );
@@ -219,6 +223,7 @@ VideoWindow::load( const KUrl &url )
         m_media->setCurrentSource( url );
     m_justLoaded = true;
     m_adjustedSize=false;
+    engine()->play();
     return true;
 }
 
@@ -231,6 +236,7 @@ VideoWindow::play( qint64 offset )
     if( offset > 0 )
         seek( offset );
     m_media->play();
+    debug() << "Does this media have Video stream? " << TheStream::hasVideo();
     return true;
 }
 
@@ -301,6 +307,16 @@ DEBUG_BLOCK
         debug() << "device was not a disc";
         return false;
     }
+}
+
+bool 
+VideoWindow::isPreview(const bool &v)
+{
+   if( v )
+     {
+       m_isPreview = v;
+     }
+   return m_isPreview;
 }
 
 void
@@ -521,7 +537,7 @@ debug() << "chapters: " << m_controller->availableChapters() << " titles: " << m
           debug() << "adjusting size to video resolution";
         }
     }
-    emit stateChanged( currentState );
+    emit stateUpdated( currentState, oldstate );
 }
 
 void
@@ -753,8 +769,6 @@ VideoWindow::event( QEvent* event )
       case QEvent::MouseButtonPress:
          kapp->restoreOverrideCursor();
          if( hasFocus() )
-            // see above comment
-            debug() << "cursor will disappear in 2000 seconds";
             m_cursorTimer->start( CURSOR_HIDE_TIMEOUT );
          break;
       default: return QWidget::event( event );
