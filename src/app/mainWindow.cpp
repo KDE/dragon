@@ -268,6 +268,17 @@ MainWindow::~MainWindow()
     delete videoWindow(); //fades out sound in dtor
 }
 
+void MainWindow::closeEvent (QCloseEvent *event)
+{
+    // Restore the state of these before closing
+    mainWindow()->setWindowState( Qt::WindowNoState );
+    statusBar()->setHidden( m_statusbarIsHidden );
+    toolBar()->setHidden( m_toolbarIsHidden );
+    menuBar()->setHidden( false );
+    
+    KMainWindow::closeEvent( event );
+}
+
 void MainWindow::wheelEvent (QWheelEvent *event)
  {
     if (event->delta() > 0) {
