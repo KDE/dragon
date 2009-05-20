@@ -34,6 +34,7 @@
 class KNotificationRestrictions;
 class KUrl;
 class QActionGroup;
+class QCloseEvent;
 class QLabel;
 class QMenu;
 class QSlider;
@@ -119,8 +120,8 @@ namespace Codeine
       KNotificationRestrictions *m_stopScreenSaver;
       int m_stopSleepCookie;
 
-	  bool	m_toolbarIsHidden;
-      bool  m_statusbarIsHidden;
+      bool m_toolbarIsHidden;
+      bool m_statusbarIsHidden;
 
       QActionGroup *m_aspectRatios;
       //undefined
@@ -128,6 +129,7 @@ namespace Codeine
       MainWindow &operator=( const MainWindow& );
 
    protected:
+      void closeEvent( QCloseEvent * event );
       void wheelEvent ( QWheelEvent * event );
    };
 
