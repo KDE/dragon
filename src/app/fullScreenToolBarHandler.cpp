@@ -55,20 +55,14 @@ Codeine::FullScreenToolBarHandler::eventFilter( QObject *o, QEvent *e )
 
         QMouseEvent const * const me = (QMouseEvent*)e;
         if (m_stay_hidden_for_a_bit) {
-            debug() << "1 staying hidden for a big";
+            debug() << "staying hidden for a bit";
             // wait for a small pause before showing the toolbar again
             // usage = user removes mouse from toolbar after using it
             // toolbar disappears (usage is over) but usually we show
             // toolbar immediately when mouse is moved.. so we need this hack
 
-            // HACK if user thrusts mouse to top, we assume they really want the toolbar
-            // back. Is hack as 80% of users have at top, but 20% at bottom, we don't cater
-            // for the 20% as lots more code, for now.
-            if (me->pos().y() < m_toolbar->height())
-            {
-                debug() << "goto show_toolbar";
+            if (m_toolbar->geometry().contains(me->pos()))
                 goto show_toolbar;
-            }
 
             m_timer_id = startTimer( 100 );
         }
