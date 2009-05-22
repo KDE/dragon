@@ -716,19 +716,19 @@ VideoWindow::tenPercentForward()
 void
 VideoWindow::tenSecondsBack()
 {
-  qint64 newTime = m_media->currentTime() - 10;
+  qint64 newTime = m_media->currentTime() - 10000;
   if (newTime > 0)
-    m_media -> seek (newTime);
+    m_media->seek( newTime );
   else
-    m_media -> seek ( 0 ) ;
+    m_media->seek( 0 );
 }
 
 void
 VideoWindow::tenSecondsForward()
 {
-  qint64 newTime = m_media->currentTime() + 10;
+  qint64 newTime = m_media->currentTime() + 10000;
   if (newTime < m_media->totalTime())
-    m_media -> seek (newTime);
+    m_media->seek( newTime );
 }
 
 ///////////
