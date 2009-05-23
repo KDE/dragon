@@ -29,7 +29,6 @@
 
 #include "actions.h"        //::seek() FIXME unfortunate
 #include "debug.h"
-#include "mxcl.library.h"
 #include "theStream.h"
 
 #ifdef HAVE_XINE
@@ -212,7 +211,9 @@ bool
 VideoWindow::load( const KUrl &url )
 {
     DEBUG_BLOCK
-    mxcl::WaitCursor allocateOnStack;
+
+    QApplication::setOverrideCursor( Qt::WaitCursor );
+
     eject();
 
     KMimeType::Ptr mimeType = KMimeType::findByUrl( url );
@@ -224,6 +225,9 @@ VideoWindow::load( const KUrl &url )
     m_justLoaded = true;
     m_adjustedSize=false;
     engine()->play();
+
+    QApplication::restoreOverrideCursor();
+
     return true;
 }
 
@@ -231,12 +235,17 @@ bool
 VideoWindow::play( qint64 offset )
 {
     DEBUG_BLOCK
-    mxcl::WaitCursor allocateOnStack;
+
+    QApplication::setOverrideCursor( Qt::WaitCursor );
+
     m_justLoaded = false;
     if( offset > 0 )
         seek( offset );
     m_media->play();
     debug() << "Does this media have Video stream? " << TheStream::hasVideo();
+
+    QApplication::restoreOverrideCursor();
+
     return true;
 }
 

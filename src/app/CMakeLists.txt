@@ -5,7 +5,6 @@ endif(XINE_XCB_FOUND)
 set(videoplayer_common_SRCS
     theStream.cpp
     actions.cpp
-    ../mxcl.library.cpp
     videoWindow.cpp )
 
 set(videoplayer_app_SRCS

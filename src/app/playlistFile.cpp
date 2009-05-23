@@ -26,7 +26,6 @@
 
 #include "codeine.h"
 #include "debug.h"
-#include "mxcl.library.h"
 #include <KIO/NetAccess>
 #include <KLocale>
 #include <QFile>
@@ -36,7 +35,7 @@ PlaylistFile::PlaylistFile( const KUrl &url )
         , m_isRemoteFile( !url.isLocalFile() )
         , m_isValid( false )
 {
-    mxcl::WaitCursor allocateOnStack;
+    QApplication::setOverrideCursor( Qt::WaitCursor );
 
     QString &path = m_path = url.path();
 
@@ -73,6 +72,8 @@ PlaylistFile::PlaylistFile( const KUrl &url )
     }
     else
         m_error = i18n( "Dragon Player could not open the file: %1", path );
+
+    QApplication::restoreOverrideCursor();
 }
 
 
