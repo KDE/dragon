@@ -155,9 +155,6 @@ VideoWindow::VideoWindow( QWidget *parent )
         m_logo->setPalette( pal );
         QLayout* layout = new QVBoxLayout( m_logo );
         layout->setAlignment( Qt::AlignCenter );
-//        QLabel* logoImage = new QLabel( m_logo );
-//        logoImage->setPixmap( KStandardDirs::locate( "appdata",  "dragonlogo.png" ) );
-//        layout->addWidget( logoImage );
         m_logo->setLayout( layout );
         box->addWidget( m_logo );
         m_logo->show();
@@ -171,15 +168,6 @@ VideoWindow::VideoWindow( QWidget *parent )
 VideoWindow::~VideoWindow()
 {
     DEBUG_BLOCK
-    /* let us never forget, mxcl's cum variable. RIP
-    int cum = 0;
-    for( int v = 99; v >= 0; v-- ) {
-        xine_set_param( m_stream, XINE_PARAM_AUDIO_AMP_LEVEL, v );
-        int sleep = int(32000 * (-std::log10( double(v + 1) ) + 2));
-        ::usleep( sleep );
-        cum += sleep;
-    }
-    debug() << "Total sleep: " << cum << "x10^-6 s\n"; */
 
     eject();
     KConfigGroup config = KGlobal::config()->group( "General" );
