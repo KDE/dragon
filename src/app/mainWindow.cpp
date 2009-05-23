@@ -22,9 +22,6 @@
 #include "mainWindow.h"
 #include "timeLabel.h"
 
-
-#include <cstdlib>
-
 #include <KApplication>
 #include <KCmdLineArgs>
 #include <KCursor>
@@ -68,7 +65,6 @@
 #include "extern.h"         //dialog creation function definitions
 #include "fullScreenToolBarHandler.h"
 #include "messageBox.h"
-#include "mxcl.library.h"
 #include "playDialog.h"  //::play()
 #include "playlistFile.h"
 #include "theStream.h"

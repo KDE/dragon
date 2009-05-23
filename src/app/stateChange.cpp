@@ -37,7 +37,6 @@
 #include "adjustSizeButton.h"
 #include "dbus/playerDbusHandler.h"
 #include "debug.h"
-#include "mxcl.library.h"
 #include "theStream.h"
 #include "videoWindow.h"
 

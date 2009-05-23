@@ -26,11 +26,10 @@
 
 #include "codeine.h"
 #include "debug.h"
+#include "mxcl.library.h"
 #include <KIO/NetAccess>
 #include <KLocale>
 #include <QFile>
-#include <mxcl.library.h>
-
 
 PlaylistFile::PlaylistFile( const KUrl &url )
         : m_url( url )

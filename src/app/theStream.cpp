@@ -37,7 +37,6 @@
 #endif
 
 #include "debug.h"
-#include "mxcl.library.h"
 #include "videoWindow.h"
 
 namespace Dragon
