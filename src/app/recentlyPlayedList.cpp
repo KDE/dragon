@@ -1,5 +1,5 @@
 /***********************************************************************
- * Copyright 2008 David Edmundson
+ * Copyright 2008 David Edmundson <kde@davidedmundson.co.uk>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
