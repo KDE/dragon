@@ -43,8 +43,6 @@ class QMenu;
 class QSlider;
 class QCheckBox;
 
-class FullScreenAction;
-
 namespace Dragon
 {
    class PlayDialog;
@@ -127,7 +125,6 @@ namespace Dragon
       QLabel      *m_titleLabel;
       QList<QSlider*> m_sliders;
       QPointer<PlayDialog> m_playDialog;
-      FullScreenAction *m_fullScreenAction;
 
       KNotificationRestrictions *m_stopScreenSaver;
       int m_stopSleepCookie;

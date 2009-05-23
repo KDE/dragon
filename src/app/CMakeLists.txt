@@ -14,7 +14,6 @@ set(videoplayer_app_SRCS
     playDialog.cpp
     discSelectionDialog.cpp
     adjustSizeButton.cpp
-    fullScreenAction.cpp
     fullScreenToolBarHandler.cpp
     playlistFile.cpp
     main.cpp

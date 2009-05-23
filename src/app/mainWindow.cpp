@@ -35,6 +35,7 @@
 #include <KMenuBar>
 #include <KSqueezedTextLabel>
 #include <KStatusBar>
+#include <KToggleFullScreenAction>
 #include <KToolBar>
 #include <KWindowSystem>
 #include <KXMLGUIFactory>
@@ -65,7 +66,6 @@
 #include "dbus/trackListDbusHandler.h"
 #include "debug.h"
 #include "extern.h"         //dialog creation function definitions
-#include "fullScreenAction.h"
 #include "fullScreenToolBarHandler.h"
 #include "messageBox.h"
 #include "mxcl.library.h"
@@ -99,7 +99,6 @@ MainWindow::MainWindow()
         , m_timeLabel( 0 )
         , m_titleLabel( new QLabel( this ) )
         , m_playDialog( 0 )
-        , m_fullScreenAction( 0 )
         , m_stopScreenSaver( 0 )
         , m_stopSleepCookie( -1 )
         , m_toolbarIsHidden(false)
@@ -299,13 +298,19 @@ MainWindow::setupActions()
     KStandardAction::quit( kapp, SLOT( closeAllWindows() ), ac );
 
     KStandardAction::open( this, SLOT(toggleLoadView()), ac )->setText( i18n("Play &Media...") );
-    m_fullScreenAction = new FullScreenAction( this, ac );
-    connect( m_fullScreenAction, SIGNAL( toggled( bool ) ), Dragon::mainWindow(), SLOT( setFullScreen( bool ) ) );
+
+    #define addToAc( X ) ac->addAction( X->objectName(), X );
+
+    KToggleFullScreenAction* toggleFullScreen = new KToggleFullScreenAction( this, ac );
+    toggleFullScreen->setObjectName( "fullscreen" );
+    toggleFullScreen->setShortcut( Qt::Key_F );
+    toggleFullScreen->setAutoRepeat( false );
+    connect( toggleFullScreen, SIGNAL( toggled( bool ) ), Dragon::mainWindow(), SLOT( setFullScreen( bool ) ) );
+    addToAc( toggleFullScreen );
 
     new PlayAction( this, SLOT( play() ), ac );
     new VolumeAction( this, SLOT( toggleVolumeSlider( bool ) ), ac );
 
-    #define addToAc( X ) ac->addAction( X->objectName(), X );
     KAction* playerStop = new KAction( KIcon("media-playback-stop"), i18n("Stop"), ac );
     playerStop->setObjectName( "stop" );
     playerStop->setShortcut( Qt::Key_S );
