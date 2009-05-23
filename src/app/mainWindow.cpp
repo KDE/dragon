@@ -335,21 +335,6 @@ MainWindow::setupActions()
     connect( dvdMenu, SIGNAL( triggered() ), engine(), SLOT( toggleDVDMenu() ) );
     addToAc( dvdMenu )
 
-/*
-    KAction* capture = new KAction( KIcon("frame-image"), i18n("Capture Frame"), ac );
-    capture->setObjectName( "frame_image" );
-    capture->setShortcut( Qt::Key_C );
-    connect( capture, SIGNAL( triggered() ), engine(), SLOT( captureFrame() ) );
-    addToAc( capture )
-*/
-/*
-    KToggleAction* OSDShow = new KToggleAction( i18n("Show OSD"), ac );
-    OSDShow->setObjectName( "show_OSD" );
-    OSDShow->setShortcut( Qt::Key_O );
-    connect( OSDShow, SIGNAL( toggled( bool ) ), this, SLOT(  ) );
-    addToAc( OSDShow )
-*/
-
     KAction* positionSlider = new KAction( i18n("Position Slider"), ac );
     positionSlider->setObjectName( "position_slider" );
     positionSlider->setDefaultWidget( m_positionSlider );
@@ -641,41 +626,6 @@ MainWindow::openFileDialog()
             load( url );
         }
 }
-/*
-void
-MainWindow::playDialogResult( int result )
-{
-    DEBUG_BLOCK
-    switch( result ) {
-    case PlayDialog::FILE: {
-        QStringList mimeFilter=Phonon::BackendCapabilities::availableMimeTypes();
-        //temporary fixes for MimeTypes that Xine does support but it doesn't return - this is a Xine bug.
-        mimeFilter << "audio/x-flac";
-        mimeFilter << "video/mp4";
-        mimeFilter << "application/x-cd-image"; // added for *.iso images
-
-        const KUrl url = KFileDialog::getOpenUrl( KUrl("kfiledialog:///dragonplayer"),mimeFilter.join(" "), this, i18n("Select File to Play") );
-        if( url.isEmpty() )
-        {
-             debug() << "URL empty in MainWindow::playDialogResult()";
-            return;
-        }
-        else
-            this->open( url );
-        } break;
-    case PlayDialog::RECENT_FILE:
-       
-        break;
-    case PlayDialog::VCD:
-        this->open( KUrl( "vcd://" ) ); // one / is not enough
-        break;
-    case PlayDialog::DVD:
-        playDisc();
-        break;
-    }
-    m_playDialog->deleteLater();
-    m_playDialog = 0;
-}*/
 
 void
 MainWindow::playDisc()
