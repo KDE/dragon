@@ -27,7 +27,7 @@ namespace Dragon
 AudioView::AudioView( QWidget *parent) 
     : QWidget( parent )
 {
-   m_message = QString();
+   m_message.clear();
    setAutoFillBackground(true);
    QPalette pal;
    pal.setColor( QPalette::Window, Qt::black );

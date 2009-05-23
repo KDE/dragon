@@ -42,7 +42,7 @@
 namespace Dragon {
 
 PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
-        : QDialog( parent )
+        : KDialog( parent )
 {
     setWindowTitle( KDialog::makeStandardCaption( i18n("Play Media") ) );
 

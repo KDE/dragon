@@ -22,15 +22,15 @@
 #ifndef DRAGONPLAYERPLAYDIALOG_H
 #define DRAGONPLAYERPLAYDIALOG_H
 
+#include <KDialog>
 #include <KUrl>
-#include <QDialog>
 
 class QListWidgetItem;
 class QGridLayout;
 
 namespace Dragon
 {
-   class PlayDialog : public QDialog
+   class PlayDialog : public KDialog
    {
    Q_OBJECT
    public:
