@@ -7,6 +7,9 @@
       <Action name="play"/>
       <Action name="stop"/>
       <Separator/>
+      <Action name="prev_chapter"/>
+      <Action name="next_chapter"/>
+      <Separator/>
       <Action name="file_quit"/>
    </Menu>
    <Menu name="settings" noMerge="1"><text>&amp;Settings</text>
