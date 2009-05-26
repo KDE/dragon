@@ -321,9 +321,16 @@ VideoWindow::relativeSeek( qint64 step )
 {
     debug() << "** relative seek";
     const qint64 new_pos = currentTime() + step;
-    if( new_pos > 0 )
+    if( ( new_pos >= 0 ) && ( new_pos < length() ) )
+    {
         seek( new_pos );
-    play();
+        play();
+    }
+    else if( new_pos < 0 )
+    {
+        seek( 0 );
+        play();
+    }
 }
 
 void
@@ -728,19 +735,15 @@ VideoWindow::tenPercentForward()
 void
 VideoWindow::tenSecondsBack()
 {
-  qint64 newTime = m_media->currentTime() - 10000;
-  if (newTime > 0)
-    m_media->seek( newTime );
-  else
-    m_media->seek( 0 );
+    qint64 newTime = m_media->currentTime() - 10000;
+    relativeSeek( newTime );
 }
 
 void
 VideoWindow::tenSecondsForward()
 {
-  qint64 newTime = m_media->currentTime() + 10000;
-  if (newTime < m_media->totalTime())
-    m_media->seek( newTime );
+    qint64 newTime = m_media->currentTime() + 10000;
+    relativeSeek( newTime );
 }
 
 ///////////
