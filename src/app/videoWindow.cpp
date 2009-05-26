@@ -320,7 +320,6 @@ void
 VideoWindow::relativeSeek( qint64 step )
 {
     debug() << "** relative seek";
-    m_media->pause();
     const qint64 new_pos = currentTime() + step;
     if( new_pos > 0 )
         seek( new_pos );
