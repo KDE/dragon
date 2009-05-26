@@ -463,6 +463,7 @@ VideoWindow::newPositionSlider()
 {
     SeekSlider *seekSlider = new SeekSlider();
     seekSlider->setMediaObject( m_media );
+    seekSlider->setSingleStep( 5000 );
     return seekSlider;
 }
 
