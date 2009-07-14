@@ -30,6 +30,7 @@ class RecentlyPlayedList : public KListWidget
   Q_OBJECT
   public:
 	explicit RecentlyPlayedList(QWidget*);
+	virtual ~RecentlyPlayedList();
   private:
 	virtual void contextMenuEvent(QContextMenuEvent*);
 	virtual void loadEntries();

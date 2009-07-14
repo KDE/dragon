@@ -40,7 +40,11 @@ RecentlyPlayedList::RecentlyPlayedList(QWidget *parent)
   
   configGroup = new KConfigGroup( KGlobal::config(), "General" );
   loadEntries();
+}
 
+RecentlyPlayedList::~RecentlyPlayedList()
+{
+  delete configGroup;
 }
 
 void
