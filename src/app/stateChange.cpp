@@ -23,6 +23,7 @@
 #include "mainWindow.h"
 
 #include <KConfig>
+#include <KDebug>
 #include <KLocale>
 #include <KGlobal>
 #include <KNotificationRestrictions>
@@ -36,7 +37,6 @@
 #include "actions.h"
 #include "adjustSizeButton.h"
 #include "dbus/playerDbusHandler.h"
-#include "debug.h"
 #include "theStream.h"
 #include "videoWindow.h"
 
@@ -62,22 +62,22 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
     switch(state)
     {
       case Phonon::LoadingState:
-        debug() << "Loading state";
+        kDebug() << "Loading state";
         break;
       case Phonon::StoppedState:
-        debug() << "Stopped state";
+        kDebug() << "Stopped state";
         break;
       case Phonon::PlayingState:
-        debug() << "Playing state";
+        kDebug() << "Playing state";
         break;
       case Phonon::BufferingState:
-        debug() << "Buffering state";
+        kDebug() << "Buffering state";
         break;
       case Phonon::PausedState:
-        debug() << "Paused state";
+        kDebug() << "Paused state";
         break;
       case Phonon::ErrorState:
-        debug() << "Error state";
+        kDebug() << "Error state";
         break;
     }
 
@@ -99,7 +99,7 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
 
     m_timeLabel->setVisible(enable);
 
-    debug() << "updated actions";
+    kDebug() << "updated actions";
 
     /// update menus
     {
@@ -114,7 +114,7 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
         if( state != Phonon::LoadingState )
             TheStream::aspectRatioAction()->setChecked( true );
     }
-    debug() << "updated menus";
+    kDebug() << "updated menus";
 
     /// turn off screensaver
     if( state == Phonon::PlayingState )
@@ -122,18 +122,18 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
         m_stopSleepCookie = Solid::PowerManagement::beginSuppressingSleep("DragonPlayer: watching a film");
         if( !m_stopScreenSaver )
         {
-            debug() << "screensaver off";
+            kDebug() << "screensaver off";
             m_stopScreenSaver = new KNotificationRestrictions( KNotificationRestrictions::NonCriticalServices, this );
         }
         else
-            warning() << "m_stopScreenSaver not null";
+            kDebug() << "m_stopScreenSaver not null";
     }
     else if( Phonon::StoppedState || !TheStream::hasMedia() )
     {
         Solid::PowerManagement::stopSuppressingSleep(m_stopSleepCookie);
         delete m_stopScreenSaver;
         m_stopScreenSaver = 0;
-        debug() << "screensaver on";
+        kDebug() << "screensaver on";
     }
     
     updateTitleBarText();
@@ -189,7 +189,7 @@ MainWindow::engineMediaChanged(Phonon::MediaSource /*newSource*/)
     m_audioView->updateText();
 
     // update recently played list
-    debug() << " update recent files list ";
+    kDebug() << " update recent files list ";
 
     emit fileChanged( engine()->urlOrDisc() );
     //TODO fetch this from the Media source
@@ -213,7 +213,7 @@ MainWindow::engineMediaChanged(Phonon::MediaSource /*newSource*/)
 
 void MainWindow::engineSeekableChanged(bool canSeek)
 {
-  debug() << "seekable changed to " << canSeek;
+  kDebug() << "seekable changed to " << canSeek;
   m_positionSlider->setEnabled( canSeek );
   //TODO connect/disconnect the jump forward/back here.
 }//engineSeekableChanged
@@ -221,14 +221,14 @@ void MainWindow::engineSeekableChanged(bool canSeek)
 
 void MainWindow::engineMetaDataChanged()
 {
-    debug() << "metaDataChanged";
+    kDebug() << "metaDataChanged";
     updateTitleBarText();
     m_audioView->updateText();
 }
 
 void MainWindow::engineHasVideoChanged(bool hasVideo)
 {
-  debug() << "hasVideo changed";
+  kDebug() << "hasVideo changed";
   if( TheStream::hasVideo() )
   {
     if( m_mainView->indexOf(engine()) == -1 )

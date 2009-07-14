@@ -21,12 +21,12 @@
 
 #include "rootDbusHandler.h"
 
-#include "debug.h"
 #include "RootDbusHandlerBase.h"
 
 #include <KAboutData>
 #include <KApplication>
 #include <KCmdLineArgs>
+#include <KDebug>
 
 RootDbusHandler::RootDbusHandler( QObject* parent )
     : QObject( parent )
@@ -34,7 +34,7 @@ RootDbusHandler::RootDbusHandler( QObject* parent )
     new RootDbusHandlerBase( this );
     setObjectName("RootDbusHandler");
     bool successful = QDBusConnection::sessionBus().registerObject("/", this);
-    debug() << "registering root? " << successful;
+    kDebug() << "registering root? " << successful;
 }
 
 RootDbusHandler::~RootDbusHandler()

@@ -25,6 +25,7 @@
 #include <KApplication>
 #include <KCmdLineArgs>
 #include <KCursor>
+#include <KDebug>
 #include <KFileDialog>      //::open()
 #include <KGlobalSettings> //::timerEvent()
 #include <KIO/NetAccess>
@@ -61,7 +62,6 @@
 #include "dbus/playerDbusHandler.h"
 #include "dbus/rootDbusHandler.h"
 #include "dbus/trackListDbusHandler.h"
-#include "debug.h"
 #include "extern.h"         //dialog creation function definitions
 #include "fullScreenToolBarHandler.h"
 #include "messageBox.h"
@@ -100,7 +100,6 @@ MainWindow::MainWindow()
         , m_toolbarIsHidden(false)
         , m_statusbarIsHidden(false)
 {
-    DEBUG_BLOCK
     s_instance = this;
     setMouseTracking( true );
 
@@ -198,7 +197,6 @@ MainWindow::MainWindow()
 void
 MainWindow::init()
 {
-//     DEBUG_BLOCK
     //connect the stuff in loadView
     connect( m_loadView, SIGNAL(openDVDPressed()), this, SLOT(playDisc()) );
     connect( m_loadView, SIGNAL(openFilePressed()), this, SLOT(openFileDialog()) );
@@ -258,7 +256,6 @@ MainWindow::init()
 
 MainWindow::~MainWindow()
 {
-    DEBUG_BLOCK
     hide(); //so we appear to have quit, and then sound fades out below
     delete videoWindow(); //fades out sound in dtor
 }
@@ -287,7 +284,6 @@ void MainWindow::wheelEvent (QWheelEvent *event)
 void
 MainWindow::setupActions()
 {
-    DEBUG_BLOCK
 
     KActionCollection * const ac = actionCollection();
 
@@ -423,7 +419,6 @@ MainWindow::restoreDefaultVideoSettings()
 void
 MainWindow::toggleLoadView()
 {
-  DEBUG_BLOCK;
   if( engine()->state() == Phonon::PlayingState && TheStream::hasVideo() )
   {
     engine()->playPause();
@@ -440,7 +435,7 @@ MainWindow::toggleLoadView()
     }
     else if( m_currentWidget != m_audioView )
     {
-      debug() << "setting Thumbnail for video Widget";
+      kDebug() << "setting Thumbnail for video Widget";
       m_mainView->setCurrentWidget(m_loadView);
       m_mainView->removeWidget(m_currentWidget);
       engine()->isPreview(true);
@@ -505,22 +500,20 @@ MainWindow::updateSliders()
 void
 MainWindow::engineMessage( const QString &message )
 {
-    DEBUG_BLOCK
     statusBar()->showMessage( message, 3500 );
 }
 
 bool
 MainWindow::open( const KUrl &url )
 {
-    DEBUG_BLOCK
-    debug() << url;
+    kDebug() << url;
 
     if( load( url ) ) {
         const int offset = TheStream::hasProfile()
                 // adjust offset if we have session history for this video
                 ? TheStream::profile().readEntry<int>( "Position", 0 )
                 : 0;
-        debug() << "Initial offset is "<< offset;
+        kDebug() << "Initial offset is "<< offset;
         engine()->loadSettings();
         updateSliders();
         if( TheStream::hasVideo() )
@@ -614,7 +607,7 @@ MainWindow::openFileDialog()
         const KUrl url = KFileDialog::getOpenUrl( KUrl("kfiledialog:///dragonplayer"),mimeFilter.join(" "), this, i18n("Select File to Play") );
         if( url.isEmpty() )
         {
-            debug() << "URL empty in MainWindow::playDialogResult()";
+            kDebug() << "URL empty in MainWindow::playDialogResult()";
             return;
         }
         else
@@ -626,7 +619,6 @@ MainWindow::openFileDialog()
 void
 MainWindow::playDisc()
 {
-DEBUG_BLOCK
     QList< Solid::Device > playableDiscs;
     {
         QList< Solid::Device > deviceList = Solid::Device::listFromType( Solid::DeviceInterface::OpticalDisc );
@@ -646,16 +638,16 @@ DEBUG_BLOCK
     {
         if( playableDiscs.size() > 1 ) //more than one disc, show user a selection box
         {
-            debug() << "> 1 possible discs, showing dialog";
+            kDebug() << "> 1 possible discs, showing dialog";
             new DiscSelectionDialog( this, playableDiscs );
         }
         else //only one optical disc inserted, play whatever it is
         {
-            debug() << "playing disc", engine()->playDisc( playableDiscs.first() );
+            kDebug() << "playing disc", engine()->playDisc( playableDiscs.first() );
         }
     }
     else
-        engine()->playDvd(), debug() << "no disc in drive or Solid isn't working";
+        engine()->playDvd(), kDebug() << "no disc in drive or Solid isn't working";
 
 }
 
@@ -670,8 +662,7 @@ MainWindow::openRecentFile( const KUrl& url )
 void
 MainWindow::setFullScreen( bool isFullScreen )
 {
-    DEBUG_BLOCK
-    debug() << "Setting full screen to " << isFullScreen;
+    kDebug() << "Setting full screen to " << isFullScreen;
     mainWindow()->setWindowState( (isFullScreen ? Qt::WindowFullScreen : Qt::WindowNoState ));
     static FullScreenToolBarHandler *s_handler;
 
@@ -712,12 +703,11 @@ MainWindow::showVolume( bool visible)
 void
 MainWindow::aboutToShowMenu()
 {
-    DEBUG_BLOCK
     TheStream::aspectRatioAction()->setChecked( true );
     {
         int subId = TheStream::subtitleChannel();
         QList< QAction* > subs = action("subtitle_channels_menu")->menu()->actions();
-        debug() << "subtitle #" << subId << " is going to be checked";
+        kDebug() << "subtitle #" << subId << " is going to be checked";
         foreach( QAction* subAction, subs )
         {
             if( subAction->property( TheStream::CHANNEL_PROPERTY ).toInt() == subId )
@@ -725,13 +715,13 @@ MainWindow::aboutToShowMenu()
                 subAction->setChecked( true );
                 break;
             }
-            debug() << subAction->property( TheStream::CHANNEL_PROPERTY ).toInt() << " not checked.";
+            kDebug() << subAction->property( TheStream::CHANNEL_PROPERTY ).toInt() << " not checked.";
         }
     }
     {
         int audioId = TheStream::audioChannel();
         QList< QAction* > audios = action("audio_channels_menu")->menu()->actions();
-        debug() << "audio #" << audioId << " is going to be checked";
+        kDebug() << "audio #" << audioId << " is going to be checked";
         foreach( QAction* audioAction, audios )
         {
             if( audioAction->property( TheStream::CHANNEL_PROPERTY ).toInt() == audioId )
@@ -805,14 +795,13 @@ MainWindow::updateTitleBarText()
     {
         m_titleLabel->setText( TheStream::prettyTitle() );
     }
-    debug() << "set titles ";
+    kDebug() << "set titles ";
 }
 
 #define CHANNELS_CHANGED( function, actionName ) \
 void \
 MainWindow::function( QList< QAction* > subActions ) \
 { \
-DEBUG_BLOCK \
     if( subActions.size() <= 2 ) \
           action( actionName )->setEnabled( false ); \
     else \
@@ -844,7 +833,7 @@ action( const char *name )
         if( ( actionCollection = ((MainWindow*)mainWindow() )->actionCollection() ) )
             action = actionCollection->action( name );
     if( !action )
-        debug() << name;
+        kDebug() << name;
     Q_ASSERT( mainWindow() );
     Q_ASSERT( actionCollection );
     Q_ASSERT( action );

@@ -19,10 +19,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 #include "actions.h"
-#include "debug.h"
 #include "theStream.h"
 
-
+#include <KDebug>
 #include <KIcon>
 #include <KLocale>
 

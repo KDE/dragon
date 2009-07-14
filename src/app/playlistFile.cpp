@@ -25,9 +25,11 @@
 #include "playlistFile.h"
 
 #include "codeine.h"
-#include "debug.h"
+#include <KDebug>
 #include <KIO/NetAccess>
 #include <KLocale>
+
+#include <QApplication>
 #include <QFile>
 
 PlaylistFile::PlaylistFile( const KUrl &url )
@@ -87,7 +89,6 @@ PlaylistFile::~PlaylistFile()
 void
 PlaylistFile::parsePlsFile( QTextStream &stream )
 {
-    DEBUG_BLOCK
 
     for( QString line = stream.readLine(); !line.isNull(); )
     {
@@ -95,7 +96,7 @@ PlaylistFile::parsePlsFile( QTextStream &stream )
             const KUrl url = line.section( '=', -1 );
             const QString title = stream.readLine().section( '=', -1 );
 
-            debug() << url << endl << title;
+            kDebug() << url << endl << title;
 
             m_contents += url;
             m_isValid = true;
@@ -110,7 +111,6 @@ PlaylistFile::parsePlsFile( QTextStream &stream )
 void
 PlaylistFile::parseM3uFile( QTextStream &stream )
 {
-    DEBUG_BLOCK
 
     for( QString line; !stream.atEnd(); )
     {

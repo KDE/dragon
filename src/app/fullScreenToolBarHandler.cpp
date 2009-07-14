@@ -21,7 +21,6 @@
 
 #include "fullScreenToolBarHandler.h"
 
-#include "debug.h"
 #include "videoWindow.h"
 #include "mainWindow.h"
 
@@ -29,9 +28,9 @@
 #include <QMouseEvent>
 #include <QPoint>
 
+#include <KDebug>
 #include <KToolBar>
 #include <KMainWindow>
-
 
 Dragon::FullScreenToolBarHandler::FullScreenToolBarHandler( KMainWindow *parent )
         : QObject( parent )
@@ -39,7 +38,6 @@ Dragon::FullScreenToolBarHandler::FullScreenToolBarHandler( KMainWindow *parent 
         , m_timer_id( 0 )
         , m_stay_hidden_for_a_bit( false )
 {
-    DEBUG_BLOCK
 
     parent->installEventFilter( this );
     m_toolbar->installEventFilter( this );
@@ -49,13 +47,12 @@ bool
 Dragon::FullScreenToolBarHandler::eventFilter( QObject *o, QEvent *e )
 {
     if (o == parent() && e->type() == QEvent::MouseMove) {
-        DEBUG_FUNC_INFO
-        debug() << "mouse move, killing timer";
+        kDebug() << "mouse move, killing timer";
         killTimer( m_timer_id );
 
         QMouseEvent const * const me = (QMouseEvent*)e;
         if (m_stay_hidden_for_a_bit) {
-            debug() << "staying hidden for a bit";
+            kDebug() << "staying hidden for a bit";
             // wait for a small pause before showing the toolbar again
             // usage = user removes mouse from toolbar after using it
             // toolbar disappears (usage is over) but usually we show
@@ -68,24 +65,24 @@ Dragon::FullScreenToolBarHandler::eventFilter( QObject *o, QEvent *e )
         }
         else {
             if( m_toolbar->isHidden() ) {
-                debug() << "toolbar is hidden ";
+                kDebug() << "toolbar is hidden ";
                 if( m_home.isNull() )
                 {
-                    debug() << "set home";
+                    kDebug() << "set home";
                     m_home = me->pos();
                 }
                 else if( ( m_home - me->pos() ).manhattanLength() > 6)
                 {
                     // then cursor has moved far enough to trigger show toolbar
 show_toolbar:
-                    debug() << "show toolbar";
+                    kDebug() << "show toolbar";
                     m_toolbar->show(),
                     static_cast<Dragon::MainWindow*>( Dragon::mainWindow() )->showVolume( true );
                     m_home = QPoint();
                 }
                 else
                 {
-                    debug() << "cursor hasn't moved far enough yet " << ( m_home - me->pos() ).manhattanLength();
+                    kDebug() << "cursor hasn't moved far enough yet " << ( m_home - me->pos() ).manhattanLength();
                     // cursor hasn't moved far enough yet
                     // don't reset timer below, return instead
                     return false;

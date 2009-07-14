@@ -23,13 +23,13 @@
 
 #include "actions.h"
 #include "codeine.h"
-#include "debug.h"
 #include "partToolBar.h"
 #include "videoWindow.h"
 
 #include <KAction>
 #include <KAboutData>
 #include <KActionCollection>
+#include <KDebug>
 #include <KMenu>
 #include <KParts/GenericFactory>
 #include <KToggleAction>
@@ -85,8 +85,7 @@ namespace Dragon
     bool
     Part::openUrl( const KUrl &url )
     {
-        DEBUG_BLOCK
-        debug() << "playing " << url;
+        kDebug() << "playing " << url;
         bool ret = videoWindow()->load( m_url = url );
         videoWindow()->play();
         return ret;
@@ -95,7 +94,6 @@ namespace Dragon
     bool
     Part::closeUrl()
     {
-        DEBUG_BLOCK
         m_url = KUrl();
         videoWindow()->stop();
         return true;
@@ -117,7 +115,6 @@ namespace Dragon
     bool 
     Part::openFile() //pure virtual in base class
     {
-        DEBUG_BLOCK
         return false; 
     }
     

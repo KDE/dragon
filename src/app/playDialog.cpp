@@ -21,13 +21,12 @@
 
 #include "playDialog.h"
 
-#include "debug.h"
 #include "mainWindow.h"
 #include "recentlyPlayedList.h"
 
-
 #include <KApplication>
 #include <KConfig>
+#include <KDebug>
 #include <KDialog>
 #include <KLocale>
 #include <KGuiItem>

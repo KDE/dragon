@@ -22,13 +22,11 @@
 
 #include <config.h>
 
-#define DRAGONPLAYER_DEBUG_PREFIX "engine"
 
 #include "videoWindow.h"
 #include "timeLabel.h"
 
 #include "actions.h"        //::seek() FIXME unfortunate
-#include "debug.h"
 #include "theStream.h"
 
 #ifdef HAVE_XINE
@@ -43,6 +41,7 @@
 #include <QPainter>
 
 #include <KApplication>
+#include <KDebug>
 #include <KIcon>
 #include <KLocale>
 #include <KMenu>
@@ -93,7 +92,6 @@ VideoWindow::VideoWindow( QWidget *parent )
         , m_audioLanguages( new QActionGroup( this ) )
         , m_logo( new QLabel( this ) )
 {
-    DEBUG_BLOCK
     
     m_isPreview = false;
 
@@ -167,7 +165,6 @@ VideoWindow::VideoWindow( QWidget *parent )
 
 VideoWindow::~VideoWindow()
 {
-    DEBUG_BLOCK
 
     eject();
     KConfigGroup config = KGlobal::config()->group( "General" );
@@ -198,14 +195,13 @@ VideoWindow::init()
 bool
 VideoWindow::load( const KUrl &url )
 {
-    DEBUG_BLOCK
 
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
     eject();
 
     KMimeType::Ptr mimeType = KMimeType::findByUrl( url );
-    debug() << "detected mimetype: " << mimeType->name();
+    kDebug() << "detected mimetype: " << mimeType->name();
     if( mimeType->is( "application/x-cd-image" ) || mimeType->is( "inode/directory" ) )
         m_media->setCurrentSource( Phonon::MediaSource( Phonon::Dvd, url.path() ) );
     else
@@ -222,7 +218,6 @@ VideoWindow::load( const KUrl &url )
 bool
 VideoWindow::play( qint64 offset )
 {
-    DEBUG_BLOCK
 
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
@@ -230,7 +225,7 @@ VideoWindow::play( qint64 offset )
     if( offset > 0 )
         seek( offset );
     m_media->play();
-    debug() << "Does this media have Video stream? " << TheStream::hasVideo();
+    kDebug() << "Does this media have Video stream? " << TheStream::hasVideo();
 
     QApplication::restoreOverrideCursor();
 
@@ -263,7 +258,6 @@ VideoWindow::playDvd()
 bool
 VideoWindow::playDisc(const Solid::Device& device )
 {
-DEBUG_BLOCK
     QString devicePath;
     {
         const Solid::Block* block = device.as<const Solid::Block>();
@@ -271,7 +265,7 @@ DEBUG_BLOCK
             devicePath = block->device();
         else
         {
-            debug() << "device was not a block";
+            kDebug() << "device was not a block";
             return false;
         }
     }
@@ -289,19 +283,19 @@ DEBUG_BLOCK
                 phononType = Phonon::Cd;
             else
             {
-                debug() << "not a playable disc type: " << disc->availableContent() << " type";
+                kDebug() << "not a playable disc type: " << disc->availableContent() << " type";
                 return false;
             }
         }
         eject();
         m_media->setCurrentSource( Phonon::MediaSource( phononType, devicePath ) );
-        debug() << "actually playing the disc at " << devicePath;
+        kDebug() << "actually playing the disc at " << devicePath;
         m_media->play();
         return true;
     }
     else
     {
-        debug() << "device was not a disc";
+        kDebug() << "device was not a disc";
         return false;
     }
 }
@@ -319,7 +313,7 @@ VideoWindow::isPreview(const bool &v)
 void
 VideoWindow::relativeSeek( qint64 step )
 {
-    debug() << "** relative seek";
+    kDebug() << "** relative seek";
     const qint64 new_pos = currentTime() + step;
     if( ( new_pos >= 0 ) && ( new_pos < length() ) )
     {
@@ -336,11 +330,11 @@ VideoWindow::relativeSeek( qint64 step )
 void
 VideoWindow::stop()
 {
-    debug() << "Stop called";
+    kDebug() << "Stop called";
     eject();
     m_media->stop();
     m_media->setCurrentSource(Phonon::MediaSource()); //set the current source to    Phonon::MediaSource::Empty
-    debug() << "Media source valid? "<<  TheStream::hasMedia();
+    kDebug() << "Media source valid? "<<  TheStream::hasMedia();
       m_vWidget->hide();
     m_logo->show();
 }
@@ -432,7 +426,6 @@ VideoWindow::isMuted()
 void
 VideoWindow::seek( qint64 pos )
 {
-    DEBUG_BLOCK
 //    bool wasPaused = false;
 
     // If we seek to the end the track ended event is sent, but it is
@@ -500,16 +493,15 @@ VideoWindow::newVolumeSlider()
 void
 VideoWindow::refreshXineStream()
 {
-DEBUG_BLOCK
    if( m_media->property( "xine_stream_t" ).canConvert<void*>() )
   //  if( m_media->property( "xine_stream_t" ).isValid() )
     {
-        debug() << "value property " <<  m_media->property( "xine_stream_t" ).type();
+        kDebug() << "value property " <<  m_media->property( "xine_stream_t" ).type();
         m_xineStream = (xine_stream_t*) m_media->property( "xine_stream_t" ).value<void*>();
     }
     else
     {
-        debug() << "mrrrrrr, QVariant property xine_stream_t isn't a void*.";
+        kDebug() << "mrrrrrr, QVariant property xine_stream_t isn't a void*.";
         m_xineStream = 0;
     }
 }
@@ -517,11 +509,10 @@ DEBUG_BLOCK
 void
 VideoWindow::stateChanged(Phonon::State currentState, Phonon::State oldstate) // slot
 {
-DEBUG_BLOCK
-debug() << "chapters: " << m_controller->availableChapters() << " titles: " << m_controller->availableTitles();
+kDebug() << "chapters: " << m_controller->availableChapters() << " titles: " << m_controller->availableTitles();
     QStringList states;
     states << "Loading" << "Stopped" << "Playing" << "Buffering" << "Paused" << "Error";
-    debug() << "going from " << states.at(oldstate) << " to " << states.at(currentState);
+    kDebug() << "going from " << states.at(oldstate) << " to " << states.at(currentState);
 
     if( currentState == Phonon::LoadingState )
       m_xineStream = 0;
@@ -538,7 +529,7 @@ debug() << "chapters: " << m_controller->availableChapters() << " titles: " << m
            if( mainWindow() )
              ( (QWidget*) mainWindow() )->adjustSize();
           m_adjustedSize=true;
-          debug() << "adjusting size to video resolution";
+          kDebug() << "adjusting size to video resolution";
         }
     }
     emit stateUpdated( currentState, oldstate );
@@ -549,7 +540,7 @@ VideoWindow::settingChanged( int setting )
 {
     const QString name = sender()->objectName();
     const double dSetting = static_cast<double>( setting ) * 0.01;
-    debug() << "setting " << name << " to " << dSetting;
+    kDebug() << "setting " << name << " to " << dSetting;
     if( name == "brightnessSlider" )
     {
         m_vWidget->setBrightness( dSetting );
@@ -603,7 +594,7 @@ VideoWindow::updateActionGroup( QActionGroup* channelActions
     foreach( const ChannelDescription &channel, availableChannels )
     {
         QAction* lang = new QAction( channelActions );
-        debug() << "the text is: \"" << channel.name() << "\" and index " << channel.index();
+        kDebug() << "the text is: \"" << channel.name() << "\" and index " << channel.index();
         lang->setCheckable( true );
         lang->setText( channel.name() );
         lang->setProperty( TheStream::CHANNEL_PROPERTY, channel.index() );
@@ -614,7 +605,6 @@ VideoWindow::updateActionGroup( QActionGroup* channelActions
 void
 VideoWindow::updateChannels()
 {
-    DEBUG_BLOCK
     updateActionGroup( m_subLanguages, m_controller->availableSubtitles(), SLOT( slotSetSubtitle() ) );
     emit subChannelsChanged( m_subLanguages->actions() );
     updateActionGroup( m_audioLanguages, m_controller->availableAudioChannels(), SLOT( slotSetAudio() ) );
@@ -624,7 +614,6 @@ VideoWindow::updateChannels()
 void
 VideoWindow::hideCursor()
 {
-   DEBUG_BLOCK
    if(m_media->hasVideo() && m_vWidget->underMouse() )
        kapp->setOverrideCursor( Qt::BlankCursor );
 }
@@ -632,9 +621,8 @@ VideoWindow::hideCursor()
 void
 VideoWindow::setSubtitle( int channel )
 {
-    DEBUG_BLOCK
     Phonon::SubtitleDescription desc = Phonon::SubtitleDescription::fromIndex( channel );
-    debug() << "using index: " << channel << " returned desc has index: " << desc.index();
+    kDebug() << "using index: " << channel << " returned desc has index: " << desc.index();
     if(desc.isValid())
       m_controller->setCurrentSubtitle( desc );
 }
@@ -642,7 +630,6 @@ VideoWindow::setSubtitle( int channel )
 void
 VideoWindow::slotSetSubtitle()
 {
-    DEBUG_BLOCK
     if( sender() && sender()->property( TheStream::CHANNEL_PROPERTY ).canConvert<int>() )
         setSubtitle( sender()->property( TheStream::CHANNEL_PROPERTY ).toInt() );
 }
@@ -650,9 +637,8 @@ VideoWindow::slotSetSubtitle()
 void
 VideoWindow::setAudioChannel( int channel )
 {
-    DEBUG_BLOCK
     Phonon::AudioChannelDescription desc = Phonon::AudioChannelDescription::fromIndex( channel );
-    debug() << "using index: " << channel << " returned desc has index: " << desc.index();
+    kDebug() << "using index: " << channel << " returned desc has index: " << desc.index();
     if(desc.isValid())
       m_controller->setCurrentAudioChannel( desc );
 }
@@ -660,7 +646,6 @@ VideoWindow::setAudioChannel( int channel )
 void
 VideoWindow::slotSetAudio()
 {
-    DEBUG_BLOCK
     if( sender() && sender()->property( TheStream::CHANNEL_PROPERTY ).canConvert<int>() )
         setAudioChannel( sender()->property( TheStream::CHANNEL_PROPERTY ).toInt() );
 }
@@ -757,7 +742,7 @@ VideoWindow::event( QEvent* event )
     switch( event->type() )
     {
       case QEvent::Leave:
-         m_cursorTimer->stop(), debug() << "stop cursorTimer";
+         m_cursorTimer->stop(), kDebug() << "stop cursorTimer";
       break;
       case QEvent::FocusOut:
          // if the user summons some dialog via a shortcut or whatever we need to ensure
@@ -779,7 +764,6 @@ VideoWindow::event( QEvent* event )
 void
 VideoWindow::contextMenuEvent( QContextMenuEvent * event )
 {
-    DEBUG_BLOCK
     KMenu menu;
     if( mainWindow() )
     {
@@ -821,7 +805,6 @@ VideoWindow::sizeHint() const //virtual
 void
 VideoWindow::eject()
 {
-DEBUG_BLOCK
     if( m_media->currentSource().type() == Phonon::MediaSource::Invalid )
         return;
 
@@ -854,10 +837,10 @@ DEBUG_BLOCK
         //this if clause - is to prevent a crash from bug 162721 (a Phonon bug), remove when fixed
         if(m_media->hasVideo())
         {
-          debug() << "trying to fetch subtitle information";
+          kDebug() << "trying to fetch subtitle information";
           const int subtitle = TheStream::subtitleChannel();
           const int audio = TheStream::audioChannel();
-          debug() << "fetched subtitle information";
+          kDebug() << "fetched subtitle information";
 
 
         if( subtitle != -1 )

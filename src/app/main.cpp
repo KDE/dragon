@@ -48,7 +48,6 @@ main( int argc, char **argv )
     KCmdLineOptions options;
     options.add("+[URL]", ki18n( "Play 'URL'" ));
     options.add("play-dvd", ki18n( "Play DVD Video" ));
-    options.add("debug", ki18n( "Show Additional Debug Output" ));
     KCmdLineArgs::addCmdLineOptions( options );
 
     KApplication application;

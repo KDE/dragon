@@ -23,6 +23,8 @@
 
 #include <QHash>
 
+#include <KDebug>
+#include <KGlobal>
 #include <KUrl>
 #include <KLocale>
 #include <Phonon/MediaController>
@@ -36,7 +38,6 @@
 #include <xine.h>
 #endif
 
-#include "debug.h"
 #include "videoWindow.h"
 
 namespace Dragon
@@ -62,10 +63,10 @@ namespace Dragon
                     return KConfigGroup( KGlobal::config(), discLabel );
                 }
                 else
-                    debug() << "profile: doesn't convert into Solid::StorageVolume";
+                    kDebug() << "profile: doesn't convert into Solid::StorageVolume";
             }
             else
-                debug() << "profile: empty device list";
+                kDebug() << "profile: empty device list";
         }
         //if not a disc, or Solid fails
         return KConfigGroup( KGlobal::config(), url().prettyUrl() );
