@@ -342,39 +342,39 @@ MainWindow::setupActions()
     connect( videoSettings, SIGNAL( toggled( bool ) ), this, SLOT( toggleVideoSettings( bool ) ) );
     addToAc( videoSettings )
 
-    KAction* prev_chapter = new KAction( KIcon("frame-image"), i18n("Previous Chapter"), ac );
+    KAction* prev_chapter = new KAction( KIcon("media-skip-backward"), i18n("Previous Chapter"), ac );
     prev_chapter->setObjectName( "prev_chapter" );
     prev_chapter->setShortcut( Qt::Key_Comma );
     connect( prev_chapter, SIGNAL( triggered() ), engine(), SLOT( prevChapter() ) );
     addToAc( prev_chapter )
 
-    KAction* next_chapter = new KAction( KIcon("frame-image"), i18n("Next Chapter"), ac );
+    KAction* next_chapter = new KAction( KIcon("media-skip-forward"), i18n("Next Chapter"), ac );
     next_chapter->setObjectName( "next_chapter" );
     next_chapter->setShortcut( Qt::Key_Period );
     connect( next_chapter, SIGNAL( triggered() ), engine(), SLOT( nextChapter() ) );
     addToAc( next_chapter )
 
     // xgettext: no-c-format
-    KAction* tenPercentBack = new KAction( KIcon("frame-image"), i18n("Return 10% Back"), ac );
+    KAction* tenPercentBack = new KAction( KIcon("media-seek-backward"), i18n("Return 10% Back"), ac );
     tenPercentBack->setObjectName( "ten_percent_back" );
     tenPercentBack->setShortcut( Qt::Key_PageUp );
     connect( tenPercentBack, SIGNAL( triggered() ), engine(), SLOT( tenPercentBack() ) );
     addToAc( tenPercentBack )
 
     // xgettext: no-c-format
-    KAction* tenPercentForward = new KAction( KIcon("frame-image"), i18n("Go 10% Forward"), ac );
+    KAction* tenPercentForward = new KAction( KIcon("media-seek-forward"), i18n("Go 10% Forward"), ac );
     tenPercentForward->setObjectName( "ten_percent_forward" );
     tenPercentForward->setShortcut( Qt::Key_PageDown );
     connect( tenPercentForward, SIGNAL( triggered() ), engine(), SLOT( tenPercentForward() ) );
     addToAc( tenPercentForward )
 
-    KAction* tenSecondsBack = new KAction( KIcon("frame-image"), i18n("Return 10 Seconds Back"), ac );
+    KAction* tenSecondsBack = new KAction( KIcon("media-seek-backward"), i18n("Return 10 Seconds Back"), ac );
     tenSecondsBack->setObjectName( "ten_seconds_back" );
     tenSecondsBack->setShortcut( Qt::Key_Minus );
     connect( tenSecondsBack, SIGNAL( triggered() ), engine(), SLOT( tenSecondsBack() ) );
     addToAc( tenSecondsBack )
 
-    KAction* tenSecondsForward = new KAction( KIcon("frame-image"), i18n("Go 10 Seconds Forward"), ac );
+    KAction* tenSecondsForward = new KAction( KIcon("media-seek-forward"), i18n("Go 10 Seconds Forward"), ac );
     tenSecondsForward->setObjectName( "ten_seconds_forward" );
     tenSecondsForward->setShortcut( Qt::Key_Plus );
     connect( tenSecondsForward, SIGNAL( triggered() ), engine(), SLOT( tenSecondsForward() ) );
