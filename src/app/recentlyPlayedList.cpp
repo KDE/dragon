@@ -26,8 +26,10 @@
 #include <KMenu>
 #include <KDialog>
 #include <KLocale>
+#include <KMessageBox>
 
 #include <QFile>
+#include <QFileInfo>
 #include <QContextMenuEvent>
 
 //this is a widget for dispaying the rcently played items in a list. It is subclassed so that we can hook up a context menu
@@ -97,6 +99,24 @@ void
 RecentlyPlayedList::itemDoubleClicked(QListWidgetItem* item)
 {
   KUrl url = item->data(0xdecade).value<KUrl>();
+
+  if( url.isLocalFile() )
+  {
+    QFileInfo fileInfo( url.toLocalFile() );
+
+    if( !fileInfo.exists() )
+    {
+      if( KMessageBox::questionYesNo( 0,
+                                      i18n( "This file could not be found. Would you like to remove it from the playlist?" ),
+                                      i18n( "File not found" ) ) == KMessageBox::Yes )
+      {
+        removeEntry();
+      }
+
+      return;
+    }
+  }
+
   emit(itemDoubleClicked(url));
 }
 
