@@ -647,7 +647,7 @@ MainWindow::playDisc()
         }
     }
     else
-        engine()->playDvd(), kDebug() << "no disc in drive or Solid isn't working";
+        engine()->playDvd(); kDebug() << "no disc in drive or Solid isn't working";
 
 }
 

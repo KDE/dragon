@@ -742,7 +742,7 @@ VideoWindow::event( QEvent* event )
     switch( event->type() )
     {
       case QEvent::Leave:
-         m_cursorTimer->stop(), kDebug() << "stop cursorTimer";
+         m_cursorTimer->stop(); kDebug() << "stop cursorTimer";
       break;
       case QEvent::FocusOut:
          // if the user summons some dialog via a shortcut or whatever we need to ensure
