@@ -127,6 +127,7 @@ namespace Dragon
       QPointer<PlayDialog> m_playDialog;
 
       KNotificationRestrictions *m_stopScreenSaver;
+	  int m_screensaverDisableCookie;
       int m_stopSleepCookie;
 
       bool m_toolbarIsHidden;
