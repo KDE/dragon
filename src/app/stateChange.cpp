@@ -30,6 +30,8 @@
 
 #include <QContextMenuEvent>
 #include <QToolButton>
+#include <QDBusInterface>
+#include <QDBusReply>
 
 #include <solid/powermanagement.h>
 
@@ -119,21 +121,27 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
     /// turn off screensaver
     if( state == Phonon::PlayingState )
     {
-        m_stopSleepCookie = Solid::PowerManagement::beginSuppressingSleep("DragonPlayer: watching a film");
-        if( !m_stopScreenSaver )
-        {
-            debug() << "screensaver off";
-            m_stopScreenSaver = new KNotificationRestrictions( KNotificationRestrictions::NonCriticalServices, this );
-        }
-        else
-            warning() << "m_stopScreenSaver not null";
+      m_stopSleepCookie = Solid::PowerManagement::beginSuppressingSleep("DragonPlayer: watching a film");
+        
+      QDBusInterface screensaver("org.freedesktop.ScreenSaver", "/ScreenSaver", "org.freedesktop.ScreenSaver");
+      QDBusReply<int> screensaverRc = screensaver.call("Inhibit","dragonplayer","Watching a film");
+      if (screensaverRc.isValid())
+      {
+         m_screensaverDisableCookie = screensaverRc.value();
+      }
     }
     else if( Phonon::StoppedState || !TheStream::hasMedia() )
     {
-        Solid::PowerManagement::stopSuppressingSleep(m_stopSleepCookie);
-        delete m_stopScreenSaver;
-        m_stopScreenSaver = 0;
-        debug() << "screensaver on";
+      //stop supressing sleep
+      Solid::PowerManagement::stopSuppressingSleep(m_stopSleepCookie);
+
+     //stop disabling screensaver
+      if (m_screensaverDisableCookie != 0)
+      {
+        QDBusInterface screensaver("org.freedesktop.ScreenSaver", "/ScreenSaver", "org.freedesktop.ScreenSaver");
+        screensaver.call("Uninhibit",m_screensaverDisableCookie);
+        m_screensaverDisableCookie = 0;
+      }
     }
     
     updateTitleBarText();
