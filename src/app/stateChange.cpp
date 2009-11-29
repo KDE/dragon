@@ -129,6 +129,7 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
       {
          m_screensaverDisableCookie = screensaverRc.value();
       }
+      m_stopScreenSaver = new KNotificationRestrictions(KNotificationRestrictions::ScreenSaver);
     }
     else if( Phonon::StoppedState || !TheStream::hasMedia() )
     {
@@ -142,6 +143,8 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
         screensaver.call("Uninhibit",m_screensaverDisableCookie);
         m_screensaverDisableCookie = 0;
       }
+
+      delete m_stopScreenSaver;
     }
     
     updateTitleBarText();
