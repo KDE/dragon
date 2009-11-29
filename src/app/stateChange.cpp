@@ -129,7 +129,8 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
       {
          m_screensaverDisableCookie = screensaverRc.value();
       }
-      m_stopScreenSaver = new KNotificationRestrictions(KNotificationRestrictions::ScreenSaver);
+      if (!m_stopScreenSaver)
+          m_stopScreenSaver = new KNotificationRestrictions(KNotificationRestrictions::ScreenSaver);
     }
     else if( Phonon::StoppedState || !TheStream::hasMedia() )
     {
@@ -145,6 +146,7 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
       }
 
       delete m_stopScreenSaver;
+      m_stopScreenSaver = 0;
     }
     
     updateTitleBarText();
