@@ -41,6 +41,8 @@ Dragon::FullScreenToolBarHandler::FullScreenToolBarHandler( KMainWindow *parent 
 
     parent->installEventFilter( this );
     m_toolbar->installEventFilter( this );
+
+    startTimer(2000); // We want to hide automatically some time after fullscreening
 }
 
 bool 
