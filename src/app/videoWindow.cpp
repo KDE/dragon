@@ -751,8 +751,7 @@ VideoWindow::event( QEvent* event )
       case QEvent::MouseMove:
       case QEvent::MouseButtonPress:
          kapp->restoreOverrideCursor();
-         if( hasFocus() )
-            m_cursorTimer->start( CURSOR_HIDE_TIMEOUT );
+         m_cursorTimer->start( CURSOR_HIDE_TIMEOUT );
          break;
       default: return QWidget::event( event );
     }
