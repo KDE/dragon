@@ -122,13 +122,6 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
     if( state == Phonon::PlayingState )
     {
       m_stopSleepCookie = Solid::PowerManagement::beginSuppressingSleep("DragonPlayer: watching a film");
-        
-      QDBusInterface screensaver("org.freedesktop.ScreenSaver", "/ScreenSaver", "org.freedesktop.ScreenSaver");
-      QDBusReply<int> screensaverRc = screensaver.call("Inhibit","dragonplayer","Watching a film");
-      if (screensaverRc.isValid())
-      {
-         m_screensaverDisableCookie = screensaverRc.value();
-      }
       if (!m_stopScreenSaver)
           m_stopScreenSaver = new KNotificationRestrictions(KNotificationRestrictions::ScreenSaver);
     }
@@ -138,14 +131,7 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
       Solid::PowerManagement::stopSuppressingSleep(m_stopSleepCookie);
 
      //stop disabling screensaver
-      if (m_screensaverDisableCookie != 0)
-      {
-        QDBusInterface screensaver("org.freedesktop.ScreenSaver", "/ScreenSaver", "org.freedesktop.ScreenSaver");
-        screensaver.call("Uninhibit",m_screensaverDisableCookie);
-        m_screensaverDisableCookie = 0;
-      }
-
-      delete m_stopScreenSaver;
+      delete m_stopScreenSaver; // It is always 0, I have been careful.
       m_stopScreenSaver = 0;
     }
     
