@@ -69,9 +69,12 @@ namespace Dragon
             ac->addAction( sliderAction->objectName(), sliderAction );
             toolBar->addAction( sliderAction );
         }
-        connect( engine(), SIGNAL( stateChanged( Phonon::State ) ), this, SLOT( engineStateChanged( Phonon::State ) ) );
+        connect( engine(), SIGNAL( stateUpdated( Phonon::State, Phonon::State ) ),
+                 this, SLOT( engineStateChanged( Phonon::State ) ) );
+
         videoWindow()->setContextMenuPolicy( Qt::CustomContextMenu );
-        connect( videoWindow(), SIGNAL( customContextMenuRequested() ), this, SLOT( videoContextMenu() ) );
+        connect( videoWindow(), SIGNAL( customContextMenuRequested(const QPoint &) ),
+                 this, SLOT( videoContextMenu(const QPoint &) ) );
 
         widget()->setLayout( layout );
     }
