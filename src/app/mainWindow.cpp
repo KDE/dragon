@@ -37,6 +37,7 @@
 #include <KToolBar>
 #include <KWindowSystem>
 #include <KXMLGUIFactory>
+#include <KProtocolInfo>
 
 #include <Phonon/VideoWidget>
 
@@ -550,18 +551,18 @@ MainWindow::load( const KUrl &url )
         }
     }
 
-    if (url.protocol() == "media") {
+    // local protocols like nepomuksearch:/ are not supported by xine
+    // check if an UDS_LOCAL_PATH is defined.
+    if (KProtocolInfo::protocolClass(url.protocol()) == QLatin1String(":local")) {
         //#define UDS_LOCAL_PATH (72 | KIO::UDS_STRING)
         KIO::UDSEntry e;
-        if (!KIO::NetAccess::stat( url, e, 0 ))
-            MessageBox::sorry( i18n("There was an internal error with the media slave...") );
-        else {
+        if (KIO::NetAccess::stat( url, e, 0 )) {
             QString path = e.stringValue( KIO::UDSEntry::UDS_LOCAL_PATH );
             if( !path.isEmpty() )
                 return engine()->load( KUrl( path ) );
         }
     }
-    
+
     if( m_mainView->indexOf(engine()) == -1 )
       toggleLoadView();
 
