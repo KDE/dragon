@@ -87,7 +87,7 @@ namespace Dragon {
 MainWindow::MainWindow()
         : KXmlGuiWindow()
         , m_mainView( 0 )
-        , m_audioView(new AudioView(this) )
+        , m_audioView( 0 )
         , m_loadView( new LoadView(this) )
         , m_currentWidget( new QWidget(this) )
         , m_leftDock( 0 )
@@ -113,6 +113,7 @@ MainWindow::MainWindow()
     m_positionSlider = videoWindow()->newPositionSlider();
     
     m_mainView->addWidget(m_loadView);
+    m_audioView = new AudioView(this);
     m_mainView->addWidget(m_audioView);
     m_mainView->addWidget(videoWindow());
     m_mainView->setCurrentWidget(m_loadView);
@@ -517,11 +518,6 @@ MainWindow::open( const KUrl &url )
         kDebug() << "Initial offset is "<< offset;
         engine()->loadSettings();
         updateSliders();
-        if( TheStream::hasVideo() )
-          m_currentWidget = engine();
-        else
-          m_currentWidget = m_audioView;
-        m_mainView->setCurrentWidget(m_currentWidget);
         return engine()->play( offset );
     }
 
@@ -568,7 +564,16 @@ MainWindow::load( const KUrl &url )
 
     //let xine handle invalid, etc, KUrlS
     //TODO it handles non-existing files with bad error message
-    return engine()->load( url );
+    bool ret = engine()->load( url );
+    if( ret )
+    {
+        if( TheStream::hasVideo() )
+            m_currentWidget = engine();
+        else
+            m_currentWidget = m_audioView;
+        m_mainView->setCurrentWidget(m_currentWidget);
+    }
+    return ret;
 }
 
 void
@@ -589,7 +594,7 @@ MainWindow::play()
         else
           m_currentWidget = m_audioView;
         engine()->play();
-        m_mainView->setCurrentWidget(engine());
+        m_mainView->setCurrentWidget(m_currentWidget);
         break;
     default:
         break;
@@ -599,13 +604,14 @@ MainWindow::play()
 void
 MainWindow::openFileDialog()
 {
-       QStringList mimeFilter=Phonon::BackendCapabilities::availableMimeTypes();
+       QStringList mimeFilter = Phonon::BackendCapabilities::availableMimeTypes();
         //temporary fixes for MimeTypes that Xine does support but it doesn't return - this is a Xine bug.
         mimeFilter << "audio/x-flac";
         mimeFilter << "video/mp4";
         mimeFilter << "application/x-cd-image"; // added for *.iso images
 
-        const KUrl url = KFileDialog::getOpenUrl( KUrl("kfiledialog:///dragonplayer"),mimeFilter.join(" "), this, i18n("Select File to Play") );
+        const KUrl url = KFileDialog::getOpenUrl( KUrl("kfiledialog:///dragonplayer"),mimeFilter.join(" ")
+                                        , this, i18n("Select File to Play") );
         if( url.isEmpty() )
         {
             kDebug() << "URL empty in MainWindow::playDialogResult()";
@@ -644,11 +650,15 @@ MainWindow::playDisc()
         }
         else //only one optical disc inserted, play whatever it is
         {
-            kDebug() << "playing disc", engine()->playDisc( playableDiscs.first() );
+            bool status = engine()->playDisc( playableDiscs.first() );
+            kDebug() << "playing disc" << status ;
         }
     }
     else
-        engine()->playDvd(); kDebug() << "no disc in drive or Solid isn't working";
+    {
+        engine()->playDvd(); 
+        kDebug() << "no disc in drive or Solid isn't working";
+    }
 
 }
 

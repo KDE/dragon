@@ -48,6 +48,7 @@ PlaylistFile::PlaylistFile( const KUrl &url )
     else {
         m_type = Unknown;
         m_error = i18n( "The file is not a playlist" );
+        QApplication::restoreOverrideCursor();
         return;
     }
 
@@ -55,6 +56,7 @@ PlaylistFile::PlaylistFile( const KUrl &url )
         path.clear();
         if( !KIO::NetAccess::download( url, path, Dragon::mainWindow() ) ) {
             m_error = i18n( "Dragon Player could not download the remote playlist: %1", url.prettyUrl() );
+            QApplication::restoreOverrideCursor();
             return;
         }
     }

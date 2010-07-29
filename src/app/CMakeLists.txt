@@ -9,7 +9,11 @@ set(videoplayer_common_SRCS
 
 set(videoplayer_app_SRCS
     ${videoplayer_common_SRCS}
+    analyzer/analyzerBase.cpp
+    analyzer/blockAnalyzer.cpp
+    analyzer/fht.cpp
     stateChange.cpp
+    textItem.cpp
     playDialog.cpp
     discSelectionDialog.cpp
     adjustSizeButton.cpp
@@ -39,7 +43,8 @@ target_link_libraries(dragon
     ${KDE4_KIO_LIBS}
     ${KDE4_KDEUI_LIBS}
     ${KDE4_PHONON_LIBS}
-    ${KDE4_SOLID_LIBS})
+    ${KDE4_SOLID_LIBS}
+    ${KDE4_PLASMA_LIBS} )
 
 if(XINE_XCB_FOUND)
 target_link_libraries(dragon

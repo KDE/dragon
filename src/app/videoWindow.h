@@ -29,7 +29,6 @@
 
 #include <Phonon/Path>
 #include <Phonon/MediaSource>
-
 #include <Phonon/ObjectDescription>
 #include <Solid/Device>
 #include <KUrl>
@@ -42,6 +41,7 @@ namespace Phonon {
      class AudioOutput;
      class MediaObject;
      class MediaController;
+     class AudioDataOutput;
 }
 
 typedef struct xine_stream_s xine_stream_t;
@@ -75,7 +75,9 @@ namespace Dragon
         Phonon::AudioOutput *m_aOutput;
         Phonon::MediaObject *m_media;
         Phonon::MediaController *m_controller;
+        Phonon::AudioDataOutput* m_aDataOutput;
         Phonon::Path m_audioPath;
+        Phonon::Path m_audioDataPath;
 
         friend class TheStream;
 
@@ -102,9 +104,9 @@ namespace Dragon
         qint64 length() const;
         bool isDVD() const;
 
+        bool setupAnalyzer(QObject* analzyer); ///return whether setup was successful
+        
         ///stuff for dbus:
-        //{
-
         qreal volume() const;
         void setVolume( qreal );
         QString urlOrDisc() const;

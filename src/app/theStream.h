@@ -26,6 +26,7 @@
 #include <KUrl>    // larger :( but no macros at least
 #include <QSize>   // small header
 #include <QString> // small header
+#include <Phonon/Global>
 
 /// for purely static classes
 #define DRAGONPLAYER_NO_EXPORT( T ) \
@@ -66,6 +67,9 @@ namespace Dragon
       static QString prettyTitle();
       static QString fullTitle();
 
+
+      static QString metaData(Phonon::MetaData key); 
+      
       static bool hasProfile();
 
       static KConfigGroup profile();

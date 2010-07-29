@@ -21,24 +21,38 @@
 #define AUDIOVIEW_H
 
 #include <QGraphicsView>
-#include <QGraphicsScene>
-#include <Phonon/MediaObject>
+#include <QPointer>
+class ExpandingTextItem;
+class QGraphicsGridLayout;
+class QGraphicsPixmapItem;
 
-using Phonon::MediaObject;
+namespace Plasma{
+    class Label;
+}
+class BlockAnalyzer;
 
 namespace Dragon
 {
 
-class AudioView : public QWidget
+class AudioView : public QGraphicsView
 {
     Q_OBJECT
     public:
        explicit AudioView(QWidget *parent);
        virtual ~AudioView();
-       virtual void paintEvent(QPaintEvent* event);
        virtual void updateText();
+    protected:
+        void resizeEvent(QResizeEvent *event);
     private:
-       QString m_message;
+        QString checkForAmarokImage(const QString &, const QString &);
+        
+        QPointer<ExpandingTextItem> m_artist;
+        QPointer<ExpandingTextItem> m_album;
+        QPointer<ExpandingTextItem> m_track;
+        QGraphicsPixmapItem* m_image;
+        QPointer<QGraphicsWidget> m_widget;
+        QGraphicsGridLayout* m_layout;
+        BlockAnalyzer* m_analyzer;
 };
 
 }

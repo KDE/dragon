@@ -49,6 +49,7 @@
 #include <KStandardDirs>
 
 #include <Phonon/AudioOutput>
+#include <phonon/audiodataoutput.h>
 #include <Phonon/MediaController>
 #include <Phonon/MediaObject>
 #include <Phonon/MediaSource>
@@ -91,6 +92,7 @@ VideoWindow::VideoWindow( QWidget *parent )
         , m_subLanguages( new QActionGroup( this ) )
         , m_audioLanguages( new QActionGroup( this ) )
         , m_logo( new QLabel( this ) )
+        , m_aDataOutput(0)
 {
     
     m_isPreview = false;
@@ -465,6 +467,23 @@ VideoWindow::length() const
 }
 
 bool
+VideoWindow::setupAnalyzer(QObject* analyzer)
+{
+    if(!m_aDataOutput)
+    {
+        m_aDataOutput = new Phonon::AudioDataOutput(this);
+    }
+    
+    bool successful = m_audioPath.reconnect(m_media, m_aDataOutput);
+    m_audioDataPath = Phonon::createPath(m_aDataOutput, m_aOutput);
+    successful &= m_audioDataPath.isValid();
+
+    connect(m_aDataOutput, SIGNAL(dataReady(const QMap<Phonon::AudioDataOutput::Channel, QVector<qint16> >&)),
+            analyzer,  SLOT(drawFrame(const QMap<Phonon::AudioDataOutput::Channel,QVector<qint16> >&)));
+    return successful;
+}
+
+bool
 VideoWindow::isDVD() const
 {
     return m_media->currentSource().discType() == Phonon::Dvd;
@@ -750,8 +769,8 @@ VideoWindow::event( QEvent* event )
       case QEvent::Enter:
       case QEvent::MouseMove:
       case QEvent::MouseButtonPress:
-         kapp->restoreOverrideCursor();
-         m_cursorTimer->start( CURSOR_HIDE_TIMEOUT );
+            kapp->restoreOverrideCursor();
+            m_cursorTimer->start( CURSOR_HIDE_TIMEOUT );
          break;
       default: return QWidget::event( event );
     }

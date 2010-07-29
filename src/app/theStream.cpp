@@ -199,6 +199,15 @@ namespace Dragon
         return KGlobal::config()->hasGroup( url().prettyUrl() );
     }
 
+    QString 
+    TheStream::metaData(Phonon::MetaData key)
+    {
+        QStringList values = videoWindow()->m_media->metaData(key);
+        kDebug() << values;
+        return (values.isEmpty()) ? QString() : values.join(QString(' '));
+    }
+
+
 /*
     static inline QString
     entryHelper( const QString &plate, const QString &s1, const QString &s2 )
