@@ -89,3 +89,4 @@ ExpandingTextItem::setPlainText(const QString& text)
 }
 
 #include "textItem.moc"
+
