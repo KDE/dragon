@@ -98,7 +98,7 @@ VideoWindow::VideoWindow( QWidget *parent )
     m_isPreview = false;
 
     s_instance = this;
-    setObjectName( "VideoWindow" );
+    setObjectName( QLatin1String( "VideoWindow" ) );
 
     QVBoxLayout *box = new QVBoxLayout( this );
     box->setMargin(0);
@@ -502,7 +502,7 @@ QWidget*
 VideoWindow::newVolumeSlider()
 {
     VolumeSlider *volumeSlider = new VolumeSlider();
-    volumeSlider->setObjectName( "volume" );
+    volumeSlider->setObjectName( QLatin1String( "volume" ) );
     volumeSlider->setAudioOutput( m_aOutput );
     volumeSlider->setMuteVisible( false );
     volumeSlider->setOrientation( Qt::Vertical );

@@ -32,7 +32,7 @@ RootDbusHandler::RootDbusHandler( QObject* parent )
     : QObject( parent )
 {
     new RootDbusHandlerBase( this );
-    setObjectName("RootDbusHandler");
+    setObjectName( QLatin1String("RootDbusHandler" ));
     bool successful = QDBusConnection::sessionBus().registerObject("/", this);
     kDebug() << "registering root? " << successful;
 }

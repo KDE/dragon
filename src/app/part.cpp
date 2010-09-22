@@ -64,7 +64,7 @@ namespace Dragon
         {
             QWidget* slider = videoWindow()->newPositionSlider();
             KAction* sliderAction = new KAction( i18n("Position Slider"), ac );
-            sliderAction->setObjectName( "position_slider" );
+            sliderAction->setObjectName( QLatin1String( "position_slider" ) );
             sliderAction->setDefaultWidget( slider );
             ac->addAction( sliderAction->objectName(), sliderAction );
             toolBar->addAction( sliderAction );

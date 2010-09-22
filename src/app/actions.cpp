@@ -30,7 +30,7 @@
 Dragon::PlayAction::PlayAction( QObject *receiver, const char *slot, KActionCollection *ac )
         : KToggleAction( i18n("Play"), ac )
 {
-    setObjectName( "play" );
+    setObjectName( QLatin1String( "play" ) );
     setIcon( KIcon( "media-playback-start" ) );
     setShortcut( Qt::Key_Space );
     ac->addAction( objectName(), this );
@@ -70,7 +70,7 @@ Dragon::PlayAction::setChecked( bool b )
 Dragon::VolumeAction::VolumeAction( QObject *receiver, const char *slot, KActionCollection *ac )
         : KToggleAction( i18nc( "Volume of sound output", "Volume"), ac )
 {
-    setObjectName( "volume" );
+    setObjectName( QLatin1String( "volume" ) );
     setIcon( KIcon( "player-volume" ) );
     setShortcut( Qt::Key_V );
     ac->addAction( objectName(), this );

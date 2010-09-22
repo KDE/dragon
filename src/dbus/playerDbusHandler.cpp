@@ -34,7 +34,7 @@ PlayerDbusHandler::PlayerDbusHandler(QObject *parent)
       m_lastEmittedState(Mpris::Status::Stopped)
 {
     QObject* pa = new MediaPlayerAdaptor( this );
-    setObjectName("PlayerDbusHandler");
+    setObjectName( QLatin1String("PlayerDbusHandler" ));
 
     // the presence of media is reflected in the caps:
     connect( Dragon::engine(), SIGNAL( currentSourceChanged( Phonon::MediaSource ) ), this, SLOT( capsChangeSlot() )  );

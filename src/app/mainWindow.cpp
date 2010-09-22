@@ -296,7 +296,7 @@ MainWindow::setupActions()
     #define addToAc( X ) ac->addAction( X->objectName(), X );
 
     KToggleFullScreenAction* toggleFullScreen = new KToggleFullScreenAction( this, ac );
-    toggleFullScreen->setObjectName( "fullscreen" );
+    toggleFullScreen->setObjectName( QLatin1String( "fullscreen" ) );
     toggleFullScreen->setShortcut( Qt::Key_F );
     toggleFullScreen->setAutoRepeat( false );
     connect( toggleFullScreen, SIGNAL( toggled( bool ) ), Dragon::mainWindow(), SLOT( setFullScreen( bool ) ) );
@@ -306,74 +306,74 @@ MainWindow::setupActions()
     new VolumeAction( this, SLOT( toggleVolumeSlider( bool ) ), ac );
 
     KAction* playerStop = new KAction( KIcon("media-playback-stop"), i18n("Stop"), ac );
-    playerStop->setObjectName( "stop" );
+    playerStop->setObjectName( QLatin1String( "stop" ) );
     playerStop->setShortcut( Qt::Key_S );
     connect( playerStop, SIGNAL( triggered() ), engine(), SLOT( stop() ) );
     addToAc( playerStop )
 
     KToggleAction* mute = new KToggleAction( KIcon("player-volume-muted"), i18nc( "Mute the sound output", "Mute"), ac );
-    mute->setObjectName( "mute" );
+    mute->setObjectName( QLatin1String( "mute" ) );
     mute->setShortcut( Qt::Key_M );
     connect( mute, SIGNAL( toggled( bool ) ), videoWindow(), SLOT( mute( bool ) ) );
     addToAc( mute )
 
     KAction* resetZoom = new KAction( KIcon("zoom-fit-best"), i18n("Reset Video Scale"), ac );
-    resetZoom->setObjectName( "reset_zoom" );
+    resetZoom->setObjectName( QLatin1String( "reset_zoom" ) );
     resetZoom->setShortcut( Qt::Key_Equal );
     connect( resetZoom, SIGNAL( triggered() ), videoWindow(), SLOT( resetZoom() ) );
     addToAc( resetZoom )
 
     KAction* dvdMenu = new KAction( KIcon("media-optical-video"), i18n("Menu Toggle"), ac );
-    dvdMenu->setObjectName( "toggle_dvd_menu" );
+    dvdMenu->setObjectName( QLatin1String( "toggle_dvd_menu" ) );
     dvdMenu->setShortcut( Qt::Key_R );
     connect( dvdMenu, SIGNAL( triggered() ), engine(), SLOT( toggleDVDMenu() ) );
     addToAc( dvdMenu )
 
     KAction* positionSlider = new KAction( i18n("Position Slider"), ac );
-    positionSlider->setObjectName( "position_slider" );
+    positionSlider->setObjectName( QLatin1String( "position_slider" ) );
     positionSlider->setDefaultWidget( m_positionSlider );
     addToAc( positionSlider )
 
     KAction* videoSettings = new KAction( i18n("Video Settings"), ac );
-    videoSettings->setObjectName( "video_settings" );
+    videoSettings->setObjectName( QLatin1String( "video_settings" ) );
     videoSettings->setCheckable( true );
     connect( videoSettings, SIGNAL( toggled( bool ) ), this, SLOT( toggleVideoSettings( bool ) ) );
     addToAc( videoSettings )
 
     KAction* prev_chapter = new KAction( KIcon("media-skip-backward"), i18n("Previous Chapter"), ac );
-    prev_chapter->setObjectName( "prev_chapter" );
+    prev_chapter->setObjectName( QLatin1String( "prev_chapter" ) );
     prev_chapter->setShortcut( Qt::Key_Comma );
     connect( prev_chapter, SIGNAL( triggered() ), engine(), SLOT( prevChapter() ) );
     addToAc( prev_chapter )
 
     KAction* next_chapter = new KAction( KIcon("media-skip-forward"), i18n("Next Chapter"), ac );
-    next_chapter->setObjectName( "next_chapter" );
+    next_chapter->setObjectName( QLatin1String( "next_chapter" ) );
     next_chapter->setShortcut( Qt::Key_Period );
     connect( next_chapter, SIGNAL( triggered() ), engine(), SLOT( nextChapter() ) );
     addToAc( next_chapter )
 
     // xgettext: no-c-format
     KAction* tenPercentBack = new KAction( KIcon("media-seek-backward"), i18n("Return 10% Back"), ac );
-    tenPercentBack->setObjectName( "ten_percent_back" );
+    tenPercentBack->setObjectName( QLatin1String( "ten_percent_back" ) );
     tenPercentBack->setShortcut( Qt::Key_PageUp );
     connect( tenPercentBack, SIGNAL( triggered() ), engine(), SLOT( tenPercentBack() ) );
     addToAc( tenPercentBack )
 
     // xgettext: no-c-format
     KAction* tenPercentForward = new KAction( KIcon("media-seek-forward"), i18n("Go 10% Forward"), ac );
-    tenPercentForward->setObjectName( "ten_percent_forward" );
+    tenPercentForward->setObjectName( QLatin1String( "ten_percent_forward" ) );
     tenPercentForward->setShortcut( Qt::Key_PageDown );
     connect( tenPercentForward, SIGNAL( triggered() ), engine(), SLOT( tenPercentForward() ) );
     addToAc( tenPercentForward )
 
     KAction* tenSecondsBack = new KAction( KIcon("media-seek-backward"), i18n("Return 10 Seconds Back"), ac );
-    tenSecondsBack->setObjectName( "ten_seconds_back" );
+    tenSecondsBack->setObjectName( QLatin1String( "ten_seconds_back" ) );
     tenSecondsBack->setShortcut( Qt::Key_Minus );
     connect( tenSecondsBack, SIGNAL( triggered() ), engine(), SLOT( tenSecondsBack() ) );
     addToAc( tenSecondsBack )
 
     KAction* tenSecondsForward = new KAction( KIcon("media-seek-forward"), i18n("Go 10 Seconds Forward"), ac );
-    tenSecondsForward->setObjectName( "ten_seconds_forward" );
+    tenSecondsForward->setObjectName( QLatin1String( "ten_seconds_forward" ) );
     tenSecondsForward->setShortcut( Qt::Key_Plus );
     connect( tenSecondsForward, SIGNAL( triggered() ), engine(), SLOT( tenSecondsForward() ) );
     addToAc( tenSecondsForward )
@@ -386,7 +386,7 @@ MainWindow::toggleVideoSettings( bool show )
     if( show )
     {
         m_leftDock = new QDockWidget( this );
-        m_leftDock->setObjectName("left_dock");
+        m_leftDock->setObjectName( QLatin1String("left_dock" ));
         m_leftDock->setFeatures( QDockWidget::NoDockWidgetFeatures );
         QWidget* videoSettingsWidget = new QWidget( m_leftDock );
         m_leftDock->setWidget( videoSettingsWidget );
