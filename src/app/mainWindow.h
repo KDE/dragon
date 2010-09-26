@@ -118,11 +118,11 @@ namespace Dragon
 
       QPointer<QDockWidget> m_leftDock;
       QPointer<QDockWidget> m_rightDock;
-      QWidget     *m_positionSlider;
+      QWidget *m_positionSlider;
       QPointer<QWidget> m_volumeSlider;
       QCheckBox *m_muteCheckBox;
-      TimeLabel   *m_timeLabel;
-      QLabel      *m_titleLabel;
+      TimeLabel *m_timeLabel;
+      QLabel *m_titleLabel;
       QList<QSlider*> m_sliders;
       QPointer<PlayDialog> m_playDialog;
 
