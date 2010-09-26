@@ -134,9 +134,7 @@ namespace Dragon
       bool m_statusbarIsHidden;
 
       QActionGroup *m_aspectRatios;
-      //undefined
-      MainWindow( const MainWindow& );
-      MainWindow &operator=( const MainWindow& );
+      Q_DISABLE_COPY(MainWindow);
 
    protected:
       void closeEvent( QCloseEvent * event );
