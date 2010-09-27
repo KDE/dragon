@@ -56,9 +56,9 @@ class SolidListItem : public QListWidgetItem
                     , label ) );
             }
             if( disc->availableContent() & Solid::OpticalDisc::Audio )
-                setIcon( KIcon( "audio-x-generic" ) );
+                setIcon( KIcon( QLatin1String(  "audio-x-generic" ) ) );
             else
-                setIcon( KIcon( "video-x-generic" ) );
+                setIcon( KIcon( QLatin1String(  "video-x-generic" ) ) );
         }
     }
 

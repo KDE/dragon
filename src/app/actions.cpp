@@ -31,7 +31,7 @@ Dragon::PlayAction::PlayAction( QObject *receiver, const char *slot, KActionColl
         : KToggleAction( i18n("Play"), ac )
 {
     setObjectName( QLatin1String( "play" ) );
-    setIcon( KIcon( "media-playback-start" ) );
+    setIcon( KIcon( QLatin1String(  "media-playback-start" ) ) );
     setShortcut( Qt::Key_Space );
     ac->addAction( objectName(), this );
     connect( this, SIGNAL( triggered( bool ) ), receiver, slot );
@@ -42,12 +42,12 @@ Dragon::PlayAction::setPlaying( bool playing )
 {
     if( playing )
     {
-        setIcon( KIcon( "media-playback-pause" ) );
+        setIcon( KIcon( QLatin1String(  "media-playback-pause" ) ) );
         setText( i18n("&Pause") );
     }
     else
     {
-        setIcon( KIcon( "media-playback-start" ) );
+        setIcon( KIcon( QLatin1String(  "media-playback-start" ) ) );
         setText( i18n("&Play") );
     }
 }
@@ -71,7 +71,7 @@ Dragon::VolumeAction::VolumeAction( QObject *receiver, const char *slot, KAction
         : KToggleAction( i18nc( "Volume of sound output", "Volume"), ac )
 {
     setObjectName( QLatin1String( "volume" ) );
-    setIcon( KIcon( "player-volume" ) );
+    setIcon( KIcon( QLatin1String(  "player-volume" ) ) );
     setShortcut( Qt::Key_V );
     ac->addAction( objectName(), this );
     connect( this, SIGNAL( triggered( bool ) ), receiver, slot );
@@ -82,9 +82,9 @@ void
 Dragon::VolumeAction::mutedChanged( bool mute )
 {
     if( mute )
-        setIcon( KIcon( "player-volume-muted" ) );
+        setIcon( KIcon( QLatin1String(  "player-volume-muted" ) ) );
     else
-        setIcon( KIcon( "player-volume" ) );
+        setIcon( KIcon( QLatin1String(  "player-volume" ) ) );
 }
 
 #include "actions.moc"

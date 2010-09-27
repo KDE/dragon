@@ -34,9 +34,9 @@ LoadView::LoadView( QWidget *parent )
 {
     setupUi( this );
     setStyleSheet( "QPushButton { text-align: center; }" );
-    m_playDiskButton->setIcon( KIcon( "media-optical" ) );
+    m_playDiskButton->setIcon( KIcon( QLatin1String(  "media-optical" ) ) );
     m_playDiskButton->setIconSize( QSize( KIconLoader::SizeMedium, KIconLoader::SizeMedium ) );
-    m_playFileButton->setIcon( KIcon( "folder" ) );
+    m_playFileButton->setIcon( KIcon( QLatin1String(  "folder" ) ) );
     m_playFileButton->setIconSize( QSize( KIconLoader::SizeMedium, KIconLoader::SizeMedium ) );
     
     connect( m_playDiskButton, SIGNAL( released() ), this, SIGNAL( openDVDPressed() ) );

@@ -185,9 +185,9 @@ namespace Dragon
       QStringList artists = m_mediaObject->metaData(Phonon::ArtistMetaData);
       QStringList albums = m_mediaObject->metaData(Phonon::AlbumMetaData);
       QStringList titles = m_mediaObject->metaData(Phonon::TitleMetaData)
-      title = (title ? titles.join(" ") : "" );
-      album = (albums ? albums.join(" "): "" );
-      artist = (artists ? artists.join(" "): "" );
+      title = (title ? titles.join( QLatin1String( " ") : "" ) );
+      album = (albums ? albums.join( QLatin1String( " "): "" ) );
+      artist = (artists ? artists.join( QLatin1String( " "): "" ) );
 
       return title + "\n" + album + "\n" + artist;*/
       return "";
