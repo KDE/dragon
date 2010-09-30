@@ -7,7 +7,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License or (at your option) version 3 or any later version
  * accepted by the membership of KDE e.V. (or its successor approved
- * by the membership of KDE e.V.), which shall act as a proxy 
+ * by the membership of KDE e.V.), which shall act as a proxy
  * defined in Section 14 of version 3 of the license.
  *
  * This program is distributed in the hope that it will be useful,
@@ -33,18 +33,18 @@ RootDbusHandler::RootDbusHandler( QObject* parent )
 {
     new RootDbusHandlerBase( this );
     setObjectName( QLatin1String("RootDbusHandler" ));
-    bool successful = QDBusConnection::sessionBus().registerObject("/", this);
+    bool successful = QDBusConnection::sessionBus().registerObject(QLatin1String( "/" ), this);
     kDebug() << "registering root? " << successful;
 }
 
 RootDbusHandler::~RootDbusHandler()
 { }
 
-QString 
+QString
 RootDbusHandler::Identity()
 {
     const KAboutData* aboutData = KCmdLineArgs::aboutData();
-    return QString( "%1 %2" ).arg( aboutData->productName(), aboutData->version() );
+    return QString::fromLatin1( "%1 %2" ).arg( aboutData->productName(), aboutData->version() );
 }
 
 void

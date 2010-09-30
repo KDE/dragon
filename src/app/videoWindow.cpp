@@ -94,7 +94,7 @@ VideoWindow::VideoWindow( QWidget *parent )
         , m_logo( new QLabel( this ) )
         , m_aDataOutput(0)
 {
-    
+
     m_isPreview = false;
 
     s_instance = this;
@@ -204,7 +204,7 @@ VideoWindow::load( const KUrl &url )
 
     KMimeType::Ptr mimeType = KMimeType::findByUrl( url );
     kDebug() << "detected mimetype: " << mimeType->name();
-    if( mimeType->is( "application/x-cd-image" ) || mimeType->is( "inode/directory" ) )
+    if( mimeType->is( QLatin1String( "application/x-cd-image" ) ) || mimeType->is( QLatin1String( "inode/directory" ) ) )
         m_media->setCurrentSource( Phonon::MediaSource( Phonon::Dvd, url.path() ) );
     else
         m_media->setCurrentSource( url );
@@ -302,7 +302,7 @@ VideoWindow::playDisc(const Solid::Device& device )
     }
 }
 
-bool 
+bool
 VideoWindow::isPreview(const bool &v)
 {
    if( v )
@@ -364,7 +364,7 @@ VideoWindow::urlOrDisc() const
     {
         case Phonon::MediaSource::Invalid:
         case Phonon::MediaSource::Empty:
-            return "Invalid"; //no i18n, used for DBus responses
+            return QLatin1String( "Invalid" ); //no i18n, used for DBus responses
             break;
         case Phonon::MediaSource::Url:
         case Phonon::MediaSource::LocalFile:
@@ -374,12 +374,12 @@ VideoWindow::urlOrDisc() const
             return source.deviceName();
             break;
         case Phonon::MediaSource::Stream:
-            return "Data Stream";
+            return QLatin1String( "Data Stream" );
             break;
         default:
             break;
     }
-    return "Error";
+    return QLatin1String( "Error" );
 }
 
 QMultiMap<QString, QString>
@@ -473,7 +473,7 @@ VideoWindow::setupAnalyzer(QObject* analyzer)
     {
         m_aDataOutput = new Phonon::AudioDataOutput(this);
     }
-    
+
     bool successful = m_audioPath.reconnect(m_media, m_aDataOutput);
     m_audioDataPath = Phonon::createPath(m_aDataOutput, m_aOutput);
     successful &= m_audioDataPath.isValid();
@@ -530,7 +530,7 @@ VideoWindow::stateChanged(Phonon::State currentState, Phonon::State oldstate) //
 {
 kDebug() << "chapters: " << m_controller->availableChapters() << " titles: " << m_controller->availableTitles();
     QStringList states;
-    states << "Loading" << "Stopped" << "Playing" << "Buffering" << "Paused" << "Error";
+    states << QLatin1String( "Loading" ) << QLatin1String( "Stopped" ) << QLatin1String( "Playing" ) << QLatin1String( "Buffering" ) << QLatin1String( "Paused" ) << QLatin1String( "Error" );
     kDebug() << "going from " << states.at(oldstate) << " to " << states.at(currentState);
 
     if( currentState == Phonon::LoadingState )
@@ -560,19 +560,19 @@ VideoWindow::settingChanged( int setting )
     const QString name = sender()->objectName();
     const double dSetting = static_cast<double>( setting ) * 0.01;
     kDebug() << "setting " << name << " to " << dSetting;
-    if( name == "brightnessSlider" )
+    if( name == QLatin1String( "brightnessSlider" ) )
     {
         m_vWidget->setBrightness( dSetting );
     }
-    else if( name == "contrastSlider" )
+    else if( name == QLatin1String( "contrastSlider" ) )
     {
         m_vWidget->setContrast( dSetting );
     }
-    else if( name == "hueSlider" )
+    else if( name == QLatin1String( "hueSlider" ) )
     {
         m_vWidget->setHue( dSetting );
     }
-    else if( name == "saturationSlider" )
+    else if( name == QLatin1String( "saturationSlider" ) )
     {
         m_vWidget->setSaturation( dSetting );
     }
@@ -688,19 +688,19 @@ int
 VideoWindow::videoSetting( const QString& setting )
 {
     double dValue = 0.0;
-    if( setting == "brightnessSlider" )
+    if( setting == QLatin1String( "brightnessSlider" ) )
     {
         dValue = m_vWidget->brightness();
     }
-    else if( setting == "contrastSlider" )
+    else if( setting == QLatin1String( "contrastSlider" ) )
     {
         dValue = m_vWidget->contrast();
     }
-    else if( setting == "hueSlider" )
+    else if( setting == QLatin1String( "hueSlider" ) )
     {
         dValue = m_vWidget->hue();
     }
-    else if( setting == "saturationSlider" )
+    else if( setting == QLatin1String( "saturationSlider" ) )
     {
         dValue = m_vWidget->saturation();
     }

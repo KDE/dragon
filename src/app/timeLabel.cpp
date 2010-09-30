@@ -7,7 +7,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License or (at your option) version 3 or any later version
  * accepted by the membership of KDE e.V. (or its successor approved
- * by the membership of KDE e.V.), which shall act as a proxy 
+ * by the membership of KDE e.V.), which shall act as a proxy
  * defined in Section 14 of version 3 of the license.
  *
  * This program is distributed in the hope that it will be useful,
@@ -26,8 +26,8 @@
 #include <KGlobal>
 #include <KGlobalSettings>
 
-TimeLabel::TimeLabel( QWidget *parent ) 
-    : QLabel( " 0:00:00 ", parent )
+TimeLabel::TimeLabel( QWidget *parent )
+    : QLabel( QLatin1String( " 0:00:00 " ), parent )
     , m_currentTime( 0 )
 {
     setFont( KGlobalSettings::fixedFont() );
@@ -57,7 +57,7 @@ void
 TimeLabel::updateTime()
 {
     qint64 ms;
-    #define zeroPad( n ) n < 10 ? QString("0%1").arg( n ) : QString::number( n )
+#define zeroPad( n ) n < 10 ? QString::fromLatin1("0%1").arg( n ) : QString::number( n )
     if( m_timeFormat == SHOW_REMAINING )
         ms = m_totalTime - m_currentTime;
     else
@@ -66,12 +66,12 @@ TimeLabel::updateTime()
     const int m  =  s / 60;
     const int h  =  m / 60;
     QString time = zeroPad( s % 60 ); //seconds
-    time.prepend( ':' );
+    time.prepend( QLatin1Char( ':' ) );
     time.prepend( zeroPad( m % 60 ) ); //minutes
-    time.prepend( ':' );
+    time.prepend( QLatin1Char( ':' ) );
     time.prepend( QString::number( h ) ); //hours
     if( m_timeFormat == SHOW_REMAINING )
-        time.prepend('-');
+        time.prepend(QLatin1Char( '-' ));
     setText( time );
 }
 

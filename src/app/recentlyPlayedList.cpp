@@ -6,7 +6,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License or (at your option) version 3 or any later version
  * accepted by the membership of KDE e.V. (or its successor approved
- * by the membership of KDE e.V.), which shall act as a proxy 
+ * by the membership of KDE e.V.), which shall act as a proxy
  * defined in Section 14 of version 3 of the license.
  *
  * This program is distributed in the hope that it will be useful,
@@ -39,7 +39,7 @@ RecentlyPlayedList::RecentlyPlayedList(QWidget *parent)
   connect(this,SIGNAL(itemDoubleClicked(QListWidgetItem*)),this, SLOT(itemDoubleClicked(QListWidgetItem*)));
   setAlternatingRowColors( true );
   setSelectionMode(QAbstractItemView::SingleSelection);
-  
+
   configGroup = new KConfigGroup( KGlobal::config(), "General" );
   loadEntries();
 }
@@ -59,14 +59,14 @@ RecentlyPlayedList::loadEntries()
   i.toBack();
   while(i.hasPrevious())
   {
-	KUrl url = KUrl(i.previous());	  
+	KUrl url = KUrl(i.previous());
 	QListWidgetItem* listItem = new QListWidgetItem(  url.fileName().isEmpty() ? url.prettyUrl() : url.fileName() );
 	listItem->setData( 0xdecade, QVariant::fromValue( url ) );
 
-	if(KConfigGroup( KGlobal::config(), url.prettyUrl()).readPathEntry( "IsVideo", QString() )=="false")
-	  listItem->setIcon( KIcon( "audio-x-generic" ) );
+	if(KConfigGroup( KGlobal::config(), url.prettyUrl()).readPathEntry( "IsVideo", QString() )==QLatin1String( "false" ))
+	  listItem->setIcon( KIcon( QLatin1String(  "audio-x-generic" ) ) );
 	else
-	  listItem->setIcon( KIcon( "video-x-generic" ) );
+	  listItem->setIcon( KIcon( QLatin1String(  "video-x-generic" ) ) );
 	addItem( listItem );
   }
 }
@@ -76,8 +76,8 @@ RecentlyPlayedList::contextMenuEvent(QContextMenuEvent * event )
 {
   KMenu menu;
   kDebug() << "Loading Menu";
-  menu.addAction(KIcon("list-remove"),i18n("Remove Entry"),this,SLOT(removeEntry()));
-  menu.addAction(KIcon("list-remove"),i18n("Clear List"),this,SLOT(clearList()));
+  menu.addAction(KIcon(QLatin1String( "list-remove" )),i18n("Remove Entry"),this,SLOT(removeEntry()));
+  menu.addAction(KIcon(QLatin1String( "list-remove" )),i18n("Clear List"),this,SLOT(clearList()));
   menu.exec( event->globalPos() );
 }
 
@@ -87,14 +87,14 @@ RecentlyPlayedList::removeEntry()
   QStringList list = configGroup->readPathEntry( "Recent Urls", QStringList() );
   KUrl toRemove = currentItem()->data(0xdecade).value<KUrl>();
   list.removeAll(toRemove.prettyUrl());
-  configGroup->writePathEntry("Recent Urls",list.join(","));
+  configGroup->writePathEntry("Recent Urls",list.join( QLatin1String( "," )));
   loadEntries();
 }
 
 void
 RecentlyPlayedList::clearList()
 {
-  configGroup->writePathEntry("Recent Urls","");
+  configGroup->writePathEntry("Recent Urls",QString());
   loadEntries();
 }
 

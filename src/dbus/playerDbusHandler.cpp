@@ -7,7 +7,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License or (at your option) version 3 or any later version
  * accepted by the membership of KDE e.V. (or its successor approved
- * by the membership of KDE e.V.), which shall act as a proxy 
+ * by the membership of KDE e.V.), which shall act as a proxy
  * defined in Section 14 of version 3 of the license.
  *
  * This program is distributed in the hope that it will be useful,
@@ -48,7 +48,7 @@ PlayerDbusHandler::PlayerDbusHandler(QObject *parent)
     connect( Dragon::engine(), SIGNAL( metaDataChanged() ), this, SLOT( metadataChangeSlot() )  );
     connect( this, SIGNAL( TrackChange( QVariantMap ) ), pa, SIGNAL( TrackChange( QVariantMap ) ) );
 
-    QDBusConnection::sessionBus().registerObject("/Player", this);
+    QDBusConnection::sessionBus().registerObject(QLatin1String( "/Player" ), this);
 }
 
 PlayerDbusHandler::~PlayerDbusHandler()
@@ -139,17 +139,17 @@ PlayerDbusHandler::GetMetadata()
     QVariantMap ret;
     QMultiMap<QString, QString> stringMap = Dragon::engine()->metaData();
     QMultiMap<QString, QString>::const_iterator i = stringMap.constBegin();
-    while( i != stringMap.constEnd() ) 
+    while( i != stringMap.constEnd() )
     {
         bool number = false;
         int value = i.value().toInt( &number );
-        if( number && ( i.key().toLower() != "tracknumber" ) ) //tracknumber always string, according to MPRIS spec
+        if( number && ( i.key().toLower() != QLatin1String( "tracknumber" ) ) ) //tracknumber always string, according to MPRIS spec
             ret[ i.key().toLower() ] = value;
         else
             ret[ i.key().toLower() ] = QVariant( i.value() );
         ++i;
     }
-    ret[ "location" ] = QVariant( Dragon::engine()->urlOrDisc() );
+    ret[ QLatin1String( "location" ) ] = QVariant( Dragon::engine()->urlOrDisc() );
     return ret;
 }
 

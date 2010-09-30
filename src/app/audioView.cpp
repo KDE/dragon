@@ -6,7 +6,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License or (at your option) version 3 or any later version
  * accepted by the membership of KDE e.V. (or its successor approved
- * by the membership of KDE e.V.), which shall act as a proxy 
+ * by the membership of KDE e.V.), which shall act as a proxy
  * defined in Section 14 of version 3 of the license.
  *
  * This program is distributed in the hope that it will be useful,
@@ -39,7 +39,7 @@
 namespace Dragon
 {
 
-AudioView::AudioView( QWidget *parent) 
+AudioView::AudioView( QWidget *parent)
     : QGraphicsView( parent )
     , m_image(0)
 {
@@ -49,24 +49,24 @@ AudioView::AudioView( QWidget *parent)
  1 | Image | Album     |
  2 | Image | # - Track |
  3 |    Analyzer       |
- */  
+ */
     m_widget = new QGraphicsWidget();
     m_layout = new QGraphicsGridLayout();
     m_layout->setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding));
     QGraphicsScene* scene = new QGraphicsScene();
-    
+
     #define setup_label(l) \
       l = new ExpandingTextItem(m_widget); \
       l->setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding));
-      
-      
+
+
     setup_label(m_artist);
     m_layout->addItem(m_artist, 0, 1, Qt::AlignVCenter);
     setup_label(m_album);
     m_layout->addItem(m_album, 1, 1, Qt::AlignVCenter);
     setup_label(m_track);
     m_layout->addItem(m_track, 2, 1,  Qt::AlignVCenter);
-    
+
     m_analyzer = new BlockAnalyzer(0);
     QGraphicsProxyWidget* analyzerWidget = scene->addWidget(m_analyzer);
     analyzerWidget->setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding));
@@ -76,7 +76,7 @@ AudioView::AudioView( QWidget *parent)
     m_layout->addItem(analyzerWidget, 3, 0, 1, 2, Qt::AlignCenter);
     engine()->setupAnalyzer(m_analyzer);
     m_layout->setRowMinimumHeight(2, 100.0);
-    
+
     m_widget->setLayout(m_layout);
     setScene(scene);
     scene->addItem(m_widget);
@@ -115,7 +115,7 @@ AudioView::updateText()
         if ( trackNumber.toInt(&okInt) > 0 && okInt)
         {
             trackString =  QString( trackNumber + QLatin1String(" - ") + trackName );
-        } 
+        }
         else
             trackString = trackName;
     }
@@ -146,12 +146,12 @@ AudioView::updateText()
     }
 }
 
-QString 
+QString
 AudioView::checkForAmarokImage(const QString& artist, const QString& album)
 {
     KMD5 context( artist.toLower().toLocal8Bit() + album.toLower().toLocal8Bit() );
     const QByteArray md5sum = context.hexDigest();
-    QString location  = KStandardDirs::locate("data", QLatin1String("amarok/albumcovers/large/") + md5sum);
+    QString location  = KStandardDirs::locate("data", QLatin1String("amarok/albumcovers/large/") + QLatin1String( md5sum ));
     if(QFileInfo(location).exists())
         return location;
     else

@@ -7,7 +7,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License or (at your option) version 3 or any later version
  * accepted by the membership of KDE e.V. (or its successor approved
- * by the membership of KDE e.V.), which shall act as a proxy 
+ * by the membership of KDE e.V.), which shall act as a proxy
  * defined in Section 14 of version 3 of the license.
  *
  * This program is distributed in the hope that it will be useful,
@@ -111,13 +111,13 @@ MainWindow::MainWindow()
     videoWindow()->setMouseTracking( true );
 
     m_positionSlider = videoWindow()->newPositionSlider();
-    
+
     m_mainView->addWidget(m_loadView);
     m_audioView = new AudioView(this);
     m_mainView->addWidget(m_audioView);
     m_mainView->addWidget(videoWindow());
     m_mainView->setCurrentWidget(m_loadView);
-    
+
     m_currentWidget = m_loadView;
 
     setCentralWidget( m_mainView );
@@ -132,14 +132,14 @@ MainWindow::MainWindow()
     statusBar()->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Maximum );
 
     setupActions();
-    
+
     //setStandardToolBarMenuEnabled( false ); //bah to setupGUI()!
     //toolBar()->show(); //it's possible it would be hidden, but we don't want that as no UI way to show it!
 
     {
         KActionCollection* ac = actionCollection();
         QMenu *menu = 0;
-        QAction *menuAction = 0; 
+        QAction *menuAction = 0;
         #define make_menu( name, text ) \
                 menu = new QMenu( text ); \
                 menuAction = menu->menuAction(); \
@@ -147,9 +147,9 @@ MainWindow::MainWindow()
                 menuAction->setEnabled( false ); \
                 connect( menu, SIGNAL(aboutToShow()), SLOT(aboutToShowMenu()) ); \
                 ac->addAction( menuAction->objectName(), menuAction );
-        make_menu( "aspect_ratio_menu", i18n( "Aspect &Ratio" ) );
-        make_menu( "audio_channels_menu", i18n( "&Audio Channels" ) );
-        make_menu( "subtitle_channels_menu", i18n( "&Subtitles" ) );
+        make_menu( QLatin1String( "aspect_ratio_menu" ), i18n( "Aspect &Ratio" ) );
+        make_menu( QLatin1String( "audio_channels_menu" ), i18n( "&Audio Channels" ) );
+        make_menu( QLatin1String( "subtitle_channels_menu" ), i18n( "&Subtitles" ) );
         #undef make_menu
 
         {
@@ -165,13 +165,13 @@ MainWindow::MainWindow()
                 ac->addAction( objectname, ratioAction ); \
                 connect( ratioAction, SIGNAL( triggered() ), this, SLOT( streamSettingChange() ) ); \
             }
-            make_ratio_action( i18n( "Determine &Automatically" ), "ratio_auto",  Phonon::VideoWidget::AspectRatioAuto );
-            make_ratio_action( i18n( "&4:3" ), "ratio_golden", Phonon::VideoWidget::AspectRatio4_3 );
-            make_ratio_action( i18n( "Ana&morphic (16:9)" ), "ratio_anamorphic", Phonon::VideoWidget::AspectRatio16_9 );
-            make_ratio_action( i18n( "&Window Size" ), "ratio_window", Phonon::VideoWidget::AspectRatioWidget );
+            make_ratio_action( i18n( "Determine &Automatically" ), QLatin1String( "ratio_auto" ),  Phonon::VideoWidget::AspectRatioAuto );
+            make_ratio_action( i18n( "&4:3" ), QLatin1String( "ratio_golden" ), Phonon::VideoWidget::AspectRatio4_3 );
+            make_ratio_action( i18n( "Ana&morphic (16:9)" ), QLatin1String( "ratio_anamorphic" ), Phonon::VideoWidget::AspectRatio16_9 );
+            make_ratio_action( i18n( "&Window Size" ), QLatin1String( "ratio_window" ), Phonon::VideoWidget::AspectRatioWidget );
             #undef make_ratio_action
-            ac->action( "ratio_auto" )->setChecked( true );
-            ac->action( "aspect_ratio_menu" )->menu()->addActions( m_aspectRatios->actions() );
+            ac->action( QLatin1String( "ratio_auto" ) )->setChecked( true );
+            ac->action( QLatin1String( "aspect_ratio_menu" ) )->menu()->addActions( m_aspectRatios->actions() );
         }
     }
 
@@ -181,18 +181,18 @@ MainWindow::MainWindow()
         toolBar()->setAllowedAreas( Qt::TopToolBarArea | Qt::BottomToolBarArea );
         toolBar()->setFloatable( false );
     }
-    KXMLGUIClient::stateChanged( "empty" );
+    KXMLGUIClient::stateChanged( QLatin1String( "empty" ) );
 
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
     if( args->count() || args->isSet( "play-dvd" ) || kapp->isSessionRestored() )
         //we need to resize the window, so we can't show the window yet
         init();
-    else 
+    else
     {
         //"faster" startup
         //TODO if we have a size stored for this video, do the "faster" route
         QTimer::singleShot( 0, this, SLOT(init()) );
-        QApplication::setOverrideCursor( Qt::WaitCursor ); 
+        QApplication::setOverrideCursor( Qt::WaitCursor );
     }
 }
 
@@ -269,7 +269,7 @@ void MainWindow::closeEvent (QCloseEvent *event)
     statusBar()->setHidden( m_statusbarIsHidden );
     toolBar()->setHidden( m_toolbarIsHidden );
     menuBar()->setHidden( false );
-    
+
     KMainWindow::closeEvent( event );
 }
 
@@ -305,25 +305,25 @@ MainWindow::setupActions()
     new PlayAction( this, SLOT( play() ), ac );
     new VolumeAction( this, SLOT( toggleVolumeSlider( bool ) ), ac );
 
-    KAction* playerStop = new KAction( KIcon("media-playback-stop"), i18n("Stop"), ac );
+    KAction* playerStop = new KAction( KIcon(QLatin1String( "media-playback-stop" )), i18n("Stop"), ac );
     playerStop->setObjectName( QLatin1String( "stop" ) );
     playerStop->setShortcut( Qt::Key_S );
     connect( playerStop, SIGNAL( triggered() ), engine(), SLOT( stop() ) );
     addToAc( playerStop )
 
-    KToggleAction* mute = new KToggleAction( KIcon("player-volume-muted"), i18nc( "Mute the sound output", "Mute"), ac );
+    KToggleAction* mute = new KToggleAction( KIcon(QLatin1String( "player-volume-muted" )), i18nc( "Mute the sound output", "Mute"), ac );
     mute->setObjectName( QLatin1String( "mute" ) );
     mute->setShortcut( Qt::Key_M );
     connect( mute, SIGNAL( toggled( bool ) ), videoWindow(), SLOT( mute( bool ) ) );
     addToAc( mute )
 
-    KAction* resetZoom = new KAction( KIcon("zoom-fit-best"), i18n("Reset Video Scale"), ac );
+    KAction* resetZoom = new KAction( KIcon(QLatin1String( "zoom-fit-best" )), i18n("Reset Video Scale"), ac );
     resetZoom->setObjectName( QLatin1String( "reset_zoom" ) );
     resetZoom->setShortcut( Qt::Key_Equal );
     connect( resetZoom, SIGNAL( triggered() ), videoWindow(), SLOT( resetZoom() ) );
     addToAc( resetZoom )
 
-    KAction* dvdMenu = new KAction( KIcon("media-optical-video"), i18n("Menu Toggle"), ac );
+    KAction* dvdMenu = new KAction( KIcon(QLatin1String( "media-optical-video" )), i18n("Menu Toggle"), ac );
     dvdMenu->setObjectName( QLatin1String( "toggle_dvd_menu" ) );
     dvdMenu->setShortcut( Qt::Key_R );
     connect( dvdMenu, SIGNAL( triggered() ), engine(), SLOT( toggleDVDMenu() ) );
@@ -340,39 +340,39 @@ MainWindow::setupActions()
     connect( videoSettings, SIGNAL( toggled( bool ) ), this, SLOT( toggleVideoSettings( bool ) ) );
     addToAc( videoSettings )
 
-    KAction* prev_chapter = new KAction( KIcon("media-skip-backward"), i18n("Previous Chapter"), ac );
+    KAction* prev_chapter = new KAction( KIcon(QLatin1String( "media-skip-backward" )), i18n("Previous Chapter"), ac );
     prev_chapter->setObjectName( QLatin1String( "prev_chapter" ) );
     prev_chapter->setShortcut( Qt::Key_Comma );
     connect( prev_chapter, SIGNAL( triggered() ), engine(), SLOT( prevChapter() ) );
     addToAc( prev_chapter )
 
-    KAction* next_chapter = new KAction( KIcon("media-skip-forward"), i18n("Next Chapter"), ac );
+    KAction* next_chapter = new KAction( KIcon(QLatin1String( "media-skip-forward" )), i18n("Next Chapter"), ac );
     next_chapter->setObjectName( QLatin1String( "next_chapter" ) );
     next_chapter->setShortcut( Qt::Key_Period );
     connect( next_chapter, SIGNAL( triggered() ), engine(), SLOT( nextChapter() ) );
     addToAc( next_chapter )
 
     // xgettext: no-c-format
-    KAction* tenPercentBack = new KAction( KIcon("media-seek-backward"), i18n("Return 10% Back"), ac );
+    KAction* tenPercentBack = new KAction( KIcon(QLatin1String( "media-seek-backward" )), i18n("Return 10% Back"), ac );
     tenPercentBack->setObjectName( QLatin1String( "ten_percent_back" ) );
     tenPercentBack->setShortcut( Qt::Key_PageUp );
     connect( tenPercentBack, SIGNAL( triggered() ), engine(), SLOT( tenPercentBack() ) );
     addToAc( tenPercentBack )
 
     // xgettext: no-c-format
-    KAction* tenPercentForward = new KAction( KIcon("media-seek-forward"), i18n("Go 10% Forward"), ac );
+    KAction* tenPercentForward = new KAction( KIcon(QLatin1String( "media-seek-forward" )), i18n("Go 10% Forward"), ac );
     tenPercentForward->setObjectName( QLatin1String( "ten_percent_forward" ) );
     tenPercentForward->setShortcut( Qt::Key_PageDown );
     connect( tenPercentForward, SIGNAL( triggered() ), engine(), SLOT( tenPercentForward() ) );
     addToAc( tenPercentForward )
 
-    KAction* tenSecondsBack = new KAction( KIcon("media-seek-backward"), i18n("Return 10 Seconds Back"), ac );
+    KAction* tenSecondsBack = new KAction( KIcon(QLatin1String( "media-seek-backward" )), i18n("Return 10 Seconds Back"), ac );
     tenSecondsBack->setObjectName( QLatin1String( "ten_seconds_back" ) );
     tenSecondsBack->setShortcut( Qt::Key_Minus );
     connect( tenSecondsBack, SIGNAL( triggered() ), engine(), SLOT( tenSecondsBack() ) );
     addToAc( tenSecondsBack )
 
-    KAction* tenSecondsForward = new KAction( KIcon("media-seek-forward"), i18n("Go 10 Seconds Forward"), ac );
+    KAction* tenSecondsForward = new KAction( KIcon(QLatin1String( "media-seek-forward" )), i18n("Go 10 Seconds Forward"), ac );
     tenSecondsForward->setObjectName( QLatin1String( "ten_seconds_forward" ) );
     tenSecondsForward->setShortcut( Qt::Key_Plus );
     connect( tenSecondsForward, SIGNAL( triggered() ), engine(), SLOT( tenSecondsForward() ) );
@@ -399,7 +399,7 @@ MainWindow::toggleVideoSettings( bool show )
         updateSliders();
         foreach( QSlider* slider, m_sliders )
              connect( slider, SIGNAL( valueChanged( int ) ), engine(), SLOT( settingChanged( int ) ) );
-        
+
         connect( ui.defaultsButton, SIGNAL( clicked( bool ) ), this, SLOT( restoreDefaultVideoSettings() ) );
         connect( ui.closeButton, SIGNAL( clicked( bool ) ), action( "video_settings" ), SLOT( setChecked( bool ) ) );
         connect( ui.closeButton, SIGNAL( clicked( bool ) ), m_leftDock, SLOT( deleteLater() ) );
@@ -443,7 +443,7 @@ MainWindow::toggleLoadView()
       engine()->isPreview(true);
       m_loadView->setThumbnail(m_currentWidget);
     }
-    else 
+    else
     {
       m_mainView->setCurrentWidget(m_loadView);
     }
@@ -606,11 +606,11 @@ MainWindow::openFileDialog()
 {
        QStringList mimeFilter = Phonon::BackendCapabilities::availableMimeTypes();
         //temporary fixes for MimeTypes that Xine does support but it doesn't return - this is a Xine bug.
-        mimeFilter << "audio/x-flac";
-        mimeFilter << "video/mp4";
-        mimeFilter << "application/x-cd-image"; // added for *.iso images
+        mimeFilter << QLatin1String( "audio/x-flac");
+        mimeFilter << QLatin1String( "video/mp4" );
+        mimeFilter << QLatin1String( "application/x-cd-image" ); // added for *.iso images
 
-        const KUrl url = KFileDialog::getOpenUrl( KUrl("kfiledialog:///dragonplayer"),mimeFilter.join(" ")
+        const KUrl url = KFileDialog::getOpenUrl( KUrl("kfiledialog:///dragonplayer"),mimeFilter.join(QLatin1String( ":" ))
                                         , this, i18n("Select File to Play") );
         if( url.isEmpty() )
         {
@@ -629,7 +629,7 @@ MainWindow::playDisc()
     QList< Solid::Device > playableDiscs;
     {
         QList< Solid::Device > deviceList = Solid::Device::listFromType( Solid::DeviceInterface::OpticalDisc );
-        
+
         foreach( const Solid::Device &device, deviceList )
         {
             const Solid::OpticalDisc* disc = device.as<const Solid::OpticalDisc>();
@@ -637,7 +637,7 @@ MainWindow::playDisc()
             {
                 if( disc->availableContent() & ( Solid::OpticalDisc::VideoDvd | Solid::OpticalDisc::VideoCd | Solid::OpticalDisc::SuperVideoCd |  Solid::OpticalDisc::Audio ) )
                     playableDiscs << device;
-            
+
             }
         }
     }
@@ -656,7 +656,7 @@ MainWindow::playDisc()
     }
     else
     {
-        engine()->playDvd(); 
+        engine()->playDvd();
         kDebug() << "no disc in drive or Solid isn't working";
     }
 
@@ -779,13 +779,13 @@ QMenu*
 MainWindow::menu( const char *name )
 {
     // KXMLGUI is "really good".
-    return static_cast<QMenu*>(factory()->container( name, this ));
+    return static_cast<QMenu*>(factory()->container( QLatin1String( name ), this ));
 }
 
-void 
+void
 MainWindow::streamSettingChange()
 {
-    if( sender()->objectName().left( 5 ) == "ratio" )
+    if( sender()->objectName().left( 5 ) == QLatin1String( "ratio" ) )
     {
         TheStream::setRatio( dynamic_cast< QAction* > ( sender() ) );
     }
@@ -842,7 +842,7 @@ action( const char *name )
 
     if( mainWindow() )
         if( ( actionCollection = ((MainWindow*)mainWindow() )->actionCollection() ) )
-            action = actionCollection->action( name );
+            action = actionCollection->action(QLatin1String( name ) );
     if( !action )
         kDebug() << name;
     Q_ASSERT( mainWindow() );

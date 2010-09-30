@@ -8,7 +8,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License or (at your option) version 3 or any later version
  * accepted by the membership of KDE e.V. (or its successor approved
- * by the membership of KDE e.V.), which shall act as a proxy 
+ * by the membership of KDE e.V.), which shall act as a proxy
  * defined in Section 14 of version 3 of the license.
  *
  * This program is distributed in the hope that it will be useful,
@@ -60,7 +60,7 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
     bool const isFullScreen = toggleAction("fullscreen")->isChecked();
     bool const hasMedia = TheStream::hasMedia();
     QWidget *const toolbar = reinterpret_cast<QWidget*>(toolBar());
-    
+
     switch(state)
     {
       case Phonon::LoadingState:
@@ -94,7 +94,7 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
     action("video_settings")->setEnabled(enable && TheStream::hasVideo());
     action("volume")->setEnabled(enable);
     if( m_volumeSlider )
-      m_volumeSlider->setEnabled(enable); 
+      m_volumeSlider->setEnabled(enable);
     action("fullscreen")->setEnabled(enable || isFullScreen);
     action("reset_zoom")->setEnabled(hasMedia && !isFullScreen);
     toggleAction( "play" )->setChecked(state == Phonon::PlayingState);
@@ -107,10 +107,10 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
     {
         // the toolbar play button is always enabled, but the menu item
         // is disabled if we are empty, this looks more sensible
-        PlayAction* playAction = static_cast<PlayAction*>( actionCollection()->action("play") );
+        PlayAction* playAction = static_cast<PlayAction*>( actionCollection()->action(QLatin1String( "play" )) );
         playAction->setEnabled( hasMedia );
         playAction->setPlaying( state == Phonon::PlayingState );
-        actionCollection()->action("aspect_ratio_menu")->setEnabled(( state == Phonon::PlayingState || state == Phonon::PausedState) && TheStream::hasVideo() );
+        actionCollection()->action(QLatin1String( "aspect_ratio_menu" ))->setEnabled(( state == Phonon::PlayingState || state == Phonon::PausedState) && TheStream::hasVideo() );
 
         // set correct aspect ratio
         if( state != Phonon::LoadingState )
@@ -121,7 +121,7 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
     /// turn off screensaver
     if( state == Phonon::PlayingState )
     {
-      m_stopSleepCookie = Solid::PowerManagement::beginSuppressingSleep("DragonPlayer: watching a film");
+      m_stopSleepCookie = Solid::PowerManagement::beginSuppressingSleep(QLatin1String( "DragonPlayer: watching a film" ));
       if (!m_stopScreenSaver)
           m_stopScreenSaver = new KNotificationRestrictions(KNotificationRestrictions::ScreenSaver);
     }
@@ -134,11 +134,11 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
       delete m_stopScreenSaver; // It is always 0, I have been careful.
       m_stopScreenSaver = 0;
     }
-    
+
     updateTitleBarText();
 
     // enable/disable DVD specific buttons
-    QWidget *dvd_button = toolBar()->findChild< QWidget* >( "toolbutton_toggle_dvd_menu" );
+    QWidget *dvd_button = toolBar()->findChild< QWidget* >( QLatin1String( "toolbutton_toggle_dvd_menu" ));
     if(videoWindow()->isDVD())
     {
         if (dvd_button)
@@ -155,7 +155,7 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
         }
         action("toggle_dvd_menu")->setEnabled( false );
     }
-    if( isFullScreen && !toolbar->testAttribute( Qt::WA_UnderMouse ) ) 
+    if( isFullScreen && !toolbar->testAttribute( Qt::WA_UnderMouse ) )
     {/*
         switch( state ) {
         case Engine::TrackEnded:
@@ -197,9 +197,9 @@ MainWindow::engineMediaChanged(Phonon::MediaSource /*newSource*/)
 
     #ifndef NO_SKIP_PR0N
     // ;-)
-    if( !(url_string.contains( "porn", Qt::CaseInsensitive ) || url_string.contains( "pr0n", Qt::CaseInsensitive )) )
+    if( !(url_string.contains( QLatin1String( "porn" ), Qt::CaseInsensitive ) || url_string.contains( QLatin1String(  "pr0n" ), Qt::CaseInsensitive )) )
     #endif
-    if( url.protocol() != "dvd" && url.protocol() != "vcd" && !url.prettyUrl().isEmpty())
+    if( url.protocol() != QLatin1String( "dvd" ) && url.protocol() != QLatin1String( "vcd" ) && !url.prettyUrl().isEmpty())
     {
         KConfigGroup config = KConfigGroup( KGlobal::config(), "General" );
         const QString prettyUrl = url.prettyUrl();

@@ -7,7 +7,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License or (at your option) version 3 or any later version
  * accepted by the membership of KDE e.V. (or its successor approved
- * by the membership of KDE e.V.), which shall act as a proxy 
+ * by the membership of KDE e.V.), which shall act as a proxy
  * defined in Section 14 of version 3 of the license.
  *
  * This program is distributed in the hope that it will be useful,
@@ -53,11 +53,11 @@ namespace Dragon
         setPalette( QApplication::palette() ); //videoWindow has different palette
         setFrameStyle( QFrame::Plain | QFrame::Box );
 
-        m_preferred = new KPushButton( KGuiItem( i18n("Preferred Scale"), "viewmag" ), this );
+        m_preferred = new KPushButton( KGuiItem( i18n("Preferred Scale"), QLatin1String( "viewmag" ) ), this );
         connect( m_preferred, SIGNAL(clicked()), Dragon::mainWindow(), SLOT(adjustSize()) );
         connect( m_preferred, SIGNAL(clicked()), SLOT(deleteLater()) );
 
-        m_oneToOne = new KPushButton( KGuiItem( i18n("Scale 100%"), "viewmag1" ), this );
+        m_oneToOne = new KPushButton( KGuiItem( i18n("Scale 100%"), QLatin1String( "viewmag1" ) ), this );
         connect( m_oneToOne, SIGNAL(clicked()), (QObject*)videoWindow(), SLOT(resetZoom()) );
         connect( m_oneToOne, SIGNAL(clicked()), SLOT(deleteLater()) );
 
@@ -71,7 +71,7 @@ namespace Dragon
         vbox->addWidget( m_oneToOne );
         hbox->addWidget( m_thingy = new QFrame( this ) );
 
-        m_thingy->setFixedWidth( fontMetrics().width( "X" ) );
+        m_thingy->setFixedWidth( fontMetrics().width( QLatin1String( "X" ) ) );
         m_thingy->setFrameStyle( QFrame::Plain | QFrame::Box );
         {
             QPalette palette;

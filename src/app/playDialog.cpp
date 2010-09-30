@@ -7,7 +7,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License or (at your option) version 3 or any later version
  * accepted by the membership of KDE e.V. (or its successor approved
- * by the membership of KDE e.V.), which shall act as a proxy 
+ * by the membership of KDE e.V.), which shall act as a proxy
  * defined in Section 14 of version 3 of the license.
  *
  * This program is distributed in the hope that it will be useful,
@@ -61,11 +61,11 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
     grid->setVerticalSpacing( 20 );
 
     //TODO use the kguiItems from the actions
-    mapper->setMapping( o = new KPushButton( KGuiItem( i18n("Play File..."), "document-open" ), this ), FILE );
+    mapper->setMapping( o = new KPushButton( KGuiItem( i18n("Play File..."), QLatin1String( "document-open" ) ), this ), FILE );
     connect( o, SIGNAL(clicked()), mapper, SLOT(map()) );
     grid->addWidget( o, 0, 0 );
 
-    mapper->setMapping( o = new KPushButton( KGuiItem( i18n("Play Disc"), "media-optical-video" ), this ), DVD );
+    mapper->setMapping( o = new KPushButton( KGuiItem( i18n("Play Disc"), QLatin1String( "media-optical-video" ) ), this ), DVD );
     connect( o, SIGNAL(clicked()), mapper, SLOT(map()) );
     grid->addWidget( o, 0, 1 );
 
