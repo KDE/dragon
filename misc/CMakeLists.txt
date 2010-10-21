@@ -1,4 +1,4 @@
-install(FILES dragonplayer.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+install(PROGRAMS dragonplayer.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 install(FILES dragonplayer-opendvd.desktop DESTINATION ${DATA_INSTALL_DIR}/solid/actions )
 install(FILES dragonplayer_part.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
 install(FILES dragonplayerrc DESTINATION ${CONFIG_INSTALL_DIR})
