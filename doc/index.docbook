@@ -174,10 +174,12 @@ These menu items from the <guimenu>Settings</guimenu> menu are active if there a
 
 <title>Credits and License</title>
 
-<para>&dragonplayer;</para>
+<para>
+&dragonplayer;
+</para>
+
 <para>Program copyright 2004 Max B. Howell <email>max.howell@methylblue.com</email></para>
 <para>Program copyright 2007 Ian A. Monroe <email>imonroe@kde.org</email></para>
-&underGPL;
 
 <para>
 Documentation copyright 2004 Mike Diehl <email>madpenguin8@yahoo.com</email>
@@ -187,6 +189,7 @@ Documentation copyright 2007 Ian Monroe <email>imonroe@kde.org</email>
 </para>
 
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+&underGPL;
 &underFDL;
 
 </chapter>
