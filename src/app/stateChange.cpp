@@ -97,7 +97,6 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
       m_volumeSlider->setEnabled(enable);
     action("fullscreen")->setEnabled(enable || isFullScreen);
     action("reset_zoom")->setEnabled(hasMedia && !isFullScreen);
-    toggleAction( "play" )->setChecked(state == Phonon::PlayingState);
 
     m_timeLabel->setVisible(enable);
 

@@ -28,10 +28,13 @@
 #include "videoWindow.h"
 
 Dragon::PlayAction::PlayAction( QObject *receiver, const char *slot, KActionCollection *ac )
-        : KToggleAction( i18n("Play"), ac )
+        : KDualAction( ac )
 {
     setObjectName( QLatin1String( "play" ) );
-    setIcon( KIcon( QLatin1String(  "media-playback-start" ) ) );
+
+    setInactiveGuiItem( KGuiItem( i18n( "Play" ), KIcon( QLatin1String( "media-playback-start" ) ) ) );
+    setActiveGuiItem( KGuiItem( i18n( "Pause" ), KIcon( QLatin1String( "media-playback-pause" ) ) ) );
+    setAutoToggle( false );
     setShortcut( Qt::Key_Space );
     ac->addAction( objectName(), this );
     connect( this, SIGNAL( triggered( bool ) ), receiver, slot );
@@ -40,30 +43,9 @@ Dragon::PlayAction::PlayAction( QObject *receiver, const char *slot, KActionColl
 void 
 Dragon::PlayAction::setPlaying( bool playing )
 {
-    if( playing )
-    {
-        setIcon( KIcon( QLatin1String(  "media-playback-pause" ) ) );
-        setText( i18n("&Pause") );
-    }
-    else
-    {
-        setIcon( KIcon( QLatin1String(  "media-playback-start" ) ) );
-        setText( i18n("&Play") );
-    }
+    setActive( playing );
 }
 
-void
-Dragon::PlayAction::setChecked( bool b )
-{
-
-    if( TheStream::hasMedia() && sender() && QByteArray( sender()->metaObject()->className() ) == "KToolBarButton" ) {
-        // clicking play when empty means open PlayMediaDialog, but we have to uncheck the toolbar button
-        // as KDElibs sets that checked automatically..
-        setChecked( false );
-    }
-    else
-        KToggleAction::setChecked( b );
-}
 /////////////////////////////////////////////////////
 ///Codeine::VolumeAction
 ////////////////////////////////////////////////////

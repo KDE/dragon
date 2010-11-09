@@ -22,6 +22,7 @@
 #ifndef DRAGONPLAYERACTIONS_H
 #define DRAGONPLAYERACTIONS_H
 
+#include <KDualAction>      //baseclass
 #include <KToggleAction>    //baseclass
 #include <KActionCollection> //convenience
 
@@ -31,13 +32,12 @@ namespace Dragon
    QAction *action( const char* ); ///defined in mainWindow.cpp, part.cpp
    inline KToggleAction *toggleAction( const char *name ) { return (KToggleAction*)action( name ); }
 
-   class PlayAction : public KToggleAction
+   class PlayAction : public KDualAction
    {
    Q_OBJECT
    public:
       PlayAction( QObject *receiver, const char *slot, KActionCollection* );
       void setPlaying( bool playing );
-      virtual void setChecked( bool );
    };
 
    class VolumeAction : public KToggleAction
