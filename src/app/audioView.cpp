@@ -33,6 +33,7 @@
 #include <QLabel>
 
 #include <Plasma/Label>
+#include <KDebug>
 #include <KMD5>
 #include <KStandardDirs>
 
