@@ -610,7 +610,7 @@ MainWindow::openFileDialog()
         mimeFilter << QLatin1String( "video/mp4" );
         mimeFilter << QLatin1String( "application/x-cd-image" ); // added for *.iso images
 
-        const KUrl url = KFileDialog::getOpenUrl( KUrl("kfiledialog:///dragonplayer"),mimeFilter.join(QLatin1String( ":" ))
+        const KUrl url = KFileDialog::getOpenUrl( KUrl("kfiledialog:///dragonplayer"),mimeFilter.join(QLatin1String( " " ))
                                         , this, i18n("Select File to Play") );
         if( url.isEmpty() )
         {
