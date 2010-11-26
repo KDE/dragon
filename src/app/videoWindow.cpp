@@ -493,6 +493,7 @@ QWidget*
 VideoWindow::newPositionSlider()
 {
     SeekSlider *seekSlider = new SeekSlider();
+    seekSlider->setIconVisible( false );
     seekSlider->setMediaObject( m_media );
     seekSlider->setSingleStep( 5000 );
     return seekSlider;
