@@ -472,15 +472,12 @@ VideoWindow::setupAnalyzer(QObject* analyzer)
     if(!m_aDataOutput)
     {
         m_aDataOutput = new Phonon::AudioDataOutput(this);
+        m_audioDataPath = Phonon::createPath(m_media, m_aDataOutput);
+        connect(m_aDataOutput, SIGNAL(dataReady(const QMap<Phonon::AudioDataOutput::Channel, QVector<qint16> >&)),
+                analyzer,  SLOT(drawFrame(const QMap<Phonon::AudioDataOutput::Channel,QVector<qint16> >&)));
     }
 
-    bool successful = m_audioPath.reconnect(m_media, m_aDataOutput);
-    m_audioDataPath = Phonon::createPath(m_aDataOutput, m_aOutput);
-    successful &= m_audioDataPath.isValid();
-
-    connect(m_aDataOutput, SIGNAL(dataReady(const QMap<Phonon::AudioDataOutput::Channel, QVector<qint16> >&)),
-            analyzer,  SLOT(drawFrame(const QMap<Phonon::AudioDataOutput::Channel,QVector<qint16> >&)));
-    return successful;
+    return m_audioDataPath.isValid();
 }
 
 bool
