@@ -68,15 +68,15 @@ AudioView::AudioView( QWidget *parent)
     setup_label(m_track);
     m_layout->addItem(m_track, 2, 1,  Qt::AlignVCenter);
 
-    m_analyzer = new BlockAnalyzer(0);
-    QGraphicsProxyWidget* analyzerWidget = scene->addWidget(m_analyzer);
-    analyzerWidget->setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding));
-    analyzerWidget->setMinimumHeight(100.0);
-    analyzerWidget->setMaximumWidth(450.0);
-    analyzerWidget->setMaximumHeight(300.0);
-    m_layout->addItem(analyzerWidget, 3, 0, 1, 2, Qt::AlignCenter);
-    engine()->setupAnalyzer(m_analyzer);
-    m_layout->setRowMinimumHeight(2, 100.0);
+//     m_analyzer = new BlockAnalyzer(0);
+//     QGraphicsProxyWidget* analyzerWidget = scene->addWidget(m_analyzer);
+//     analyzerWidget->setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding));
+//     analyzerWidget->setMinimumHeight(100.0);
+//     analyzerWidget->setMaximumWidth(450.0);
+//     analyzerWidget->setMaximumHeight(300.0);
+//     m_layout->addItem(analyzerWidget, 3, 0, 1, 2, Qt::AlignCenter);
+//     engine()->setupAnalyzer(m_analyzer);
+//     m_layout->setRowMinimumHeight(2, 100.0);
 
     m_widget->setLayout(m_layout);
     setScene(scene);
