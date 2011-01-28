@@ -129,6 +129,7 @@ namespace Dragon
       KNotificationRestrictions *m_stopScreenSaver;
       int m_screensaverDisableCookie;
       int m_stopSleepCookie;
+      int m_stopScreenPowerMgmtCookie;
 
       bool m_toolbarIsHidden;
       bool m_statusbarIsHidden;
