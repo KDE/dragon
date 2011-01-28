@@ -98,6 +98,7 @@ MainWindow::MainWindow()
         , m_playDialog( 0 )
         , m_stopScreenSaver( 0 )
         , m_stopSleepCookie( -1 )
+        , m_stopScreenPowerMgmtCookie( -1 )
         , m_toolbarIsHidden(false)
         , m_statusbarIsHidden(false)
 {

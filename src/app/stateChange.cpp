@@ -120,7 +120,8 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
     /// turn off screensaver
     if( state == Phonon::PlayingState )
     {
-      m_stopSleepCookie = Solid::PowerManagement::beginSuppressingSleep(QLatin1String( "DragonPlayer: watching a film" ));
+      m_stopSleepCookie = Solid::PowerManagement::beginSuppressingSleep(QLatin1String( "watching a film" ));
+      m_stopScreenPowerMgmtCookie = Solid::PowerManagement::beginSuppressingScreenPowerManagement(QLatin1String( "watching a film" ));
       if (!m_stopScreenSaver)
           m_stopScreenSaver = new KNotificationRestrictions(KNotificationRestrictions::ScreenSaver);
     }
@@ -128,6 +129,9 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
     {
       //stop supressing sleep
       Solid::PowerManagement::stopSuppressingSleep(m_stopSleepCookie);
+
+      //stop supressing screen power management
+      Solid::PowerManagement::stopSuppressingScreenPowerManagement(m_stopSleepCookie);
 
      //stop disabling screensaver
       delete m_stopScreenSaver; // It is always 0, I have been careful.
