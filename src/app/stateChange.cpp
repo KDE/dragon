@@ -237,6 +237,12 @@ void MainWindow::engineHasVideoChanged(bool hasVideo)
       m_mainView->addWidget(engine());
     m_mainView->setCurrentWidget(engine());
     m_currentWidget = engine();
+    
+    // Fake change of state to trigger a re-evaluation of enabled actions.
+    // The video state might have changed *after* a state change (e.g. in Phonon-VLC)
+    // in which case the video related menu actions will not be enabled until
+    // a new state change occurs. By forcing a fake state change we can work around this.
+    engineStateChanged(videoWindow()->state(), videoWindow()->state());
   }
   else
   {
