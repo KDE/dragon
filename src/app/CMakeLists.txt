@@ -39,7 +39,6 @@ kde4_add_ui_files(videoplayer_app_SRCS videoSettingsWidget.ui loadView.ui)
 kde4_add_executable(dragon ${videoplayer_app_SRCS} )
 
 target_link_libraries(dragon
-    ${KDE4_KUTILS_LIBS}
     ${KDE4_KIO_LIBS}
     ${KDE4_KDEUI_LIBS}
     ${KDE4_PHONON_LIBS}

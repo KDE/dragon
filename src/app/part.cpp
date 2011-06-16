@@ -31,7 +31,7 @@
 #include <KActionCollection>
 #include <KDebug>
 #include <KMenu>
-#include <KParts/GenericFactory>
+#include <KPluginFactory>
 #include <KToggleAction>
 
 #include <QSlider>
