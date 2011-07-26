@@ -22,6 +22,7 @@
 #include "mainWindow.h"
 #include "timeLabel.h"
 
+#include <KActionMenu>
 #include <KApplication>
 #include <KCmdLineArgs>
 #include <KCursor>
@@ -30,6 +31,7 @@
 #include <KGlobalSettings> //::timerEvent()
 #include <KIO/NetAccess>
 #include <KLocale>
+#include <KMenu>
 #include <KMenuBar>
 #include <KSqueezedTextLabel>
 #include <KStatusBar>
@@ -139,14 +141,12 @@ MainWindow::MainWindow()
 
     {
         KActionCollection* ac = actionCollection();
-        QMenu *menu = 0;
-        QAction *menuAction = 0;
+        KActionMenu *menuAction = 0;
         #define make_menu( name, text ) \
-                menu = new QMenu( text ); \
-                menuAction = menu->menuAction(); \
+                menuAction = new KActionMenu( text, this ); \
                 menuAction->setObjectName( name ); \
                 menuAction->setEnabled( false ); \
-                connect( menu, SIGNAL(aboutToShow()), SLOT(aboutToShowMenu()) ); \
+                connect( menuAction->menu(), SIGNAL(aboutToShow()), SLOT(aboutToShowMenu()) ); \
                 ac->addAction( menuAction->objectName(), menuAction );
         make_menu( QLatin1String( "aspect_ratio_menu" ), i18n( "Aspect &Ratio" ) );
         make_menu( QLatin1String( "audio_channels_menu" ), i18n( "&Audio Channels" ) );
