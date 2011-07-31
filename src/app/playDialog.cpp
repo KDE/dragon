@@ -70,7 +70,7 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
     grid->addWidget( o, 0, 1 );
 
     mapper->setMapping( closeButton, QDialog::Rejected );
-    connect( closeButton, SIGNAL(clicked()), mapper, SLOT( map() ) );
+    connect( closeButton, SIGNAL(clicked()), mapper, SLOT(map()) );
 
     createRecentFileWidget( grid );
 
@@ -80,12 +80,12 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
     if( be_welcome_dialog ) {
         QWidget *w = new KPushButton( KStandardGuiItem::quit(), this );
         hbox->addWidget( w );
-        connect( w, SIGNAL(clicked()), kapp, SLOT( closeAllWindows() ) );
+        connect( w, SIGNAL(clicked()), kapp, SLOT(closeAllWindows()) );
     }
 
     hbox->addWidget( closeButton );
 
-    connect( mapper, SIGNAL(mapped( int )), mainWindow(), SLOT( playDialogResult( int ) ) );
+    connect( mapper, SIGNAL(mapped(int)), mainWindow(), SLOT(playDialogResult(int)) );
     vbox->addLayout( hbox );
     setLayout( vbox );
     setAttribute( Qt::WA_DeleteOnClose, true );
@@ -100,7 +100,7 @@ PlayDialog::createRecentFileWidget( QGridLayout *layout )
     //delete list view widget if there are no items in it
     if( lv->count() ) {
         layout->addWidget( lv, 1, 0, 1, -1);
-        connect( lv, SIGNAL( executed( QListWidgetItem* )), this, SLOT( finished( QListWidgetItem* ) ) );
+        connect( lv, SIGNAL(executed(QListWidgetItem*)), this, SLOT(finished(QListWidgetItem*)) );
     }
     else
         delete lv;

@@ -112,24 +112,24 @@ VideoWindow::VideoWindow( QWidget *parent )
     Phonon::createPath(m_media, m_vWidget);
     m_audioPath = Phonon::createPath(m_media, m_aOutput);
     m_media->setTickInterval( 1000 );
-    connect( m_media, SIGNAL( tick( qint64 ) ), this, SIGNAL( tick( qint64 ) ) );
-    connect( m_media, SIGNAL( currentSourceChanged( Phonon::MediaSource ) ), this, SIGNAL( currentSourceChanged( Phonon::MediaSource ) ) );
-    connect( m_media, SIGNAL( totalTimeChanged( qint64 ) ), this, SIGNAL( totalTimeChanged( qint64 ) ) );
-    connect( m_media, SIGNAL( seekableChanged( bool ) ), this, SIGNAL( seekableChanged( bool ) ) );
-    connect( m_media, SIGNAL( metaDataChanged() ), this, SIGNAL( metaDataChanged() ) );
-    connect( m_aOutput, SIGNAL( mutedChanged( bool ) ), this, SIGNAL( mutedChanged( bool ) ) );
-    connect( m_media, SIGNAL( hasVideoChanged( bool ) ), this, SIGNAL( hasVideoChanged( bool ) ) );
-    connect( m_media, SIGNAL( hasVideoChanged( bool ) ), m_vWidget, SLOT( setVisible( bool ) ) ); //hide video widget if no video to show
-    connect( m_media, SIGNAL( hasVideoChanged( bool ) ), m_logo, SLOT( setHidden( bool ) ) );
+    connect( m_media, SIGNAL(tick(qint64)), this, SIGNAL(tick(qint64)) );
+    connect( m_media, SIGNAL(currentSourceChanged(Phonon::MediaSource)), this, SIGNAL(currentSourceChanged(Phonon::MediaSource)) );
+    connect( m_media, SIGNAL(totalTimeChanged(qint64)), this, SIGNAL(totalTimeChanged(qint64)) );
+    connect( m_media, SIGNAL(seekableChanged(bool)), this, SIGNAL(seekableChanged(bool)) );
+    connect( m_media, SIGNAL(metaDataChanged()), this, SIGNAL(metaDataChanged()) );
+    connect( m_aOutput, SIGNAL(mutedChanged(bool)), this, SIGNAL(mutedChanged(bool)) );
+    connect( m_media, SIGNAL(hasVideoChanged(bool)), this, SIGNAL(hasVideoChanged(bool)) );
+    connect( m_media, SIGNAL(hasVideoChanged(bool)), m_vWidget, SLOT(setVisible(bool)) ); //hide video widget if no video to show
+    connect( m_media, SIGNAL(hasVideoChanged(bool)), m_logo, SLOT(setHidden(bool)) );
 
-    connect( m_controller, SIGNAL( availableSubtitlesChanged() ), this, SLOT( updateChannels() ) );
+    connect( m_controller, SIGNAL(availableSubtitlesChanged()), this, SLOT(updateChannels()) );
 
     {
         m_subLanguages->setExclusive( true );
         QAction* turnOff = new QAction( i18n("&DVD Subtitle Selection"), m_subLanguages );
         turnOff->setCheckable( true );
         turnOff->setProperty( TheStream::CHANNEL_PROPERTY, -1 );
-        connect( turnOff, SIGNAL( triggered() ), this, SLOT( slotSetSubtitle() ) );
+        connect( turnOff, SIGNAL(triggered()), this, SLOT(slotSetSubtitle()) );
 
         QAction* separator = new QAction( m_subLanguages );
         separator->setSeparator( true );
@@ -139,14 +139,14 @@ VideoWindow::VideoWindow( QWidget *parent )
         QAction* autoLang = new QAction( i18n("&Auto"), m_audioLanguages );
         autoLang->setProperty( TheStream::CHANNEL_PROPERTY, -1 );
         autoLang->setCheckable( true );
-        connect( autoLang, SIGNAL( triggered() ), this, SLOT( slotSetAudio() ) );
+        connect( autoLang, SIGNAL(triggered()), this, SLOT(slotSetAudio()) );
 
         QAction* separator = new QAction( m_audioLanguages );
         separator->setSeparator( true );
     }
 
     connect( m_media, SIGNAL(stateChanged(Phonon::State,Phonon::State)), this, SLOT(stateChanged(Phonon::State,Phonon::State)) );
-    connect( m_cursorTimer, SIGNAL( timeout() ), this, SLOT( hideCursor() ) );
+    connect( m_cursorTimer, SIGNAL(timeout()), this, SLOT(hideCursor()) );
     m_cursorTimer->setSingleShot( true );
     {
         m_logo->setAutoFillBackground( true );
@@ -473,8 +473,8 @@ VideoWindow::setupAnalyzer(QObject* analyzer)
     {
         m_aDataOutput = new Phonon::AudioDataOutput(this);
         m_audioDataPath = Phonon::createPath(m_media, m_aDataOutput);
-        connect(m_aDataOutput, SIGNAL(dataReady(const QMap<Phonon::AudioDataOutput::Channel, QVector<qint16> >&)),
-                analyzer,  SLOT(drawFrame(const QMap<Phonon::AudioDataOutput::Channel,QVector<qint16> >&)));
+        connect(m_aDataOutput, SIGNAL(dataReady(QMap<Phonon::AudioDataOutput::Channel,QVector<qint16> >)),
+                analyzer,  SLOT(drawFrame(QMap<Phonon::AudioDataOutput::Channel,QVector<qint16> >)));
     }
 
     return m_audioDataPath.isValid();
@@ -615,16 +615,16 @@ VideoWindow::updateActionGroup( QActionGroup* channelActions
         lang->setCheckable( true );
         lang->setText( channel.name() );
         lang->setProperty( TheStream::CHANNEL_PROPERTY, channel.index() );
-        connect( lang, SIGNAL( triggered() ), this, actionSlot );
+        connect( lang, SIGNAL(triggered()), this, actionSlot );
     }
 }
 
 void
 VideoWindow::updateChannels()
 {
-    updateActionGroup( m_subLanguages, m_controller->availableSubtitles(), SLOT( slotSetSubtitle() ) );
+    updateActionGroup( m_subLanguages, m_controller->availableSubtitles(), SLOT(slotSetSubtitle()) );
     emit subChannelsChanged( m_subLanguages->actions() );
-    updateActionGroup( m_audioLanguages, m_controller->availableAudioChannels(), SLOT( slotSetAudio() ) );
+    updateActionGroup( m_audioLanguages, m_controller->availableAudioChannels(), SLOT(slotSetAudio()) );
     emit audioChannelsChanged( m_audioLanguages->actions() );
 }
 

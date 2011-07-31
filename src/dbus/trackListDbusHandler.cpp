@@ -35,8 +35,8 @@ TrackListDbusHandler::TrackListDbusHandler(QObject *parent)
     QObject* pa = new TrackListDbusAdaptor( this );
     setObjectName( QLatin1String("TrackListDbusHandler" ));
 
-    connect( Dragon::engine(), SIGNAL( currentSourceChanged( Phonon::MediaSource ) ), this, SLOT( slotTrackChange() )  );
-    connect( this, SIGNAL( TrackListChange( int ) ), pa, SIGNAL( TrackListChange( int ) ) );
+    connect( Dragon::engine(), SIGNAL(currentSourceChanged(Phonon::MediaSource)), this, SLOT(slotTrackChange())  );
+    connect( this, SIGNAL(TrackListChange(int)), pa, SIGNAL(TrackListChange(int)) );
 
     QDBusConnection::sessionBus().registerObject(QLatin1String( "/TrackList" ), this);
 }

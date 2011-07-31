@@ -104,10 +104,10 @@ DiscSelectionDialog::DiscSelectionDialog( QWidget* parent, const QList< Solid::D
     QWidget* mainWidget = new QWidget( this );
     mainWidget->setLayout( layout );
     setMainWidget( mainWidget );    
-    connect( m_listWidget, SIGNAL( itemDoubleClicked( QListWidgetItem* ) ), this, SLOT( discItemSelected( QListWidgetItem* ) ) );
-    connect( this, SIGNAL( okClicked() ), this, SLOT( okClicked() ) );
-    connect( this, SIGNAL( cancelClicked() ), this, SLOT( deleteLater() ) );
-    connect( this, SIGNAL( cancelClicked() ), Dragon::mainWindow(), SLOT( playMedia() ) );
+    connect( m_listWidget, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(discItemSelected(QListWidgetItem*)) );
+    connect( this, SIGNAL(okClicked()), this, SLOT(okClicked()) );
+    connect( this, SIGNAL(cancelClicked()), this, SLOT(deleteLater()) );
+    connect( this, SIGNAL(cancelClicked()), Dragon::mainWindow(), SLOT(playMedia()) );
     show();    
 }
 

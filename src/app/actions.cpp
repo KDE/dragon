@@ -37,7 +37,7 @@ Dragon::PlayAction::PlayAction( QObject *receiver, const char *slot, KActionColl
     setAutoToggle( false );
     setShortcut( Qt::Key_Space );
     ac->addAction( objectName(), this );
-    connect( this, SIGNAL( triggered( bool ) ), receiver, slot );
+    connect( this, SIGNAL(triggered(bool)), receiver, slot );
 }
 
 void 
@@ -56,8 +56,8 @@ Dragon::VolumeAction::VolumeAction( QObject *receiver, const char *slot, KAction
     setIcon( KIcon( QLatin1String(  "player-volume" ) ) );
     setShortcut( Qt::Key_V );
     ac->addAction( objectName(), this );
-    connect( this, SIGNAL( triggered( bool ) ), receiver, slot );
-    connect( engine(), SIGNAL( mutedChanged( bool ) ), this, SLOT( mutedChanged( bool ) ) );
+    connect( this, SIGNAL(triggered(bool)), receiver, slot );
+    connect( engine(), SIGNAL(mutedChanged(bool)), this, SLOT(mutedChanged(bool)) );
 }
 
 void

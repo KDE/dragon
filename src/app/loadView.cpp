@@ -39,9 +39,9 @@ LoadView::LoadView( QWidget *parent )
     m_playFileButton->setIcon( KIcon( QLatin1String(  "folder" ) ) );
     m_playFileButton->setIconSize( QSize( KIconLoader::SizeMedium, KIconLoader::SizeMedium ) );
 
-    connect( m_playDiskButton, SIGNAL( released() ), this, SIGNAL( openDVDPressed() ) );
-    connect( m_playFileButton, SIGNAL( released() ), this, SIGNAL( openFilePressed() ) );
-    connect( m_recentlyPlayed, SIGNAL( itemDoubleClicked( KUrl ) ), this, SIGNAL( loadUrl( KUrl ) ) );
+    connect( m_playDiskButton, SIGNAL(released()), this, SIGNAL(openDVDPressed()) );
+    connect( m_playFileButton, SIGNAL(released()), this, SIGNAL(openFilePressed()) );
+    connect( m_recentlyPlayed, SIGNAL(itemDoubleClicked(KUrl)), this, SIGNAL(loadUrl(KUrl)) );
 }
 
 void

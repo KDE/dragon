@@ -37,16 +37,16 @@ PlayerDbusHandler::PlayerDbusHandler(QObject *parent)
     setObjectName( QLatin1String("PlayerDbusHandler" ));
 
     // the presence of media is reflected in the caps:
-    connect( Dragon::engine(), SIGNAL( currentSourceChanged( Phonon::MediaSource ) ), this, SLOT( capsChangeSlot() )  );
+    connect( Dragon::engine(), SIGNAL(currentSourceChanged(Phonon::MediaSource)), this, SLOT(capsChangeSlot())  );
     // the seekable status is reflected in the caps:
-    connect( Dragon::engine(), SIGNAL( seekableChanged( bool ) ), this, SLOT( capsChangeSlot() )  );
-    connect( this, SIGNAL( CapsChange( int ) ), pa, SIGNAL( CapsChange( int ) ) );
+    connect( Dragon::engine(), SIGNAL(seekableChanged(bool)), this, SLOT(capsChangeSlot())  );
+    connect( this, SIGNAL(CapsChange(int)), pa, SIGNAL(CapsChange(int)) );
 
-    connect( Dragon::engine(), SIGNAL( stateUpdated( Phonon::State, Phonon::State ) ), this, SLOT( statusChangeSlot( Phonon::State ) )  );
-    connect( this, SIGNAL( StatusChange( Mpris::Status ) ), pa, SIGNAL( StatusChange( Mpris::Status ) ) );
+    connect( Dragon::engine(), SIGNAL(stateUpdated(Phonon::State,Phonon::State)), this, SLOT(statusChangeSlot(Phonon::State))  );
+    connect( this, SIGNAL(StatusChange(Mpris::Status)), pa, SIGNAL(StatusChange(Mpris::Status)) );
 
-    connect( Dragon::engine(), SIGNAL( metaDataChanged() ), this, SLOT( metadataChangeSlot() )  );
-    connect( this, SIGNAL( TrackChange( QVariantMap ) ), pa, SIGNAL( TrackChange( QVariantMap ) ) );
+    connect( Dragon::engine(), SIGNAL(metaDataChanged()), this, SLOT(metadataChangeSlot())  );
+    connect( this, SIGNAL(TrackChange(QVariantMap)), pa, SIGNAL(TrackChange(QVariantMap)) );
 
     QDBusConnection::sessionBus().registerObject(QLatin1String( "/Player" ), this);
 }
