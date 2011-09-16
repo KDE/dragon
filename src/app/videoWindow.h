@@ -44,8 +44,6 @@ namespace Phonon {
      class AudioDataOutput;
 }
 
-typedef struct xine_stream_s xine_stream_t;
-
 #include "phonon/phononnamespace.h" //Phonon::State
 
 namespace Dragon
@@ -65,7 +63,6 @@ namespace Dragon
         QTimer* m_cursorTimer;
         bool m_justLoaded;
 		bool m_adjustedSize;
-        xine_stream_t* m_xineStream;
         QActionGroup* m_subLanguages;
         QActionGroup* m_audioLanguages;
         QWidget* m_logo;
@@ -130,8 +127,6 @@ namespace Dragon
         qint64 currentTime() const;
         int videoSetting( const QString& );
 
-        const xine_stream_t* xineStream() const { return m_xineStream; }
-
     public slots:
         void pause();
         void playPause();
@@ -159,7 +154,6 @@ namespace Dragon
         virtual void contextMenuEvent( QContextMenuEvent * event );
         virtual void mouseDoubleClickEvent( QMouseEvent* );
         virtual QSize sizeHint() const;
-        void refreshXineStream();
         Phonon::State state( Phonon::State state ) const;
         void setSubtitle( int channel );
         void setAudioChannel( int channel );

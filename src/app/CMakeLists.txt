@@ -1,7 +1,3 @@
-if(XINE_XCB_FOUND)
-    add_definitions(-DHAVE_XINE)
-endif(XINE_XCB_FOUND)
-
 set(videoplayer_common_SRCS
     theStream.cpp
     actions.cpp
@@ -45,11 +41,6 @@ target_link_libraries(dragon
     ${KDE4_SOLID_LIBS}
     ${KDE4_PLASMA_LIBS} )
 
-if(XINE_XCB_FOUND)
-target_link_libraries(dragon
-    ${XINE_LIBRARY})
-endif(XINE_XCB_FOUND)
-
 install(TARGETS dragon ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 set(videoplayer_part_SRCS
@@ -65,10 +56,5 @@ target_link_libraries(dragonpart
     ${KDE4_KDEUI_LIBS}
     ${KDE4_PHONON_LIBS}
     ${KDE4_SOLID_LIBS})
-
-if(XINE_XCB_FOUND)
-target_link_libraries(dragonpart
-    ${XINE_LIBRARY})
-endif(XINE_XCB_FOUND)
 
 install(TARGETS dragonpart DESTINATION ${PLUGIN_INSTALL_DIR} )

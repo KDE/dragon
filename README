@@ -24,14 +24,9 @@ INTRODUCTION
 REQUIREMENTS
   You will need at least:
 
-    * kdelibs 4.0
-    * The Xine backend for Phonon, located in kdebase
-    * xine-lib 1.1
-CMake is also required to build Video Player.
+    * kdelibs 4.x
+    * Phonon
+    * any Phonon backend
+CMake is also required to build Dragon Player.
 
-Note that currently Xine is required since Phonon in KDE 4.0 lacks a few
-features (subtitle and multiple audio tracks). For KDE 4.1, Video Player
-should be a pure-Phonon player, with no explicit Xine requirement.
-
-You could hack the CMake build system and use Video Player without Xine,
-it would probably work fine just without the aforementioned features.
+Note that not all Phonon backends support DVD menus.

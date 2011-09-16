@@ -29,10 +29,6 @@
 #include "actions.h"        //::seek() FIXME unfortunate
 #include "theStream.h"
 
-#ifdef HAVE_XINE
-#include <xine.h>
-#endif
-
 #include <QActionGroup>
 #include <QContextMenuEvent>
 #include <QLabel>
@@ -88,7 +84,6 @@ VideoWindow::VideoWindow( QWidget *parent )
         , m_cursorTimer( new QTimer( this ) )
         , m_justLoaded( false )
         , m_adjustedSize( false)
-        , m_xineStream( 0 )
         , m_subLanguages( new QActionGroup( this ) )
         , m_audioLanguages( new QActionGroup( this ) )
         , m_logo( new QLabel( this ) )
@@ -508,22 +503,6 @@ VideoWindow::newVolumeSlider()
 }
 
 void
-VideoWindow::refreshXineStream()
-{
-   if( m_media->property( "xine_stream_t" ).canConvert<void*>() )
-  //  if( m_media->property( "xine_stream_t" ).isValid() )
-    {
-        kDebug() << "value property " <<  m_media->property( "xine_stream_t" ).type();
-        m_xineStream = (xine_stream_t*) m_media->property( "xine_stream_t" ).value<void*>();
-    }
-    else
-    {
-        kDebug() << "mrrrrrr, QVariant property xine_stream_t isn't a void*.";
-        m_xineStream = 0;
-    }
-}
-
-void
 VideoWindow::stateChanged(Phonon::State currentState, Phonon::State oldstate) // slot
 {
 kDebug() << "chapters: " << m_controller->availableChapters() << " titles: " << m_controller->availableTitles();
@@ -531,14 +510,10 @@ kDebug() << "chapters: " << m_controller->availableChapters() << " titles: " << 
     states << QLatin1String( "Loading" ) << QLatin1String( "Stopped" ) << QLatin1String( "Playing" ) << QLatin1String( "Buffering" ) << QLatin1String( "Paused" ) << QLatin1String( "Error" );
     kDebug() << "going from " << states.at(oldstate) << " to " << states.at(currentState);
 
-    if( currentState == Phonon::LoadingState )
-      m_xineStream = 0;
-
     if( currentState == Phonon::PlayingState  && m_media->hasVideo() )
     {
         m_logo->hide();
         m_vWidget->show();
-        refreshXineStream();
         updateChannels();
 
         if(m_adjustedSize==false)
@@ -670,15 +645,8 @@ VideoWindow::slotSetAudio()
 void
 VideoWindow::toggleDVDMenu()
 {
-#ifdef HAVE_XINE
-    if( m_xineStream )
-    {
-        xine_event_t e;
-        e.type = XINE_EVENT_INPUT_MENU1;
-        e.data = NULL;
-        e.data_length = 0;
-        xine_event_send( m_xineStream, &e );
-    }
+#if PHONON_VERSION >= PHONON_VERSION_CHECK(4, 5, 0)
+    m_controller->setCurrentMenu(MediaController::RootMenu);
 #endif
 }
 

@@ -218,8 +218,7 @@ MainWindow::init()
 
     if( !engine()->init() ) {
         KMessageBox::error( this, i18n(
-            "<qt>xine could not be successfully initialised. Dragon Player will now exit. "
-            "You can try to identify what is wrong with your xine installation using the <b>xine-check</b> command at a command-prompt.</qt>") );
+            "<qt>Phonon could not be successfully initialized. Dragon Player will now exit.</qt>") );
         QApplication::exit( 2 );
     }
 

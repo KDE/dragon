@@ -24,11 +24,6 @@
 
 #include <QMenu>
 //I think this whole file is deprecated - Dave
-extern "C"
-{
-   typedef struct xine_s xine_t;
-}
-
 class QWidget;
 
 namespace Dragon
@@ -37,7 +32,6 @@ namespace Dragon
    
 
    void showVideoSettingsDialog( QWidget* );
-   void showXineConfigurationDialog( QWidget*, xine_t* );
    void insertAspectRatioMenuItems( QMenu* );
 }
 
