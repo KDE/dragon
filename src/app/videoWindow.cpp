@@ -236,12 +236,6 @@ VideoWindow::resume()
     return true;
 }
 
-bool
-VideoWindow::mouseUnderWidget()
-{
-	return m_vWidget->underMouse();
-}
-
 
 bool
 VideoWindow::playDvd()

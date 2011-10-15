@@ -40,8 +40,7 @@ namespace Dragon
             void timerEvent( QTimerEvent* );
         private:
             KToolBar *m_toolbar;
-            int m_timer_id;
-            bool m_stay_hidden_for_a_bit;
+            int m_timer_id; // 0 when timer is not running
             QPoint m_home;
     };
 }

@@ -36,107 +36,79 @@ Dragon::FullScreenToolBarHandler::FullScreenToolBarHandler( KMainWindow *parent 
         : QObject( parent )
         , m_toolbar( parent->toolBar() )
         , m_timer_id( 0 )
-        , m_stay_hidden_for_a_bit( false )
 {
-
     parent->installEventFilter( this );
-    m_toolbar->installEventFilter( this );
 
-    startTimer(2000); // We want to hide automatically some time after fullscreening
+    startTimer( Dragon::VideoWindow::CURSOR_HIDE_TIMEOUT ); // We want to hide automatically some time after fullscreening
 }
 
 bool 
-Dragon::FullScreenToolBarHandler::eventFilter( QObject *o, QEvent *e )
+Dragon::FullScreenToolBarHandler::eventFilter( QObject */*o*/, QEvent *e )
 {
-    if (o == parent() && e->type() == QEvent::MouseMove) {
-        kDebug() << "mouse move, killing timer";
-        killTimer( m_timer_id );
+    if (e->type() == QEvent::MouseMove) {
+        if (m_timer_id) {
+            kDebug() << "mouse move, killing timer";
+            killTimer( m_timer_id );
+            m_timer_id = 0;
+        }
 
         QMouseEvent const * const me = (QMouseEvent*)e;
-        if (m_stay_hidden_for_a_bit) {
-            kDebug() << "staying hidden for a bit";
-            // wait for a small pause before showing the toolbar again
-            // usage = user removes mouse from toolbar after using it
-            // toolbar disappears (usage is over) but usually we show
-            // toolbar immediately when mouse is moved.. so we need this hack
-
-            if (m_toolbar->geometry().contains(me->pos()))
-                goto show_toolbar;
-
-            m_timer_id = startTimer( 100 );
+        
+        if (m_toolbar->geometry().contains(me->pos()) ||
+            static_cast<Dragon::MainWindow*>( Dragon::mainWindow() )->volumeContains(me->pos())) {
+            // no discussion here, mouse is in toolbar or volume slider area
+            kDebug() << "mouse in toolbar area, show toolbar";
+            m_toolbar->show();
+            static_cast<Dragon::MainWindow*>( Dragon::mainWindow() )->showVolume( true );
+        }
+        else if( m_toolbar->isHidden() ) {
+            kDebug() << "mouse moved while toolbar is hidden";
+            if( m_home.isNull() )
+            {
+                kDebug() << "set home";
+                m_home = me->pos(); // store the position where the mouse was when we saw it
+            }
+            else if( ( m_home - me->pos() ).manhattanLength() > 6)
+            {
+                // then cursor has moved far enough to trigger show toolbar
+                kDebug() << "show toolbar";
+                m_toolbar->show();
+                static_cast<Dragon::MainWindow*>( Dragon::mainWindow() )->showVolume( true );
+                m_home = QPoint();
+            }
+            else
+            {
+                kDebug() << "cursor hasn't moved far enough yet " << ( m_home - me->pos() ).manhattanLength();
+                // cursor hasn't moved far enough yet
+            }
         }
         else {
-            if( m_toolbar->isHidden() ) {
-                kDebug() << "toolbar is hidden ";
-                if( m_home.isNull() )
-                {
-                    kDebug() << "set home";
-                    m_home = me->pos();
-                }
-                else if( ( m_home - me->pos() ).manhattanLength() > 6)
-                {
-                    // then cursor has moved far enough to trigger show toolbar
-show_toolbar:
-                    kDebug() << "show toolbar";
-                    m_toolbar->show(),
-                    static_cast<Dragon::MainWindow*>( Dragon::mainWindow() )->showVolume( true );
-                    m_home = QPoint();
-                }
-                else
-                {
-                    kDebug() << "cursor hasn't moved far enough yet " << ( m_home - me->pos() ).manhattanLength();
-                    // cursor hasn't moved far enough yet
-                    // don't reset timer below, return instead
-                    return false;
-                }
-            }
-
             // reset the hide timer
+            kDebug() << "mouse moved in video window while toolbar is shown, starting hide timer: " << Dragon::VideoWindow::CURSOR_HIDE_TIMEOUT;
             m_timer_id = startTimer( Dragon::VideoWindow::CURSOR_HIDE_TIMEOUT );
         }
     }
 
-    if (o == parent() && e->type() == QEvent::Resize)
+    else if (e->type() == QEvent::Resize)
     {
         //we aren't managed by mainWindow when at FullScreen
         videoWindow()->move( 0, 0 );
-        videoWindow()->resize( ((QWidget*)o)->size() );
+        videoWindow()->resize( ((QWidget*)parent())->size() );
         videoWindow()->lower();
     }
-
-    if (o == m_toolbar)
-        switch (e->type()) {
-            case QEvent::Enter:
-                m_stay_hidden_for_a_bit = false;
-                killTimer( m_timer_id );
-            break;
-
-            case QEvent::Leave:
-                static_cast<Dragon::MainWindow*>( Dragon::mainWindow() )->showVolume( false );
-                m_toolbar->hide();
-                m_stay_hidden_for_a_bit = true;
-                killTimer( m_timer_id );
-                m_timer_id = startTimer( 100 );
-            break;
-
-            default: break;
-        }
 
     return false;
 }
 
 void 
-Dragon::FullScreenToolBarHandler::timerEvent( QTimerEvent* )
+Dragon::FullScreenToolBarHandler::timerEvent( QTimerEvent*e )
 {
-    if (m_stay_hidden_for_a_bit)
-        ;
+    killTimer( e->timerId() ); // timers are NOT single-shot!
+    m_timer_id = 0;
 
-    else if ( videoWindow()->mouseUnderWidget() ){
-        static_cast<Dragon::MainWindow*>( Dragon::mainWindow() )->showVolume( false );
-        m_toolbar->hide();
-        }
-
-    m_stay_hidden_for_a_bit = false;
+    kDebug() << "hide timer triggered";
+    static_cast<Dragon::MainWindow*>( Dragon::mainWindow() )->showVolume( false );
+    m_toolbar->hide();
 }
 
 #include "fullScreenToolBarHandler.moc"

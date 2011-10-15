@@ -46,6 +46,8 @@ class QCheckBox;
 namespace Dragon
 {
    class PlayDialog;
+   class FullScreenToolBarHandler;
+   
    class MainWindow : public KXmlGuiWindow
    {
    Q_OBJECT
@@ -61,6 +63,7 @@ namespace Dragon
    public:
       void openRecentFile( const KUrl& );
       void showVolume( bool );
+      bool volumeContains( QPoint mousePos );
 
    signals:
       void fileChanged( QString );
@@ -133,6 +136,7 @@ namespace Dragon
 
       bool m_toolbarIsHidden;
       bool m_statusbarIsHidden;
+      FullScreenToolBarHandler *m_FullScreenHandler;
 
       QActionGroup *m_aspectRatios;
       Q_DISABLE_COPY(MainWindow)

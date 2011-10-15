@@ -94,7 +94,6 @@ namespace Dragon
         bool playDvd();
         bool playDisc( const Solid::Device& );
         bool isMuted();
-        bool mouseUnderWidget();
         bool isPreview(const bool &v = 0);
         void relativeSeek( qint64 );
 

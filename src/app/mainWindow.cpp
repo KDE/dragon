@@ -103,6 +103,7 @@ MainWindow::MainWindow()
         , m_stopScreenPowerMgmtCookie( -1 )
         , m_toolbarIsHidden(false)
         , m_statusbarIsHidden(false)
+        , m_FullScreenHandler( 0 )
 {
     s_instance = this;
     setMouseTracking( true );
@@ -478,7 +479,7 @@ MainWindow::toggleVolumeSlider( bool show )
     else
     {
         disconnect( m_muteCheckBox, SIGNAL(toggled(bool)), videoWindow(), SLOT(mute(bool)) );
-        delete m_rightDock;
+        delete m_rightDock; // it's a QPointer, it will 0 itself
     }
 }
 
@@ -675,7 +676,6 @@ MainWindow::setFullScreen( bool isFullScreen )
 {
     kDebug() << "Setting full screen to " << isFullScreen;
     mainWindow()->setWindowState( (isFullScreen ? Qt::WindowFullScreen : Qt::WindowNoState ));
-    static FullScreenToolBarHandler *s_handler;
 
 	if(isFullScreen)
 	{
@@ -692,15 +692,17 @@ MainWindow::setFullScreen( bool isFullScreen )
     menuBar()->setHidden( isFullScreen );
     if( m_leftDock )
         m_leftDock->setHidden( isFullScreen );
-    if( m_rightDock )
-        m_rightDock->setHidden( isFullScreen );
+    // the right dock is handled by the tool bar handler
 
-    if( isFullScreen )
-        s_handler = new FullScreenToolBarHandler( this );
+    if( isFullScreen ) {
+        if (!m_FullScreenHandler)
+            m_FullScreenHandler = new FullScreenToolBarHandler( this );
+    }
     else
     {
         action( "fullscreen" )->setEnabled( videoWindow()->state() ==  Phonon::PlayingState || videoWindow()->state() ==  Phonon::PausedState);
-        delete s_handler;
+        delete m_FullScreenHandler;
+        m_FullScreenHandler = 0;
     }
 }
 
@@ -709,6 +711,14 @@ MainWindow::showVolume( bool visible)
 {
     if( m_rightDock )
         m_rightDock->setVisible( visible );
+}
+
+bool
+MainWindow::volumeContains( QPoint mousePos )
+{
+    if ( m_rightDock )
+        return m_rightDock->geometry().contains(mousePos);
+    return false;
 }
 
 void
