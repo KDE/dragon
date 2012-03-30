@@ -112,7 +112,7 @@ player plays audio and video in different formats.</para>
 url="help:/dragonplayer">help:/dragonplayer</ulink>
 (either enter this <acronym>URL</acronym> into &konqueror;, or run
 <userinput><command>khelpcenter</command>
-<parameter>help:/kbruch</parameter></userinput>).</para>
+<parameter>help:/dragonplayer</parameter></userinput>).</para>
 </refsect1>
 
 <refsect1 id="copyright"><title>Copyright</title>
