@@ -7,7 +7,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License or (at your option) version 3 or any later version
  * accepted by the membership of KDE e.V. (or its successor approved
- * by the membership of KDE e.V.), which shall act as a proxy 
+ * by the membership of KDE e.V.), which shall act as a proxy
  * defined in Section 14 of version 3 of the license.
  *
  * This program is distributed in the hope that it will be useful,
@@ -35,7 +35,6 @@ static KAboutData aboutData( APP_NAME, 0,
 int
 main( int argc, char **argv )
 {
-    aboutData.setOrganizationDomain( "mpris.org" ); //for DBus
     aboutData.addCredit( ki18n("David Edmundson"), ki18n("Improvements and polish") );
     aboutData.addCredit( ki18n("Matthias Kretz"), ki18n("Creator of Phonon") );
     aboutData.addCredit( ki18n("Eugene Trounev"), ki18n("Dragon Player icon") );

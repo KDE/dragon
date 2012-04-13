@@ -18,17 +18,12 @@ set(videoplayer_app_SRCS
     main.cpp
     timeLabel.cpp
     mainWindow.cpp
-	recentlyPlayedList.cpp
+    recentlyPlayedList.cpp
     audioView.cpp
     loadView.cpp
-    ../dbus/mpristypes.cpp
-    ../dbus/playerDbusHandler.cpp
-    ../dbus/rootDbusHandler.cpp
-    ../dbus/trackListDbusHandler.cpp )
-
-qt4_add_dbus_adaptor( videoplayer_app_SRCS ../dbus/org.kde.dragon.player.xml ../dbus/playerDbusHandler.h PlayerDbusHandler )
-qt4_add_dbus_adaptor( videoplayer_app_SRCS ../dbus/root.xml ../dbus/rootDbusHandler.h RootDbusHandler RootDbusHandlerBase RootDbusHandlerBase )
-qt4_add_dbus_adaptor( videoplayer_app_SRCS ../dbus/tracklist.xml ../dbus/trackListDbusHandler.h TrackListDbusHandler TrackListDbusAdaptor TrackListDbusAdaptor )
+    ../mpris2/mpris2.cpp
+    ../mpris2/mediaplayer2.cpp
+    ../mpris2/mediaplayer2player.cpp )
 
 kde4_add_ui_files(videoplayer_app_SRCS videoSettingsWidget.ui loadView.ui)
 

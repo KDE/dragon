@@ -62,9 +62,7 @@
 
 #include "actions.h"
 #include "discSelectionDialog.h"
-#include "dbus/playerDbusHandler.h"
-#include "dbus/rootDbusHandler.h"
-#include "dbus/trackListDbusHandler.h"
+#include "mpris2/mpris2.h"
 #include "extern.h"         //dialog creation function definitions
 #include "fullScreenToolBarHandler.h"
 #include "messageBox.h"
@@ -233,10 +231,7 @@ MainWindow::init()
     statusBar()->addPermanentWidget( m_titleLabel, 100 );
     statusBar()->addPermanentWidget( m_timeLabel );
 
-    Mpris::registerTypes();
-    new PlayerDbusHandler( this );
-    new RootDbusHandler( this );
-    new TrackListDbusHandler( this );
+    new Mpris2(this);
 
     QApplication::restoreOverrideCursor();
     engineStateChanged(Phonon::StoppedState);//set everything as it would be in stopped state

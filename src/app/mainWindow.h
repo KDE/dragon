@@ -47,7 +47,7 @@ namespace Dragon
 {
    class PlayDialog;
    class FullScreenToolBarHandler;
-   
+
    class MainWindow : public KXmlGuiWindow
    {
    Q_OBJECT

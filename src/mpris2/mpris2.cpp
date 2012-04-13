@@ -1,6 +1,5 @@
 /***********************************************************************
- * Copyright 2005  Max Howell <max.howell@methylblue.com>
- *           2007  Ian Monroe <ian@monroe.nu>
+ * Copyright 2012  Eike Hein <hein@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -19,19 +18,33 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
+#include "mpris2.h"
+#include "mediaplayer2.h"
+#include "mediaplayer2player.h"
+#include "codeine.h"
 
-#ifndef DRAGONPLAYER_PARTTOOLBAR_H
-#define DRAGONPLAYER_PARTTOOLBAR_H
+#include <QDBusConnection>
 
-#include <ktoolbar.h>
-
-
-class MouseOverToolBar : public KToolBar
+Mpris2::Mpris2(QObject* parent) : QObject(parent)
 {
-   virtual bool eventFilter( QObject*, QEvent* );
+    QString mspris2Name("org.mpris.MediaPlayer2." + QLatin1String(APP_NAME));
 
-public:
-   MouseOverToolBar( QWidget *parent );
-};
+    bool success = QDBusConnection::sessionBus().registerService(mspris2Name);
 
-#endif
+    // If the above failed, it's likely because we're not the first instance
+    // and the name is already taken. In that event the MPRIS2 spec wants the
+    // following:
+    if (!success)
+        success = QDBusConnection::sessionBus().registerService(mspris2Name + ".instance" + QString::number(getpid()));
+
+    if (success)
+    {
+        new MediaPlayer2(this);
+        new MediaPlayer2Player(this);
+        QDBusConnection::sessionBus().registerObject("/org/mpris/MediaPlayer2", this, QDBusConnection::ExportAdaptors);
+    }
+}
+
+Mpris2::~Mpris2()
+{
+}
