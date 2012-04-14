@@ -21,10 +21,10 @@
 #ifndef DRAGONPLAYER_MEDIAPLAYRER2PLAYER_H
 #define DRAGONPLAYER_MEDIAPLAYRER2PLAYER_H
 
-#include <Phonon/MediaSource>
-
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
+
+#include <Phonon/MediaSource>
 
 class MediaPlayer2Player : public QDBusAbstractAdaptor
 {
