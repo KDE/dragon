@@ -20,6 +20,7 @@
 
 #include "mediaplayer2player.h"
 #include "mainWindow.h"
+#include "videoWindow.h"
 
 #include <QDBusConnection>
 #include <QDBusMessage>

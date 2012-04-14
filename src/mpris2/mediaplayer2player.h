@@ -21,7 +21,7 @@
 #ifndef DRAGONPLAYER_MEDIAPLAYRER2PLAYER_H
 #define DRAGONPLAYER_MEDIAPLAYRER2PLAYER_H
 
-#include "videoWindow.h"
+#include <Phonon/MediaSource>
 
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
