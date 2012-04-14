@@ -23,6 +23,7 @@
 
 #include <QDBusConnection>
 #include <QDBusMessage>
+#include <KDebug>
 
 MediaPlayer2Player::MediaPlayer2Player(QObject* parent) : QDBusAbstractAdaptor(parent)
 {
@@ -211,11 +212,14 @@ bool MediaPlayer2Player::CanControl() const
     return true;
 }
 
-void MediaPlayer2Player::tick(qint64 pos) const
+void MediaPlayer2Player::tick(qint64 newPos)
 {
-    emit Seeked(pos * 1000);
-
     signalPropertyChange("Position", Position());
+
+    if (newPos - oldPos > Dragon::engine()->tickInterval() + 250 || newPos < oldPos)
+        emit Seeked(newPos * 1000);
+
+    oldPos = newPos;
 }
 
 void MediaPlayer2Player::currentSourceChanged(Phonon::MediaSource source) const

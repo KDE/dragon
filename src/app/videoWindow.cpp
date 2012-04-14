@@ -431,6 +431,12 @@ VideoWindow::seek( qint64 pos )
       m_media->seek( pos );
 }
 
+qint32
+VideoWindow::tickInterval() const
+{
+    return m_media->tickInterval();
+}
+
 void
 VideoWindow::showOSD( const QString &/*message*/ )
 {

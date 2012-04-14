@@ -108,6 +108,7 @@ namespace Dragon
         QString urlOrDisc() const;
         QMultiMap<QString, QString> metaData() const;
         bool isSeekable() const;
+        qint32 tickInterval() const;
         //}
 
         QWidget* newPositionSlider();
