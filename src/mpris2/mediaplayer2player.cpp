@@ -23,7 +23,6 @@
 
 #include <QDBusConnection>
 #include <QDBusMessage>
-#include <KDebug>
 
 MediaPlayer2Player::MediaPlayer2Player(QObject* parent) : QDBusAbstractAdaptor(parent)
 {
