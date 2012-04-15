@@ -41,6 +41,7 @@ main( int argc, char **argv )
     aboutData.addCredit( ki18n("Mike Diehl"), ki18n("Handbook") );
     aboutData.addCredit( ki18n("The Kaffeine Developers"), ki18n("Great reference code") );
     aboutData.addCredit( ki18n("Greenleaf"), ki18n("Yatta happened to be the only video on my laptop to test with. :)") );
+    aboutData.addCredit( ki18n("Eike Hein"), ki18n("MPRIS v2 support") );
 
     KCmdLineArgs::init( argc, argv, &aboutData );
 
