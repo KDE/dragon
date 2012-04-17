@@ -71,7 +71,7 @@ QString MediaPlayer2::Identity() const
 
 QString MediaPlayer2::DesktopEntry() const
 {
-    return QString(APP_NAME);
+    return APP_NAME;
 }
 
 QStringList MediaPlayer2::SupportedUriSchemes() const
