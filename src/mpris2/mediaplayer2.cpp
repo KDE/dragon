@@ -71,13 +71,7 @@ QString MediaPlayer2::Identity() const
 
 QString MediaPlayer2::DesktopEntry() const
 {
-    const KService::List app = KServiceTypeTrader::self()->query(QLatin1String("Application"),
-        QString("Name == '%1'").arg(Identity()));
-
-    if (app.count())
-        return app.value(0)->desktopEntryName();
-
-    return QString();
+    return QString(APP_NAME);
 }
 
 QStringList MediaPlayer2::SupportedUriSchemes() const
@@ -87,13 +81,12 @@ QStringList MediaPlayer2::SupportedUriSchemes() const
 
 QStringList MediaPlayer2::SupportedMimeTypes() const
 {
-    const KService::List app = KServiceTypeTrader::self()->query(QLatin1String("Application"),
-        QString("Name == '%1'").arg(Identity()));
+    KService::Ptr app = KService::serviceByDesktopName(APP_NAME);
 
-    if (app.count())
+    if (app)
         // Unfortunately KServices cannot return just the MIME types but also includes
         // the "Application" service type, so we need to filter it out.
-        return app.value(0)->serviceTypes().filter(QRegExp("^(?!Application).*$"));
+        return app->serviceTypes().filter(QRegExp("^(?!Application).*$"));
 
     return QStringList();
 }
