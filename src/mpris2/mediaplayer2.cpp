@@ -90,9 +90,7 @@ QStringList MediaPlayer2::SupportedMimeTypes() const
     KService::Ptr app = KService::serviceByDesktopName(APP_NAME);
 
     if (app)
-        // Unfortunately KServices cannot return just the MIME types but also includes
-        // the "Application" service type, so we need to filter it out.
-        return app->serviceTypes().filter(QRegExp("^(?!Application).*$"));
+        return app->mimeTypes();
 
     return QStringList();
 }
