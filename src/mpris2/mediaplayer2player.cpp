@@ -22,8 +22,16 @@
 #include "mainWindow.h"
 #include "videoWindow.h"
 
+#include <QCryptographicHash>
 #include <QDBusConnection>
 #include <QDBusMessage>
+
+static QByteArray makeTrackId(const QString& source)
+{
+    return QByteArray("/org/mpris/MediaPlayer2/Track/tid_") +
+        QCryptographicHash::hash(source.toLocal8Bit(), QCryptographicHash::Sha1)
+            .toHex();
+}
 
 MediaPlayer2Player::MediaPlayer2Player(QObject* parent) : QDBusAbstractAdaptor(parent)
 {
@@ -89,9 +97,8 @@ void MediaPlayer2Player::Play() const
 
 void MediaPlayer2Player::SetPosition(const QDBusObjectPath& TrackId, qlonglong Position) const
 {
-    Q_UNUSED(TrackId)
-
-     Dragon::engine()->seek(Position / 1000);
+    if (TrackId.path().toLocal8Bit() == makeTrackId(Dragon::engine()->urlOrDisc()))
+        Dragon::engine()->seek(Position / 1000);
 }
 
 void MediaPlayer2Player::OpenUri(QString Uri) const
@@ -152,7 +159,7 @@ QVariantMap MediaPlayer2Player::Metadata() const
 {
     QVariantMap metaData;
 
-    metaData["mpris:trackid"] = QVariant::fromValue<QDBusObjectPath>(QDBusObjectPath("/org/mpris/MediaPlayer2/Track/1"));
+    metaData["mpris:trackid"] = QVariant::fromValue<QDBusObjectPath>(QDBusObjectPath(makeTrackId(Dragon::engine()->urlOrDisc()).constData()));
 
     QMultiMap<QString, QString> phononMetaData = Dragon::engine()->metaData();
     QMultiMap<QString, QString>::const_iterator i = phononMetaData.constBegin();
