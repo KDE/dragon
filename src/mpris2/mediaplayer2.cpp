@@ -76,7 +76,13 @@ QString MediaPlayer2::DesktopEntry() const
 
 QStringList MediaPlayer2::SupportedUriSchemes() const
 {
-    return KProtocolInfo::protocols();
+    QStringList protocols;
+
+    foreach(const QString& protocol, KProtocolInfo::protocols())
+        if (!KProtocolInfo::isHelperProtocol(protocol))
+            protocols << protocol;
+
+    return protocols;
 }
 
 QStringList MediaPlayer2::SupportedMimeTypes() const
