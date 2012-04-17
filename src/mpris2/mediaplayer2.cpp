@@ -25,7 +25,7 @@
 #include <KApplication>
 #include <KCmdLineArgs>
 #include <KProtocolInfo>
-#include <KServiceTypeTrader>
+#include <KService>
 #include <KWindowSystem>
 
 #include <QWidget>
