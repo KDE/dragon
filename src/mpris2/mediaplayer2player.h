@@ -94,8 +94,6 @@ class MediaPlayer2Player : public QDBusAbstractAdaptor
         void volumeChanged(qreal newVol) const;
 
     private:
-        void signalPropertiesChange(const QVariantMap& properties) const;
-
         qint64 oldPos;
 };
 

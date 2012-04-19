@@ -20,11 +20,10 @@
 
 #include "mediaplayer2player.h"
 #include "mainWindow.h"
+#include "mpris2.h"
 #include "videoWindow.h"
 
 #include <QCryptographicHash>
-#include <QDBusConnection>
-#include <QDBusMessage>
 
 static QByteArray makeTrackId(const QString& source)
 {
@@ -223,7 +222,7 @@ void MediaPlayer2Player::tick(qint64 newPos)
 {
     QVariantMap properties;
     properties["Position"] = Position();
-    signalPropertiesChange(properties);
+    Mpris2::signalPropertiesChange(this, properties);
 
     if (newPos - oldPos > Dragon::engine()->tickInterval() + 250 || newPos < oldPos)
         emit Seeked(newPos * 1000);
@@ -238,7 +237,7 @@ void MediaPlayer2Player::currentSourceChanged(Phonon::MediaSource source) const
     QVariantMap properties;
     properties["Metadata"] = Metadata();
     properties["CanSeek"] = CanSeek();
-    signalPropertiesChange(properties);
+    Mpris2::signalPropertiesChange(this, properties);
 }
 
 void MediaPlayer2Player::stateUpdated(Phonon::State current, Phonon::State old) const
@@ -249,7 +248,7 @@ void MediaPlayer2Player::stateUpdated(Phonon::State current, Phonon::State old) 
     QVariantMap properties;
     properties["PlaybackStatus"] = PlaybackStatus();
     properties["CanPause"] = CanPause();
-    signalPropertiesChange(properties);
+    Mpris2::signalPropertiesChange(this, properties);
 }
 
 void MediaPlayer2Player::totalTimeChanged(qint64 time) const
@@ -258,14 +257,14 @@ void MediaPlayer2Player::totalTimeChanged(qint64 time) const
 
     QVariantMap properties;
     properties["Metadata"] = Metadata();
-    signalPropertiesChange(properties);
+    Mpris2::signalPropertiesChange(this, properties);
 }
 
 void MediaPlayer2Player::seekableChanged(bool seekable) const
 {
     QVariantMap properties;
     properties["CanSeek"] = seekable;
-    signalPropertiesChange(properties);
+    Mpris2::signalPropertiesChange(this, properties);
 }
 
 void MediaPlayer2Player::volumeChanged(qreal newVol) const
@@ -274,20 +273,5 @@ void MediaPlayer2Player::volumeChanged(qreal newVol) const
 
     QVariantMap properties;
     properties["Volume"] = Volume();
-    signalPropertiesChange(properties);
-}
-
-void MediaPlayer2Player::signalPropertiesChange(const QVariantMap& properties) const
-{
-    QDBusMessage msg = QDBusMessage::createSignal("/org/mpris/MediaPlayer2",
-        "org.freedesktop.DBus.Properties", "PropertiesChanged" );
-
-    QVariantList args;
-    args << "org.mpris.MediaPlayer2.Player";
-    args << properties;
-    args << QStringList();
-
-    msg.setArguments(args);
-
-    QDBusConnection::sessionBus().send(msg);
+    Mpris2::signalPropertiesChange(this, properties);
 }

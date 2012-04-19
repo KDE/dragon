@@ -22,6 +22,7 @@
 #define DRAGONPLAYER_MPRIS2_H
 
 #include <QObject>
+#include <QVariantMap>
 
 class Mpris2 : public QObject
 {
@@ -30,6 +31,8 @@ class Mpris2 : public QObject
     public:
         explicit Mpris2(QObject* parent);
         ~Mpris2();
+
+        static void signalPropertiesChange(const QObject* adaptor, const QVariantMap& properties);
 };
 
 #endif

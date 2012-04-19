@@ -24,6 +24,9 @@
 #include "codeine.h"
 
 #include <QDBusConnection>
+#include <QDBusMessage>
+#include <QMetaClassInfo>
+#include <QStringList>
 
 Mpris2::Mpris2(QObject* parent) : QObject(parent)
 {
@@ -47,4 +50,19 @@ Mpris2::Mpris2(QObject* parent) : QObject(parent)
 
 Mpris2::~Mpris2()
 {
+}
+
+void Mpris2::signalPropertiesChange(const QObject* adaptor, const QVariantMap& properties)
+{
+    QDBusMessage msg = QDBusMessage::createSignal("/org/mpris/MediaPlayer2",
+        "org.freedesktop.DBus.Properties", "PropertiesChanged" );
+
+    QVariantList args;
+    args << adaptor->metaObject()->classInfo(0).value();
+    args << properties;
+    args << QStringList();
+
+    msg.setArguments(args);
+
+    QDBusConnection::sessionBus().send(msg);
 }
