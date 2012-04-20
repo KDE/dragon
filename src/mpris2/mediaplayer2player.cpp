@@ -159,7 +159,16 @@ QVariantMap MediaPlayer2Player::Metadata() const
 {
     QVariantMap metaData;
 
-    metaData["mpris:trackid"] = QVariant::fromValue<QDBusObjectPath>(QDBusObjectPath(makeTrackId(Dragon::engine()->urlOrDisc()).constData()));
+    switch (Dragon::engine()->mediaSourceType()) {
+        case Phonon::MediaSource::Invalid:
+        case Phonon::MediaSource::Empty:
+            metaData["mpris:trackid"] = QVariant::fromValue<QDBusObjectPath>(QDBusObjectPath("/org/mpris/MediaPlayer2/TrackList/NoTrack"));
+            break;
+        default:
+            metaData["mpris:trackid"] = QVariant::fromValue<QDBusObjectPath>(QDBusObjectPath(makeTrackId(Dragon::engine()->urlOrDisc()).constData()));
+            metaData["mpris:length"] = Dragon::engine()->length() * 1000;
+            metaData["xesam:url"] = Dragon::engine()->urlOrDisc();
+    }
 
     QMultiMap<QString, QString> phononMetaData = Dragon::engine()->metaData();
     QMultiMap<QString, QString>::const_iterator i = phononMetaData.constBegin();
@@ -172,9 +181,6 @@ QVariantMap MediaPlayer2Player::Metadata() const
 
         ++i;
     }
-
-    metaData["mpris:length"] = Dragon::engine()->length() * 1000;
-    metaData["xesam:url"] = Dragon::engine()->urlOrDisc();
 
     return metaData;
 }
