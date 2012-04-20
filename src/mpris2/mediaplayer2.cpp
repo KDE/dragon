@@ -89,7 +89,7 @@ bool MediaPlayer2::HasTrackList() const
 
 QString MediaPlayer2::Identity() const
 {
-    return KCmdLineArgs::aboutData()->programName();
+    return "kde4-" + KCmdLineArgs::aboutData()->programName();
 }
 
 QString MediaPlayer2::DesktopEntry() const

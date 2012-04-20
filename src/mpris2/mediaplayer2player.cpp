@@ -35,7 +35,8 @@ static QByteArray makeTrackId(const QString& source)
 MediaPlayer2Player::MediaPlayer2Player(QObject* parent) : QDBusAbstractAdaptor(parent)
 {
     connect(Dragon::engine(), SIGNAL(tick(qint64)), this, SLOT(tick(qint64)));
-    connect(Dragon::engine(), SIGNAL(currentSourceChanged(Phonon::MediaSource)), this, SLOT(currentSourceChanged(Phonon::MediaSource)));
+    connect(Dragon::engine(), SIGNAL(currentSourceChanged(Phonon::MediaSource)), this, SLOT(emitMetadataChange()));
+    connect(Dragon::engine(), SIGNAL(metaDataChanged()), this, SLOT(emitMetadataChange()));
     connect(Dragon::engine(), SIGNAL(stateUpdated(Phonon::State,Phonon::State)), this, SLOT(stateUpdated(Phonon::State,Phonon::State)));
     connect(Dragon::engine(), SIGNAL(totalTimeChanged(qint64)), this, SLOT(totalTimeChanged(qint64)));
     connect(Dragon::engine(), SIGNAL(seekableChanged(bool)), this, SLOT(seekableChanged(bool)));
@@ -230,10 +231,8 @@ void MediaPlayer2Player::tick(qint64 newPos)
     oldPos = newPos;
 }
 
-void MediaPlayer2Player::currentSourceChanged(Phonon::MediaSource source) const
+void MediaPlayer2Player::emitMetadataChange() const
 {
-    Q_UNUSED(source)
-
     QVariantMap properties;
     properties["Metadata"] = Metadata();
     properties["CanSeek"] = CanSeek();
