@@ -88,10 +88,11 @@ class MediaPlayer2Player : public QDBusAbstractAdaptor
     private slots:
         void tick(qint64 newPos);
         void emitMetadataChange() const;
-        void stateUpdated(Phonon::State current, Phonon::State old) const;
-        void totalTimeChanged(qint64 time) const;
+        void currentSourceChanged() const;
+        void stateUpdated() const;
+        void totalTimeChanged() const;
         void seekableChanged(bool seekable) const;
-        void volumeChanged(qreal newVol) const;
+        void volumeChanged() const;
 
     private:
         qint64 oldPos;
