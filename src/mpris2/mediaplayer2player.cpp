@@ -27,7 +27,7 @@
 
 static QByteArray makeTrackId(const QString& source)
 {
-    return QByteArray("/org/mpris/MediaPlayer2/Track/tid_") +
+    return QByteArray("/org/kde/") + APP_NAME + "/tid_" +
         QCryptographicHash::hash(source.toLocal8Bit(), QCryptographicHash::Sha1)
             .toHex();
 }
