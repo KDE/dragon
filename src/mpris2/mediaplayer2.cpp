@@ -32,7 +32,7 @@
 
 MediaPlayer2::MediaPlayer2(QObject* parent) : QDBusAbstractAdaptor(parent)
 {
-    connect(Dragon::action("fullscreen"), SIGNAL(toggled(bool)), this, SLOT(updateFullscreen(bool)));
+    connect(Dragon::action("fullscreen"), SIGNAL(toggled(bool)), this, SLOT(emitFullscreenChange(bool)));
 }
 
 MediaPlayer2::~MediaPlayer2()
