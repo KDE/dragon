@@ -19,7 +19,9 @@
  ***********************************************************************/
 
 #include "mediaplayer2.h"
+#include "actions.h"
 #include "codeine.h"
+#include "mpris2.h"
 
 #include <KAboutData>
 #include <KApplication>
@@ -28,10 +30,9 @@
 #include <KService>
 #include <KWindowSystem>
 
-#include <QWidget>
-
 MediaPlayer2::MediaPlayer2(QObject* parent) : QDBusAbstractAdaptor(parent)
 {
+    connect(Dragon::action("fullscreen"), SIGNAL(toggled(bool)), this, SLOT(updateFullscreen(bool)));
 }
 
 MediaPlayer2::~MediaPlayer2()
@@ -57,6 +58,28 @@ void MediaPlayer2::Raise() const
 {
     Dragon::mainWindow()->raise();
     KWindowSystem::activateWindow(Dragon::mainWindow()->winId());
+}
+
+bool MediaPlayer2::Fullscreen() const
+{
+    return Dragon::action("fullscreen")->isChecked();
+}
+
+void MediaPlayer2::setFullscreen(bool fullscreen) const
+{
+    Dragon::action("fullscreen")->setChecked(fullscreen);
+}
+
+void MediaPlayer2::emitFullscreenChange(bool fullscreen) const
+{
+    QVariantMap properties;
+    properties["Fullscreen"] = fullscreen;
+    Mpris2::signalPropertiesChange(this, properties);
+}
+
+bool MediaPlayer2::CanSetFullscreen() const
+{
+    return true;
 }
 
 bool MediaPlayer2::HasTrackList() const

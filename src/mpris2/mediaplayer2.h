@@ -31,6 +31,9 @@ class MediaPlayer2 : public QDBusAbstractAdaptor
     Q_PROPERTY(bool CanQuit READ CanQuit)
     Q_PROPERTY(bool CanRaise READ CanRaise)
 
+    Q_PROPERTY(bool Fullscreen READ Fullscreen WRITE setFullscreen)
+    Q_PROPERTY(bool CanSetFullscreen READ CanSetFullscreen)
+
     Q_PROPERTY(bool HasTrackList READ HasTrackList)
 
     Q_PROPERTY(QString Identity READ Identity)
@@ -46,6 +49,10 @@ class MediaPlayer2 : public QDBusAbstractAdaptor
         bool CanQuit() const;
         bool CanRaise() const;
 
+        bool Fullscreen() const;
+        void setFullscreen(bool fullscreen) const;
+        bool CanSetFullscreen() const;
+
         bool HasTrackList() const;
 
         QString Identity() const;
@@ -57,6 +64,9 @@ class MediaPlayer2 : public QDBusAbstractAdaptor
     public slots:
         void Raise() const;
         void Quit() const;
+
+    private slots:
+        void emitFullscreenChange(bool fullscreen) const;
 };
 
 #endif
