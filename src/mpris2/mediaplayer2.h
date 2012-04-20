@@ -28,8 +28,8 @@ class MediaPlayer2 : public QDBusAbstractAdaptor
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.mpris.MediaPlayer2") // Docs: http://www.mpris.org/2.1/spec/Root_Node.html
 
-    Q_PROPERTY(bool CanRaise READ CanRaise)
     Q_PROPERTY(bool CanQuit READ CanQuit)
+    Q_PROPERTY(bool CanRaise READ CanRaise)
 
     Q_PROPERTY(bool HasTrackList READ HasTrackList)
 
@@ -43,8 +43,8 @@ class MediaPlayer2 : public QDBusAbstractAdaptor
         explicit MediaPlayer2(QObject* parent);
         ~MediaPlayer2();
 
-        bool CanRaise() const;
         bool CanQuit() const;
+        bool CanRaise() const;
 
         bool HasTrackList() const;
 

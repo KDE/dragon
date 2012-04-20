@@ -38,6 +38,16 @@ MediaPlayer2::~MediaPlayer2()
 {
 }
 
+bool MediaPlayer2::CanQuit() const
+{
+    return true;
+}
+
+void MediaPlayer2::Quit() const
+{
+    kapp->closeAllWindows();
+}
+
 bool MediaPlayer2::CanRaise() const
 {
     return true;
@@ -47,16 +57,6 @@ void MediaPlayer2::Raise() const
 {
     Dragon::mainWindow()->raise();
     KWindowSystem::activateWindow(Dragon::mainWindow()->winId());
-}
-
-bool MediaPlayer2::CanQuit() const
-{
-    return true;
-}
-
-void MediaPlayer2::Quit() const
-{
-    kapp->closeAllWindows();
 }
 
 bool MediaPlayer2::HasTrackList() const
