@@ -372,6 +372,12 @@ VideoWindow::urlOrDisc() const
     return QLatin1String( "Error" );
 }
 
+Phonon::MediaSource::Type
+VideoWindow::mediaSourceType() const
+{
+    return m_media->currentSource().type();
+}
+
 QMultiMap<QString, QString>
 VideoWindow::metaData() const
 {

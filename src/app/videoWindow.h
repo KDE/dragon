@@ -107,6 +107,7 @@ namespace Dragon
         void setVolume( qreal );
         QString urlOrDisc() const;
         QMultiMap<QString, QString> metaData() const;
+        Phonon::MediaSource::Type mediaSourceType() const;
         bool isSeekable() const;
         qint32 tickInterval() const;
         //}
