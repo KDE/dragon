@@ -30,15 +30,15 @@
 
 Mpris2::Mpris2(QObject* parent) : QObject(parent)
 {
-    QString mspris2Name("org.mpris.MediaPlayer2." + QLatin1String(APP_NAME));
+    QString mpris2Name("org.mpris.MediaPlayer2." + QLatin1String(APP_NAME));
 
-    bool success = QDBusConnection::sessionBus().registerService(mspris2Name);
+    bool success = QDBusConnection::sessionBus().registerService(mpris2Name);
 
     // If the above failed, it's likely because we're not the first instance
     // and the name is already taken. In that event the MPRIS2 spec wants the
     // following:
     if (!success)
-        success = QDBusConnection::sessionBus().registerService(mspris2Name + ".instance" + QString::number(getpid()));
+        success = QDBusConnection::sessionBus().registerService(mpris2Name + ".instance" + QString::number(getpid()));
 
     if (success)
     {
