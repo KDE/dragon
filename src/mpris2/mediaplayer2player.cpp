@@ -226,10 +226,6 @@ bool MediaPlayer2Player::CanControl() const
 
 void MediaPlayer2Player::tick(qint64 newPos)
 {
-    QVariantMap properties;
-    properties["Position"] = Position();
-    Mpris2::signalPropertiesChange(this, properties);
-
     if (newPos - oldPos > Dragon::engine()->tickInterval() + 250 || newPos < oldPos)
         emit Seeked(newPos * 1000);
 
