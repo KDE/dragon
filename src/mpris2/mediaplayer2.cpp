@@ -57,7 +57,7 @@ bool MediaPlayer2::CanRaise() const
 void MediaPlayer2::Raise() const
 {
     Dragon::mainWindow()->raise();
-    KWindowSystem::activateWindow(Dragon::mainWindow()->winId());
+    KWindowSystem::forceActiveWindow(Dragon::mainWindow()->winId());
 }
 
 bool MediaPlayer2::Fullscreen() const
