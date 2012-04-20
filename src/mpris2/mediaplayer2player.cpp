@@ -162,7 +162,6 @@ QVariantMap MediaPlayer2Player::Metadata() const
     switch (Dragon::engine()->mediaSourceType()) {
         case Phonon::MediaSource::Invalid:
         case Phonon::MediaSource::Empty:
-            metaData["mpris:trackid"] = QVariant::fromValue<QDBusObjectPath>(QDBusObjectPath("/org/mpris/MediaPlayer2/TrackList/NoTrack"));
             break;
         default:
             metaData["mpris:trackid"] = QVariant::fromValue<QDBusObjectPath>(QDBusObjectPath(makeTrackId(Dragon::engine()->urlOrDisc()).constData()));
