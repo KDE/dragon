@@ -112,8 +112,8 @@ QStringList MediaPlayer2::SupportedMimeTypes() const
 {
     KService::Ptr app = KService::serviceByDesktopName(APP_NAME);
 
-    //if (app)
-    //    return app->mimeTypes();
+    if (app)
+        return app->mimeTypes();
 
     return QStringList();
 }
