@@ -28,6 +28,8 @@
 #include <QMetaClassInfo>
 #include <QStringList>
 
+#include <unistd.h>
+
 Mpris2::Mpris2(QObject* parent) : QObject(parent)
 {
     QString mpris2Name("org.mpris.MediaPlayer2." + QLatin1String(APP_NAME));
