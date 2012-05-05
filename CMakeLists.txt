@@ -1,11 +1,9 @@
 project(DragonPlayer)
 
-find_package(Qt4 REQUIRED)
 find_package(KDE4 REQUIRED)
 include(KDE4Defaults)
 include(MacroLibrary)
 
-include_directories(${QT_INCLUDES})
 include_directories(${KDE4_INCLUDES})
 
 include_directories(
