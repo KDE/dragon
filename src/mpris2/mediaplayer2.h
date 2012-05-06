@@ -22,6 +22,7 @@
 #define DRAGONPLAYER_MEDIAPLAYRER2_H
 
 #include <QDBusAbstractAdaptor>
+#include <QStringList> // Needed for automoc'ed cpp to compile
 
 class MediaPlayer2 : public QDBusAbstractAdaptor
 {
