@@ -25,10 +25,6 @@
 #include <KConfigGroup>
 #include <KUrl>
 
-namespace QZeitgeist {
-  class LogModel;
-}
-
 class RecentlyPlayedList : public QListView
 {
   Q_OBJECT
@@ -37,9 +33,6 @@ class RecentlyPlayedList : public QListView
 	virtual ~RecentlyPlayedList();
   private:
 	virtual void contextMenuEvent(QContextMenuEvent*);
-#ifdef HAVE_ZEITGEIST
-  QZeitgeist::LogModel *m_model;
-#endif
   public slots:
   signals:
     void itemDoubleClicked(KUrl);

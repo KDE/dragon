@@ -44,8 +44,8 @@ RecentlyPlayedList::RecentlyPlayedList(QWidget *parent)
   setSelectionMode(QAbstractItemView::SingleSelection);
   //configGroup = new KConfigGroup( KGlobal::config(), "General" );
 #ifdef HAVE_ZEITGEIST
-  m_model = new QZeitgeist::LogModel(this);
-  setModel(m_model);
+  QZeitgeist::LogModel *log = new QZeitgeist::LogModel(this);;
+  setModel(log);
   QZeitgeist::DataModel::Event audioTemplate;
   QZeitgeist::DataModel::Event videoTemplate;
   QZeitgeist::DataModel::Subject audioSubjectTemplate;
@@ -54,9 +54,9 @@ RecentlyPlayedList::RecentlyPlayedList(QWidget *parent)
   videoSubjectTemplate.setInterpretation(QZeitgeist::Interpretation::Subject::NFOVideo);
   audioTemplate.setSubjects(QZeitgeist::DataModel::SubjectList() << audioSubjectTemplate);
   videoTemplate.setSubjects(QZeitgeist::DataModel::SubjectList() << videoSubjectTemplate);
-  m_model->setEventTemplates(QZeitgeist::DataModel::EventList() << audioTemplate << videoTemplate);
-  m_model->setResultType(QZeitgeist::Log::MostRecentSubjects);
-  m_model->refresh();
+  log->setEventTemplates(QZeitgeist::DataModel::EventList() << audioTemplate << videoTemplate);
+  log->setResultType(QZeitgeist::Log::MostRecentSubjects);
+  log->refresh();
 #endif
 }
 
