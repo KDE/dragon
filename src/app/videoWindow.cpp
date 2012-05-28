@@ -103,6 +103,8 @@ VideoWindow::VideoWindow( QWidget *parent )
     box->addWidget( m_vWidget );
     m_aOutput = new AudioOutput( Phonon::VideoCategory, this );
     m_media = new MediaObject( this );
+    // Enable Zeitgeist
+    m_media->setProperty("PlaybackTracking", true);
     m_controller = new MediaController( m_media );
     Phonon::createPath(m_media, m_vWidget);
     m_audioPath = Phonon::createPath(m_media, m_aOutput);
