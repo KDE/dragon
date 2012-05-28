@@ -21,11 +21,15 @@
 #ifndef RECENTLYPLAYEDLIST_H
 #define RECENTLYPLAYEDLIST_H
 
-#include <KListWidget>
+#include <QtGui/QListView>
 #include <KConfigGroup>
 #include <KUrl>
 
-class RecentlyPlayedList : public KListWidget
+namespace QZeitgeist {
+  class LogModel;
+}
+
+class RecentlyPlayedList : public QListView
 {
   Q_OBJECT
   public:
@@ -33,12 +37,10 @@ class RecentlyPlayedList : public KListWidget
 	virtual ~RecentlyPlayedList();
   private:
 	virtual void contextMenuEvent(QContextMenuEvent*);
-	virtual void loadEntries();
-	KConfigGroup* configGroup;
+#ifdef HAVE_ZEITGEIST
+  QZeitgeist::LogModel *m_model;
+#endif
   public slots:
-	virtual void removeEntry();
-	virtual void clearList();
-    virtual void itemDoubleClicked(QListWidgetItem*);
   signals:
     void itemDoubleClicked(KUrl);
 };

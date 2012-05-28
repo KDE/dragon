@@ -19,7 +19,6 @@
  ***********************************************************************/
 
 #include "recentlyPlayedList.h"
-#include <KListWidget>
 #include <KApplication>
 #include <KConfig>
 #include <KDebug>
@@ -32,24 +31,40 @@
 #include <QFileInfo>
 #include <QContextMenuEvent>
 
+#ifdef HAVE_ZEITGEIST
+#include <QZeitgeist/LogModel>
+#include <QZeitgeist/Interpretation>
+#endif
+
 //this is a widget for dispaying the rcently played items in a list. It is subclassed so that we can hook up a context menu
 RecentlyPlayedList::RecentlyPlayedList(QWidget *parent)
-		:KListWidget(parent)
+		:QListView(parent)
 {
-  connect(this,SIGNAL(itemDoubleClicked(QListWidgetItem*)),this, SLOT(itemDoubleClicked(QListWidgetItem*)));
   setAlternatingRowColors( true );
   setSelectionMode(QAbstractItemView::SingleSelection);
-
-  configGroup = new KConfigGroup( KGlobal::config(), "General" );
-  loadEntries();
+  //configGroup = new KConfigGroup( KGlobal::config(), "General" );
+#ifdef HAVE_ZEITGEIST
+  m_model = new QZeitgeist::LogModel(this);
+  setModel(m_model);
+  QZeitgeist::DataModel::Event audioTemplate;
+  QZeitgeist::DataModel::Event videoTemplate;
+  QZeitgeist::DataModel::Subject audioSubjectTemplate;
+  QZeitgeist::DataModel::Subject videoSubjectTemplate;
+  audioSubjectTemplate.setInterpretation(QZeitgeist::Interpretation::Subject::NFOAudio);
+  videoSubjectTemplate.setInterpretation(QZeitgeist::Interpretation::Subject::NFOVideo);
+  audioTemplate.setSubjects(QZeitgeist::DataModel::SubjectList() << audioSubjectTemplate);
+  videoTemplate.setSubjects(QZeitgeist::DataModel::SubjectList() << videoSubjectTemplate);
+  m_model->setEventTemplates(QZeitgeist::DataModel::EventList() << audioTemplate << videoTemplate);
+  m_model->setResultType(QZeitgeist::Log::MostRecentSubjects);
+  m_model->refresh();
+#endif
 }
 
 RecentlyPlayedList::~RecentlyPlayedList()
 {
-  delete configGroup;
 }
 
-void
+/*void
 RecentlyPlayedList::loadEntries()
 {
   clear();
@@ -69,7 +84,7 @@ RecentlyPlayedList::loadEntries()
 	  listItem->setIcon( KIcon( QLatin1String(  "video-x-generic" ) ) );
 	addItem( listItem );
   }
-}
+}*/
 
 void
 RecentlyPlayedList::contextMenuEvent(QContextMenuEvent * event )
@@ -81,7 +96,7 @@ RecentlyPlayedList::contextMenuEvent(QContextMenuEvent * event )
   menu.exec( event->globalPos() );
 }
 
-void
+/*void
 RecentlyPlayedList::removeEntry()
 {
   QStringList list = configGroup->readPathEntry( "Recent Urls", QStringList() );
@@ -122,6 +137,6 @@ RecentlyPlayedList::itemDoubleClicked(QListWidgetItem* item)
   }
 
   emit(itemDoubleClicked(url));
-}
+}*/
 
 #include "recentlyPlayedList.moc"
