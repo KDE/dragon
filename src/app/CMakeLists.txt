@@ -33,7 +33,8 @@ target_link_libraries(dragon
     ${KDE4_KDEUI_LIBS}
     ${KDE4_PHONON_LIBS}
     ${KDE4_SOLID_LIBS}
-    ${KDE4_PLASMA_LIBS} )
+    ${KDE4_PLASMA_LIBS}
+    ${QZEITGEIST_LIBRARY})
 
 install(TARGETS dragon ${INSTALL_TARGETS_DEFAULT_ARGS})
 
@@ -44,11 +45,16 @@ set(videoplayer_part_SRCS
 
 kde4_add_plugin(dragonpart ${videoplayer_part_SRCS})
 
+if(QZEITGEIST_FOUND)
+  add_definitions(-DHAVE_ZEITGEIST)
+endif()
+
 target_link_libraries(dragonpart
     ${KDE4_KPARTS_LIBS}
     ${KDE4_KIO_LIBS}
     ${KDE4_KDEUI_LIBS}
     ${KDE4_PHONON_LIBS}
-    ${KDE4_SOLID_LIBS})
+    ${KDE4_SOLID_LIBS}
+    ${QZEITGEIST_LIBRARY})
 
 install(TARGETS dragonpart DESTINATION ${PLUGIN_INSTALL_DIR} )

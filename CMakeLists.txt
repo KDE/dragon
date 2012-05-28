@@ -4,7 +4,9 @@ find_package(KDE4 REQUIRED)
 include(KDE4Defaults)
 include(MacroLibrary)
 
-include_directories(${KDE4_INCLUDES})
+find_package(QZeitgeist)
+
+include_directories(${KDE4_INCLUDES} ${QZEITGEIST_INCLUDES})
 
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}/src
