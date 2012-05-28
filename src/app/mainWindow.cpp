@@ -66,7 +66,6 @@
 #include "extern.h"         //dialog creation function definitions
 #include "fullScreenToolBarHandler.h"
 #include "messageBox.h"
-#include "playDialog.h"  //::play()
 #include "playlistFile.h"
 #include "theStream.h"
 #include "ui_videoSettingsWidget.h"
@@ -95,7 +94,6 @@ MainWindow::MainWindow()
         , m_volumeSlider( 0 )
         , m_timeLabel( 0 )
         , m_titleLabel( new QLabel( this ) )
-        , m_playDialog( 0 )
         , m_stopScreenSaver( 0 )
         , m_stopSleepCookie( -1 )
         , m_stopScreenPowerMgmtCookie( -1 )
@@ -661,8 +659,6 @@ MainWindow::playDisc()
 void
 MainWindow::openRecentFile( const KUrl& url )
 {
-    m_playDialog->deleteLater();
-    m_playDialog = 0;
     this->open( url );
 }
 

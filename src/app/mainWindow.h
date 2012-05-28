@@ -45,7 +45,6 @@ class QCheckBox;
 
 namespace Dragon
 {
-   class PlayDialog;
    class FullScreenToolBarHandler;
 
    class MainWindow : public KXmlGuiWindow
@@ -127,7 +126,6 @@ namespace Dragon
       TimeLabel *m_timeLabel;
       QLabel *m_titleLabel;
       QList<QSlider*> m_sliders;
-      QPointer<PlayDialog> m_playDialog;
 
       KNotificationRestrictions *m_stopScreenSaver;
       int m_screensaverDisableCookie;
