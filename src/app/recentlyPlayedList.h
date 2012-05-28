@@ -33,6 +33,8 @@ class RecentlyPlayedList : public QListView
 	virtual ~RecentlyPlayedList();
   private:
 	virtual void contextMenuEvent(QContextMenuEvent*);
+  private slots:
+  void handleActivation(const QModelIndex &idx);
   public slots:
   signals:
     void itemDoubleClicked(KUrl);

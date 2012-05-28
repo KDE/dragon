@@ -58,6 +58,15 @@ RecentlyPlayedList::RecentlyPlayedList(QWidget *parent)
   log->setResultType(QZeitgeist::Log::MostRecentSubjects);
   log->refresh();
 #endif
+  connect(this, SIGNAL(activated(const QModelIndex)), this, SLOT(handleActivation(const QModelIndex)));
+}
+
+void
+RecentlyPlayedList::handleActivation(const QModelIndex &idx)
+{
+#ifdef HAVE_ZEITGEIST
+  emit itemDoubleClicked(idx.data(QZeitgeist::LogModel::URLRole).toUrl());
+#endif
 }
 
 RecentlyPlayedList::~RecentlyPlayedList()
