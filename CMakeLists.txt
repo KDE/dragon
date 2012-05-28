@@ -4,7 +4,10 @@ find_package(KDE4 REQUIRED)
 include(KDE4Defaults)
 include(MacroLibrary)
 
-find_package(QZeitgeist)
+option(USE_ZEITGEIST "Build with Zeitgeist support" TRUE)
+if (USE_ZEITGEIST)
+    find_package(QZeitgeist)
+endif()
 
 include_directories(${KDE4_INCLUDES} ${QZEITGEIST_INCLUDES})
 

@@ -24,6 +24,10 @@ set(videoplayer_app_SRCS
     ../mpris2/mediaplayer2.cpp
     ../mpris2/mediaplayer2player.cpp )
 
+if (NOT QZEITGEIST_FOUND)
+    set(videoplayer_app_SRCS ${videoplayer_app_SRCS} recentlyPlayedModel.cpp)
+endif()
+
 kde4_add_ui_files(videoplayer_app_SRCS videoSettingsWidget.ui loadView.ui)
 
 kde4_add_executable(dragon ${videoplayer_app_SRCS} )

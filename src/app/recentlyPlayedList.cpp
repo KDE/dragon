@@ -19,6 +19,7 @@
  ***********************************************************************/
 
 #include "recentlyPlayedList.h"
+#include "recentlyPlayedModel.h"
 #include <KApplication>
 #include <KConfig>
 #include <KDebug>
@@ -42,10 +43,10 @@ RecentlyPlayedList::RecentlyPlayedList(QWidget *parent)
 {
   setAlternatingRowColors( true );
   setSelectionMode(QAbstractItemView::SingleSelection);
-  //configGroup = new KConfigGroup( KGlobal::config(), "General" );
 #ifdef HAVE_ZEITGEIST
   QZeitgeist::LogModel *log = new QZeitgeist::LogModel(this);;
   setModel(log);
+
   QZeitgeist::DataModel::Event audioTemplate;
   QZeitgeist::DataModel::Event videoTemplate;
   QZeitgeist::DataModel::Subject audioSubjectTemplate;
@@ -57,6 +58,8 @@ RecentlyPlayedList::RecentlyPlayedList(QWidget *parent)
   log->setEventTemplates(QZeitgeist::DataModel::EventList() << audioTemplate << videoTemplate);
   log->setResultType(QZeitgeist::Log::MostRecentSubjects);
   log->refresh();
+#else
+  setModel(new RecentlyPlayedModel(this));
 #endif
   connect(this, SIGNAL(activated(const QModelIndex)), this, SLOT(handleActivation(const QModelIndex)));
 }
