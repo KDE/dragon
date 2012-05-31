@@ -62,11 +62,12 @@ namespace Dragon
 
         QTimer* m_cursorTimer;
         bool m_justLoaded;
-		bool m_adjustedSize;
+        bool m_adjustedSize;
         QActionGroup* m_subLanguages;
         QActionGroup* m_audioLanguages;
         QWidget* m_logo;
         bool m_isPreview;
+        quint64 m_initialOffset;
 
         Phonon::VideoWidget *m_vWidget;
         Phonon::AudioOutput *m_aOutput;

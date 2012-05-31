@@ -87,6 +87,7 @@ VideoWindow::VideoWindow( QWidget *parent )
         , m_subLanguages( new QActionGroup( this ) )
         , m_audioLanguages( new QActionGroup( this ) )
         , m_logo( new QLabel( this ) )
+        , m_initialOffset( 0 )
         , m_aDataOutput(0)
 {
 
@@ -219,10 +220,8 @@ VideoWindow::play( qint64 offset )
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
     m_justLoaded = false;
+    m_initialOffset = offset;
     m_media->play();
-    if( offset > 0 )
-        seek( offset );
-    kDebug() << "Does this media have Video stream? " << TheStream::hasVideo();
 
     QApplication::restoreOverrideCursor();
 
@@ -505,6 +504,11 @@ kDebug() << "chapters: " << m_controller->availableChapters() << " titles: " << 
     QStringList states;
     states << QLatin1String( "Loading" ) << QLatin1String( "Stopped" ) << QLatin1String( "Playing" ) << QLatin1String( "Buffering" ) << QLatin1String( "Paused" ) << QLatin1String( "Error" );
     kDebug() << "going from " << states.at(oldstate) << " to " << states.at(currentState);
+
+    if( currentState == Phonon::PlayingState && m_initialOffset > 0) {
+        seek(m_initialOffset);
+        m_initialOffset = 0;
+    }
 
     if( currentState == Phonon::PlayingState  && m_media->hasVideo() )
     {
