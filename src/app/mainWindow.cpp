@@ -240,7 +240,7 @@ MainWindow::init()
     if( !kapp->isSessionRestored() ) {
         KCmdLineArgs &args = *KCmdLineArgs::parsedArgs();
         if (args.isSet( "play-dvd" ))
-            engine()->playDvd();
+            playDisc();
         else if (args.count() > 0 ) {
             this->open( args.url( 0 ) );
             args.clear();
