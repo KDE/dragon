@@ -98,11 +98,13 @@ MainWindow::MainWindow()
         , m_timeLabel( 0 )
         , m_titleLabel( new QLabel( this ) )
         , m_playDialog( 0 )
+        , m_menuToggleAction( 0 )
         , m_stopScreenSaver( 0 )
         , m_stopSleepCookie( -1 )
         , m_stopScreenPowerMgmtCookie( -1 )
         , m_toolbarIsHidden(false)
         , m_statusbarIsHidden(false)
+        , m_menuBarIsHidden(false)
         , m_FullScreenHandler( 0 )
 {
     s_instance = this;
@@ -267,7 +269,7 @@ void MainWindow::closeEvent (QCloseEvent *event)
     mainWindow()->setWindowState( Qt::WindowNoState );
     statusBar()->setHidden( m_statusbarIsHidden );
     toolBar()->setHidden( m_toolbarIsHidden );
-    menuBar()->setHidden( false );
+    menuBar()->setHidden( m_menuBarIsHidden );
 
     KMainWindow::closeEvent( event );
 }
@@ -303,6 +305,11 @@ MainWindow::setupActions()
 
     new PlayAction( this, SLOT(play()), ac );
     new VolumeAction( this, SLOT(toggleVolumeSlider(bool)), ac );
+
+    m_menuToggleAction =
+            static_cast<KToggleAction*>(ac->addAction(KStandardAction::ShowMenubar,
+                                                      menuBar(),
+                                                      SLOT(setVisible(bool))));
 
     KAction* playerStop = new KAction( KIcon(QLatin1String( "media-playback-stop" )), i18n("Stop"), ac );
     playerStop->setObjectName( QLatin1String( "stop" ) );
@@ -675,19 +682,24 @@ MainWindow::setFullScreen( bool isFullScreen )
     kDebug() << "Setting full screen to " << isFullScreen;
     mainWindow()->setWindowState( (isFullScreen ? Qt::WindowFullScreen : Qt::WindowNoState ));
 
-	if(isFullScreen)
-	{
-      m_statusbarIsHidden=statusBar()->isHidden();
-	  m_toolbarIsHidden=toolBar()->isHidden();
-	  toolBar()->setHidden( false );
-      statusBar()->setHidden( true );
-	}
-	else
-	{
-      statusBar()->setHidden(m_statusbarIsHidden);
-	  toolBar()->setHidden(m_toolbarIsHidden);
-	}
-    menuBar()->setHidden( isFullScreen );
+    if(isFullScreen)
+    {
+        m_statusbarIsHidden=statusBar()->isHidden();
+        m_toolbarIsHidden=toolBar()->isHidden();
+        m_menuBarIsHidden=menuBar()->isHidden();
+        toolBar()->setHidden( false );
+        statusBar()->setHidden( true );
+        menuBar()->setHidden(true);
+    }
+    else
+    {
+        statusBar()->setHidden(m_statusbarIsHidden);
+        toolBar()->setHidden(m_toolbarIsHidden);
+        menuBar()->setHidden(m_menuBarIsHidden);
+        // In case someone hit the shortcut while being in fullscreen, the action
+        // would be out of sync.
+        m_menuToggleAction->setChecked(!m_menuBarIsHidden);
+    }
     if( m_leftDock )
         m_leftDock->setHidden( isFullScreen );
     // the right dock is handled by the tool bar handler

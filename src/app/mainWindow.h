@@ -35,6 +35,7 @@
 #include <KXmlGuiWindow>
 
 class KNotificationRestrictions;
+class KToggleAction;
 class KUrl;
 class QActionGroup;
 class QCloseEvent;
@@ -132,6 +133,8 @@ namespace Dragon
       QList<QSlider*> m_sliders;
       QPointer<PlayDialog> m_playDialog;
 
+      KToggleAction *m_menuToggleAction;
+
       KNotificationRestrictions *m_stopScreenSaver;
       int m_screensaverDisableCookie;
       int m_stopSleepCookie;
@@ -139,6 +142,7 @@ namespace Dragon
 
       bool m_toolbarIsHidden;
       bool m_statusbarIsHidden;
+      bool m_menuBarIsHidden;
       FullScreenToolBarHandler *m_FullScreenHandler;
 
       QActionGroup *m_aspectRatios;
