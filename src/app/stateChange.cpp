@@ -127,10 +127,12 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
     else if( Phonon::StoppedState || !TheStream::hasMedia() )
     {
       //stop supressing sleep
-      Solid::PowerManagement::stopSuppressingSleep(m_stopSleepCookie);
+      if (m_stopSleepCookie != -1)
+        Solid::PowerManagement::stopSuppressingSleep(m_stopSleepCookie);
 
       //stop supressing screen power management
-      Solid::PowerManagement::stopSuppressingScreenPowerManagement(m_stopScreenPowerMgmtCookie);
+      if (m_stopScreenPowerMgmtCookie != -1)
+        Solid::PowerManagement::stopSuppressingScreenPowerManagement(m_stopScreenPowerMgmtCookie);
 
      //stop disabling screensaver
       delete m_stopScreenSaver; // It is always 0, I have been careful.
