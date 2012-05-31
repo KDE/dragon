@@ -49,14 +49,21 @@ void Analyzer::Base::transform(QVector<float> &scope ) //virtual
 
 void Analyzer::Base::drawFrame(const QMap<Phonon::AudioDataOutput::Channel, QVector<qint16> > &thescope)
 {
+    if (thescope.isEmpty())
+      return;
+
     static QVector<float> scope( 512 );
     int i = 0;
 
     for( uint x = 0; (int)x < m_fht->size(); ++x )
     {
-       scope[x] = double(thescope[Phonon::AudioDataOutput::LeftChannel][x]
-                        + thescope[Phonon::AudioDataOutput::RightChannel][x])
-                        / (2*(1<<15)); // Average between the channels
+      if (thescope.size() == 1) { // Mono
+        scope[x] = double(thescope[Phonon::AudioDataOutput::LeftChannel][x]);
+      } else { // Anything > Mono is treated as Stereo
+        scope[x] = double(thescope[Phonon::AudioDataOutput::LeftChannel][x]
+                          + thescope[Phonon::AudioDataOutput::RightChannel][x])
+                          / (2*(1<<15)); // Average between the channels
+      }
        i += 2;
     }
 
