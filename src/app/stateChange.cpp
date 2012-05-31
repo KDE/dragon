@@ -26,15 +26,12 @@
 #include <KDebug>
 #include <KLocale>
 #include <KGlobal>
-#include <KNotificationRestrictions>
 #include <KToolBar>
 
 #include <QContextMenuEvent>
 #include <QToolButton>
 #include <QDBusInterface>
 #include <QDBusReply>
-
-#include <solid/powermanagement.h>
 
 #include "actions.h"
 #include "adjustSizeButton.h"

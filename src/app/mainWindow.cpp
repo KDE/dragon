@@ -33,6 +33,7 @@
 #include <KLocale>
 #include <KMenu>
 #include <KMenuBar>
+#include <KNotificationRestrictions>
 #include <KSqueezedTextLabel>
 #include <KStatusBar>
 #include <KToggleFullScreenAction>
@@ -75,6 +76,7 @@
 #include "loadView.h"
 
 #include <phonon/backendcapabilities.h>
+#include <solid/powermanagement.h>
 
 namespace Dragon {
 
