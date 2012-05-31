@@ -206,7 +206,6 @@ VideoWindow::load( const KUrl &url )
         m_media->setCurrentSource( url );
     m_justLoaded = true;
     m_adjustedSize=false;
-    engine()->play();
 
     QApplication::restoreOverrideCursor();
 
@@ -220,9 +219,9 @@ VideoWindow::play( qint64 offset )
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
     m_justLoaded = false;
+    m_media->play();
     if( offset > 0 )
         seek( offset );
-    m_media->play();
     kDebug() << "Does this media have Video stream? " << TheStream::hasVideo();
 
     QApplication::restoreOverrideCursor();
@@ -424,16 +423,6 @@ VideoWindow::isMuted()
 void
 VideoWindow::seek( qint64 pos )
 {
-//    bool wasPaused = false;
-
-    // If we seek to the end the track ended event is sent, but it is
-    // delayed as it happens in xine-event loop and before that we are
-    // already processing the next seek event (if user uses mouse wheel
-    // or keyboard to seek) and this causes the ui to think video is
-    // stopped but xine is actually playing the track. Tada!
-    // TODO set state based on events from xine only
-
-      m_media->pause(); //pausing first gives Phonon a chance to recognize seekable media;
       m_media->seek( pos );
 }
 
