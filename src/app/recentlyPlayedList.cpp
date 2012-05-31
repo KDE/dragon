@@ -74,6 +74,8 @@ RecentlyPlayedList::loadEntries()
 void
 RecentlyPlayedList::contextMenuEvent(QContextMenuEvent * event )
 {
+  if (!currentItem())
+    return;
   KMenu menu;
   kDebug() << "Loading Menu";
   menu.addAction(KIcon(QLatin1String( "list-remove" )),i18n("Remove Entry"),this,SLOT(removeEntry()));
