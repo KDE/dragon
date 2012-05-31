@@ -24,31 +24,15 @@
 
 #include <KConfig>
 #include <KDebug>
-#include <KLocale>
-#include <KGlobal>
 #include <KToolBar>
 
-#include <QContextMenuEvent>
-#include <QToolButton>
-#include <QDBusInterface>
-#include <QDBusReply>
-
 #include "actions.h"
-#include "adjustSizeButton.h"
 #include "theStream.h"
 #include "videoWindow.h"
 
-
-//TODO do in Sconstruct
 #define QT_FATAL_ASSERT
 
-
-//TODO make the XineEngine into xine::Stream and then make singleton and add functions like Stream::hasVideo() etc.
-//TODO make convenience function to get fullscreen state
-
-
 namespace Dragon {
-
 
 void
 MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
@@ -78,8 +62,6 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
         kDebug() << "Error state";
         break;
     }
-
-//     using namespace Engine;
 
     bool enable = false;
     if(state == Phonon::PlayingState || state == Phonon::PausedState)
@@ -138,30 +120,6 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
             dvd_button->setVisible(false);
         }
         action("toggle_dvd_menu")->setEnabled( false );
-    }
-    if( isFullScreen && !toolbar->testAttribute( Qt::WA_UnderMouse ) )
-    {/*
-        switch( state ) {
-        case Engine::TrackEnded:
-            toolbar->show();
-
-            if( videoWindow()->isActiveWindow() ) {
-                //FIXME dual-screen this seems to still show
-                QContextMenuEvent e( QContextMenuEvent::Other, QPoint() );
-                QApplication::sendEvent( videoWindow(), &e );
-            }
-            break;
-        case Engine::Empty:
-        case Engine::Paused:
-        case Engine::Uninitialised:
-            toolBar()->show();
-            break;
-        case Phonon::PlayingState:
-            toolBar()->hide();
-            break;
-        case Engine::Loaded:
-            break;
-        }*/
     }
 }//engineStateChanged
 
