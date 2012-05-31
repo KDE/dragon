@@ -255,6 +255,7 @@ MainWindow::init()
 MainWindow::~MainWindow()
 {
     hide(); //so we appear to have quit, and then sound fades out below
+    releasePowerSave();
     delete videoWindow(); //fades out sound in dtor
 }
 
@@ -778,6 +779,31 @@ MainWindow::keyPressEvent( QKeyEvent *e )
     }
 
     #undef seek
+}
+
+void
+MainWindow::inhibitPowerSave()
+{
+    m_stopSleepCookie = Solid::PowerManagement::beginSuppressingSleep(QLatin1String( "watching a film" ));
+    m_stopScreenPowerMgmtCookie = Solid::PowerManagement::beginSuppressingScreenPowerManagement(QLatin1String( "watching a film" ));
+    if (!m_stopScreenSaver)
+        m_stopScreenSaver = new KNotificationRestrictions(KNotificationRestrictions::ScreenSaver);
+}
+
+void
+MainWindow::releasePowerSave()
+{
+    //stop supressing sleep
+    if (m_stopSleepCookie != -1)
+      Solid::PowerManagement::stopSuppressingSleep(m_stopSleepCookie);
+
+    //stop supressing screen power management
+    if (m_stopScreenPowerMgmtCookie != -1)
+      Solid::PowerManagement::stopSuppressingScreenPowerManagement(m_stopScreenPowerMgmtCookie);
+
+   //stop disabling screensaver
+    delete m_stopScreenSaver; // It is always 0, I have been careful.
+    m_stopScreenSaver = 0;
 }
 
 QMenu*

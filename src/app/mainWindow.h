@@ -111,6 +111,9 @@ namespace Dragon
       virtual void dropEvent( QDropEvent* );
       virtual void keyPressEvent( QKeyEvent* );
 
+      void inhibitPowerSave();
+      void releasePowerSave();
+
 //      virtual void saveProperties( KConfig* );
 //      virtual void readProperties( KConfig* );
 
