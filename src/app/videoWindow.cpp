@@ -722,6 +722,18 @@ VideoWindow::tenSecondsForward()
     relativeSeek( 10000 );
 }
 
+void
+VideoWindow::increaseVolume()
+{
+    m_aOutput->setVolume(qMin(1.0, volume() + 0.10));
+}
+
+void
+VideoWindow::decreaseVolume()
+{
+    m_aOutput->setVolume(qMax(0.0, volume() - 0.10));
+}
+
 ///////////
 ///Protected
 ///////////

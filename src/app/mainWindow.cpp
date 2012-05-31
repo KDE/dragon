@@ -301,6 +301,16 @@ MainWindow::setupActions()
     new PlayAction( this, SLOT(play()), ac );
     new VolumeAction( this, SLOT(toggleVolumeSlider(bool)), ac );
 
+    KAction *action = new KAction(i18nc("@action", "Increase Volume"), ac);
+    action->setObjectName(QLatin1String("volume_inc"));
+    connect(action, SIGNAL(triggered()), engine(), SLOT(increaseVolume()));
+    addToAc(action);
+
+    action = new KAction(i18nc("@action", "Decrease Volume"), ac);
+    action->setObjectName(QLatin1String("volume_dec"));
+    connect(action, SIGNAL(triggered()), engine(), SLOT(decreaseVolume()));
+    addToAc(action);
+
     KAction* playerStop = new KAction( KIcon(QLatin1String( "media-playback-stop" )), i18n("Stop"), ac );
     playerStop->setObjectName( QLatin1String( "stop" ) );
     playerStop->setShortcut( Qt::Key_S );
