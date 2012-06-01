@@ -64,7 +64,7 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
     }
 
     bool enable = false;
-    if(state == Phonon::PlayingState || state == Phonon::PausedState)
+    if(state == Phonon::PlayingState || state == Phonon::PausedState || state == Phonon::BufferingState)
     {
       enable = true;
     }
@@ -86,8 +86,8 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
         // is disabled if we are empty, this looks more sensible
         PlayAction* playAction = static_cast<PlayAction*>( actionCollection()->action(QLatin1String( "play" )) );
         playAction->setEnabled( hasMedia );
-        playAction->setPlaying( state == Phonon::PlayingState );
-        actionCollection()->action(QLatin1String( "aspect_ratio_menu" ))->setEnabled(( state == Phonon::PlayingState || state == Phonon::PausedState) && TheStream::hasVideo() );
+        playAction->setPlaying( state == Phonon::PlayingState || state == Phonon::BufferingState );
+        actionCollection()->action(QLatin1String( "aspect_ratio_menu" ))->setEnabled((enable) && TheStream::hasVideo() );
 
         // set correct aspect ratio
         if( state != Phonon::LoadingState )
