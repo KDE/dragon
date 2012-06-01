@@ -641,7 +641,11 @@ MainWindow::playDisc()
             const Solid::OpticalDisc* disc = device.as<const Solid::OpticalDisc>();
             if( disc )
             {
-                if( disc->availableContent() & ( Solid::OpticalDisc::VideoDvd | Solid::OpticalDisc::VideoCd | Solid::OpticalDisc::SuperVideoCd |  Solid::OpticalDisc::Audio ) )
+                if( disc->availableContent() & ( Solid::OpticalDisc::VideoDvd
+                                                 | Solid::OpticalDisc::VideoCd
+                                                 | Solid::OpticalDisc::SuperVideoCd
+                                                 | Solid::OpticalDisc::Audio
+                                                 | Solid::OpticalDisc::VideoBluRay ) )
                     playableDiscs << device;
 
             }

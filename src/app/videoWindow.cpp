@@ -276,6 +276,10 @@ VideoWindow::playDisc(const Solid::Device& device )
             case Solid::OpticalDisc::Audio:
                 phononType = Phonon::Cd;
                 break;
+#warning needs if phonon version!
+            case Solid::OpticalDisc::VideoBluRay:
+                phononType = Phonon::BluRay;
+                break;
             }
 
             if( phononType == Phonon::NoDisc ){
