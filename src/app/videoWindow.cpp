@@ -265,14 +265,20 @@ VideoWindow::playDisc(const Solid::Device& device )
         Phonon::DiscType phononType = Phonon::NoDisc;
         {
             Solid::OpticalDisc::ContentTypes solidType = disc->availableContent();
-            if( solidType & Solid::OpticalDisc::VideoDvd )
+            switch( solidType ) {
+            case Solid::OpticalDisc::VideoDvd:
                 phononType = Phonon::Dvd;
-            else if( solidType & ( Solid::OpticalDisc::VideoCd | Solid::OpticalDisc::SuperVideoCd ) )
+                break;
+            case Solid::OpticalDisc::VideoCd:
+            case Solid::OpticalDisc::SuperVideoCd:
                 phononType = Phonon::Vcd;
-            else if( solidType &  Solid::OpticalDisc::Audio )
+                break;
+            case Solid::OpticalDisc::Audio:
                 phononType = Phonon::Cd;
-            else
-            {
+                break;
+            }
+
+            if( phononType == Phonon::NoDisc ){
                 kDebug() << "not a playable disc type: " << disc->availableContent() << " type";
                 return false;
             }
