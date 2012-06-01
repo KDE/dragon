@@ -798,8 +798,10 @@ MainWindow::keyPressEvent( QKeyEvent *e )
 void
 MainWindow::inhibitPowerSave()
 {
-    m_stopSleepCookie = Solid::PowerManagement::beginSuppressingSleep(QLatin1String( "watching a film" ));
-    m_stopScreenPowerMgmtCookie = Solid::PowerManagement::beginSuppressingScreenPowerManagement(QLatin1String( "watching a film" ));
+    if (m_stopSleepCookie == -1)
+        m_stopSleepCookie = Solid::PowerManagement::beginSuppressingSleep(QLatin1String( "watching a film" ));
+    if (m_stopScreenPowerMgmtCookie == -1)
+        m_stopScreenPowerMgmtCookie = Solid::PowerManagement::beginSuppressingScreenPowerManagement(QLatin1String( "watching a film" ));
     if (!m_stopScreenSaver)
         m_stopScreenSaver = new KNotificationRestrictions(KNotificationRestrictions::ScreenSaver);
 }
@@ -808,14 +810,18 @@ void
 MainWindow::releasePowerSave()
 {
     //stop supressing sleep
-    if (m_stopSleepCookie != -1)
-      Solid::PowerManagement::stopSuppressingSleep(m_stopSleepCookie);
+    if (m_stopSleepCookie != -1) {
+        Solid::PowerManagement::stopSuppressingSleep(m_stopSleepCookie);
+        m_stopSleepCookie = -1;
+    }
 
     //stop supressing screen power management
-    if (m_stopScreenPowerMgmtCookie != -1)
-      Solid::PowerManagement::stopSuppressingScreenPowerManagement(m_stopScreenPowerMgmtCookie);
+    if (m_stopScreenPowerMgmtCookie != -1) {
+        Solid::PowerManagement::stopSuppressingScreenPowerManagement(m_stopScreenPowerMgmtCookie);
+        m_stopScreenPowerMgmtCookie = -1;
+    }
 
-   //stop disabling screensaver
+    //stop disabling screensaver
     delete m_stopScreenSaver; // It is always 0, I have been careful.
     m_stopScreenSaver = 0;
 }
