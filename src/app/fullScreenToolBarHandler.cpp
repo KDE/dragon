@@ -34,8 +34,8 @@
 
 Dragon::FullScreenToolBarHandler::FullScreenToolBarHandler( KMainWindow *parent )
         : QObject( parent )
-        , m_toolbar( parent->toolBar() )
         , m_timer_id( 0 )
+        , m_parent(parent)
 {
     parent->installEventFilter( this );
 
@@ -53,15 +53,15 @@ Dragon::FullScreenToolBarHandler::eventFilter( QObject */*o*/, QEvent *e )
         }
 
         QMouseEvent const * const me = (QMouseEvent*)e;
-        
-        if (m_toolbar->geometry().contains(me->pos()) ||
+
+        if (m_parent->toolBar()->geometry().contains(me->pos()) ||
             static_cast<Dragon::MainWindow*>( Dragon::mainWindow() )->volumeContains(me->pos())) {
             // no discussion here, mouse is in toolbar or volume slider area
             kDebug() << "mouse in toolbar area, show toolbar";
-            m_toolbar->show();
+            m_parent->toolBar()->show();
             static_cast<Dragon::MainWindow*>( Dragon::mainWindow() )->showVolume( true );
         }
-        else if( m_toolbar->isHidden() ) {
+        else if( m_parent->toolBar()->isHidden() ) {
             kDebug() << "mouse moved while toolbar is hidden";
             if( m_home.isNull() )
             {
@@ -72,7 +72,7 @@ Dragon::FullScreenToolBarHandler::eventFilter( QObject */*o*/, QEvent *e )
             {
                 // then cursor has moved far enough to trigger show toolbar
                 kDebug() << "show toolbar";
-                m_toolbar->show();
+                m_parent->toolBar()->show();
                 static_cast<Dragon::MainWindow*>( Dragon::mainWindow() )->showVolume( true );
                 m_home = QPoint();
             }
@@ -108,7 +108,7 @@ Dragon::FullScreenToolBarHandler::timerEvent( QTimerEvent*e )
 
     kDebug() << "hide timer triggered";
     static_cast<Dragon::MainWindow*>( Dragon::mainWindow() )->showVolume( false );
-    m_toolbar->hide();
+    m_parent->toolBar()->hide();
 }
 
 #include "fullScreenToolBarHandler.moc"

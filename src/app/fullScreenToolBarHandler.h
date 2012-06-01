@@ -39,9 +39,9 @@ namespace Dragon
             bool eventFilter( QObject *o, QEvent *e );
             void timerEvent( QTimerEvent* );
         private:
-            KToolBar *m_toolbar;
             int m_timer_id; // 0 when timer is not running
             QPoint m_home;
+            KMainWindow *m_parent;
     };
 }
 #endif
