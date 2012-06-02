@@ -462,6 +462,7 @@ MainWindow::toggleVolumeSlider( bool show )
     {
         m_volumeSlider = engine()->newVolumeSlider();
         m_volumeSlider->setDisabled ( engine()->isMuted() );
+        m_volumeSlider->setFocus(Qt::PopupFocusReason);
 
         m_muteCheckBox = new QCheckBox();
         m_muteCheckBox->setText( i18nc( "Mute the sound output", "Mute " ) );
