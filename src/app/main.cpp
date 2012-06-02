@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 #include "codeine.h"
-#include "mainWindow.h"
+#include "playerApplication.h"
 
 #include <KAboutData>
 #include <KApplication>
@@ -49,11 +49,10 @@ main( int argc, char **argv )
     options.add("+[URL]", ki18n( "Play 'URL'" ));
     options.add("play-dvd", ki18n( "Play DVD Video" ));
     KCmdLineArgs::addCmdLineOptions( options );
+    KUniqueApplication::addCmdLineOptions();
 
-    KApplication application;
+    Dragon::PlayerApplication application;
     int returnValue;
-    Dragon::MainWindow* mainWindow = new Dragon::MainWindow();
-    mainWindow->show();
     returnValue = application.exec();
     return returnValue;
 }

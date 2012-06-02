@@ -346,6 +346,16 @@ MainWindow::setupActions()
     connect( videoSettings, SIGNAL(toggled(bool)), this, SLOT(toggleVideoSettings(bool)) );
     addToAc( videoSettings )
 
+    KAction* uniqueToggle =
+            new KAction( i18nc("@action:inmenu Whether only one instance of dragon can be started"
+                               " and will be reused when the user tries to play another file.",
+                               "One Instance Only"), ac );
+    uniqueToggle->setObjectName( QLatin1String( "unique" ) );
+    uniqueToggle->setCheckable( true );
+    uniqueToggle->setChecked( !KGlobal::config()->group("General").readEntry("MultipleInstances", QVariant(false)).toBool() );
+    connect( uniqueToggle, SIGNAL(toggled(bool)), this, SLOT(toggleUnique(bool)) );
+    addToAc( uniqueToggle )
+
     KAction* prev_chapter = new KAction( KIcon(QLatin1String( "media-skip-backward" )), i18n("Previous Chapter"), ac );
     prev_chapter->setObjectName( QLatin1String( "prev_chapter" ) );
     prev_chapter->setShortcut( Qt::Key_Comma );
@@ -384,6 +394,13 @@ MainWindow::setupActions()
     connect( tenSecondsForward, SIGNAL(triggered()), engine(), SLOT(tenSecondsForward()) );
     addToAc( tenSecondsForward )
     #undef addToAc
+}
+
+void
+MainWindow::toggleUnique( bool unique )
+{
+    KGlobal::config()->group("General").writeEntry("MultipleInstances", !unique);
+    KGlobal::config()->sync();
 }
 
 void

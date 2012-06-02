@@ -16,6 +16,7 @@ set(videoplayer_app_SRCS
     fullScreenToolBarHandler.cpp
     playlistFile.cpp
     main.cpp
+    playerApplication.cpp
     timeLabel.cpp
     mainWindow.cpp
     recentlyPlayedList.cpp

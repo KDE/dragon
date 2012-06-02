@@ -58,7 +58,7 @@ namespace Dragon
 
       static MainWindow *s_instance;
 
-      friend int ::main( int, char** );
+      friend class PlayerApplication;
       friend QWidget* mainWindow();
 
    public:
@@ -78,6 +78,7 @@ namespace Dragon
       void toggleVolumeSlider( bool );
       void restoreDefaultVideoSettings();
       void toggleLoadView();
+      void parseArgs();
 
 
 
@@ -96,6 +97,7 @@ namespace Dragon
       void engineSeekableChanged( bool );
       void engineMetaDataChanged();
       void engineHasVideoChanged( bool );
+      void toggleUnique( bool );
 
 
 
