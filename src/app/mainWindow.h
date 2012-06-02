@@ -90,14 +90,13 @@ namespace Dragon
       void subChannelsChanged( QList< QAction* > );
       void audioChannelsChanged( QList< QAction* > );
       void mutedChanged( bool );
+      void stop();
       //in stateChange.cpp
       void engineStateChanged( Phonon::State, Phonon::State = Phonon::StoppedState);
       void engineMediaChanged( Phonon::MediaSource );
       void engineSeekableChanged( bool );
       void engineMetaDataChanged();
       void engineHasVideoChanged( bool );
-
-
 
    private:
       bool load( const KUrl& );

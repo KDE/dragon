@@ -314,7 +314,7 @@ MainWindow::setupActions()
     KAction* playerStop = new KAction( KIcon(QLatin1String( "media-playback-stop" )), i18n("Stop"), ac );
     playerStop->setObjectName( QLatin1String( "stop" ) );
     playerStop->setShortcut( Qt::Key_S );
-    connect( playerStop, SIGNAL(triggered()), engine(), SLOT(stop()) );
+    connect( playerStop, SIGNAL(triggered()), this, SLOT(stop()) );
     addToAc( playerStop )
 
     KToggleAction* mute = new KToggleAction( KIcon(QLatin1String( "player-volume-muted" )), i18nc( "Mute the sound output", "Mute"), ac );
@@ -497,6 +497,12 @@ MainWindow::mutedChanged( bool mute )
         m_volumeSlider->setDisabled ( mute );
         m_muteCheckBox->setChecked ( mute );
       }
+}
+
+void MainWindow::stop()
+{
+    engine()->stop();
+    m_mainView->setCurrentWidget(m_loadView);
 }
 
 void
