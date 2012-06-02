@@ -610,23 +610,25 @@ MainWindow::play()
 void
 MainWindow::openFileDialog()
 {
-       QStringList mimeFilter = Phonon::BackendCapabilities::availableMimeTypes();
-        //temporary fixes for MimeTypes that Xine does support but it doesn't return - this is a Xine bug.
-        mimeFilter << QLatin1String( "audio/x-flac");
-        mimeFilter << QLatin1String( "video/mp4" );
-        mimeFilter << QLatin1String( "application/x-cd-image" ); // added for *.iso images
+    QStringList mimeFilter = Phonon::BackendCapabilities::availableMimeTypes();
+    //temporary fixes for MimeTypes that Xine does support but it doesn't return - this is a Xine bug.
+    mimeFilter << QLatin1String( "audio/x-flac");
+    mimeFilter << QLatin1String( "video/mp4" );
+    mimeFilter << QLatin1String( "application/x-cd-image" ); // added for *.iso images
 
-        const KUrl url = KFileDialog::getOpenUrl( KUrl("kfiledialog:///dragonplayer"),mimeFilter.join(QLatin1String( " " ))
-                                        , this, i18n("Select File to Play") );
-        if( url.isEmpty() )
-        {
-            kDebug() << "URL empty in MainWindow::playDialogResult()";
-            return;
-        }
-        else
-        {
-            load( url );
-        }
+    const KUrl url =
+            KFileDialog::getOpenUrl(KGlobalSettings::videosPath(),
+                                    mimeFilter.join(QLatin1String(" ")),
+                                    this, i18n("Select File to Play") );
+    if( url.isEmpty() )
+    {
+        kDebug() << "URL empty in MainWindow::playDialogResult()";
+        return;
+    }
+    else
+    {
+        load( url );
+    }
 }
 
 void
