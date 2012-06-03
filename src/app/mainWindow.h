@@ -34,6 +34,11 @@
 #include <Phonon/MediaSource>
 #include <KXmlGuiWindow>
 
+#include <solid/solidnamespace.h>
+
+#include <QWaitCondition>
+#include <QMutex>
+
 class KNotificationRestrictions;
 class KToggleAction;
 class KUrl;
@@ -97,9 +102,14 @@ namespace Dragon
       void engineMetaDataChanged();
       void engineHasVideoChanged( bool );
 
+      void setupDone(Solid::ErrorType error, QVariant errorData, const QString &udi);
+
 
 
    private:
+      QMutex m_setupMutex;
+      QWaitCondition m_setupCondition;
+
       bool load( const KUrl& );
       void setupActions();
       void updateSliders();

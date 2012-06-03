@@ -650,16 +650,21 @@ MainWindow::playDisc()
                                                  | Solid::OpticalDisc::VideoBluRay ) )
                     playableDiscs << device;
                 else if (disc->discType() == Solid::OpticalDisc::BluRayRom) {
+#warning needs to be threaded as setup and teardown is async
                     kDebug() << "BR: BluRayRom detected, using mount probe.";
                     Solid::StorageAccess *storage = device.as<Solid::StorageAccess>();
                     bool wasMounted = true;
                     if (!storage->isAccessible()) {
                         kDebug() << "BR: Not mounted yet -> trying to mount.";
                         wasMounted = false;
+                        QMutexLocker lock(&m_setupMutex);
+                        connect(storage, SIGNAL(setupDone(Solid::ErrorType,QVariant,QString)),
+                                this, SLOT(setupDone(Solid::ErrorType,QVariant,QString)));
                         if (!storage->setup()) {
                             kDebug() << "BR: mount failed.";
                             continue;
                         }
+                        m_setupCondition.wait(&m_setupMutex);
                         kDebug() << "BR: mounted.";
                     }
                     QString bdmvPath = storage->filePath() % QLatin1Char('/') % QLatin1Literal("BDMV");
@@ -697,6 +702,13 @@ MainWindow::playDisc()
         kDebug() << "no disc in drive or Solid isn't working";
     }
 
+}
+
+void MainWindow::setupDone(Solid::ErrorType error, QVariant errorData, const QString &udi)
+{
+    m_setupMutex.lock();
+    m_setupCondition.wakeAll();
+    m_setupMutex.unlock();
 }
 
 void
