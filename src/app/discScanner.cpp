@@ -71,8 +71,10 @@ void DiscScanner::gotNoDevice()
 
 inline void DiscScanner::tryEmit()
 {
-    if (m_waitCount == 0)
-        emit detectedDevices(m_playableDevices);
+    if (m_waitCount == 0) {
+        emit detectedDevices(m_playableDevices); // Must be direct connected becaue of delete!
+        deleteLater();
+    }
 }
 
 } // namespace Dragon

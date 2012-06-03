@@ -640,9 +640,11 @@ MainWindow::openFileDialog()
 void
 MainWindow::playDisc()
 {
-#warning LEAK!!!!$!
+#ifdef __GNUC__
 #warning can be called more than once -> boooooh!
-    DiscScanner *scanner = new DiscScanner(this);
+#warning no busy indication
+#endif
+    DiscScanner *scanner = new DiscScanner(this); // Auto deletes.
     connect(scanner, SIGNAL(detectedDevices(QList<Solid::Device>)),
             this, SLOT(processDetectedDiscs(QList<Solid::Device>)));
     scanner->scan();
