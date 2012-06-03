@@ -22,6 +22,7 @@
 #define DRAGON_BLURAYPROBE_H
 
 #include <QtCore/QObject>
+#include <solid/device.h>
 #include <solid/solidnamespace.h>
 
 namespace Solid {
@@ -51,7 +52,7 @@ private:
     bool m_wasAccessible;
 
     /** Probed device */
-    Solid::Device &m_device;
+    Solid::Device m_device;
 
     /** Probed storage */
     Solid::StorageAccess *m_storage;

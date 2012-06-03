@@ -35,7 +35,7 @@ DiscScanner::DiscScanner(QObject *parent)
 void DiscScanner::scan()
 {
     foreach (Solid::Device device, Solid::Device::listFromType(Solid::DeviceInterface::OpticalDisc)) {
-        const Solid::OpticalDisc* disc = device.as<const Solid::OpticalDisc>();
+        const Solid::OpticalDisc *disc = device.as<const Solid::OpticalDisc>();
         if (disc) {
             if(disc->availableContent() & ( Solid::OpticalDisc::VideoDvd
                                             | Solid::OpticalDisc::VideoCd

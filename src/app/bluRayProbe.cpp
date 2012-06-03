@@ -25,7 +25,6 @@
 #include <QtCore/QFile>
 #include <QtCore/QStringBuilder>
 
-#include <solid/device.h>
 #include <solid/storageaccess.h>
 
 namespace Dragon {
