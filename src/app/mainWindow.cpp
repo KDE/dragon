@@ -652,18 +652,26 @@ MainWindow::playDisc()
                 else if (disc->discType() == Solid::OpticalDisc::BluRayRom) {
                     kDebug() << "BR: BluRayRom detected, using mount probe.";
                     Solid::StorageAccess *storage = device.as<Solid::StorageAccess>();
+                    bool wasMounted = true;
                     if (!storage->isAccessible()) {
-                        kDebug() << "BR: Not mounted yet.";
+                        kDebug() << "BR: Not mounted yet -> trying to mount.";
+                        wasMounted = false;
                         if (!storage->setup()) {
                             kDebug() << "BR: mount failed.";
                             continue;
                         }
+                        kDebug() << "BR: mounted.";
                     }
                     if (QFile(storage->filePath() % QLatin1Char('/') % QLatin1Literal("BDMV")).exists()) {
                         kDebug() << "BR: BDMV found, marking playable.";
                         playableDiscs << device;
-                    } else
+                    } else {
                         kDebug() << "BR: BDMV not found.";
+                        if (!wasMounted) {
+                            kDebug() << "BR: unmounting again.";
+                            storage->teardown();
+                        }
+                    }
                 }
             }
         }
