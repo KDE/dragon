@@ -8,6 +8,8 @@ set(videoplayer_app_SRCS
     analyzer/analyzerBase.cpp
     analyzer/blockAnalyzer.cpp
     analyzer/fht.cpp
+    bluRayProbe.cpp
+    discScanner.cpp
     stateChange.cpp
     textItem.cpp
     playDialog.cpp

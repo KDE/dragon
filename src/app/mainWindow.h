@@ -34,6 +34,7 @@
 #include <Phonon/MediaSource>
 #include <KXmlGuiWindow>
 
+#include <solid/device.h>
 #include <solid/solidnamespace.h>
 
 #include <QWaitCondition>
@@ -84,8 +85,6 @@ namespace Dragon
       void restoreDefaultVideoSettings();
       void toggleLoadView();
 
-
-
    private slots:
       void setFullScreen( bool full );
       void engineMessage( const QString& );
@@ -95,16 +94,13 @@ namespace Dragon
       void subChannelsChanged( QList< QAction* > );
       void audioChannelsChanged( QList< QAction* > );
       void mutedChanged( bool );
+      void processDetectedDiscs( QList< Solid::Device > playableDiscs );
       //in stateChange.cpp
       void engineStateChanged( Phonon::State, Phonon::State = Phonon::StoppedState);
       void engineMediaChanged( Phonon::MediaSource );
       void engineSeekableChanged( bool );
       void engineMetaDataChanged();
       void engineHasVideoChanged( bool );
-
-      void setupDone(Solid::ErrorType error, QVariant errorData, const QString &udi);
-
-
 
    private:
       QMutex m_setupMutex;

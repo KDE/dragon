@@ -44,10 +44,6 @@
 
 #include <Phonon/VideoWidget>
 
-#include <Solid/Device>
-#include <Solid/OpticalDisc>
-#include <Solid/StorageAccess>
-
 #include <QtCore/QStringBuilder>
 #include <QActionGroup>
 #include <QDesktopWidget>
@@ -64,6 +60,7 @@
 #include <QTimer>
 
 #include "actions.h"
+#include "discScanner.h"
 #include "discSelectionDialog.h"
 #include "mpris2/mpris2.h"
 #include "extern.h"         //dialog creation function definitions
@@ -634,55 +631,17 @@ MainWindow::openFileDialog()
 void
 MainWindow::playDisc()
 {
-    QList< Solid::Device > playableDiscs;
-    {
-        QList< Solid::Device > deviceList = Solid::Device::listFromType( Solid::DeviceInterface::OpticalDisc );
+#warning LEAK!!!!$!
+#warning can be called more than once -> boooooh!
+    DiscScanner *scanner = new DiscScanner(this);
+    connect(scanner, SIGNAL(detectedDevices(QList<Solid::Device>)),
+            this, SLOT(processDetectedDiscs(QList<Solid::Device>)));
+    scanner->scan();
+}
 
-        foreach( Solid::Device device, deviceList )
-        {
-            const Solid::OpticalDisc* disc = device.as<const Solid::OpticalDisc>();
-            if( disc )
-            {
-                if( disc->availableContent() & ( Solid::OpticalDisc::VideoDvd
-                                                 | Solid::OpticalDisc::VideoCd
-                                                 | Solid::OpticalDisc::SuperVideoCd
-                                                 | Solid::OpticalDisc::Audio
-                                                 | Solid::OpticalDisc::VideoBluRay ) )
-                    playableDiscs << device;
-                else if (disc->discType() == Solid::OpticalDisc::BluRayRom) {
-#warning needs to be threaded as setup and teardown is async
-                    kDebug() << "BR: BluRayRom detected, using mount probe.";
-                    Solid::StorageAccess *storage = device.as<Solid::StorageAccess>();
-                    bool wasMounted = true;
-                    if (!storage->isAccessible()) {
-                        kDebug() << "BR: Not mounted yet -> trying to mount.";
-                        wasMounted = false;
-                        QMutexLocker lock(&m_setupMutex);
-                        connect(storage, SIGNAL(setupDone(Solid::ErrorType,QVariant,QString)),
-                                this, SLOT(setupDone(Solid::ErrorType,QVariant,QString)));
-                        if (!storage->setup()) {
-                            kDebug() << "BR: mount failed.";
-                            continue;
-                        }
-                        m_setupCondition.wait(&m_setupMutex);
-                        kDebug() << "BR: mounted.";
-                    }
-                    QString bdmvPath = storage->filePath() % QLatin1Char('/') % QLatin1Literal("BDMV");
-                    kDebug() << "BR: checking for BDMV at" << bdmvPath;
-                    if (QFile(bdmvPath).exists()) {
-                        kDebug() << "BR: BDMV found, marking playable.";
-                        playableDiscs << device;
-                    } else {
-                        kDebug() << "BR: BDMV not found.";
-                        if (!wasMounted) {
-                            kDebug() << "BR: unmounting again.";
-                            storage->teardown();
-                        }
-                    }
-                }
-            }
-        }
-    }
+void
+MainWindow::processDetectedDiscs(QList<Solid::Device> playableDiscs)
+{
     if( !playableDiscs.isEmpty() )
     {
         if( playableDiscs.size() > 1 ) //more than one disc, show user a selection box
@@ -701,14 +660,6 @@ MainWindow::playDisc()
         engine()->playDvd();
         kDebug() << "no disc in drive or Solid isn't working";
     }
-
-}
-
-void MainWindow::setupDone(Solid::ErrorType error, QVariant errorData, const QString &udi)
-{
-    m_setupMutex.lock();
-    m_setupCondition.wakeAll();
-    m_setupMutex.unlock();
 }
 
 void
