@@ -662,7 +662,9 @@ MainWindow::playDisc()
                         }
                         kDebug() << "BR: mounted.";
                     }
-                    if (QFile(storage->filePath() % QLatin1Char('/') % QLatin1Literal("BDMV")).exists()) {
+                    QString bdmvPath = storage->filePath() % QLatin1Char('/') % QLatin1Literal("BDMV");
+                    kDebug() << "BR: checking for BDMV at" << bdmvPath;
+                    if (QFile(bdmvPath).exists()) {
                         kDebug() << "BR: BDMV found, marking playable.";
                         playableDiscs << device;
                     } else {
