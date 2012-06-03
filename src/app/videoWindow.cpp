@@ -266,24 +266,17 @@ VideoWindow::playDisc(const Solid::Device& device )
         Phonon::DiscType phononType = Phonon::NoDisc;
         {
             Solid::OpticalDisc::ContentTypes solidType = disc->availableContent();
-            switch( solidType ) {
-            case Solid::OpticalDisc::VideoDvd:
+            if (solidType & Solid::OpticalDisc::VideoDvd)
                 phononType = Phonon::Dvd;
-                break;
-            case Solid::OpticalDisc::VideoCd:
-            case Solid::OpticalDisc::SuperVideoCd:
+            if (solidType & (Solid::OpticalDisc::VideoCd | Solid::OpticalDisc::SuperVideoCd))
                 phononType = Phonon::Vcd;
-                break;
-            case Solid::OpticalDisc::Audio:
+            if (solidType & Solid::OpticalDisc::Audio)
                 phononType = Phonon::Cd;
-                break;
 #warning needs if phonon version!
-            case Solid::OpticalDisc::VideoBluRay:
+            if (solidType & Solid::OpticalDisc::VideoBluRay)
                 phononType = Phonon::BluRay;
-                break;
-            }
 
-            if (disc->discType() == Solid::OpticalDisc::BluRayRom) {
+            if (disc->discType() == Solid::OpticalDisc::BluRayRom && phononType == Phonon::NoDisc) {
                 // Here we can only run into this type if it was identified as
                 // Video in the mainWindow.cpp
                 kDebug() << "BR: BluRayVideo mount compat active - forcing Phonon::BluRay.";
@@ -292,7 +285,11 @@ VideoWindow::playDisc(const Solid::Device& device )
                 kDebug() << "BR: Forcing devicePath to" << devicePath;
             }
 
-            if( phononType == Phonon::NoDisc ){
+            // No change -> cannot play the disc.... should not really happen as
+            // mainWindow already preprocesses the type, so this would indicate
+            // bogus handling in one of the classes -> assertation.
+            Q_ASSERT(phononType != Phonon::NoDisc);
+            if (phononType == Phonon::NoDisc){
                 kDebug() << "not a playable disc type: " << disc->availableContent() << " type";
                 return false;
             }

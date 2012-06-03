@@ -313,7 +313,7 @@ MainWindow::setupActions()
     KAction* playerStop = new KAction( KIcon(QLatin1String( "media-playback-stop" )), i18n("Stop"), ac );
     playerStop->setObjectName( QLatin1String( "stop" ) );
     playerStop->setShortcut( Qt::Key_S );
-    connect( playerStop, SIGNAL(triggered()), engine(), SLOT(stop()) );
+    connect( playerStop, SIGNAL(triggered()), this, SLOT(stop()) );
     addToAc( playerStop )
 
     KToggleAction* mute = new KToggleAction( KIcon(QLatin1String( "player-volume-muted" )), i18nc( "Mute the sound output", "Mute"), ac );
@@ -461,6 +461,7 @@ MainWindow::toggleVolumeSlider( bool show )
     {
         m_volumeSlider = engine()->newVolumeSlider();
         m_volumeSlider->setDisabled ( engine()->isMuted() );
+        m_volumeSlider->setFocus(Qt::PopupFocusReason);
 
         m_muteCheckBox = new QCheckBox();
         m_muteCheckBox->setText( i18nc( "Mute the sound output", "Mute " ) );
@@ -495,6 +496,12 @@ MainWindow::mutedChanged( bool mute )
         m_volumeSlider->setDisabled ( mute );
         m_muteCheckBox->setChecked ( mute );
       }
+}
+
+void MainWindow::stop()
+{
+    engine()->stop();
+    m_mainView->setCurrentWidget(m_loadView);
 }
 
 void
@@ -609,23 +616,25 @@ MainWindow::play()
 void
 MainWindow::openFileDialog()
 {
-       QStringList mimeFilter = Phonon::BackendCapabilities::availableMimeTypes();
-        //temporary fixes for MimeTypes that Xine does support but it doesn't return - this is a Xine bug.
-        mimeFilter << QLatin1String( "audio/x-flac");
-        mimeFilter << QLatin1String( "video/mp4" );
-        mimeFilter << QLatin1String( "application/x-cd-image" ); // added for *.iso images
+    QStringList mimeFilter = Phonon::BackendCapabilities::availableMimeTypes();
+    //temporary fixes for MimeTypes that Xine does support but it doesn't return - this is a Xine bug.
+    mimeFilter << QLatin1String( "audio/x-flac");
+    mimeFilter << QLatin1String( "video/mp4" );
+    mimeFilter << QLatin1String( "application/x-cd-image" ); // added for *.iso images
 
-        const KUrl url = KFileDialog::getOpenUrl( KUrl("kfiledialog:///dragonplayer"),mimeFilter.join(QLatin1String( " " ))
-                                        , this, i18n("Select File to Play") );
-        if( url.isEmpty() )
-        {
-            kDebug() << "URL empty in MainWindow::playDialogResult()";
-            return;
-        }
-        else
-        {
-            load( url );
-        }
+    const KUrl url =
+            KFileDialog::getOpenUrl(KGlobalSettings::videosPath(),
+                                    mimeFilter.join(QLatin1String(" ")),
+                                    this, i18n("Select File to Play") );
+    if( url.isEmpty() )
+    {
+        kDebug() << "URL empty in MainWindow::playDialogResult()";
+        return;
+    }
+    else
+    {
+        load( url );
+    }
 }
 
 void

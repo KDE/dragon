@@ -95,6 +95,7 @@ namespace Dragon
       void audioChannelsChanged( QList< QAction* > );
       void mutedChanged( bool );
       void processDetectedDiscs( QList< Solid::Device > playableDiscs );
+      void stop();
       //in stateChange.cpp
       void engineStateChanged( Phonon::State, Phonon::State = Phonon::StoppedState);
       void engineMediaChanged( Phonon::MediaSource );
