@@ -46,7 +46,9 @@
 
 #include <Solid/Device>
 #include <Solid/OpticalDisc>
+#include <Solid/StorageAccess>
 
+#include <QtCore/QStringBuilder>
 #include <QActionGroup>
 #include <QDesktopWidget>
 #include <QDockWidget>
@@ -58,8 +60,8 @@
 #include <QLayout>      //ctor
 #include <QMouseEvent>
 #include <QObject>
-#include <QTimer>
 #include <QStackedWidget>
+#include <QTimer>
 
 #include "actions.h"
 #include "discSelectionDialog.h"
@@ -636,7 +638,7 @@ MainWindow::playDisc()
     {
         QList< Solid::Device > deviceList = Solid::Device::listFromType( Solid::DeviceInterface::OpticalDisc );
 
-        foreach( const Solid::Device &device, deviceList )
+        foreach( Solid::Device device, deviceList )
         {
             const Solid::OpticalDisc* disc = device.as<const Solid::OpticalDisc>();
             if( disc )
@@ -647,7 +649,22 @@ MainWindow::playDisc()
                                                  | Solid::OpticalDisc::Audio
                                                  | Solid::OpticalDisc::VideoBluRay ) )
                     playableDiscs << device;
-
+                else if (disc->discType() == Solid::OpticalDisc::BluRayRom) {
+                    kDebug() << "BR: BluRayRom detected, using mount probe.";
+                    Solid::StorageAccess *storage = device.as<Solid::StorageAccess>();
+                    if (!storage->isAccessible()) {
+                        kDebug() << "BR: Not mounted yet.";
+                        if (!storage->setup()) {
+                            kDebug() << "BR: mount failed.";
+                            continue;
+                        }
+                    }
+                    if (QFile(storage->filePath() % QLatin1Char('/') % QLatin1Literal("BDMV")).exists()) {
+                        kDebug() << "BR: BDMV found, marking playable.";
+                        playableDiscs << device;
+                    } else
+                        kDebug() << "BR: BDMV not found.";
+                }
             }
         }
     }

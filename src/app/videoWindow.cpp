@@ -58,6 +58,7 @@
 #include <Solid/Block>
 #include <Solid/Device>
 #include <Solid/OpticalDisc>
+#include <Solid/StorageAccess>
 
 #ifdef Q_WS_WIN
 #include <windows.h>
@@ -280,6 +281,15 @@ VideoWindow::playDisc(const Solid::Device& device )
             case Solid::OpticalDisc::VideoBluRay:
                 phononType = Phonon::BluRay;
                 break;
+            }
+
+            if (disc->discType() == Solid::OpticalDisc::BluRayRom) {
+                // Here we can only run into this type if it was identified as
+                // Video in the mainWindow.cpp
+                kDebug() << "BR: BluRayVideo mount compat active - forcing Phonon::BluRay.";
+                phononType = Phonon::BluRay;
+                devicePath = device.as<Solid::StorageAccess>()->filePath();
+                kDebug() << "BR: Forcing devicePath to" << devicePath;
             }
 
             if( phononType == Phonon::NoDisc ){
