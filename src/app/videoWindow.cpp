@@ -265,20 +265,18 @@ VideoWindow::playDisc(const Solid::Device& device )
         Phonon::DiscType phononType = Phonon::NoDisc;
         {
             Solid::OpticalDisc::ContentTypes solidType = disc->availableContent();
-            switch( solidType ) {
-            case Solid::OpticalDisc::VideoDvd:
+            if (solidType & Solid::OpticalDisc::VideoDvd)
                 phononType = Phonon::Dvd;
-                break;
-            case Solid::OpticalDisc::VideoCd:
-            case Solid::OpticalDisc::SuperVideoCd:
+            if (solidType & (Solid::OpticalDisc::VideoCd | Solid::OpticalDisc::SuperVideoCd))
                 phononType = Phonon::Vcd;
-                break;
-            case Solid::OpticalDisc::Audio:
+            if (solidType & Solid::OpticalDisc::Audio)
                 phononType = Phonon::Cd;
-                break;
-            }
 
-            if( phononType == Phonon::NoDisc ){
+            // No change -> cannot play the disc.... should not really happen as
+            // mainWindow already preprocesses the type, so this would indicate
+            // bogus handling in one of the classes -> assertation.
+            Q_ASSERT(phononType != Phonon::NoDisc);
+            if (phononType == Phonon::NoDisc){
                 kDebug() << "not a playable disc type: " << disc->availableContent() << " type";
                 return false;
             }
