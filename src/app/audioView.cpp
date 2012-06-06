@@ -54,7 +54,7 @@ AudioView::AudioView( QWidget *parent)
     m_widget = new QGraphicsWidget();
     m_layout = new QGraphicsGridLayout();
     m_layout->setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding));
-    QGraphicsScene* scene = new QGraphicsScene();
+    QGraphicsScene* scene = new QGraphicsScene(this);
 
     #define setup_label(l) \
       l = new ExpandingTextItem(m_widget); \
