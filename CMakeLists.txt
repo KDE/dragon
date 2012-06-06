@@ -21,3 +21,4 @@ configure_file(config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
 add_subdirectory( src/app )
 add_subdirectory( misc )
+add_subdirectory( doc )
