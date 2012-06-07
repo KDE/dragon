@@ -29,6 +29,7 @@
 #include "actions.h"
 #include "theStream.h"
 #include "videoWindow.h"
+#include "audioView2.h"
 
 #define QT_FATAL_ASSERT
 
@@ -77,6 +78,7 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
     action("reset_zoom")->setEnabled(hasMedia && !isFullScreen);
 
     m_timeLabel->setVisible(enable);
+    m_audioView->enableDemo(!enable);
 
     kDebug() << "updated actions";
 
@@ -127,7 +129,8 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
 void
 MainWindow::engineMediaChanged(Phonon::MediaSource /*newSource*/)
 {
-    m_audioView->updateText();
+#warning FIXME
+//    m_audioView->updateText();
 
     // update recently played list
     kDebug() << " update recent files list ";
@@ -164,7 +167,8 @@ void MainWindow::engineMetaDataChanged()
 {
     kDebug() << "metaDataChanged";
     updateTitleBarText();
-    m_audioView->updateText();
+#warning FIXME
+//    m_audioView->updateText();
 }
 
 void MainWindow::engineHasVideoChanged(bool hasVideo)

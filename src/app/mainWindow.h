@@ -44,6 +44,9 @@ class QMenu;
 class QSlider;
 class QCheckBox;
 
+class AudioView2;
+#include "audioView2.h"
+
 namespace Dragon
 {
    class PlayDialog;
@@ -118,7 +121,7 @@ namespace Dragon
 //      virtual void readProperties( KConfig* );
 
       QStackedWidget *m_mainView;
-      AudioView *m_audioView;
+      AudioView2 *m_audioView;
       LoadView *m_loadView;
       QWidget *m_currentWidget;
 

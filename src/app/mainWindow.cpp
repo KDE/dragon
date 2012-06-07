@@ -73,12 +73,14 @@
 #include "ui_videoSettingsWidget.h"
 #include "videoWindow.h"
 #include "audioView.h"
+#include "audioView2.h"
 #include "loadView.h"
 
 #include <phonon/backendcapabilities.h>
 #include <solid/powermanagement.h>
 
 namespace Dragon {
+
 
     MainWindow *MainWindow::s_instance = 0;
     /// @see codeine.h
@@ -119,7 +121,7 @@ MainWindow::MainWindow()
     m_positionSlider = videoWindow()->newPositionSlider();
 
     m_mainView->addWidget(m_loadView);
-    m_audioView = new AudioView(this);
+    m_audioView = new AudioView2(this);
     m_mainView->addWidget(m_audioView);
     m_mainView->addWidget(videoWindow());
     m_mainView->setCurrentWidget(m_loadView);
@@ -254,6 +256,8 @@ MainWindow::init()
     else
         //session management must be done after the videoWindow() has been initialised
         restore( 1, false );
+
+    m_mainView->setCurrentWidget(m_audioView);
 }
 
 MainWindow::~MainWindow()
@@ -807,6 +811,7 @@ MainWindow::keyPressEvent( QKeyEvent *e )
 void
 MainWindow::inhibitPowerSave()
 {
+    return;
     if (m_stopSleepCookie == -1)
         m_stopSleepCookie = Solid::PowerManagement::beginSuppressingSleep(QLatin1String( "watching a film" ));
     if (m_stopScreenPowerMgmtCookie == -1)
