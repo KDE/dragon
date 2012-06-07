@@ -72,7 +72,7 @@
 #include "theStream.h"
 #include "ui_videoSettingsWidget.h"
 #include "videoWindow.h"
-#include "audioView.h"
+#include "audioView2.h"
 #include "loadView.h"
 
 #include <phonon/backendcapabilities.h>
@@ -83,8 +83,6 @@ namespace Dragon {
     MainWindow *MainWindow::s_instance = 0;
     /// @see codeine.h
     QWidget* mainWindow() { return MainWindow::s_instance; }
-
-
 
 MainWindow::MainWindow()
         : KXmlGuiWindow()
@@ -119,7 +117,7 @@ MainWindow::MainWindow()
     m_positionSlider = videoWindow()->newPositionSlider();
 
     m_mainView->addWidget(m_loadView);
-    m_audioView = new AudioView(this);
+    m_audioView = new AudioView2(this);
     m_mainView->addWidget(m_audioView);
     m_mainView->addWidget(videoWindow());
     m_mainView->setCurrentWidget(m_loadView);
@@ -277,12 +275,12 @@ void MainWindow::closeEvent (QCloseEvent *event)
 void MainWindow::wheelEvent (QWheelEvent *event)
  {
     if (event->delta() > 0) {
-	engine()->tenPercentBack();
-      } else {
-	engine()->tenPercentForward();
+        engine()->tenPercentBack();
+    } else {
+        engine()->tenPercentForward();
     }
     event->accept();
- }
+}
 
 void
 MainWindow::setupActions()

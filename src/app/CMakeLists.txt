@@ -8,6 +8,7 @@ set(videoplayer_app_SRCS
     analyzer/analyzerBase.cpp
     analyzer/blockAnalyzer.cpp
     analyzer/fht.cpp
+    audioView2.cpp
     stateChange.cpp
     textItem.cpp
     playDialog.cpp
@@ -20,13 +21,12 @@ set(videoplayer_app_SRCS
     timeLabel.cpp
     mainWindow.cpp
     recentlyPlayedList.cpp
-    audioView.cpp
     loadView.cpp
     ../mpris2/mpris2.cpp
     ../mpris2/mediaplayer2.cpp
     ../mpris2/mediaplayer2player.cpp )
 
-kde4_add_ui_files(videoplayer_app_SRCS videoSettingsWidget.ui loadView.ui)
+kde4_add_ui_files(videoplayer_app_SRCS videoSettingsWidget.ui loadView.ui audioView2.ui)
 
 kde4_add_executable(dragon ${videoplayer_app_SRCS} )
 

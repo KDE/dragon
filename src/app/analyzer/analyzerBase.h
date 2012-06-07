@@ -42,8 +42,9 @@ protected:
     virtual void transform(QVector<float>&);
     virtual void analyze(const QVector<float>&) = 0;
     virtual void paused();
-    virtual void demo();
-
+public slots:
+    void demo();
+protected:
     FHT    *m_fht;
 };
 
@@ -57,6 +58,9 @@ public:
 // private slots:
 //     void draw() { drawFrame(); bitBlt( this, 0, 0, canvas() ); }
 
+    void enableDemo(bool enable) { enable ? timer.start() : timer.stop(); }
+
+
 protected:
     Base2D( QWidget*, uint scopeSize = 7);
 
@@ -67,11 +71,13 @@ protected:
     void paintEvent( QPaintEvent* );
     void resizeEvent( QResizeEvent* );
 
+
 protected slots:
     virtual void init() {}
 
 private:
     QPixmap m_canvas;
+    QTimer timer;
 };
 
 class Factory

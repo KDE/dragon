@@ -114,12 +114,13 @@ void Analyzer::Base::paused() //virtual
 
 void Analyzer::Base::demo() //virtual
 {
-    static int t = 201; //FIXME make static to namespace perhaps
+        static int t = 201; //FIXME make static to namespace perhaps
+//    qDebug() << Q_FUNC_INFO << t;
 
-    if( t > 999 ) t = 1; //0 = wasted calculations
+    if( t > 300 ) t = 1; //0 = wasted calculations
     if( t < 201 )
     {
-        QVector<float> s( 32 );
+        QVector<float> s( 512 );
 
         const double dt = double(t) / 200;
         for(int i = 0; i < s.size(); ++i)
@@ -127,7 +128,7 @@ void Analyzer::Base::demo() //virtual
 
         analyze(s);
     }
-    else analyze(QVector<float>());
+    else analyze(QVector<float>( 1, 0));
 
     ++t;
 }
@@ -138,6 +139,10 @@ Analyzer::Base2D::Base2D(QWidget *parent, uint scopeSize)
    : Base(parent, scopeSize)
 {
     QTimer::singleShot(0, this, SLOT(init())); // needs to know the size
+    timer.setInterval(34);
+    timer.setSingleShot(false);
+    connect(&timer, SIGNAL(timeout()), this, SLOT(demo()));
+    timer.start();
 }
 
 void Analyzer::Base2D::resizeEvent(QResizeEvent *e)

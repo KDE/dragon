@@ -47,6 +47,7 @@ BlockAnalyzer::BlockAnalyzer( QWidget *parent )
 {
     setMinimumSize( MIN_COLUMNS*(WIDTH+1) -1, MIN_ROWS*(HEIGHT+1) -1 ); //-1 is padding, no drawing takes place there
     setMaximumWidth( MAX_COLUMNS*(WIDTH+1) -1 );
+    setMaximumHeight( MIN_ROWS*(HEIGHT+1) -1 );
 
     // mxcl says null pixmaps cause crashes, so let's play it safe
     for (int i = 0; i < FADE_SIZE; ++i)
@@ -60,13 +61,14 @@ BlockAnalyzer::~BlockAnalyzer()
 void
 BlockAnalyzer::resizeEvent( QResizeEvent *e )
 {
+    qDebug() << "widgetyyy";
    Analyzer::Base2D::resizeEvent( e );
 
    const uint oldRows = m_rows;
 
    //all is explained in analyze()..
    //+1 to counter -1 in maxSizes, trust me we need this!
-   m_columns = myMax( uint(double(width()+1) / (WIDTH+1)), MAX_COLUMNS );
+   m_columns = qMin<uint>( uint(double(width()+1) / (WIDTH+1)), MAX_COLUMNS );
    m_rows    = uint(double(height()+1) / (HEIGHT+1));
 
    //this is the y-offset for drawing from the top of the widget
