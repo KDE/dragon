@@ -2,6 +2,7 @@
 Type=Service
 Icon=dragonplayer
 Name=Dragon Player Part
+Name[ca]=Part del Dragon Player
 Name[cs]=Komponenta přehrávače Dragon
 Name[da]=Dragon Player-part
 Name[de]=Dragon-Player-Komponente
@@ -29,6 +30,7 @@ Name[x-test]=xxDragon Player Partxx
 Name[zh_CN]=Dragon Player 部件
 Name[zh_TW]=神龍播放器部件
 Comment=Embeddable Video Player
+Comment[ca]=Reproductor de vídeo incrustat
 Comment[cs]=Vložený přehrávač videa
 Comment[da]=Videoafspiller som kan indlejres
 Comment[de]=Einbettbarer Videospieler
