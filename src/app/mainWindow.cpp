@@ -238,20 +238,6 @@ MainWindow::init()
     QApplication::restoreOverrideCursor();
     engineStateChanged(Phonon::StoppedState);//set everything as it would be in stopped state
     engineSeekableChanged(false);
-
-    if( !kapp->isSessionRestored() ) {
-        KCmdLineArgs &args = *KCmdLineArgs::parsedArgs();
-        if (args.isSet( "play-dvd" ))
-            playDisc();
-        else if (args.count() > 0 ) {
-            this->open( args.url( 0 ) );
-            args.clear();
-            adjustSize(); //will resize us to reflect the videoWindow's sizeHint()
-        }
-    }
-    else
-        //session management must be done after the videoWindow() has been initialised
-        restore( 1, false );
 }
 
 MainWindow::~MainWindow()
@@ -708,6 +694,19 @@ MainWindow::openRecentFile( const KUrl& url )
     m_playDialog->deleteLater();
     m_playDialog = 0;
     this->open( url );
+}
+
+void
+MainWindow::parseArgs()
+{
+    KCmdLineArgs &args = *KCmdLineArgs::parsedArgs();
+    if (args.isSet( "play-dvd" ))
+        playDisc();
+    else if (args.count() > 0 ) {
+        open( args.url( 0 ) );
+        args.clear();
+        adjustSize(); //will resize us to reflect the videoWindow's sizeHint()
+    }
 }
 
 void

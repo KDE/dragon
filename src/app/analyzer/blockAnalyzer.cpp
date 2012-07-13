@@ -61,7 +61,6 @@ BlockAnalyzer::~BlockAnalyzer()
 void
 BlockAnalyzer::resizeEvent( QResizeEvent *e )
 {
-    qDebug() << "widgetyyy";
    Analyzer::Base2D::resizeEvent( e );
 
    const uint oldRows = m_rows;

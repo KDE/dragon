@@ -82,8 +82,6 @@ namespace Dragon
       void toggleLoadView();
       void parseArgs();
 
-
-
    private slots:
       void setFullScreen( bool full );
       void engineMessage( const QString& );

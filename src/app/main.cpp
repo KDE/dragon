@@ -52,7 +52,5 @@ main( int argc, char **argv )
     KUniqueApplication::addCmdLineOptions();
 
     Dragon::PlayerApplication application;
-    int returnValue;
-    returnValue = application.exec();
-    return returnValue;
+    return application.exec();
 }

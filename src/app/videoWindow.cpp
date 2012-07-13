@@ -164,7 +164,6 @@ VideoWindow::VideoWindow( QWidget *parent )
 
 VideoWindow::~VideoWindow()
 {
-
     eject();
     KConfigGroup config = KGlobal::config()->group( "General" );
     config.writeEntry( "Volume", static_cast<double>( m_aOutput->volume() ) );
@@ -234,7 +233,6 @@ VideoWindow::resume()
     m_media->play();
     return true;
 }
-
 
 bool
 VideoWindow::playDvd()
