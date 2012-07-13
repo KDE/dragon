@@ -151,6 +151,9 @@ namespace Dragon
         void tenSecondsBack();
         void tenSecondsForward();
 
+        void increaseVolume();
+        void decreaseVolume();
+
     protected:
         virtual bool event( QEvent* e );
         virtual void contextMenuEvent( QContextMenuEvent * event );
