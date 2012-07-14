@@ -260,11 +260,10 @@ void MainWindow::closeEvent (QCloseEvent *event)
 
 void MainWindow::wheelEvent (QWheelEvent *event)
  {
-    if (event->delta() > 0) {
-        engine()->tenPercentBack();
-    } else {
-        engine()->tenPercentForward();
-    }
+    if (event->delta() > 0)
+        engine()->increaseVolume();
+    else
+        engine()->decreaseVolume();
     event->accept();
 }
 
