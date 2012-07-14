@@ -193,7 +193,6 @@ VideoWindow::init()
 bool
 VideoWindow::load( const KUrl &url )
 {
-
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
     eject();

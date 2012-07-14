@@ -644,7 +644,7 @@ MainWindow::openFileDialog()
     }
     else
     {
-        load( url );
+        open( url );
     }
 }
 
