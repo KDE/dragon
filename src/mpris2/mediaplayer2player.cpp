@@ -191,7 +191,7 @@ double MediaPlayer2Player::Volume() const
 
 void MediaPlayer2Player::setVolume(double volume) const
 {
-    Dragon::engine()->setVolume(qBound(qreal(0.0), volume, qreal(1.0)));
+    Dragon::engine()->setVolume(qBound(qreal(0.0), qreal(volume), qreal(1.0)));
 }
 
 qlonglong MediaPlayer2Player::Position() const
