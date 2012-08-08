@@ -719,13 +719,13 @@ VideoWindow::tenSecondsForward()
 void
 VideoWindow::increaseVolume()
 {
-    m_aOutput->setVolume(qMin(1.0, volume() + 0.10));
+    m_aOutput->setVolume(qMin(qreal(1.0), volume() + 0.10));
 }
 
 void
 VideoWindow::decreaseVolume()
 {
-    m_aOutput->setVolume(qMax(0.0, volume() - 0.10));
+    m_aOutput->setVolume(qMax(qreal(0.0), volume() - 0.10));
 }
 
 ///////////
