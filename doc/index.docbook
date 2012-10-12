@@ -7,9 +7,9 @@
   <!ENTITY % English "INCLUDE"><!-- change language only here -->
 ]>
 
-<book lang="&language;">
+<book id="dragon" lang="&language;">
 
-<bookinfo>
+<book id="dragon"info>
 <title>The &dragonplayer; Handbook</title>
 
 <authorgroup>
