@@ -21,6 +21,7 @@
 #include "audioView2.h"
 #include "ui_audioView2.h"
 
+#include <KGlobalSettings>
 #include <KFontSizeAction>
 
 #include "theStream.h"
@@ -33,6 +34,16 @@ AudioView2::AudioView2(QWidget *parent) :
     ui(new Ui::AudioView2)
 {
     ui->setupUi(this);
+
+    ui->m_analyzerFrame->setMaximumSize(ui->m_analyzer->maximumSize());
+    ui->m_analyzerFrame->setMinimumSize(ui->m_analyzer->minimumSize());
+
+    QFont boldFont = KGlobalSettings::generalFont();
+    boldFont.setBold(true);
+    ui->m_track->setFont(boldFont);
+    ui->m_artist->setFont(KGlobalSettings::generalFont());
+    ui->m_album->setFont(KGlobalSettings::generalFont());
+
     engine()->setupAnalyzer(ui->m_analyzer);
     connect(engine(), SIGNAL(metaDataChanged()), this, SLOT(update()));
 }
@@ -51,19 +62,7 @@ void AudioView2::update()
 {
     ui->m_artist->setText( TheStream::metaData( Phonon::ArtistMetaData ) );
     ui->m_album->setText( TheStream::metaData( Phonon::AlbumMetaData ) );
-    QString trackString;
-    {
-        QString trackName = TheStream::metaData( Phonon::TitleMetaData );
-        QString trackNumber = TheStream::metaData( Phonon::TracknumberMetaData );
-        bool okInt = false;
-        if ( trackNumber.toInt(&okInt) > 0 && okInt)
-        {
-            trackString =  QString( trackNumber + QLatin1String(" - ") + trackName );
-        }
-        else
-            trackString = trackName;
-    }
-    ui->m_track->setText( trackString );
+    ui->m_track->setText( TheStream::metaData( Phonon::TitleMetaData ) );
 //    { //somewhat of a longshot: try to find Amarok cover for the music
 //        QString imagePath = checkForAmarokImage( artist, album );
 //        if(imagePath.isNull())

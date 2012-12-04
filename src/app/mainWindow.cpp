@@ -592,8 +592,10 @@ MainWindow::load( const KUrl &url )
     {
         if( TheStream::hasVideo() )
             m_currentWidget = engine();
-        else
+        else {
             m_currentWidget = m_audioView;
+            resize(m_currentWidget->minimumSize());
+        }
         m_mainView->setCurrentWidget(m_currentWidget);
     }
     return ret;
@@ -614,8 +616,10 @@ MainWindow::play()
     case Phonon::StoppedState:
         if( TheStream::hasVideo() )
           m_currentWidget = engine();
-        else
-          m_currentWidget = m_audioView;
+        else {
+            m_currentWidget = m_audioView;
+            resize(m_currentWidget->minimumSize());
+        }
         engine()->play();
         m_mainView->setCurrentWidget(m_currentWidget);
         break;

@@ -43,9 +43,9 @@ public:
    // Signed ints because most of what we compare them against are ints
     static const int HEIGHT      = 2;
     static const int WIDTH       = 4;
-    static const int MIN_ROWS    = 32;   //arbituary
-    static const int MIN_COLUMNS = 32;  //arbituary
-    static const int MAX_COLUMNS = 256; //must be 2**n
+    static const int MIN_ROWS    = 48;   //arbituary
+    static const int MIN_COLUMNS = 128;  //arbituary
+    static const int MAX_COLUMNS = 128; //must be 2**n
     static const int FADE_SIZE   = 90;
 
 protected:
