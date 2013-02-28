@@ -129,7 +129,9 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
 void
 MainWindow::engineMediaChanged(Phonon::MediaSource /*newSource*/)
 {
+#ifdef __GNUC__
 #warning FIXME
+#endif
 //    m_audioView->updateText();
 
     // update recently played list
@@ -167,7 +169,9 @@ void MainWindow::engineMetaDataChanged()
 {
     kDebug() << "metaDataChanged";
     updateTitleBarText();
+#ifdef __GNUC__
 #warning FIXME
+#endif
 //    m_audioView->updateText();
 }
 
