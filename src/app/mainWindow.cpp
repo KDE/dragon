@@ -637,10 +637,20 @@ MainWindow::openFileDialog()
     mimeFilter << QLatin1String( "video/mp4" );
     mimeFilter << QLatin1String( "application/x-cd-image" ); // added for *.iso images
 
-    const KUrl url =
-            KFileDialog::getOpenUrl(KGlobalSettings::videosPath(),
-                                    mimeFilter.join(QLatin1String(" ")),
-                                    this, i18n("Select File to Play") );
+    static KUrl lastDirectory;
+
+    KFileDialog dlg( KGlobalSettings::videosPath(), mimeFilter.join(QLatin1String( " " ) ), this );
+    dlg.setCaption( i18n("Select File to Play") );
+    dlg.setOperationMode( KFileDialog::Opening );
+
+    if( !lastDirectory.isEmpty() )
+        dlg.setUrl( lastDirectory );
+
+    dlg.exec();
+
+    lastDirectory = dlg.baseUrl();
+    const KUrl url = dlg.selectedFile();
+
     if( url.isEmpty() )
     {
         kDebug() << "URL empty in MainWindow::playDialogResult()";
