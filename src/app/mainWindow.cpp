@@ -587,7 +587,7 @@ MainWindow::load( const KUrl &url )
 
     //let xine handle invalid, etc, KUrlS
     //TODO it handles non-existing files with bad error message
-    bool ret = engine()->load( url );
+    const bool ret = engine()->load( url );
     if( ret )
     {
         if( TheStream::hasVideo() )
