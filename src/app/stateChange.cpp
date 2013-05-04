@@ -36,11 +36,10 @@
 namespace Dragon {
 
 void
-MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
+MainWindow::engineStateChanged( Phonon::State state )
 {
     bool const isFullScreen = toggleAction("fullscreen")->isChecked();
     bool const hasMedia = TheStream::hasMedia();
-    QWidget *const toolbar = reinterpret_cast<QWidget*>(toolBar());
 
     switch(state)
     {
@@ -129,10 +128,7 @@ MainWindow::engineStateChanged( Phonon::State state, Phonon::State oldstate )
 void
 MainWindow::engineMediaChanged(Phonon::MediaSource /*newSource*/)
 {
-#ifdef __GNUC__
-#warning FIXME
-#endif
-//    m_audioView->updateText();
+    m_audioView->update();
 
     // update recently played list
     kDebug() << " update recent files list ";
@@ -169,14 +165,13 @@ void MainWindow::engineMetaDataChanged()
 {
     kDebug() << "metaDataChanged";
     updateTitleBarText();
-#ifdef __GNUC__
-#warning FIXME
-#endif
-//    m_audioView->updateText();
+    m_audioView->update();
 }
 
-void MainWindow::engineHasVideoChanged(bool hasVideo)
+void MainWindow::engineHasVideoChanged( bool hasVideo )
 {
+  Q_UNUSED(hasVideo);
+
   kDebug() << "hasVideo changed";
   if( TheStream::hasVideo() )
   {
@@ -189,7 +184,7 @@ void MainWindow::engineHasVideoChanged(bool hasVideo)
     // The video state might have changed *after* a state change (e.g. in Phonon-VLC)
     // in which case the video related menu actions will not be enabled until
     // a new state change occurs. By forcing a fake state change we can work around this.
-    engineStateChanged(videoWindow()->state(), videoWindow()->state());
+    engineStateChanged(videoWindow()->state());
   }
   else
   {

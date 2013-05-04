@@ -93,7 +93,7 @@ namespace Dragon
       void mutedChanged( bool );
       void stop();
       //in stateChange.cpp
-      void engineStateChanged( Phonon::State, Phonon::State = Phonon::StoppedState);
+      void engineStateChanged( Phonon::State );
       void engineMediaChanged( Phonon::MediaSource );
       void engineSeekableChanged( bool );
       void engineMetaDataChanged();
