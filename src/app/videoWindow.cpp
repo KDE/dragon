@@ -850,6 +850,7 @@ VideoWindow::eject()
         }
 
     }
+    profile.writeEntry( "Date", QDate::currentDate().toString("dd/MM/yyyy") );
     profile.sync();
 }
 

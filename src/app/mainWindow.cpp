@@ -101,6 +101,7 @@ MainWindow::MainWindow()
         , m_stopScreenSaver( 0 )
         , m_stopSleepCookie( -1 )
         , m_stopScreenPowerMgmtCookie( -1 )
+        , m_profileMaxDays(30)
         , m_toolbarIsHidden(false)
         , m_statusbarIsHidden(false)
         , m_menuBarIsHidden(false)
@@ -536,7 +537,7 @@ MainWindow::open( const KUrl &url )
     kDebug() << url;
 
     if( load( url ) ) {
-        const int offset = TheStream::hasProfile()
+        const int offset = (TheStream::hasProfile() && isFresh())
                 // adjust offset if we have session history for this video
                 ? TheStream::profile().readEntry<int>( "Position", 0 )
                 : 0;
@@ -965,6 +966,13 @@ action( const char *name )
     Q_ASSERT( action );
 
     return action;
+}
+
+bool MainWindow::isFresh()
+{
+    QDate date = QDate::fromString(TheStream::profile().readEntry<QString>( "Date", QDate::currentDate().toString("dd/MM/yyyy") ), "dd/MM/yyyy");
+
+    return (date.daysTo(QDate::currentDate()) < m_profileMaxDays) ? true : false;
 }
 
 

@@ -106,6 +106,7 @@ namespace Dragon
       void setupActions();
       void updateSliders();
       void updateTitleBarText();
+      bool isFresh();
 
 
       QMenu *menu( const char *name );
@@ -141,6 +142,7 @@ namespace Dragon
       int m_screensaverDisableCookie;
       int m_stopSleepCookie;
       int m_stopScreenPowerMgmtCookie;
+      int m_profileMaxDays;
 
       bool m_toolbarIsHidden;
       bool m_statusbarIsHidden;
