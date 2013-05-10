@@ -28,6 +28,7 @@
 #include <KCursor>
 #include <KDebug>
 #include <KFileDialog>      //::open()
+#include <KInputDialog>
 #include <KGlobalSettings> //::timerEvent()
 #include <KIO/NetAccess>
 #include <KLocale>
@@ -204,6 +205,7 @@ MainWindow::init()
     //connect the stuff in loadView
     connect( m_loadView, SIGNAL(openDVDPressed()), this, SLOT(playDisc()) );
     connect( m_loadView, SIGNAL(openFilePressed()), this, SLOT(openFileDialog()) );
+    connect( m_loadView, SIGNAL(openStreamPressed()), this, SLOT(openStreamDialog()) );
     connect( m_loadView, SIGNAL(loadUrl(KUrl)), this, SLOT(open(KUrl)) );
 
     //connect the video player
@@ -654,6 +656,22 @@ MainWindow::openFileDialog()
     if( url.isEmpty() )
     {
         kDebug() << "URL empty in MainWindow::playDialogResult()";
+        return;
+    }
+    else
+    {
+        open( url );
+    }
+}
+
+void
+MainWindow::openStreamDialog()
+{
+    KUrl url(KInputDialog::getText( i18nc("@title:window", "Stream to Play"), i18n("Stream:") ));
+
+    if( url.isEmpty() )
+    {
+        kDebug() << "URL empty in MainWindow::openStreamDialog()";
         return;
     }
     else

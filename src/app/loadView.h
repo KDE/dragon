@@ -37,6 +37,7 @@ class LoadView : public QWidget, private Ui_LoadView
       void loadUrl(KUrl);
       void openFilePressed();
       void openDVDPressed();
+      void openStreamPressed();
 };
 
 }

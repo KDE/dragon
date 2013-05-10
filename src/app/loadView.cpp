@@ -38,9 +38,12 @@ LoadView::LoadView( QWidget *parent )
     m_playDiskButton->setIconSize( QSize( KIconLoader::SizeMedium, KIconLoader::SizeMedium ) );
     m_playFileButton->setIcon( KIcon( QLatin1String(  "folder" ) ) );
     m_playFileButton->setIconSize( QSize( KIconLoader::SizeMedium, KIconLoader::SizeMedium ) );
+    m_playStreamButton->setIcon( KIcon( QLatin1String(  "document-open-remote" ) ) );
+    m_playStreamButton->setIconSize( QSize( KIconLoader::SizeMedium, KIconLoader::SizeMedium ) );
 
     connect( m_playDiskButton, SIGNAL(released()), this, SIGNAL(openDVDPressed()) );
     connect( m_playFileButton, SIGNAL(released()), this, SIGNAL(openFilePressed()) );
+    connect( m_playStreamButton, SIGNAL(released()), this, SIGNAL(openStreamPressed()) );
     connect( m_recentlyPlayed, SIGNAL(itemDoubleClicked(KUrl)), this, SIGNAL(loadUrl(KUrl)) );
 }
 

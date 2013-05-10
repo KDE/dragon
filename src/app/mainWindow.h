@@ -75,6 +75,7 @@ namespace Dragon
       bool open( const KUrl& );
       void playDisc();
       void openFileDialog();
+      void openStreamDialog();
       void play();
       void toggleVideoSettings( bool );
       void toggleVolumeSlider( bool );
