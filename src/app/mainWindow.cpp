@@ -210,7 +210,7 @@ MainWindow::init()
     connect( m_loadView, SIGNAL(loadUrl(KUrl)), this, SLOT(open(KUrl)) );
 
     //connect the video player
-    connect( engine(), SIGNAL(stateUpdated(Phonon::State,Phonon::State)), this, SLOT(engineStateChanged(Phonon::State,Phonon::State)) );
+    connect( engine(), SIGNAL(stateUpdated(Phonon::State,Phonon::State)), this, SLOT(engineStateChanged(Phonon::State)) );
     connect( engine(), SIGNAL(currentSourceChanged(Phonon::MediaSource)), this, SLOT(engineMediaChanged(Phonon::MediaSource)) );
     connect( engine(), SIGNAL(seekableChanged(bool)), this, SLOT(engineSeekableChanged(bool)) );
     connect( engine(), SIGNAL(metaDataChanged()), this, SLOT(engineMetaDataChanged()) );
