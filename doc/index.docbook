@@ -76,7 +76,7 @@
 
 
 <para>
-&dragonplayer; is a simple media player using Phonon technology. &dragonplayer; is a no frills media player that excels at playing DVDs and movie files without getting in your way.
+&dragonplayer; is a simple media player using &phonon; technology. &dragonplayer; is a no frills media player that excels at playing DVDs and movie files without getting in your way.
 </para>
 
 </chapter>
@@ -98,7 +98,7 @@ menu this window is displayed:</para>
 
 <para>There are three ways to play a video file:</para>
 <para><guibutton>Play File</guibutton> opens the file dialog and allows you to select a file to play.</para>
-<para><guibutton>Play Disc</guibutton> to play a CD or DVD.</para>
+<para><guibutton>Play Disc</guibutton> to play a &CD; or DVD.</para>
 <para><guibutton>Play Stream</guibutton> opens a dialog to enter an address of some <ulink url="http://en.wikipedia.org/wiki/Streaming_media">multimedia stream</ulink>.</para>
 <para>Double click on an entry in the play list with recently opened files to start playing it. 
 The context menu of the play list shows actions to remove a selected entry or clear the whole play list. 
@@ -190,8 +190,8 @@ Documentation copyright 2007 Ian Monroe <email>imonroe@kde.org</email>
 </para>
 
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
-&underGPL;
 &underFDL;
+&underGPL;
 
 </chapter>
 
