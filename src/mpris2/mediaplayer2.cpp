@@ -22,6 +22,9 @@
 #include "actions.h"
 #include "codeine.h"
 #include "mpris2.h"
+#include "theStream.h"
+#include "videoWindow.h"
+
 
 #include <KAboutData>
 #include <KApplication>
@@ -33,6 +36,7 @@
 MediaPlayer2::MediaPlayer2(QObject* parent) : QDBusAbstractAdaptor(parent)
 {
     connect(Dragon::action("fullscreen"), SIGNAL(toggled(bool)), this, SLOT(emitFullscreenChange(bool)));
+    connect(Dragon::videoWindow(), SIGNAL(hasVideoChanged(bool)), this, SLOT(emitFullscreenChange(bool)));
 }
 
 MediaPlayer2::~MediaPlayer2()
@@ -74,12 +78,13 @@ void MediaPlayer2::emitFullscreenChange(bool fullscreen) const
 {
     QVariantMap properties;
     properties["Fullscreen"] = fullscreen;
+    properties["CanSetFullscreen"] = CanSetFullscreen();
     Mpris2::signalPropertiesChange(this, properties);
 }
 
 bool MediaPlayer2::CanSetFullscreen() const
 {
-    return true;
+    return Dragon::TheStream::hasVideo();
 }
 
 bool MediaPlayer2::HasTrackList() const
