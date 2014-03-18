@@ -348,7 +348,7 @@ MainWindow::setupActions()
                                "One Instance Only"), ac );
     uniqueToggle->setObjectName( QLatin1String( "unique" ) );
     uniqueToggle->setCheckable( true );
-    uniqueToggle->setChecked( !KGlobal::config()->group("General").readEntry("MultipleInstances", QVariant(false)).toBool() );
+    uniqueToggle->setChecked( !KGlobal::config()->group("KDE").readEntry("MultipleInstances", QVariant(false)).toBool() );
     connect( uniqueToggle, SIGNAL(toggled(bool)), this, SLOT(toggleUnique(bool)) );
     addToAc( uniqueToggle )
 
@@ -395,7 +395,7 @@ MainWindow::setupActions()
 void
 MainWindow::toggleUnique( bool unique )
 {
-    KGlobal::config()->group("General").writeEntry("MultipleInstances", !unique);
+    KGlobal::config()->group("KDE").writeEntry("MultipleInstances", !unique);
     KGlobal::config()->sync();
 }
 
