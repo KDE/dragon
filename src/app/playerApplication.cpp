@@ -44,7 +44,7 @@ int PlayerApplication::newInstance()
     if (!m_mainWindow)
         m_mainWindow = new Dragon::MainWindow;
 
-    if (isSessionRestored())
+    if (restoringSession())
         m_mainWindow->restore(1, false);
     else
         m_mainWindow->parseArgs();
