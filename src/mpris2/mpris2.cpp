@@ -59,12 +59,9 @@ void Mpris2::signalPropertiesChange(const QObject* adaptor, const QVariantMap& p
     QDBusMessage msg = QDBusMessage::createSignal("/org/mpris/MediaPlayer2",
         "org.freedesktop.DBus.Properties", "PropertiesChanged" );
 
-    QVariantList args;
-    args << adaptor->metaObject()->classInfo(0).value();
-    args << properties;
-    args << QStringList();
-
-    msg.setArguments(args);
+    msg << adaptor->metaObject()->classInfo(0).value();
+    msg << properties;
+    msg << QStringList();
 
     QDBusConnection::sessionBus().send(msg);
 }
