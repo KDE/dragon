@@ -191,6 +191,14 @@ void MainWindow::engineHasVideoChanged( bool hasVideo )
     m_mainView->setCurrentWidget(m_audioView);
     m_currentWidget = m_audioView;
   }
+
+  if (TheStream::hasVideo()) {
+    inhibitPowerSave();
+    // Assumption: since we have no playlist the only way to release suppression
+    // is through going into stopped state. This also means that should there
+    // ever be a playlist playing video and then audio will possibly not
+    // release video specific inhibitions.
+  }
 }
 
 }//namespace
