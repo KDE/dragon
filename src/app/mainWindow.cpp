@@ -865,9 +865,9 @@ MainWindow::inhibitPowerSave()
 {
     if (m_stopSleepCookie == -1)
         m_stopSleepCookie = Solid::PowerManagement::beginSuppressingSleep(QLatin1String( "watching a film" ));
-    if (m_stopScreenPowerMgmtCookie == -1)
+    if (m_stopScreenPowerMgmtCookie == -1 && TheStream::hasVideo())
         m_stopScreenPowerMgmtCookie = Solid::PowerManagement::beginSuppressingScreenPowerManagement(QLatin1String( "watching a film" ));
-    if (!m_stopScreenSaver)
+    if (!m_stopScreenSaver && TheStream::hasVideo())
         m_stopScreenSaver = new KNotificationRestrictions(KNotificationRestrictions::ScreenSaver);
 }
 
