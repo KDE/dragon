@@ -99,7 +99,7 @@ MainWindow::engineStateChanged( Phonon::State state )
     /// turn off screensaver
     if( state == Phonon::PlayingState )
         inhibitPowerSave();
-    else if( Phonon::StoppedState || !TheStream::hasMedia() )
+    else if( state == Phonon::StoppedState || !TheStream::hasMedia() )
         releasePowerSave();
 
     updateTitleBarText();
