@@ -167,21 +167,6 @@ VideoWindow::~VideoWindow()
     eject();
     KConfigGroup config = KGlobal::config()->group( "General" );
     config.writeEntry( "Volume", static_cast<double>( m_aOutput->volume() ) );
-
-    if( m_media->state() == Phonon::PlayingState )
-    {
-        Phonon::VolumeFaderEffect* faderEffect = new Phonon::VolumeFaderEffect( this );
-        m_audioPath.insertEffect( faderEffect );
-        faderEffect->setFadeCurve( Phonon::VolumeFaderEffect::Fade12Decibel );
-        faderEffect->fadeOut( 500 );
-#ifndef Q_WS_WIN
-        ::usleep( 700000 );
-#else
-        ::Sleep( 700 );
-#endif
-    }
-    else
-        m_media->stop(); //hangs if its destroyed while paused?
 }
 
 bool
