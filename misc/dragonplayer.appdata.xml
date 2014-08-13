@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<component type="desktop">
+  <id>dragonplayer.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0+</project_license>
+  <name>Dragon Player</name>
+  <description>
+    <p>
+      Dragon Player is a multimedia player where the focus is on simplicity, instead of features. Dragon Player does one thing,
+      and only one thing, which is playing multimedia files. It's simple interface is designed not to get in your way and instead
+      empower you to simply play multimedia files.
+    </p>
+    <p>Features:</p>
+    <ul>
+      <li>Simple Interface</li>
+      <li>Resuming videos: Starts playing a video where you were watching it last time</li>
+      <li>Support for subtitles: Automatically loads subtitles with the matching name</li>
+      <li>Video display settings (brightness, contrast)</li>
+      <li>Due to using Solid and Phonon DragonPlayer is independent of any multimedia framework or hardware abstraction layer.</li>
+      <li>Supports playing CDs and DVDs</li>
+    </ul>
+  </description>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=dragonplayer</url>
+  <url type="help">http://docs.kde.org/stable/en/kdemultimedia/dragonplayer/index.html</url>
+  <screenshots>
+    <screenshot type="default">
+      <image>http://kde.org/images/screenshots/dragonplayer.png</image>
+    </screenshot>
+  </screenshots>
+  <project_group>KDE</project_group>
+  <provides>
+    <binary>dragon</binary>
+  </provides>
+</component>
