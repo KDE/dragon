@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <component type="desktop">
   <id>dragonplayer.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
@@ -16,7 +16,7 @@
       <li>Resuming videos: Starts playing a video where you were watching it last time</li>
       <li>Support for subtitles: Automatically loads subtitles with the matching name</li>
       <li>Video display settings (brightness, contrast)</li>
-      <li>Due to using Solid and Phonon DragonPlayer is independent of any multimedia framework or hardware abstraction layer.</li>
+      <li>Due to using Solid and Phonon DragonPlayer is independent of any multimedia framework or hardware abstraction layer</li>
       <li>Supports playing CDs and DVDs</li>
     </ul>
   </description>
