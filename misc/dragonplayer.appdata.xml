@@ -4,20 +4,49 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>Dragon Player</name>
+  <name xml:lang="cs">Přehrávač Dragon</name>
+  <name xml:lang="nl">Dragon Player</name>
+  <name xml:lang="uk">Програвач Dragon</name>
+  <name xml:lang="x-test">xxDragon Playerxx</name>
   <description>
     <p>
       Dragon Player is a multimedia player where the focus is on simplicity, instead of features. Dragon Player does one thing,
       and only one thing, which is playing multimedia files. It's simple interface is designed not to get in your way and instead
       empower you to simply play multimedia files.
     </p>
+    <p xml:lang="nl">Dragon Player is een multimediaspeler waar de focus ligt op eenvoud, in plaats van functies. Dragon Player doet een ding en alleen een ding, en dat is afspelen van multimediabestanden. Zijn eenvoudige interface is niet ontworpen om in de weg te zitten en in plaats u de mogelijkheid te geven om gewoon multimediabestanden af te spelen.</p>
+    <p xml:lang="uk">Програвач Dragon — програма для відтворення мультимедійних даних, основною перевагою якої є простота. Програвач Dragon робить одну річ і лише одну річ, а саме, відтворює файли мультимедійних даних. Простий інтерфейс програми просто не дасть вам зробити щось неправильно, але надасть вам змогу відтворити потрібні вам дані.</p>
+    <p xml:lang="x-test">xxDragon Player is a multimedia player where the focus is on simplicity, instead of features. Dragon Player does one thing, and only one thing, which is playing multimedia files. It's simple interface is designed not to get in your way and instead empower you to simply play multimedia files.xx</p>
     <p>Features:</p>
+    <p xml:lang="cs">Vlastnosti:</p>
+    <p xml:lang="nl">Mogelijkheden:</p>
+    <p xml:lang="uk">Можливості:</p>
+    <p xml:lang="x-test">xxFeatures:xx</p>
     <ul>
       <li>Simple Interface</li>
+      <li xml:lang="nl">Eenvoudig interface</li>
+      <li xml:lang="uk">простий інтерфейс;</li>
+      <li xml:lang="x-test">xxSimple Interfacexx</li>
       <li>Resuming videos: Starts playing a video where you were watching it last time</li>
+      <li xml:lang="nl">Video's hervatten: begin met het afspelen van een video waar u de laatste keer deze bekeek</li>
+      <li xml:lang="uk">поновлення відтворення відео: відео починає відтворюватися з того моменту, на якому ви зупинили відтворення під час попереднього сеансу роботи з програмою;</li>
+      <li xml:lang="x-test">xxResuming videos: Starts playing a video where you were watching it last timexx</li>
       <li>Support for subtitles: Automatically loads subtitles with the matching name</li>
+      <li xml:lang="nl">Ondersteuning voor ondertitels: automatisch ondertitels laden met de overeenkomstige naam</li>
+      <li xml:lang="uk">підтримка субтитрів: програма автоматично завантажує субтитри з відповідною назвою;</li>
+      <li xml:lang="x-test">xxSupport for subtitles: Automatically loads subtitles with the matching namexx</li>
       <li>Video display settings (brightness, contrast)</li>
+      <li xml:lang="nl">Instellingen voor het scherm (helderheid, contrast)</li>
+      <li xml:lang="uk">можливість зміни параметрів показу відео (яскравості, контрастності);</li>
+      <li xml:lang="x-test">xxVideo display settings (brightness, contrast)xx</li>
       <li>Due to using Solid and Phonon DragonPlayer is independent of any multimedia framework or hardware abstraction layer</li>
+      <li xml:lang="nl">Omdat DragonPlayer Solid en Phonon gebruikt is het onafhankelijk van elk multimediaframework of hardware-abstractielaag</li>
+      <li xml:lang="uk">оскільки у програмі використовуються бібліотеки Solid та Phonon, її робота не залежить від використаного набору мультимедійних бібліотек та рівня абстрагування від обладнання;</li>
+      <li xml:lang="x-test">xxDue to using Solid and Phonon DragonPlayer is independent of any multimedia framework or hardware abstraction layerxx</li>
       <li>Supports playing CDs and DVDs</li>
+      <li xml:lang="nl">Ondersteunt afspelen van cd's en dvd's</li>
+      <li xml:lang="uk">підтримка відтворення компакт-дисків та DVD.</li>
+      <li xml:lang="x-test">xxSupports playing CDs and DVDsxx</li>
     </ul>
   </description>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=dragonplayer</url>
