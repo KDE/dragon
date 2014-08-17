@@ -9,6 +9,8 @@
   <name xml:lang="nds">Drakenspeler</name>
   <name xml:lang="nl">Dragon Player</name>
   <name xml:lang="pl">Odtwarzacz Dragon</name>
+  <name xml:lang="sk">Prehrávač Dragon</name>
+  <name xml:lang="sv">Dragon videospelare</name>
   <name xml:lang="uk">Програвач Dragon</name>
   <name xml:lang="x-test">xxDragon Playerxx</name>
   <description>
@@ -21,6 +23,7 @@
     <p xml:lang="nds">Drakenspeler is en Multimedia-Afspeler, bi den de Eenfachheit in'n Vörgrund steiht un nich de velen Funkschonen bito. Drakenspeler deit nau een Saak, un dat is dat Afspelen vun Multimedia-Dateien. De Brukerböversiet schall Di nich in de Mööt kamen, man Di bi't Bruken vun Multimedia-Inholden ünnerstütten.</p>
     <p xml:lang="nl">Dragon Player is een multimediaspeler waar de focus ligt op eenvoud, in plaats van functies. Dragon Player doet een ding en alleen een ding, en dat is afspelen van multimediabestanden. Zijn eenvoudige interface is niet ontworpen om in de weg te zitten en in plaats u de mogelijkheid te geven om gewoon multimediabestanden af te spelen.</p>
     <p xml:lang="pl">Odtwarzacz Dragon jest odtwarzaczem multimedialnym, gdzie położono nacisk na prostotę, a nie na możliwości. Odtwarzacz Dragon robi jedną rzecz i tylko jedną tj. odtwarzanie plików multimedialnych. Jego prosty układ sterowania został zaprojektowany tak, aby nie wchodził w drogę, ale aby pomagał przy odtwarzaniu plików multimedialnych.</p>
+    <p xml:lang="sv">Dragon videospelare är en multimediaspelare med fokus på enkelhet istället för funktioner. Dragon videospelare gör endast en sak, nämligen spela multimediafiler. Dess enkla gränssnitt är konstruerat för att inte vara i vägen utan istället ge dig möjlighet att enkelt spela upp multimediafiler.</p>
     <p xml:lang="uk">Програвач Dragon — програма для відтворення мультимедійних даних, основною перевагою якої є простота. Програвач Dragon робить одну річ і лише одну річ, а саме, відтворює файли мультимедійних даних. Простий інтерфейс програми просто не дасть вам зробити щось неправильно, але надасть вам змогу відтворити потрібні вам дані.</p>
     <p xml:lang="x-test">xxDragon Player is a multimedia player where the focus is on simplicity, instead of features. Dragon Player does one thing, and only one thing, which is playing multimedia files. It's simple interface is designed not to get in your way and instead empower you to simply play multimedia files.xx</p>
     <p>Features:</p>
@@ -29,6 +32,8 @@
     <p xml:lang="nds">Markmalen:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="pl">Możliwości:</p>
+    <p xml:lang="sk">Funkcie:</p>
+    <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="x-test">xxFeatures:xx</p>
     <ul>
@@ -37,6 +42,7 @@
       <li xml:lang="nds">Eenfach Böversiet</li>
       <li xml:lang="nl">Eenvoudig interface</li>
       <li xml:lang="pl">Prosty układ sterowania</li>
+      <li xml:lang="sv">Enkelt gränssnitt</li>
       <li xml:lang="uk">простий інтерфейс;</li>
       <li xml:lang="x-test">xxSimple Interfacexx</li>
       <li>Resuming videos: Starts playing a video where you were watching it last time</li>
@@ -44,6 +50,7 @@
       <li xml:lang="nds">Videos wiederspelen: En Video dor wieder afspelen, woneem Du vördem ophollen hest</li>
       <li xml:lang="nl">Video's hervatten: begin met het afspelen van een video waar u de laatste keer deze bekeek</li>
       <li xml:lang="pl">Wznawianie filmów: Rozpoczyna odtwarzane filmu od chwili jego przerwania przy poprzednim oglądaniu</li>
+      <li xml:lang="sv">Återuppta videor: Börjar spela en video på stället du senast tittade på den</li>
       <li xml:lang="uk">поновлення відтворення відео: відео починає відтворюватися з того моменту, на якому ви зупинили відтворення під час попереднього сеансу роботи з програмою;</li>
       <li xml:lang="x-test">xxResuming videos: Starts playing a video where you were watching it last timexx</li>
       <li>Support for subtitles: Automatically loads subtitles with the matching name</li>
@@ -51,6 +58,7 @@
       <li xml:lang="nds">Ünnerstütt Ünnertitel: Laadt Ünnertitel mit passen Naam automaatsch</li>
       <li xml:lang="nl">Ondersteuning voor ondertitels: automatisch ondertitels laden met de overeenkomstige naam</li>
       <li xml:lang="pl">Obsługa napisów: Samoczynne wczytywanie napisów o pasującej nazwie</li>
+      <li xml:lang="sv">Stöd för textning: Laddar automatiskt textning med motsvarande namn</li>
       <li xml:lang="uk">підтримка субтитрів: програма автоматично завантажує субтитри з відповідною назвою;</li>
       <li xml:lang="x-test">xxSupport for subtitles: Automatically loads subtitles with the matching namexx</li>
       <li>Video display settings (brightness, contrast)</li>
@@ -58,6 +66,7 @@
       <li xml:lang="nds">Video-Afspeelinstellen (Helligkeit, Kontrast)</li>
       <li xml:lang="nl">Instellingen voor het scherm (helderheid, contrast)</li>
       <li xml:lang="pl">Ustawienia wyświetlania obrazu (jasność, kontrast)</li>
+      <li xml:lang="sv">Inställningar av videovisning (ljusstyrka, kontrast)</li>
       <li xml:lang="uk">можливість зміни параметрів показу відео (яскравості, контрастності);</li>
       <li xml:lang="x-test">xxVideo display settings (brightness, contrast)xx</li>
       <li>Due to using Solid and Phonon DragonPlayer is independent of any multimedia framework or hardware abstraction layer</li>
@@ -65,6 +74,7 @@
       <li xml:lang="nds">Drakenspeler bruukt Solid un Phonon un anners keen Multimedia-Rahmenwark oder Hardware-Afstraktschoonlaag</li>
       <li xml:lang="nl">Omdat DragonPlayer Solid en Phonon gebruikt is het onafhankelijk van elk multimediaframework of hardware-abstractielaag</li>
       <li xml:lang="pl">Ze względu na używanie Solid i Phonon Odtwarzacz Dragon jest niezależny od żadnego szkieletu multimedialnego czy warstwy abstrakcji sprzętu</li>
+      <li xml:lang="sv">På grund av att Solid och Phonon används är Dragon videospelare oberoende av alla ramverk för multimedia och hårdvaruabstraktionslager</li>
       <li xml:lang="uk">оскільки у програмі використовуються бібліотеки Solid та Phonon, її робота не залежить від використаного набору мультимедійних бібліотек та рівня абстрагування від обладнання;</li>
       <li xml:lang="x-test">xxDue to using Solid and Phonon DragonPlayer is independent of any multimedia framework or hardware abstraction layerxx</li>
       <li>Supports playing CDs and DVDs</li>
@@ -72,6 +82,7 @@
       <li xml:lang="nds">Ünnerstütt dat Afspelen vun CDs un DVDs</li>
       <li xml:lang="nl">Ondersteunt afspelen van cd's en dvd's</li>
       <li xml:lang="pl">Obsługa odtwarzania płyt CD i DVD</li>
+      <li xml:lang="sv">Stöder uppspelning av cd- och dvd-skivor</li>
       <li xml:lang="uk">підтримка відтворення компакт-дисків та DVD.</li>
       <li xml:lang="x-test">xxSupports playing CDs and DVDsxx</li>
     </ul>
