@@ -7,6 +7,7 @@
   <name xml:lang="ca">Dragon Player</name>
   <name xml:lang="cs">Přehrávač Dragon</name>
   <name xml:lang="en-GB">Dragon Player</name>
+  <name xml:lang="es">Dragon Player</name>
   <name xml:lang="ko">Dragon 플레이어</name>
   <name xml:lang="nds">Drakenspeler</name>
   <name xml:lang="nl">Dragon Player</name>
@@ -30,6 +31,7 @@
     </p>
     <p xml:lang="ca">El Dragon Player és un reproductor multimèdia que se centra en la simplicitat, en lloc de les característiques. El Dragon Player fa una cosa, i només una cosa, la qual és reproduir fitxers multimèdia. Té un interfície senzilla, la qual està dissenyada per a que no s'interposi en el vostre camí i que simplement pugueu reproduir els fitxers multimèdia.</p>
     <p xml:lang="en-GB">Dragon Player is a multimedia player where the focus is on simplicity, instead of features. Dragon Player does one thing, and only one thing, which is playing multimedia files. It's simple interface is designed not to get in your way and instead empower you to simply play multimedia files.</p>
+    <p xml:lang="es">Dragon Player es un reproductor multimedia centrado en la simplicidad en lugar de las características. Hace una cosa, y solo una cosa: reproducir archivos multimedia. Su sencilla interfaz no está diseñada para ponerse en tu camino, sino para ayudarte a reproducir archivos multimedia fácilmente.</p>
     <p xml:lang="ko">Dragon 플레이어는 기능보다 간단함에 초점을 맞춘 멀티미디어 재생기입니다. Dragon 플레이어는 오직 멀티미디어 파일만을 재생합니다. 동영상 감상을 방해하지 않도록 인터페이스는 간결하게 설계되었습니다.</p>
     <p xml:lang="nds">Drakenspeler is en Multimedia-Afspeler, bi den de Eenfachheit in'n Vörgrund steiht un nich de velen Funkschonen bito. Drakenspeler deit nau een Saak, un dat is dat Afspelen vun Multimedia-Dateien. De Brukerböversiet schall Di nich in de Mööt kamen, man Di bi't Bruken vun Multimedia-Inholden ünnerstütten.</p>
     <p xml:lang="nl">Dragon Player is een multimediaspeler waar de focus ligt op eenvoud, in plaats van functies. Dragon Player doet een ding en alleen een ding, en dat is afspelen van multimediabestanden. Zijn eenvoudige interface is niet ontworpen om in de weg te zitten en in plaats u de mogelijkheid te geven om gewoon multimediabestanden af te spelen.</p>
@@ -49,6 +51,7 @@
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="cs">Vlastnosti:</p>
     <p xml:lang="en-GB">Features:</p>
+    <p xml:lang="es">Características:</p>
     <p xml:lang="ko">기능:</p>
     <p xml:lang="nds">Markmalen:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
@@ -68,6 +71,7 @@
       <li>Simple Interface</li>
       <li xml:lang="ca">Interfície senzilla</li>
       <li xml:lang="en-GB">Simple Interface</li>
+      <li xml:lang="es">Interfaz sencilla</li>
       <li xml:lang="ko">간단한 인터페이스</li>
       <li xml:lang="nds">Eenfach Böversiet</li>
       <li xml:lang="nl">Eenvoudig interface</li>
@@ -86,6 +90,7 @@
       <li>Resuming videos: Starts playing a video where you were watching it last time</li>
       <li xml:lang="ca">Continua els vídeos: Inicia la reproducció d'un vídeo on l'estàveu veient l'última vegada</li>
       <li xml:lang="en-GB">Resuming videos: Starts playing a video where you were watching it last time</li>
+      <li xml:lang="es">Reanudar vídeos: empieza la reproducción de un vídeo donde lo habías dejado la última vez</li>
       <li xml:lang="ko">동영상 위치 기억: 마지막으로 본 지점부터 동영상을 다시 재생합니다</li>
       <li xml:lang="nds">Videos wiederspelen: En Video dor wieder afspelen, woneem Du vördem ophollen hest</li>
       <li xml:lang="nl">Video's hervatten: begin met het afspelen van een video waar u de laatste keer deze bekeek</li>
@@ -104,6 +109,7 @@
       <li>Support for subtitles: Automatically loads subtitles with the matching name</li>
       <li xml:lang="ca">Implementació per a subtítols: Càrrega automàticament els subtítols que coincideixen amb el nom</li>
       <li xml:lang="en-GB">Support for subtitles: Automatically loads subtitles with the matching name</li>
+      <li xml:lang="es">Permite subtítulos: carga automáticamente los subtítulos con el mismo nombre</li>
       <li xml:lang="ko">자막 지원: 파일 이름이 동일한 자막을 자동으로 불러옵니다</li>
       <li xml:lang="nds">Ünnerstütt Ünnertitel: Laadt Ünnertitel mit passen Naam automaatsch</li>
       <li xml:lang="nl">Ondersteuning voor ondertitels: automatisch ondertitels laden met de overeenkomstige naam</li>
@@ -122,6 +128,7 @@
       <li>Video display settings (brightness, contrast)</li>
       <li xml:lang="ca">Ajustaments per a la pantalla de vídeo (brillantor, contrast)</li>
       <li xml:lang="en-GB">Video display settings (brightness, contrast)</li>
+      <li xml:lang="es">Opciones de visualización de vídeos (brillo, contraste)</li>
       <li xml:lang="ko">동영상 표시 설정(밝기, 명암)</li>
       <li xml:lang="nds">Video-Afspeelinstellen (Helligkeit, Kontrast)</li>
       <li xml:lang="nl">Instellingen voor het scherm (helderheid, contrast)</li>
@@ -140,6 +147,7 @@
       <li>Due to using Solid and Phonon DragonPlayer is independent of any multimedia framework or hardware abstraction layer</li>
       <li xml:lang="ca">A causa de l'ús de Solid i Phonon, el DragonPlayer és independent de qualsevol marc de treball multimèdia o capa d'abstracció de maquinari</li>
       <li xml:lang="en-GB">Due to using Solid and Phonon DragonPlayer is independent of any multimedia framework or hardware abstraction layer</li>
+      <li xml:lang="es">Debido al uso de Solid y Phonon, DragonPlayer es independiente de cualquier framework multimedia o capa de abstracción hardware</li>
       <li xml:lang="ko">Dragon 플레이어는 Solid와 Phonon을 사용하므로 멀티미디어 프레임워크와 하드웨어 추상화 계층과 독립적입니다</li>
       <li xml:lang="nds">Drakenspeler bruukt Solid un Phonon un anners keen Multimedia-Rahmenwark oder Hardware-Afstraktschoonlaag</li>
       <li xml:lang="nl">Omdat DragonPlayer Solid en Phonon gebruikt is het onafhankelijk van elk multimediaframework of hardware-abstractielaag</li>
@@ -158,6 +166,7 @@
       <li>Supports playing CDs and DVDs</li>
       <li xml:lang="ca">Implementació per a reproduir CD i DVD</li>
       <li xml:lang="en-GB">Supports playing CDs and DVDs</li>
+      <li xml:lang="es">Permite la reproducción de CDs y DVDs</li>
       <li xml:lang="ko">CD 및 DVD 재생 지원</li>
       <li xml:lang="nds">Ünnerstütt dat Afspelen vun CDs un DVDs</li>
       <li xml:lang="nl">Ondersteunt afspelen van cd's en dvd's</li>
