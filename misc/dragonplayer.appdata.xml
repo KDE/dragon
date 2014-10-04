@@ -6,6 +6,7 @@
   <name>Dragon Player</name>
   <name xml:lang="ca">Dragon Player</name>
   <name xml:lang="cs">Přehrávač Dragon</name>
+  <name xml:lang="de">Dragon Player</name>
   <name xml:lang="en-GB">Dragon Player</name>
   <name xml:lang="es">Dragon Player</name>
   <name xml:lang="ia">Dragon Player (Reproductor Dragon)</name>
@@ -72,6 +73,7 @@
       <li>Simple Interface</li>
       <li xml:lang="ca">Interfície senzilla</li>
       <li xml:lang="cs">Jednoduché rozhraní</li>
+      <li xml:lang="de">Einfache Benutzerschnittstelle</li>
       <li xml:lang="en-GB">Simple Interface</li>
       <li xml:lang="es">Interfaz sencilla</li>
       <li xml:lang="ko">간단한 인터페이스</li>
@@ -129,6 +131,7 @@
       <li xml:lang="zh-TW">支援字幕：名稱相符的話自動載入字幕</li>
       <li>Video display settings (brightness, contrast)</li>
       <li xml:lang="ca">Ajustaments per a la pantalla de vídeo (brillantor, contrast)</li>
+      <li xml:lang="de">Einstellungen für die Videoanzeige (Helligkeit/Kontrast)</li>
       <li xml:lang="en-GB">Video display settings (brightness, contrast)</li>
       <li xml:lang="es">Opciones de visualización de vídeos (brillo, contraste)</li>
       <li xml:lang="ko">동영상 표시 설정(밝기, 명암)</li>
@@ -167,6 +170,7 @@
       <li xml:lang="zh-TW">因為使用 Solid 與 Phonon，DragonPlayer 可以獨立於任何多媒體框架，或是硬體抽象層之外</li>
       <li>Supports playing CDs and DVDs</li>
       <li xml:lang="ca">Implementació per a reproduir CD i DVD</li>
+      <li xml:lang="de">Unterstützt die Wiedergabe von CDs und DVDs</li>
       <li xml:lang="en-GB">Supports playing CDs and DVDs</li>
       <li xml:lang="es">Permite la reproducción de CDs y DVDs</li>
       <li xml:lang="ko">CD 및 DVD 재생 지원</li>
