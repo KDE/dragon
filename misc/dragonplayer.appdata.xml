@@ -7,6 +7,7 @@
   <name xml:lang="ca">Dragon Player</name>
   <name xml:lang="cs">Přehrávač Dragon</name>
   <name xml:lang="de">Dragon Player</name>
+  <name xml:lang="el">Dragon Player</name>
   <name xml:lang="en-GB">Dragon Player</name>
   <name xml:lang="es">Dragon Player</name>
   <name xml:lang="fi">Dragon-soitin</name>
@@ -18,6 +19,7 @@
   <name xml:lang="pt">Dragon Player</name>
   <name xml:lang="pt-BR">Dragon Player</name>
   <name xml:lang="sk">Prehrávač Dragon</name>
+  <name xml:lang="sl">Dragon Player</name>
   <name xml:lang="sr">Змајев плејер</name>
   <name xml:lang="sr-Latn">Zmajev plejer</name>
   <name xml:lang="sr-ijekavian">Змајев плејер</name>
@@ -33,6 +35,7 @@
       empower you to simply play multimedia files.
     </p>
     <p xml:lang="ca">El Dragon Player és un reproductor multimèdia que se centra en la simplicitat, en lloc de les característiques. El Dragon Player fa una cosa, i només una cosa, la qual és reproduir fitxers multimèdia. Té un interfície senzilla, la qual està dissenyada per a que no s'interposi en el vostre camí i que simplement pugueu reproduir els fitxers multimèdia.</p>
+    <p xml:lang="el">Το Dragon Player είναι ένας αναπαραγωγέας πολυμέσων που εστιάζει στην απλότητα, αντί για την πληθώρα χαρακτηριστικών. Το Dragon Player κάνει ένα και μόνο πράγμα, να παίζει αρχεία πολυμέσων. Η απλή διεπαφή του δεν έχει σχεδιαστεί για να σας εμποδίζει, αντίθετα σας αφήνει απλώς να παίξετε αρχεία πολυμέσων.</p>
     <p xml:lang="en-GB">Dragon Player is a multimedia player where the focus is on simplicity, instead of features. Dragon Player does one thing, and only one thing, which is playing multimedia files. It's simple interface is designed not to get in your way and instead empower you to simply play multimedia files.</p>
     <p xml:lang="es">Dragon Player es un reproductor multimedia centrado en la simplicidad en lugar de las características. Hace una cosa, y solo una cosa: reproducir archivos multimedia. Su sencilla interfaz no está diseñada para ponerse en tu camino, sino para ayudarte a reproducir archivos multimedia fácilmente.</p>
     <p xml:lang="fi">Dragon-soitin on multimediasoitin, joka keskittyy ominaisuuksien sijaan yksinkertaisuuteen. Dragon-soitin tekee yhden asian ja vain yhden; se toistaa multimediatiedostoja. Sen yksinkertainen käyttöliittymä on suunniteltu olemaan poissa tieltä ja mahdollistamaan sinun vain toistaa multimediatiedostoja.</p>
@@ -43,6 +46,7 @@
     <p xml:lang="pt">O Dragon Player é um leitor multimédia em que o foco é a simplicidade em vez das funcionalidades. O Dragon Player faz uma coisa e apenas uma, que é reproduzir ficheiros multimédia. A sua interface simples é desenhada para não se intrometer e sim ajudá-lo a reproduzir ficheiros multimédia de forma simples.</p>
     <p xml:lang="pt-BR">Dragon Player é um reprodutor multimídia com foco na simplicidade e não em funcionalidades. Ele faz uma coisa e apenas isso, que é a reprodução de arquivos multimídia. Sua interface simples é projetada para não atrapalhá-lo e simplesmente reproduzir arquivos multimídia.</p>
     <p xml:lang="sk">Dragon Player je multimediálny prehrávač, ktorý sa zameriava na jednoduchosť namiesto funkcií. Dragon Player robí jednu vec, a nič iné, ktorou je prehrávania multimediálnych súborov. Jeho jednoduché rozhranie je zavrhnuté, aby nebolo rušivé a aby s ním bolo jednoducho možné prehrávať multimediálne súbory.</p>
+    <p xml:lang="sl">Dragon Player je predstavnostni predvajalnik, ki se osredotoča na enostavnost in ne na zmožnosti. Omogoča samo eno in edino stvar in to je predvajanje predstavnostnih datotek. Preprost vmesnik je zasnovan tako, da vam ni v napoto in vam omogoča, da enostavno predvajate predstavnostne datoteke.</p>
     <p xml:lang="sr">Змајев плејер је мултимедијални плејер са тежиштем на једноставности уместо на могућностима. Има једну и само једну намену: пуштање мултимедијалних фајлова. Пружа једноставно сучеље које вас не замара детаљима, већ омогућава да једноставно пуштате мултимедијалне фајлове.</p>
     <p xml:lang="sr-Latn">Zmajev plejer je multimedijalni plejer sa težištem na jednostavnosti umesto na mogućnostima. Ima jednu i samo jednu namenu: puštanje multimedijalnih fajlova. Pruža jednostavno sučelje koje vas ne zamara detaljima, već omogućava da jednostavno puštate multimedijalne fajlove.</p>
     <p xml:lang="sr-ijekavian">Змајев плејер је мултимедијални плејер са тежиштем на једноставности уместо на могућностима. Има једну и само једну намену: пуштање мултимедијалних фајлова. Пружа једноставно сучеље које вас не замара детаљима, већ омогућава да једноставно пуштате мултимедијалне фајлове.</p>
@@ -54,6 +58,7 @@
     <p>Features:</p>
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="cs">Vlastnosti:</p>
+    <p xml:lang="el">Χαρακτηριστικά:</p>
     <p xml:lang="en-GB">Features:</p>
     <p xml:lang="es">Características:</p>
     <p xml:lang="fi">Ominaisuudet:</p>
@@ -64,6 +69,7 @@
     <p xml:lang="pt">Características:</p>
     <p xml:lang="pt-BR">Funcionalidades:</p>
     <p xml:lang="sk">Funkcie:</p>
+    <p xml:lang="sl">Zmožnosti:</p>
     <p xml:lang="sr">Могућности:</p>
     <p xml:lang="sr-Latn">Mogućnosti:</p>
     <p xml:lang="sr-ijekavian">Могућности:</p>
@@ -77,6 +83,7 @@
       <li xml:lang="ca">Interfície senzilla</li>
       <li xml:lang="cs">Jednoduché rozhraní</li>
       <li xml:lang="de">Einfache Benutzerschnittstelle</li>
+      <li xml:lang="el">Απλή διεπαφή</li>
       <li xml:lang="en-GB">Simple Interface</li>
       <li xml:lang="es">Interfaz sencilla</li>
       <li xml:lang="fi">Yksinkertainen käyttöliittymä</li>
@@ -87,6 +94,7 @@
       <li xml:lang="pt">Interface Simples</li>
       <li xml:lang="pt-BR">Interface simples</li>
       <li xml:lang="sk">Jednoduché rozhranie</li>
+      <li xml:lang="sl">Preprost vmesnik</li>
       <li xml:lang="sr">Једноставно сучеље.</li>
       <li xml:lang="sr-Latn">Jednostavno sučelje.</li>
       <li xml:lang="sr-ijekavian">Једноставно сучеље.</li>
@@ -97,6 +105,7 @@
       <li xml:lang="zh-TW">簡易介面</li>
       <li>Resuming videos: Starts playing a video where you were watching it last time</li>
       <li xml:lang="ca">Continua els vídeos: Inicia la reproducció d'un vídeo on l'estàveu veient l'última vegada</li>
+      <li xml:lang="el">Συνέχεια των βίντεο: Αρχίζει να παίζει βίντεο από το σημείο που το αφήσατε την τελευταία φορά</li>
       <li xml:lang="en-GB">Resuming videos: Starts playing a video where you were watching it last time</li>
       <li xml:lang="es">Reanudar vídeos: empieza la reproducción de un vídeo donde lo habías dejado la última vez</li>
       <li xml:lang="fi">Videoiden jatkaminen: Alkaa toistaa videota siitä, mihin katselu viimeksi jäi</li>
@@ -107,6 +116,7 @@
       <li xml:lang="pt">Prosseguir os vídeos: Começa a reproduzir um vídeo a partir do local onde o estava a ver da última vez</li>
       <li xml:lang="pt-BR">Continuação da reprodução de vídeos: Começa a reprodução de um vídeo no ponto em que parou de assistir</li>
       <li xml:lang="sk">Pokračovanie videa: Spustí prehrávanie videa, kde ste pozerali naposledy</li>
+      <li xml:lang="sl">Nadaljevanje videov: predvajanje videa se začne tam, kjer ste prej končali</li>
       <li xml:lang="sr">Настављање видеа: започиње пуштање видеа тамо где сте последње пут стали.</li>
       <li xml:lang="sr-Latn">Nastavljanje videa: započinje puštanje videa tamo gde ste poslednje put stali.</li>
       <li xml:lang="sr-ijekavian">Настављање видеа: започиње пуштање видеа тамо где сте последње пут стали.</li>
@@ -117,6 +127,7 @@
       <li xml:lang="zh-TW">回復影片：從上次看到的地方開始播放影片</li>
       <li>Support for subtitles: Automatically loads subtitles with the matching name</li>
       <li xml:lang="ca">Implementació per a subtítols: Càrrega automàticament els subtítols que coincideixen amb el nom</li>
+      <li xml:lang="el">Υποστήριξη για υπότιτλους: Φορτώνει αυτόματα υπότιτλους με το ίδιο όνομα</li>
       <li xml:lang="en-GB">Support for subtitles: Automatically loads subtitles with the matching name</li>
       <li xml:lang="es">Permite subtítulos: carga automáticamente los subtítulos con el mismo nombre</li>
       <li xml:lang="fi">Tuki tekstityksille: Lataa samannimiset tekstitykset automaattisesti</li>
@@ -127,6 +138,7 @@
       <li xml:lang="pt">Suporte para legendas: Carrega automaticamente as legendas com o nome correspondente</li>
       <li xml:lang="pt-BR">Suporte a legendas: Carrega as legendas com o nome correspondente de forma automática</li>
       <li xml:lang="sk">Podpora pre titulky: Automaticky načíta titulky so zhodným názvom</li>
+      <li xml:lang="sl">Podpora podnapisom: samodejno naloži podnapise z ujemajočim se imenom</li>
       <li xml:lang="sr">Титлови: аутоматски учитава титлове са поклапајућим именом.</li>
       <li xml:lang="sr-Latn">Titlovi: automatski učitava titlove sa poklapajućim imenom.</li>
       <li xml:lang="sr-ijekavian">Титлови: аутоматски учитава титлове са поклапајућим именом.</li>
@@ -138,6 +150,7 @@
       <li>Video display settings (brightness, contrast)</li>
       <li xml:lang="ca">Ajustaments per a la pantalla de vídeo (brillantor, contrast)</li>
       <li xml:lang="de">Einstellungen für die Videoanzeige (Helligkeit/Kontrast)</li>
+      <li xml:lang="el">Ρυθμίσεις οθόνης βίντεο (λαμπρότητα, αντίθεση)</li>
       <li xml:lang="en-GB">Video display settings (brightness, contrast)</li>
       <li xml:lang="es">Opciones de visualización de vídeos (brillo, contraste)</li>
       <li xml:lang="fi">Videon näyttämisen asetukset (kirkkaus ja kontrasti)</li>
@@ -148,6 +161,7 @@
       <li xml:lang="pt">Configuração da visualização de vídeo (brilho, contraste)</li>
       <li xml:lang="pt-BR">Configuração da exibição de vídeo (brilho, contraste)</li>
       <li xml:lang="sk">Nastavenia zobrazenia videa (jas, kontrast)</li>
+      <li xml:lang="sl">Nastavitve prikaza videa (svetlost, kontrast)</li>
       <li xml:lang="sr">Поставке видео приказа (осветљај, контраст).</li>
       <li xml:lang="sr-Latn">Postavke video prikaza (osvetljaj, kontrast).</li>
       <li xml:lang="sr-ijekavian">Поставке видео приказа (осветљај, контраст).</li>
@@ -158,6 +172,7 @@
       <li xml:lang="zh-TW">影像顯示設定（亮度、對比）</li>
       <li>Due to using Solid and Phonon DragonPlayer is independent of any multimedia framework or hardware abstraction layer</li>
       <li xml:lang="ca">A causa de l'ús de Solid i Phonon, el DragonPlayer és independent de qualsevol marc de treball multimèdia o capa d'abstracció de maquinari</li>
+      <li xml:lang="el">Εξαιτίας της χρήσης Solid και Phonon το DragonPlayer είναι ανεξάρτητο από πλατφόρμες πολυμέσων ή αφαιρετικά επίπεδα υλικού</li>
       <li xml:lang="en-GB">Due to using Solid and Phonon DragonPlayer is independent of any multimedia framework or hardware abstraction layer</li>
       <li xml:lang="es">Debido al uso de Solid y Phonon, DragonPlayer es independiente de cualquier framework multimedia o capa de abstracción hardware</li>
       <li xml:lang="fi">Solidin ja Phononin käöytön ansiosta Dragon-soitin ei ole riippuvainen mistään tietystä multimediakirjastosta tai laitteiston abstraktiokerroksesta</li>
@@ -168,6 +183,7 @@
       <li xml:lang="pt">Devido à utilização do Solid e do Phonon, o DragonPlayer é independente de qualquer plataforma multimédia ou camada de 'hardware'</li>
       <li xml:lang="pt-BR">Devido ao uso do Solid e Phonon, o Dragon Player independe de qualquer plataforma multimídia ou camada de abstração de hardware</li>
       <li xml:lang="sk">Kvôli použitiu Solid a Phonon je DragonPlayer nezávislý od akéhokoľvek multimediálneho frameworku alebo vrstvy abstrakcie hardvéru.</li>
+      <li xml:lang="sl">Z uporabo Solid in Phonon je Dragon Player neodvisen od predstavnostnih ogrodij ali plasti nad strojno opremo</li>
       <li xml:lang="sr">Будући да користи Солид и Фонон, Змајев плејер је независан од осталих мултимедијалних радних оквира и слојева апстракције хардвера.</li>
       <li xml:lang="sr-Latn">Budući da koristi Solid i Phonon, Zmajev plejer je nezavisan od ostalih multimedijalnih radnih okvira i slojeva apstrakcije hardvera.</li>
       <li xml:lang="sr-ijekavian">Будући да користи Солид и Фонон, Змајев плејер је независан од осталих мултимедијалних радних оквира и слојева апстракције хардвера.</li>
@@ -179,6 +195,7 @@
       <li>Supports playing CDs and DVDs</li>
       <li xml:lang="ca">Implementació per a reproduir CD i DVD</li>
       <li xml:lang="de">Unterstützt die Wiedergabe von CDs und DVDs</li>
+      <li xml:lang="el">Υποστηρίζει την αναπαραγωγή CD και DVD</li>
       <li xml:lang="en-GB">Supports playing CDs and DVDs</li>
       <li xml:lang="es">Permite la reproducción de CDs y DVDs</li>
       <li xml:lang="fi">Tukee CD:iden ja DVD:iden toistamista</li>
@@ -189,6 +206,7 @@
       <li xml:lang="pt">Suporte à reprodução de CD's e DVD's</li>
       <li xml:lang="pt-BR">Suporte a reprodução de CDs e DVDs</li>
       <li xml:lang="sk">Podpora prehrávania CD a DVD</li>
+      <li xml:lang="sl">Podpora predvajanju CD-jev in DVD-jev</li>
       <li xml:lang="sr">Пуштање ЦД‑ова и ДВД‑ова.</li>
       <li xml:lang="sr-Latn">Puštanje CD‑ova i DVD‑ova.</li>
       <li xml:lang="sr-ijekavian">Пуштање ЦД‑ова и ДВД‑ова.</li>
