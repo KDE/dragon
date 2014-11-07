@@ -15,6 +15,7 @@
   <name xml:lang="ko">Dragon 플레이어</name>
   <name xml:lang="nds">Drakenspeler</name>
   <name xml:lang="nl">Dragon Player</name>
+  <name xml:lang="pa">ਡਰੈਗਨ ਪਲੇਅਰ</name>
   <name xml:lang="pl">Odtwarzacz Dragon</name>
   <name xml:lang="pt">Dragon Player</name>
   <name xml:lang="pt-BR">Dragon Player</name>
@@ -65,6 +66,7 @@
     <p xml:lang="ko">기능:</p>
     <p xml:lang="nds">Markmalen:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
+    <p xml:lang="pa">ਲੱਛਣ:</p>
     <p xml:lang="pl">Możliwości:</p>
     <p xml:lang="pt">Características:</p>
     <p xml:lang="pt-BR">Funcionalidades:</p>
@@ -90,6 +92,7 @@
       <li xml:lang="ko">간단한 인터페이스</li>
       <li xml:lang="nds">Eenfach Böversiet</li>
       <li xml:lang="nl">Eenvoudig interface</li>
+      <li xml:lang="pa">ਸੌਖਾ ਇੰਟਰਫੇਸ</li>
       <li xml:lang="pl">Prosty układ sterowania</li>
       <li xml:lang="pt">Interface Simples</li>
       <li xml:lang="pt-BR">Interface simples</li>
