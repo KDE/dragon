@@ -131,6 +131,7 @@
       <li xml:lang="zh-TW">回復影片：從上次看到的地方開始播放影片</li>
       <li>Support for subtitles: Automatically loads subtitles with the matching name</li>
       <li xml:lang="ca">Implementació per a subtítols: Càrrega automàticament els subtítols que coincideixen amb el nom</li>
+      <li xml:lang="de">Unterstützung für Untertitel. Untertitel mit dem passenden Namen werden automatisch geladen</li>
       <li xml:lang="el">Υποστήριξη για υπότιτλους: Φορτώνει αυτόματα υπότιτλους με το ίδιο όνομα</li>
       <li xml:lang="en-GB">Support for subtitles: Automatically loads subtitles with the matching name</li>
       <li xml:lang="es">Permite subtítulos: carga automáticamente los subtítulos con el mismo nombre</li>
