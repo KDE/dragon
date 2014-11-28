@@ -6,6 +6,7 @@
   <name>Dragon Player</name>
   <name xml:lang="ca">Dragon Player</name>
   <name xml:lang="cs">Přehrávač Dragon</name>
+  <name xml:lang="da">Dragon Player</name>
   <name xml:lang="de">Dragon Player</name>
   <name xml:lang="en-GB">Dragon Player</name>
   <name xml:lang="es">Dragon Player</name>
@@ -58,6 +59,7 @@
     <p>Features:</p>
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="cs">Vlastnosti:</p>
+    <p xml:lang="da">Funktioner:</p>
     <p xml:lang="de">Funktionen:</p>
     <p xml:lang="en-GB">Features:</p>
     <p xml:lang="es">Características:</p>
@@ -83,6 +85,7 @@
       <li>Simple Interface</li>
       <li xml:lang="ca">Interfície senzilla</li>
       <li xml:lang="cs">Jednoduché rozhraní</li>
+      <li xml:lang="da">Simpel brugerflade</li>
       <li xml:lang="de">Einfache Benutzerschnittstelle</li>
       <li xml:lang="en-GB">Simple Interface</li>
       <li xml:lang="es">Interfaz sencilla</li>
