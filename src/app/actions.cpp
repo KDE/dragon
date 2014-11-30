@@ -37,7 +37,7 @@ Dragon::PlayAction::PlayAction( QObject *receiver, const char *slot, KActionColl
     setInactiveGuiItem(KGuiItem(i18n("Play"), QStringLiteral("media-playback-start")));
     setActiveGuiItem(KGuiItem(i18n("Pause"), QStringLiteral( "media-playback-pause")));
     setAutoToggle( false );
-    setShortcut( Qt::Key_Space );
+    ac->setDefaultShortcut(this, Qt::Key_Space);
     ac->addAction( objectName(), this );
     connect( this, SIGNAL(triggered(bool)), receiver, slot );
 }
@@ -55,7 +55,7 @@ Dragon::VolumeAction::VolumeAction( QObject *receiver, const char *slot, KAction
 {
     setObjectName( QLatin1String( "volume" ) );
     setIcon( QIcon::fromTheme(QLatin1String( "player-volume" ) ) );
-    setShortcut( Qt::Key_V );
+    ac->setDefaultShortcut(this, Qt::Key_V);
     ac->addAction( objectName(), this );
     connect( this, SIGNAL(triggered(bool)), receiver, slot );
     connect( engine(), SIGNAL(mutedChanged(bool)), this, SLOT(mutedChanged(bool)) );
