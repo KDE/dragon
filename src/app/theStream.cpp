@@ -48,7 +48,7 @@ TheStream::profile()
 {
     Phonon::MediaSource::Type current = videoWindow()->m_media->currentSource().type();
     if( current == Phonon::MediaSource::Disc ) {
-        const QList< Solid::Device > deviceList = Solid::Device::listFromType( Solid::DeviceInterface::OpticalDisc );
+        QList< Solid::Device > deviceList = Solid::Device::listFromType( Solid::DeviceInterface::OpticalDisc );
         if( !deviceList.isEmpty() ) {
             Solid::StorageVolume* disc = deviceList.first().as<Solid::StorageVolume>();
             if( disc ) {
