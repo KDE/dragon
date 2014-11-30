@@ -7,7 +7,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License or (at your option) version 3 or any later version
  * accepted by the membership of KDE e.V. (or its successor approved
- * by the membership of KDE e.V.), which shall act as a proxy 
+ * by the membership of KDE e.V.), which shall act as a proxy
  * defined in Section 14 of version 3 of the license.
  *
  * This program is distributed in the hope that it will be useful,
@@ -30,52 +30,53 @@
 
 /// for purely static classes
 #define DRAGONPLAYER_NO_EXPORT( T ) \
-   T(); \
-  ~T(); \
-   T( const T& ); \
-   T &operator=( const T& ); \
-   bool operator==( const T& ); \
-   bool operator!=( const T& );
+    T(); \
+    ~T(); \
+    T( const T& ); \
+    T &operator=( const T& ); \
+    bool operator==( const T& ); \
+    bool operator!=( const T& );
 
 class QAction;
 
 namespace Dragon
 {
-   class TheStream
-   {
-   DRAGONPLAYER_NO_EXPORT( TheStream )
+class TheStream
+{
+    DRAGONPLAYER_NO_EXPORT( TheStream )
 
-   public:
-      static QUrl url();
+    public:
+        static QUrl url();
 
-      static bool canSeek();
-      static bool hasAudio();
-      static bool hasVideo();
-      static bool hasMedia();
+    static bool canSeek();
+    static bool hasAudio();
+    static bool hasVideo();
+    static bool hasMedia();
 
-      static QSize defaultVideoSize();
+    static QSize defaultVideoSize();
 
-      static int aspectRatio();
-      static QAction* aspectRatioAction();
-      static void setRatio( QAction* );
-      static void addRatio( int, QAction* );
+    static int aspectRatio();
+    static QAction* aspectRatioAction();
+    static void setRatio( QAction* );
+    static void addRatio( int, QAction* );
 
-      static const char* CHANNEL_PROPERTY;
-      static int subtitleChannel();
-      static int audioChannel();
+    static const char* CHANNEL_PROPERTY;
+    static int subtitleChannel();
+    static int audioChannel();
 
-      static QString prettyTitle();
-      static QString fullTitle();
+    static QString prettyTitle();
+    static QString fullTitle();
 
 
-      static QString metaData(Phonon::MetaData key); 
-      
-      static bool hasProfile();
+    static QString metaData(Phonon::MetaData key);
+    static QString discId();
 
-      static KConfigGroup profile();
-    private:
-      static QHash<int, QAction*> s_aspectRatioActions;
-   };
+    static bool hasProfile();
+
+    static KConfigGroup profile();
+private:
+    static QHash<int, QAction*> s_aspectRatioActions;
+};
 }
 
 #endif

@@ -159,6 +159,7 @@ void MainWindow::engineSeekableChanged(bool canSeek)
 void MainWindow::engineMetaDataChanged()
 {
     qDebug() << "metaDataChanged"; // FIXME Phonon emits metadataChanged() too often :/
+    qDebug() << "Disc ID:" << TheStream::discId();
     updateTitleBarText();
     if (!TheStream::hasVideo())
         m_audioView->update();

@@ -1,6 +1,7 @@
 /***********************************************************************
  * Copyright 2004  Max Howell <max.howell@methylblue.com>
  *           2007  Ian Monroe <ian@monroe.nu>
+ * Copyright 2014 Lukáš Tinkl <lukas@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as

@@ -49,7 +49,7 @@ MediaPlayer2Player::~MediaPlayer2Player()
 
 bool MediaPlayer2Player::CanGoNext() const
 {
-    return false;
+    return Dragon::engine()->canGoNext();
 }
 
 void MediaPlayer2Player::Next() const
@@ -59,7 +59,7 @@ void MediaPlayer2Player::Next() const
 
 bool MediaPlayer2Player::CanGoPrevious() const
 {
-    return false;
+    return Dragon::engine()->canGoPrev();
 }
 
 void MediaPlayer2Player::Previous() const

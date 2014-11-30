@@ -155,6 +155,9 @@ public slots:
     void increaseVolume();
     void decreaseVolume();
 
+    bool canGoPrev() const;
+    bool canGoNext() const;
+
 protected:
     virtual bool event( QEvent* e ) Q_DECL_OVERRIDE;
     virtual void contextMenuEvent( QContextMenuEvent * event ) Q_DECL_OVERRIDE;

@@ -345,13 +345,13 @@ MainWindow::setupActions()
     connect( uniqueToggle, SIGNAL(toggled(bool)), this, SLOT(toggleUnique(bool)) );
     addToAc( uniqueToggle )
 
-    QAction* prev_chapter = new QAction( QIcon::fromTheme(QLatin1String( "media-skip-backward" )), i18n("Previous Chapter"), ac );
+    QAction* prev_chapter = new QAction( QIcon::fromTheme(QLatin1String( "media-skip-backward" )), i18n("Previous"), ac );
     prev_chapter->setObjectName( QLatin1String( "prev_chapter" ) );
     ac->setDefaultShortcut(prev_chapter, Qt::Key_Comma);
     connect( prev_chapter, SIGNAL(triggered()), engine(), SLOT(prevChapter()) );
     addToAc( prev_chapter )
 
-    QAction* next_chapter = new QAction( QIcon::fromTheme(QLatin1String( "media-skip-forward" )), i18n("Next Chapter"), ac );
+    QAction* next_chapter = new QAction( QIcon::fromTheme(QLatin1String( "media-skip-forward" )), i18n("Next"), ac );
     next_chapter->setObjectName( QLatin1String( "next_chapter" ) );
     ac->setDefaultShortcut(next_chapter, Qt::Key_Period);
     connect( next_chapter, SIGNAL(triggered()), engine(), SLOT(nextChapter()) );

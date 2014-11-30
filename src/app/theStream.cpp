@@ -192,74 +192,16 @@ TheStream::metaData(Phonon::MetaData key)
 {
     QStringList values = videoWindow()->m_media->metaData(key);
     qDebug() << values;
-    return (values.isEmpty()) ? QString() : values.join(QString(QLatin1Char( ' ' )));
+    return (values.isEmpty()) ? QString() : values.join(QLatin1Char( ' ' ));
 }
 
+QString TheStream::discId()
+{
+    QStringList values = videoWindow()->m_media->metaData(Phonon::MusicBrainzDiscIdMetaData);
+    if (!values.isEmpty())
+        return values.first();
 
-/*
-    static inline QString
-    entryHelper( const QString &plate, const QString &s1, const QString &s2 )
-    {
-        return s2.isEmpty() ? s2 : plate.arg( s1 ).arg( s2 );
-    }
+    return QString();
+}
 
-    static inline QString
-    sectionHelper( const QString &sectionTitle, const QStringList &entries )
-    {
-    QString s;
-
-        foreach( const QString& str, entries )
-            if( !str.isEmpty() )
-                s += str;
-
-        return s.isEmpty() ? s : "<h2>" + sectionTitle + "</h2>" + s;
-    }
-
-    QString
-    TheStream::information()
-    {
-        return QString();
-//         #define meta( x ) xine_get_meta_info( VideoWindow::s_instance->m_stream, x )
-//         #define info( x, y ) x.arg( xine_get_stream_info( VideoWindow::s_instance->m_stream, y ) )
-//         #define simple( x ) QString::number( xine_get_stream_info( VideoWindow::s_instance->m_stream, x ) )
-//
-//         const QString plate = "<p><b>%1</b>: %2</p>";
-//         QString s;
-//
-//         s += sectionHelper( i18n("Metadata"),
-//             QStringList()
-//                 << entryHelper( plate, i18n("Title"), meta( XINE_META_INFO_TITLE ) )
-//                 << entryHelper( plate, i18n("Comment"), meta( XINE_META_INFO_COMMENT ) )
-//                 << entryHelper( plate, i18n("Artist"), meta( XINE_META_INFO_ARTIST ) )
-//                 << entryHelper( plate, i18n("Genre"), meta( XINE_META_INFO_GENRE ) )
-//                 << entryHelper( plate, i18n("Album"), meta( XINE_META_INFO_ALBUM ) )
-//                 << entryHelper( plate, i18n("Year"), meta( XINE_META_INFO_YEAR ) ) );
-//
-//         s += sectionHelper( i18n("Audio Properties"),
-//             QStringList()
-//                 << entryHelper( plate, i18n("Bitrate"), info( i18n("%1 bps"), XINE_STREAM_INFO_AUDIO_BITRATE ) )
-//                 << entryHelper( plate, i18n("Sample-rate"), info( i18n("%1 Hz"),  XINE_STREAM_INFO_AUDIO_SAMPLERATE ) ) );
-//
-//         s += sectionHelper( i18n("Technical Information"),
-//             QStringList()
-//                 << entryHelper( plate, i18n("Video Codec"), meta( XINE_META_INFO_VIDEOCODEC ) )
-//                 << entryHelper( plate, i18n("Audio Codec"), meta( XINE_META_INFO_AUDIOCODEC ) )
-//                 << entryHelper( plate, i18n("System Layer"), meta( XINE_META_INFO_SYSTEMLAYER ) )
-//                 << entryHelper( plate, i18n("Input Plugin"), meta( XINE_META_INFO_INPUT_PLUGIN  ))
-//                 << entryHelper( plate, i18n("CDINDEX_DISCID"), meta( XINE_META_INFO_CDINDEX_DISCID ) ) );
-//
-//         QStringList texts;
-//         texts << "BITRATE" << "SEEKABLE" << "VIDEO_WIDTH" << "VIDEO_HEIGHT" << "VIDEO_RATIO" << "VIDEO_CHANNELS" << "VIDEO_STREAMS" << "VIDEO_BITRATE" << "VIDEO_FOURCC" << "VIDEO_HANDLED" << "FRAME_DURATION" << "AUDIO_CHANNELS" << "AUDIO_BITS" << "-AUDIO_SAMPLERATE" << "-AUDIO_BITRATE" << "AUDIO_FOURCC" << "AUDIO_HANDLED" << "HAS_CHAPTERS" << "HAS_VIDEO" << "HAS_AUDIO" << "-IGNORE_VIDEO" << "-IGNORE_AUDIO" << "-IGNORE_SPU" << "VIDEO_HAS_STILL" << "MAX_AUDIO_CHANNEL" << "MAX_SPU_CHANNEL" << "AUDIO_MODE" << "SKIPPED_FRAMES" << "DISCARDED_FRAMES";
-//
-//         s += "<h2>Other</h2>";
-//         for( uint x = 0; x <= 28; ++x )
-//             s += entryHelper( plate, texts[x], simple( x ) );
-//
-//         #undef meta
-//         #undef info
-//         #undef simple
-//
-//         return s;
-    }
-*/
 }

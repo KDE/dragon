@@ -101,6 +101,7 @@ VideoWindow::VideoWindow( QWidget *parent )
     m_aOutput = new AudioOutput( Phonon::VideoCategory, this );
     m_media = new MediaObject( this );
     m_controller = new MediaController( m_media );
+    m_controller->setAutoplayTitles(true);
     Phonon::createPath(m_media, m_vWidget);
     m_audioPath = Phonon::createPath(m_media, m_aOutput);
     m_media->setTickInterval( 1000 );
@@ -182,7 +183,7 @@ VideoWindow::load(const QUrl &url )
     QMimeType mimeType = db.mimeTypeForUrl(url);
     qDebug() << "detected mimetype: " << mimeType.name();
     if( mimeType.inherits( QLatin1String( "application/x-cd-image" ) ) || mimeType.inherits( QLatin1String( "inode/directory" ) ) )
-        m_media->setCurrentSource( Phonon::MediaSource( Phonon::Dvd, url.path() ) ); // kf5 FIXME?
+        m_media->setCurrentSource( Phonon::MediaSource( Phonon::Dvd, url.path() ) );
     else
         m_media->setCurrentSource( url );
     m_justLoaded = true;
@@ -637,13 +638,19 @@ VideoWindow::videoSetting( const QString& setting )
 void
 VideoWindow::prevChapter()
 {
-    m_controller->setCurrentChapter(m_controller->currentChapter() - 1);
+    if (TheStream::hasVideo())
+        m_controller->setCurrentChapter(m_controller->currentChapter() - 1);
+    else
+        m_controller->previousTitle();
 }
 
 void
 VideoWindow::nextChapter()
 {
-    m_controller->setCurrentChapter(m_controller->currentChapter() + 1);
+    if (TheStream::hasVideo())
+        m_controller->setCurrentChapter(m_controller->currentChapter() + 1);
+    else
+        m_controller->nextTitle();
 }
 
 void
@@ -686,6 +693,16 @@ void
 VideoWindow::decreaseVolume()
 {
     m_aOutput->setVolume(qMax(qreal(0.0), volume() - qreal(0.10)));
+}
+
+bool VideoWindow::canGoPrev() const
+{
+    return m_controller->currentTitle() > 1;
+}
+
+bool VideoWindow::canGoNext() const
+{
+    return m_controller->currentTitle() < m_controller->availableTitles();
 }
 
 ///////////
@@ -808,7 +825,7 @@ VideoWindow::eject()
         }
 
     }
-    profile.writeEntry( "Date", QDate::currentDate().toString("dd/MM/yyyy") );
+    profile.writeEntry( "Date", QDate::currentDate() );
     profile.sync();
 }
 
