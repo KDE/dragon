@@ -25,9 +25,9 @@
 #include "theStream.h"
 #include "videoWindow.h"
 
+#include <QApplication>
 
 #include <KAboutData>
-#include <QApplication>
 #include <KProtocolInfo>
 #include <KService>
 #include <KWindowSystem>

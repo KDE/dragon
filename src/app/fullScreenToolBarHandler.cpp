@@ -26,7 +26,6 @@
 
 #include <QEvent>
 #include <QMouseEvent>
-#include <QPoint>
 #include <QDebug>
 
 #include <KToolBar>

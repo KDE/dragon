@@ -23,14 +23,15 @@
 
 #include <QHash>
 #include <QDebug>
-#include <QUrl>
 
-#include <KLocalizedString>
-#include <KSharedConfig>
 #include <Phonon/MediaController>
 #include <Phonon/MediaObject>
 #include <Phonon/MediaSource>
 #include <Phonon/VideoWidget>
+
+#include <KLocalizedString>
+#include <KSharedConfig>
+
 #include <Solid/Device>
 #include <Solid/StorageVolume>
 

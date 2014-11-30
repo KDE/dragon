@@ -19,10 +19,9 @@
  ***********************************************************************/
 
 #include "playerApplication.h"
-
 #include "mainWindow.h"
 
-#include <kwindowsystem.h>
+#include <KWindowSystem>
 
 namespace Dragon
 {

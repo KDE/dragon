@@ -35,28 +35,25 @@
 #include <QTimer>
 #include <QVBoxLayout>
 #include <QPainter>
-
 #include <QApplication>
 #include <QDebug>
 #include <QIcon>
-#include <KLocalizedString>
 #include <QMenu>
 #include <QMimeDatabase>
+
+#include <KLocalizedString>
 #include <KSharedConfig>
 
 #include <Phonon/AudioOutput>
 #include <phonon/audiodataoutput.h>
 #include <Phonon/MediaController>
 #include <Phonon/MediaObject>
-#include <Phonon/MediaSource>
-#include <Phonon/Path>
 #include <Phonon/SeekSlider>
 #include <Phonon/VideoWidget>
 #include <Phonon/VolumeFaderEffect>
 #include <Phonon/VolumeSlider>
 
 #include <Solid/Block>
-#include <Solid/Device>
 #include <Solid/OpticalDisc>
 
 #ifdef Q_OS_WIN

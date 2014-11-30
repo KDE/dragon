@@ -29,8 +29,8 @@
 #include <QVBoxLayout>
 #include <QIcon>
 #include <QDialogButtonBox>
-
 #include <QListWidget>
+
 #include <KLocalizedString>
 #include <Solid/Device>
 #include <Solid/OpticalDisc>

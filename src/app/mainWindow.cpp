@@ -22,37 +22,7 @@
 #include "mainWindow.h"
 #include "timeLabel.h"
 
-#include <KActionMenu>
-#include <QApplication>
-#include <KCursor>
-#include <QDebug>
-#include <QInputDialog>
-#include <KIO/StatJob>
-#include <KLocalizedString>
-#include <QMenu>
-#include <QMenuBar>
-//#include <KNotificationRestrictions> // kf5 FIXME
-#include <KSqueezedTextLabel>
-#include <QStatusBar>
-#include <KToggleFullScreenAction>
-#include <KToolBar>
-#include <KXMLGUIFactory>
-#include <KProtocolInfo>
-#include <KIO/UDSEntry>
-#include <KSharedConfig>
-#include <KJobWidgets>
-
-#include <Phonon/VideoWidget>
-#include <Phonon/BackendCapabilities>
-
-#include <Solid/Device>
-#include <Solid/OpticalDisc>
-#if 0 // kf5 FIXME port to new Solid::Power API
-#include <solid/powermanagement.h>
-#endif
-
 #include <QActionGroup>
-#include <QDesktopWidget>
 #include <QDockWidget>
 #include <QDragEnterEvent>
 #include <QDropEvent>
@@ -63,9 +33,37 @@
 #include <QMouseEvent>
 #include <QObject>
 #include <QTimer>
-#include <QStackedWidget>
 #include <QMimeData>
 #include <QFileDialog>
+#include <QApplication>
+#include <QDebug>
+#include <QInputDialog>
+#include <QMenu>
+#include <QMenuBar>
+#include <QStatusBar>
+
+//#include <KNotificationRestrictions> // kf5 FIXME
+#include <KSqueezedTextLabel>
+#include <KToggleFullScreenAction>
+#include <KToolBar>
+#include <KXMLGUIFactory>
+#include <KProtocolInfo>
+#include <KIO/UDSEntry>
+#include <KSharedConfig>
+#include <KJobWidgets>
+#include <KCursor>
+#include <KIO/StatJob>
+#include <KLocalizedString>
+#include <KActionMenu>
+
+#include <Phonon/VideoWidget>
+#include <Phonon/BackendCapabilities>
+
+#include <Solid/Device>
+#include <Solid/OpticalDisc>
+#if 0 // kf5 FIXME port to new Solid::Power API
+#include <solid/powermanagement.h>
+#endif
 
 #include "actions.h"
 #include "discSelectionDialog.h"

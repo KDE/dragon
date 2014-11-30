@@ -22,8 +22,9 @@
 #define RECENTLYPLAYEDLIST_H
 
 #include <QListWidget>
-#include <KConfigGroup>
 #include <QUrl>
+
+#include <KConfigGroup>
 
 class RecentlyPlayedList : public QListWidget
 {
