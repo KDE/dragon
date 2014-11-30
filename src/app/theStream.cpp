@@ -48,11 +48,11 @@ TheStream::profile()
 {
     Phonon::MediaSource::Type current = videoWindow()->m_media->currentSource().type();
     if( current == Phonon::MediaSource::Disc ) {
-        QList< Solid::Device > deviceList = Solid::Device::listFromType( Solid::DeviceInterface::OpticalDisc );
+        const QList< Solid::Device > deviceList = Solid::Device::listFromType( Solid::DeviceInterface::OpticalDisc );
         if( !deviceList.isEmpty() ) {
             Solid::StorageVolume* disc = deviceList.first().as<Solid::StorageVolume>();
             if( disc ) {
-                QString discLabel = QString::fromLatin1("disc:%1,%2").arg( disc->uuid(), disc->label() );
+                QString discLabel = QStringLiteral("disc:%1,%2").arg(disc->uuid()).arg(disc->label() );
                 return KConfigGroup( KSharedConfig::openConfig(), discLabel );
             } else
                 qDebug() << "profile: doesn't convert into Solid::StorageVolume";
@@ -140,12 +140,12 @@ TheStream::prettyTitle()
     const QUrl url = videoWindow()->m_media->currentSource().url();
     QString artist, title;
 
-    const QStringList artists = videoWindow()->m_media->metaData(QLatin1String( "ARTIST" ));
+    const QStringList artists = videoWindow()->m_media->metaData(Phonon::ArtistMetaData);
     if (!artists.isEmpty()) {
         artist = artists.first();
     }
 
-    const QStringList titles = videoWindow()->m_media->metaData(QLatin1String( "TITLE" ));
+    const QStringList titles = videoWindow()->m_media->metaData(Phonon::TitleMetaData);
     if (!titles.isEmpty()) {
         title = titles.first();
     }
