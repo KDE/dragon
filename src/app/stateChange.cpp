@@ -22,8 +22,8 @@
 
 #include "mainWindow.h"
 
-#include <KConfig>
-#include <KDebug>
+#include <KSharedConfig>
+#include <QDebug>
 #include <KToolBar>
 
 #include "actions.h"
@@ -35,51 +35,49 @@
 
 namespace Dragon {
 
-void
-MainWindow::engineStateChanged( Phonon::State state )
+void MainWindow::engineStateChanged( Phonon::State state )
 {
     bool const isFullScreen = toggleAction("fullscreen")->isChecked();
     bool const hasMedia = TheStream::hasMedia();
 
     switch(state)
     {
-      case Phonon::LoadingState:
-        kDebug() << "Loading state";
+    case Phonon::LoadingState:
+        qDebug() << "Loading state";
         break;
-      case Phonon::StoppedState:
-        kDebug() << "Stopped state";
+    case Phonon::StoppedState:
+        qDebug() << "Stopped state";
         break;
-      case Phonon::PlayingState:
-        kDebug() << "Playing state";
+    case Phonon::PlayingState:
+        qDebug() << "Playing state";
         break;
-      case Phonon::BufferingState:
-        kDebug() << "Buffering state";
+    case Phonon::BufferingState:
+        qDebug() << "Buffering state";
         break;
-      case Phonon::PausedState:
-        kDebug() << "Paused state";
+    case Phonon::PausedState:
+        qDebug() << "Paused state";
         break;
-      case Phonon::ErrorState:
-        kDebug() << "Error state";
+    case Phonon::ErrorState:
+        qDebug() << "Error state";
         break;
     }
 
     bool enable = false;
-    if(state == Phonon::PlayingState || state == Phonon::PausedState || state == Phonon::BufferingState)
-    {
-      enable = true;
+    if(state == Phonon::PlayingState || state == Phonon::PausedState || state == Phonon::BufferingState) {
+        enable = true;
     }
     action("stop")->setEnabled(enable);
     action("video_settings")->setEnabled(enable && TheStream::hasVideo());
     action("volume")->setEnabled(enable);
     if( m_volumeSlider )
-      m_volumeSlider->setEnabled(enable);
+        m_volumeSlider->setEnabled(enable);
     action("fullscreen")->setEnabled(enable || isFullScreen);
     action("reset_zoom")->setEnabled(hasMedia && !isFullScreen);
 
     m_timeLabel->setVisible(enable);
     m_audioView->enableDemo(!enable);
 
-    kDebug() << "updated actions";
+    qDebug() << "updated actions";
 
     /// update menus
     {
@@ -94,7 +92,7 @@ MainWindow::engineStateChanged( Phonon::State state )
         if( state != Phonon::LoadingState )
             TheStream::aspectRatioAction()->setChecked( true );
     }
-    kDebug() << "updated menus";
+    qDebug() << "updated menus";
 
     /// turn off screensaver
     if( state == Phonon::PlayingState )
@@ -106,18 +104,13 @@ MainWindow::engineStateChanged( Phonon::State state )
 
     // enable/disable DVD specific buttons
     QWidget *dvd_button = toolBar()->findChild< QWidget* >( QLatin1String( "toolbutton_toggle_dvd_menu" ));
-    if(videoWindow()->isDVD())
-    {
-        if (dvd_button)
-        {
+    if(videoWindow()->isDVD()) {
+        if (dvd_button) {
             dvd_button->setVisible(true);
         }
         action("toggle_dvd_menu")->setEnabled( true );
-    }
-    else
-    {
-        if (dvd_button)
-        {
+    } else {
+        if (dvd_button) {
             dvd_button->setVisible(false);
         }
         action("toggle_dvd_menu")->setEnabled( false );
@@ -125,80 +118,82 @@ MainWindow::engineStateChanged( Phonon::State state )
 }//engineStateChanged
 
 
-void
-MainWindow::engineMediaChanged(Phonon::MediaSource /*newSource*/)
+void MainWindow::engineMediaChanged(Phonon::MediaSource /*newSource*/)
 {
     m_audioView->update();
 
     // update recently played list
-    kDebug() << " update recent files list ";
+    qDebug() << " update recent files list ";
 
     emit fileChanged( engine()->urlOrDisc() );
     //TODO fetch this from the Media source
-    KUrl const &url = TheStream::url();
+    QUrl const &url = TheStream::url();
     const QString url_string = url.url();
 
-    #ifndef NO_SKIP_PR0N
+#ifndef NO_SKIP_PR0N
     // ;-)
-    if( !(url_string.contains( QLatin1String( "porn" ), Qt::CaseInsensitive ) || url_string.contains( QLatin1String(  "pr0n" ), Qt::CaseInsensitive )) )
-    #endif
-    if( url.protocol() != QLatin1String( "dvd" ) && url.protocol() != QLatin1String( "vcd" ) && !url.prettyUrl().isEmpty())
-    {
-        KConfigGroup config = KConfigGroup( KGlobal::config(), "General" );
-        const QString prettyUrl = url.prettyUrl();
-        QStringList urls = config.readPathEntry( "Recent Urls", QStringList() );
-        urls.removeAll( prettyUrl );
-        config.writePathEntry( "Recent Urls", urls << prettyUrl );
+    if( !(url_string.contains( QLatin1String( "porn" ), Qt::CaseInsensitive )
+          || url_string.contains( QLatin1String( "pr0n" ), Qt::CaseInsensitive )) ) {
+#endif
+        if( url.scheme() != QLatin1String( "dvd" ) && url.scheme() != QLatin1String( "vcd" ) && !url.toDisplayString().isEmpty()) {
+            KConfigGroup config = KConfigGroup( KSharedConfig::openConfig(), "General" );
+            const QString prettyUrl = url.toDisplayString();
+            QStringList urls = config.readPathEntry( "Recent Urls", QStringList() );
+            urls.removeAll( prettyUrl );
+            config.writePathEntry( "Recent Urls", urls << prettyUrl );
+        }
+#ifndef NO_SKIP_PR0N
     }
+#endif
 
 }//engineMediaChanged
 
 void MainWindow::engineSeekableChanged(bool canSeek)
 {
-  kDebug() << "seekable changed to " << canSeek;
-  m_positionSlider->setEnabled( canSeek );
-  //TODO connect/disconnect the jump forward/back here.
+    qDebug() << "seekable changed to " << canSeek;
+    m_positionSlider->setEnabled( canSeek );
+    //TODO connect/disconnect the jump forward/back here.
 }//engineSeekableChanged
 
 
 void MainWindow::engineMetaDataChanged()
 {
-    kDebug() << "metaDataChanged";
+    qDebug() << "metaDataChanged"; // FIXME Phonon emits metadataChanged() too often :/
     updateTitleBarText();
-    m_audioView->update();
+    if (!TheStream::hasVideo())
+        m_audioView->update();
 }
 
 void MainWindow::engineHasVideoChanged( bool hasVideo )
 {
-  Q_UNUSED(hasVideo);
+    Q_UNUSED(hasVideo);
 
-  kDebug() << "hasVideo changed";
-  if( TheStream::hasVideo() )
-  {
-    if( m_mainView->indexOf(engine()) == -1 )
-      m_mainView->addWidget(engine());
-    m_mainView->setCurrentWidget(engine());
-    m_currentWidget = engine();
+    qDebug() << "hasVideo changed";
+    if( TheStream::hasVideo() ) {
+        engine()->teardownAnalyzer();
+        if( m_mainView->indexOf(engine()) == -1 )
+            m_mainView->addWidget(engine());
+        m_mainView->setCurrentWidget(engine());
+        m_currentWidget = engine();
 
-    // Fake change of state to trigger a re-evaluation of enabled actions.
-    // The video state might have changed *after* a state change (e.g. in Phonon-VLC)
-    // in which case the video related menu actions will not be enabled until
-    // a new state change occurs. By forcing a fake state change we can work around this.
-    engineStateChanged(videoWindow()->state());
-  }
-  else
-  {
-    m_mainView->setCurrentWidget(m_audioView);
-    m_currentWidget = m_audioView;
-  }
+        // Fake change of state to trigger a re-evaluation of enabled actions.
+        // The video state might have changed *after* a state change (e.g. in Phonon-VLC)
+        // in which case the video related menu actions will not be enabled until
+        // a new state change occurs. By forcing a fake state change we can work around this.
+        engineStateChanged(videoWindow()->state());
+    } else {
+        m_audioView->setupAnalyzer();
+        m_mainView->setCurrentWidget(m_audioView);
+        m_currentWidget = m_audioView;
+    }
 
-  if (TheStream::hasVideo()) {
-    inhibitPowerSave();
-    // Assumption: since we have no playlist the only way to release suppression
-    // is through going into stopped state. This also means that should there
-    // ever be a playlist playing video and then audio will possibly not
-    // release video specific inhibitions.
-  }
+    if (TheStream::hasVideo()) {
+        inhibitPowerSave();
+        // Assumption: since we have no playlist the only way to release suppression
+        // is through going into stopped state. This also means that should there
+        // ever be a playlist playing video and then audio will possibly not
+        // release video specific inhibitions.
+    }
 }
 
 }//namespace

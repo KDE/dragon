@@ -20,8 +20,7 @@
 
 #include "textItem.h"
 
-#include <KDebug>
-
+#include <QDebug>
 #include <QTextDocument>
 #include <QSizeF>
 #include <QWidget>
@@ -87,6 +86,3 @@ ExpandingTextItem::setPlainText(const QString& text)
     QGraphicsTextItem::setPlainText(text);
     updateGeometry();
 }
-
-#include "textItem.moc"
-

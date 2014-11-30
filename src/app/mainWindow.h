@@ -35,7 +35,7 @@
 
 class KNotificationRestrictions;
 class KToggleAction;
-class KUrl;
+class QUrl;
 class QActionGroup;
 class QCloseEvent;
 class QLabel;
@@ -48,117 +48,114 @@ class AudioView2;
 
 namespace Dragon
 {
-   class PlayDialog;
-   class FullScreenToolBarHandler;
+class PlayDialog;
+class FullScreenToolBarHandler;
 
-   class MainWindow : public KXmlGuiWindow
-   {
-   Q_OBJECT
+class MainWindow : public KXmlGuiWindow
+{
+    Q_OBJECT
 
-      MainWindow();
-     ~MainWindow();
+    MainWindow();
+    ~MainWindow();
 
-      static MainWindow *s_instance;
+    static MainWindow *s_instance;
 
-      friend class PlayerApplication;
-      friend QWidget* mainWindow();
+    friend class PlayerApplication;
+    friend QWidget* mainWindow();
 
-   public:
-      void openRecentFile( const KUrl& );
-      void showVolume( bool );
-      bool volumeContains( QPoint mousePos );
+public:
+    void openRecentFile( const QUrl& );
+    void showVolume( bool );
+    bool volumeContains(const QPoint &mousePos );
 
-   signals:
-      void fileChanged( QString );
+signals:
+    void fileChanged( QString );
 
-   public slots:
-      bool open( const KUrl& );
-      void playDisc();
-      void openFileDialog();
-      void openStreamDialog();
-      void play();
-      void toggleVideoSettings( bool );
-      void toggleVolumeSlider( bool );
-      void restoreDefaultVideoSettings();
-      void toggleLoadView();
-      void parseArgs();
+public slots:
+    bool open(const QUrl & );
+    void playDisc();
+    void openFileDialog();
+    void openStreamDialog();
+    void play();
+    void toggleVideoSettings( bool );
+    void toggleVolumeSlider( bool );
+    void restoreDefaultVideoSettings();
+    void toggleLoadView();
 
-   private slots:
-      void setFullScreen( bool full );
-      void engineMessage( const QString& );
-      void init();
-      void aboutToShowMenu();
-      void streamSettingChange();
-      void subChannelsChanged( QList< QAction* > );
-      void audioChannelsChanged( QList< QAction* > );
-      void mutedChanged( bool );
-      void stop();
-      //in stateChange.cpp
-      void engineStateChanged( Phonon::State );
-      void engineMediaChanged( Phonon::MediaSource );
-      void engineSeekableChanged( bool );
-      void engineMetaDataChanged();
-      void engineHasVideoChanged( bool );
-      void toggleUnique( bool );
+private slots:
+    void setFullScreen( bool full );
+    void engineMessage( const QString& );
+    void init();
+    void aboutToShowMenu();
+    void streamSettingChange();
+    void subChannelsChanged( QList< QAction* > );
+    void audioChannelsChanged( QList< QAction* > );
+    void mutedChanged( bool );
+    void stop();
+    //in stateChange.cpp
+    void engineStateChanged( Phonon::State );
+    void engineMediaChanged( Phonon::MediaSource );
+    void engineSeekableChanged( bool );
+    void engineMetaDataChanged();
+    void engineHasVideoChanged( bool );
+    void toggleUnique( bool );
 
-   private:
-      bool load( const KUrl& );
-      void setupActions();
-      void updateSliders();
-      void updateTitleBarText();
-      bool isFresh();
+private:
+    bool load(const QUrl & );
+    void setupActions();
+    void updateSliders();
+    void updateTitleBarText();
+    bool isFresh();
 
 
-      QMenu *menu( const char *name );
+    QMenu *menu( const char *name );
 
-      virtual void dragEnterEvent( QDragEnterEvent* );
-      virtual void dropEvent( QDropEvent* );
-      virtual void keyPressEvent( QKeyEvent* );
+    virtual void dragEnterEvent( QDragEnterEvent* ) Q_DECL_OVERRIDE;
+    virtual void dropEvent( QDropEvent* ) Q_DECL_OVERRIDE;
+    virtual void keyPressEvent( QKeyEvent* ) Q_DECL_OVERRIDE;
 
-      void inhibitPowerSave();
-      void releasePowerSave();
+    void inhibitPowerSave();
+    void releasePowerSave();
 
-//      virtual void saveProperties( KConfig* );
-//      virtual void readProperties( KConfig* );
+    //      virtual void saveProperties( KConfig* );
+    //      virtual void readProperties( KConfig* );
 
-      QStackedWidget *m_mainView;
-      AudioView2 *m_audioView;
-      LoadView *m_loadView;
-      QWidget *m_currentWidget;
+    QStackedWidget *m_mainView;
+    AudioView2 *m_audioView;
+    LoadView *m_loadView;
+    QWidget *m_currentWidget;
 
-      QPointer<QDockWidget> m_leftDock;
-      QPointer<QDockWidget> m_rightDock;
-      QWidget *m_positionSlider;
-      QPointer<QWidget> m_volumeSlider;
-      QCheckBox *m_muteCheckBox;
-      TimeLabel *m_timeLabel;
-      QLabel *m_titleLabel;
-      QList<QSlider*> m_sliders;
-      QPointer<PlayDialog> m_playDialog;
+    QPointer<QDockWidget> m_leftDock;
+    QPointer<QDockWidget> m_rightDock;
+    QWidget *m_positionSlider;
+    QPointer<QWidget> m_volumeSlider;
+    QCheckBox *m_muteCheckBox;
+    TimeLabel *m_timeLabel;
+    QLabel *m_titleLabel;
+    QList<QSlider*> m_sliders;
+    QPointer<PlayDialog> m_playDialog;
 
-      KToggleAction *m_menuToggleAction;
+    KToggleAction *m_menuToggleAction;
 
-      KNotificationRestrictions *m_stopScreenSaver;
-      int m_screensaverDisableCookie;
-      int m_stopSleepCookie;
-      int m_stopScreenPowerMgmtCookie;
-      int m_profileMaxDays;
+    KNotificationRestrictions *m_stopScreenSaver;
+    int m_screensaverDisableCookie;
+    int m_stopSleepCookie;
+    int m_stopScreenPowerMgmtCookie;
+    int m_profileMaxDays;
 
-      bool m_toolbarIsHidden;
-      bool m_statusbarIsHidden;
-      bool m_menuBarIsHidden;
-      FullScreenToolBarHandler *m_FullScreenHandler;
+    bool m_toolbarIsHidden;
+    bool m_statusbarIsHidden;
+    bool m_menuBarIsHidden;
+    FullScreenToolBarHandler *m_FullScreenHandler;
 
-      QActionGroup *m_aspectRatios;
-      Q_DISABLE_COPY(MainWindow)
+    QActionGroup *m_aspectRatios;
+    Q_DISABLE_COPY(MainWindow)
 
-   protected:
-      void closeEvent( QCloseEvent * event );
-      void wheelEvent ( QWheelEvent * event );
-   };
+protected:
+    void closeEvent( QCloseEvent * event ) Q_DECL_OVERRIDE;
+    void wheelEvent ( QWheelEvent * event ) Q_DECL_OVERRIDE;
+};
 
 }
-
-
 
 #endif

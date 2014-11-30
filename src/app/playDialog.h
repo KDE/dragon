@@ -7,7 +7,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License or (at your option) version 3 or any later version
  * accepted by the membership of KDE e.V. (or its successor approved
- * by the membership of KDE e.V.), which shall act as a proxy 
+ * by the membership of KDE e.V.), which shall act as a proxy
  * defined in Section 14 of version 3 of the license.
  *
  * This program is distributed in the hope that it will be useful,
@@ -22,32 +22,32 @@
 #ifndef DRAGONPLAYERPLAYDIALOG_H
 #define DRAGONPLAYERPLAYDIALOG_H
 
-#include <KDialog>
-#include <KUrl>
+#include <QDialog>
+#include <QUrl>
 
 class QListWidgetItem;
 class QGridLayout;
 
 namespace Dragon
 {
-   class PlayDialog : public KDialog
-   {
-   Q_OBJECT
-   public:
-      explicit PlayDialog( QWidget*, bool show_welcome_dialog = false );
+class PlayDialog : public QDialog
+{
+    Q_OBJECT
+public:
+    explicit PlayDialog( QWidget*, bool show_welcome_dialog = false );
 
-      const KUrl &url() const { return m_url; }
+    QUrl url() const { return m_url; }
 
-      enum DialogCode { FILE = QDialog::Accepted + 2, VCD, DVD, RECENT_FILE };
+    enum DialogCode { FILE = QDialog::Accepted + 2, VCD, DVD, RECENT_FILE };
 
-   private slots:
-      virtual void finished( QListWidgetItem* );
+private slots:
+    void finished(QListWidgetItem *item );
 
-   private:
-      void createRecentFileWidget( QGridLayout* );
+private:
+    void createRecentFileWidget( QGridLayout* );
 
-      KUrl m_url;
-   };
+    QUrl m_url;
+};
 }
 
 #endif

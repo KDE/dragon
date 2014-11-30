@@ -14,16 +14,26 @@
    <item row="0" column="0">
     <layout class="QVBoxLayout" name="verticalLayout_3">
      <item>
-      <widget class="KPushButton" name="m_playFileButton">
+      <widget class="QPushButton" name="m_playFileButton">
        <property name="text">
         <string>Play File</string>
+       </property>
+       <property name="icon">
+        <iconset theme="folder">
+         <normaloff/>
+        </iconset>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="KPushButton" name="m_playDiskButton">
+      <widget class="QPushButton" name="m_playDiskButton">
        <property name="text">
         <string>Play Disc</string>
+       </property>
+       <property name="icon">
+        <iconset theme="media-optical">
+         <normaloff/>
+        </iconset>
        </property>
       </widget>
      </item>
@@ -31,6 +41,9 @@
       <widget class="QPushButton" name="m_playStreamButton">
        <property name="text">
         <string>Play Stream</string>
+       </property>
+       <property name="icon">
+        <iconset theme="document-open-remote"/>
        </property>
       </widget>
      </item>
@@ -68,11 +81,6 @@
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
-  </customwidget>
   <customwidget>
    <class>RecentlyPlayedList</class>
    <extends>QListWidget</extends>

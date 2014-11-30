@@ -7,7 +7,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License or (at your option) version 3 or any later version
  * accepted by the membership of KDE e.V. (or its successor approved
- * by the membership of KDE e.V.), which shall act as a proxy 
+ * by the membership of KDE e.V.), which shall act as a proxy
  * defined in Section 14 of version 3 of the license.
  *
  * This program is distributed in the hope that it will be useful,
@@ -26,35 +26,35 @@
 #include <QResizeEvent>
 
 MouseOverToolBar::MouseOverToolBar( QWidget *parent )
-      : KToolBar( parent )
+    : KToolBar( parent )
 {
-   parent->installEventFilter( this );
- //  move( 0, 0 ); //TODO necessary?
-   hide();
+    parent->installEventFilter( this );
+    //  move( 0, 0 ); //TODO necessary?
+    hide();
 
-   setPalette( QApplication::palette() ); //videoWindow palette has a black background
+    setPalette( QApplication::palette() ); //videoWindow palette has a black background
 }
 
 bool
 MouseOverToolBar::eventFilter( QObject */*o*/, QEvent *e )
 {
-   switch( e->type() )
-   {
-   /*case QEvent::Resize:
+    switch( e->type() )
+    {
+    /*case QEvent::Resize:
       resize( static_cast<QResizeEvent*>(e)->size().width(), sizeHint().height() );
       break;*/
 
-   case QEvent::Enter:
-      show();
-      break;
+    case QEvent::Enter:
+        show();
+        break;
 
-   case QEvent::Leave:
-      hide();
-      break;
+    case QEvent::Leave:
+        hide();
+        break;
 
-   default:
-      ;
-   }
+    default:
+        ;
+    }
 
-   return false;
+    return false;
 }

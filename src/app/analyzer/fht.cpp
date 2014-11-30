@@ -240,4 +240,3 @@ void FHT::_transform(float *p, int n, int k)
     }
     memcpy(p + k, m_buf, sizeof(float) * n);
 }
-

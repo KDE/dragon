@@ -26,16 +26,27 @@ set(videoplayer_app_SRCS
     ../mpris2/mediaplayer2.cpp
     ../mpris2/mediaplayer2player.cpp )
 
-kde4_add_ui_files(videoplayer_app_SRCS videoSettingsWidget.ui loadView.ui audioView2.ui)
+ki18n_wrap_ui(videoplayer_app_SRCS videoSettingsWidget.ui loadView.ui audioView2.ui)
 
-kde4_add_executable(dragon ${videoplayer_app_SRCS} )
+add_executable(dragon ${videoplayer_app_SRCS} )
 
 target_link_libraries(dragon
-    ${KDE4_KIO_LIBS}
-    ${KDE4_KDEUI_LIBS}
-    ${KDE4_PHONON_LIBS}
-    ${KDE4_SOLID_LIBS}
-    ${KDE4_PLASMA_LIBS} )
+    Qt5::Core
+    Qt5::Widgets
+    KF5::CoreAddons
+    KF5::I18n
+    KF5::IconThemes
+    KF5::KIOCore
+    KF5::KIOWidgets
+    KF5::WidgetsAddons
+    KF5::ConfigCore
+    KF5::Solid
+    KF5::XmlGui
+    KF5::DBusAddons
+    KF5::JobWidgets
+    KF5::WindowSystem
+    ${PHONON_LIBRARY}
+    )
 
 install(TARGETS dragon ${INSTALL_TARGETS_DEFAULT_ARGS})
 
@@ -44,13 +55,24 @@ set(videoplayer_part_SRCS
     part.cpp
     partToolBar.cpp )
 
-kde4_add_plugin(dragonpart ${videoplayer_part_SRCS})
+add_library(dragonpart MODULE ${videoplayer_part_SRCS})
 
 target_link_libraries(dragonpart
-    ${KDE4_KPARTS_LIBS}
-    ${KDE4_KIO_LIBS}
-    ${KDE4_KDEUI_LIBS}
-    ${KDE4_PHONON_LIBS}
-    ${KDE4_SOLID_LIBS})
+    Qt5::Core
+    Qt5::Widgets
+    KF5::CoreAddons
+    KF5::I18n
+    KF5::IconThemes
+    KF5::KIOCore
+    KF5::KIOWidgets
+    KF5::WidgetsAddons
+    KF5::ConfigCore
+    KF5::Parts
+    KF5::Solid
+    KF5::XmlGui
+    KF5::JobWidgets
+    KF5::WindowSystem
+    ${PHONON_LIBRARY}
+    )
 
 install(TARGETS dragonpart DESTINATION ${PLUGIN_INSTALL_DIR} )

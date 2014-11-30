@@ -1,10 +1,29 @@
 project(DragonPlayer)
 
-find_package(KDE4 REQUIRED)
-include(KDE4Defaults)
-include(MacroLibrary)
+cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
+set(QT_MIN_VERSION "5.3.0")
 
-include_directories(${KDE4_INCLUDES})
+find_package(ECM 1.3.0 REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
+
+include(KDEInstallDirs)
+include(KDECMakeSettings)
+include(KDECompilerSettings)
+
+include(ECMPackageConfigHelpers)
+include(ECMOptionalAddSubdirectory)
+include(ECMInstallIcons)
+include(ECMSetupVersion)
+include(FeatureSummary)
+
+find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+    Core
+    Widgets
+)
+
+find_package(KF5 REQUIRED Config ConfigWidgets CoreAddons IconThemes I18n KIO
+             Notifications WidgetsAddons WindowSystem Parts Solid DocTools XmlGui JobWidgets)
+find_package(Phonon4Qt5 4.6.60 NO_MODULE)
 
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}/src
@@ -14,11 +33,17 @@ include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
     )
 
+include_directories(BEFORE ${PHONON_INCLUDES})
+
 include(CheckIncludeFiles)
 check_include_files(unistd.h HAVE_UNISTD_H)
 
 configure_file(config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
+add_definitions(-DTRANSLATION_DOMAIN="dragonplayer")
+
 add_subdirectory( src/app )
 add_subdirectory( misc )
 add_subdirectory( doc )
+
+feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)

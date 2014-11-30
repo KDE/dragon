@@ -43,31 +43,31 @@ class MediaPlayer2 : public QDBusAbstractAdaptor
     Q_PROPERTY(QStringList SupportedUriSchemes READ SupportedUriSchemes)
     Q_PROPERTY(QStringList SupportedMimeTypes READ SupportedMimeTypes)
 
-    public:
-        explicit MediaPlayer2(QObject* parent);
-        ~MediaPlayer2();
+public:
+    explicit MediaPlayer2(QObject* parent);
+    ~MediaPlayer2();
 
-        bool CanQuit() const;
-        bool CanRaise() const;
+    bool CanQuit() const;
+    bool CanRaise() const;
 
-        bool Fullscreen() const;
-        void setFullscreen(bool fullscreen) const;
-        bool CanSetFullscreen() const;
+    bool Fullscreen() const;
+    void setFullscreen(bool fullscreen) const;
+    bool CanSetFullscreen() const;
 
-        bool HasTrackList() const;
+    bool HasTrackList() const;
 
-        QString Identity() const;
-        QString DesktopEntry() const;
+    QString Identity() const;
+    QString DesktopEntry() const;
 
-        QStringList SupportedUriSchemes() const;
-        QStringList SupportedMimeTypes() const;
+    QStringList SupportedUriSchemes() const;
+    QStringList SupportedMimeTypes() const;
 
-    public slots:
-        void Raise() const;
-        void Quit() const;
+public slots:
+    void Raise() const;
+    void Quit() const;
 
-    private slots:
-        void emitFullscreenChange(bool fullscreen) const;
+private slots:
+    void emitFullscreenChange(bool fullscreen) const;
 };
 
 #endif

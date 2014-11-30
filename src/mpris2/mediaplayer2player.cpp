@@ -28,7 +28,7 @@
 static QByteArray makeTrackId(const QString& source)
 {
     return QByteArray("/org/kde/") + APP_NAME + "/tid_" +
-        QCryptographicHash::hash(source.toLocal8Bit(), QCryptographicHash::Sha1)
+            QCryptographicHash::hash(source.toLocal8Bit(), QCryptographicHash::Sha1)
             .toHex();
 }
 
@@ -54,6 +54,7 @@ bool MediaPlayer2Player::CanGoNext() const
 
 void MediaPlayer2Player::Next() const
 {
+    Dragon::engine()->nextChapter();
 }
 
 bool MediaPlayer2Player::CanGoPrevious() const
@@ -63,6 +64,7 @@ bool MediaPlayer2Player::CanGoPrevious() const
 
 void MediaPlayer2Player::Previous() const
 {
+    Dragon::engine()->prevChapter();
 }
 
 bool MediaPlayer2Player::CanPause() const
@@ -103,25 +105,25 @@ void MediaPlayer2Player::SetPosition(const QDBusObjectPath& TrackId, qlonglong P
 
 void MediaPlayer2Player::OpenUri(QString Uri) const
 {
-    static_cast<Dragon::MainWindow*>(Dragon::mainWindow())->open(KUrl(Uri));
+    static_cast<Dragon::MainWindow*>(Dragon::mainWindow())->open(QUrl(Uri));
 }
 
 QString MediaPlayer2Player::PlaybackStatus() const
 {
     switch (Dragon::engine()->state()) {
-        case (Phonon::PlayingState):
-            return "Playing";
-            break;
-        case (Phonon::PausedState):
-        case (Phonon::BufferingState):
-            return "Paused";
-            break;
-        case (Phonon::StoppedState):
-            return "Stopped";
-            break;
-        default:
-            return "Stopped";
-            break;
+    case (Phonon::PlayingState):
+        return "Playing";
+        break;
+    case (Phonon::PausedState):
+    case (Phonon::BufferingState):
+        return "Paused";
+        break;
+    case (Phonon::StoppedState):
+        return "Stopped";
+        break;
+    default:
+        return "Stopped";
+        break;
     }
 }
 
@@ -160,13 +162,13 @@ QVariantMap MediaPlayer2Player::Metadata() const
     QVariantMap metaData;
 
     switch (Dragon::engine()->mediaSourceType()) {
-        case Phonon::MediaSource::Invalid:
-        case Phonon::MediaSource::Empty:
-            break;
-        default:
-            metaData["mpris:trackid"] = QVariant::fromValue<QDBusObjectPath>(QDBusObjectPath(makeTrackId(Dragon::engine()->urlOrDisc()).constData()));
-            metaData["mpris:length"] = Dragon::engine()->length() * 1000;
-            metaData["xesam:url"] = Dragon::engine()->urlOrDisc();
+    case Phonon::MediaSource::Invalid:
+    case Phonon::MediaSource::Empty:
+        break;
+    default:
+        metaData["mpris:trackid"] = QVariant::fromValue<QDBusObjectPath>(QDBusObjectPath(makeTrackId(Dragon::engine()->urlOrDisc()).constData()));
+        metaData["mpris:length"] = Dragon::engine()->length() * 1000;
+        metaData["xesam:url"] = Dragon::engine()->urlOrDisc();
     }
 
     QMultiMap<QString, QString> phononMetaData = Dragon::engine()->metaData();

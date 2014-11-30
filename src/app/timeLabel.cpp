@@ -20,26 +20,26 @@
  ***********************************************************************/
 
 #include "timeLabel.h"
-#include <QLabel>
+
+#include <QFontDatabase>
 
 #include <KConfigGroup>
-#include <KGlobal>
-#include <KGlobalSettings>
+#include <KSharedConfig>
 
 TimeLabel::TimeLabel( QWidget *parent )
     : QLabel( QLatin1String( " 0:00:00 " ), parent )
     , m_currentTime( 0 )
 {
-    setFont( KGlobalSettings::fixedFont() );
+    setFont( QFontDatabase::systemFont(QFontDatabase::FixedFont) );
     setAlignment( Qt::AlignCenter );
     setMinimumSize( sizeHint() );
-    KConfigGroup config = KGlobal::config()->group( "General" );
+    KConfigGroup config(KSharedConfig::openConfig(), "General" );
     m_timeFormat = static_cast<TimeFormats>( config.readEntry<int>( "TimeFormat", static_cast<int>( SHOW_COMPLETED ) ) );
 }
 
 TimeLabel::~TimeLabel()
 {
-    KConfigGroup config = KGlobal::config()->group( "General" );
+    KConfigGroup config(KSharedConfig::openConfig(), "General" );
     config.writeEntry( "TimeFormat", static_cast<int>( m_timeFormat ) );
 }
 
@@ -88,5 +88,3 @@ TimeLabel::setTotalTime( qint64 time )
     m_totalTime = time;
     updateTime();
 }
-
-#include "timeLabel.moc"

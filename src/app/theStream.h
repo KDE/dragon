@@ -23,7 +23,7 @@
 #define DRAGONPLAYER_THESTREAM_H
 
 #include <KConfigGroup>
-#include <KUrl>    // larger :( but no macros at least
+#include <QUrl>    // larger :( but no macros at least
 #include <QSize>   // small header
 #include <QString> // small header
 #include <Phonon/Global>
@@ -46,7 +46,7 @@ namespace Dragon
    DRAGONPLAYER_NO_EXPORT( TheStream )
 
    public:
-      static KUrl url();
+      static QUrl url();
 
       static bool canSeek();
       static bool hasAudio();

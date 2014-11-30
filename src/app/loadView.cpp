@@ -22,37 +22,30 @@
 #include "codeine.h"
 
 #include <QLabel>
-#include <KIcon>
-#include <KIconLoader>
+#include <QIcon>
 
+#include <KIconLoader>
 
 namespace Dragon
 {
 
 LoadView::LoadView( QWidget *parent )
-        : QWidget( parent )
+    : QWidget( parent )
 {
     setupUi( this );
     setStyleSheet( QLatin1String( "QPushButton { text-align: center; }" ));
-    m_playDiskButton->setIcon( KIcon( QLatin1String(  "media-optical" ) ) );
-    m_playDiskButton->setIconSize( QSize( KIconLoader::SizeMedium, KIconLoader::SizeMedium ) );
-    m_playFileButton->setIcon( KIcon( QLatin1String(  "folder" ) ) );
-    m_playFileButton->setIconSize( QSize( KIconLoader::SizeMedium, KIconLoader::SizeMedium ) );
-    m_playStreamButton->setIcon( KIcon( QLatin1String(  "document-open-remote" ) ) );
-    m_playStreamButton->setIconSize( QSize( KIconLoader::SizeMedium, KIconLoader::SizeMedium ) );
 
-    connect( m_playDiskButton, SIGNAL(released()), this, SIGNAL(openDVDPressed()) );
-    connect( m_playFileButton, SIGNAL(released()), this, SIGNAL(openFilePressed()) );
-    connect( m_playStreamButton, SIGNAL(released()), this, SIGNAL(openStreamPressed()) );
-    connect( m_recentlyPlayed, SIGNAL(itemDoubleClicked(KUrl)), this, SIGNAL(loadUrl(KUrl)) );
+    connect( m_playDiskButton, SIGNAL(clicked()), this, SIGNAL(openDVDPressed()) );
+    connect( m_playFileButton, SIGNAL(clicked()), this, SIGNAL(openFilePressed()) );
+    connect( m_playStreamButton, SIGNAL(clicked()), this, SIGNAL(openStreamPressed()) );
+    connect( m_recentlyPlayed, SIGNAL(itemDoubleClicked(QUrl)), this, SIGNAL(loadUrl(QUrl)) );
 }
 
-void
-LoadView::setThumbnail(QWidget *object)
+void LoadView::setThumbnail(QWidget *object)
 {
-  object->setParent(m_vThumb);
-  object->resize(m_vThumb->size());
-  object->show();
+    object->setParent(m_vThumb);
+    object->resize(m_vThumb->size());
+    object->show();
 }
 
 }

@@ -7,7 +7,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License or (at your option) version 3 or any later version
  * accepted by the membership of KDE e.V. (or its successor approved
- * by the membership of KDE e.V.), which shall act as a proxy 
+ * by the membership of KDE e.V.), which shall act as a proxy
  * defined in Section 14 of version 3 of the license.
  *
  * This program is distributed in the hope that it will be useful,
@@ -29,31 +29,31 @@ class QTimerEvent;
 
 namespace Dragon
 {
-    class AdjustSizeButton : public QFrame
+class AdjustSizeButton : public QFrame
+{
+    Q_OBJECT
+    int m_counter;
+    int m_stage;
+    int m_offset;
+    int m_timerId;
+
+    QWidget *m_preferred;
+    QWidget *m_oneToOne;
+
+    QFrame *m_thingy;
+
+public:
+    AdjustSizeButton( QWidget *parent );
+
+private:
+    virtual void timerEvent( QTimerEvent* ) Q_DECL_OVERRIDE;
+    virtual bool eventFilter( QObject*, QEvent* ) Q_DECL_OVERRIDE;
+
+    inline void move()
     {
-        Q_OBJECT
-        int m_counter;
-        int m_stage;
-        int m_offset;
-        int m_timerId;
-
-        QWidget *m_preferred;
-        QWidget *m_oneToOne;
-
-        QFrame *m_thingy;
-
-    public:
-        AdjustSizeButton( QWidget *parent );
-
-    private:
-        virtual void timerEvent( QTimerEvent* );
-        virtual bool eventFilter( QObject*, QEvent* );
-
-        inline void move()
-        {
-            QWidget::move( parentWidget()->width() - width(), parentWidget()->height() - m_offset );
-        }
-    };
+        QWidget::move( parentWidget()->width() - width(), parentWidget()->height() - m_offset );
+    }
+};
 }
 
 #endif

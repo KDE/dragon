@@ -37,12 +37,14 @@ public:
     explicit AudioView2(QWidget *parent = 0);
     ~AudioView2();
 
+    void setupAnalyzer();
+
 public slots:
     void enableDemo(bool enable);
     void update();
     
 protected:
-    void changeEvent(QEvent *e);
+    void changeEvent(QEvent *e) Q_DECL_OVERRIDE;
     
 private:
     Ui::AudioView2 *ui;

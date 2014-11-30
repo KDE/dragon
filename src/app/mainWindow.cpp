@@ -23,30 +23,33 @@
 #include "timeLabel.h"
 
 #include <KActionMenu>
-#include <KApplication>
-#include <KCmdLineArgs>
+#include <QApplication>
 #include <KCursor>
-#include <KDebug>
-#include <KFileDialog>      //::open()
-#include <KInputDialog>
-#include <KGlobalSettings> //::timerEvent()
-#include <KIO/NetAccess>
-#include <KLocale>
-#include <KMenu>
-#include <KMenuBar>
-#include <KNotificationRestrictions>
+#include <QDebug>
+#include <QInputDialog>
+#include <KIO/StatJob>
+#include <KLocalizedString>
+#include <QMenu>
+#include <QMenuBar>
+//#include <KNotificationRestrictions> // kf5 FIXME
 #include <KSqueezedTextLabel>
-#include <KStatusBar>
+#include <QStatusBar>
 #include <KToggleFullScreenAction>
 #include <KToolBar>
-#include <KWindowSystem>
 #include <KXMLGUIFactory>
 #include <KProtocolInfo>
+#include <KIO/UDSEntry>
+#include <KSharedConfig>
+#include <KJobWidgets>
 
 #include <Phonon/VideoWidget>
+#include <Phonon/BackendCapabilities>
 
 #include <Solid/Device>
 #include <Solid/OpticalDisc>
+#if 0 // kf5 FIXME port to new Solid::Power API
+#include <solid/powermanagement.h>
+#endif
 
 #include <QActionGroup>
 #include <QDesktopWidget>
@@ -61,6 +64,8 @@
 #include <QObject>
 #include <QTimer>
 #include <QStackedWidget>
+#include <QMimeData>
+#include <QFileDialog>
 
 #include "actions.h"
 #include "discSelectionDialog.h"
@@ -76,36 +81,34 @@
 #include "audioView2.h"
 #include "loadView.h"
 
-#include <phonon/backendcapabilities.h>
-#include <solid/powermanagement.h>
 
 namespace Dragon {
 
-    MainWindow *MainWindow::s_instance = 0;
-    /// @see codeine.h
-    QWidget* mainWindow() { return MainWindow::s_instance; }
+MainWindow *MainWindow::s_instance = 0;
+/// @see codeine.h
+QWidget* mainWindow() { return MainWindow::s_instance; }
 
 MainWindow::MainWindow()
-        : KXmlGuiWindow()
-        , m_mainView( 0 )
-        , m_audioView( 0 )
-        , m_loadView( new LoadView(this) )
-        , m_currentWidget( new QWidget(this) )
-        , m_leftDock( 0 )
-        , m_positionSlider( 0 )
-        , m_volumeSlider( 0 )
-        , m_timeLabel( 0 )
-        , m_titleLabel( new QLabel( this ) )
-        , m_playDialog( 0 )
-        , m_menuToggleAction( 0 )
-        , m_stopScreenSaver( 0 )
-        , m_stopSleepCookie( -1 )
-        , m_stopScreenPowerMgmtCookie( -1 )
-        , m_profileMaxDays(30)
-        , m_toolbarIsHidden(false)
-        , m_statusbarIsHidden(false)
-        , m_menuBarIsHidden(false)
-        , m_FullScreenHandler( 0 )
+    : KXmlGuiWindow()
+    , m_mainView( 0 )
+    , m_audioView( 0 )
+    , m_loadView( new LoadView(this) )
+    , m_currentWidget( new QWidget(this) )
+    , m_leftDock( 0 )
+    , m_positionSlider( 0 )
+    , m_volumeSlider( 0 )
+    , m_timeLabel( 0 )
+    , m_titleLabel( new QLabel( this ) )
+    , m_playDialog( 0 )
+    , m_menuToggleAction( 0 )
+    , m_stopScreenSaver( 0 )
+    , m_stopSleepCookie( -1 )
+    , m_stopScreenPowerMgmtCookie( -1 )
+    , m_profileMaxDays(30)
+    , m_toolbarIsHidden(false)
+    , m_statusbarIsHidden(false)
+    , m_menuBarIsHidden(false)
+    , m_FullScreenHandler( 0 )
 {
     s_instance = this;
     setMouseTracking( true );
@@ -133,7 +136,7 @@ MainWindow::MainWindow()
     m_titleLabel->setMargin( 2 );
     m_titleLabel->setSizePolicy(QSizePolicy( QSizePolicy::Expanding, QSizePolicy::Fixed ));
 
-    // work around a bug in KStatusBar
+    // FIXME work around a bug in KStatusBar
     // sizeHint width of statusbar seems to get stupidly large quickly
     statusBar()->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Maximum );
 
@@ -145,35 +148,34 @@ MainWindow::MainWindow()
     {
         KActionCollection* ac = actionCollection();
         KActionMenu *menuAction = 0;
-        #define make_menu( name, text ) \
-                menuAction = new KActionMenu( text, this ); \
-                menuAction->setObjectName( name ); \
-                menuAction->setEnabled( false ); \
-                connect( menuAction->menu(), SIGNAL(aboutToShow()), SLOT(aboutToShowMenu()) ); \
-                ac->addAction( menuAction->objectName(), menuAction );
+#define make_menu( name, text ) \
+        menuAction = new KActionMenu( text, this ); \
+        menuAction->setObjectName( name ); \
+        menuAction->setEnabled( false ); \
+        connect( menuAction->menu(), SIGNAL(aboutToShow()), SLOT(aboutToShowMenu()) ); \
+        ac->addAction( menuAction->objectName(), menuAction );
         make_menu( QLatin1String( "aspect_ratio_menu" ), i18n( "Aspect &Ratio" ) );
         make_menu( QLatin1String( "audio_channels_menu" ), i18n( "&Audio Channels" ) );
         make_menu( QLatin1String( "subtitle_channels_menu" ), i18n( "&Subtitles" ) );
-        #undef make_menu
-
+#undef make_menu
         {
             m_aspectRatios = new QActionGroup( this );
             m_aspectRatios->setExclusive( true );
-            #define make_ratio_action( text, objectname, aspectEnum ) \
-            { \
-                KAction* ratioAction = new KAction( this ); \
-                ratioAction->setText( text ); \
-                ratioAction->setCheckable( true ); \
-                m_aspectRatios->addAction( ratioAction ); \
-                TheStream::addRatio( aspectEnum, ratioAction ); \
-                ac->addAction( objectname, ratioAction ); \
-                connect( ratioAction, SIGNAL(triggered()), this, SLOT(streamSettingChange()) ); \
-            }
+#define make_ratio_action( text, objectname, aspectEnum ) \
+{ \
+    QAction* ratioAction = new QAction( this ); \
+    ratioAction->setText( text ); \
+    ratioAction->setCheckable( true ); \
+    m_aspectRatios->addAction( ratioAction ); \
+    TheStream::addRatio( aspectEnum, ratioAction ); \
+    ac->addAction( objectname, ratioAction ); \
+    connect( ratioAction, SIGNAL(triggered()), this, SLOT(streamSettingChange()) ); \
+}
             make_ratio_action( i18n( "Determine &Automatically" ), QLatin1String( "ratio_auto" ),  Phonon::VideoWidget::AspectRatioAuto );
             make_ratio_action( i18n( "&4:3" ), QLatin1String( "ratio_golden" ), Phonon::VideoWidget::AspectRatio4_3 );
             make_ratio_action( i18n( "Ana&morphic (16:9)" ), QLatin1String( "ratio_anamorphic" ), Phonon::VideoWidget::AspectRatio16_9 );
             make_ratio_action( i18n( "&Window Size" ), QLatin1String( "ratio_window" ), Phonon::VideoWidget::AspectRatioWidget );
-            #undef make_ratio_action
+#undef make_ratio_action
             ac->action( QLatin1String( "ratio_auto" ) )->setChecked( true );
             ac->action( QLatin1String( "aspect_ratio_menu" ) )->menu()->addActions( m_aspectRatios->actions() );
         }
@@ -187,17 +189,10 @@ MainWindow::MainWindow()
     }
     KXMLGUIClient::stateChanged( QLatin1String( "empty" ) );
 
-    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-    if( args->count() || args->isSet( "play-dvd" ) || kapp->isSessionRestored() )
-        //we need to resize the window, so we can't show the window yet
-        init();
-    else
-    {
-        //"faster" startup
-        //TODO if we have a size stored for this video, do the "faster" route
-        QTimer::singleShot( 0, this, SLOT(init()) );
-        QApplication::setOverrideCursor( Qt::WaitCursor );
-    }
+    //"faster" startup
+    //TODO if we have a size stored for this video, do the "faster" route
+    QTimer::singleShot( 0, this, SLOT(init()) );
+    QApplication::setOverrideCursor( Qt::WaitCursor );
 }
 
 void
@@ -207,7 +202,7 @@ MainWindow::init()
     connect( m_loadView, SIGNAL(openDVDPressed()), this, SLOT(playDisc()) );
     connect( m_loadView, SIGNAL(openFilePressed()), this, SLOT(openFileDialog()) );
     connect( m_loadView, SIGNAL(openStreamPressed()), this, SLOT(openStreamDialog()) );
-    connect( m_loadView, SIGNAL(loadUrl(KUrl)), this, SLOT(open(KUrl)) );
+    connect( m_loadView, SIGNAL(loadUrl(QUrl)), this, SLOT(open(QUrl)) );
 
     //connect the video player
     connect( engine(), SIGNAL(stateUpdated(Phonon::State,Phonon::State)), this, SLOT(engineStateChanged(Phonon::State)) );
@@ -222,11 +217,11 @@ MainWindow::init()
 
     if( !engine()->init() ) {
         KMessageBox::error( this, i18n(
-            "<qt>Phonon could not be successfully initialized. Dragon Player will now exit.</qt>") );
+                                "<qt>Phonon could not be successfully initialized. Dragon Player will now exit.</qt>") );
         QApplication::exit( 2 );
     }
 
-    //would be dangerous for these to65535 happen before the videoWindow() is initialised
+    //would be dangerous for these to happen before the videoWindow() is initialised
     setAcceptDrops( true );
     connect( statusBar(), SIGNAL(messageChanged(QString)), engine(), SLOT(showOSD(QString)) );
     //statusBar()->insertPermanentItem( "hello world", 0, 0 );
@@ -262,7 +257,7 @@ void MainWindow::closeEvent (QCloseEvent *event)
 }
 
 void MainWindow::wheelEvent (QWheelEvent *event)
- {
+{
     if (event->delta() > 0)
         engine()->increaseVolume();
     else
@@ -273,14 +268,13 @@ void MainWindow::wheelEvent (QWheelEvent *event)
 void
 MainWindow::setupActions()
 {
-
     KActionCollection * const ac = actionCollection();
 
-    KStandardAction::quit( kapp, SLOT(closeAllWindows()), ac );
+    KStandardAction::quit( qApp, SLOT(closeAllWindows()), ac );
 
     KStandardAction::open( this, SLOT(toggleLoadView()), ac )->setText( i18n("Play &Media...") );
 
-    #define addToAc( X ) ac->addAction( X->objectName(), X );
+#define addToAc( X ) ac->addAction( X->objectName(), X );
 
     KToggleFullScreenAction* toggleFullScreen = new KToggleFullScreenAction( this, ac );
     toggleFullScreen->setObjectName( QLatin1String( "fullscreen" ) );
@@ -297,94 +291,95 @@ MainWindow::setupActions()
                                                       menuBar(),
                                                       SLOT(setVisible(bool))));
 
-    KAction *action = new KAction(i18nc("@action", "Increase Volume"), ac);
+    QAction *action = new QAction(i18nc("@action", "Increase Volume"), ac);
     action->setObjectName(QLatin1String("volume_inc"));
     connect(action, SIGNAL(triggered()), engine(), SLOT(increaseVolume()));
     addToAc(action);
 
-    action = new KAction(i18nc("@action", "Decrease Volume"), ac);
+    action = new QAction(i18nc("@action", "Decrease Volume"), ac);
     action->setObjectName(QLatin1String("volume_dec"));
     connect(action, SIGNAL(triggered()), engine(), SLOT(decreaseVolume()));
     addToAc(action);
 
-    KAction* playerStop = new KAction( KIcon(QLatin1String( "media-playback-stop" )), i18n("Stop"), ac );
+    QAction* playerStop = new QAction( QIcon::fromTheme(QLatin1String( "media-playback-stop" )), i18n("Stop"), ac );
     playerStop->setObjectName( QLatin1String( "stop" ) );
     playerStop->setShortcut( Qt::Key_S );
     connect( playerStop, SIGNAL(triggered()), this, SLOT(stop()) );
     addToAc( playerStop )
 
-    KToggleAction* mute = new KToggleAction( KIcon(QLatin1String( "player-volume-muted" )), i18nc( "Mute the sound output", "Mute"), ac );
+    KToggleAction* mute = new KToggleAction( QIcon::fromTheme(QLatin1String( "player-volume-muted" )), i18nc( "Mute the sound output", "Mute"), ac );
     mute->setObjectName( QLatin1String( "mute" ) );
     mute->setShortcut( Qt::Key_M );
     connect( mute, SIGNAL(toggled(bool)), videoWindow(), SLOT(mute(bool)) );
     addToAc( mute )
 
-    KAction* resetZoom = new KAction( KIcon(QLatin1String( "zoom-fit-best" )), i18n("Reset Video Scale"), ac );
+    QAction* resetZoom = new QAction( QIcon::fromTheme(QLatin1String( "zoom-fit-best" )), i18n("Reset Video Scale"), ac );
     resetZoom->setObjectName( QLatin1String( "reset_zoom" ) );
     resetZoom->setShortcut( Qt::Key_Equal );
     connect( resetZoom, SIGNAL(triggered()), videoWindow(), SLOT(resetZoom()) );
     addToAc( resetZoom )
 
-    KAction* dvdMenu = new KAction( KIcon(QLatin1String( "media-optical-video" )), i18n("Menu Toggle"), ac );
+    QAction* dvdMenu = new QAction( QIcon::fromTheme(QLatin1String( "media-optical-video" )), i18n("Menu Toggle"), ac );
     dvdMenu->setObjectName( QLatin1String( "toggle_dvd_menu" ) );
     dvdMenu->setShortcut( Qt::Key_R );
     connect( dvdMenu, SIGNAL(triggered()), engine(), SLOT(toggleDVDMenu()) );
     addToAc( dvdMenu )
 
-    KAction* positionSlider = new KAction( i18n("Position Slider"), ac );
+    QWidgetAction* positionSlider = new QWidgetAction( ac );
     positionSlider->setObjectName( QLatin1String( "position_slider" ) );
+    positionSlider->setText(i18n("Position Slider"));
     positionSlider->setDefaultWidget( m_positionSlider );
     addToAc( positionSlider )
 
-    KAction* videoSettings = new KAction( i18n("Video Settings"), ac );
+    QAction* videoSettings = new QAction( i18n("Video Settings"), ac );
     videoSettings->setObjectName( QLatin1String( "video_settings" ) );
     videoSettings->setCheckable( true );
     connect( videoSettings, SIGNAL(toggled(bool)), this, SLOT(toggleVideoSettings(bool)) );
     addToAc( videoSettings )
 
-    KAction* uniqueToggle =
-            new KAction( i18nc("@action:inmenu Whether only one instance of dragon can be started"
+    QAction* uniqueToggle =
+            new QAction( i18nc("@action:inmenu Whether only one instance of dragon can be started"
                                " and will be reused when the user tries to play another file.",
                                "One Instance Only"), ac );
     uniqueToggle->setObjectName( QLatin1String( "unique" ) );
     uniqueToggle->setCheckable( true );
-    uniqueToggle->setChecked( !KGlobal::config()->group("KDE").readEntry("MultipleInstances", QVariant(false)).toBool() );
+    uniqueToggle->setChecked( !KSharedConfig::openConfig()->group("KDE").readEntry("MultipleInstances", QVariant(false)).toBool() );
     connect( uniqueToggle, SIGNAL(toggled(bool)), this, SLOT(toggleUnique(bool)) );
     addToAc( uniqueToggle )
 
-    KAction* prev_chapter = new KAction( KIcon(QLatin1String( "media-skip-backward" )), i18n("Previous Chapter"), ac );
+    QAction* prev_chapter = new QAction( QIcon::fromTheme(QLatin1String( "media-skip-backward" )), i18n("Previous Chapter"), ac );
     prev_chapter->setObjectName( QLatin1String( "prev_chapter" ) );
     prev_chapter->setShortcut( Qt::Key_Comma );
     connect( prev_chapter, SIGNAL(triggered()), engine(), SLOT(prevChapter()) );
     addToAc( prev_chapter )
 
-    KAction* next_chapter = new KAction( KIcon(QLatin1String( "media-skip-forward" )), i18n("Next Chapter"), ac );
+    QAction* next_chapter = new QAction( QIcon::fromTheme(QLatin1String( "media-skip-forward" )), i18n("Next Chapter"), ac );
     next_chapter->setObjectName( QLatin1String( "next_chapter" ) );
     next_chapter->setShortcut( Qt::Key_Period );
     connect( next_chapter, SIGNAL(triggered()), engine(), SLOT(nextChapter()) );
     addToAc( next_chapter )
 
     // xgettext: no-c-format
-    KAction* tenPercentBack = new KAction( KIcon(QLatin1String( "media-seek-backward" )), i18n("Return 10% Back"), ac );
+    QAction* tenPercentBack = new QAction( QIcon::fromTheme(QLatin1String( "media-seek-backward" )), i18n("Return 10% Back"), ac );
     tenPercentBack->setObjectName( QLatin1String( "ten_percent_back" ) );
     tenPercentBack->setShortcut( Qt::Key_PageUp );
     connect( tenPercentBack, SIGNAL(triggered()), engine(), SLOT(tenPercentBack()) );
     addToAc( tenPercentBack )
 
     // xgettext: no-c-format
-    KAction* tenPercentForward = new KAction( KIcon(QLatin1String( "media-seek-forward" )), i18n("Go 10% Forward"), ac );
+    QAction* tenPercentForward = new QAction( QIcon::fromTheme(QLatin1String( "media-seek-forward" )), i18n("Go 10% Forward"), ac );
     tenPercentForward->setObjectName( QLatin1String( "ten_percent_forward" ) );
     tenPercentForward->setShortcut( Qt::Key_PageDown );
     connect( tenPercentForward, SIGNAL(triggered()), engine(), SLOT(tenPercentForward()) );
     addToAc( tenPercentForward )
 
-    KAction* tenSecondsBack = new KAction( KIcon(QLatin1String( "media-seek-backward" )), i18n("Return 10 Seconds Back"), ac );
+    QAction* tenSecondsBack = new QAction( QIcon::fromTheme(QLatin1String( "media-seek-backward" )), i18n("Return 10 Seconds Back"), ac );
     tenSecondsBack->setObjectName( QLatin1String( "ten_seconds_back" ) );
     tenSecondsBack->setShortcut( Qt::Key_Minus );
     connect( tenSecondsBack, SIGNAL(triggered()), engine(), SLOT(tenSecondsBack()) );
     addToAc( tenSecondsBack )
 
-    KAction* tenSecondsForward = new KAction( KIcon(QLatin1String( "media-seek-forward" )), i18n("Go 10 Seconds Forward"), ac );
+    QAction* tenSecondsForward = new QAction( QIcon::fromTheme(QLatin1String( "media-seek-forward" )), i18n("Go 10 Seconds Forward"), ac );
     tenSecondsForward->setObjectName( QLatin1String( "ten_seconds_forward" ) );
     tenSecondsForward->setShortcut( Qt::Key_Plus );
     connect( tenSecondsForward, SIGNAL(triggered()), engine(), SLOT(tenSecondsForward()) );
@@ -395,15 +390,15 @@ MainWindow::setupActions()
 void
 MainWindow::toggleUnique( bool unique )
 {
-    KGlobal::config()->group("KDE").writeEntry("MultipleInstances", !unique);
-    KGlobal::config()->sync();
+    KSharedConfig::Ptr cfg = KSharedConfig::openConfig(); //kf5 FIXME? this might not work w/o KUniqueApplication
+    cfg->group("KDE").writeEntry("MultipleInstances", !unique);
+    cfg->sync();
 }
 
 void
 MainWindow::toggleVideoSettings( bool show )
 {
-    if( show )
-    {
+    if( show ) {
         m_leftDock = new QDockWidget( this );
         m_leftDock->setObjectName( QLatin1String("left_dock" ));
         m_leftDock->setFeatures( QDockWidget::NoDockWidgetFeatures );
@@ -411,20 +406,20 @@ MainWindow::toggleVideoSettings( bool show )
         m_leftDock->setWidget( videoSettingsWidget );
         Ui::VideoSettingsWidget ui;
         ui.setupUi( videoSettingsWidget );
+        KGuiItem::assign(ui.defaultsButton, KStandardGuiItem::defaults());
+        KGuiItem::assign(ui.closeButton, KStandardGuiItem::closeWindow());
         videoSettingsWidget->adjustSize();
         addDockWidget( Qt::LeftDockWidgetArea, m_leftDock );
         m_sliders.clear();
         m_sliders << ui.brightnessSlider << ui.contrastSlider << ui.hueSlider <<  ui.saturationSlider;
         updateSliders();
         foreach( QSlider* slider, m_sliders )
-             connect( slider, SIGNAL(valueChanged(int)), engine(), SLOT(settingChanged(int)) );
+            connect( slider, SIGNAL(valueChanged(int)), engine(), SLOT(settingChanged(int)) );
 
         connect( ui.defaultsButton, SIGNAL(clicked(bool)), this, SLOT(restoreDefaultVideoSettings()) );
         connect( ui.closeButton, SIGNAL(clicked(bool)), action( "video_settings" ), SLOT(setChecked(bool)) );
         connect( ui.closeButton, SIGNAL(clicked(bool)), m_leftDock, SLOT(deleteLater()) );
-    }
-    else
-    {
+    } else {
         m_sliders.clear();
         delete m_leftDock;
     }
@@ -440,45 +435,38 @@ MainWindow::restoreDefaultVideoSettings()
 void
 MainWindow::toggleLoadView()
 {
-  if( engine()->state() == Phonon::PlayingState && TheStream::hasVideo() )
-  {
-    engine()->playPause();
-  }
-    if( m_mainView->currentWidget() == m_loadView )
-    {
-      if( m_mainView->indexOf(m_currentWidget) == -1 )
-      {
-        m_mainView->addWidget(m_currentWidget);
+    if( engine()->state() == Phonon::PlayingState && TheStream::hasVideo() ) {
         engine()->playPause();
-      }
-      m_mainView->setCurrentWidget(m_currentWidget);
-      engine()->isPreview(false);
     }
-    else if( m_currentWidget != m_audioView )
-    {
-      kDebug() << "setting Thumbnail for video Widget";
-      m_mainView->setCurrentWidget(m_loadView);
-      m_mainView->removeWidget(m_currentWidget);
-      engine()->isPreview(true);
-      m_loadView->setThumbnail(m_currentWidget);
-    }
-    else
-    {
-      m_mainView->setCurrentWidget(m_loadView);
+
+    if( m_mainView->currentWidget() == m_loadView ) {
+        if( m_mainView->indexOf(m_currentWidget) == -1 ) {
+            m_mainView->addWidget(m_currentWidget);
+            engine()->playPause();
+        }
+        m_mainView->setCurrentWidget(m_currentWidget);
+        engine()->isPreview(false);
+    } else if( m_currentWidget != m_audioView ) {
+        qDebug() << "setting Thumbnail for video Widget";
+        m_mainView->setCurrentWidget(m_loadView);
+        m_mainView->removeWidget(m_currentWidget);
+        engine()->isPreview(true);
+        m_loadView->setThumbnail(m_currentWidget);
+    } else {
+        m_mainView->setCurrentWidget(m_loadView);
     }
 }
 
 void
 MainWindow::toggleVolumeSlider( bool show )
 {
-    if( show )
-    {
+    if( show ) {
         m_volumeSlider = engine()->newVolumeSlider();
         m_volumeSlider->setDisabled ( engine()->isMuted() );
         m_volumeSlider->setFocus(Qt::PopupFocusReason);
 
         m_muteCheckBox = new QCheckBox();
-        m_muteCheckBox->setText( i18nc( "Mute the sound output", "Mute " ) );
+        m_muteCheckBox->setText( i18nc( "Mute the sound output", "Mute" ) );
         m_muteCheckBox->setChecked ( engine()->isMuted() );
         connect( m_muteCheckBox, SIGNAL(toggled(bool)), videoWindow(), SLOT(mute(bool)) );
 
@@ -491,12 +479,11 @@ MainWindow::toggleVolumeSlider( bool show )
 
         m_rightDock = new QDockWidget( this );
         m_rightDock->setFeatures( QDockWidget::NoDockWidgetFeatures );
+        m_rightDock->setObjectName("volume_dock");
         dock->setParent( m_rightDock );
         m_rightDock->setWidget( dock );
         addDockWidget( Qt::RightDockWidgetArea, m_rightDock );
-    }
-    else
-    {
+    } else {
         disconnect( m_muteCheckBox, SIGNAL(toggled(bool)), videoWindow(), SLOT(mute(bool)) );
         delete m_rightDock; // it's a QPointer, it will 0 itself
     }
@@ -505,11 +492,10 @@ MainWindow::toggleVolumeSlider( bool show )
 void
 MainWindow::mutedChanged( bool mute )
 {
-    if( m_rightDock )
-      {
+    if( m_rightDock ) {
         m_volumeSlider->setDisabled ( mute );
         m_muteCheckBox->setChecked ( mute );
-      }
+    }
 }
 
 void MainWindow::stop()
@@ -532,16 +518,16 @@ MainWindow::engineMessage( const QString &message )
 }
 
 bool
-MainWindow::open( const KUrl &url )
+MainWindow::open( const QUrl &url )
 {
-    kDebug() << url;
+    qDebug() << "Opening" << url;
 
     if( load( url ) ) {
         const int offset = (TheStream::hasProfile() && isFresh())
-                // adjust offset if we have session history for this video
-                ? TheStream::profile().readEntry<int>( "Position", 0 )
-                : 0;
-        kDebug() << "Initial offset is "<< offset;
+                           // adjust offset if we have session history for this video
+                           ? TheStream::profile().readEntry<int>( "Position", 0 )
+                           : 0;
+        qDebug() << "Initial offset is "<< offset;
         engine()->loadSettings();
         updateSliders();
         return engine()->play( offset );
@@ -551,9 +537,9 @@ MainWindow::open( const KUrl &url )
 }
 
 bool
-MainWindow::load( const KUrl &url )
+MainWindow::load( const QUrl &url )
 {
-     //FileWatch the file that is opened
+    //FileWatch the file that is opened
 
     if( url.isEmpty() ) {
         MessageBox::sorry( i18n( "Dragon Player was asked to open an empty URL; it cannot." ) );
@@ -575,27 +561,29 @@ MainWindow::load( const KUrl &url )
 
     // local protocols like nepomuksearch:/ are not supported by xine
     // check if an UDS_LOCAL_PATH is defined.
-    if (KProtocolInfo::protocolClass(url.protocol()) == QLatin1String(":local")) {
-        //#define UDS_LOCAL_PATH (72 | KIO::UDS_STRING)
-        KIO::UDSEntry e;
-        if (KIO::NetAccess::stat( url, e, 0 )) {
-            QString path = e.stringValue( KIO::UDSEntry::UDS_LOCAL_PATH );
+    if (KProtocolInfo::protocolClass(url.scheme()) == QLatin1String(":local")) {
+        //#define UDS_LOCAL_PATH (7 | KIO::UDS_STRING)
+        KIO::StatJob * job = KIO::stat(url, KIO::StatJob::SourceSide, 2);
+        KJobWidgets::setWindow(job, this);
+        if (job->exec()) {
+            KIO::UDSEntry e = job->statResult();
+            const QString path = e.stringValue( KIO::UDSEntry::UDS_LOCAL_PATH );
             if( !path.isEmpty() )
-                return engine()->load( KUrl( path ) );
+                return engine()->load( QUrl::fromLocalFile( path ) );
         }
+        job->deleteLater();
     }
 
     if( m_mainView->indexOf(engine()) == -1 )
-      toggleLoadView();
+        toggleLoadView();
 
-    //let xine handle invalid, etc, KUrlS
+    //let xine handle invalid, etc, QUrlS
     //TODO it handles non-existing files with bad error message
     const bool ret = engine()->load( url );
-    if( ret )
-    {
-        if( TheStream::hasVideo() )
+    if( ret ) {
+        if( TheStream::hasVideo() ) {
             m_currentWidget = engine();
-        else {
+        } else {
             m_currentWidget = m_audioView;
             resize(m_currentWidget->minimumSize());
         }
@@ -614,12 +602,12 @@ MainWindow::play()
     case Phonon::PausedState:
         engine()->resume();
         if( m_mainView->currentWidget() == m_loadView )
-          toggleLoadView();
+            toggleLoadView();
         break;
     case Phonon::StoppedState:
-        if( TheStream::hasVideo() )
-          m_currentWidget = engine();
-        else {
+        if( TheStream::hasVideo() ) {
+            m_currentWidget = engine();
+        } else {
             m_currentWidget = m_audioView;
             resize(m_currentWidget->minimumSize());
         }
@@ -640,43 +628,42 @@ MainWindow::openFileDialog()
     mimeFilter << QLatin1String( "video/mp4" );
     mimeFilter << QLatin1String( "application/x-cd-image" ); // added for *.iso images
 
-    static KUrl lastDirectory;
+    static QUrl lastDirectory;
 
-    KFileDialog dlg( KGlobalSettings::videosPath(), mimeFilter.join(QLatin1String( " " ) ), this );
-    dlg.setCaption( i18n("Select File to Play") );
-    dlg.setOperationMode( KFileDialog::Opening );
+    QFileDialog dlg(this, i18n("Select File to Play"));
+    dlg.setAcceptMode(QFileDialog::AcceptOpen);
+    dlg.setFileMode(QFileDialog::ExistingFile);
+    dlg.setMimeTypeFilters(mimeFilter);
+    dlg.selectMimeTypeFilter(QStringLiteral("application/octet-stream")); // by default don't restrict
 
-    if( !lastDirectory.isEmpty() )
-        dlg.setUrl( lastDirectory );
+    if (lastDirectory.isValid()) {
+        dlg.setDirectoryUrl(lastDirectory);
+    } else {
+        dlg.setDirectory(QStandardPaths::writableLocation(QStandardPaths::MoviesLocation));
+    }
 
     dlg.exec();
 
-    lastDirectory = dlg.baseUrl();
-    const KUrl url = dlg.selectedFile();
+    lastDirectory = dlg.directoryUrl();
+    const QList<QUrl> urls = dlg.selectedUrls();
 
-    if( url.isEmpty() )
-    {
-        kDebug() << "URL empty in MainWindow::playDialogResult()";
+    if( urls.isEmpty() ) {
+        qDebug() << Q_FUNC_INFO << "URL empty";
         return;
-    }
-    else
-    {
-        open( url );
+    } else {
+        open( urls.first() );
     }
 }
 
 void
 MainWindow::openStreamDialog()
 {
-    KUrl url(KInputDialog::getText( i18nc("@title:window", "Stream to Play"), i18n("Stream:") ));
+    QUrl url = QUrl::fromUserInput(QInputDialog::getText( this, i18nc("@title:window", "Stream to Play"), i18n("Stream:") ));
 
-    if( url.isEmpty() )
-    {
-        kDebug() << "URL empty in MainWindow::openStreamDialog()";
+    if( url.isEmpty() ) {
+        qDebug() << "URL empty in MainWindow::openStreamDialog()";
         return;
-    }
-    else
-    {
+    } else {
         open( url );
     }
 }
@@ -686,42 +673,32 @@ MainWindow::playDisc()
 {
     QList< Solid::Device > playableDiscs;
     {
-        QList< Solid::Device > deviceList = Solid::Device::listFromType( Solid::DeviceInterface::OpticalDisc );
+        const QList< Solid::Device > deviceList = Solid::Device::listFromType( Solid::DeviceInterface::OpticalDisc );
 
-        foreach( const Solid::Device &device, deviceList )
-        {
+        foreach( const Solid::Device &device, deviceList ) {
             const Solid::OpticalDisc* disc = device.as<const Solid::OpticalDisc>();
-            if( disc )
-            {
+            if( disc ) {
                 if( disc->availableContent() & ( Solid::OpticalDisc::VideoDvd | Solid::OpticalDisc::VideoCd | Solid::OpticalDisc::SuperVideoCd |  Solid::OpticalDisc::Audio ) )
                     playableDiscs << device;
-
             }
         }
     }
-    if( !playableDiscs.isEmpty() )
-    {
-        if( playableDiscs.size() > 1 ) //more than one disc, show user a selection box
-        {
-            kDebug() << "> 1 possible discs, showing dialog";
+    if( !playableDiscs.isEmpty() ) {
+        if( playableDiscs.size() > 1 ) { //more than one disc, show user a selection box
+            qDebug() << "> 1 possible discs, showing dialog";
             new DiscSelectionDialog( this, playableDiscs );
-        }
-        else //only one optical disc inserted, play whatever it is
-        {
+        } else { //only one optical disc inserted, play whatever it is
             bool status = engine()->playDisc( playableDiscs.first() );
-            kDebug() << "playing disc" << status ;
+            qDebug() << "playing disc" << status ;
         }
-    }
-    else
-    {
+    } else {
         engine()->playDvd();
-        kDebug() << "no disc in drive or Solid isn't working";
+        qDebug() << "no disc in drive or Solid isn't working";
     }
-
 }
 
 void
-MainWindow::openRecentFile( const KUrl& url )
+MainWindow::openRecentFile(const QUrl &url )
 {
     m_playDialog->deleteLater();
     m_playDialog = 0;
@@ -729,35 +706,19 @@ MainWindow::openRecentFile( const KUrl& url )
 }
 
 void
-MainWindow::parseArgs()
-{
-    KCmdLineArgs &args = *KCmdLineArgs::parsedArgs();
-    if (args.isSet( "play-dvd" ))
-        playDisc();
-    else if (args.count() > 0 ) {
-        open( args.url( 0 ) );
-        args.clear();
-        adjustSize(); //will resize us to reflect the videoWindow's sizeHint()
-    }
-}
-
-void
 MainWindow::setFullScreen( bool isFullScreen )
 {
-    kDebug() << "Setting full screen to " << isFullScreen;
+    qDebug() << "Setting full screen to " << isFullScreen;
     mainWindow()->setWindowState( (isFullScreen ? Qt::WindowFullScreen : Qt::WindowNoState ));
 
-    if(isFullScreen)
-    {
+    if(isFullScreen) {
         m_statusbarIsHidden=statusBar()->isHidden();
         m_toolbarIsHidden=toolBar()->isHidden();
         m_menuBarIsHidden=menuBar()->isHidden();
         toolBar()->setHidden( false );
         statusBar()->setHidden( true );
         menuBar()->setHidden(true);
-    }
-    else
-    {
+    } else {
         statusBar()->setHidden(m_statusbarIsHidden);
         toolBar()->setHidden(m_toolbarIsHidden);
         menuBar()->setHidden(m_menuBarIsHidden);
@@ -772,10 +733,9 @@ MainWindow::setFullScreen( bool isFullScreen )
     if( isFullScreen ) {
         if (!m_FullScreenHandler)
             m_FullScreenHandler = new FullScreenToolBarHandler( this );
-    }
-    else
-    {
-        action( "fullscreen" )->setEnabled( videoWindow()->state() ==  Phonon::PlayingState || videoWindow()->state() ==  Phonon::PausedState);
+    } else {
+        action( "fullscreen" )->setEnabled( videoWindow()->state() == Phonon::PlayingState
+                                            || videoWindow()->state() ==  Phonon::PausedState);
         delete m_FullScreenHandler;
         m_FullScreenHandler = 0;
     }
@@ -789,7 +749,7 @@ MainWindow::showVolume( bool visible)
 }
 
 bool
-MainWindow::volumeContains( QPoint mousePos )
+MainWindow::volumeContains( const QPoint &mousePos )
 {
     if ( m_rightDock )
         return m_rightDock->geometry().contains(mousePos);
@@ -801,27 +761,23 @@ MainWindow::aboutToShowMenu()
 {
     TheStream::aspectRatioAction()->setChecked( true );
     {
-        int subId = TheStream::subtitleChannel();
-        QList< QAction* > subs = action("subtitle_channels_menu")->menu()->actions();
-        kDebug() << "subtitle #" << subId << " is going to be checked";
-        foreach( QAction* subAction, subs )
-        {
-            if( subAction->property( TheStream::CHANNEL_PROPERTY ).toInt() == subId )
-            {
+        const int subId = TheStream::subtitleChannel();
+        const QList< QAction* > subs = action("subtitle_channels_menu")->menu()->actions();
+        qDebug() << "subtitle #" << subId << " is going to be checked";
+        foreach( QAction* subAction, subs ) {
+            if( subAction->property( TheStream::CHANNEL_PROPERTY ).toInt() == subId ) {
                 subAction->setChecked( true );
                 break;
             }
-            kDebug() << subAction->property( TheStream::CHANNEL_PROPERTY ).toInt() << " not checked.";
+            qDebug() << subAction->property( TheStream::CHANNEL_PROPERTY ).toInt() << " not checked.";
         }
     }
     {
-        int audioId = TheStream::audioChannel();
-        QList< QAction* > audios = action("audio_channels_menu")->menu()->actions();
-        kDebug() << "audio #" << audioId << " is going to be checked";
-        foreach( QAction* audioAction, audios )
-        {
-            if( audioAction->property( TheStream::CHANNEL_PROPERTY ).toInt() == audioId )
-            {
+        const int audioId = TheStream::audioChannel();
+        const QList< QAction* > audios = action("audio_channels_menu")->menu()->actions();
+        qDebug() << "audio #" << audioId << " is going to be checked";
+        foreach( QAction* audioAction, audios ) {
+            if( audioAction->property( TheStream::CHANNEL_PROPERTY ).toInt() == audioId ) {
                 audioAction->setChecked( true );
                 break;
             }
@@ -832,16 +788,14 @@ MainWindow::aboutToShowMenu()
 void
 MainWindow::dragEnterEvent( QDragEnterEvent *e )
 {
-    KUrl::List uriList = KUrl::List::fromMimeData( e->mimeData() );
-    e->setAccepted( !uriList.isEmpty() );
+    e->setAccepted( e->mimeData()->hasUrls() );
 }
 
 void
 MainWindow::dropEvent( QDropEvent *e )
 {
-    KUrl::List uriList = KUrl::List::fromMimeData( e->mimeData() );
-    if( !uriList.isEmpty() )
-        this->open( uriList.first() );
+    if( e->mimeData()->hasUrls() )
+        this->open( e->mimeData()->urls().first() );
     else
         engineMessage( i18n("Sorry, no media was found in the drop") );
 }
@@ -849,31 +803,36 @@ MainWindow::dropEvent( QDropEvent *e )
 void
 MainWindow::keyPressEvent( QKeyEvent *e )
 {
-    switch( e->key() )
-    {
-        case Qt::Key_Left:  engine()->relativeSeek( -5000 ); break;
-        case Qt::Key_Right: engine()->relativeSeek( 5000 ); break;
-        case Qt::Key_Escape:    action("fullscreen")->setChecked( false );
-        default: ;
+    switch( e->key() ) {
+    case Qt::Key_Left:
+        engine()->relativeSeek( -5000 );
+        break;
+    case Qt::Key_Right:
+        engine()->relativeSeek( 5000 );
+        break;
+    case Qt::Key_Escape:
+        action("fullscreen")->setChecked( false );
+    default: ;
     }
-
-    #undef seek
 }
 
 void
 MainWindow::inhibitPowerSave()
 {
+#if 0 // kf5 FIXME port to new Solid::Power API
     if (m_stopSleepCookie == -1)
         m_stopSleepCookie = Solid::PowerManagement::beginSuppressingSleep(QLatin1String( "watching a film" ));
     if (m_stopScreenPowerMgmtCookie == -1 && TheStream::hasVideo())
         m_stopScreenPowerMgmtCookie = Solid::PowerManagement::beginSuppressingScreenPowerManagement(QLatin1String( "watching a film" ));
     if (!m_stopScreenSaver && TheStream::hasVideo())
         m_stopScreenSaver = new KNotificationRestrictions(KNotificationRestrictions::ScreenSaver);
+#endif
 }
 
 void
 MainWindow::releasePowerSave()
 {
+#if 0 // kf5 FIXME port to new Solid::Power API
     //stop supressing sleep
     if (m_stopSleepCookie != -1) {
         Solid::PowerManagement::stopSuppressingSleep(m_stopSleepCookie);
@@ -889,6 +848,7 @@ MainWindow::releasePowerSave()
     //stop disabling screensaver
     delete m_stopScreenSaver; // It is always 0, I have been careful.
     m_stopScreenSaver = 0;
+#endif
 }
 
 QMenu*
@@ -901,8 +861,7 @@ MainWindow::menu( const char *name )
 void
 MainWindow::streamSettingChange()
 {
-    if( sender()->objectName().left( 5 ) == QLatin1String( "ratio" ) )
-    {
+    if( sender()->objectName().left( 5 ) == QLatin1String( "ratio" ) ) {
         TheStream::setRatio( dynamic_cast< QAction* > ( sender() ) );
     }
 }
@@ -910,32 +869,27 @@ MainWindow::streamSettingChange()
 void
 MainWindow::updateTitleBarText()
 {
-    if( !TheStream::hasMedia() )
-    {
+    if( !TheStream::hasMedia() ) {
         m_titleLabel->setText( i18n("No media loaded") );
-    }
-    else if( engine()->state() == Phonon::PausedState )
-    {
+    } else if( engine()->state() == Phonon::PausedState ) {
         m_titleLabel->setText( i18n("Paused") );
-    }
-    else
-    {
+    } else {
         m_titleLabel->setText( TheStream::prettyTitle() );
     }
-    kDebug() << "set titles ";
+    qDebug() << "set titles ";
 }
 
 #define CHANNELS_CHANGED( function, actionName ) \
-void \
-MainWindow::function( QList< QAction* > subActions ) \
+    void \
+    MainWindow::function( QList< QAction* > subActions ) \
 { \
     if( subActions.size() <= 2 ) \
-          action( actionName )->setEnabled( false ); \
+    action( actionName )->setEnabled( false ); \
     else \
-    { \
-        action( actionName )->menu()->addActions( subActions ); \
-        action( actionName )->setEnabled( true ); \
-    } \
+{ \
+    action( actionName )->menu()->addActions( subActions ); \
+    action( actionName )->setEnabled( true ); \
+} \
 }
 
 CHANNELS_CHANGED( subChannelsChanged  , "subtitle_channels_menu" )
@@ -960,7 +914,7 @@ action( const char *name )
         if( ( actionCollection = ((MainWindow*)mainWindow() )->actionCollection() ) )
             action = actionCollection->action(QLatin1String( name ) );
     if( !action )
-        kDebug() << name;
+        qDebug() << name;
     Q_ASSERT( mainWindow() );
     Q_ASSERT( actionCollection );
     Q_ASSERT( action );
@@ -970,12 +924,10 @@ action( const char *name )
 
 bool MainWindow::isFresh()
 {
-    QDate date = QDate::fromString(TheStream::profile().readEntry<QString>( "Date", QDate::currentDate().toString("dd/MM/yyyy") ), "dd/MM/yyyy");
+    QDate date = TheStream::profile().readEntry<QDate>("Date", QDate::currentDate());
 
     return (date.daysTo(QDate::currentDate()) < m_profileMaxDays) ? true : false;
 }
 
 
 } //namespace Dragon
-
-#include "mainWindow.moc"

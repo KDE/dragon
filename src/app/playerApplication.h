@@ -21,22 +21,26 @@
 #ifndef DRAGONPLAYER_PLAYERAPPLICATION_H
 #define DRAGONPLAYER_PLAYERAPPLICATION_H
 
-#include <KUniqueApplication>
+#include <QApplication>
 
 namespace Dragon
 {
 class MainWindow;
 
-class PlayerApplication : public KUniqueApplication
+class PlayerApplication : public QApplication
 {
     Q_OBJECT
 public:
-    PlayerApplication();
-    ~PlayerApplication();
+    PlayerApplication(int &argc, char **argv);
+    virtual ~PlayerApplication();
+    void newInstance(bool playDisc = false, const QList<QUrl> &uris = QList<QUrl>());
 
-    virtual int newInstance();
+public slots:
+    void slotActivateRequested(const QStringList &arguments, const QString &workingDirectory);
+    void slotOpenRequested(const QList<QUrl> &uris);
 
 private:
+    void forceActiveWindow();
     MainWindow *m_mainWindow;
 };
 

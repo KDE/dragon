@@ -22,11 +22,11 @@
 #include "theStream.h"
 
 #include <QHash>
+#include <QDebug>
+#include <QUrl>
 
-#include <KDebug>
-#include <KGlobal>
-#include <KUrl>
-#include <KLocale>
+#include <KLocalizedString>
+#include <KSharedConfig>
 #include <Phonon/MediaController>
 #include <Phonon/MediaObject>
 #include <Phonon/MediaSource>
@@ -39,144 +39,135 @@
 namespace Dragon
 {
 
-    const char* TheStream::CHANNEL_PROPERTY = "channel";
+const char* TheStream::CHANNEL_PROPERTY = "channel";
 
-    QHash<int, QAction*> TheStream::s_aspectRatioActions;
+QHash<int, QAction*> TheStream::s_aspectRatioActions;
 
-    KConfigGroup
-    TheStream::profile()
-    {
-        Phonon::MediaSource::Type current = videoWindow()->m_media->currentSource().type();
-        if( current == Phonon::MediaSource::Disc )
-        {
-            QList< Solid::Device > deviceList = Solid::Device::listFromType( Solid::DeviceInterface::OpticalDisc );
-            if( !deviceList.isEmpty() )
-            {
-                Solid::StorageVolume* disc = deviceList.first().as<Solid::StorageVolume>();
-                if( disc )
-                {
-                    QString discLabel = QString::fromLatin1("disc:%1,%2").arg( disc->uuid(), disc->label() );
-                    return KConfigGroup( KGlobal::config(), discLabel );
-                }
-                else
-                    kDebug() << "profile: doesn't convert into Solid::StorageVolume";
-            }
-            else
-                kDebug() << "profile: empty device list";
-        }
-        //if not a disc, or Solid fails
-        return KConfigGroup( KGlobal::config(), url().prettyUrl() );
+KConfigGroup
+TheStream::profile()
+{
+    Phonon::MediaSource::Type current = videoWindow()->m_media->currentSource().type();
+    if( current == Phonon::MediaSource::Disc ) {
+        QList< Solid::Device > deviceList = Solid::Device::listFromType( Solid::DeviceInterface::OpticalDisc );
+        if( !deviceList.isEmpty() ) {
+            Solid::StorageVolume* disc = deviceList.first().as<Solid::StorageVolume>();
+            if( disc ) {
+                QString discLabel = QString::fromLatin1("disc:%1,%2").arg( disc->uuid(), disc->label() );
+                return KConfigGroup( KSharedConfig::openConfig(), discLabel );
+            } else
+                qDebug() << "profile: doesn't convert into Solid::StorageVolume";
+        } else
+            qDebug() << "profile: empty device list";
+    }
+    //if not a disc, or Solid fails
+    return KConfigGroup( KSharedConfig::openConfig(), url().toDisplayString() );
+}
+
+QUrl TheStream::url()
+{
+    return videoWindow()->m_media->currentSource().url();
+}
+
+bool
+TheStream::canSeek()
+{ return videoWindow()->m_media->isSeekable(); }
+
+bool
+TheStream::hasAudio()
+{ return true; }
+
+bool
+TheStream::hasVideo()
+{ return videoWindow()->m_media->hasVideo(); }
+
+bool
+TheStream::hasMedia()
+{
+    if(videoWindow()->m_media->currentSource().type() == Phonon::MediaSource::Invalid)
+        return false;
+    if(videoWindow()->m_media->currentSource().type() == Phonon::MediaSource::Empty)
+        return false;
+    //otherwise
+    return true;
+}
+
+QSize
+TheStream::defaultVideoSize()
+{
+    return videoWindow()->m_vWidget->sizeHint();
+}
+
+int
+TheStream::aspectRatio()
+{
+    return engine()->m_vWidget->aspectRatio();
+}
+
+QAction*
+TheStream::aspectRatioAction()
+{
+    return s_aspectRatioActions[ engine()->m_vWidget->aspectRatio() ];
+}
+
+void
+TheStream::addRatio( int aspectEnum, QAction* ratioAction )
+{
+    s_aspectRatioActions[aspectEnum] = ratioAction;
+}
+
+int
+TheStream::subtitleChannel()
+{
+    return engine()->m_controller->currentSubtitle().index();
+}
+
+int
+TheStream::audioChannel()
+{
+    return engine()->m_controller->currentAudioChannel().index();
+}
+
+void
+TheStream::setRatio( QAction* ratioAction )
+{
+    if( ratioAction )
+        engine()->m_vWidget->setAspectRatio( (Phonon::VideoWidget::AspectRatio) s_aspectRatioActions.key( ratioAction ) );
+}
+
+QString
+TheStream::prettyTitle()
+{
+    const QUrl url = videoWindow()->m_media->currentSource().url();
+    QString artist, title;
+
+    const QStringList artists = videoWindow()->m_media->metaData(QLatin1String( "ARTIST" ));
+    if (!artists.isEmpty()) {
+        artist = artists.first();
     }
 
-    KUrl
-    TheStream::url()
-    {
-        return videoWindow()->m_media->currentSource().url();
+    const QStringList titles = videoWindow()->m_media->metaData(QLatin1String( "TITLE" ));
+    if (!titles.isEmpty()) {
+        title = titles.first();
     }
 
-    bool
-    TheStream::canSeek()
-            { return videoWindow()->m_media->isSeekable(); }
-
-    bool
-    TheStream::hasAudio()
-            { return true; }
-
-    bool
-    TheStream::hasVideo()
-            { return videoWindow()->m_media->hasVideo(); }
-
-
-    bool
-    TheStream::hasMedia()
-    {
-        if(videoWindow()->m_media->currentSource().type() == Phonon::MediaSource::Invalid)
-          return false;
-        if(videoWindow()->m_media->currentSource().type() == Phonon::MediaSource::Empty)
-          return false;
-        //otherwise
-        return true;
+    if (hasVideo() && !title.isEmpty())
+        return title;
+    else if (!title.isEmpty() && !artist.isEmpty())
+        return artist + QLatin1String( " - " ) + title;
+    else if (url.scheme() != QLatin1String( "http" ) && !url.fileName().isEmpty()) {
+        const QString n = url.fileName();
+        //toLatin1 sense fromPercentEncoding takes a QByteArray
+        //I'm not sure about this whole method though, should double check that titles make sense
+        //using QString::toLatin1() will display "????" in titlelabel. Should be QString::toUtf8().   patched by nihui, Jul.6th, 2008
+        return QUrl::fromPercentEncoding( n.left( n.lastIndexOf( QLatin1Char( '.' ) ) ).replace( QLatin1Char( '_' ), QLatin1Char( ' ' ) ).toUtf8() ); //krazy:exclude-qclasses
+    } else {
+        return url.toDisplayString();
     }
+}
 
-    QSize
-    TheStream::defaultVideoSize()
-    {
-      return videoWindow()->m_vWidget->sizeHint();
-    }
-
-    int
-    TheStream::aspectRatio()
-    {
-        return engine()->m_vWidget->aspectRatio();
-    }
-
-    QAction*
-    TheStream::aspectRatioAction()
-    {
-        return s_aspectRatioActions[ engine()->m_vWidget->aspectRatio() ];
-    }
-
-    void
-    TheStream::addRatio( int aspectEnum, QAction* ratioAction )
-    {
-        s_aspectRatioActions[aspectEnum] = ratioAction;
-    }
-
-    int
-    TheStream::subtitleChannel()
-    {
-        return engine()->m_controller->currentSubtitle().index();
-    }
-
-    int
-    TheStream::audioChannel()
-    {
-        return engine()->m_controller->currentAudioChannel().index();
-    }
-
-    void
-    TheStream::setRatio( QAction* ratioAction )
-    {
-        if( ratioAction )
-            engine()->m_vWidget->setAspectRatio( (Phonon::VideoWidget::AspectRatio) s_aspectRatioActions.key( ratioAction ) );
-    }
-
-    QString
-    TheStream::prettyTitle()
-    {
-        const KUrl& url      = videoWindow()->m_media->currentSource().url();
-        QString artist, title;
-
-        QStringList artists = videoWindow()->m_media->metaData(QLatin1String( "ARTIST" ));
-        if (!artists.isEmpty()) {
-            artist = artists.first();
-        }
-
-        QStringList titles = videoWindow()->m_media->metaData(QLatin1String( "TITLE" ));
-        if (!titles.isEmpty()) {
-            title  = titles.first();
-        }
-
-        if (hasVideo() && !title.isEmpty())
-            return title;
-        else if (!title.isEmpty() && !artist.isEmpty())
-            return artist + QLatin1String( " - " ) + title;
-        else if (url.protocol() != QLatin1String( "http" ) && !url.fileName().isEmpty())
-        {
-            const QString n = url.fileName();
-            //toLatin1 sense fromPercentEncoding takes a QByteArray
-            //I'm not sure about this whole method though, should double check that titles make sense
-            //using QString::toLatin1() will display "????" in titlelabel. Should be QString::toUtf8().   patched by nihui, Jul.6th, 2008
-            return QUrl::fromPercentEncoding( n.left( n.lastIndexOf( QLatin1Char( '.' ) ) ).replace( QLatin1Char( '_' ), QLatin1Char( ' ' ) ).toUtf8() ); //krazy:exclude-qclasses
-
-        }
-        else
-            return url.prettyUrl();
-    }
-
-    QString
-    TheStream::fullTitle()
-    {/*
+QString
+TheStream::fullTitle()
+{/*
       QString artist,album,title;
       QStringList artists = m_mediaObject->metaData(Phonon::ArtistMetaData);
       QStringList albums = m_mediaObject->metaData(Phonon::AlbumMetaData);
@@ -186,22 +177,22 @@ namespace Dragon
       artist = (artists ? artists.join( QLatin1String( " "): "" ) );
 
       return title + "\n" + album + "\n" + artist;*/
-      return QString();
-    }
+    return QString();
+}
 
-    bool
-    TheStream::hasProfile()
-    {
-        return KGlobal::config()->hasGroup( url().prettyUrl() );
-    }
+bool
+TheStream::hasProfile()
+{
+    return KSharedConfig::openConfig()->hasGroup( url().toDisplayString() );
+}
 
-    QString
-    TheStream::metaData(Phonon::MetaData key)
-    {
-        QStringList values = videoWindow()->m_media->metaData(key);
-        kDebug() << values;
-        return (values.isEmpty()) ? QString() : values.join(QString(QLatin1Char( ' ' )));
-    }
+QString
+TheStream::metaData(Phonon::MetaData key)
+{
+    QStringList values = videoWindow()->m_media->metaData(key);
+    qDebug() << values;
+    return (values.isEmpty()) ? QString() : values.join(QString(QLatin1Char( ' ' )));
+}
 
 
 /*
@@ -214,7 +205,7 @@ namespace Dragon
     static inline QString
     sectionHelper( const QString &sectionTitle, const QStringList &entries )
     {
-	QString s;
+    QString s;
 
         foreach( const QString& str, entries )
             if( !str.isEmpty() )
@@ -271,4 +262,3 @@ namespace Dragon
     }
 */
 }
-

@@ -25,21 +25,21 @@
 #include <QGraphicsTextItem>
 
 /**
- * A QGV text widget which will automatically change its font size based on 
+ * A QGV text widget which will automatically change its font size based on
  * the space available.
  **/
 class ExpandingTextItem : public QGraphicsTextItem, public QGraphicsLayoutItem
 {
-  Q_OBJECT
-  Q_INTERFACES(QGraphicsLayoutItem)
-  public:
+    Q_OBJECT
+    Q_INTERFACES(QGraphicsLayoutItem)
+public:
     ExpandingTextItem(QGraphicsWidget* parent = 0);
     ~ExpandingTextItem();
     void setPlainText(const QString& text);
-    void setGeometry(const QRectF& rect);
-  protected:
-    virtual QSizeF sizeHint(Qt::SizeHint which, const QSizeF& constraint = QSizeF()) const;
-    virtual void updateGeometry();
+    void setGeometry(const QRectF& rect) Q_DECL_OVERRIDE;
+protected:
+    QSizeF sizeHint(Qt::SizeHint which, const QSizeF& constraint = QSizeF()) const Q_DECL_OVERRIDE;
+    void updateGeometry() Q_DECL_OVERRIDE;
 };
 
 #endif // TEXTITEM_H

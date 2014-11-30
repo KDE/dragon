@@ -19,111 +19,103 @@
  ***********************************************************************/
 
 #include "recentlyPlayedList.h"
-#include <KListWidget>
-#include <KApplication>
-#include <KConfig>
-#include <KDebug>
-#include <KMenu>
-#include <KDialog>
-#include <KLocale>
-#include <KMessageBox>
 
+#include <QListWidget>
+#include <QApplication>
+#include <KConfig>
+#include <QDebug>
+#include <QMenu>
+#include <QDialog>
 #include <QFile>
 #include <QFileInfo>
 #include <QContextMenuEvent>
+#include <QIcon>
 
-//this is a widget for dispaying the rcently played items in a list. It is subclassed so that we can hook up a context menu
+#include <KLocalizedString>
+#include <KMessageBox>
+#include <KSharedConfig>
+
+//this is a widget for dispaying the recently played items in a list. It is subclassed so that we can hook up a context menu
 RecentlyPlayedList::RecentlyPlayedList(QWidget *parent)
-		:KListWidget(parent)
+    : QListWidget(parent)
 {
-  connect(this,SIGNAL(itemDoubleClicked(QListWidgetItem*)),this, SLOT(itemDoubleClicked(QListWidgetItem*)));
-  setAlternatingRowColors( true );
-  setSelectionMode(QAbstractItemView::SingleSelection);
+    connect(this,SIGNAL(itemDoubleClicked(QListWidgetItem*)),this, SLOT(itemDoubleClicked(QListWidgetItem*)));
+    setAlternatingRowColors( true );
+    setSelectionMode(QAbstractItemView::SingleSelection);
 
-  configGroup = new KConfigGroup( KGlobal::config(), "General" );
-  loadEntries();
+    configGroup = new KConfigGroup( KSharedConfig::openConfig(), "General" );
+    loadEntries();
 }
 
 RecentlyPlayedList::~RecentlyPlayedList()
 {
-  delete configGroup;
+    delete configGroup;
 }
 
-void
-RecentlyPlayedList::loadEntries()
+void RecentlyPlayedList::loadEntries()
 {
-  clear();
-  const QStringList entries = configGroup->readPathEntry( "Recent Urls", QStringList() );
+    clear();
+    const QStringList entries = configGroup->readPathEntry( "Recent Urls", QStringList() );
 
-  QListIterator<QString> i(entries);
-  i.toBack();
-  while(i.hasPrevious())
-  {
-	KUrl url = KUrl(i.previous());
-	QListWidgetItem* listItem = new QListWidgetItem(  url.fileName().isEmpty() ? url.prettyUrl() : url.fileName() );
-	listItem->setData( 0xdecade, QVariant::fromValue( url ) );
+    QListIterator<QString> i(entries);
+    i.toBack();
+    while(i.hasPrevious()) {
+        QUrl url = QUrl(i.previous()); // kf5 FIXME?
+        QListWidgetItem* listItem = new QListWidgetItem(  url.fileName().isEmpty() ? url.toDisplayString() : url.fileName() );
+        listItem->setData( 0xdecade, QVariant::fromValue( url ) );
 
-	if(KConfigGroup( KGlobal::config(), url.prettyUrl()).readPathEntry( "IsVideo", QString() )==QLatin1String( "false" ))
-	  listItem->setIcon( KIcon( QLatin1String(  "audio-x-generic" ) ) );
-	else
-	  listItem->setIcon( KIcon( QLatin1String(  "video-x-generic" ) ) );
-	addItem( listItem );
-  }
+        if(KConfigGroup( KSharedConfig::openConfig(), url.toDisplayString() ).readPathEntry( "IsVideo", QString() )==QLatin1String( "false" ))
+            listItem->setIcon( QIcon::fromTheme( QLatin1String( "audio-x-generic" ) ) );
+        else
+            listItem->setIcon( QIcon::fromTheme( QLatin1String( "video-x-generic" ) ) );
+        addItem( listItem );
+    }
 }
 
-void
-RecentlyPlayedList::contextMenuEvent(QContextMenuEvent * event )
+void RecentlyPlayedList::contextMenuEvent(QContextMenuEvent * event )
 {
-  if (!currentItem())
-    return;
-  KMenu menu;
-  kDebug() << "Loading Menu";
-  menu.addAction(KIcon(QLatin1String( "list-remove" )),i18n("Remove Entry"),this,SLOT(removeEntry()));
-  menu.addAction(KIcon(QLatin1String( "list-remove" )),i18n("Clear List"),this,SLOT(clearList()));
-  menu.exec( event->globalPos() );
+    if (!currentItem())
+        return;
+    QMenu menu;
+    qDebug() << "Loading Menu";
+    menu.addAction(QIcon::fromTheme(QLatin1String( "list-remove" )),i18n("Remove Entry"),this,SLOT(removeEntry()));
+    menu.addAction(QIcon::fromTheme(QLatin1String( "edit-clear" )),i18n("Clear List"),this,SLOT(clearList()));
+    menu.exec( event->globalPos() );
 }
 
-void
-RecentlyPlayedList::removeEntry()
+void RecentlyPlayedList::removeEntry()
 {
-  QStringList list = configGroup->readPathEntry( "Recent Urls", QStringList() );
-  KUrl toRemove = currentItem()->data(0xdecade).value<KUrl>();
-  list.removeAll(toRemove.prettyUrl());
-  configGroup->writePathEntry("Recent Urls",list.join( QLatin1String( "," )));
-  loadEntries();
+    QStringList list = configGroup->readPathEntry( "Recent Urls", QStringList() );
+    QUrl toRemove = currentItem()->data(0xdecade).value<QUrl>();
+    list.removeAll(toRemove.toDisplayString());
+    configGroup->writePathEntry("Recent Urls",list.join( QLatin1String( "," )));
+    loadEntries();
 }
 
-void
-RecentlyPlayedList::clearList()
+void RecentlyPlayedList::clearList()
 {
-  configGroup->writePathEntry("Recent Urls",QString());
-  loadEntries();
+    configGroup->writePathEntry("Recent Urls",QString());
+    loadEntries();
 }
 
 //send the url for the item clicked, not the item
-void
-RecentlyPlayedList::itemDoubleClicked(QListWidgetItem* item)
+void RecentlyPlayedList::itemDoubleClicked(QListWidgetItem* item)
 {
-  KUrl url = item->data(0xdecade).value<KUrl>();
+    const QUrl url = item->data(0xdecade).value<QUrl>();
 
-  if( url.isLocalFile() )
-  {
-    QFileInfo fileInfo( url.toLocalFile() );
+    if( url.isLocalFile() ) {
+        QFileInfo fileInfo( url.toLocalFile() );
 
-    if( !fileInfo.exists() )
-    {
-      if( KMessageBox::questionYesNo( 0,
-                                      i18n( "This file could not be found. Would you like to remove it from the playlist?" ),
-                                      i18n( "File not found" ) ) == KMessageBox::Yes )
-      {
-        removeEntry();
-      }
+        if( !fileInfo.exists() ) {
+            if( KMessageBox::questionYesNo( this,
+                                            i18n( "This file could not be found. Would you like to remove it from the playlist?" ),
+                                            i18n( "File not found" ) ) == KMessageBox::Yes ) {
+                removeEntry();
+            }
 
-      return;
+            return;
+        }
     }
-  }
 
-  emit(itemDoubleClicked(url));
+    emit(itemDoubleClicked(url));
 }
-
-#include "recentlyPlayedList.moc"
