@@ -123,10 +123,6 @@ public:
     /// Stuff to do with video and the video window/widget
     static const uint CURSOR_HIDE_TIMEOUT = 2000;
 
-    void becomePreferredSize();
-
-    enum { ExposeEvent = 3000 };
-
     qint64 currentTime() const;
     int videoSetting( const QString& );
 
