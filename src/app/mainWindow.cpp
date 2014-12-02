@@ -301,7 +301,7 @@ MainWindow::setupActions()
 
     QAction* playerStop = new QAction( QIcon::fromTheme(QLatin1String( "media-playback-stop" )), i18n("Stop"), ac );
     playerStop->setObjectName( QLatin1String( "stop" ) );
-    ac->setDefaultShortcut(playerStop, Qt::Key_S);
+    ac->setDefaultShortcuts(playerStop, QList<QKeySequence>() << Qt::Key_S << Qt::Key_MediaStop);
     connect( playerStop, SIGNAL(triggered()), this, SLOT(stop()) );
     addToAc( playerStop )
 
@@ -347,13 +347,13 @@ MainWindow::setupActions()
 
     QAction* prev_chapter = new QAction( QIcon::fromTheme(QLatin1String( "media-skip-backward" )), i18n("Previous"), ac );
     prev_chapter->setObjectName( QLatin1String( "prev_chapter" ) );
-    ac->setDefaultShortcut(prev_chapter, Qt::Key_Comma);
+    ac->setDefaultShortcuts(prev_chapter, QList<QKeySequence>() << Qt::Key_Comma << Qt::Key_MediaPrevious);
     connect( prev_chapter, SIGNAL(triggered()), engine(), SLOT(prevChapter()) );
     addToAc( prev_chapter )
 
     QAction* next_chapter = new QAction( QIcon::fromTheme(QLatin1String( "media-skip-forward" )), i18n("Next"), ac );
     next_chapter->setObjectName( QLatin1String( "next_chapter" ) );
-    ac->setDefaultShortcut(next_chapter, Qt::Key_Period);
+    ac->setDefaultShortcuts(next_chapter, QList<QKeySequence>() << Qt::Key_Period << Qt::Key_MediaNext);
     connect( next_chapter, SIGNAL(triggered()), engine(), SLOT(nextChapter()) );
     addToAc( next_chapter )
 

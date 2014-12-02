@@ -37,7 +37,7 @@ Dragon::PlayAction::PlayAction( QObject *receiver, const char *slot, KActionColl
     setInactiveGuiItem(KGuiItem(i18n("Play"), QStringLiteral("media-playback-start")));
     setActiveGuiItem(KGuiItem(i18n("Pause"), QStringLiteral( "media-playback-pause")));
     setAutoToggle( false );
-    ac->setDefaultShortcut(this, Qt::Key_Space);
+    ac->setDefaultShortcuts(this, QList<QKeySequence>() << Qt::Key_Space << Qt::Key_MediaPlay);
     ac->addAction( objectName(), this );
     connect( this, SIGNAL(triggered(bool)), receiver, slot );
 }
