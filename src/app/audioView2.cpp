@@ -20,9 +20,6 @@
 
 #include "audioView2.h"
 #include "ui_audioView2.h"
-
-#include <KFontSizeAction>
-
 #include "theStream.h"
 #include "videoWindow.h"
 
@@ -36,12 +33,6 @@ AudioView2::AudioView2(QWidget *parent) :
 
     ui->m_analyzerFrame->setMaximumSize(ui->m_analyzer->maximumSize());
     ui->m_analyzerFrame->setMinimumSize(ui->m_analyzer->minimumSize());
-
-    QFont boldFont = font();
-    boldFont.setBold(true);
-    ui->m_track->setFont(boldFont);
-    //ui->m_artist->setFont(KGlobalSettings::generalFont());
-    //ui->m_album->setFont(KGlobalSettings::generalFont());
 
     setupAnalyzer();
     connect(engine(), SIGNAL(metaDataChanged()), this, SLOT(update()));
