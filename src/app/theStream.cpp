@@ -161,6 +161,9 @@ TheStream::prettyTitle()
         //I'm not sure about this whole method though, should double check that titles make sense
         //using QString::toLatin1() will display "????" in titlelabel. Should be QString::toUtf8().   patched by nihui, Jul.6th, 2008
         return QUrl::fromPercentEncoding( n.left( n.lastIndexOf( QLatin1Char( '.' ) ) ).replace( QLatin1Char( '_' ), QLatin1Char( ' ' ) ).toUtf8() ); //krazy:exclude-qclasses
+    } else if (videoWindow()->m_media->currentSource().discType() == Phonon::Cd) {
+        return i18n("Track %1/%2", videoWindow()->m_media->metaData().value("TRACK-NUMBER"),
+                    videoWindow()->m_media->metaData().value("TRACK-COUNT"));
     } else {
         return url.toDisplayString();
     }
