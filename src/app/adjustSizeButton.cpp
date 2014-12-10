@@ -33,7 +33,6 @@
 #include <QPainter>
 #include <QTimerEvent>
 
-#include "extern.h"
 #include "theStream.h"
 #include "videoWindow.h" //videoWindow()
 

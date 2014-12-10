@@ -10,7 +10,6 @@ set(videoplayer_app_SRCS
     analyzer/fht.cpp
     audioView2.cpp
     stateChange.cpp
-    textItem.cpp
     playDialog.cpp
     discSelectionDialog.cpp
     adjustSizeButton.cpp

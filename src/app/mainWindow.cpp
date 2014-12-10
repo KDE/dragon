@@ -68,7 +68,6 @@
 #include "actions.h"
 #include "discSelectionDialog.h"
 #include "mpris2/mpris2.h"
-#include "extern.h"         //dialog creation function definitions
 #include "fullScreenToolBarHandler.h"
 #include "messageBox.h"
 #include "playDialog.h"  //::play()
