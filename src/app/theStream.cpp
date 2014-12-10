@@ -143,12 +143,12 @@ TheStream::prettyTitle()
 
     const QStringList artists = videoWindow()->m_media->metaData(Phonon::ArtistMetaData);
     if (!artists.isEmpty()) {
-        artist = artists.first();
+        artist = artists.first().trimmed();
     }
 
     const QStringList titles = videoWindow()->m_media->metaData(Phonon::TitleMetaData);
     if (!titles.isEmpty()) {
-        title = titles.first();
+        title = titles.first().trimmed();
     }
 
     if (hasVideo() && !title.isEmpty())

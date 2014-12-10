@@ -34,7 +34,6 @@ AudioView2::AudioView2(QWidget *parent) :
     ui->m_analyzerFrame->setMaximumSize(ui->m_analyzer->maximumSize());
     ui->m_analyzerFrame->setMinimumSize(ui->m_analyzer->minimumSize());
 
-    setupAnalyzer();
     connect(engine(), SIGNAL(metaDataChanged()), this, SLOT(update()));
 }
 

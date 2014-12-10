@@ -194,6 +194,22 @@ VideoWindow::load(const QUrl &url )
     return true;
 }
 
+bool VideoWindow::load(const QList<QUrl> &urls)
+{
+    QApplication::setOverrideCursor( Qt::WaitCursor );
+
+    eject();
+    QList<QUrl> tmpUrls = urls;
+    m_media->setCurrentSource(tmpUrls.takeFirst());
+    m_media->enqueue(tmpUrls);
+    m_justLoaded = true;
+    m_adjustedSize=false;
+
+    QApplication::restoreOverrideCursor();
+
+    return true;
+}
+
 bool
 VideoWindow::play( qint64 offset )
 {
@@ -437,17 +453,11 @@ VideoWindow::setupAnalyzer(QObject* analyzer)
     if(!m_aDataOutput) {
         m_aDataOutput = new Phonon::AudioDataOutput(this);
         m_audioDataPath = Phonon::createPath(m_media, m_aDataOutput);
+        connect(m_aDataOutput, SIGNAL(dataReady(QMap<Phonon::AudioDataOutput::Channel,QVector<qint16> >)),
+                analyzer, SLOT(drawFrame(QMap<Phonon::AudioDataOutput::Channel,QVector<qint16> >)));
     }
 
-    connect(m_aDataOutput, SIGNAL(dataReady(QMap<Phonon::AudioDataOutput::Channel,QVector<qint16> >)),
-            analyzer, SLOT(drawFrame(QMap<Phonon::AudioDataOutput::Channel,QVector<qint16> >)));
-
     return m_audioDataPath.isValid();
-}
-
-void VideoWindow::teardownAnalyzer()
-{
-    disconnect(m_aDataOutput, SIGNAL(dataReady(QMap<Phonon::AudioDataOutput::Channel,QVector<qint16> >)), 0, 0);
 }
 
 bool
@@ -490,7 +500,7 @@ VideoWindow::stateChanged(Phonon::State currentState, Phonon::State oldstate) //
         m_initialOffset = 0;
     }
 
-    if( currentState == Phonon::PlayingState  && m_media->hasVideo() ) {
+    if( currentState == Phonon::PlayingState && m_media->hasVideo() ) {
         m_logo->hide();
         m_vWidget->show();
         updateChannels();

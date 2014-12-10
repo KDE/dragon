@@ -37,12 +37,14 @@ public:
     bool isPlaylist() const { return m_type != Unknown; }
     bool isValid() const { return m_isValid; }
     QUrl firstUrl() const { return m_contents.isEmpty() ? QUrl() : m_contents.first(); }
+    QList<QUrl> contents() const { return m_contents; }
     QString error() const { return m_error; }
 
 private:
-    /// both only return first url currently
     void parsePlsFile( QTextStream& );
     void parseM3uFile( QTextStream& );
+
+    void addToPlaylist(const QString &line);
 
     QUrl m_url;
     bool m_isValid;

@@ -171,7 +171,6 @@ void MainWindow::engineHasVideoChanged( bool hasVideo )
 
     qDebug() << "hasVideo changed";
     if( TheStream::hasVideo() ) {
-        engine()->teardownAnalyzer();
         if( m_mainView->indexOf(engine()) == -1 )
             m_mainView->addWidget(engine());
         m_mainView->setCurrentWidget(engine());

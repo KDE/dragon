@@ -41,8 +41,7 @@ Dragon::FullScreenToolBarHandler::FullScreenToolBarHandler( KMainWindow *parent 
     startTimer( Dragon::VideoWindow::CURSOR_HIDE_TIMEOUT ); // We want to hide automatically some time after fullscreening
 }
 
-bool 
-Dragon::FullScreenToolBarHandler::eventFilter( QObject */*o*/, QEvent *e )
+bool Dragon::FullScreenToolBarHandler::eventFilter( QObject */*o*/, QEvent *e )
 {
     if (e->type() == QEvent::MouseMove) {
         if (m_timer_id) {

@@ -31,6 +31,8 @@
 #include <Phonon/Path>
 #include <Phonon/MediaSource>
 #include <Phonon/ObjectDescription>
+#include <Phonon/Global>
+
 #include <Solid/Device>
 
 class QActionGroup;
@@ -43,8 +45,6 @@ class MediaObject;
 class MediaController;
 class AudioDataOutput;
 }
-
-#include "phonon/phononnamespace.h" //Phonon::State
 
 namespace Dragon
 {
@@ -90,6 +90,7 @@ public:
     bool init();
 
     bool load( const QUrl &url );
+    bool load( const QList<QUrl> &urls );
     bool play( qint64 = 0 );
     bool resume();
     bool playDvd();
@@ -102,7 +103,6 @@ public:
     bool isDVD() const;
 
     bool setupAnalyzer(QObject* analyzer); ///return whether setup was successful
-    void teardownAnalyzer();
 
     ///stuff for dbus:
     qreal volume() const;

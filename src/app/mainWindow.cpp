@@ -544,13 +544,15 @@ MainWindow::load( const QUrl &url )
         return false;
     }
 
+    bool ret = false;
+
     PlaylistFile playlist( url );
     if( playlist.isPlaylist() ) {
         //TODO: problem is we return out of the function
         //statusBar()->message( i18n("Parsing playlist file...") );
 
         if( playlist.isValid() )
-            return engine()->load( playlist.firstUrl() );
+            ret = engine()->load( playlist.contents() );
         else {
             MessageBox::sorry( playlist.error() );
             return false;
@@ -559,7 +561,7 @@ MainWindow::load( const QUrl &url )
 
     // local protocols like nepomuksearch:/ are not supported by xine
     // check if an UDS_LOCAL_PATH is defined.
-    if (KProtocolInfo::protocolClass(url.scheme()) == QLatin1String(":local")) {
+    if (!ret && KProtocolInfo::protocolClass(url.scheme()) == QLatin1String(":local")) {
         //#define UDS_LOCAL_PATH (7 | KIO::UDS_STRING)
         KIO::StatJob * job = KIO::stat(url, KIO::StatJob::SourceSide, 2);
         KJobWidgets::setWindow(job, this);
@@ -567,7 +569,7 @@ MainWindow::load( const QUrl &url )
             KIO::UDSEntry e = job->statResult();
             const QString path = e.stringValue( KIO::UDSEntry::UDS_LOCAL_PATH );
             if( !path.isEmpty() )
-                return engine()->load( QUrl::fromLocalFile( path ) );
+                ret = engine()->load( QUrl::fromLocalFile( path ) );
         }
         job->deleteLater();
     }
@@ -577,7 +579,9 @@ MainWindow::load( const QUrl &url )
 
     //let xine handle invalid, etc, QUrlS
     //TODO it handles non-existing files with bad error message
-    const bool ret = engine()->load( url );
+    if (!ret)
+        ret = engine()->load( url );
+
     if( ret ) {
         if( TheStream::hasVideo() ) {
             m_currentWidget = engine();

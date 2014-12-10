@@ -32,6 +32,8 @@
 #include <QApplication>
 #include <QFile>
 #include <QDebug>
+#include <QtWidgets/qgraphicsitem.h>
+#include <QtGui/qevent.h>
 
 PlaylistFile::PlaylistFile(const QUrl &url )
     : m_url( url )
@@ -88,46 +90,45 @@ PlaylistFile::~PlaylistFile()
 
 void PlaylistFile::parsePlsFile( QTextStream &stream )
 {
-    for( QString line = stream.readLine(); !line.isNull(); ) {
-        if( line.startsWith( QLatin1String("File") ) ) {
-            const QUrl url = line.section( QLatin1Char( '=' ), -1 );
-            const QString title = stream.readLine().section( QLatin1Char( '=' ), -1 );
-
-            qDebug() << url << endl << title;
-
-            m_contents += url;
-            m_isValid = true;
-
-            return; //TODO continue for all urls
-        }
+    QString line;
+    while (!stream.atEnd()) {
         line = stream.readLine();
+        if( line.startsWith( QLatin1String("File") ) ) {
+            const QString tmp = line.section( QLatin1Char( '=' ), -1 );
+            addToPlaylist(tmp);
+        }
     }
+    m_isValid = !m_contents.isEmpty();
 }
 
 
 void PlaylistFile::parseM3uFile( QTextStream &stream )
 {
-    for( QString line; !stream.atEnd(); ) {
+    QString line;
+    while (!stream.atEnd()) {
         line = stream.readLine();
 
         if( line.startsWith( QLatin1String("#EXTINF"), Qt::CaseInsensitive ) ) {
             continue;
         } else if( !line.startsWith( QLatin1Char( '#' ) ) && !line.isEmpty() ) {
-            QUrl url;
-
-            // KUrl::isRelativeUrl() expects absolute URLs to start with a protocol, so prepend it if missing
-            if( line.startsWith( QLatin1Char( '/' ) ) )
-                line.prepend( QLatin1String( "file://" ) );
-
-            if( QUrl( line ).isRelative() )
-                url.setPath( m_url.adjusted(QUrl::RemoveFilename).path() + QLatin1Char( '/' ) + line );
-            else
-                url = QUrl( line ); // kf5 FIXME?
-
-            m_contents += url;
-            m_isValid = true;
-
-            return;
+            addToPlaylist(line);
         }
     }
+    m_isValid = !m_contents.isEmpty();
+}
+
+void PlaylistFile::addToPlaylist(const QString &line) {
+    QUrl url;
+
+    if( line.startsWith( QLatin1Char( '/' ) ) ) { // absolute local file
+        url = QUrl::fromLocalFile(line);
+    } else { // relative file or other protocol
+        const QUrl tmp = QUrl(line);
+        if (tmp.scheme().isEmpty()) {
+            url = QUrl::fromLocalFile(m_url.adjusted(QUrl::RemoveFilename).path() + QLatin1Char( '/' ) + line);
+        } else {
+            url = tmp;
+        }
+    }
+    m_contents += url;
 }
