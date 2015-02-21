@@ -4,6 +4,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>Dragon Player</name>
+  <name xml:lang="bs">Dragon plejer</name>
   <name xml:lang="ca">Dragon Player</name>
   <name xml:lang="cs">Přehrávač Dragon</name>
   <name xml:lang="da">Dragon Player</name>
@@ -36,6 +37,7 @@
       and only one thing, which is playing multimedia files. It's simple interface is designed not to get in your way and instead
       empower you to simply play multimedia files.
     </p>
+    <p xml:lang="bs">Dragon Player  je multimedijalni plejer gdje je fokus na jednostavnosti, umesto funkcija. Dragon Player  radi jednu stvar, i samo jednu stvar, a to je izvedba multimedijalnih fajlova. Njiegov jednostavan interfejs je dizajniran da se ne stane na put, a umjesto toga osnaži vas da jednostavno reprodukujete multimedijalne fajlove.</p>
     <p xml:lang="ca">El Dragon Player és un reproductor multimèdia que se centra en la simplicitat, en lloc de les característiques. El Dragon Player fa una cosa, i només una cosa, la qual és reproduir fitxers multimèdia. Té un interfície senzilla, la qual està dissenyada per a que no s'interposi en el vostre camí i que simplement pugueu reproduir els fitxers multimèdia.</p>
     <p xml:lang="en-GB">Dragon Player is a multimedia player where the focus is on simplicity, instead of features. Dragon Player does one thing, and only one thing, which is playing multimedia files. It's simple interface is designed not to get in your way and instead empower you to simply play multimedia files.</p>
     <p xml:lang="es">Dragon Player es un reproductor multimedia centrado en la simplicidad en lugar de las características. Hace una cosa, y solo una cosa: reproducir archivos multimedia. Su sencilla interfaz no está diseñada para ponerse en tu camino, sino para ayudarte a reproducir archivos multimedia fácilmente.</p>
@@ -59,6 +61,7 @@
     <p xml:lang="x-test">xxDragon Player is a multimedia player where the focus is on simplicity, instead of features. Dragon Player does one thing, and only one thing, which is playing multimedia files. It's simple interface is designed not to get in your way and instead empower you to simply play multimedia files.xx</p>
     <p xml:lang="zh-TW">Dragon Player 是一套多媒體播放器，重點在簡單而非多樣功能。Dragon Player 只做一件事：播放多媒體檔案。</p>
     <p>Features:</p>
+    <p xml:lang="bs">Svojstva:</p>
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="cs">Vlastnosti:</p>
     <p xml:lang="da">Funktioner:</p>
@@ -86,6 +89,7 @@
     <p xml:lang="zh-TW">功能：</p>
     <ul>
       <li>Simple Interface</li>
+      <li xml:lang="bs">Prosto sučelje</li>
       <li xml:lang="ca">Interfície senzilla</li>
       <li xml:lang="cs">Jednoduché rozhraní</li>
       <li xml:lang="da">Simpel brugerflade</li>
@@ -112,6 +116,7 @@
       <li xml:lang="x-test">xxSimple Interfacexx</li>
       <li xml:lang="zh-TW">簡易介面</li>
       <li>Resuming videos: Starts playing a video where you were watching it last time</li>
+      <li xml:lang="bs">Nastavak video: Počinje video na mjestu gdje ste ga gledali zadnji put</li>
       <li xml:lang="ca">Continua els vídeos: Inicia la reproducció d'un vídeo on l'estàveu veient l'última vegada</li>
       <li xml:lang="en-GB">Resuming videos: Starts playing a video where you were watching it last time</li>
       <li xml:lang="es">Reanudar vídeos: empieza la reproducción de un vídeo donde lo habías dejado la última vez</li>
@@ -135,6 +140,7 @@
       <li xml:lang="x-test">xxResuming videos: Starts playing a video where you were watching it last timexx</li>
       <li xml:lang="zh-TW">回復影片：從上次看到的地方開始播放影片</li>
       <li>Support for subtitles: Automatically loads subtitles with the matching name</li>
+      <li xml:lang="bs">Podrška za podnaslove: Automatski učitava podnaslove s odgovarajućim imenom</li>
       <li xml:lang="ca">Implementació per a subtítols: Càrrega automàticament els subtítols que coincideixen amb el nom</li>
       <li xml:lang="de">Unterstützung für Untertitel. Untertitel mit dem passenden Namen werden automatisch geladen</li>
       <li xml:lang="en-GB">Support for subtitles: Automatically loads subtitles with the matching name</li>
@@ -159,6 +165,7 @@
       <li xml:lang="x-test">xxSupport for subtitles: Automatically loads subtitles with the matching namexx</li>
       <li xml:lang="zh-TW">支援字幕：名稱相符的話自動載入字幕</li>
       <li>Video display settings (brightness, contrast)</li>
+      <li xml:lang="bs">Postavke ekrana (osvjetljenje, kontrast)</li>
       <li xml:lang="ca">Ajustaments per a la pantalla de vídeo (brillantor, contrast)</li>
       <li xml:lang="de">Einstellungen für die Videoanzeige (Helligkeit/Kontrast)</li>
       <li xml:lang="en-GB">Video display settings (brightness, contrast)</li>
@@ -183,6 +190,7 @@
       <li xml:lang="x-test">xxVideo display settings (brightness, contrast)xx</li>
       <li xml:lang="zh-TW">影像顯示設定（亮度、對比）</li>
       <li>Due to using Solid and Phonon DragonPlayer is independent of any multimedia framework or hardware abstraction layer</li>
+      <li xml:lang="bs">Pošto kotisti Solid i Phonon DragonPlayer je neovisan od bilo kog multimedijalnog radnog okvira ili hardverskog sloja apstracije.</li>
       <li xml:lang="ca">A causa de l'ús de Solid i Phonon, el DragonPlayer és independent de qualsevol marc de treball multimèdia o capa d'abstracció de maquinari</li>
       <li xml:lang="en-GB">Due to using Solid and Phonon DragonPlayer is independent of any multimedia framework or hardware abstraction layer</li>
       <li xml:lang="es">Debido al uso de Solid y Phonon, DragonPlayer es independiente de cualquier framework multimedia o capa de abstracción hardware</li>
@@ -206,6 +214,7 @@
       <li xml:lang="x-test">xxDue to using Solid and Phonon DragonPlayer is independent of any multimedia framework or hardware abstraction layerxx</li>
       <li xml:lang="zh-TW">因為使用 Solid 與 Phonon，DragonPlayer 可以獨立於任何多媒體框架，或是硬體抽象層之外</li>
       <li>Supports playing CDs and DVDs</li>
+      <li xml:lang="bs">Podrška za izvođenje CD i DVD</li>
       <li xml:lang="ca">Implementació per a reproduir CD i DVD</li>
       <li xml:lang="de">Unterstützt die Wiedergabe von CDs und DVDs</li>
       <li xml:lang="en-GB">Supports playing CDs and DVDs</li>
