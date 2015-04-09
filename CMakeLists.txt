@@ -24,7 +24,7 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
 
 find_package(KF5 REQUIRED Config ConfigWidgets CoreAddons IconThemes I18n KIO
              Notifications WidgetsAddons WindowSystem Parts Solid DocTools XmlGui JobWidgets DBusAddons)
-find_package(Phonon4Qt5 4.6.60 NO_MODULE)
+find_package(Phonon4Qt5 4.6.60 REQUIRED NO_MODULE)
 
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}/src
