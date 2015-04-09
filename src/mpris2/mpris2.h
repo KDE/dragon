@@ -28,11 +28,11 @@ class Mpris2 : public QObject
 {
     Q_OBJECT
 
-    public:
-        explicit Mpris2(QObject* parent);
-        ~Mpris2();
+public:
+    explicit Mpris2(QObject* parent);
+    ~Mpris2();
 
-        static void signalPropertiesChange(const QObject* adaptor, const QVariantMap& properties);
+    static void signalPropertiesChange(const QObject* adaptor, const QVariantMap& properties);
 };
 
 #endif

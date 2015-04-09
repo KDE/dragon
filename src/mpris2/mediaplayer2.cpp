@@ -25,15 +25,15 @@
 #include "theStream.h"
 #include "videoWindow.h"
 
+#include <QApplication>
 
 #include <KAboutData>
-#include <KApplication>
-#include <KCmdLineArgs>
 #include <KProtocolInfo>
 #include <KService>
 #include <KWindowSystem>
 
-MediaPlayer2::MediaPlayer2(QObject* parent) : QDBusAbstractAdaptor(parent)
+MediaPlayer2::MediaPlayer2(QObject* parent)
+    : QDBusAbstractAdaptor(parent)
 {
     connect(Dragon::action("fullscreen"), SIGNAL(toggled(bool)), this, SLOT(emitFullscreenChange(bool)));
     connect(Dragon::videoWindow(), SIGNAL(hasVideoChanged(bool)), this, SLOT(emitFullscreenChange(bool)));
@@ -50,7 +50,7 @@ bool MediaPlayer2::CanQuit() const
 
 void MediaPlayer2::Quit() const
 {
-    kapp->closeAllWindows();
+    qApp->closeAllWindows();
 }
 
 bool MediaPlayer2::CanRaise() const
@@ -94,12 +94,12 @@ bool MediaPlayer2::HasTrackList() const
 
 QString MediaPlayer2::Identity() const
 {
-    return KCmdLineArgs::aboutData()->programName();
+    return APP_NAME;
 }
 
 QString MediaPlayer2::DesktopEntry() const
 {
-    return "kde4-" + QString(APP_NAME);
+    return QStringLiteral("org.kde." APP_NAME);
 }
 
 QStringList MediaPlayer2::SupportedUriSchemes() const
@@ -115,10 +115,10 @@ QStringList MediaPlayer2::SupportedUriSchemes() const
 
 QStringList MediaPlayer2::SupportedMimeTypes() const
 {
-    KService::Ptr app = KService::serviceByDesktopName(APP_NAME);
+    KService::Ptr app = KService::serviceByDesktopName("org.kde." APP_NAME);
 
-    //if (app)
-     //   return app->mimeTypes();
+    if (app)
+        return app->mimeTypes();
 
     return QStringList();
 }

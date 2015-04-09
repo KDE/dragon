@@ -1,5 +1,6 @@
 /***********************************************************************
  * Copyright 2011  Geoffry Song <goffrie@gmail.com>
+ * Copyright 2014 Lukáš Tinkl <lukas@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -19,38 +20,74 @@
  ***********************************************************************/
 
 #include "playerApplication.h"
-
 #include "mainWindow.h"
+
+#include <KWindowSystem>
 
 namespace Dragon
 {
 
-PlayerApplication::PlayerApplication()
-    : KUniqueApplication(true, true)
-    , m_mainWindow(0)
+PlayerApplication::PlayerApplication(int &argc, char **argv)
+    : QApplication(argc, argv)
+    , m_mainWindow(Q_NULLPTR)
 {
 }
 
 PlayerApplication::~PlayerApplication()
 {
     if (m_mainWindow) {
-        m_mainWindow = 0;
+        m_mainWindow = Q_NULLPTR;
         delete m_mainWindow;
     }
 }
 
-int PlayerApplication::newInstance()
+void PlayerApplication::slotActivateRequested(const QStringList &arguments, const QString &workingDirectory)
+{
+    Q_UNUSED(workingDirectory)
+    qDebug() << Q_FUNC_INFO << arguments;
+    if (!arguments.filter("play-dvd", Qt::CaseInsensitive).isEmpty()) {
+        newInstance(true);
+        forceActiveWindow();
+    } else if (arguments.count() == 2) { // 1st arg binary name, 2nd arg file to open
+        QString urlArg = arguments.at(1);
+        QUrl url;
+        if (urlArg.startsWith("/")) {
+            url = QUrl::fromLocalFile(urlArg);
+        } else {
+            url = QUrl(urlArg);
+        }
+        newInstance(false, {url});
+        forceActiveWindow();
+    }
+}
+
+void PlayerApplication::slotOpenRequested(const QList<QUrl> &uris)
+{
+    qDebug() << Q_FUNC_INFO << uris;
+    newInstance(false, uris);
+    forceActiveWindow();
+}
+
+void PlayerApplication::forceActiveWindow()
+{
+    KWindowSystem::forceActiveWindow(Dragon::mainWindow()->winId());
+}
+
+void PlayerApplication::newInstance(bool playDisc, const QList<QUrl> &uris)
 {
     if (!m_mainWindow)
         m_mainWindow = new Dragon::MainWindow;
 
-    if (restoringSession())
+    if (isSessionRestored())
         m_mainWindow->restore(1, false);
-    else
-        m_mainWindow->parseArgs();
+    else if (playDisc)
+        m_mainWindow->playDisc();
+    else if (!uris.isEmpty()) {
+        m_mainWindow->open(uris.first());
+        m_mainWindow->adjustSize();
+    }
 
     m_mainWindow->show();
-    return KUniqueApplication::newInstance();
 }
 
 } // namespace Dragon

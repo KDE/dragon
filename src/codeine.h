@@ -30,13 +30,13 @@ class QWidget;
 
 namespace Dragon
 {
-        QWidget *mainWindow(); //defined in mainWindow.cpp
+QWidget *mainWindow(); //defined in mainWindow.cpp
 }
 
 /// used by mainWindow.h
 int main( int, char** );
 
-#define APP_VERSION "2.0"
+#define APP_VERSION "3.0"
 #define APP_NAME "dragonplayer"
 
 #endif

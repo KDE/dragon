@@ -23,27 +23,29 @@
 //TODO error messages that vary depending on if the file is remote or not
 
 #include "playlistFile.h"
-
 #include "codeine.h"
-#include <KDebug>
-#include <KIO/NetAccess>
-#include <KLocale>
+
+#include <KIO/StoredTransferJob>
+#include <KLocalizedString>
+#include <KJobWidgets>
 
 #include <QApplication>
 #include <QFile>
+#include <QDebug>
+#include <QtWidgets/qgraphicsitem.h>
+#include <QtGui/qevent.h>
 
-PlaylistFile::PlaylistFile( const KUrl &url )
-        : m_url( url )
-        , m_isRemoteFile( !url.isLocalFile() )
-        , m_isValid( false )
+PlaylistFile::PlaylistFile(const QUrl &url )
+    : m_url( url )
+    , m_isValid( false )
 {
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
-    QString &path = m_path = url.path();
+    const QString filename = m_url.fileName();
 
-    if( path.endsWith( QLatin1String(".pls"), Qt::CaseInsensitive ) )
-        m_type = PLS; else
-    if( path.endsWith( QLatin1String(".m3u"), Qt::CaseInsensitive ) )
+    if( filename.endsWith( QLatin1String(".pls"), Qt::CaseInsensitive ) )
+        m_type = PLS;
+    else if( filename.endsWith( QLatin1String(".m3u"), Qt::CaseInsensitive ) )
         m_type = M3U;
     else {
         m_type = Unknown;
@@ -52,30 +54,31 @@ PlaylistFile::PlaylistFile( const KUrl &url )
         return;
     }
 
-    if( m_isRemoteFile ) {
-        path.clear();
-        if( !KIO::NetAccess::download( url, path, Dragon::mainWindow() ) ) {
-            m_error = i18n( "Dragon Player could not download the remote playlist: %1", url.prettyUrl() );
-            QApplication::restoreOverrideCursor();
-            return;
-        }
+    KIO::StoredTransferJob * job = KIO::storedGet(url, KIO::NoReload, KIO::HideProgressInfo|KIO::Overwrite);
+    KJobWidgets::setWindow(job, Dragon::mainWindow());
+    if (!job->exec()) {
+        m_error = i18n( "Dragon Player could not download the remote playlist: %1", url.toDisplayString() );
+        QApplication::restoreOverrideCursor();
+        job->deleteLater();
+        return;
     }
 
-    QFile file( path );
-    if( file.open( QIODevice::ReadOnly ) ) {
-        QTextStream stream( &file );
+    QByteArray data = job->data();
+
+    if (!data.isEmpty()) {
+        QTextStream stream( &data );
         switch( m_type ) {
-            case M3U: parseM3uFile( stream ); break;
-            case PLS: parsePlsFile( stream ); break;
-            default: ;
+        case M3U: parseM3uFile( stream ); break;
+        case PLS: parsePlsFile( stream ); break;
+        default: ;
         }
 
-        if( m_contents.isEmpty() )
-            m_error = i18n( "<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is empty?</qt>", path ),
+        if( m_contents.isEmpty() ) {
+            m_error = i18n( "<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is empty?</qt>", filename);
             m_isValid = false;
-    }
-    else
-        m_error = i18n( "Dragon Player could not open the file: %1", path );
+        }
+    } else
+        m_error = i18n( "Dragon Player could not open the file: %1", filename );
 
     QApplication::restoreOverrideCursor();
 }
@@ -83,61 +86,49 @@ PlaylistFile::PlaylistFile( const KUrl &url )
 
 PlaylistFile::~PlaylistFile()
 {
-    if( m_isRemoteFile )
-        KIO::NetAccess::removeTempFile( m_path );
 }
 
-
-void
-PlaylistFile::parsePlsFile( QTextStream &stream )
+void PlaylistFile::parsePlsFile( QTextStream &stream )
 {
-
-    for( QString line = stream.readLine(); !line.isNull(); )
-    {
+    QString line;
+    while (!stream.atEnd()) {
+        line = stream.readLine();
         if( line.startsWith( QLatin1String("File") ) ) {
-            const KUrl url = line.section( QLatin1Char(  '=' ), -1 );
-            const QString title = stream.readLine().section( QLatin1Char(  '=' ), -1 );
-
-            kDebug() << url << endl << title;
-
-            m_contents += url;
-            m_isValid = true;
-
-            return; //TODO continue for all urls
+            const QString tmp = line.section( QLatin1Char( '=' ), -1 );
+            addToPlaylist(tmp);
         }
-        line = stream.readLine();
     }
+    m_isValid = !m_contents.isEmpty();
 }
 
 
-void
-PlaylistFile::parseM3uFile( QTextStream &stream )
+void PlaylistFile::parseM3uFile( QTextStream &stream )
 {
-
-    for( QString line; !stream.atEnd(); )
-    {
+    QString line;
+    while (!stream.atEnd()) {
         line = stream.readLine();
 
-        if( line.startsWith( QLatin1String("#EXTINF"), Qt::CaseInsensitive ) )
+        if( line.startsWith( QLatin1String("#EXTINF"), Qt::CaseInsensitive ) ) {
             continue;
-
-        else if( !line.startsWith( QLatin1Char( '#' ) ) && !line.isEmpty() )
-        {
-            KUrl url;
-
-            // KUrl::isRelativeUrl() expects absolute URLs to start with a protocol, so prepend it if missing
-            if( line.startsWith( QLatin1Char( '/' ) ) )
-                line.prepend( QLatin1String( "file://" ) );
-
-            if( KUrl::isRelativeUrl( line ) )
-                url.setPath( m_url.directory() + QLatin1Char( '/' ) + line );
-            else
-                url = KUrl( line );
-
-            m_contents += url;
-            m_isValid = true;
-
-            return;
+        } else if( !line.startsWith( QLatin1Char( '#' ) ) && !line.isEmpty() ) {
+            addToPlaylist(line);
         }
     }
+    m_isValid = !m_contents.isEmpty();
+}
+
+void PlaylistFile::addToPlaylist(const QString &line) {
+    QUrl url;
+
+    if( line.startsWith( QLatin1Char( '/' ) ) ) { // absolute local file
+        url = QUrl::fromLocalFile(line);
+    } else { // relative file or other protocol
+        const QUrl tmp = QUrl(line);
+        if (tmp.scheme().isEmpty()) {
+            url = QUrl::fromLocalFile(m_url.adjusted(QUrl::RemoveFilename).path() + QLatin1Char( '/' ) + line);
+        } else {
+            url = tmp;
+        }
+    }
+    m_contents += url;
 }

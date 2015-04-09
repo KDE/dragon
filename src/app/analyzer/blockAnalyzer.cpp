@@ -19,31 +19,22 @@
 
 #include <cmath>
 
-#include <kconfig.h>
-#include <kglobalsettings.h> //paletteChange()
-#include <kiconloader.h>     //mousePressEvent
-#include <klocale.h>         //mousePressEvent
-#include <kmenu.h>      //mousePressEvent
-
 #include <QPainter>        //paletteChange()
-//Added by qt3to4:
-#include <QContextMenuEvent>
-#include <QResizeEvent>
 
 static inline uint myMax( uint v1, uint v2 ) { return v1 > v2 ? v1 : v2; }
 
 BlockAnalyzer::BlockAnalyzer( QWidget *parent )
-        : Analyzer::Base2D( parent, 9 )
-        , m_columns( 0 )         //uint
-        , m_rows( 0 )            //uint
-        , m_y( 0 )               //uint
-        , m_barPixmap( 1, 1 )    //null qpixmaps cause crashes
-        , m_topBarPixmap( WIDTH, HEIGHT )
-        , m_scope( MIN_COLUMNS ) //Scope
-        , m_store( 1 << 8, 0 )   //vector<uint>
-        , m_fade_bars( FADE_SIZE ) //vector<QPixmap>
-        , m_fade_pos( 1 << 8, 50 ) //vector<uint>
-        , m_fade_intensity( 1 << 8, 32 ) //vector<uint>
+    : Analyzer::Base2D( parent, 9 )
+    , m_columns( 0 )         //uint
+    , m_rows( 0 )            //uint
+    , m_y( 0 )               //uint
+    , m_barPixmap( 1, 1 )    //null qpixmaps cause crashes
+    , m_topBarPixmap( WIDTH, HEIGHT )
+    , m_scope( MIN_COLUMNS ) //Scope
+    , m_store( 1 << 8, 0 )   //vector<uint>
+    , m_fade_bars( FADE_SIZE ) //vector<QPixmap>
+    , m_fade_pos( 1 << 8, 50 ) //vector<uint>
+    , m_fade_intensity( 1 << 8, 32 ) //vector<uint>
 {
     setMinimumSize( MIN_COLUMNS*(WIDTH+1) -1, MIN_ROWS*(HEIGHT+1) -1 ); //-1 is padding, no drawing takes place there
     setMaximumWidth( MAX_COLUMNS*(WIDTH+1) -1 );
@@ -61,42 +52,42 @@ BlockAnalyzer::~BlockAnalyzer()
 void
 BlockAnalyzer::resizeEvent( QResizeEvent *e )
 {
-   Analyzer::Base2D::resizeEvent( e );
+    Analyzer::Base2D::resizeEvent( e );
 
-   const uint oldRows = m_rows;
+    const uint oldRows = m_rows;
 
-   //all is explained in analyze()..
-   //+1 to counter -1 in maxSizes, trust me we need this!
-   m_columns = qMin<uint>( uint(double(width()+1) / (WIDTH+1)), MAX_COLUMNS );
-   m_rows    = uint(double(height()+1) / (HEIGHT+1));
+    //all is explained in analyze()..
+    //+1 to counter -1 in maxSizes, trust me we need this!
+    m_columns = qMin<uint>( uint(double(width()+1) / (WIDTH+1)), MAX_COLUMNS );
+    m_rows    = uint(double(height()+1) / (HEIGHT+1));
 
-   //this is the y-offset for drawing from the top of the widget
-   m_y = (height() - (m_rows * (HEIGHT+1)) + 2) / 2;
+    //this is the y-offset for drawing from the top of the widget
+    m_y = (height() - (m_rows * (HEIGHT+1)) + 2) / 2;
 
-   m_scope.resize( m_columns );
+    m_scope.resize( m_columns );
 
-   if( m_rows != oldRows ) {
-      m_barPixmap = QPixmap( WIDTH, m_rows*(HEIGHT+1) );
+    if( m_rows != oldRows ) {
+        m_barPixmap = QPixmap( WIDTH, m_rows*(HEIGHT+1) );
 
-      for (int i = 0; i < FADE_SIZE; ++i)
-         m_fade_bars[i] = QPixmap( WIDTH, m_rows*(HEIGHT+1) );
+        for (int i = 0; i < FADE_SIZE; ++i)
+            m_fade_bars[i] = QPixmap( WIDTH, m_rows*(HEIGHT+1) );
 
-      m_yscale.resize( m_rows + 1 );
+        m_yscale.resize( m_rows + 1 );
 
-      const float PRE = 1, PRO = 1; //PRE and PRO allow us to restrict the range somewhat
+        const float PRE = 1, PRO = 1; //PRE and PRO allow us to restrict the range somewhat
 
-      for( uint z = 0; z < m_rows; ++z )
-         m_yscale[z] = 1 - (log10( PRE+z ) / log10( PRE+m_rows+PRO ));
+        for( uint z = 0; z < m_rows; ++z )
+            m_yscale[z] = 1 - (log10( PRE+z ) / log10( PRE+m_rows+PRO ));
 
-      m_yscale[m_rows] = 0;
+        m_yscale[m_rows] = 0;
 
-      determineStep();
-      paletteChange( palette() );
-   }
-   else if( width() > e->oldSize().width() || height() > e->oldSize().height() )
-      drawBackground();
+        determineStep();
+        paletteChange( palette() );
+    }
+    else if( width() > e->oldSize().width() || height() > e->oldSize().height() )
+        drawBackground();
 
-   analyze( m_scope );
+    analyze( m_scope );
 }
 
 void
@@ -135,63 +126,63 @@ BlockAnalyzer::analyze( const QVector<float> &s )
 void
 BlockAnalyzer::paintEvent(QPaintEvent*)
 {
-   // y = 2 3 2 1 0 2
-   //     . . . . # .
-   //     . . . # # .
-   //     # . # # # #
-   //     # # # # # #
-   //
-   // visual aid for how this analyzer works.
-   // y represents the number of blanks
-   // y starts from the top and increases in units of blocks
+    // y = 2 3 2 1 0 2
+    //     . . . . # .
+    //     . . . # # .
+    //     # . # # # #
+    //     # # # # # #
+    //
+    // visual aid for how this analyzer works.
+    // y represents the number of blanks
+    // y starts from the top and increases in units of blocks
 
-   // m_yscale looks similar to: { 0.7, 0.5, 0.25, 0.15, 0.1, 0 }
-   // if it contains 6 elements there are 5 rows in the analyzer
+    // m_yscale looks similar to: { 0.7, 0.5, 0.25, 0.15, 0.1, 0 }
+    // if it contains 6 elements there are 5 rows in the analyzer
 
 
-   QPainter p( this );
+    QPainter p( this );
 
-   // Paint the background
-   p.drawPixmap(0, 0, m_background);
-//   p.fillRect(rect(), palette().color( QPalette::Active, QPalette::Background ));
+    // Paint the background
+    p.drawPixmap(0, 0, m_background);
+    //   p.fillRect(rect(), palette().color( QPalette::Active, QPalette::Background ));
 
-   uint y;
+    uint y;
 
-   for(int x = 0; x < m_scope.size(); ++x)
-   {
-      // determine y
-      for( y = 0; m_scope[x] < m_yscale[y]; ++y )
-         ;
+    for(int x = 0; x < m_scope.size(); ++x)
+    {
+        // determine y
+        for( y = 0; m_scope[x] < m_yscale[y]; ++y )
+            ;
 
-      // this is opposite to what you'd think, higher than y
-      // means the bar is lower than y (physically)
-      if( (float)y > m_store[x] )
-         y = uint(m_store[x] += m_step);
-      else
-         m_store[x] = y;
+        // this is opposite to what you'd think, higher than y
+        // means the bar is lower than y (physically)
+        if( (float)y > m_store[x] )
+            y = uint(m_store[x] += m_step);
+        else
+            m_store[x] = y;
 
-      // if y is lower than m_fade_pos, then the bar has exceeded the height of the fadeout
-      // if the fadeout is quite faded now, then display the new one
-      if(y <= m_fade_pos[x] /*|| m_fade_intensity[x] < FADE_SIZE / 3*/) {
-         m_fade_pos[x] = y;
-         m_fade_intensity[x] = FADE_SIZE;
-      }
+        // if y is lower than m_fade_pos, then the bar has exceeded the height of the fadeout
+        // if the fadeout is quite faded now, then display the new one
+        if(y <= m_fade_pos[x] /*|| m_fade_intensity[x] < FADE_SIZE / 3*/) {
+            m_fade_pos[x] = y;
+            m_fade_intensity[x] = FADE_SIZE;
+        }
 
-      if( m_fade_intensity[x] > 0 ) {
-         const uint offset = --m_fade_intensity[x];
-         const uint y = m_y + (m_fade_pos[x] * (HEIGHT+1));
-         p.drawPixmap( x*(WIDTH+1), y, m_fade_bars[offset], 0, 0, WIDTH, height() - y );
-      }
+        if( m_fade_intensity[x] > 0 ) {
+            const uint offset = --m_fade_intensity[x];
+            const uint y = m_y + (m_fade_pos[x] * (HEIGHT+1));
+            p.drawPixmap( x*(WIDTH+1), y, m_fade_bars[offset], 0, 0, WIDTH, height() - y );
+        }
 
-      if( m_fade_intensity[x] == 0 )
-         m_fade_pos[x] = m_rows;
+        if( m_fade_intensity[x] == 0 )
+            m_fade_pos[x] = m_rows;
 
-      //REMEMBER: y is a number from 0 to m_rows, 0 means all blocks are glowing, m_rows means none are
-      p.drawPixmap( x*(WIDTH+1), y*(HEIGHT+1) + m_y, *bar(), 0, y*(HEIGHT+1), -1, -1 );
-   }
+        //REMEMBER: y is a number from 0 to m_rows, 0 means all blocks are glowing, m_rows means none are
+        p.drawPixmap( x*(WIDTH+1), y*(HEIGHT+1) + m_y, *bar(), 0, y*(HEIGHT+1), -1, -1 );
+    }
 
-   for( uint x = 0; x < m_store.size(); ++x )
-      p.drawPixmap( x*(WIDTH+1), int(m_store[x])*(HEIGHT+1) + m_y, m_topBarPixmap );
+    for( uint x = 0; x < m_store.size(); ++x )
+        p.drawPixmap( x*(WIDTH+1), int(m_store[x])*(HEIGHT+1) + m_y, m_topBarPixmap );
 }
 
 
@@ -235,18 +226,18 @@ QColor
 ensureContrast( const QColor &bg, const QColor &fg, uint _amount = 150 )
 {
     class OutputOnExit {
-        public:
-            OutputOnExit( const QColor &color ) : c( color ) {}
-           ~OutputOnExit() { int h,s,v; c.getHsv( &h, &s, &v ); }
-        private:
-            const QColor &c;
+    public:
+        OutputOnExit( const QColor &color ) : c( color ) {}
+        ~OutputOnExit() { int h,s,v; c.getHsv( &h, &s, &v ); }
+    private:
+        const QColor &c;
     };
 
     // hack so I don't have to cast everywhere
-    #define amount static_cast<int>(_amount)
-//     #define STAMP debug() << (QValueList<int>() << fh << fs << fv);
-//     #define STAMP1( string ) debug() << string << ": " << (QValueList<int>() << fh << fs << fv);
-//     #define STAMP2( string, value ) debug() << string << "=" << value << ": " << (QValueList<int>() << fh << fs << fv);
+#define amount static_cast<int>(_amount)
+    //     #define STAMP debug() << (QValueList<int>() << fh << fs << fv);
+    //     #define STAMP1( string ) debug() << string << ": " << (QValueList<int>() << fh << fs << fv);
+    //     #define STAMP2( string, value ) debug() << string << "=" << value << ": " << (QValueList<int>() << fh << fs << fv);
 
     OutputOnExit allocateOnTheStack( fg );
 
@@ -258,7 +249,7 @@ ensureContrast( const QColor &bg, const QColor &fg, uint _amount = 150 )
 
     int dv = abs( bv - fv );
 
-//     STAMP2( "DV", dv );
+    //     STAMP2( "DV", dv );
 
     // value is the best measure of contrast
     // if there is enough difference in value already, return fg unchanged
@@ -267,7 +258,7 @@ ensureContrast( const QColor &bg, const QColor &fg, uint _amount = 150 )
 
     int ds = abs( bs - fs );
 
-//     STAMP2( "DS", ds );
+    //     STAMP2( "DS", ds );
 
     // saturation is good enough too. But not as good. TODO adapt this a little
     if( ds > amount )
@@ -275,7 +266,7 @@ ensureContrast( const QColor &bg, const QColor &fg, uint _amount = 150 )
 
     int dh = abs( bh - fh );
 
-//     STAMP2( "DH", dh );
+    //     STAMP2( "DH", dh );
 
     if( dh > 120 ) {
         // a third of the colour wheel automatically guarentees contrast
@@ -285,13 +276,13 @@ ensureContrast( const QColor &bg, const QColor &fg, uint _amount = 150 )
         // check the saturation for the two colours is sufficient that hue alone can
         // provide sufficient contrast
         if( ds > amount / 2 && (bs > 125 && fs > 125) )
-//             STAMP1( "Sufficient saturation difference, and hues are compliemtary" );
+            //             STAMP1( "Sufficient saturation difference, and hues are compliemtary" );
             return fg;
         else if( dv > amount / 2 && (bv > 125 && fv > 125) )
-//             STAMP1( "Sufficient value difference, and hues are compliemtary" );
+            //             STAMP1( "Sufficient value difference, and hues are compliemtary" );
             return fg;
 
-//         STAMP1( "Hues are complimentary but we must modify the value or saturation of the contrasting colour" );
+        //         STAMP1( "Hues are complimentary but we must modify the value or saturation of the contrasting colour" );
 
         //but either the colours are two desaturated, or too dark
         //so we need to adjust the system, although not as much
@@ -299,13 +290,13 @@ ensureContrast( const QColor &bg, const QColor &fg, uint _amount = 150 )
     }
 
     if( fs < 50 && ds < 40 ) {
-       // low saturation on a low saturation is sad
-       const int tmp = 50 - fs;
-       fs = 50;
-       if( amount > tmp )
-          _amount -= tmp;
-       else
-          _amount = 0;
+        // low saturation on a low saturation is sad
+        const int tmp = 50 - fs;
+        fs = 50;
+        if( amount > tmp )
+            _amount -= tmp;
+        else
+            _amount = 0;
     }
 
     // test that there is available value to honor our contrast requirement
@@ -314,97 +305,97 @@ ensureContrast( const QColor &bg, const QColor &fg, uint _amount = 150 )
         // we have to modify the value and saturation of fg
         //adjustToLimits( bv, fv, amount );
 
-//         STAMP
+        //         STAMP
 
         // see if we need to adjust the saturation
         if( amount > 0 )
             adjustToLimits( bs, fs, _amount );
 
-//         STAMP
+        //         STAMP
 
         // see if we need to adjust the hue
         if( amount > 0 )
             fh += amount; // cycles around;
 
-//         STAMP
+        //         STAMP
 
         return QColor::fromHsv( fh, fs, fv );
     }
 
-//     STAMP
+    //     STAMP
 
     if( fv > bv && bv > amount )
         return QColor::fromHsv( fh, fs, bv - amount );
 
-//     STAMP
+    //     STAMP
 
     if( fv < bv && fv > amount )
         return QColor::fromHsv( fh, fs, fv - amount );
 
-//     STAMP
+    //     STAMP
 
     if( fv > bv && (255 - fv > amount) )
         return QColor::fromHsv( fh, fs, fv + amount );
 
-//     STAMP
+    //     STAMP
 
     if( fv < bv && (255 - bv > amount ) )
         return QColor::fromHsv( fh, fs, bv + amount );
 
-//     STAMP
-//     debug() << "Something went wrong!\n";
+    //     STAMP
+    //     debug() << "Something went wrong!\n";
 
     return Qt::blue;
 
-    #undef amount
-//     #undef STAMP
+#undef amount
+    //     #undef STAMP
 }
 
 void
-BlockAnalyzer::paletteChange( const QPalette& ) //virtual
+BlockAnalyzer::paletteChange( const QPalette& )
 {
-   const QColor bg = palette().color(QPalette::Active, QPalette::Background);
-   const QColor fg = ensureContrast(bg, palette().color(QPalette::Active, QPalette::Foreground));
+    const QColor bg = palette().color(QPalette::Active, QPalette::Background);
+    const QColor fg = ensureContrast(bg, palette().color(QPalette::Active, QPalette::Foreground));
 
-   m_topBarPixmap.fill( fg );
+    m_topBarPixmap.fill( fg );
 
-   const double dr = 15*double(bg.red()   - fg.red())   / (m_rows*16);
-   const double dg = 15*double(bg.green() - fg.green()) / (m_rows*16);
-   const double db = 15*double(bg.blue()  - fg.blue())  / (m_rows*16);
-   const int r = fg.red(), g = fg.green(), b = fg.blue();
+    const double dr = 15*double(bg.red()   - fg.red())   / (m_rows*16);
+    const double dg = 15*double(bg.green() - fg.green()) / (m_rows*16);
+    const double db = 15*double(bg.blue()  - fg.blue())  / (m_rows*16);
+    const int r = fg.red(), g = fg.green(), b = fg.blue();
 
-   bar()->fill( bg );
+    bar()->fill( bg );
 
-   QPainter p( bar() );
-   for( int y = 0; (uint)y < m_rows; ++y )
-      //graduate the fg color
-      p.fillRect( 0, y*(HEIGHT+1), WIDTH, HEIGHT, QColor( r+int(dr*y), g+int(dg*y), b+int(db*y) ) );
+    QPainter p( bar() );
+    for( int y = 0; (uint)y < m_rows; ++y )
+        //graduate the fg color
+        p.fillRect( 0, y*(HEIGHT+1), WIDTH, HEIGHT, QColor( r+int(dr*y), g+int(dg*y), b+int(db*y) ) );
 
-   {
-      const QColor bg = palette().color( QPalette::Active, QPalette::Background ).dark( 112 );
+    {
+        const QColor bg = palette().color( QPalette::Active, QPalette::Background ).dark( 112 );
 
-      //make a complimentary fadebar colour
-      //TODO dark is not always correct, dumbo!
-      int h,s,v; palette().color( QPalette::Active, QPalette::Background ).dark( 150 ).getHsv( &h, &s, &v );
-      const QColor fg = QColor::fromHsv( h + 60, s, v );
+        //make a complimentary fadebar colour
+        //TODO dark is not always correct, dumbo!
+        int h,s,v; palette().color( QPalette::Active, QPalette::Background ).dark( 150 ).getHsv( &h, &s, &v );
+        const QColor fg = QColor::fromHsv( h + 60, s, v );
 
-      const double dr = fg.red() - bg.red();
-      const double dg = fg.green() - bg.green();
-      const double db = fg.blue() - bg.blue();
-      const int r = bg.red(), g = bg.green(), b = bg.blue();
+        const double dr = fg.red() - bg.red();
+        const double dg = fg.green() - bg.green();
+        const double db = fg.blue() - bg.blue();
+        const int r = bg.red(), g = bg.green(), b = bg.blue();
 
-      // Precalculate all fade-bar pixmaps
-      for(int y = 0; y < FADE_SIZE; ++y) {
-         m_fade_bars[y].fill( palette().color( QPalette::Active, QPalette::Background ) );
-         QPainter f( &m_fade_bars[y] );
-         for( int z = 0; (uint)z < m_rows; ++z ) {
-            const double Y = 1.0 - (log10( static_cast<float>(FADE_SIZE) - y ) / log10( static_cast<float>(FADE_SIZE) ));
-            f.fillRect( 0, z*(HEIGHT+1), WIDTH, HEIGHT, QColor( r+int(dr*Y), g+int(dg*Y), b+int(db*Y) ) );
-         }
-      }
-   }
+        // Precalculate all fade-bar pixmaps
+        for(int y = 0; y < FADE_SIZE; ++y) {
+            m_fade_bars[y].fill( palette().color( QPalette::Active, QPalette::Background ) );
+            QPainter f( &m_fade_bars[y] );
+            for( int z = 0; (uint)z < m_rows; ++z ) {
+                const double Y = 1.0 - (log10( static_cast<float>(FADE_SIZE) - y ) / log10( static_cast<float>(FADE_SIZE) ));
+                f.fillRect( 0, z*(HEIGHT+1), WIDTH, HEIGHT, QColor( r+int(dr*Y), g+int(dg*Y), b+int(db*Y) ) );
+            }
+        }
+    }
 
-   drawBackground();
+    drawBackground();
 }
 
 void

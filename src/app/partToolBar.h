@@ -23,15 +23,15 @@
 #ifndef DRAGONPLAYER_PARTTOOLBAR_H
 #define DRAGONPLAYER_PARTTOOLBAR_H
 
-#include <ktoolbar.h>
+#include <KToolBar>
 
 
 class MouseOverToolBar : public KToolBar
 {
-   virtual bool eventFilter( QObject*, QEvent* );
+    virtual bool eventFilter( QObject*, QEvent* ) Q_DECL_OVERRIDE;
 
 public:
-   MouseOverToolBar( QWidget *parent );
+    MouseOverToolBar( QWidget *parent );
 };
 
 #endif

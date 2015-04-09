@@ -1,9 +1,31 @@
-install(PROGRAMS dragonplayer.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
-install(FILES dragonplayer-opendvd.desktop DESTINATION ${DATA_INSTALL_DIR}/solid/actions )
+install(PROGRAMS org.kde.dragonplayer.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+install(FILES dragonplayer-opendvd.desktop dragonplayer-openaudiocd.desktop DESTINATION ${DATA_INSTALL_DIR}/solid/actions )
 install(FILES dragonplayer_part.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
 install(FILES dragonplayerrc DESTINATION ${CONFIG_INSTALL_DIR})
 install(FILES dragonplayer_play_dvd.desktop DESTINATION ${SERVICES_INSTALL_DIR}/ServiceMenus)
-install(FILES dragonplayerui.rc dragonlogo.png DESTINATION ${DATA_INSTALL_DIR}/dragonplayer)
+install(FILES dragonplayerui.rc dragonlogo.png DESTINATION ${KXMLGUI_INSTALL_DIR}/dragonplayer)
 install(FILES dragonplayer.appdata.xml DESTINATION ${SHARE_INSTALL_PREFIX}/appdata/ )
 
-kde4_install_icons(${ICON_INSTALL_DIR})
+ecm_install_icons(
+    ICONS
+        sc-apps-dragonplayer.svgz
+        128-apps-dragonplayer.png
+        64-apps-dragonplayer.png
+        48-apps-dragonplayer.png
+        32-apps-dragonplayer.png
+        22-apps-dragonplayer.png
+        16-apps-dragonplayer.png
+    DESTINATION ${KDE_INSTALL_ICONDIR}
+    THEME hicolor
+)
+
+ecm_install_icons(
+    ICONS
+        sc-actions-player-volume-muted.svgz
+        48-actions-player-volume-muted.png
+        32-actions-player-volume-muted.png
+        22-actions-player-volume-muted.png
+        16-actions-player-volume-muted.png
+    DESTINATION ${KDE_INSTALL_ICONDIR}
+    THEME oxygen
+)

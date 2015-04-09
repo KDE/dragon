@@ -35,31 +35,28 @@
 #include <QTimer>
 #include <QVBoxLayout>
 #include <QPainter>
+#include <QApplication>
+#include <QDebug>
+#include <QIcon>
+#include <QMenu>
+#include <QMimeDatabase>
 
-#include <KApplication>
-#include <KDebug>
-#include <KIcon>
-#include <KLocale>
-#include <KMenu>
-#include <KMimeType>
-#include <KStandardDirs>
+#include <KLocalizedString>
+#include <KSharedConfig>
 
 #include <Phonon/AudioOutput>
 #include <phonon/audiodataoutput.h>
 #include <Phonon/MediaController>
 #include <Phonon/MediaObject>
-#include <Phonon/MediaSource>
-#include <Phonon/Path>
 #include <Phonon/SeekSlider>
 #include <Phonon/VideoWidget>
 #include <Phonon/VolumeFaderEffect>
 #include <Phonon/VolumeSlider>
 
 #include <Solid/Block>
-#include <Solid/Device>
 #include <Solid/OpticalDisc>
 
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
 #include <windows.h>
 #endif
 
@@ -80,17 +77,16 @@ namespace Dragon {
 VideoWindow *VideoWindow::s_instance = 0;
 
 VideoWindow::VideoWindow( QWidget *parent )
-        : QWidget( parent )
-        , m_cursorTimer( new QTimer( this ) )
-        , m_justLoaded( false )
-        , m_adjustedSize( false)
-        , m_subLanguages( new QActionGroup( this ) )
-        , m_audioLanguages( new QActionGroup( this ) )
-        , m_logo( new QLabel( this ) )
-        , m_initialOffset( 0 )
-        , m_aDataOutput(0)
+    : QWidget( parent )
+    , m_cursorTimer( new QTimer( this ) )
+    , m_justLoaded( false )
+    , m_adjustedSize( false)
+    , m_subLanguages( new QActionGroup( this ) )
+    , m_audioLanguages( new QActionGroup( this ) )
+    , m_logo( new QLabel( this ) )
+    , m_initialOffset( 0 )
+    , m_aDataOutput(0)
 {
-
     m_isPreview = false;
 
     s_instance = this;
@@ -105,6 +101,7 @@ VideoWindow::VideoWindow( QWidget *parent )
     m_aOutput = new AudioOutput( Phonon::VideoCategory, this );
     m_media = new MediaObject( this );
     m_controller = new MediaController( m_media );
+    m_controller->setAutoplayTitles(true);
     Phonon::createPath(m_media, m_vWidget);
     m_audioPath = Phonon::createPath(m_media, m_aOutput);
     m_media->setTickInterval( 1000 );
@@ -157,7 +154,7 @@ VideoWindow::VideoWindow( QWidget *parent )
         m_logo->show();
     }
     {
-        KConfigGroup config = KGlobal::config()->group( "General" );
+        KConfigGroup config = KSharedConfig::openConfig()->group( "General" );
         m_aOutput->setVolume( config.readEntry<double>( "Volume", 1.0 ) );
     }
 }
@@ -165,7 +162,7 @@ VideoWindow::VideoWindow( QWidget *parent )
 VideoWindow::~VideoWindow()
 {
     eject();
-    KConfigGroup config = KGlobal::config()->group( "General" );
+    KConfigGroup config = KSharedConfig::openConfig()->group( "General" );
     config.writeEntry( "Volume", static_cast<double>( m_aOutput->volume() ) );
 }
 
@@ -176,18 +173,35 @@ VideoWindow::init()
 }
 
 bool
-VideoWindow::load( const KUrl &url )
+VideoWindow::load(const QUrl &url )
 {
     QApplication::setOverrideCursor( Qt::WaitCursor );
 
     eject();
 
-    KMimeType::Ptr mimeType = KMimeType::findByUrl( url );
-    kDebug() << "detected mimetype: " << mimeType->name();
-    if( mimeType->is( QLatin1String( "application/x-cd-image" ) ) || mimeType->is( QLatin1String( "inode/directory" ) ) )
+    QMimeDatabase db;
+    QMimeType mimeType = db.mimeTypeForUrl(url);
+    qDebug() << "detected mimetype: " << mimeType.name();
+    if( mimeType.inherits( QLatin1String( "application/x-cd-image" ) ) || mimeType.inherits( QLatin1String( "inode/directory" ) ) )
         m_media->setCurrentSource( Phonon::MediaSource( Phonon::Dvd, url.path() ) );
     else
         m_media->setCurrentSource( url );
+    m_justLoaded = true;
+    m_adjustedSize=false;
+
+    QApplication::restoreOverrideCursor();
+
+    return true;
+}
+
+bool VideoWindow::load(const QList<QUrl> &urls)
+{
+    QApplication::setOverrideCursor( Qt::WaitCursor );
+
+    eject();
+    QList<QUrl> tmpUrls = urls;
+    m_media->setCurrentSource(tmpUrls.takeFirst());
+    m_media->enqueue(tmpUrls);
     m_justLoaded = true;
     m_adjustedSize=false;
 
@@ -235,15 +249,13 @@ VideoWindow::playDisc(const Solid::Device& device )
         const Solid::Block* block = device.as<const Solid::Block>();
         if( block )
             devicePath = block->device();
-        else
-        {
-            kDebug() << "device was not a block";
+        else {
+            qDebug() << "device was not a block";
             return false;
         }
     }
     const Solid::OpticalDisc* disc = device.as<const Solid::OpticalDisc>();
-    if( disc )
-    {
+    if( disc ) {
         Phonon::DiscType phononType = Phonon::NoDisc;
         {
             Solid::OpticalDisc::ContentTypes solidType = disc->availableContent();
@@ -259,19 +271,17 @@ VideoWindow::playDisc(const Solid::Device& device )
             // bogus handling in one of the classes -> assertation.
             Q_ASSERT(phononType != Phonon::NoDisc);
             if (phononType == Phonon::NoDisc){
-                kDebug() << "not a playable disc type: " << disc->availableContent() << " type";
+                qDebug() << "not a playable disc type: " << disc->availableContent() << " type";
                 return false;
             }
         }
         eject();
         m_media->setCurrentSource( Phonon::MediaSource( phononType, devicePath ) );
-        kDebug() << "actually playing the disc at " << devicePath;
+        qDebug() << "actually playing the disc at " << devicePath;
         m_media->play();
         return true;
-    }
-    else
-    {
-        kDebug() << "device was not a disc";
+    } else {
+        qDebug() << "device was not a disc";
         return false;
     }
 }
@@ -279,25 +289,21 @@ VideoWindow::playDisc(const Solid::Device& device )
 bool
 VideoWindow::isPreview(const bool &v)
 {
-   if( v )
-     {
-       m_isPreview = v;
-     }
-   return m_isPreview;
+    if( v ) {
+        m_isPreview = v;
+    }
+    return m_isPreview;
 }
 
 void
 VideoWindow::relativeSeek( qint64 step )
 {
-    kDebug() << "** relative seek";
+    qDebug() << "** relative seek";
     const qint64 new_pos = currentTime() + step;
-    if( ( new_pos >= 0 ) && ( new_pos < length() ) )
-    {
+    if( ( new_pos >= 0 ) && ( new_pos < length() ) ) {
         seek( new_pos );
         play();
-    }
-    else if( new_pos < 0 )
-    {
+    } else if( new_pos < 0 ) {
         seek( 0 );
         play();
     }
@@ -306,12 +312,12 @@ VideoWindow::relativeSeek( qint64 step )
 void
 VideoWindow::stop()
 {
-    kDebug() << "Stop called";
+    qDebug() << "Stop called";
     eject();
     m_media->stop();
     m_media->setCurrentSource(Phonon::MediaSource()); //set the current source to    Phonon::MediaSource::Empty
-    kDebug() << "Media source valid? "<<  TheStream::hasMedia();
-      m_vWidget->hide();
+    qDebug() << "Media source valid? "<< TheStream::hasMedia();
+    m_vWidget->hide();
     m_logo->show();
 }
 
@@ -324,10 +330,10 @@ VideoWindow::pause()
 void
 VideoWindow::playPause()
 {
-  if(m_media->state() == Phonon::PlayingState)
-    pause();
-  else
-    resume();
+    if(m_media->state() == Phonon::PlayingState)
+        pause();
+    else
+        resume();
 }
 
 QString
@@ -336,22 +342,22 @@ VideoWindow::urlOrDisc() const
     Phonon::MediaSource source = m_media->currentSource();
     switch( source.type() )
     {
-        case Phonon::MediaSource::Invalid:
-        case Phonon::MediaSource::Empty:
-            return QLatin1String( "Invalid" ); //no i18n, used for DBus responses
-            break;
-        case Phonon::MediaSource::Url:
-        case Phonon::MediaSource::LocalFile:
-            return source.url().toString();
-            break;
-        case Phonon::MediaSource::Disc:
-            return source.deviceName();
-            break;
-        case Phonon::MediaSource::Stream:
-            return QLatin1String( "Data Stream" );
-            break;
-        default:
-            break;
+    case Phonon::MediaSource::Invalid:
+    case Phonon::MediaSource::Empty:
+        return QLatin1String( "Invalid" ); //no i18n, used for DBus responses
+        break;
+    case Phonon::MediaSource::Url:
+    case Phonon::MediaSource::LocalFile:
+        return source.url().toString();
+        break;
+    case Phonon::MediaSource::Disc:
+        return source.deviceName();
+        break;
+    case Phonon::MediaSource::Stream:
+        return QLatin1String( "Data Stream" );
+        break;
+    default:
+        break;
     }
     return QLatin1String( "Error" );
 }
@@ -373,7 +379,6 @@ VideoWindow::isSeekable() const
 {
     return m_media->isSeekable();
 }
-
 
 Phonon::State
 VideoWindow::state() const
@@ -408,7 +413,7 @@ VideoWindow::isMuted()
 void
 VideoWindow::seek( qint64 pos )
 {
-      m_media->seek( pos );
+    m_media->seek( pos );
 }
 
 qint32
@@ -433,7 +438,7 @@ VideoWindow::resetZoom()
 qint64
 VideoWindow::currentTime() const
 {
-   return m_media->currentTime();
+    return m_media->currentTime();
 }
 
 qint64
@@ -445,12 +450,11 @@ VideoWindow::length() const
 bool
 VideoWindow::setupAnalyzer(QObject* analyzer)
 {
-    if(!m_aDataOutput)
-    {
+    if(!m_aDataOutput) {
         m_aDataOutput = new Phonon::AudioDataOutput(this);
         m_audioDataPath = Phonon::createPath(m_media, m_aDataOutput);
         connect(m_aDataOutput, SIGNAL(dataReady(QMap<Phonon::AudioDataOutput::Channel,QVector<qint16> >)),
-                analyzer,  SLOT(drawFrame(QMap<Phonon::AudioDataOutput::Channel,QVector<qint16> >)));
+                analyzer, SLOT(drawFrame(QMap<Phonon::AudioDataOutput::Channel,QVector<qint16> >)));
     }
 
     return m_audioDataPath.isValid();
@@ -459,7 +463,7 @@ VideoWindow::setupAnalyzer(QObject* analyzer)
 bool
 VideoWindow::isDVD() const
 {
-    return m_media->currentSource().discType() == Phonon::Dvd;
+    return m_media->currentSource().discType() == Phonon::Dvd || m_media->currentSource().discType() == Phonon::BluRay;
 }
 
 QWidget*
@@ -486,28 +490,26 @@ VideoWindow::newVolumeSlider()
 void
 VideoWindow::stateChanged(Phonon::State currentState, Phonon::State oldstate) // slot
 {
-kDebug() << "chapters: " << m_controller->availableChapters() << " titles: " << m_controller->availableTitles();
+    qDebug() << "chapters: " << m_controller->availableChapters() << " titles: " << m_controller->availableTitles();
     QStringList states;
     states << QLatin1String( "Loading" ) << QLatin1String( "Stopped" ) << QLatin1String( "Playing" ) << QLatin1String( "Buffering" ) << QLatin1String( "Paused" ) << QLatin1String( "Error" );
-    kDebug() << "going from " << states.at(oldstate) << " to " << states.at(currentState);
+    qDebug() << "going from " << states.at(oldstate) << " to " << states.at(currentState);
 
     if( currentState == Phonon::PlayingState && m_initialOffset > 0) {
         seek(m_initialOffset);
         m_initialOffset = 0;
     }
 
-    if( currentState == Phonon::PlayingState  && m_media->hasVideo() )
-    {
+    if( currentState == Phonon::PlayingState && m_media->hasVideo() ) {
         m_logo->hide();
         m_vWidget->show();
         updateChannels();
 
-        if(m_adjustedSize==false)
-        {
-           if( mainWindow() )
-             ( (QWidget*) mainWindow() )->adjustSize();
-          m_adjustedSize=true;
-          kDebug() << "adjusting size to video resolution";
+        if(m_adjustedSize==false) {
+            if( mainWindow() )
+                ( (QWidget*) mainWindow() )->adjustSize();
+            m_adjustedSize=true;
+            qDebug() << "adjusting size to video resolution";
         }
     }
     emit stateUpdated( currentState, oldstate );
@@ -518,21 +520,14 @@ VideoWindow::settingChanged( int setting )
 {
     const QString name = sender()->objectName();
     const double dSetting = static_cast<double>( setting ) * 0.01;
-    kDebug() << "setting " << name << " to " << dSetting;
-    if( name == QLatin1String( "brightnessSlider" ) )
-    {
+    qDebug() << "setting " << name << " to " << dSetting;
+    if( name == QLatin1String( "brightnessSlider" ) ) {
         m_vWidget->setBrightness( dSetting );
-    }
-    else if( name == QLatin1String( "contrastSlider" ) )
-    {
+    } else if( name == QLatin1String( "contrastSlider" ) ) {
         m_vWidget->setContrast( dSetting );
-    }
-    else if( name == QLatin1String( "hueSlider" ) )
-    {
+    } else if( name == QLatin1String( "hueSlider" ) ) {
         m_vWidget->setHue( dSetting );
-    }
-    else if( name == QLatin1String( "saturationSlider" ) )
-    {
+    } else if( name == QLatin1String( "saturationSlider" ) ) {
         m_vWidget->setSaturation( dSetting );
     }
 }
@@ -540,8 +535,7 @@ VideoWindow::settingChanged( int setting )
 void
 VideoWindow::loadSettings()
 {
-    if( TheStream::hasProfile() )
-    {
+    if( TheStream::hasProfile() ) {
         KConfigGroup profile = TheStream::profile();
         m_vWidget->setBrightness( profile.readEntry<double>( "Brightness", 0.0 ) );
         m_vWidget->setContrast( profile.readEntry<double>( "Contrast", 0.0 ) );
@@ -549,9 +543,7 @@ VideoWindow::loadSettings()
         m_vWidget->setSaturation( profile.readEntry<double>( "Saturation", 0.0 ) );
         setAudioChannel( profile.readEntry<int>( "AudioChannel", -1 ) );
         setSubtitle( profile.readEntry<int>( "Subtitle",  -1 ) );
-    }
-    else
-    {
+    } else {
         m_vWidget->setBrightness( 0.0 );
         m_vWidget->setContrast( 0.0 );
         m_vWidget->setHue( 0.0 );
@@ -561,18 +553,17 @@ VideoWindow::loadSettings()
 
 template<class ChannelDescription> void
 VideoWindow::updateActionGroup( QActionGroup* channelActions
-    , const QList<ChannelDescription>& availableChannels
-    , const char* actionSlot )
+                                , const QList<ChannelDescription>& availableChannels
+                                , const char* actionSlot )
 {
     {
         QList<QAction*> subActions = channelActions->actions();
         while( 2 < subActions.size() )
             delete subActions.takeLast();
     }
-    foreach( const ChannelDescription &channel, availableChannels )
-    {
+    foreach( const ChannelDescription &channel, availableChannels ) {
         QAction* lang = new QAction( channelActions );
-        kDebug() << "the text is: \"" << channel.name() << "\" and index " << channel.index();
+        qDebug() << "the text is: \"" << channel.name() << "\" and index " << channel.index();
         lang->setCheckable( true );
         lang->setText( channel.name() );
         lang->setProperty( TheStream::CHANNEL_PROPERTY, channel.index() );
@@ -583,6 +574,8 @@ VideoWindow::updateActionGroup( QActionGroup* channelActions
 void
 VideoWindow::updateChannels()
 {
+    qDebug() << "Updating channels, subtitle count:" <<  m_controller->availableSubtitles().count();
+
     updateActionGroup( m_subLanguages, m_controller->availableSubtitles(), SLOT(slotSetSubtitle()) );
     emit subChannelsChanged( m_subLanguages->actions() );
     updateActionGroup( m_audioLanguages, m_controller->availableAudioChannels(), SLOT(slotSetAudio()) );
@@ -592,17 +585,17 @@ VideoWindow::updateChannels()
 void
 VideoWindow::hideCursor()
 {
-   if(m_media->hasVideo() && m_vWidget->underMouse() )
-       kapp->setOverrideCursor( Qt::BlankCursor );
+    if(m_media->hasVideo() && m_vWidget->underMouse() )
+        qApp->setOverrideCursor( Qt::BlankCursor );
 }
 
 void
 VideoWindow::setSubtitle( int channel )
 {
     Phonon::SubtitleDescription desc = Phonon::SubtitleDescription::fromIndex( channel );
-    kDebug() << "using index: " << channel << " returned desc has index: " << desc.index();
+    qDebug() << "using index: " << channel << " returned desc has index: " << desc.index();
     if(desc.isValid())
-      m_controller->setCurrentSubtitle( desc );
+        m_controller->setCurrentSubtitle( desc );
 }
 
 void
@@ -616,9 +609,9 @@ void
 VideoWindow::setAudioChannel( int channel )
 {
     Phonon::AudioChannelDescription desc = Phonon::AudioChannelDescription::fromIndex( channel );
-    kDebug() << "using index: " << channel << " returned desc has index: " << desc.index();
+    qDebug() << "using index: " << channel << " returned desc has index: " << desc.index();
     if(desc.isValid())
-      m_controller->setCurrentAudioChannel( desc );
+        m_controller->setCurrentAudioChannel( desc );
 }
 
 void
@@ -640,20 +633,13 @@ int
 VideoWindow::videoSetting( const QString& setting )
 {
     double dValue = 0.0;
-    if( setting == QLatin1String( "brightnessSlider" ) )
-    {
+    if( setting == QLatin1String( "brightnessSlider" ) ) {
         dValue = m_vWidget->brightness();
-    }
-    else if( setting == QLatin1String( "contrastSlider" ) )
-    {
+    } else if( setting == QLatin1String( "contrastSlider" ) ) {
         dValue = m_vWidget->contrast();
-    }
-    else if( setting == QLatin1String( "hueSlider" ) )
-    {
+    } else if( setting == QLatin1String( "hueSlider" ) ) {
         dValue = m_vWidget->hue();
-    }
-    else if( setting == QLatin1String( "saturationSlider" ) )
-    {
+    } else if( setting == QLatin1String( "saturationSlider" ) ) {
         dValue = m_vWidget->saturation();
     }
     return static_cast<int>( dValue * 100.0 );
@@ -661,32 +647,38 @@ VideoWindow::videoSetting( const QString& setting )
 
 void
 VideoWindow::prevChapter()
-  {
-    m_controller->setCurrentChapter(m_controller->currentChapter() - 1);
-  }
+{
+    if (TheStream::hasVideo())
+        m_controller->setCurrentChapter(m_controller->currentChapter() - 1);
+    else
+        m_controller->previousTitle();
+}
 
 void
 VideoWindow::nextChapter()
-  {
-    m_controller->setCurrentChapter(m_controller->currentChapter() + 1);
-  }
+{
+    if (TheStream::hasVideo())
+        m_controller->setCurrentChapter(m_controller->currentChapter() + 1);
+    else
+        m_controller->nextTitle();
+}
 
 void
 VideoWindow::tenPercentBack()
 {
-  qint64 newTime = m_media->currentTime() - (m_media->totalTime() / 10);
-  if (newTime > 0)
-    m_media -> seek (newTime);
-  else
-    m_media -> seek ( 0 ) ;
-  }
+    const qint64 newTime = m_media->currentTime() - (m_media->totalTime() / 10);
+    if (newTime > 0)
+        m_media->seek (newTime);
+    else
+        m_media->seek ( 0 ) ;
+}
 
 void
 VideoWindow::tenPercentForward()
 {
-  qint64 newTime = m_media->currentTime() + (m_media->totalTime() / 10);
-  if (newTime < m_media->totalTime())
-	m_media -> seek (newTime);
+    const qint64 newTime = m_media->currentTime() + (m_media->totalTime() / 10);
+    if (newTime < m_media->totalTime())
+        m_media->seek (newTime);
 }
 
 void
@@ -713,6 +705,16 @@ VideoWindow::decreaseVolume()
     m_aOutput->setVolume(qMax(qreal(0.0), volume() - qreal(0.10)));
 }
 
+bool VideoWindow::canGoPrev() const
+{
+    return m_controller->currentTitle() > 1;
+}
+
+bool VideoWindow::canGoNext() const
+{
+    return m_controller->currentTitle() < m_controller->availableTitles();
+}
+
 ///////////
 ///Protected
 ///////////
@@ -722,21 +724,22 @@ VideoWindow::event( QEvent* event )
 {
     switch( event->type() )
     {
-      case QEvent::Leave:
-         m_cursorTimer->stop(); kDebug() << "stop cursorTimer";
-      break;
-      case QEvent::FocusOut:
-         // if the user summons some dialog via a shortcut or whatever we need to ensure
-         // the mouse gets shown, because if it is modal, we won't get mouse events after
-         // it is shown! This works because we are always the focus widget.
-         // @see MainWindow::MainWindow where we setFocusProxy()
-      case QEvent::Enter:
-      case QEvent::MouseMove:
-      case QEvent::MouseButtonPress:
-            kapp->restoreOverrideCursor();
-            m_cursorTimer->start( CURSOR_HIDE_TIMEOUT );
-         break;
-      default: return QWidget::event( event );
+    case QEvent::Leave:
+        m_cursorTimer->stop();
+        qDebug() << "stop cursorTimer";
+        break;
+    case QEvent::FocusOut:
+        // if the user summons some dialog via a shortcut or whatever we need to ensure
+        // the mouse gets shown, because if it is modal, we won't get mouse events after
+        // it is shown! This works because we are always the focus widget.
+        // @see MainWindow::MainWindow where we setFocusProxy()
+    case QEvent::Enter:
+    case QEvent::MouseMove:
+    case QEvent::MouseButtonPress:
+        qApp->restoreOverrideCursor();
+        m_cursorTimer->start( CURSOR_HIDE_TIMEOUT );
+        break;
+    default: return QWidget::event( event );
     }
     return false;
 }
@@ -744,14 +747,12 @@ VideoWindow::event( QEvent* event )
 void
 VideoWindow::contextMenuEvent( QContextMenuEvent * event )
 {
-    KMenu menu;
-    if( mainWindow() )
-    {
+    QMenu menu;
+    if( mainWindow() ) {
         menu.addAction( action( "play" ) );
         menu.addAction( action( "fullscreen" ) );
         menu.addAction( action( "reset_zoom" ) );
-        if(isDVD())
-        {
+        if(isDVD()) {
             menu.addAction( action( "toggle_dvd_menu" ) );
         }
     }
@@ -768,15 +769,15 @@ VideoWindow::mouseDoubleClickEvent( QMouseEvent* )
 QSize
 VideoWindow::sizeHint() const //virtual
 {
-   QSize s = TheStream::profile().readEntry<QSize>( "Preferred Size", QSize() );
+    QSize s = TheStream::profile().readEntry<QSize>( "Preferred Size", QSize() );
 
-   if( !s.isValid() )
-      s = TheStream::defaultVideoSize();
+    if( !s.isValid() )
+        s = TheStream::defaultVideoSize();
 
-   if( s.isValid() && !s.isNull() )
-      return s;
+    if( s.isValid() && !s.isNull() )
+        return s;
 
-   return QWidget::sizeHint();
+    return QWidget::sizeHint();
 }
 
 ///////////
@@ -815,30 +816,27 @@ VideoWindow::eject()
     profile.writeEntry( "IsVideo",m_media->hasVideo());
     {
         //this if clause - is to prevent a crash from bug 162721 (a Phonon bug), remove when fixed
-        if(m_media->hasVideo())
-        {
-          kDebug() << "trying to fetch subtitle information";
-          const int subtitle = TheStream::subtitleChannel();
-          const int audio = TheStream::audioChannel();
-          kDebug() << "fetched subtitle information";
+        if(m_media->hasVideo()) {
+            qDebug() << "trying to fetch subtitle information";
+            const int subtitle = TheStream::subtitleChannel();
+            const int audio = TheStream::audioChannel();
+            qDebug() << "fetched subtitle information";
 
 
-        if( subtitle != -1 )
-            profile.writeEntry( "Subtitle", subtitle );
-        else
-            profile.deleteEntry( "Subtitle" );
+            if( subtitle != -1 )
+                profile.writeEntry( "Subtitle", subtitle );
+            else
+                profile.deleteEntry( "Subtitle" );
 
-        if( audio != -1 )
-            profile.writeEntry( "AudioChannel", audio );
-        else
-            profile.deleteEntry( "AudioChannel" );
+            if( audio != -1 )
+                profile.writeEntry( "AudioChannel", audio );
+            else
+                profile.deleteEntry( "AudioChannel" );
         }
 
     }
-    profile.writeEntry( "Date", QDate::currentDate().toString("dd/MM/yyyy") );
+    profile.writeEntry( "Date", QDate::currentDate() );
     profile.sync();
 }
 
 } //namespace Dragon
-
-#include "videoWindow.moc"

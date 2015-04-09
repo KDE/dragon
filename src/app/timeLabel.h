@@ -6,7 +6,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License or (at your option) version 3 or any later version
  * accepted by the membership of KDE e.V. (or its successor approved
- * by the membership of KDE e.V.), which shall act as a proxy 
+ * by the membership of KDE e.V.), which shall act as a proxy
  * defined in Section 14 of version 3 of the license.
  *
  * This program is distributed in the hope that it will be useful,
@@ -26,19 +26,19 @@
 class TimeLabel : public QLabel
 {
     Q_OBJECT
-    public:
-       explicit TimeLabel( QWidget *parent );
-       virtual ~TimeLabel();
-       virtual void mousePressEvent( QMouseEvent * );
-       virtual void updateTime();
-       enum TimeFormats { SHOW_REMAINING,SHOW_COMPLETED };
-    public slots:
-       void setCurrentTime( qint64 );
-       void setTotalTime( qint64 );
-    private:
-       TimeFormats m_timeFormat;
-       qint64 m_currentTime;
-       qint64 m_totalTime;
+public:
+    explicit TimeLabel( QWidget *parent );
+    virtual ~TimeLabel();
+    void mousePressEvent( QMouseEvent * ) Q_DECL_OVERRIDE;
+    void updateTime();
+    enum TimeFormats { SHOW_REMAINING, SHOW_COMPLETED };
+public slots:
+    void setCurrentTime( qint64 );
+    void setTotalTime( qint64 );
+private:
+    TimeFormats m_timeFormat;
+    qint64 m_currentTime;
+    qint64 m_totalTime;
 };
 
-#endif 
+#endif

@@ -7,7 +7,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License or (at your option) version 3 or any later version
  * accepted by the membership of KDE e.V. (or its successor approved
- * by the membership of KDE e.V.), which shall act as a proxy 
+ * by the membership of KDE e.V.), which shall act as a proxy
  * defined in Section 14 of version 3 of the license.
  *
  * This program is distributed in the hope that it will be useful,
@@ -27,43 +27,40 @@
 #include <QList>
 
 #include <KParts/StatusBarExtension>
-#include <KParts/Part>
-#include <KUrl>
+#include <KParts/ReadOnlyPart>
+#include <QUrl>
 #include <Phonon/MediaSource>
 class KAboutData;
 
 
 namespace Dragon
 {
-    class PlayAction;
+class PlayAction;
 
-    class Part : public KParts::ReadOnlyPart
-    {
-        Q_OBJECT
-        public:
-            Part(QWidget* parentWidget, QObject* parent, const QList<QVariant>& /*args*/ );
+class Part : public KParts::ReadOnlyPart
+{
+    Q_OBJECT
+public:
+    Part(QWidget* parentWidget, QObject* parent, const QList<QVariant>& /*args*/ );
 
-            virtual bool closeUrl();
+    virtual bool closeUrl() Q_DECL_OVERRIDE;
 
-            static KAboutData *createAboutData();
+    static KAboutData *createAboutData();
 
-        public slots:
-            virtual bool openUrl( const KUrl& );
+public slots:
+    virtual bool openUrl( const QUrl& ) Q_DECL_OVERRIDE;
 
-        private slots:
-            void engineStateChanged( Phonon::State state );
-            void videoContextMenu( const QPoint & pos );
+private slots:
+    void engineStateChanged( Phonon::State state );
+    void videoContextMenu( const QPoint & pos );
 
-        protected:
-            virtual bool openFile();
+private:
+    QUrl m_url;
+    KParts::StatusBarExtension *m_statusBarExtension;
+    Dragon::PlayAction* m_playPause;
 
-        private:
-            KUrl m_url;
-            KParts::StatusBarExtension *m_statusBarExtension;
-            Dragon::PlayAction* m_playPause;
-
-           KStatusBar *statusBar() { return m_statusBarExtension->statusBar(); }
-        };
+    QStatusBar *statusBar() { return m_statusBarExtension->statusBar(); }
+};
 }
 
 #endif

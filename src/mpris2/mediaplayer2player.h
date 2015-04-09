@@ -47,55 +47,55 @@ class MediaPlayer2Player : public QDBusAbstractAdaptor
     Q_PROPERTY(bool CanSeek READ CanSeek)
     Q_PROPERTY(bool CanControl READ CanControl)
 
-    public:
-        explicit MediaPlayer2Player(QObject* parent);
-        ~MediaPlayer2Player();
+public:
+    explicit MediaPlayer2Player(QObject* parent);
+    ~MediaPlayer2Player();
 
-        QString PlaybackStatus() const;
-        QString LoopStatus() const;
-        void setLoopStatus(const QString& loopStatus) const;
-        double Rate() const;
-        void setRate(double rate) const;
-        bool Shuffle() const;
-        void setShuffle(bool shuffle) const;
-        QVariantMap Metadata() const;
-        double Volume() const;
-        void setVolume(double volume) const;
-        qlonglong Position() const;
-        double MinimumRate() const;
-        double MaximumRate() const;
-        bool CanGoNext() const;
-        bool CanGoPrevious() const;
-        bool CanPlay() const;
-        bool CanPause() const;
-        bool CanSeek() const;
-        bool CanControl() const;
+    QString PlaybackStatus() const;
+    QString LoopStatus() const;
+    void setLoopStatus(const QString& loopStatus) const;
+    double Rate() const;
+    void setRate(double rate) const;
+    bool Shuffle() const;
+    void setShuffle(bool shuffle) const;
+    QVariantMap Metadata() const;
+    double Volume() const;
+    void setVolume(double volume) const;
+    qlonglong Position() const;
+    double MinimumRate() const;
+    double MaximumRate() const;
+    bool CanGoNext() const;
+    bool CanGoPrevious() const;
+    bool CanPlay() const;
+    bool CanPause() const;
+    bool CanSeek() const;
+    bool CanControl() const;
 
-    signals:
-        void Seeked(qlonglong Position) const;
+signals:
+    void Seeked(qlonglong Position) const;
 
-    public slots:
-        void Next() const;
-        void Previous() const;
-        void Pause() const;
-        void PlayPause() const;
-        void Stop() const;
-        void Play() const;
-        void Seek(qlonglong Offset) const;
-        void SetPosition(const QDBusObjectPath& TrackId, qlonglong Position) const;
-        void OpenUri(QString Uri) const;
+public slots:
+    void Next() const;
+    void Previous() const;
+    void Pause() const;
+    void PlayPause() const;
+    void Stop() const;
+    void Play() const;
+    void Seek(qlonglong Offset) const;
+    void SetPosition(const QDBusObjectPath& TrackId, qlonglong Position) const;
+    void OpenUri(QString Uri) const;
 
-    private slots:
-        void tick(qint64 newPos);
-        void emitMetadataChange() const;
-        void currentSourceChanged() const;
-        void stateUpdated() const;
-        void totalTimeChanged() const;
-        void seekableChanged(bool seekable) const;
-        void volumeChanged() const;
+private slots:
+    void tick(qint64 newPos);
+    void emitMetadataChange() const;
+    void currentSourceChanged() const;
+    void stateUpdated() const;
+    void totalTimeChanged() const;
+    void seekableChanged(bool seekable) const;
+    void volumeChanged() const;
 
-    private:
-        qint64 oldPos;
+private:
+    qint64 oldPos;
 };
 
 #endif

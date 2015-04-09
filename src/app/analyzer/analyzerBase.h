@@ -45,18 +45,18 @@ protected:
 public slots:
     void demo();
 protected:
-    FHT    *m_fht;
+    FHT *m_fht;
 };
 
 
 class Base2D : public Base
 {
-Q_OBJECT
+    Q_OBJECT
 public:
-    const QPixmap *canvas()     const { return &m_canvas; }
+    const QPixmap *canvas() const { return &m_canvas; }
 
-// private slots:
-//     void draw() { drawFrame(); bitBlt( this, 0, 0, canvas() ); }
+    // private slots:
+    //     void draw() { drawFrame(); bitBlt( this, 0, 0, canvas() ); }
 
     void enableDemo(bool enable) { enable ? timer.start() : timer.stop(); }
 
@@ -68,8 +68,8 @@ protected:
     QPixmap     *canvas() { return &m_canvas; }
     void    eraseCanvas() { m_canvas.fill(Qt::transparent); }
 
-    void paintEvent( QPaintEvent* );
-    void resizeEvent( QResizeEvent* );
+    void paintEvent( QPaintEvent* ) Q_DECL_OVERRIDE;
+    void resizeEvent( QResizeEvent* ) Q_DECL_OVERRIDE;
 
 
 protected slots:

@@ -7,7 +7,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License or (at your option) version 3 or any later version
  * accepted by the membership of KDE e.V. (or its successor approved
- * by the membership of KDE e.V.), which shall act as a proxy 
+ * by the membership of KDE e.V.), which shall act as a proxy
  * defined in Section 14 of version 3 of the license.
  *
  * This program is distributed in the hope that it will be useful,
@@ -27,21 +27,20 @@
 
 class KMainWindow;
 class QTimerEvent;
-class KToolBar;
 
 namespace Dragon 
 {
-    class FullScreenToolBarHandler : QObject
-    {
-        Q_OBJECT
-        public:
-            FullScreenToolBarHandler( KMainWindow *parent );
-            bool eventFilter( QObject *o, QEvent *e );
-            void timerEvent( QTimerEvent* );
-        private:
-            int m_timer_id; // 0 when timer is not running
-            QPoint m_home;
-            KMainWindow *m_parent;
-    };
+class FullScreenToolBarHandler : QObject
+{
+    Q_OBJECT
+public:
+    FullScreenToolBarHandler(KMainWindow *parent );
+    bool eventFilter( QObject *o, QEvent *e ) Q_DECL_OVERRIDE;
+    void timerEvent( QTimerEvent* ) Q_DECL_OVERRIDE;
+private:
+    int m_timer_id; // 0 when timer is not running
+    QPoint m_home;
+    KMainWindow *m_parent;
+};
 }
 #endif

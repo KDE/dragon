@@ -6,7 +6,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License or (at your option) version 3 or any later version
  * accepted by the membership of KDE e.V. (or its successor approved
- * by the membership of KDE e.V.), which shall act as a proxy 
+ * by the membership of KDE e.V.), which shall act as a proxy
  * defined in Section 14 of version 3 of the license.
  *
  * This program is distributed in the hope that it will be useful,
@@ -21,27 +21,27 @@
 #ifndef RECENTLYPLAYEDLIST_H
 #define RECENTLYPLAYEDLIST_H
 
-#include <KListWidget>
+#include <QListWidget>
+#include <QUrl>
+
 #include <KConfigGroup>
-#include <KUrl>
 
-class RecentlyPlayedList : public KListWidget
+class RecentlyPlayedList : public QListWidget
 {
-  Q_OBJECT
-  public:
-	explicit RecentlyPlayedList(QWidget*);
-	virtual ~RecentlyPlayedList();
-  private:
-	virtual void contextMenuEvent(QContextMenuEvent*);
-	virtual void loadEntries();
-	KConfigGroup* configGroup;
-  public slots:
-	virtual void removeEntry();
-	virtual void clearList();
-    virtual void itemDoubleClicked(QListWidgetItem*);
-  signals:
-    void itemDoubleClicked(KUrl);
+    Q_OBJECT
+public:
+    explicit RecentlyPlayedList(QWidget*);
+    virtual ~RecentlyPlayedList();
+private:
+    virtual void contextMenuEvent(QContextMenuEvent*) Q_DECL_OVERRIDE;
+    void loadEntries();
+    KConfigGroup* configGroup;
+public slots:
+    void removeEntry();
+    void clearList();
+    void itemDoubleClicked(QListWidgetItem*);
+signals:
+    void itemDoubleClicked(QUrl);
 };
-
 
 #endif

@@ -6,7 +6,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License or (at your option) version 3 or any later version
  * accepted by the membership of KDE e.V. (or its successor approved
- * by the membership of KDE e.V.), which shall act as a proxy 
+ * by the membership of KDE e.V.), which shall act as a proxy
  * defined in Section 14 of version 3 of the license.
  *
  * This program is distributed in the hope that it will be useful,
@@ -21,7 +21,7 @@
 #define LOADVIEW_H
 #include <QWidget>
 
-#include <KUrl>
+#include <QUrl>
 #include "ui_loadView.h"
 
 namespace Dragon
@@ -30,14 +30,14 @@ namespace Dragon
 class LoadView : public QWidget, private Ui_LoadView
 {
     Q_OBJECT
-    public:
-      explicit LoadView(QWidget *parent);
-      void setThumbnail(QWidget *object);
-    signals:
-      void loadUrl(KUrl);
-      void openFilePressed();
-      void openDVDPressed();
-      void openStreamPressed();
+public:
+    explicit LoadView(QWidget *parent);
+    void setThumbnail(QWidget *object);
+signals:
+    void loadUrl(QUrl);
+    void openFilePressed();
+    void openDVDPressed();
+    void openStreamPressed();
 };
 
 }

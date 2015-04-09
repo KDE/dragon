@@ -7,7 +7,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License or (at your option) version 3 or any later version
  * accepted by the membership of KDE e.V. (or its successor approved
- * by the membership of KDE e.V.), which shall act as a proxy 
+ * by the membership of KDE e.V.), which shall act as a proxy
  * defined in Section 14 of version 3 of the license.
  *
  * This program is distributed in the hope that it will be useful,
@@ -21,27 +21,28 @@
 #include "actions.h"
 #include "theStream.h"
 
-#include <KDebug>
-#include <KIcon>
-#include <KLocale>
+#include <QDebug>
+#include <QIcon>
+
+#include <KLocalizedString>
+#include <KGuiItem>
 
 #include "videoWindow.h"
 
 Dragon::PlayAction::PlayAction( QObject *receiver, const char *slot, KActionCollection *ac )
-        : KDualAction( ac )
+    : KDualAction( ac )
 {
     setObjectName( QLatin1String( "play" ) );
 
-    setInactiveGuiItem( KGuiItem( i18n( "Play" ), KIcon( QLatin1String( "media-playback-start" ) ) ) );
-    setActiveGuiItem( KGuiItem( i18n( "Pause" ), KIcon( QLatin1String( "media-playback-pause" ) ) ) );
+    setInactiveGuiItem(KGuiItem(i18n("Play"), QStringLiteral("media-playback-start")));
+    setActiveGuiItem(KGuiItem(i18n("Pause"), QStringLiteral( "media-playback-pause")));
     setAutoToggle( false );
-    setShortcut( Qt::Key_Space );
+    ac->setDefaultShortcuts(this, QList<QKeySequence>() << Qt::Key_Space << Qt::Key_MediaPlay);
     ac->addAction( objectName(), this );
     connect( this, SIGNAL(triggered(bool)), receiver, slot );
 }
 
-void 
-Dragon::PlayAction::setPlaying( bool playing )
+void Dragon::PlayAction::setPlaying( bool playing )
 {
     setActive( playing );
 }
@@ -50,23 +51,20 @@ Dragon::PlayAction::setPlaying( bool playing )
 ///Codeine::VolumeAction
 ////////////////////////////////////////////////////
 Dragon::VolumeAction::VolumeAction( QObject *receiver, const char *slot, KActionCollection *ac )
-        : KToggleAction( i18nc( "Volume of sound output", "Volume"), ac )
+    : KToggleAction( i18nc( "Volume of sound output", "Volume"), ac )
 {
     setObjectName( QLatin1String( "volume" ) );
-    setIcon( KIcon( QLatin1String(  "player-volume" ) ) );
-    setShortcut( Qt::Key_V );
+    setIcon( QIcon::fromTheme(QLatin1String( "player-volume" ) ) );
+    ac->setDefaultShortcut(this, Qt::Key_V);
     ac->addAction( objectName(), this );
     connect( this, SIGNAL(triggered(bool)), receiver, slot );
     connect( engine(), SIGNAL(mutedChanged(bool)), this, SLOT(mutedChanged(bool)) );
 }
 
-void
-Dragon::VolumeAction::mutedChanged( bool mute )
+void Dragon::VolumeAction::mutedChanged( bool mute )
 {
-    if( mute )
-        setIcon( KIcon( QLatin1String(  "player-volume-muted" ) ) );
+    if ( mute )
+        setIcon( QIcon::fromTheme( QLatin1String( "player-volume-muted" ) ) );
     else
-        setIcon( KIcon( QLatin1String(  "player-volume" ) ) );
+        setIcon( QIcon::fromTheme( QLatin1String( "player-volume" ) ) );
 }
-
-#include "actions.moc"

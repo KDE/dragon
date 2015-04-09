@@ -18,8 +18,8 @@
 #define BLOCKANALYZER_H
 
 #include "analyzerBase.h"
+
 #include <QColor>
-//Added by qt3to4:
 #include <QResizeEvent>
 #include <QMouseEvent>
 #include <QContextMenuEvent>
@@ -38,9 +38,9 @@ class BlockAnalyzer : public Analyzer::Base2D
 {
 public:
     BlockAnalyzer( QWidget* );
-   ~BlockAnalyzer();
+    ~BlockAnalyzer();
 
-   // Signed ints because most of what we compare them against are ints
+    // Signed ints because most of what we compare them against are ints
     static const int HEIGHT      = 2;
     static const int WIDTH       = 4;
     static const int MIN_ROWS    = 48;   //arbituary
@@ -49,11 +49,11 @@ public:
     static const int FADE_SIZE   = 90;
 
 protected:
-    virtual void transform( QVector<float>& );
-    virtual void analyze( const QVector<float>& );
-    virtual void paintEvent( QPaintEvent* );
-    virtual void resizeEvent( QResizeEvent* );
-    virtual void paletteChange( const QPalette& );
+    virtual void transform( QVector<float>& ) Q_DECL_OVERRIDE;
+    virtual void analyze( const QVector<float>& ) Q_DECL_OVERRIDE;
+    virtual void paintEvent( QPaintEvent* ) Q_DECL_OVERRIDE;
+    virtual void resizeEvent( QResizeEvent* ) Q_DECL_OVERRIDE;
+    void paletteChange( const QPalette& );
 
     void drawBackground();
     void determineStep();

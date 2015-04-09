@@ -7,7 +7,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License or (at your option) version 3 or any later version
  * accepted by the membership of KDE e.V. (or its successor approved
- * by the membership of KDE e.V.), which shall act as a proxy 
+ * by the membership of KDE e.V.), which shall act as a proxy
  * defined in Section 14 of version 3 of the license.
  *
  * This program is distributed in the hope that it will be useful,
@@ -28,26 +28,26 @@
 
 namespace Dragon
 {
-   KActionCollection *actionCollection(); ///defined in mainWindow.cpp, part.cpp
-   QAction *action( const char* ); ///defined in mainWindow.cpp, part.cpp
-   inline KToggleAction *toggleAction( const char *name ) { return (KToggleAction*)action( name ); }
+KActionCollection *actionCollection(); ///defined in mainWindow.cpp, part.cpp
+QAction *action( const char* ); ///defined in mainWindow.cpp, part.cpp
+inline KToggleAction *toggleAction( const char *name ) { return (KToggleAction*)action( name ); }
 
-   class PlayAction : public KDualAction
-   {
-   Q_OBJECT
-   public:
-      PlayAction( QObject *receiver, const char *slot, KActionCollection* );
-      void setPlaying( bool playing );
-   };
+class PlayAction : public KDualAction
+{
+    Q_OBJECT
+public:
+    PlayAction( QObject *receiver, const char *slot, KActionCollection* );
+    void setPlaying( bool playing );
+};
 
-   class VolumeAction : public KToggleAction
-   {
-   Q_OBJECT
-   public:
-        VolumeAction( QObject *receiver, const char *slot, KActionCollection* );
-   private slots:
-        void mutedChanged( bool );
-   };
+class VolumeAction : public KToggleAction
+{
+    Q_OBJECT
+public:
+    VolumeAction( QObject *receiver, const char *slot, KActionCollection* );
+private slots:
+    void mutedChanged( bool );
+};
 }
 
 #endif

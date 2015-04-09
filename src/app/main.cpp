@@ -1,6 +1,7 @@
 /***********************************************************************
  * Copyright 2004  Max Howell <max.howell@methylblue.com>
  *           2007  Ian Monroe <ian@monroe.nu>
+ * Copyright 2014 Lukáš Tinkl <lukas@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -21,36 +22,58 @@
 #include "codeine.h"
 #include "playerApplication.h"
 
+#include <QApplication>
+#include <QCommandLineParser>
+#include <QCommandLineOption>
+#include <QDebug>
+
 #include <KAboutData>
-#include <KApplication>
-#include <KCmdLineArgs>
 #include <KLocalizedString>
+#include <KDBusService>
 
-static KAboutData aboutData( APP_NAME, 0,
-        ki18n("Dragon Player"), APP_VERSION,
-        ki18n("A video player that has a usability focus"), KAboutData::License_GPL_V2,
-        ki18n("Copyright 2006, Max Howell\nCopyright 2007, Ian Monroe"), ki18n("IRC:\nirc.freenode.net #dragonplayer\n\nFeedback:\nimonroe@kde.org"),
-        "http://multimedia.kde.org" );
-
-int
-main( int argc, char **argv )
+int main( int argc, char **argv )
 {
-    aboutData.addCredit( ki18n("David Edmundson"), ki18n("Improvements and polish") );
-    aboutData.addCredit( ki18n("Matthias Kretz"), ki18n("Creator of Phonon") );
-    aboutData.addCredit( ki18n("Eugene Trounev"), ki18n("Dragon Player icon") );
-    aboutData.addCredit( ki18n("Mike Diehl"), ki18n("Handbook") );
-    aboutData.addCredit( ki18n("The Kaffeine Developers"), ki18n("Great reference code") );
-    aboutData.addCredit( ki18n("Greenleaf"), ki18n("Yatta happened to be the only video on my laptop to test with. :)") );
-    aboutData.addCredit( ki18n("Eike Hein"), ki18n("MPRIS v2 support") );
+    Dragon::PlayerApplication app(argc, argv);
+    app.setOrganizationDomain("org.kde");
 
-    KCmdLineArgs::init( argc, argv, &aboutData );
+    KAboutData aboutData( APP_NAME, i18n("Dragon Player"), APP_VERSION,
+                          i18n("A video player that has a usability focus"), KAboutLicense::GPL_V2,
+                          i18n("Copyright 2006, Max Howell\nCopyright 2007, Ian Monroe"),
+                          i18n("IRC:\nirc.freenode.net #dragonplayer\n\nFeedback:\nimonroe@kde.org"),
+                          "http://multimedia.kde.org" );
+    aboutData.addCredit( QStringLiteral("David Edmundson"), i18n("Improvements and polish") );
+    aboutData.addCredit( QStringLiteral("Matthias Kretz"), i18n("Creator of Phonon") );
+    aboutData.addCredit( QStringLiteral("Eugene Trounev"), i18n("Dragon Player icon") );
+    aboutData.addCredit( QStringLiteral("Mike Diehl"), i18n("Handbook") );
+    aboutData.addCredit( QStringLiteral("The Kaffeine Developers"), i18n("Great reference code") );
+    aboutData.addCredit( QStringLiteral("Greenleaf"), i18n("Yatta happened to be the only video on my laptop to test with. :)") );
+    aboutData.addCredit( QStringLiteral("Eike Hein"), i18n("MPRIS v2 support") );
+    aboutData.addCredit( QStringLiteral("Lukáš Tinkl"), i18n("Port to KF5/Plasma 5"), QStringLiteral("lukas@kde.org") );
 
-    KCmdLineOptions options;
-    options.add("+[URL]", ki18n( "Play 'URL'" ));
-    options.add("play-dvd", ki18n( "Play DVD Video" ));
-    KCmdLineArgs::addCmdLineOptions( options );
-    KUniqueApplication::addCmdLineOptions();
+    KAboutData::setApplicationData(aboutData);
+    KDBusService service(KDBusService::Unique);
 
-    Dragon::PlayerApplication application;
-    return application.exec();
+    QCommandLineParser parser;
+    aboutData.setupCommandLine(&parser);
+    parser.addVersionOption();
+    parser.addHelpOption();
+
+    parser.addOption(QCommandLineOption("play-dvd", i18n("Play DVD Video")));
+    parser.addPositionalArgument("url", i18n("Play 'URL'"), QStringLiteral("+[URL]"));
+
+    parser.process(app);
+    aboutData.processCommandLine(&parser);
+
+    QObject::connect(&service, &KDBusService::activateRequested, &app, &Dragon::PlayerApplication::slotActivateRequested);
+    QObject::connect(&service, &KDBusService::openRequested, &app, &Dragon::PlayerApplication::slotOpenRequested);
+
+    QList<QUrl> urls;
+    const QStringList args = parser.positionalArguments();
+    if (!args.isEmpty()) {
+        urls.append(QUrl::fromUserInput(args.first()));
+    }
+
+    app.newInstance(parser.isSet("play-dvd"), urls);
+
+    return app.exec();
 }
