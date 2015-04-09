@@ -20,6 +20,8 @@
 #ifndef DRAGONPLAYER_H
 #define DRAGONPLAYER_H
 
+#include "config.h"
+
 // try to keep this file light. It gets included by
 // practically every implementation and many headers
 
@@ -36,7 +38,7 @@ QWidget *mainWindow(); //defined in mainWindow.cpp
 /// used by mainWindow.h
 int main( int, char** );
 
-#define APP_VERSION "3.0"
+#define APP_VERSION PROJECT_VERSION
 #define APP_NAME "dragonplayer"
 
 #endif
