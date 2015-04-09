@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui>
-<kpartgui name="dragonplayer" version="4">
+<kpartgui name="dragonplayer" translationDomain="dragonplayer" version="5">
 <MenuBar>
    <Menu name="file" noMerge="1"><text>&amp;Play</text>
       <Action name="file_open"/>
