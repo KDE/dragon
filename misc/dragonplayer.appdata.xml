@@ -33,6 +33,7 @@
   <name xml:lang="tr">Dragon Oynatıcı</name>
   <name xml:lang="uk">Програвач Dragon</name>
   <name xml:lang="x-test">xxDragon Playerxx</name>
+  <name xml:lang="zh-CN">Dragon Player</name>
   <name xml:lang="zh-TW">影音播放_DragonPlayer</name>
   <description>
     <p>
@@ -94,6 +95,7 @@
     <p xml:lang="tr">Özellikler:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="x-test">xxFeatures:xx</p>
+    <p xml:lang="zh-CN">功能：</p>
     <p xml:lang="zh-TW">功能：</p>
     <ul>
       <li>Simple Interface</li>
@@ -125,6 +127,7 @@
       <li xml:lang="tr">Basit Arayüz</li>
       <li xml:lang="uk">простий інтерфейс;</li>
       <li xml:lang="x-test">xxSimple Interfacexx</li>
+      <li xml:lang="zh-CN">简洁的界面</li>
       <li xml:lang="zh-TW">簡易介面</li>
       <li>Resuming videos: Starts playing a video where you were watching it last time</li>
       <li xml:lang="bg">Продължаване на видео: продължава от мястото, където сте спрели предния път</li>
@@ -152,6 +155,7 @@
       <li xml:lang="tr">Videoları kaldığı yerden devam etme: Bir videoyu son izlediğiniz yerden oynatmaya başlar</li>
       <li xml:lang="uk">поновлення відтворення відео: відео починає відтворюватися з того моменту, на якому ви зупинили відтворення під час попереднього сеансу роботи з програмою;</li>
       <li xml:lang="x-test">xxResuming videos: Starts playing a video where you were watching it last timexx</li>
+      <li xml:lang="zh-CN">恢复视频：从上次观看时间开始播放</li>
       <li xml:lang="zh-TW">回復影片：從上次看到的地方開始播放影片</li>
       <li>Support for subtitles: Automatically loads subtitles with the matching name</li>
       <li xml:lang="bg">Поддръжка на субтитри: автоматично зарежда тези със съвпадащо име</li>
@@ -180,6 +184,7 @@
       <li xml:lang="tr">Alt yazı desteği: İsmi uyuşan alt yazıları otomatik olarak yükler</li>
       <li xml:lang="uk">підтримка субтитрів: програма автоматично завантажує субтитри з відповідною назвою;</li>
       <li xml:lang="x-test">xxSupport for subtitles: Automatically loads subtitles with the matching namexx</li>
+      <li xml:lang="zh-CN">支持字幕：自动装入名称匹配的字幕</li>
       <li xml:lang="zh-TW">支援字幕：名稱相符的話自動載入字幕</li>
       <li>Video display settings (brightness, contrast)</li>
       <li xml:lang="bg">Настройки на видео (яркост, контраст)</li>
@@ -208,6 +213,7 @@
       <li xml:lang="tr">Video görüntüleme ayarları (parlaklık, kontrast)</li>
       <li xml:lang="uk">можливість зміни параметрів показу відео (яскравості, контрастності);</li>
       <li xml:lang="x-test">xxVideo display settings (brightness, contrast)xx</li>
+      <li xml:lang="zh-CN">视频显示设置 (亮度，对比度)</li>
       <li xml:lang="zh-TW">影像顯示設定（亮度、對比）</li>
       <li>Due to using Solid and Phonon DragonPlayer is independent of any multimedia framework or hardware abstraction layer</li>
       <li xml:lang="bs">Pošto kotisti Solid i Phonon DragonPlayer je neovisan od bilo kog multimedijalnog radnog okvira ili hardverskog sloja apstracije.</li>
@@ -262,6 +268,7 @@
       <li xml:lang="tr">CD ve DVD oynatmayı destekler</li>
       <li xml:lang="uk">підтримка відтворення компакт-дисків та DVD.</li>
       <li xml:lang="x-test">xxSupports playing CDs and DVDsxx</li>
+      <li xml:lang="zh-CN">支持播放 CD 和 DVD</li>
       <li xml:lang="zh-TW">支援播放 CD 與 DVD</li>
     </ul>
   </description>
