@@ -5,6 +5,7 @@ Actions=open;
 
 [Desktop Action open]
 Name=Play Audio CD using Dragon Player
+Name[bg]=Възпроизвеждане на звуково CD с Dragon
 Name[ca]=Reprodueix CD d'àudio amb el Dragon Player
 Name[cs]=Přehrát Audio CD pomocí přehrávače Dragon
 Name[de]=Audio-CD mit Dragon Player abspielen
