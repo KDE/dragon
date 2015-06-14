@@ -30,5 +30,6 @@ Name[sv]=Spela ljud-cd med Dragon spelare
 Name[tr]=Müzik CD'sini Dragon Player ile Oynat
 Name[uk]=Відтворити звуковий КД за допомогою програвача Dragon
 Name[x-test]=xxPlay Audio CD using Dragon Playerxx
+Name[zh_TW]=用神龍播放器播放音樂 CD
 Exec=dragon --play-dvd
 Icon=dragonplayer
