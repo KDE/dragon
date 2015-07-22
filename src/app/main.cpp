@@ -36,7 +36,7 @@ int main( int argc, char **argv )
     Dragon::PlayerApplication app(argc, argv);
     app.setOrganizationDomain("org.kde");
 
-    KAboutData aboutData( APP_NAME, i18n("Dragon Player"), APP_VERSION,
+    KAboutData aboutData( APP_NAME, i18n("Dragon Player"), QLatin1Literal(APP_VERSION),
                           i18n("A video player that has a usability focus"), KAboutLicense::GPL_V2,
                           i18n("Copyright 2006, Max Howell\nCopyright 2007, Ian Monroe"),
                           i18n("IRC:\nirc.freenode.net #dragonplayer\n\nFeedback:\nimonroe@kde.org"),
