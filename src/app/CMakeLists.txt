@@ -34,7 +34,6 @@ target_link_libraries(dragon
     Qt5::Widgets
     KF5::CoreAddons
     KF5::I18n
-    KF5::IconThemes
     KF5::KIOCore
     KF5::KIOWidgets
     KF5::WidgetsAddons
@@ -61,7 +60,6 @@ target_link_libraries(dragonpart
     Qt5::Widgets
     KF5::CoreAddons
     KF5::I18n
-    KF5::IconThemes
     KF5::KIOCore
     KF5::KIOWidgets
     KF5::WidgetsAddons

@@ -24,7 +24,6 @@
 #include <QLabel>
 #include <QIcon>
 
-#include <KIconLoader>
 
 namespace Dragon
 {

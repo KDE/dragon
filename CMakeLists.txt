@@ -29,8 +29,8 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Widgets
 )
 
-find_package(KF5 REQUIRED Config ConfigWidgets CoreAddons IconThemes I18n KIO
-             Notifications WidgetsAddons WindowSystem Parts Solid DocTools XmlGui JobWidgets DBusAddons)
+find_package(KF5 REQUIRED Config ConfigWidgets CoreAddons I18n KIO
+             WidgetsAddons WindowSystem Parts Solid DocTools XmlGui JobWidgets DBusAddons)
 find_package(Phonon4Qt5 4.6.60 REQUIRED NO_MODULE)
 
 include_directories(
