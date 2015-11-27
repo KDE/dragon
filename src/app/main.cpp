@@ -28,6 +28,7 @@
 #include <QDebug>
 
 #include <KAboutData>
+#include <KCrash>
 #include <KLocalizedString>
 #include <KDBusService>
 
@@ -35,6 +36,9 @@ int main( int argc, char **argv )
 {
     Dragon::PlayerApplication app(argc, argv);
     app.setOrganizationDomain("org.kde");
+#ifdef WITH_KCRASH_INIT
+    KCrash::initialize();
+#endif
 
     KAboutData aboutData( APP_NAME, i18n("Dragon Player"), QLatin1Literal(APP_VERSION),
                           i18n("A video player that has a usability focus"), KAboutLicense::GPL_V2,

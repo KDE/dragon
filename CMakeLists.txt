@@ -33,6 +33,7 @@ find_package(KF5 REQUIRED
     Config
     ConfigWidgets
     CoreAddons
+    Crash
     DBusAddons
     DocTools
     I18n
@@ -43,7 +44,7 @@ find_package(KF5 REQUIRED
     WidgetsAddons
     WindowSystem
     XmlGui
-    )
+)
 find_package(Phonon4Qt5 4.6.60 REQUIRED NO_MODULE)
 
 include_directories(
@@ -62,6 +63,9 @@ check_include_files(unistd.h HAVE_UNISTD_H)
 configure_file(config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
 add_definitions(-DTRANSLATION_DOMAIN="dragonplayer")
+if (${KF5_VERSION} VERSION_GREATER "5.14.0")
+    add_definitions(-DWITH_KCRASH_INIT)
+endif()
 
 add_subdirectory( src/app )
 add_subdirectory( misc )

@@ -31,6 +31,7 @@ add_executable(dragon ${videoplayer_app_SRCS} )
 
 target_link_libraries(dragon
     Qt5::Core
+    KF5::Crash
     Qt5::Widgets
     KF5::CoreAddons
     KF5::I18n
