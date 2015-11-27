@@ -33,16 +33,17 @@ find_package(KF5 REQUIRED
     Config
     ConfigWidgets
     CoreAddons
+    DBusAddons
+    DocTools
     I18n
+    JobWidgets
     KIO
-    WidgetsAddons
-    WindowSystem
     Part
     Solid
-    DocTools
+    WidgetsAddons
+    WindowSystem
     XmlGui
-    JobWidgets
-    DBusAddons)
+    )
 find_package(Phonon4Qt5 4.6.60 REQUIRED NO_MODULE)
 
 include_directories(
