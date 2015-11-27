@@ -39,7 +39,7 @@ find_package(KF5 REQUIRED
     I18n
     JobWidgets
     KIO
-    Part
+    Parts
     Solid
     WidgetsAddons
     WindowSystem
