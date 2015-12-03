@@ -26,6 +26,8 @@
 #include <QCommandLineParser>
 #include <QCommandLineOption>
 #include <QDebug>
+#include <QDir>
+#include <QUrl>
 
 #include <KAboutData>
 #include <KLocalizedString>
@@ -72,7 +74,9 @@ int main( int argc, char **argv )
     QList<QUrl> urls;
     const QStringList args = parser.positionalArguments();
     if (!args.isEmpty()) {
-        urls.append(QUrl::fromUserInput(args.first()));
+        urls.append(QUrl::fromUserInput(args.first(),
+                                        QDir::currentPath(),
+                                        QUrl::AssumeLocalFile));
     }
 
     app.newInstance(parser.isSet("play-dvd"), urls);
