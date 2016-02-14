@@ -2,6 +2,7 @@
 Type=Application
 Version=1.0
 Name=Dragon Player
+Name[ar]=مشغّل التّنّين
 Name[ast]=Dragon Player
 Name[bg]=Програма за видео Dragon
 Name[bs]=Dragon Player
@@ -53,6 +54,7 @@ Name[x-test]=xxDragon Playerxx
 Name[zh_CN]=Dragon Player
 Name[zh_TW]=影音播放_神龍播放器
 GenericName=Video Player
+GenericName[ar]=مشغّل فيديوهات
 GenericName[ast]=Reproductor de videu
 GenericName[bg]=Възпроизвеждане на видео
 GenericName[bs]=Video izvođač

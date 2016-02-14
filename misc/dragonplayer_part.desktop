@@ -2,6 +2,7 @@
 Type=Service
 Icon=dragonplayer
 Name=Dragon Player Part
+Name[ar]=جزء «مشغّل التّنّين»
 Name[bg]=Програма за видео Dragon
 Name[bs]=Dio Dragon Player-a
 Name[ca]=Part del Dragon Player
@@ -52,6 +53,7 @@ Name[x-test]=xxDragon Player Partxx
 Name[zh_CN]=Dragon Player 部件
 Name[zh_TW]=神龍播放器部件
 Comment=Embeddable Video Player
+Comment[ar]=مشغّل فيديوهات قابل للتّضمين
 Comment[bg]=Вградена програма за видео
 Comment[bs]=Ugradivi video plejer
 Comment[ca]=Reproductor de vídeo incrustat
