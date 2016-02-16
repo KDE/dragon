@@ -30,7 +30,9 @@
 #include <QUrl>
 
 #include <KAboutData>
+#include <KConfigGroup>
 #include <KCrash>
+#include <KSharedConfig>
 #include <KLocalizedString>
 #include <KDBusService>
 
@@ -59,7 +61,6 @@ int main( int argc, char **argv )
     aboutData.addCredit( QStringLiteral("Lukáš Tinkl"), i18n("Port to KF5/Plasma 5"), QStringLiteral("lukas@kde.org") );
 
     KAboutData::setApplicationData(aboutData);
-    KDBusService service(KDBusService::Unique);
 
     QCommandLineParser parser;
     aboutData.setupCommandLine(&parser);
@@ -72,6 +73,8 @@ int main( int argc, char **argv )
     parser.process(app);
     aboutData.processCommandLine(&parser);
 
+    const bool multiple = KSharedConfig::openConfig()->group("KDE").readEntry("MultipleInstances", QVariant(false)).toBool();
+    KDBusService service(multiple ? KDBusService::Multiple : KDBusService::Unique);
     QObject::connect(&service, &KDBusService::activateRequested, &app, &Dragon::PlayerApplication::slotActivateRequested);
     QObject::connect(&service, &KDBusService::openRequested, &app, &Dragon::PlayerApplication::slotOpenRequested);
 

@@ -73,6 +73,8 @@ void MainWindow::engineStateChanged( Phonon::State state )
         m_volumeSlider->setEnabled(enable);
     action("fullscreen")->setEnabled(enable || isFullScreen);
     action("reset_zoom")->setEnabled(hasMedia && !isFullScreen);
+    action("prev_chapter")->setEnabled(engine()->canGoPrev());
+    action("next_chapter")->setEnabled(engine()->canGoNext());
 
     m_timeLabel->setVisible(enable);
     m_audioView->enableDemo(!enable);
@@ -152,6 +154,10 @@ void MainWindow::engineSeekableChanged(bool canSeek)
 {
     qDebug() << "seekable changed to " << canSeek;
     m_positionSlider->setEnabled( canSeek );
+    action("ten_percent_back")->setEnabled( canSeek );
+    action("ten_percent_forward")->setEnabled( canSeek );
+    action("ten_seconds_back")->setEnabled( canSeek );
+    action("ten_seconds_forward")->setEnabled( canSeek );
     //TODO connect/disconnect the jump forward/back here.
 }//engineSeekableChanged
 
