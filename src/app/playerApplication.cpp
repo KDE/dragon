@@ -43,19 +43,14 @@ PlayerApplication::~PlayerApplication()
 
 void PlayerApplication::slotActivateRequested(const QStringList &arguments, const QString &workingDirectory)
 {
-    Q_UNUSED(workingDirectory)
     qDebug() << Q_FUNC_INFO << arguments;
     if (!arguments.filter("play-dvd", Qt::CaseInsensitive).isEmpty()) {
         newInstance(true);
         forceActiveWindow();
     } else if (arguments.count() == 2) { // 1st arg binary name, 2nd arg file to open
-        QString urlArg = arguments.at(1);
-        QUrl url;
-        if (urlArg.startsWith("/")) {
-            url = QUrl::fromLocalFile(urlArg);
-        } else {
-            url = QUrl(urlArg);
-        }
+        QUrl url = QUrl::fromUserInput(arguments.at(1),
+                                       workingDirectory,
+                                       QUrl::AssumeLocalFile);
         newInstance(false, {url});
         forceActiveWindow();
     }
