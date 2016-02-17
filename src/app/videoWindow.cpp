@@ -726,6 +726,7 @@ VideoWindow::event( QEvent* event )
     {
     case QEvent::Leave:
         m_cursorTimer->stop();
+        qApp->restoreOverrideCursor();
         qDebug() << "stop cursorTimer";
         break;
     case QEvent::FocusOut:
