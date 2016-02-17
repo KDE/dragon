@@ -55,13 +55,22 @@ void Analyzer::Base::drawFrame(const QMap<Phonon::AudioDataOutput::Channel, QVec
     QVector<float> scope( 512 );
     int i = 0;
 
-    for( uint x = 0; (int)x < m_fht->size(); ++x ) {
+    for (uint x = 0; (int)x < m_fht->size(); ++x) {
         if (thescope.size() == 1) { // Mono
-            scope[x] = double(thescope[Phonon::AudioDataOutput::LeftChannel][x]);
+            const qint16 left = thescope[Phonon::AudioDataOutput::LeftChannel].value(x, 0);
+            scope[x] = double(left);
         } else { // Anything > Mono is treated as Stereo
-            scope[x] = double(thescope[Phonon::AudioDataOutput::LeftChannel][x]
-                       + thescope[Phonon::AudioDataOutput::RightChannel][x])
-                    / (2*(1<<15)); // Average between the channels
+            // Use .value as Phonon(GStreamer) sometimes returns too small
+            // samples, in that case we will simply assume the remainder would be
+            // 0.
+            // This in particualr happens when switching from mono files to
+            // stereo and vice versa as the first sample sent after a switch
+            // is of the previous channel allocation but with way to small
+            // data size.
+            const qint16 left = thescope[Phonon::AudioDataOutput::LeftChannel].value(x, 0);
+            const qint16 right = thescope[Phonon::AudioDataOutput::RightChannel].value(x, 0);
+            double value = double(left + right) / (2*(1<<15));
+            scope[x] = value; // Average between the channels
         }
         i += 2;
     }
