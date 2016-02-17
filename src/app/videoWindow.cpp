@@ -386,6 +386,20 @@ VideoWindow::state() const
     return m_media->state();
 }
 
+bool
+VideoWindow::isActiveState() const
+{
+    return isActiveState(state());
+}
+
+bool
+VideoWindow::isActiveState(Phonon::State s) const
+{
+    return (s == Phonon::PlayingState ||
+            s == Phonon::PausedState ||
+            s == Phonon::BufferingState);
+}
+
 qreal
 VideoWindow::volume() const
 {

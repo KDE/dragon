@@ -62,10 +62,7 @@ void MainWindow::engineStateChanged( Phonon::State state )
         break;
     }
 
-    bool enable = false;
-    if(state == Phonon::PlayingState || state == Phonon::PausedState || state == Phonon::BufferingState) {
-        enable = true;
-    }
+    bool enable = engine()->isActiveState(state);
     action("stop")->setEnabled(enable);
     action("video_settings")->setEnabled(enable && TheStream::hasVideo());
     action("volume")->setEnabled(enable);
@@ -78,8 +75,18 @@ void MainWindow::engineStateChanged( Phonon::State state )
 
     m_timeLabel->setVisible(enable);
     m_audioView->enableDemo(!enable);
-    if (isFullScreen && !enable) {
-        setFullScreen(false); // Force out of full screen.
+    if (!enable) {
+        // Force out of full screen.
+        if (isFullScreen) {
+            setFullScreen(false);
+        }
+        if (m_mainView->currentWidget() != m_loadView) {
+            m_mainView->setCurrentWidget(m_loadView);
+        }
+    } else {
+        if (m_mainView->currentWidget() == m_loadView) {
+            toggleLoadView();
+        }
     }
 
     qDebug() << "updated actions";
@@ -178,7 +185,7 @@ void MainWindow::engineHasVideoChanged( bool hasVideo )
 {
     Q_UNUSED(hasVideo);
 
-    qDebug() << "hasVideo changed";
+    qDebug() << "hasVideo changed" << hasVideo;
     if( TheStream::hasVideo() ) {
         if( m_mainView->indexOf(engine()) == -1 )
             m_mainView->addWidget(engine());
@@ -190,7 +197,7 @@ void MainWindow::engineHasVideoChanged( bool hasVideo )
         // in which case the video related menu actions will not be enabled until
         // a new state change occurs. By forcing a fake state change we can work around this.
         engineStateChanged(videoWindow()->state());
-    } else {
+    } else if (engine()->isActiveState()) {
         m_audioView->setupAnalyzer();
         m_mainView->setCurrentWidget(m_audioView);
         m_currentWidget = m_audioView;

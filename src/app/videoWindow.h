@@ -119,6 +119,8 @@ public:
     void loadSettings();
 
     Phonon::State state() const;
+    bool isActiveState() const;
+    bool isActiveState(Phonon::State s) const;
 
     /// Stuff to do with video and the video window/widget
     static const uint CURSOR_HIDE_TIMEOUT = 2000;
