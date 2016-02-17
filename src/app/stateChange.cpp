@@ -78,6 +78,9 @@ void MainWindow::engineStateChanged( Phonon::State state )
 
     m_timeLabel->setVisible(enable);
     m_audioView->enableDemo(!enable);
+    if (isFullScreen && !enable) {
+        setFullScreen(false); // Force out of full screen.
+    }
 
     qDebug() << "updated actions";
 
