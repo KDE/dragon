@@ -38,6 +38,7 @@ signals:
     void openFilePressed();
     void openDVDPressed();
     void openStreamPressed();
+    void reloadRecentlyList();
 };
 
 }

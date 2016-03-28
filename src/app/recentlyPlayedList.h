@@ -34,9 +34,9 @@ public:
     virtual ~RecentlyPlayedList();
 private:
     virtual void contextMenuEvent(QContextMenuEvent*) Q_DECL_OVERRIDE;
-    void loadEntries();
     KConfigGroup* configGroup;
 public slots:
+    void loadEntries();
     void removeEntry();
     void clearList();
     void itemDoubleClicked(QListWidgetItem*);

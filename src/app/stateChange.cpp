@@ -153,6 +153,7 @@ void MainWindow::engineMediaChanged(Phonon::MediaSource /*newSource*/)
             QStringList urls = config.readPathEntry( "Recent Urls", QStringList() );
             urls.removeAll( prettyUrl );
             config.writePathEntry( "Recent Urls", urls << prettyUrl );
+            emit m_loadView->reloadRecentlyList();
         }
 #ifndef NO_SKIP_PR0N
     }
