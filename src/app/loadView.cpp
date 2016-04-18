@@ -38,6 +38,7 @@ LoadView::LoadView( QWidget *parent )
     connect( m_playFileButton, SIGNAL(clicked()), this, SIGNAL(openFilePressed()) );
     connect( m_playStreamButton, SIGNAL(clicked()), this, SIGNAL(openStreamPressed()) );
     connect( m_recentlyPlayed, SIGNAL(itemDoubleClicked(QUrl)), this, SIGNAL(loadUrl(QUrl)) );
+    connect( this, SIGNAL(reloadRecentlyList()), m_recentlyPlayed, SLOT(loadEntries()) );
 }
 
 void LoadView::setThumbnail(QWidget *object)

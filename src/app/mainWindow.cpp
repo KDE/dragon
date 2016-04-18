@@ -432,14 +432,9 @@ MainWindow::restoreDefaultVideoSettings()
 void
 MainWindow::toggleLoadView()
 {
-    if( engine()->state() == Phonon::PlayingState && TheStream::hasVideo() ) {
-        engine()->playPause();
-    }
-
     if( m_mainView->currentWidget() == m_loadView ) {
         if( m_mainView->indexOf(m_currentWidget) == -1 ) {
             m_mainView->addWidget(m_currentWidget);
-            engine()->playPause();
         }
         m_mainView->setCurrentWidget(m_currentWidget);
         engine()->isPreview(false);
