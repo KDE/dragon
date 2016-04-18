@@ -84,7 +84,7 @@ void MainWindow::engineStateChanged( Phonon::State state )
             m_mainView->setCurrentWidget(m_loadView);
         }
     } else {
-        if (m_mainView->currentWidget() == m_loadView) {
+        if (state != Phonon::PausedState && m_mainView->currentWidget() == m_loadView) {
             toggleLoadView();
         }
     }
