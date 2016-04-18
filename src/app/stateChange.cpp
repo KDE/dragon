@@ -83,10 +83,8 @@ void MainWindow::engineStateChanged( Phonon::State state )
         if (m_mainView->currentWidget() != m_loadView) {
             m_mainView->setCurrentWidget(m_loadView);
         }
-    } else {
-        if (state != Phonon::PausedState && m_mainView->currentWidget() == m_loadView) {
-            toggleLoadView();
-        }
+    } else if (state != Phonon::PausedState && m_mainView->currentWidget() == m_loadView) {
+        toggleLoadView();
     }
 
     qDebug() << "updated actions";
