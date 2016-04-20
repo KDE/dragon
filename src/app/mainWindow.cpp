@@ -581,7 +581,8 @@ MainWindow::load( const QUrl &url )
             m_currentWidget = engine();
         } else {
             m_currentWidget = m_audioView;
-            resize(m_currentWidget->minimumSize());
+            if( !isMaximized() )
+                resize(m_currentWidget->minimumSize());
         }
         m_mainView->setCurrentWidget(m_currentWidget);
     }
@@ -605,7 +606,8 @@ MainWindow::play()
             m_currentWidget = engine();
         } else {
             m_currentWidget = m_audioView;
-            resize(m_currentWidget->minimumSize());
+            if( !isMaximized() )
+                resize(m_currentWidget->minimumSize());
         }
         engine()->play();
         m_mainView->setCurrentWidget(m_currentWidget);
