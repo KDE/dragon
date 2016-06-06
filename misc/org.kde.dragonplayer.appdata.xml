@@ -182,8 +182,8 @@
       <li xml:lang="ast">Sofitu pa sotítulos: Carga automáticamente sotítulos que concasen col nome</li>
       <li xml:lang="bg">Поддръжка на субтитри: автоматично зарежда тези със съвпадащо име</li>
       <li xml:lang="bs">Podrška za podnaslove: Automatski učitava podnaslove s odgovarajućim imenom</li>
-      <li xml:lang="ca">Implementació per a subtítols: Càrrega automàticament els subtítols que coincideixen amb el nom</li>
-      <li xml:lang="ca-valencia">Implementació per a subtítols: Càrrega automàticament els subtítols que coincideixen amb el nom</li>
+      <li xml:lang="ca">Admet a subtítols: Càrrega automàticament els subtítols que coincideixen amb el nom</li>
+      <li xml:lang="ca-valencia">Admet a subtítols: Càrrega automàticament els subtítols que coincideixen amb el nom</li>
       <li xml:lang="de">Unterstützung für Untertitel. Untertitel mit dem passenden Namen werden automatisch geladen</li>
       <li xml:lang="el">Υποστήριξη για υπότιτλους: Φορτώνει αυτόματα υπότιτλους με το ίδιο όνομα</li>
       <li xml:lang="en-GB">Support for subtitles: Automatically loads subtitles with the matching name</li>
@@ -279,8 +279,8 @@
       <li xml:lang="ast">Sofita la reproducción de CDs y DVDs</li>
       <li xml:lang="bg">Поддържа изпълнение на CD и DVD дискове</li>
       <li xml:lang="bs">Podrška za izvođenje CD i DVD</li>
-      <li xml:lang="ca">Implementació per a reproduir CD i DVD</li>
-      <li xml:lang="ca-valencia">Implementació per a reproduir CD i DVD</li>
+      <li xml:lang="ca">Permet la reproducció dels CD i dels DVD</li>
+      <li xml:lang="ca-valencia">Permet la reproducció dels CD i dels DVD</li>
       <li xml:lang="de">Unterstützt die Wiedergabe von CDs und DVDs</li>
       <li xml:lang="el">Υποστηρίζει την αναπαραγωγή CD και DVD</li>
       <li xml:lang="en-GB">Supports playing CDs and DVDs</li>
