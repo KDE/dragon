@@ -1,8 +1,5 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-  <!ENTITY kappname "&dragonplayer;">
-  <!ENTITY dragonplayer "<application>Dragon Player</application>">
-
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE"><!-- change language only here -->
 ]>
@@ -10,7 +7,7 @@
 <book id="dragon" lang="&language;">
 
 <bookinfo>
-<title>The &dragonplayer; Handbook</title>
+<title>The &dragon; Handbook</title>
 
 <authorgroup>
 <author>
@@ -41,12 +38,12 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2013-05-11</date>
-<releaseinfo>2.0 (&kde; 4.11)</releaseinfo>
+<date>2016-06-2016</date>
+<releaseinfo>Applications 16.04</releaseinfo>
 
 <abstract>
 <para>
-&dragonplayer; is a simple video player by &kde;.
+&dragon; is a simple video player by &kde;.
 </para>
 </abstract>
 
@@ -67,7 +64,7 @@
 <title>Introduction</title>
 
 <screenshot>
-<screeninfo>&dragonplayer; Screenshot</screeninfo>
+<screeninfo>&dragon; Screenshot</screeninfo>
 <mediaobject>
 <imageobject><imagedata fileref="main.png" format="PNG"/></imageobject>
 <textobject><phrase>Screenshot</phrase></textobject>
@@ -76,7 +73,7 @@
 
 
 <para>
-&dragonplayer; is a simple media player using &phonon; technology. &dragonplayer; is a no frills media player that excels at playing DVDs and movie files without getting in your way.
+&dragon; is a simple media player using &phonon; technology. &dragon; is a no frills media player that excels at playing DVDs and movie files without getting in your way.
 </para>
 
 </chapter>
@@ -84,7 +81,7 @@
 <chapter id="select-media">
 <title>Select a Media</title>
 
-<para>If you start &dragonplayer; from the application launcher or use <guibutton>Play Media</guibutton> 
+<para>If you start &dragon; from the application launcher or use <guibutton>Play Media</guibutton>
 (<keycombo action="simul">&Ctrl;<keycap>O</keycap></keycombo>) from the toolbar or from the <guimenu>Play</guimenu> 
 menu this window is displayed:</para>
 
@@ -135,7 +132,7 @@ These settings are stored together with the playback position for each video fil
 <term>
 Navigation
 </term>
-<listitem><para>The shortcut <keycap>PgUp</keycap> brings you 10% forward, <keycap>PgDown</keycap> 10% backward.
+<listitem><para>The shortcut <keycap>PgUp</keycap> brings you 10% forward / <keycap>+</keycap> 10 seconds forward and <keycap>PgDown</keycap> brings you 10% backward / <keycap>-</keycap> 10 seconds backward.
 Use <menuchoice><guimenu>Settings</guimenu> <guimenuitem>Menu Toggle</guimenuitem></menuchoice> (<keycap>R</keycap>) to switch to the video menu and select another chapter to play.
 <menuchoice><guimenu>Play</guimenu><guimenuitem>Play/Pause</guimenuitem></menuchoice> (<keysym>Space</keysym>) allows you to pause and resume playback if a movie is loaded. <menuchoice><guimenu>Play</guimenu><guimenuitem>Stop</guimenuitem></menuchoice> (<keycap>S</keycap>) stops playback.
 Go to the previous or next chapter of a video with <guimenuitem>Previous Chapter</guimenuitem> (<keycap>,</keycap>) or <guimenuitem>Next Chapter</guimenuitem> (<keycap>.</keycap>) from the <guimenu>Play</guimenu> menu.
@@ -176,7 +173,7 @@ These menu items from the <guimenu>Settings</guimenu> menu are active if there a
 <title>Credits and License</title>
 
 <para>
-&dragonplayer;
+&dragon;
 </para>
 
 <para>Program copyright 2004 Max B. Howell <email>max.howell@methylblue.com</email></para>
