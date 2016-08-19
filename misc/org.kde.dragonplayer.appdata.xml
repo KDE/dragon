@@ -40,6 +40,7 @@
   <name xml:lang="x-test">xxDragon Playerxx</name>
   <name xml:lang="zh-CN">Dragon Player</name>
   <name xml:lang="zh-TW">影音播放_DragonPlayer</name>
+  <summary>Video player with focus on simplicity</summary>
   <description>
     <p>
       Dragon Player is a multimedia player where the focus is on simplicity, instead of features. Dragon Player does one thing,
