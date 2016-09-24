@@ -92,6 +92,7 @@
     <p xml:lang="tr">Dragon Oynatıcı özellikli olma yerine basitliğe odaklanılan bir çoklu ortam oynatıcıdır. Dragon Oynatıcı bir şeyi, sadece bir şeyi yapar; çoklu ortam dosyalarını oynatır. Basit arayüzü kendi yolunu bulmanız için değil basitçe çoklu ortam dosyalarını oynatmanız için tasarlanmıştır.</p>
     <p xml:lang="uk">Програвач Dragon — програма для відтворення мультимедійних даних, основною перевагою якої є простота. Програвач Dragon робить одну річ і лише одну річ, а саме, відтворює файли мультимедійних даних. Простий інтерфейс програми просто не дасть вам зробити щось неправильно, але надасть вам змогу відтворити потрібні вам дані.</p>
     <p xml:lang="x-test">xxDragon Player is a multimedia player where the focus is on simplicity, instead of features. Dragon Player does one thing, and only one thing, which is playing multimedia files. It's simple interface is designed not to get in your way and instead empower you to simply play multimedia files.xx</p>
+    <p xml:lang="zh-CN">Dragon Player 是一个相比于功能来说更注重简洁的多媒体播放器。Dragon Player 做且只做一件事，就是播放多媒体文件。界面简单，减少干扰，立即播放文件。</p>
     <p xml:lang="zh-TW">Dragon Player 是一套多媒體播放器，重點在簡單而非多樣功能。Dragon Player 只做一件事：播放多媒體檔案。</p>
     <p>Features:</p>
     <p xml:lang="ast">Carauterístiques:</p>
@@ -299,6 +300,7 @@
       <li xml:lang="tr">Solid ve Phonon kullandığı için Dragon Oynatıcı herhangi bir çoklu ortam çatısına veya donanım soyutlama katmanına bağlı değildir</li>
       <li xml:lang="uk">оскільки у програмі використовуються бібліотеки Solid та Phonon, її робота не залежить від використаного набору мультимедійних бібліотек та рівня абстрагування від обладнання;</li>
       <li xml:lang="x-test">xxDue to using Solid and Phonon DragonPlayer is independent of any multimedia framework or hardware abstraction layerxx</li>
+      <li xml:lang="zh-CN">因对使用 Solid 和 Phonon，DragonPlayer 独立于任何多媒体框架或者硬件抽象层。</li>
       <li xml:lang="zh-TW">因為使用 Solid 與 Phonon，DragonPlayer 可以獨立於任何多媒體框架，或是硬體抽象層之外</li>
       <li>Supports playing CDs and DVDs</li>
       <li xml:lang="ast">Sofita la reproducción de CDs y DVDs</li>
