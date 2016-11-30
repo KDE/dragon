@@ -50,6 +50,7 @@
   <summary xml:lang="es">Reproductor de vídeo centrado en la sencillez</summary>
   <summary xml:lang="et">Lihtsusele panustav videomängija</summary>
   <summary xml:lang="fi">Yksinkertaisuuteen pyrkivä videosoitin</summary>
+  <summary xml:lang="ia">Reproductor de video focalisate sur le simplicitate</summary>
   <summary xml:lang="nl">Videospeler met focus op eenvoud</summary>
   <summary xml:lang="nn">Filmspelar som prøver å vera enkel</summary>
   <summary xml:lang="pl">Odtwarzacz filmów z naciskiem na prostotę</summary>
@@ -104,6 +105,7 @@
     <p xml:lang="et">Omadused:</p>
     <p xml:lang="fi">Ominaisuudet:</p>
     <p xml:lang="gl">Funcionalidades:</p>
+    <p xml:lang="ia">Characteristicas:</p>
     <p xml:lang="it">Caratteristiche:</p>
     <p xml:lang="ko">기능:</p>
     <p xml:lang="nb">Funksjoner:</p>
@@ -142,6 +144,7 @@
       <li xml:lang="et">Lihtne liides</li>
       <li xml:lang="fi">Yksinkertainen käyttöliittymä</li>
       <li xml:lang="gl">Interface sinxela</li>
+      <li xml:lang="ia">Interfacie simplice</li>
       <li xml:lang="it">Interfaccia semplice</li>
       <li xml:lang="ko">간단한 인터페이스</li>
       <li xml:lang="nb">Enkel brukerflate</li>
