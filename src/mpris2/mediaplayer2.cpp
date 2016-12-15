@@ -94,7 +94,7 @@ bool MediaPlayer2::HasTrackList() const
 
 QString MediaPlayer2::Identity() const
 {
-    return APP_NAME;
+    return KAboutData::applicationData().displayName();
 }
 
 QString MediaPlayer2::DesktopEntry() const
