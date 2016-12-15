@@ -520,7 +520,7 @@ VideoWindow::stateChanged(Phonon::State currentState, Phonon::State oldstate) //
         updateChannels();
 
         if(m_adjustedSize==false) {
-            if( mainWindow() )
+            if( mainWindow() && !mainWindow()->isMaximized() )
                 ( (QWidget*) mainWindow() )->adjustSize();
             m_adjustedSize=true;
             qDebug() << "adjusting size to video resolution";

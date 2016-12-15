@@ -83,12 +83,15 @@ bool Dragon::FullScreenToolBarHandler::eventFilter( QObject */*o*/, QEvent *e )
         videoWindow()->move( 0, 0 );
         videoWindow()->resize( ((QWidget*)parent())->size() );
         videoWindow()->lower();
+    } else if (e->type() == QEvent::Leave) {
+        // reset the hide timer
+        m_timer_id = startTimer( Dragon::VideoWindow::CURSOR_HIDE_TIMEOUT );
     }
 
     return false;
 }
 
-void 
+void
 Dragon::FullScreenToolBarHandler::timerEvent( QTimerEvent*e )
 {
     killTimer( e->timerId() ); // timers are NOT single-shot!
