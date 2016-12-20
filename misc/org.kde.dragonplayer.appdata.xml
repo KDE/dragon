@@ -4,7 +4,6 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>Dragon Player</name>
-  <name xml:lang="ast">Dragon Player</name>
   <name xml:lang="bs">Dragon plejer</name>
   <name xml:lang="ca">Dragon Player</name>
   <name xml:lang="ca-valencia">Dragon Player</name>
@@ -92,7 +91,6 @@
     <p xml:lang="uk">Програвач Dragon — програма для відтворення мультимедійних даних, основною перевагою якої є простота. Програвач Dragon робить одну річ і лише одну річ, а саме, відтворює файли мультимедійних даних. Простий інтерфейс програми просто не дасть вам зробити щось неправильно, але надасть вам змогу відтворити потрібні вам дані.</p>
     <p xml:lang="x-test">xxDragon Player is a multimedia player where the focus is on simplicity, instead of features. Dragon Player does one thing, and only one thing, which is playing multimedia files. Its simple interface is designed not to get in your way and instead empower you to simply play multimedia files.xx</p>
     <p>Features:</p>
-    <p xml:lang="ast">Carauterístiques:</p>
     <p xml:lang="bg">Възможности:</p>
     <p xml:lang="bs">Svojstva:</p>
     <p xml:lang="ca">Característiques:</p>
@@ -131,7 +129,6 @@
     <p xml:lang="zh-TW">功能：</p>
     <ul>
       <li>Simple Interface</li>
-      <li xml:lang="ast">Interfaz simple</li>
       <li xml:lang="bg">Опростен интерфейс</li>
       <li xml:lang="bs">Prosto sučelje</li>
       <li xml:lang="ca">Interfície senzilla</li>
@@ -169,7 +166,6 @@
       <li xml:lang="zh-CN">简洁的界面</li>
       <li xml:lang="zh-TW">簡易介面</li>
       <li>Resuming videos: Starts playing a video where you were watching it last time</li>
-      <li xml:lang="ast">Resume de videos: Anicia la reproducción d'un videu u lu dexesti la cabera vegada</li>
       <li xml:lang="bg">Продължаване на видео: продължава от мястото, където сте спрели предния път</li>
       <li xml:lang="bs">Nastavak video: Počinje video na mjestu gdje ste ga gledali zadnji put</li>
       <li xml:lang="ca">Continua els vídeos: Inicia la reproducció d'un vídeo on l'estàveu veient l'última vegada</li>
@@ -204,7 +200,6 @@
       <li xml:lang="zh-CN">恢复视频：从上次观看时间开始播放</li>
       <li xml:lang="zh-TW">回復影片：從上次看到的地方開始播放影片</li>
       <li>Support for subtitles: Automatically loads subtitles with the matching name</li>
-      <li xml:lang="ast">Sofitu pa sotítulos: Carga automáticamente sotítulos que concasen col nome</li>
       <li xml:lang="bg">Поддръжка на субтитри: автоматично зарежда тези със съвпадащо име</li>
       <li xml:lang="bs">Podrška za podnaslove: Automatski učitava podnaslove s odgovarajućim imenom</li>
       <li xml:lang="ca">Admet a subtítols: Càrrega automàticament els subtítols que coincideixen amb el nom</li>
@@ -239,7 +234,6 @@
       <li xml:lang="zh-CN">支持字幕：自动装入名称匹配的字幕</li>
       <li xml:lang="zh-TW">支援字幕：名稱相符的話自動載入字幕</li>
       <li>Video display settings (brightness, contrast)</li>
-      <li xml:lang="ast">Axustes d'amosanza de videu (rellumu, contraste)</li>
       <li xml:lang="bg">Настройки на видео (яркост, контраст)</li>
       <li xml:lang="bs">Postavke ekrana (osvjetljenje, kontrast)</li>
       <li xml:lang="ca">Ajustaments per a la pantalla de vídeo (brillantor, contrast)</li>
@@ -274,7 +268,6 @@
       <li xml:lang="zh-CN">视频显示设置 (亮度，对比度)</li>
       <li xml:lang="zh-TW">影像顯示設定（亮度、對比）</li>
       <li>Due to using Solid and Phonon DragonPlayer is independent of any multimedia framework or hardware abstraction layer</li>
-      <li xml:lang="ast">Pola mor del usu de Solid y Phonon,  DragonPlayer ye independiente de cualesquier framework multimedia o HAL</li>
       <li xml:lang="bs">Pošto kotisti Solid i Phonon DragonPlayer je neovisan od bilo kog multimedijalnog radnog okvira ili hardverskog sloja apstracije.</li>
       <li xml:lang="ca">A causa de l'ús de Solid i Phonon, el Dragon Player és independent de qualsevol marc de treball multimèdia o capa d'abstracció de maquinari</li>
       <li xml:lang="ca-valencia">A causa de l'ús de Solid i Phonon, el Dragon Player és independent de qualsevol marc de treball multimèdia o capa d'abstracció de maquinari</li>
@@ -308,7 +301,6 @@
       <li xml:lang="zh-CN">因对使用 Solid 和 Phonon，DragonPlayer 独立于任何多媒体框架或者硬件抽象层。</li>
       <li xml:lang="zh-TW">因為使用 Solid 與 Phonon，DragonPlayer 可以獨立於任何多媒體框架，或是硬體抽象層之外</li>
       <li>Supports playing CDs and DVDs</li>
-      <li xml:lang="ast">Sofita la reproducción de CDs y DVDs</li>
       <li xml:lang="bg">Поддържа изпълнение на CD и DVD дискове</li>
       <li xml:lang="bs">Podrška za izvođenje CD i DVD</li>
       <li xml:lang="ca">Permet la reproducció dels CD i dels DVD</li>
