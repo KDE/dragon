@@ -44,6 +44,7 @@ target_link_libraries(dragon
     KF5::DBusAddons
     KF5::JobWidgets
     KF5::WindowSystem
+    KF5::Notifications
     ${PHONON_LIBRARY}
     )
 
@@ -70,6 +71,7 @@ target_link_libraries(dragonpart
     KF5::XmlGui
     KF5::JobWidgets
     KF5::WindowSystem
+    KF5::Notifications
     ${PHONON_LIBRARY}
     )
 

@@ -44,6 +44,7 @@ find_package(KF5 REQUIRED
     WidgetsAddons
     WindowSystem
     XmlGui
+    Notifications
 )
 find_package(Phonon4Qt5 4.6.60 REQUIRED NO_MODULE)
 

@@ -41,8 +41,12 @@
 #include <QMenu>
 #include <QMenuBar>
 #include <QStatusBar>
+#include <QDBusReply>
+#include <QDBusInterface>
+#include <QDBusUnixFileDescriptor>
 
-//#include <KNotificationRestrictions> // kf5 FIXME
+#include <KAboutData>
+#include <KNotificationRestrictions>
 #include <KSqueezedTextLabel>
 #include <KToggleFullScreenAction>
 #include <KToolBar>
@@ -61,9 +65,6 @@
 
 #include <Solid/Device>
 #include <Solid/OpticalDisc>
-#if 0 // kf5 FIXME port to new Solid::Power API
-#include <solid/powermanagement.h>
-#endif
 
 #include "actions.h"
 #include "discSelectionDialog.h"
@@ -817,36 +818,49 @@ MainWindow::keyPressEvent( QKeyEvent *e )
 void
 MainWindow::inhibitPowerSave()
 {
-#if 0 // kf5 FIXME port to new Solid::Power API
-    if (m_stopSleepCookie == -1)
-        m_stopSleepCookie = Solid::PowerManagement::beginSuppressingSleep(QLatin1String( "watching a film" ));
-    if (m_stopScreenPowerMgmtCookie == -1 && TheStream::hasVideo())
-        m_stopScreenPowerMgmtCookie = Solid::PowerManagement::beginSuppressingScreenPowerManagement(QLatin1String( "watching a film" ));
+    if (m_stopSleepCookie == -1) {
+        QDBusInterface iface(QStringLiteral("org.freedesktop.login1"),
+                             QStringLiteral("/org/freedesktop/login1"),
+                             QStringLiteral("org.freedesktop.login1.Manager"),
+                             QDBusConnection::systemBus());
+        if (iface.isValid()) {
+            QDBusReply<QDBusUnixFileDescriptor> reply;
+            if (TheStream::hasVideo()) {
+                reply = iface.call(QStringLiteral("Inhibit"),
+                                   QStringLiteral("sleep:idle"),
+                                   KAboutData::applicationData().componentName(),
+                                   QStringLiteral("playing a video"),
+                                   QStringLiteral("block"));
+            } else {
+                reply = iface.call(QStringLiteral("Inhibit"),
+                                   QStringLiteral("sleep"),
+                                   KAboutData::applicationData().componentName(),
+                                   QStringLiteral("playing an audio"),
+                                   QStringLiteral("block"));
+            }
+            if (reply.isValid()) {
+                m_stopSleepCookie = reply.value().fileDescriptor();
+            }
+        }
+    }
+    // TODO: inhibit screen sleep. No viable API found.
+    // https://git.reviewboard.kde.org/r/129651
     if (!m_stopScreenSaver && TheStream::hasVideo())
         m_stopScreenSaver = new KNotificationRestrictions(KNotificationRestrictions::ScreenSaver);
-#endif
 }
 
 void
 MainWindow::releasePowerSave()
 {
-#if 0 // kf5 FIXME port to new Solid::Power API
     //stop supressing sleep
     if (m_stopSleepCookie != -1) {
-        Solid::PowerManagement::stopSuppressingSleep(m_stopSleepCookie);
+        ::close(m_stopSleepCookie);
         m_stopSleepCookie = -1;
-    }
-
-    //stop supressing screen power management
-    if (m_stopScreenPowerMgmtCookie != -1) {
-        Solid::PowerManagement::stopSuppressingScreenPowerManagement(m_stopScreenPowerMgmtCookie);
-        m_stopScreenPowerMgmtCookie = -1;
     }
 
     //stop disabling screensaver
     delete m_stopScreenSaver; // It is always 0, I have been careful.
     m_stopScreenSaver = 0;
-#endif
 }
 
 QMenu*
