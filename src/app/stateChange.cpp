@@ -147,10 +147,10 @@ void MainWindow::engineMediaChanged(Phonon::MediaSource /*newSource*/)
 #endif
         if( url.scheme() != QLatin1String( "dvd" ) && url.scheme() != QLatin1String( "vcd" ) && !url.toDisplayString().isEmpty()) {
             KConfigGroup config = KConfigGroup( KSharedConfig::openConfig(), "General" );
-            const QString prettyUrl = url.toDisplayString();
-            QStringList urls = config.readPathEntry( "Recent Urls", QStringList() );
-            urls.removeAll( prettyUrl );
-            config.writePathEntry( "Recent Urls", urls << prettyUrl );
+            const auto list = config.readPathEntry( "Recent Urls", QStringList() );
+            auto urls = QUrl::fromStringList(list);
+            urls.removeAll(url);
+            config.writePathEntry( "Recent Urls", QUrl::toStringList(urls << url) );
             emit m_loadView->reloadRecentlyList();
         }
 #ifndef NO_SKIP_PR0N

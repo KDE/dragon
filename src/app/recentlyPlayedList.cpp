@@ -85,10 +85,11 @@ void RecentlyPlayedList::contextMenuEvent(QContextMenuEvent * event )
 
 void RecentlyPlayedList::removeEntry()
 {
-    QStringList list = configGroup->readPathEntry( "Recent Urls", QStringList() );
-    QUrl toRemove = currentItem()->data(0xdecade).value<QUrl>();
-    list.removeAll(toRemove.toDisplayString());
-    configGroup->writePathEntry("Recent Urls",list.join( QLatin1String( "," )));
+    const auto list = configGroup->readPathEntry( "Recent Urls", QStringList() );
+    const QUrl toRemove = currentItem()->data(0xdecade).value<QUrl>();
+    auto urls = QUrl::fromStringList(list);
+    urls.removeAll(toRemove);
+    configGroup->writePathEntry("Recent Urls", QUrl::toStringList(urls));
     loadEntries();
 }
 
