@@ -179,6 +179,7 @@ signals:
     void metaDataChanged();
     void hasVideoChanged( bool );
     void volumeChanged( qreal );
+    void finished();
 };
 
 //global function for general use by Dragon Player

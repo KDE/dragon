@@ -91,7 +91,7 @@ MainWindow::MainWindow()
     , m_mainView( 0 )
     , m_audioView( 0 )
     , m_loadView( new LoadView(this) )
-    , m_currentWidget( new QWidget(this) )
+    , m_currentWidget( nullptr )
     , m_leftDock( 0 )
     , m_positionSlider( 0 )
     , m_volumeSlider( 0 )
@@ -124,8 +124,6 @@ MainWindow::MainWindow()
     m_mainView->addWidget(m_audioView);
     m_mainView->addWidget(videoWindow());
     m_mainView->setCurrentWidget(m_loadView);
-
-    m_currentWidget = m_loadView;
 
     setCentralWidget( m_mainView );
 
@@ -212,6 +210,8 @@ MainWindow::init()
     connect( engine(), SIGNAL(subChannelsChanged(QList<QAction*>)), this, SLOT(subChannelsChanged(QList<QAction*>)) );
     connect( engine(), SIGNAL(audioChannelsChanged(QList<QAction*>)), this, SLOT(audioChannelsChanged(QList<QAction*>)) );
     connect( engine(), SIGNAL(mutedChanged(bool)), this, SLOT(mutedChanged(bool)) );
+
+    connect( engine(), &VideoWindow::finished, this, &MainWindow::toggleLoadView );
 
     if( !engine()->init() ) {
         KMessageBox::error( this, i18n(
@@ -434,17 +434,20 @@ void
 MainWindow::toggleLoadView()
 {
     if( m_mainView->currentWidget() == m_loadView ) {
-        if( m_mainView->indexOf(m_currentWidget) == -1 ) {
-            m_mainView->addWidget(m_currentWidget);
+        if( engine()->state() != Phonon::StoppedState ) {
+            if( m_mainView->indexOf(m_currentWidget) == -1 ) {
+                m_mainView->addWidget(m_currentWidget);
+            }
+            m_mainView->setCurrentWidget(m_currentWidget);
         }
-        m_mainView->setCurrentWidget(m_currentWidget);
         engine()->isPreview(false);
     } else if( m_currentWidget != m_audioView ) {
-        qDebug() << "setting Thumbnail for video Widget";
-        m_mainView->setCurrentWidget(m_loadView);
-        m_mainView->removeWidget(m_currentWidget);
-        engine()->isPreview(true);
-        m_loadView->setThumbnail(m_currentWidget);
+        m_mainView->setCurrentWidget( m_loadView );
+        if( engine()->state() != Phonon::StoppedState ) {
+            m_mainView->removeWidget(m_currentWidget);
+            engine()->isPreview(true);
+            m_loadView->setThumbnail(m_currentWidget);
+        }
     } else {
         m_mainView->setCurrentWidget(m_loadView);
     }
@@ -494,7 +497,7 @@ MainWindow::mutedChanged( bool mute )
 void MainWindow::stop()
 {
     engine()->stop();
-    m_mainView->setCurrentWidget(m_loadView);
+    toggleLoadView();
 }
 
 void
@@ -569,23 +572,14 @@ MainWindow::load( const QUrl &url )
         job->deleteLater();
     }
 
-    if( m_mainView->indexOf(engine()) == -1 )
-        toggleLoadView();
-
     //let xine handle invalid, etc, QUrlS
     //TODO it handles non-existing files with bad error message
     if (!ret)
         ret = engine()->load( url );
 
     if( ret ) {
-        if( TheStream::hasVideo() ) {
-            m_currentWidget = engine();
-        } else {
-            m_currentWidget = m_audioView;
-            if( !isMaximized() )
-                resize(m_currentWidget->minimumSize());
-        }
-        m_mainView->setCurrentWidget(m_currentWidget);
+        m_currentWidget = nullptr;
+        m_loadView->setThumbnail(nullptr);
     }
     return ret;
 }
@@ -603,15 +597,9 @@ MainWindow::play()
             toggleLoadView();
         break;
     case Phonon::StoppedState:
-        if( TheStream::hasVideo() ) {
-            m_currentWidget = engine();
-        } else {
-            m_currentWidget = m_audioView;
-            if( !isMaximized() )
-                resize(m_currentWidget->minimumSize());
-        }
         engine()->play();
-        m_mainView->setCurrentWidget(m_currentWidget);
+        m_currentWidget = nullptr;
+        m_loadView->setThumbnail(nullptr);
         break;
     default:
         break;
@@ -692,6 +680,8 @@ MainWindow::playDisc()
         }
     } else {
         engine()->playDvd();
+        m_loadView->setThumbnail(nullptr);
+        toggleLoadView();
         qDebug() << "no disc in drive or Solid isn't working";
     }
 }

@@ -75,15 +75,22 @@ void MainWindow::engineStateChanged( Phonon::State state )
 
     m_timeLabel->setVisible(enable);
     m_audioView->enableDemo(!enable);
+
     if (!enable) {
         // Force out of full screen.
         if (isFullScreen) {
             setFullScreen(false);
         }
-        if (m_mainView->currentWidget() != m_loadView) {
-            m_mainView->setCurrentWidget(m_loadView);
+    }
+
+    if (!m_currentWidget && state == Phonon::PlayingState) {
+        if (TheStream::hasVideo()) {
+            m_currentWidget = engine();
+        } else {
+            m_currentWidget = m_audioView;
+            if (!isMaximized())
+                resize(m_currentWidget->minimumSize());
         }
-    } else if (state != Phonon::PausedState && m_mainView->currentWidget() == m_loadView) {
         toggleLoadView();
     }
 

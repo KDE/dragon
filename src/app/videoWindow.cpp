@@ -115,7 +115,7 @@ VideoWindow::VideoWindow( QWidget *parent )
     connect( m_media, SIGNAL(hasVideoChanged(bool)), this, SIGNAL(hasVideoChanged(bool)) );
     connect( m_media, SIGNAL(hasVideoChanged(bool)), m_vWidget, SLOT(setVisible(bool)) ); //hide video widget if no video to show
     connect( m_media, SIGNAL(hasVideoChanged(bool)), m_logo, SLOT(setHidden(bool)) );
-
+    connect( m_media, SIGNAL(finished()), this, SIGNAL(finished()) );
     connect( m_controller, SIGNAL(availableSubtitlesChanged()), this, SLOT(updateChannels()) );
 
     {

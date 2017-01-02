@@ -43,6 +43,11 @@ LoadView::LoadView( QWidget *parent )
 
 void LoadView::setThumbnail(QWidget *object)
 {
+    if (!object) {
+        m_vThumb->hide();
+        return;
+    }
+    m_vThumb->show();
     object->setParent(m_vThumb);
     object->resize(m_vThumb->size());
     object->show();
