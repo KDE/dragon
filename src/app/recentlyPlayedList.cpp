@@ -43,6 +43,18 @@ RecentlyPlayedList::RecentlyPlayedList(QWidget *parent)
     setAlternatingRowColors( true );
     setSelectionMode(QAbstractItemView::SingleSelection);
 
+    QAction *clear = new QAction(i18n("Clear List"), this);
+    clear->setIcon(QIcon::fromTheme(QStringLiteral("edit-clear-list")));
+    connect(clear, &QAction::triggered, this, &RecentlyPlayedList::clearList);
+    clear->setShortcut(QKeySequence::Cut);
+
+    QAction *remove = new QAction(i18n("Remove Entry"), this);
+    remove->setIcon(QIcon::fromTheme(QStringLiteral("list-remove")));
+    connect(remove, &QAction::triggered, this, &RecentlyPlayedList::removeEntry);
+    remove->setShortcut(QKeySequence::Delete);
+
+    addActions({remove, clear});
+
     configGroup = new KConfigGroup( KSharedConfig::openConfig(), "General" );
     loadEntries();
 }
@@ -77,14 +89,14 @@ void RecentlyPlayedList::contextMenuEvent(QContextMenuEvent * event )
     if (!currentItem())
         return;
     QMenu menu;
-    qDebug() << "Loading Menu";
-    menu.addAction(QIcon::fromTheme(QLatin1String( "list-remove" )),i18n("Remove Entry"),this,SLOT(removeEntry()));
-    menu.addAction(QIcon::fromTheme(QLatin1String( "edit-clear" )),i18n("Clear List"),this,SLOT(clearList()));
-    menu.exec( event->globalPos() );
+    menu.addActions(actions());
+    menu.exec(event->globalPos());
 }
 
 void RecentlyPlayedList::removeEntry()
 {
+    if (!currentItem())
+        return;
     const auto list = configGroup->readPathEntry( "Recent Urls", QStringList() );
     const QUrl toRemove = currentItem()->data(0xdecade).value<QUrl>();
     auto urls = QUrl::fromStringList(list);
