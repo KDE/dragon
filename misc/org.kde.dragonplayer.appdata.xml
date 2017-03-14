@@ -64,6 +64,7 @@
   <summary xml:lang="sr-ijekavian">Видео плејер усредсређен на једноставност</summary>
   <summary xml:lang="sr-ijekavianlatin">Video plejer usredsređen na jednostavnost</summary>
   <summary xml:lang="sv">Videospelare med fokus på enkelhet</summary>
+  <summary xml:lang="tr">Sadeliğe odaklanmış video oynatıcı</summary>
   <summary xml:lang="uk">Відеопрогравач із акцентом на простоті</summary>
   <summary xml:lang="x-test">xxVideo player with focus on simplicityxx</summary>
   <summary xml:lang="zh-CN">专注于简洁性的视频播放器</summary>
@@ -94,6 +95,7 @@
     <p xml:lang="sr-ijekavian">Змајев плејер је мултимедијални плејер са тежиштем на једноставности уместо на могућностима. Има једну и само једну намену: пуштање мултимедијалних фајлова. Пружа једноставно сучеље које вас не замара детаљима, већ омогућава да једноставно пуштате мултимедијалне фајлове.</p>
     <p xml:lang="sr-ijekavianlatin">Zmajev plejer je multimedijalni plejer sa težištem na jednostavnosti umesto na mogućnostima. Ima jednu i samo jednu namenu: puštanje multimedijalnih fajlova. Pruža jednostavno sučelje koje vas ne zamara detaljima, već omogućava da jednostavno puštate multimedijalne fajlove.</p>
     <p xml:lang="sv">Dragon videospelare är en multimediaspelare med fokus på enkelhet istället för funktioner. Dragon videospelare gör endast en sak, nämligen spela multimediafiler. Dess enkla gränssnitt är konstruerat för att inte vara i vägen utan istället ge dig möjlighet att enkelt spela upp multimediafiler.</p>
+    <p xml:lang="tr">Dragon Oynatıcı özellikli olma yerine basitliğe odaklanılan bir çoklu ortam oynatıcıdır. Dragon Oynatıcı bir şeyi, sadece bir şeyi yapar; çoklu ortam dosyalarını oynatır. Basit arayüzü kendi yolunu bulmanız için değil basitçe çoklu ortam dosyalarını oynatmanız için tasarlanmıştır.</p>
     <p xml:lang="uk">Програвач Dragon — програма для відтворення мультимедійних даних, основною перевагою якої є простота. Програвач Dragon робить одну річ і лише одну річ, а саме, відтворює файли мультимедійних даних. Простий інтерфейс програми просто не дасть вам зробити щось неправильно, але надасть вам змогу відтворити потрібні вам дані.</p>
     <p xml:lang="x-test">xxDragon Player is a multimedia player where the focus is on simplicity, instead of features. Dragon Player does one thing, and only one thing, which is playing multimedia files. Its simple interface is designed not to get in your way and instead empower you to simply play multimedia files.xx</p>
     <p xml:lang="zh-CN">Dragon Player 是一个相比于功能来说更注重简洁的多媒体播放器。Dragon Player 做且只做一件事，就是播放多媒体文件。界面简单，减少干扰，立即播放文件。</p>
