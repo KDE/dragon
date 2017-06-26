@@ -434,7 +434,7 @@ void
 MainWindow::toggleLoadView()
 {
     if( m_mainView->currentWidget() == m_loadView ) {
-        if( engine()->state() != Phonon::StoppedState ) {
+        if (m_currentWidget && engine()->state() != Phonon::StoppedState) {
             if( m_mainView->indexOf(m_currentWidget) == -1 ) {
                 m_mainView->addWidget(m_currentWidget);
             }
@@ -443,7 +443,7 @@ MainWindow::toggleLoadView()
         engine()->isPreview(false);
     } else if( m_currentWidget != m_audioView ) {
         m_mainView->setCurrentWidget( m_loadView );
-        if( engine()->state() != Phonon::StoppedState ) {
+        if (m_currentWidget && engine()->state() != Phonon::StoppedState) {
             m_mainView->removeWidget(m_currentWidget);
             engine()->isPreview(true);
             m_loadView->setThumbnail(m_currentWidget);
