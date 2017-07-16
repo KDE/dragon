@@ -50,6 +50,7 @@
   <summary xml:lang="es">Reproductor de vídeo centrado en la sencillez</summary>
   <summary xml:lang="et">Lihtsusele panustav videomängija</summary>
   <summary xml:lang="fi">Yksinkertaisuuteen pyrkivä videosoitin</summary>
+  <summary xml:lang="fr">Un lecteur vidéo conçu pour la facilité d'utilisation</summary>
   <summary xml:lang="ia">Reproductor de video focalisate sur le simplicitate</summary>
   <summary xml:lang="it">Lettore video con l'obiettivo della semplicità</summary>
   <summary xml:lang="ko">간단한 동영상 재생기</summary>
@@ -82,6 +83,7 @@
     <p xml:lang="es">Dragon Player es un reproductor multimedia centrado en la simplicidad en lugar de las características. Hace una cosa, y solo una cosa: reproducir archivos multimedia. Su sencilla interfaz no está diseñada para ponerse en tu camino, sino para ayudarte a reproducir archivos multimedia fácilmente.</p>
     <p xml:lang="et">Dragoni mängija on multimeediamängija, mis keskendub omaduste asemel lihtsusele. Dragoni mängija teeb üht ja ainult üht asja: esitab multimeediafaile. Lihtne liides on loodud sellisena, et see ei tõmbaks endale liigset tähelepanu, vaid lubaks just esitatavat multimeediat nautida.</p>
     <p xml:lang="fi">Dragon Player on multimediasoitin, joka keskittyy ominaisuuksien sijaan yksinkertaisuuteen. Dragon Player osaa yhden ja vain yhden asian: se toistaa multimediatiedostoja. Sen yksinkertainen käyttöliittymä on suunniteltu pysymään poissa tieltä, jotta sinä voisit toistaa multimediatiedostojasi.</p>
+    <p xml:lang="fr">Dragon Player est un lecteur vidéo conçu pour la facilité d'utilisation, plutôt que le nombre de fonctionnalités. Dragon Player fait une chose, et une seule, qui est de lire les fichiers multimédia. Son interface simple est conçue pour ne pas vous embarrasser mais plutôt vous donner le pouvoir de simplement jouer des fichiers multimédia.</p>
     <p xml:lang="it">Dragon Player è un lettore multimediale il cui obiettivo è la semplicità, anziché la molteplicità di funzioni. Dragon Player fa solo una cosa: riprodurre i file multimediali. La sua interfaccia è semplice, progettata per non metterti in difficoltà e per permetterti semplicemente di riprodurre i file multimediali.</p>
     <p xml:lang="ko">Dragon 플레이어는 기능보다 간단함에 초점을 맞춘 멀티미디어 재생기입니다. Dragon 플레이어는 오직 멀티미디어 파일만을 재생합니다. 동영상 감상을 방해하지 않도록 인터페이스는 간결하게 설계되었습니다.</p>
     <p xml:lang="nl">Dragon Player is een multimediaspeler waar de focus ligt op eenvoud, in plaats van functies. Dragon Player doet een ding en alleen een ding, en dat is afspelen van multimediabestanden. Zijn eenvoudige interface is niet ontworpen om in de weg te zitten en in plaats daarvan u de mogelijkheid te geven om gewoon multimediabestanden af te spelen.</p>
@@ -151,6 +153,7 @@
       <li xml:lang="es">Interfaz sencilla</li>
       <li xml:lang="et">Lihtne liides</li>
       <li xml:lang="fi">Yksinkertainen käyttöliittymä</li>
+      <li xml:lang="fr">Interface simple</li>
       <li xml:lang="gl">Interface sinxela</li>
       <li xml:lang="ia">Interfacie simplice</li>
       <li xml:lang="it">Interfaccia semplice</li>
@@ -187,6 +190,7 @@
       <li xml:lang="es">Reanudar vídeos: empieza la reproducción de un vídeo donde lo habías dejado la última vez</li>
       <li xml:lang="et">Videode taasesitamine just sellest kohast, kus eelmisel korral pooleli jäi</li>
       <li xml:lang="fi">Videoiden jatkaminen: käynnistä video siitä, mihin viimeksi jäit</li>
+      <li xml:lang="fr">Reprise des vidéos : démarre la lecture d'une vidéo de là où vous la regardiez la dernière fois</li>
       <li xml:lang="gl">Continuar a reprodución: comeza a reproducir os vídeos polo mesmo punto no que ía a última vez que os estivo a ver.</li>
       <li xml:lang="it">Riavvio del video: avvia la riproduzione video dal punto in cui l'avevi interrotta l'ultima volta</li>
       <li xml:lang="ko">동영상 위치 기억: 마지막으로 본 지점부터 동영상을 다시 재생합니다</li>
@@ -221,6 +225,7 @@
       <li xml:lang="es">Reconoce subtítulos: carga automáticamente los subtítulos con el mismo nombre</li>
       <li xml:lang="et">Subtiitrite toetus ja sobiva nime esinemisel nende automaatne laadimine</li>
       <li xml:lang="fi">Tekstityksen tuki: lataa samannimiset tekstitystiedostot automaattisesti</li>
+      <li xml:lang="fr">Prise en charge des sous-titres : charge automatiquement les sous-titres don le nom correspond</li>
       <li xml:lang="gl">Subtítulos: carga automaticamente subtítulos que teñan o mesmo nome que o ficheiro de vídeo.</li>
       <li xml:lang="it">Supporto sottotitoli: carica automaticamente i sottotitoli che corrispondono al nome del video</li>
       <li xml:lang="ko">자막 지원: 파일 이름이 동일한 자막을 자동으로 불러옵니다</li>
@@ -255,6 +260,7 @@
       <li xml:lang="es">Preferencias de visualización de vídeos (brillo, contraste)</li>
       <li xml:lang="et">Video taasesituse juhtelemendid (heledus, kontrast)</li>
       <li xml:lang="fi">Videonäytön asetukset (kirkkaus ja kontrasti)</li>
+      <li xml:lang="fr">Réglages de l'affichage de la vidéo (luminosité, contraste)</li>
       <li xml:lang="gl">Configuración de vídeo (brillo, contraste)</li>
       <li xml:lang="it">Impostazioni di visualizzazione (luminosità, contrasto)</li>
       <li xml:lang="ko">동영상 표시 설정(밝기, 명암)</li>
@@ -288,6 +294,7 @@
       <li xml:lang="es">Debido al uso de Solid y Phonon, Dragon Player es independiente de cualquier infraestructura multimedia o capa de abstracción hardware</li>
       <li xml:lang="et">Solidi ja Phononi tõttu ei sõltu Dragoni mängija ühestki multimeediaraamistikust ega riistvaralise abstraheerimise kihist</li>
       <li xml:lang="fi">Solidin ja Phononin ansiosta Dragon Player ei ole riippuvainen muista multimediakirjastoista tai laitteistosta</li>
+      <li xml:lang="fr">Grâce à l'utilisation de Solid et Phonon, Dragonplayer est indépendant de toute infrastructure multimédia ou couche d'abstraction matérielle</li>
       <li xml:lang="gl">Grazas a Solid e Phonon, Dragon Player é independente de calquera infraestrutura multimedia ou capa de abstracción de hardware.</li>
       <li xml:lang="it">Grazie all'uso di Solid e Phonon, DragonPlayer è indipendente da qualsiasi infrastruttura multimediale o livello di astrazione hardware</li>
       <li xml:lang="ko">Dragon 플레이어는 Solid와 Phonon을 사용하므로 멀티미디어 프레임워크와 하드웨어 추상화 계층과 독립적입니다</li>
@@ -322,6 +329,7 @@
       <li xml:lang="es">Permite la reproducción de CD y DVD</li>
       <li xml:lang="et">CD-de ja DVD-de esitamise toetus</li>
       <li xml:lang="fi">Tukee CD- ja DVD-toistoa</li>
+      <li xml:lang="fr">Prend en charge la lecture des CDs et DVDs</li>
       <li xml:lang="gl">Reproduce CD e DVD</li>
       <li xml:lang="it">Supporto per la riproduzione di CD e DVD</li>
       <li xml:lang="ko">CD 및 DVD 재생 지원</li>
