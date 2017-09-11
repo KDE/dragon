@@ -226,7 +226,7 @@
       <li xml:lang="et">Subtiitrite toetus ja sobiva nime esinemisel nende automaatne laadimine</li>
       <li xml:lang="fi">Tekstityksen tuki: lataa samannimiset tekstitystiedostot automaattisesti</li>
       <li xml:lang="fr">Prise en charge des sous-titres : charge automatiquement les sous-titres don le nom correspond</li>
-      <li xml:lang="gl">Subtítulos: carga automaticamente subtítulos que teñan o mesmo nome que o ficheiro de vídeo.</li>
+      <li xml:lang="gl">Compatibilidade con subtítulos: carga automaticamente subtítulos que teñan o mesmo nome que o ficheiro de vídeo.</li>
       <li xml:lang="it">Supporto sottotitoli: carica automaticamente i sottotitoli che corrispondono al nome del video</li>
       <li xml:lang="ko">자막 지원: 파일 이름이 동일한 자막을 자동으로 불러옵니다</li>
       <li xml:lang="nb">Støtte for teksting: Laster automatisk tekstefiler med tilsvarende navn</li>
@@ -330,7 +330,7 @@
       <li xml:lang="et">CD-de ja DVD-de esitamise toetus</li>
       <li xml:lang="fi">Tukee CD- ja DVD-toistoa</li>
       <li xml:lang="fr">Prend en charge la lecture des CDs et DVDs</li>
-      <li xml:lang="gl">Reproduce CD e DVD</li>
+      <li xml:lang="gl">Permite reproducir CD e DVD</li>
       <li xml:lang="it">Supporto per la riproduzione di CD e DVD</li>
       <li xml:lang="ko">CD 및 DVD 재생 지원</li>
       <li xml:lang="nb">Støtte for å spille CDer og DVDer</li>
