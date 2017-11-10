@@ -51,6 +51,7 @@ int main( int argc, char **argv )
                           i18n("Copyright 2006, Max Howell\nCopyright 2007, Ian Monroe"),
                           i18n("IRC:\nirc.freenode.net #dragonplayer\n\nFeedback:\nimonroe@kde.org"),
                           "http://multimedia.kde.org" );
+    aboutData.setDesktopFileName(QStringLiteral("org.kde.dragonplayer"));
     aboutData.addCredit( QStringLiteral("David Edmundson"), i18n("Improvements and polish") );
     aboutData.addCredit( QStringLiteral("Matthias Kretz"), i18n("Creator of Phonon") );
     aboutData.addCredit( QStringLiteral("Eugene Trounev"), i18n("Dragon Player icon") );
