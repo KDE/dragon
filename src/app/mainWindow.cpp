@@ -440,6 +440,9 @@ MainWindow::toggleLoadView()
             }
             m_mainView->setCurrentWidget(m_currentWidget);
         }
+        if (engine()->state() == Phonon::StoppedState) {
+            m_loadView->setThumbnail(nullptr);
+        }
         engine()->isPreview(false);
     } else if( m_currentWidget != m_audioView ) {
         m_mainView->setCurrentWidget( m_loadView );
