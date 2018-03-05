@@ -9,7 +9,8 @@ set(KDE_APPLICATIONS_VERSION "${KDE_APPLICATIONS_VERSION_MAJOR}.${KDE_APPLICATIO
 
 set(PROJECT_VERSION ${KDE_APPLICATIONS_VERSION})
 
-set(QT_MIN_VERSION "5.4.0")
+set(QT_MIN_VERSION "5.6.0")
+set(KF5_MIN_VERSION "5.31.0")
 
 find_package(ECM 1.3.0 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
@@ -29,7 +30,7 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Widgets
 )
 
-find_package(KF5 REQUIRED
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
     Config
     ConfigWidgets
     CoreAddons
@@ -64,9 +65,6 @@ check_include_files(unistd.h HAVE_UNISTD_H)
 configure_file(config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
 add_definitions(-DTRANSLATION_DOMAIN="dragonplayer")
-if (${KF5_VERSION} VERSION_GREATER "5.14.0")
-    add_definitions(-DWITH_KCRASH_INIT)
-endif()
 
 add_subdirectory( src/app )
 add_subdirectory( misc )

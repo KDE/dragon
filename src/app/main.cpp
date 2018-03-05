@@ -40,9 +40,7 @@ int main( int argc, char **argv )
 {
     Dragon::PlayerApplication app(argc, argv);
     app.setOrganizationDomain("org.kde");
-#ifdef WITH_KCRASH_INIT
     KCrash::initialize();
-#endif
 
     KLocalizedString::setApplicationDomain("dragonplayer");
 

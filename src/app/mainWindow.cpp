@@ -836,7 +836,7 @@ MainWindow::inhibitPowerSave()
     // TODO: inhibit screen sleep. No viable API found.
     // https://git.reviewboard.kde.org/r/129651
     if (!m_stopScreenSaver && TheStream::hasVideo())
-        m_stopScreenSaver = new KNotificationRestrictions(KNotificationRestrictions::ScreenSaver);
+        m_stopScreenSaver = new KNotificationRestrictions(KNotificationRestrictions::ScreenSaver, i18nc("Notification inhibition reason", "playing a video"));
 }
 
 void
