@@ -14,6 +14,7 @@
   <name xml:lang="en-GB">Dragon Player</name>
   <name xml:lang="es">Dragon Player</name>
   <name xml:lang="et">Dragoni mängija</name>
+  <name xml:lang="eu">Dragon Player</name>
   <name xml:lang="fi">Dragon Player</name>
   <name xml:lang="fr">Dragon Player</name>
   <name xml:lang="gl">Dragon Player</name>
@@ -52,6 +53,7 @@
   <summary xml:lang="en-GB">Video player with focus on simplicity</summary>
   <summary xml:lang="es">Reproductor de vídeo centrado en la sencillez</summary>
   <summary xml:lang="et">Lihtsusele panustav videomängija</summary>
+  <summary xml:lang="eu">Erraztasuna helburu duen bideo jotzailea</summary>
   <summary xml:lang="fi">Yksinkertaisuuteen pyrkivä videosoitin</summary>
   <summary xml:lang="fr">Un lecteur vidéo conçu pour la facilité d'utilisation</summary>
   <summary xml:lang="gl">Reprodutor de vídeo centrado na facilidade</summary>
@@ -90,6 +92,7 @@
     <p xml:lang="en-GB">Dragon Player is a multimedia player where the focus is on simplicity, instead of features. Dragon Player does one thing, and only one thing, which is playing multimedia files. Its simple interface is designed not to get in your way and instead empower you to simply play multimedia files.</p>
     <p xml:lang="es">Dragon Player es un reproductor multimedia centrado en la simplicidad en lugar de las características. Hace una cosa, y solo una cosa: reproducir archivos multimedia. Su sencilla interfaz no está diseñada para ponerse en tu camino, sino para ayudarte a reproducir archivos multimedia fácilmente.</p>
     <p xml:lang="et">Dragoni mängija on multimeediamängija, mis keskendub omaduste asemel lihtsusele. Dragoni mängija teeb üht ja ainult üht asja: esitab multimeediafaile. Lihtne liides on loodud sellisena, et see ei tõmbaks endale liigset tähelepanu, vaid lubaks just esitatavat multimeediat nautida.</p>
+    <p xml:lang="eu">Dragon Player eginbideen ordez erraztasuna helburu duen multimedia jotzaile bat da. Dragon Playerrek gauza bat egiten du, eta bat soilik, multimedia fitxategiak jotzea alegia. Bere interfaze erraza zuri trabarik egin beharrean multimedia fitxategiak jotzea errazteko diseinatuta dago.</p>
     <p xml:lang="fi">Dragon Player on multimediasoitin, joka keskittyy ominaisuuksien sijaan yksinkertaisuuteen. Dragon Player osaa yhden ja vain yhden asian: se toistaa multimediatiedostoja. Sen yksinkertainen käyttöliittymä on suunniteltu pysymään poissa tieltä, jotta sinä voisit toistaa multimediatiedostojasi.</p>
     <p xml:lang="fr">Dragon Player est un lecteur vidéo conçu pour la facilité d'utilisation, plutôt que le nombre de fonctionnalités. Dragon Player fait une chose, et une seule, qui est de lire les fichiers multimédia. Son interface simple est conçue pour ne pas vous embarrasser mais plutôt vous donner le pouvoir de simplement jouer des fichiers multimédia.</p>
     <p xml:lang="gl">Dragon Player é un reprodutor multimedia que prefire a simplicidade ás funcionalidades. Dragon Player fai unha cousa, e só unha cousa: reproducir ficheiros multimedia. A súa interface sinxela está deseñada para non molestar, e simplemente permitirlle reproducir ficheiros multimedia.</p>
@@ -125,6 +128,7 @@
     <p xml:lang="en-GB">Features:</p>
     <p xml:lang="es">Características:</p>
     <p xml:lang="et">Omadused:</p>
+    <p xml:lang="eu">Eginbideak:</p>
     <p xml:lang="fi">Ominaisuudet:</p>
     <p xml:lang="fr">Fonctionnalités :</p>
     <p xml:lang="gl">Funcionalidades:</p>
@@ -166,6 +170,7 @@
       <li xml:lang="en-GB">Simple Interface</li>
       <li xml:lang="es">Interfaz sencilla</li>
       <li xml:lang="et">Lihtne liides</li>
+      <li xml:lang="eu">Interfaze erraza</li>
       <li xml:lang="fi">Yksinkertainen käyttöliittymä</li>
       <li xml:lang="fr">Interface simple</li>
       <li xml:lang="gl">Interface sinxela</li>
@@ -205,6 +210,7 @@
       <li xml:lang="en-GB">Resuming videos: Starts playing a video where you were watching it last time</li>
       <li xml:lang="es">Reanudar vídeos: empieza la reproducción de un vídeo donde lo habías dejado la última vez</li>
       <li xml:lang="et">Videode taasesitamine just sellest kohast, kus eelmisel korral pooleli jäi</li>
+      <li xml:lang="eu">Bideoak berrekitea: Bideoa jotzen hasten da azken aldian utzi zenuen lekutik</li>
       <li xml:lang="fi">Videoiden jatkaminen: käynnistä video siitä, mihin viimeksi jäit</li>
       <li xml:lang="fr">Reprise des vidéos : démarre la lecture d'une vidéo de là où vous la regardiez la dernière fois</li>
       <li xml:lang="gl">Continuar a reprodución: comeza a reproducir os vídeos polo mesmo punto no que ía a última vez que os estivo a ver.</li>
@@ -242,6 +248,7 @@
       <li xml:lang="en-GB">Support for subtitles: Automatically loads subtitles with the matching name</li>
       <li xml:lang="es">Reconoce subtítulos: carga automáticamente los subtítulos con el mismo nombre</li>
       <li xml:lang="et">Subtiitrite toetus ja sobiva nime esinemisel nende automaatne laadimine</li>
+      <li xml:lang="eu">Azpidatziak onartzen ditu: Automatikoki zamatzen ditu azpidatziak bat-datorren izena duenean</li>
       <li xml:lang="fi">Tekstityksen tuki: lataa samannimiset tekstitystiedostot automaattisesti</li>
       <li xml:lang="fr">Prise en charge des sous-titres : charge automatiquement les sous-titres don le nom correspond</li>
       <li xml:lang="gl">Compatibilidade con subtítulos: carga automaticamente subtítulos que teñan o mesmo nome que o ficheiro de vídeo.</li>
@@ -279,6 +286,7 @@
       <li xml:lang="en-GB">Video display settings (brightness, contrast)</li>
       <li xml:lang="es">Preferencias de visualización de vídeos (brillo, contraste)</li>
       <li xml:lang="et">Video taasesituse juhtelemendid (heledus, kontrast)</li>
+      <li xml:lang="eu">Bideo bistaratzeko ezarpenak (distira, kontrastea)</li>
       <li xml:lang="fi">Videonäytön asetukset (kirkkaus ja kontrasti)</li>
       <li xml:lang="fr">Réglages de l'affichage de la vidéo (luminosité, contraste)</li>
       <li xml:lang="gl">Configuración de vídeo (brillo, contraste)</li>
@@ -315,6 +323,7 @@
       <li xml:lang="en-GB">Due to using Solid and Phonon DragonPlayer is independent of any multimedia framework or hardware abstraction layer</li>
       <li xml:lang="es">Debido al uso de Solid y Phonon, Dragon Player es independiente de cualquier infraestructura multimedia o capa de abstracción hardware</li>
       <li xml:lang="et">Solidi ja Phononi tõttu ei sõltu Dragoni mängija ühestki multimeediaraamistikust ega riistvaralise abstraheerimise kihist</li>
+      <li xml:lang="eu">Solid eta Phonon erabiltzeagatik DragonPlayer multimedia azpiegituretatik edo hardware abstrakzio geruzetatik independentea da</li>
       <li xml:lang="fi">Solidin ja Phononin ansiosta Dragon Player ei ole riippuvainen muista multimediakirjastoista tai laitteistosta</li>
       <li xml:lang="fr">Grâce à l'utilisation de Solid et Phonon, Dragonplayer est indépendant de toute infrastructure multimédia ou couche d'abstraction matérielle</li>
       <li xml:lang="gl">Grazas a Solid e Phonon, Dragon Player é independente de calquera infraestrutura multimedia ou capa de abstracción de hardware.</li>
@@ -352,6 +361,7 @@
       <li xml:lang="en-GB">Supports playing CDs and DVDs</li>
       <li xml:lang="es">Permite la reproducción de CD y DVD</li>
       <li xml:lang="et">CD-de ja DVD-de esitamise toetus</li>
+      <li xml:lang="eu">CDak eta DVDak jotzeko gaitasuna du</li>
       <li xml:lang="fi">Tukee CD- ja DVD-toistoa</li>
       <li xml:lang="fr">Prend en charge la lecture des CDs et DVDs</li>
       <li xml:lang="gl">Permite reproducir CD e DVD</li>
