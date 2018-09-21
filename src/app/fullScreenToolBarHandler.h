@@ -34,7 +34,7 @@ class FullScreenToolBarHandler : QObject
 {
     Q_OBJECT
 public:
-    FullScreenToolBarHandler(KMainWindow *parent );
+    explicit FullScreenToolBarHandler(KMainWindow *parent );
     bool eventFilter( QObject *o, QEvent *e ) Q_DECL_OVERRIDE;
     void timerEvent( QTimerEvent* ) Q_DECL_OVERRIDE;
 private:

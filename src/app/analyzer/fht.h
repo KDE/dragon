@@ -55,7 +55,7 @@ class FHT
 	* should be at least 3. Values of more than 3 need a trigonometry table.
 	* @see makeCasTable()
 	*/
-	FHT(int);
+	explicit FHT(int);
 
 	~FHT();
 	inline int sizeExp() const { return m_exp2; }

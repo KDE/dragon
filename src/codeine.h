@@ -17,10 +17,10 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
-#ifndef DRAGONPLAYER_H
-#define DRAGONPLAYER_H
+#ifndef CODEINE_H
+#define CODEINE_H
 
-#include "config.h"
+#include <config.h>
 
 // try to keep this file light. It gets included by
 // practically every implementation and many headers

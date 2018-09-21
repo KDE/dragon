@@ -31,7 +31,7 @@ class MouseOverToolBar : public KToolBar
     virtual bool eventFilter( QObject*, QEvent* ) Q_DECL_OVERRIDE;
 
 public:
-    MouseOverToolBar( QWidget *parent );
+    explicit MouseOverToolBar( QWidget *parent );
 };
 
 #endif

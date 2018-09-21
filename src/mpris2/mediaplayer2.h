@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
-#ifndef DRAGONPLAYER_MEDIAPLAYRER2_H
-#define DRAGONPLAYER_MEDIAPLAYRER2_H
+#ifndef DRAGONPLAYER_MEDIAPLAYER2_H
+#define DRAGONPLAYER_MEDIAPLAYER2_H
 
 #include <QDBusAbstractAdaptor>
 #include <QStringList> // Needed for automoc'ed cpp to compile

@@ -32,8 +32,8 @@
 #include <QApplication>
 #include <QFile>
 #include <QDebug>
-#include <QtWidgets/qgraphicsitem.h>
-#include <QtGui/qevent.h>
+#include <QGraphicsItem>
+#include <QEvent>
 
 PlaylistFile::PlaylistFile(const QUrl &url )
     : m_url( url )

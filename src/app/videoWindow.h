@@ -84,7 +84,7 @@ private:
                             , const char* actionSlot );
 
 public:
-    VideoWindow( QWidget *parent );
+    explicit VideoWindow( QWidget *parent );
     ~VideoWindow();
 
     bool init();

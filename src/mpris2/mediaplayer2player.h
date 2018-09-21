@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ***********************************************************************/
 
-#ifndef DRAGONPLAYER_MEDIAPLAYRER2PLAYER_H
-#define DRAGONPLAYER_MEDIAPLAYRER2PLAYER_H
+#ifndef DRAGONPLAYER_MEDIAPLAYER2PLAYER_H
+#define DRAGONPLAYER_MEDIAPLAYER2PLAYER_H
 
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>

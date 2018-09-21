@@ -29,7 +29,7 @@
 class PlaylistFile
 {
 public:
-    PlaylistFile( const QUrl &url );
+    explicit PlaylistFile( const QUrl &url );
     ~PlaylistFile();
 
     enum FileFormat { M3U, PLS, Unknown, NotPlaylistFile = Unknown };

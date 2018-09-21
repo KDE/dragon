@@ -43,7 +43,7 @@ class AdjustSizeButton : public QFrame
     QFrame *m_thingy;
 
 public:
-    AdjustSizeButton( QWidget *parent );
+    explicit AdjustSizeButton( QWidget *parent );
 
 private:
     virtual void timerEvent( QTimerEvent* ) Q_DECL_OVERRIDE;

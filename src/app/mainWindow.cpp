@@ -845,7 +845,7 @@ MainWindow::inhibitPowerSave()
 void
 MainWindow::releasePowerSave()
 {
-    //stop supressing sleep
+    //stop suppressing sleep
     if (m_stopSleepCookie != -1) {
         ::close(m_stopSleepCookie);
         m_stopSleepCookie = -1;
