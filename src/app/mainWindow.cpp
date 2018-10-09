@@ -245,11 +245,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::closeEvent (QCloseEvent *event)
 {
-    // Restore the state of these before closing
     mainWindow()->setWindowState( Qt::WindowNoState );
-    statusBar()->setHidden( m_statusbarIsHidden );
-    toolBar()->setHidden( m_toolbarIsHidden );
-    menuBar()->setHidden( m_menuBarIsHidden );
+    // restore the following user ui settings which are changed in full screen mode
+    if (mainWindow()->isFullScreen()) {
+        statusBar()->setHidden( m_statusbarIsHidden );
+        toolBar()->setHidden( m_toolbarIsHidden );
+        menuBar()->setHidden( m_menuBarIsHidden );
+    }
 
     KMainWindow::closeEvent( event );
 }
