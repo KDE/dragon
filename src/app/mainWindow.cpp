@@ -258,6 +258,12 @@ void MainWindow::closeEvent (QCloseEvent *event)
 
 void MainWindow::wheelEvent (QWheelEvent *event)
 {
+    // do not allow to change volume in load view
+    // it can be frustrating in recently played list
+    if (m_mainView->currentWidget() == m_loadView) {
+        return;
+    }
+
     if (event->delta() > 0)
         engine()->increaseVolume();
     else
