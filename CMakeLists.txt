@@ -63,6 +63,19 @@ check_include_files(unistd.h HAVE_UNISTD_H)
 
 configure_file(config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
+add_definitions(
+    -DQT_DEPRECATED_WARNINGS
+    -DQT_DISABLE_DEPRECATED_BEFORE=0x050600
+    -DQT_USE_QSTRINGBUILDER
+    -DQT_NO_CAST_TO_ASCII
+#     -DQT_NO_CAST_FROM_ASCII
+    -DQT_NO_CAST_FROM_BYTEARRAY
+    -DQT_STRICT_ITERATORS
+    -DQT_NO_URL_CAST_FROM_STRING
+    -DQT_NO_SIGNALS_SLOTS_KEYWORDS
+    -DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT
+)
+
 add_definitions(-DTRANSLATION_DOMAIN="dragonplayer")
 
 add_subdirectory( src/app )
