@@ -27,9 +27,9 @@
 #endif
 
 #include "fht.h"     //stack allocated and convenience
-#include <qpixmap.h> //stack allocated and convenience
-#include <qtimer.h>  //stack allocated
-#include <qwidget.h> //baseclass
+#include <QPixmap> //stack allocated and convenience
+#include <QTimer>  //stack allocated
+#include <QWidget> //baseclass
 #include <vector>    //included for convenience
 
 #include <phonon/audiodataoutput.h>
