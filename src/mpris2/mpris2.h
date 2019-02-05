@@ -30,7 +30,7 @@ class Mpris2 : public QObject
 
 public:
     explicit Mpris2(QObject* parent);
-    ~Mpris2();
+    ~Mpris2() override;
 
     static void signalPropertiesChange(const QObject* adaptor, const QVariantMap& properties);
 };

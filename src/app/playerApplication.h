@@ -32,7 +32,7 @@ class PlayerApplication : public QApplication
     Q_OBJECT
 public:
     PlayerApplication(int &argc, char **argv);
-    virtual ~PlayerApplication();
+    ~PlayerApplication() override;
     void newInstance(bool playDisc = false, const QList<QUrl> &uris = QList<QUrl>());
 
 public slots:

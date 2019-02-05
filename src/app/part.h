@@ -43,12 +43,12 @@ class Part : public KParts::ReadOnlyPart
 public:
     Part(QWidget* parentWidget, QObject* parent, const QList<QVariant>& /*args*/ );
 
-    virtual bool closeUrl() Q_DECL_OVERRIDE;
+    bool closeUrl() override;
 
     static KAboutData *createAboutData();
 
 public slots:
-    virtual bool openUrl( const QUrl& ) Q_DECL_OVERRIDE;
+    bool openUrl( const QUrl& ) override;
 
 private slots:
     void engineStateChanged( Phonon::State state );

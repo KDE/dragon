@@ -35,8 +35,8 @@ class FullScreenToolBarHandler : QObject
     Q_OBJECT
 public:
     explicit FullScreenToolBarHandler(KMainWindow *parent );
-    bool eventFilter( QObject *o, QEvent *e ) Q_DECL_OVERRIDE;
-    void timerEvent( QTimerEvent* ) Q_DECL_OVERRIDE;
+    bool eventFilter( QObject *o, QEvent *e ) override;
+    void timerEvent( QTimerEvent* ) override;
 private:
     int m_timer_id; // 0 when timer is not running
     QPoint m_home;

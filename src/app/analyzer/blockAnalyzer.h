@@ -38,7 +38,7 @@ class BlockAnalyzer : public Analyzer::Base2D
 {
 public:
     explicit BlockAnalyzer( QWidget* );
-    ~BlockAnalyzer();
+    ~BlockAnalyzer() override;
 
     // Signed ints because most of what we compare them against are ints
     static const int HEIGHT      = 2;
@@ -49,10 +49,10 @@ public:
     static const int FADE_SIZE   = 90;
 
 protected:
-    virtual void transform( QVector<float>& ) Q_DECL_OVERRIDE;
-    virtual void analyze( const QVector<float>& ) Q_DECL_OVERRIDE;
-    virtual void paintEvent( QPaintEvent* ) Q_DECL_OVERRIDE;
-    virtual void resizeEvent( QResizeEvent* ) Q_DECL_OVERRIDE;
+    void transform( QVector<float>& ) override;
+    void analyze( const QVector<float>& ) override;
+    void paintEvent( QPaintEvent* ) override;
+    void resizeEvent( QResizeEvent* ) override;
     void paletteChange( const QPalette& );
 
     void drawBackground();

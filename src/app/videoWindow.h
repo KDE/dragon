@@ -85,7 +85,7 @@ private:
 
 public:
     explicit VideoWindow( QWidget *parent );
-    ~VideoWindow();
+    ~VideoWindow() override;
 
     bool init();
 
@@ -157,10 +157,10 @@ public slots:
     bool canGoNext() const;
 
 protected:
-    virtual bool event( QEvent* e ) Q_DECL_OVERRIDE;
-    virtual void contextMenuEvent( QContextMenuEvent * event ) Q_DECL_OVERRIDE;
-    virtual void mouseDoubleClickEvent( QMouseEvent* ) Q_DECL_OVERRIDE;
-    virtual QSize sizeHint() const Q_DECL_OVERRIDE;
+    bool event( QEvent* e ) override;
+    void contextMenuEvent( QContextMenuEvent * event ) override;
+    void mouseDoubleClickEvent( QMouseEvent* ) override;
+    QSize sizeHint() const override;
     Phonon::State state( Phonon::State state ) const;
     void setSubtitle( int channel );
     void setAudioChannel( int channel );

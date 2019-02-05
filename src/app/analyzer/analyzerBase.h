@@ -52,7 +52,7 @@ public slots:
 
 protected:
     Base(QWidget*, uint = 7);
-    ~Base() { delete m_fht; }
+    ~Base() override { delete m_fht; }
 
     int  resizeExponent(int);
     int  resizeForBands(int);
@@ -85,8 +85,8 @@ protected:
     QPixmap     *canvas() { return &m_canvas; }
     void    eraseCanvas() { m_canvas.fill(Qt::transparent); }
 
-    void paintEvent( QPaintEvent* ) Q_DECL_OVERRIDE;
-    void resizeEvent( QResizeEvent* ) Q_DECL_OVERRIDE;
+    void paintEvent( QPaintEvent* ) override;
+    void resizeEvent( QResizeEvent* ) override;
 
 
 protected slots:

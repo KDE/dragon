@@ -46,8 +46,8 @@ public:
     explicit AdjustSizeButton( QWidget *parent );
 
 private:
-    virtual void timerEvent( QTimerEvent* ) Q_DECL_OVERRIDE;
-    virtual bool eventFilter( QObject*, QEvent* ) Q_DECL_OVERRIDE;
+    void timerEvent( QTimerEvent* ) override;
+    bool eventFilter( QObject*, QEvent* ) override;
 
     inline void move()
     {

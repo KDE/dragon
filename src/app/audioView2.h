@@ -35,7 +35,7 @@ class AudioView2 : public QWidget
     
 public:
     explicit AudioView2(QWidget *parent = 0);
-    ~AudioView2();
+    ~AudioView2() override;
 
     void setupAnalyzer();
 
@@ -44,7 +44,7 @@ public slots:
     void update();
     
 protected:
-    void changeEvent(QEvent *e) Q_DECL_OVERRIDE;
+    void changeEvent(QEvent *e) override;
     
 private:
     Ui::AudioView2 *ui;

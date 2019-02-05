@@ -28,8 +28,8 @@ class TimeLabel : public QLabel
     Q_OBJECT
 public:
     explicit TimeLabel( QWidget *parent );
-    virtual ~TimeLabel();
-    void mousePressEvent( QMouseEvent * ) Q_DECL_OVERRIDE;
+    ~TimeLabel() override;
+    void mousePressEvent( QMouseEvent * ) override;
     void updateTime();
     enum TimeFormats { SHOW_REMAINING, SHOW_COMPLETED };
 public slots:

@@ -45,7 +45,7 @@ class MediaPlayer2 : public QDBusAbstractAdaptor
 
 public:
     explicit MediaPlayer2(QObject* parent);
-    ~MediaPlayer2();
+    ~MediaPlayer2() override;
 
     bool CanQuit() const;
     bool CanRaise() const;

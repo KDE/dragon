@@ -56,7 +56,7 @@ class MainWindow : public KXmlGuiWindow
     Q_OBJECT
 
     MainWindow();
-    ~MainWindow();
+    ~MainWindow() override;
 
     static MainWindow *s_instance;
 
@@ -110,9 +110,9 @@ private:
 
     QMenu *menu( const char *name );
 
-    virtual void dragEnterEvent( QDragEnterEvent* ) Q_DECL_OVERRIDE;
-    virtual void dropEvent( QDropEvent* ) Q_DECL_OVERRIDE;
-    virtual void keyPressEvent( QKeyEvent* ) Q_DECL_OVERRIDE;
+    void dragEnterEvent( QDragEnterEvent* ) override;
+    void dropEvent( QDropEvent* ) override;
+    void keyPressEvent( QKeyEvent* ) override;
 
     void inhibitPowerSave();
     void releasePowerSave();
@@ -152,8 +152,8 @@ private:
     Q_DISABLE_COPY(MainWindow)
 
 protected:
-    void closeEvent( QCloseEvent * event ) Q_DECL_OVERRIDE;
-    void wheelEvent ( QWheelEvent * event ) Q_DECL_OVERRIDE;
+    void closeEvent( QCloseEvent * event ) override;
+    void wheelEvent ( QWheelEvent * event ) override;
 };
 
 }

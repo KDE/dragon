@@ -31,9 +31,9 @@ class RecentlyPlayedList : public QListWidget
     Q_OBJECT
 public:
     explicit RecentlyPlayedList(QWidget*);
-    virtual ~RecentlyPlayedList();
+    ~RecentlyPlayedList() override;
 private:
-    virtual void contextMenuEvent(QContextMenuEvent*) Q_DECL_OVERRIDE;
+    void contextMenuEvent(QContextMenuEvent*) override;
     KConfigGroup* configGroup;
 public slots:
     void loadEntries();

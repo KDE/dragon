@@ -49,7 +49,7 @@ class MediaPlayer2Player : public QDBusAbstractAdaptor
 
 public:
     explicit MediaPlayer2Player(QObject* parent);
-    ~MediaPlayer2Player();
+    ~MediaPlayer2Player() override;
 
     QString PlaybackStatus() const;
     QString LoopStatus() const;
