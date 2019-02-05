@@ -56,7 +56,7 @@ include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
     )
 
-include_directories(BEFORE ${PHONON_INCLUDES})
+include_directories(BEFORE SYSTEM ${PHONON_INCLUDES})
 
 include(CheckIncludeFiles)
 check_include_files(unistd.h HAVE_UNISTD_H)
