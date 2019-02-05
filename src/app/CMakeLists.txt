@@ -75,4 +75,4 @@ target_link_libraries(dragonpart
     ${PHONON_LIBRARY}
     )
 
-install(TARGETS dragonpart DESTINATION ${PLUGIN_INSTALL_DIR} )
+install(TARGETS dragonpart DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/parts )
