@@ -20,8 +20,6 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 
-include(ECMPackageConfigHelpers)
-include(ECMOptionalAddSubdirectory)
 include(ECMInstallIcons)
 include(ECMSetupVersion)
 include(FeatureSummary)
