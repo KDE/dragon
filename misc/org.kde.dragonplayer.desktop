@@ -115,3 +115,4 @@ MimeType=video/ogg;video/x-theora+ogg;video/x-ogm+ogg;video/x-ms-wmv;video/x-msv
 Categories=Qt;KDE;AudioVideo;Player;
 X-DBUS-StartupType=Unique
 X-DBUS-ServiceName=org.kde.dragonplayer
+StartupWMClass=dragonplayer
