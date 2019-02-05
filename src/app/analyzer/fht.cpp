@@ -25,9 +25,9 @@
 #include <string.h>
 
 FHT::FHT(int n) :
-    m_buf(0),
-    m_tab(0),
-    m_log(0)
+    m_buf(nullptr),
+    m_tab(nullptr),
+    m_log(nullptr)
 {
     if (n < 3) {
         m_num = 0;

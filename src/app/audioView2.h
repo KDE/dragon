@@ -34,7 +34,7 @@ class AudioView2 : public QWidget
     Q_OBJECT
     
 public:
-    explicit AudioView2(QWidget *parent = 0);
+    explicit AudioView2(QWidget *parent = nullptr);
     ~AudioView2() override;
 
     void setupAnalyzer();

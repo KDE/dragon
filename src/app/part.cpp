@@ -48,7 +48,7 @@ namespace Dragon
     Part::Part( QWidget* parentWidget, QObject* parent, const QList<QVariant>& /*args*/ )
         : ReadOnlyPart( parent )
         , m_statusBarExtension( new KParts::StatusBarExtension( this ) )
-        , m_playPause( 0 )
+        , m_playPause( nullptr )
     {
         KActionCollection * const ac = actionCollection();
 
@@ -118,9 +118,9 @@ namespace Dragon
         menu.exec( pos );
     }
 
-    QAction *action( const char* /*actionName*/ ) { return 0; }
+    QAction *action( const char* /*actionName*/ ) { return nullptr; }
     ///fake mainWindow for VideoWindow
-    QWidget *mainWindow() { return 0; }
+    QWidget *mainWindow() { return nullptr; }
 
 }
 

@@ -77,7 +77,7 @@ AdjustSizeButton::AdjustSizeButton( QWidget *parent )
     }
 
     QEvent e( QEvent::Resize );
-    eventFilter( 0, &e );
+    eventFilter( nullptr, &e );
 
     adjustSize();
     show();

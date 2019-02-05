@@ -29,14 +29,14 @@ namespace Dragon
 
 PlayerApplication::PlayerApplication(int &argc, char **argv)
     : QApplication(argc, argv)
-    , m_mainWindow(Q_NULLPTR)
+    , m_mainWindow(nullptr)
 {
 }
 
 PlayerApplication::~PlayerApplication()
 {
     if (m_mainWindow) {
-        m_mainWindow = Q_NULLPTR;
+        m_mainWindow = nullptr;
         delete m_mainWindow;
     }
 }

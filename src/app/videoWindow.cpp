@@ -74,7 +74,7 @@ using Phonon::MediaController;
 namespace Dragon {
 
 
-VideoWindow *VideoWindow::s_instance = 0;
+VideoWindow *VideoWindow::s_instance = nullptr;
 
 VideoWindow::VideoWindow( QWidget *parent )
     : QWidget( parent )
@@ -85,7 +85,7 @@ VideoWindow::VideoWindow( QWidget *parent )
     , m_audioLanguages( new QActionGroup( this ) )
     , m_logo( new QLabel( this ) )
     , m_initialOffset( 0 )
-    , m_aDataOutput(0)
+    , m_aDataOutput(nullptr)
 {
     m_isPreview = false;
 

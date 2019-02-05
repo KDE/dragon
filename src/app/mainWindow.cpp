@@ -82,31 +82,31 @@
 
 namespace Dragon {
 
-MainWindow *MainWindow::s_instance = 0;
+MainWindow *MainWindow::s_instance = nullptr;
 /// @see codeine.h
 QWidget* mainWindow() { return MainWindow::s_instance; }
 
 MainWindow::MainWindow()
     : KXmlGuiWindow()
-    , m_mainView( 0 )
-    , m_audioView( 0 )
+    , m_mainView( nullptr )
+    , m_audioView( nullptr )
     , m_loadView( new LoadView(this) )
     , m_currentWidget( nullptr )
-    , m_leftDock( 0 )
-    , m_positionSlider( 0 )
-    , m_volumeSlider( 0 )
-    , m_timeLabel( 0 )
+    , m_leftDock( nullptr )
+    , m_positionSlider( nullptr )
+    , m_volumeSlider( nullptr )
+    , m_timeLabel( nullptr )
     , m_titleLabel( new QLabel( this ) )
-    , m_playDialog( 0 )
-    , m_menuToggleAction( 0 )
-    , m_stopScreenSaver( 0 )
+    , m_playDialog( nullptr )
+    , m_menuToggleAction( nullptr )
+    , m_stopScreenSaver( nullptr )
     , m_stopSleepCookie( -1 )
     , m_stopScreenPowerMgmtCookie( -1 )
     , m_profileMaxDays(30)
     , m_toolbarIsHidden(false)
     , m_statusbarIsHidden(false)
     , m_menuBarIsHidden(false)
-    , m_FullScreenHandler( 0 )
+    , m_FullScreenHandler( nullptr )
 {
     s_instance = this;
     setMouseTracking( true );
@@ -143,7 +143,7 @@ MainWindow::MainWindow()
 
     {
         KActionCollection* ac = actionCollection();
-        KActionMenu *menuAction = 0;
+        KActionMenu *menuAction = nullptr;
 #define make_menu( name, text ) \
         menuAction = new KActionMenu( text, this ); \
         menuAction->setObjectName( name ); \
@@ -701,7 +701,7 @@ void
 MainWindow::openRecentFile(const QUrl &url )
 {
     m_playDialog->deleteLater();
-    m_playDialog = 0;
+    m_playDialog = nullptr;
     this->open( url );
 }
 
@@ -737,7 +737,7 @@ MainWindow::setFullScreen( bool isFullScreen )
         action( "fullscreen" )->setEnabled( videoWindow()->state() == Phonon::PlayingState
                                             || videoWindow()->state() ==  Phonon::PausedState);
         delete m_FullScreenHandler;
-        m_FullScreenHandler = 0;
+        m_FullScreenHandler = nullptr;
     }
 }
 
@@ -861,7 +861,7 @@ MainWindow::releasePowerSave()
 
     //stop disabling screensaver
     delete m_stopScreenSaver; // It is always 0, I have been careful.
-    m_stopScreenSaver = 0;
+    m_stopScreenSaver = nullptr;
 }
 
 QMenu*
@@ -920,8 +920,8 @@ actionCollection()
 QAction*
 action( const char *name )
 {
-    KActionCollection *actionCollection = 0;
-    QAction *action = 0;
+    KActionCollection *actionCollection = nullptr;
+    QAction *action = nullptr;
 
     if( mainWindow() )
         if( ( actionCollection = ((MainWindow*)mainWindow() )->actionCollection() ) )
