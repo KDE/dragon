@@ -63,8 +63,6 @@ int main( int argc, char **argv )
 
     QCommandLineParser parser;
     aboutData.setupCommandLine(&parser);
-    parser.addVersionOption();
-    parser.addHelpOption();
 
     parser.addOption(QCommandLineOption("play-dvd", i18n("Play DVD Video")));
     parser.addPositionalArgument("url", i18n("Play 'URL'"), QStringLiteral("+[URL]"));
