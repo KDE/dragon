@@ -33,7 +33,7 @@ class LoadView : public QWidget, private Ui_LoadView
 public:
     explicit LoadView(QWidget *parent);
     void setThumbnail(QWidget *object);
-signals:
+Q_SIGNALS:
     void loadUrl(QUrl);
     void openFilePressed();
     void openDVDPressed();

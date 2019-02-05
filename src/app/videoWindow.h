@@ -128,7 +128,7 @@ public:
     qint64 currentTime() const;
     int videoSetting( const QString& );
 
-public slots:
+public Q_SLOTS:
     void pause();
     void playPause();
     void seek( qint64 );
@@ -164,10 +164,10 @@ protected:
     Phonon::State state( Phonon::State state ) const;
     void setSubtitle( int channel );
     void setAudioChannel( int channel );
-private slots:
+private Q_SLOTS:
     void updateChannels();
     void hideCursor();
-signals:
+Q_SIGNALS:
     void stateUpdated( const Phonon::State, const Phonon::State );
     void subChannelsChanged( QList< QAction* > );
     void audioChannelsChanged( QList< QAction* > );

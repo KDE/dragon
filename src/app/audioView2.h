@@ -39,7 +39,7 @@ public:
 
     void setupAnalyzer();
 
-public slots:
+public Q_SLOTS:
     void enableDemo(bool enable);
     void update();
     

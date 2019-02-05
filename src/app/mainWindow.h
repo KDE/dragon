@@ -68,10 +68,10 @@ public:
     void showVolume( bool );
     bool volumeContains(const QPoint &mousePos );
 
-signals:
+Q_SIGNALS:
     void fileChanged( QString );
 
-public slots:
+public Q_SLOTS:
     bool open(const QUrl & );
     void playDisc();
     void openFileDialog();
@@ -82,7 +82,7 @@ public slots:
     void restoreDefaultVideoSettings();
     void toggleLoadView();
 
-private slots:
+private Q_SLOTS:
     void setFullScreen( bool full );
     void engineMessage( const QString& );
     void init();

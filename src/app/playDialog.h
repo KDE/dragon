@@ -40,7 +40,7 @@ public:
 
     enum DialogCode { FILE = QDialog::Accepted + 2, VCD, DVD, RECENT_FILE };
 
-private slots:
+private Q_SLOTS:
     void finished(QListWidgetItem *item );
 
 private:

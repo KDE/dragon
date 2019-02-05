@@ -35,7 +35,7 @@ public:
     ~PlayerApplication() override;
     void newInstance(bool playDisc = false, const QList<QUrl> &uris = QList<QUrl>());
 
-public slots:
+public Q_SLOTS:
     void slotActivateRequested(const QStringList &arguments, const QString &workingDirectory);
     void slotOpenRequested(const QList<QUrl> &uris);
 

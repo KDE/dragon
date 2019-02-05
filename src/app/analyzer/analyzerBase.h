@@ -47,7 +47,7 @@ class Base : public QWidget
 {
     Q_OBJECT
 
-public slots:
+public Q_SLOTS:
     void drawFrame(const QMap<Phonon::AudioDataOutput::Channel, QVector<qint16> > &thescope);
 
 protected:
@@ -59,7 +59,7 @@ protected:
     virtual void transform(QVector<float>&);
     virtual void analyze(const QVector<float>&) = 0;
     virtual void paused();
-public slots:
+public Q_SLOTS:
     void demo();
 protected:
     FHT *m_fht;
@@ -72,7 +72,7 @@ class Base2D : public Base
 public:
     const QPixmap *canvas() const { return &m_canvas; }
 
-    // private slots:
+    // private Q_SLOTS:
     //     void draw() { drawFrame(); bitBlt( this, 0, 0, canvas() ); }
 
     void enableDemo(bool enable) { enable ? timer.start() : timer.stop(); }
@@ -89,7 +89,7 @@ protected:
     void resizeEvent( QResizeEvent* ) override;
 
 
-protected slots:
+protected Q_SLOTS:
     virtual void init() {}
 
 private:

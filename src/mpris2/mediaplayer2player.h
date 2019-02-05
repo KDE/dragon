@@ -71,10 +71,10 @@ public:
     bool CanSeek() const;
     bool CanControl() const;
 
-signals:
+Q_SIGNALS:
     void Seeked(qlonglong Position) const;
 
-public slots:
+public Q_SLOTS:
     void Next() const;
     void Previous() const;
     void Pause() const;
@@ -85,7 +85,7 @@ public slots:
     void SetPosition(const QDBusObjectPath& TrackId, qlonglong Position) const;
     void OpenUri(QString Uri) const;
 
-private slots:
+private Q_SLOTS:
     void tick(qint64 newPos);
     void emitMetadataChange() const;
     void currentSourceChanged() const;

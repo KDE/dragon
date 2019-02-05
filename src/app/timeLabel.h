@@ -32,7 +32,7 @@ public:
     void mousePressEvent( QMouseEvent * ) override;
     void updateTime();
     enum TimeFormats { SHOW_REMAINING, SHOW_COMPLETED };
-public slots:
+public Q_SLOTS:
     void setCurrentTime( qint64 );
     void setTotalTime( qint64 );
 private:

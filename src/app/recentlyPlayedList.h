@@ -35,12 +35,12 @@ public:
 private:
     void contextMenuEvent(QContextMenuEvent*) override;
     KConfigGroup* configGroup;
-public slots:
+public Q_SLOTS:
     void loadEntries();
     void removeEntry();
     void clearList();
     void itemDoubleClicked(QListWidgetItem*);
-signals:
+Q_SIGNALS:
     void itemDoubleClicked(QUrl);
 };
 

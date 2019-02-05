@@ -47,10 +47,10 @@ public:
 
     static KAboutData *createAboutData();
 
-public slots:
+public Q_SLOTS:
     bool openUrl( const QUrl& ) override;
 
-private slots:
+private Q_SLOTS:
     void engineStateChanged( Phonon::State state );
     void videoContextMenu( const QPoint & pos );
 

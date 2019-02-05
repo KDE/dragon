@@ -34,7 +34,7 @@ class DiscSelectionDialog : public QDialog
     Q_OBJECT
 public:
     DiscSelectionDialog( QWidget* parent, const QList< Solid::Device >& deviceList );
-private slots:
+private Q_SLOTS:
     void discItemSelected( QListWidgetItem *item );
     void okClicked();
 private:
