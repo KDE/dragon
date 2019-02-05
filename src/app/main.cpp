@@ -47,7 +47,7 @@ int main( int argc, char **argv )
                           i18n("A video player that has a usability focus"), KAboutLicense::GPL_V2,
                           i18n("Copyright 2006, Max Howell\nCopyright 2007, Ian Monroe"),
                           i18n("IRC:\nirc.freenode.net #dragonplayer\n\nFeedback:\nimonroe@kde.org"),
-                          "http://multimedia.kde.org" );
+                          "https://multimedia.kde.org" );
     aboutData.setDesktopFileName(QStringLiteral("org.kde.dragonplayer"));
     aboutData.addCredit( QStringLiteral("David Edmundson"), i18n("Improvements and polish") );
     aboutData.addCredit( QStringLiteral("Matthias Kretz"), i18n("Creator of Phonon") );
