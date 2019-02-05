@@ -1,5 +1,5 @@
-<!DOCTYPE kpartgui>
-<kpartgui name="dragonplayer" translationDomain="dragonplayer" version="5">
+<!DOCTYPE gui SYSTEM "kpartgui.dtd">
+<gui name="dragonplayer" translationDomain="dragonplayer" version="5">
 <MenuBar>
    <Menu name="file" noMerge="1"><text>&amp;Play</text>
       <Action name="file_open"/>
@@ -35,4 +35,4 @@
    <Action name="fullscreen"/>
 </ToolBar>
 
-</kpartgui>
+</gui>
