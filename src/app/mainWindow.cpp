@@ -419,8 +419,9 @@ MainWindow::toggleVideoSettings( bool show )
         m_sliders.clear();
         m_sliders << ui.brightnessSlider << ui.contrastSlider << ui.hueSlider <<  ui.saturationSlider;
         updateSliders();
-        foreach( QSlider* slider, m_sliders )
+        for (QSlider* slider : qAsConst(m_sliders)) {
             connect( slider, SIGNAL(valueChanged(int)), engine(), SLOT(settingChanged(int)) );
+        }
 
         connect( ui.defaultsButton, SIGNAL(clicked(bool)), this, SLOT(restoreDefaultVideoSettings()) );
         connect( ui.closeButton, SIGNAL(clicked(bool)), action( "video_settings" ), SLOT(setChecked(bool)) );
@@ -434,8 +435,9 @@ MainWindow::toggleVideoSettings( bool show )
 void
 MainWindow::restoreDefaultVideoSettings()
 {
-    foreach( QSlider* slider, m_sliders )
+    for (QSlider* slider :  qAsConst(m_sliders)) {
         slider->setValue(0);
+    }
 }
 
 void
@@ -514,8 +516,9 @@ void MainWindow::stop()
 void
 MainWindow::updateSliders()
 {
-    foreach( QSlider* slider, m_sliders )
+    for (QSlider* slider : qAsConst(m_sliders)) {
         slider->setValue( engine()->videoSetting( slider->objectName() ) );
+    }
 }
 
 void
@@ -673,7 +676,7 @@ MainWindow::playDisc()
     {
         const QList< Solid::Device > deviceList = Solid::Device::listFromType( Solid::DeviceInterface::OpticalDisc );
 
-        foreach( const Solid::Device &device, deviceList ) {
+        for (const Solid::Device &device : deviceList) {
             const Solid::OpticalDisc* disc = device.as<const Solid::OpticalDisc>();
             if( disc ) {
                 if( disc->availableContent() & ( Solid::OpticalDisc::VideoDvd | Solid::OpticalDisc::VideoCd | Solid::OpticalDisc::SuperVideoCd |  Solid::OpticalDisc::Audio ) )
@@ -764,7 +767,7 @@ MainWindow::aboutToShowMenu()
         const int subId = TheStream::subtitleChannel();
         const QList< QAction* > subs = action("subtitle_channels_menu")->menu()->actions();
         qDebug() << "subtitle #" << subId << " is going to be checked";
-        foreach( QAction* subAction, subs ) {
+        for (QAction* subAction : subs) {
             if( subAction->property( TheStream::CHANNEL_PROPERTY ).toInt() == subId ) {
                 subAction->setChecked( true );
                 break;
@@ -776,7 +779,7 @@ MainWindow::aboutToShowMenu()
         const int audioId = TheStream::audioChannel();
         const QList< QAction* > audios = action("audio_channels_menu")->menu()->actions();
         qDebug() << "audio #" << audioId << " is going to be checked";
-        foreach( QAction* audioAction, audios ) {
+        for (QAction* audioAction : audios) {
             if( audioAction->property( TheStream::CHANNEL_PROPERTY ).toInt() == audioId ) {
                 audioAction->setChecked( true );
                 break;

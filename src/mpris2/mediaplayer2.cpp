@@ -106,9 +106,11 @@ QStringList MediaPlayer2::SupportedUriSchemes() const
 {
     QStringList protocols;
 
-    foreach(const QString& protocol, KProtocolInfo::protocols())
+    const auto allProtocols = KProtocolInfo::protocols();
+    for (const QString& protocol : allProtocols) {
         if (!KProtocolInfo::isHelperProtocol(protocol))
             protocols << protocol;
+    }
 
     return protocols;
 }
