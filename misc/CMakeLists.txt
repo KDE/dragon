@@ -3,7 +3,6 @@ install(FILES dragonplayer-opendvd.desktop dragonplayer-openaudiocd.desktop DEST
 install(FILES dragonplayer_part.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
 install(FILES dragonplayerrc DESTINATION ${CONFIG_INSTALL_DIR})
 install(FILES dragonplayer_play_dvd.desktop DESTINATION ${SERVICES_INSTALL_DIR}/ServiceMenus)
-install(FILES dragonplayerui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/dragonplayer)
 install(FILES org.kde.dragonplayer.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR} )
 
 ecm_install_icons(

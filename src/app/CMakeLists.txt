@@ -27,6 +27,10 @@ set(videoplayer_app_SRCS
 
 ki18n_wrap_ui(videoplayer_app_SRCS videoSettingsWidget.ui loadView.ui audioView2.ui)
 
+qt5_add_resources(videoplayer_app_SRCS
+    dragonplayer.qrc
+)
+
 add_executable(dragon ${videoplayer_app_SRCS} )
 
 target_link_libraries(dragon
