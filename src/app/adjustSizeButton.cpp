@@ -59,8 +59,6 @@ AdjustSizeButton::AdjustSizeButton( QWidget *parent )
     connect( m_oneToOne, SIGNAL(clicked()), SLOT(deleteLater()) );
 
     QBoxLayout *hbox = new QHBoxLayout( this );
-    hbox->setMargin( 8 );
-    hbox->setSpacing( 6 );
     QBoxLayout *vbox = new QVBoxLayout( this );
     hbox->addLayout( vbox );
     vbox->addWidget( new QLabel( i18n( "<b>Adjust video scale?</b>" ), this ) );
