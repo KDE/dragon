@@ -93,7 +93,7 @@ VideoWindow::VideoWindow( QWidget *parent )
     setObjectName( QLatin1String( "VideoWindow" ) );
 
     QVBoxLayout *box = new QVBoxLayout( this );
-    box->setMargin(0);
+    box->setContentsMargins(0, 0, 0, 0);
     box->setSpacing(0);
     m_vWidget = new VideoWidget( this );
     m_vWidget->hide();

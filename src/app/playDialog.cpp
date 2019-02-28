@@ -48,7 +48,7 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
     QPushButton *closeButton = new QPushButton( this );
     KGuiItem::assign(closeButton, KStandardGuiItem::close());
     QBoxLayout *vbox = new QVBoxLayout();
-    //vbox->setMargin( 0 );
+    //vbox->setContentsMargins(0, 0, 0, 0);
     vbox->setSpacing( 15 );
     //    hbox->setMargin( 15 );  vbox->setMargin( 15 );
     //    hbox->setSpacing( 20 ); vbox->setSpacing( 20 );
@@ -57,7 +57,7 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
 
     QGridLayout *grid = new QGridLayout();
     vbox->addLayout( grid );
-    grid->setMargin( 0 );
+    grid->setContentsMargins(0, 0, 0, 0);
     grid->setVerticalSpacing( 20 );
 
     //TODO use the kguiItems from the actions
