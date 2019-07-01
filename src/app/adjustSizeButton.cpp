@@ -66,7 +66,11 @@ AdjustSizeButton::AdjustSizeButton( QWidget *parent )
     vbox->addWidget( m_oneToOne );
     hbox->addWidget( m_thingy = new QFrame( this ) );
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
+    m_thingy->setFixedWidth( fontMetrics().horizontalAdvance( QLatin1String( "X" ) ) );
+#else
     m_thingy->setFixedWidth( fontMetrics().width( QLatin1String( "X" ) ) );
+#endif
     m_thingy->setFrameStyle( QFrame::Plain | QFrame::Box );
     {
         QPalette palette;
