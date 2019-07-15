@@ -22,6 +22,7 @@
 
 #include <QListWidget>
 #include <QApplication>
+#include <QClipboard>
 #include <KConfig>
 #include <QDebug>
 #include <QMenu>
@@ -43,6 +44,11 @@ RecentlyPlayedList::RecentlyPlayedList(QWidget *parent)
     setAlternatingRowColors( true );
     setSelectionMode(QAbstractItemView::SingleSelection);
 
+    QAction *copy = new QAction(i18nc("Copy the URL of the selected multimedia", "Copy URL"), this);
+    copy->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
+    connect(copy, &QAction::triggered, this, &RecentlyPlayedList::copyUrl);
+    copy->setShortcut(QKeySequence::Copy);
+
     QAction *clear = new QAction(i18n("Clear List"), this);
     clear->setIcon(QIcon::fromTheme(QStringLiteral("edit-clear-list")));
     connect(clear, &QAction::triggered, this, &RecentlyPlayedList::clearList);
@@ -53,7 +59,7 @@ RecentlyPlayedList::RecentlyPlayedList(QWidget *parent)
     connect(remove, &QAction::triggered, this, &RecentlyPlayedList::removeEntry);
     remove->setShortcut(QKeySequence::Delete);
 
-    addActions({remove, clear});
+    addActions({copy, remove, clear});
 
     configGroup = new KConfigGroup( KSharedConfig::openConfig(), "General" );
     loadEntries();
@@ -109,6 +115,14 @@ void RecentlyPlayedList::clearList()
 {
     configGroup->writePathEntry("Recent Urls",QString());
     loadEntries();
+}
+
+void RecentlyPlayedList::copyUrl()
+{
+    if (!currentItem())
+        return;
+    const QUrl toCopy = currentItem()->data(0xdecade).toUrl();
+    QApplication::clipboard()->setText(toCopy.toString());
 }
 
 //send the url for the item clicked, not the item

@@ -39,6 +39,7 @@ public Q_SLOTS:
     void loadEntries();
     void removeEntry();
     void clearList();
+    void copyUrl();
     void itemDoubleClicked(QListWidgetItem*);
 Q_SIGNALS:
     void itemDoubleClicked(QUrl);
