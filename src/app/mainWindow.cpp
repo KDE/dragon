@@ -130,7 +130,7 @@ MainWindow::MainWindow()
 
     setFocusProxy( videoWindow() ); // essential! See VideoWindow::event(), QEvent::FocusOut
 
-    m_titleLabel->setMargin( 2 );
+    m_titleLabel->setContentsMargins( 2 ,  2 ,  2 ,  2 );
     m_titleLabel->setSizePolicy(QSizePolicy( QSizePolicy::Expanding, QSizePolicy::Fixed ));
 
     // FIXME work around a bug in KStatusBar
@@ -265,7 +265,7 @@ void MainWindow::wheelEvent (QWheelEvent *event)
         return;
     }
 
-    if (event->delta() > 0)
+    if (event->angleDelta().y() > 0)
         engine()->increaseVolume();
     else
         engine()->decreaseVolume();
