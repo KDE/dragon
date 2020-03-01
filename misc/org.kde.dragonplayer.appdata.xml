@@ -391,12 +391,12 @@
     </ul>
   </description>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=dragonplayer</url>
-  <url type="help">https://docs.kde.org/stable/en/kdemultimedia/dragonplayer/index.html</url>
+  <url type="help">https://docs.kde.org/?application=dragonplayer</url>
   <url type="donation">https://www.kde.org/community/donations/?app=dragon&amp;source=appdata</url>
   <url type="homepage">https://kde.org/applications/multimedia/org.kde.dragonplayer</url>
   <screenshots>
     <screenshot type="default">
-      <image>https://kde.org/images/screenshots/dragonplayer.png</image>
+      <image>https://cdn.kde.org/screenshots/dragonplayer/dragonplayer.png</image>
     </screenshot>
   </screenshots>
   <project_group>KDE</project_group>
