@@ -405,6 +405,11 @@
   <provides>
     <binary>dragon</binary>
   </provides>
+  <launchable type="desktop-id">org.kde.dragonplayer.desktop</launchable>
+  <categories>
+    <category>AudioVideo</category>
+    <category>Player</category>
+  </categories>
   <releases>
     <release version="20.04.0" date="2020-04-23"/>
     <release version="19.12.2" date="2020-02-06"/>
