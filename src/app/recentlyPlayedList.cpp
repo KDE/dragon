@@ -44,17 +44,17 @@ RecentlyPlayedList::RecentlyPlayedList(QWidget *parent)
     setAlternatingRowColors( true );
     setSelectionMode(QAbstractItemView::SingleSelection);
 
-    QAction *copy = new QAction(i18nc("Copy the URL of the selected multimedia", "Copy URL"), this);
+    QAction *copy = new QAction(i18nc("@action Copy the URL of the selected multimedia", "Copy URL"), this);
     copy->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
     connect(copy, &QAction::triggered, this, &RecentlyPlayedList::copyUrl);
     copy->setShortcut(QKeySequence::Copy);
 
-    QAction *clear = new QAction(i18n("Clear List"), this);
+    QAction *clear = new QAction(i18nc("@action", "Clear List"), this);
     clear->setIcon(QIcon::fromTheme(QStringLiteral("edit-clear-list")));
     connect(clear, &QAction::triggered, this, &RecentlyPlayedList::clearList);
     clear->setShortcut(QKeySequence::Cut);
 
-    QAction *remove = new QAction(i18n("Remove Entry"), this);
+    QAction *remove = new QAction(i18nc("@action", "Remove Entry"), this);
     remove->setIcon(QIcon::fromTheme(QStringLiteral("list-remove")));
     connect(remove, &QAction::triggered, this, &RecentlyPlayedList::removeEntry);
     remove->setShortcut(QKeySequence::Delete);
@@ -136,7 +136,7 @@ void RecentlyPlayedList::itemDoubleClicked(QListWidgetItem* item)
         if( !fileInfo.exists() ) {
             if( KMessageBox::questionYesNo( this,
                                             i18n( "This file could not be found. Would you like to remove it from the playlist?" ),
-                                            i18n( "File not found" ) ) == KMessageBox::Yes ) {
+                                            i18nc("@title:window", "File not found" ) ) == KMessageBox::Yes ) {
                 removeEntry();
             }
 

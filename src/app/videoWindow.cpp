@@ -120,7 +120,7 @@ VideoWindow::VideoWindow( QWidget *parent )
 
     {
         m_subLanguages->setExclusive( true );
-        QAction* turnOff = new QAction( i18n("&DVD Subtitle Selection"), m_subLanguages );
+        QAction* turnOff = new QAction( i18nc("@option:radio", "&DVD Subtitle Selection"), m_subLanguages );
         turnOff->setCheckable( true );
         turnOff->setProperty( TheStream::CHANNEL_PROPERTY, -1 );
         connect( turnOff, SIGNAL(triggered()), this, SLOT(slotSetSubtitle()) );
@@ -130,7 +130,7 @@ VideoWindow::VideoWindow( QWidget *parent )
     }
     {
         m_audioLanguages->setExclusive( true );
-        QAction* autoLang = new QAction( i18n("&Auto"), m_audioLanguages );
+        QAction* autoLang = new QAction( i18nc("@option:radio audio language", "&Auto"), m_audioLanguages );
         autoLang->setProperty( TheStream::CHANNEL_PROPERTY, -1 );
         autoLang->setCheckable( true );
         connect( autoLang, SIGNAL(triggered()), this, SLOT(slotSetAudio()) );

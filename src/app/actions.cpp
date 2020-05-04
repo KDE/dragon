@@ -34,8 +34,8 @@ Dragon::PlayAction::PlayAction( QObject *receiver, const char *slot, KActionColl
 {
     setObjectName( QLatin1String( "play" ) );
 
-    setInactiveGuiItem(KGuiItem(i18n("Play"), QStringLiteral("media-playback-start")));
-    setActiveGuiItem(KGuiItem(i18n("Pause"), QStringLiteral( "media-playback-pause")));
+    setInactiveGuiItem(KGuiItem(i18nc("@action", "Play"), QStringLiteral("media-playback-start")));
+    setActiveGuiItem(KGuiItem(i18nc("@action", "Pause"), QStringLiteral( "media-playback-pause")));
     setAutoToggle( false );
     ac->setDefaultShortcuts(this, QList<QKeySequence>() << Qt::Key_Space << Qt::Key_MediaPlay);
     ac->addAction( objectName(), this );
@@ -51,7 +51,7 @@ void Dragon::PlayAction::setPlaying( bool playing )
 ///Codeine::VolumeAction
 ////////////////////////////////////////////////////
 Dragon::VolumeAction::VolumeAction( QObject *receiver, const char *slot, KActionCollection *ac )
-    : KToggleAction( i18nc( "Volume of sound output", "Volume"), ac )
+    : KToggleAction(i18nc("@option:check Volume of sound output", "Volume"), ac)
 {
     setObjectName( QLatin1String( "volume" ) );
     setIcon( QIcon::fromTheme(QLatin1String( "player-volume" ) ) );

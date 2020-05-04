@@ -50,11 +50,11 @@ AdjustSizeButton::AdjustSizeButton( QWidget *parent )
     setPalette( QApplication::palette() ); //videoWindow has different palette
     setFrameStyle( QFrame::Plain | QFrame::Box );
 
-    m_preferred = new QPushButton( QIcon::fromTheme( "viewmag" ), i18n("Preferred Scale"), this );
+    m_preferred = new QPushButton( QIcon::fromTheme( "viewmag" ), i18nc("@action:button", "Preferred Scale"), this );
     connect( m_preferred, SIGNAL(clicked()), Dragon::mainWindow(), SLOT(adjustSize()) );
     connect( m_preferred, SIGNAL(clicked()), SLOT(deleteLater()) );
 
-    m_oneToOne = new QPushButton( QIcon::fromTheme( "viewmag1" ), i18n("Scale 100%"), this );
+    m_oneToOne = new QPushButton( QIcon::fromTheme( "viewmag1" ), i18nc("@action:button", "Scale 100%"), this );
     connect( m_oneToOne, SIGNAL(clicked()), (QObject*)videoWindow(), SLOT(resetZoom()) );
     connect( m_oneToOne, SIGNAL(clicked()), SLOT(deleteLater()) );
 

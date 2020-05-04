@@ -41,7 +41,7 @@ namespace Dragon {
 PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
     : QDialog( parent )
 {
-    setWindowTitle( i18n("Play Media") );
+    setWindowTitle( i18nc("@title:window", "Play Media") );
 
     QSignalMapper *mapper = new QSignalMapper( this );
     QWidget *o;
@@ -61,11 +61,11 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
     grid->setVerticalSpacing( 20 );
 
     //TODO use the kguiItems from the actions
-    mapper->setMapping( o = new QPushButton( QIcon::fromTheme( "document-open" ), i18n("Play File..."), this ), FILE );
+    mapper->setMapping( o = new QPushButton( QIcon::fromTheme( "document-open" ), i18nc("@action:button", "Play File..."), this ), FILE );
     connect( o, SIGNAL(clicked()), mapper, SLOT(map()) );
     grid->addWidget( o, 0, 0 );
 
-    mapper->setMapping( o = new QPushButton( QIcon::fromTheme( "media-optical-video" ), i18n("Play Disc"), this ), DVD );
+    mapper->setMapping( o = new QPushButton( QIcon::fromTheme( "media-optical-video" ), i18nc("@action:button", "Play Disc"), this ), DVD );
     connect( o, SIGNAL(clicked()), mapper, SLOT(map()) );
     grid->addWidget( o, 0, 1 );
 
