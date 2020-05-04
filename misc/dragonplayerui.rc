@@ -1,7 +1,7 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="dragonplayer" translationDomain="dragonplayer" version="5">
+<gui name="dragonplayer" translationDomain="dragonplayer" version="6">
 <MenuBar>
-   <Menu name="file" noMerge="1"><text>&amp;Play</text>
+   <Menu name="file" noMerge="1"><text context="@title:menu">&amp;Play</text>
       <Action name="file_open"/>
       <Separator/>
       <Action name="play"/>
@@ -12,7 +12,7 @@
       <Separator/>
       <Action name="file_quit"/>
    </Menu>
-   <Menu name="settings" noMerge="1"><text>&amp;Settings</text>
+   <Menu name="settings" noMerge="1"><text context="@title:menu">&amp;Settings</text>
       <Action name="fullscreen"/>
       <Action name="aspect_ratio_menu"/>
       <Action name="subtitle_channels_menu"/>

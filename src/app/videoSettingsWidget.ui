@@ -16,7 +16,7 @@
      <item row="0" column="0">
       <widget class="QLabel" name="brightnessLabel">
        <property name="text">
-        <string>Brightness:</string>
+        <string comment="@label:slider">Brightness:</string>
        </property>
       </widget>
      </item>
@@ -39,7 +39,7 @@
      <item row="1" column="0">
       <widget class="QLabel" name="contrastLabel">
        <property name="text">
-        <string>Contrast:</string>
+        <string comment="@label:slider">Contrast:</string>
        </property>
       </widget>
      </item>
@@ -62,7 +62,7 @@
      <item row="2" column="0">
       <widget class="QLabel" name="hueLabel">
        <property name="text">
-        <string>Hue:</string>
+        <string comment="@label:slider">Hue:</string>
        </property>
       </widget>
      </item>
@@ -85,7 +85,7 @@
      <item row="3" column="0">
       <widget class="QLabel" name="saturationLabel">
        <property name="text">
-        <string>Saturation:</string>
+        <string comment="@label:slider">Saturation:</string>
        </property>
       </widget>
      </item>
@@ -125,14 +125,14 @@
      <item>
       <widget class="QPushButton" name="defaultsButton">
        <property name="text">
-        <string>Restore Defaults</string>
+        <string comment="@action:button">Restore Defaults</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="closeButton">
        <property name="text">
-        <string>Close</string>
+        <string comment="@action:button">Close</string>
        </property>
       </widget>
      </item>

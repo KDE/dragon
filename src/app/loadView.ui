@@ -16,7 +16,7 @@
      <item>
       <widget class="QPushButton" name="m_playFileButton">
        <property name="text">
-        <string>Play File</string>
+        <string comment="@action:button">Play File</string>
        </property>
        <property name="icon">
         <iconset theme="folder">
@@ -28,7 +28,7 @@
      <item>
       <widget class="QPushButton" name="m_playDiskButton">
        <property name="text">
-        <string>Play Disc</string>
+        <string comment="@action:button">Play Disc</string>
        </property>
        <property name="icon">
         <iconset theme="media-optical">
@@ -40,7 +40,7 @@
      <item>
       <widget class="QPushButton" name="m_playStreamButton">
        <property name="text">
-        <string>Play Stream</string>
+        <string comment="@action:button">Play Stream</string>
        </property>
        <property name="icon">
         <iconset theme="document-open-remote"/>
