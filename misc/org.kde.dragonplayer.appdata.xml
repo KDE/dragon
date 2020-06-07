@@ -254,6 +254,7 @@
       <li xml:lang="fi">Tekstityksen tuki: lataa samannimiset tekstitystiedostot automaattisesti</li>
       <li xml:lang="fr">Prise en charge des sous-titres : charge automatiquement les sous-titres don le nom correspond</li>
       <li xml:lang="gl">Compatibilidade con subtítulos: carga automaticamente subtítulos que teñan o mesmo nome que o ficheiro de vídeo.</li>
+      <li xml:lang="ia">Supporto per subtitulos: Autmaticamente carga subtitulos con le nomine correspondente</li>
       <li xml:lang="id">Mendukung subtitle: Secara otomatis memuat subtitles dengan nama yang cocok</li>
       <li xml:lang="it">Supporto sottotitoli: carica automaticamente i sottotitoli che corrispondono al nome del video</li>
       <li xml:lang="ko">자막 지원: 파일 이름이 동일한 자막을 자동으로 불러옵니다</li>
@@ -292,6 +293,7 @@
       <li xml:lang="fi">Videonäytön asetukset (kirkkaus ja kontrasti)</li>
       <li xml:lang="fr">Réglages de l'affichage de la vidéo (luminosité, contraste)</li>
       <li xml:lang="gl">Configuración de vídeo (brillo, contraste)</li>
+      <li xml:lang="ia">Preferentias de monstrator de video (Brillantia, contrasto)</li>
       <li xml:lang="id">Pengesetan tampilan video (kecerahan, kontras)</li>
       <li xml:lang="it">Impostazioni di visualizzazione (luminosità, contrasto)</li>
       <li xml:lang="ko">동영상 표시 설정(밝기, 명암)</li>
@@ -367,6 +369,7 @@
       <li xml:lang="fi">Tukee CD- ja DVD-toistoa</li>
       <li xml:lang="fr">Prend en charge la lecture des CDs et DVDs</li>
       <li xml:lang="gl">Permite reproducir CD e DVD</li>
+      <li xml:lang="ia">Supporta reproducer CDs e DVDs</li>
       <li xml:lang="id">Mendukung pemutaran CD dan DVD</li>
       <li xml:lang="it">Supporto per la riproduzione di CD e DVD</li>
       <li xml:lang="ko">CD 및 DVD 재생 지원</li>
