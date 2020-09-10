@@ -142,7 +142,7 @@ void MainWindow::engineMediaChanged(Phonon::MediaSource /*newSource*/)
     // update recently played list
     qDebug() << " update recent files list ";
 
-    emit fileChanged( engine()->urlOrDisc() );
+    Q_EMIT fileChanged( engine()->urlOrDisc() );
     //TODO fetch this from the Media source
     QUrl const &url = TheStream::url();
     const QString url_string = url.url();
@@ -158,7 +158,7 @@ void MainWindow::engineMediaChanged(Phonon::MediaSource /*newSource*/)
             auto urls = QUrl::fromStringList(list);
             urls.removeAll(url);
             config.writePathEntry( "Recent Urls", QUrl::toStringList(urls << url) );
-            emit m_loadView->reloadRecentlyList();
+            Q_EMIT m_loadView->reloadRecentlyList();
         }
 #ifndef NO_SKIP_PR0N
     }

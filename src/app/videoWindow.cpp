@@ -526,7 +526,7 @@ VideoWindow::stateChanged(Phonon::State currentState, Phonon::State oldstate) //
             qDebug() << "adjusting size to video resolution";
         }
     }
-    emit stateUpdated( currentState, oldstate );
+    Q_EMIT stateUpdated( currentState, oldstate );
 }
 
 void
@@ -591,9 +591,9 @@ VideoWindow::updateChannels()
     qDebug() << "Updating channels, subtitle count:" <<  m_controller->availableSubtitles().count();
 
     updateActionGroup( m_subLanguages, m_controller->availableSubtitles(), SLOT(slotSetSubtitle()) );
-    emit subChannelsChanged( m_subLanguages->actions() );
+    Q_EMIT subChannelsChanged( m_subLanguages->actions() );
     updateActionGroup( m_audioLanguages, m_controller->availableAudioChannels(), SLOT(slotSetAudio()) );
-    emit audioChannelsChanged( m_audioLanguages->actions() );
+    Q_EMIT audioChannelsChanged( m_audioLanguages->actions() );
 }
 
 void

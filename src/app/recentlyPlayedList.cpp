@@ -144,5 +144,5 @@ void RecentlyPlayedList::itemDoubleClicked(QListWidgetItem* item)
         }
     }
 
-    emit(itemDoubleClicked(url));
+    Q_EMIT itemDoubleClicked(url);
 }

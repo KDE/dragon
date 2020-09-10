@@ -229,7 +229,7 @@ bool MediaPlayer2Player::CanControl() const
 void MediaPlayer2Player::tick(qint64 newPos)
 {
     if (newPos - oldPos > Dragon::engine()->tickInterval() + 250 || newPos < oldPos)
-        emit Seeked(newPos * 1000);
+        Q_EMIT Seeked(newPos * 1000);
 
     oldPos = newPos;
 }
