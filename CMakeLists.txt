@@ -84,8 +84,6 @@ add_subdirectory( misc )
 add_subdirectory( doc )
 
 ki18n_install(po)
-if (KF5DocTools_FOUND)
-    kdoctools_install(po)
-endif()
+kdoctools_install(po)
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
