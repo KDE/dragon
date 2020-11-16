@@ -93,7 +93,7 @@ namespace Dragon
         return new KAboutData( APP_NAME,
                                i18n("Dragon Player"), APP_VERSION,
                                i18n("A video player that has a usability focus"), KAboutLicense::GPL_V2,
-                               i18n("Copyright 2006, Max Howell\nSPDX-FileCopyrightText: 2007 Ian Monroe "), QString(),
+                               i18n("Copyright 2006, Max Howell\nCopyright 2007, Ian Monroe"), QString(),
                                "https://multimedia.kde.org",
                                "imonroe@kde.org" );
     }
