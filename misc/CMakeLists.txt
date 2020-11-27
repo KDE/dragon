@@ -1,6 +1,8 @@
+configure_file(dragonplayer_part.desktop ${CMAKE_CURRENT_BINARY_DIR}/dragonplayer_part.desktop @ONLY)
+
 install(PROGRAMS org.kde.dragonplayer.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 install(FILES dragonplayer-opendvd.desktop dragonplayer-openaudiocd.desktop DESTINATION ${DATA_INSTALL_DIR}/solid/actions )
-install(FILES dragonplayer_part.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/dragonplayer_part.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
 install(FILES dragonplayerrc DESTINATION ${CONFIG_INSTALL_DIR})
 install(FILES dragonplayer_play_dvd.desktop DESTINATION ${SERVICES_INSTALL_DIR}/ServiceMenus)
 install(FILES org.kde.dragonplayer.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR} )

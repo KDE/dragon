@@ -12,7 +12,11 @@
 #include "partToolBar.h"
 #include "videoWindow.h"
 
+#if KPARTS_VERSION >= QT_VERSION_CHECK(5, 77, 0)
+#include <KPluginMetaData>
+#else
 #include <KAboutData>
+#endif
 #include <KActionCollection>
 #include <KPluginFactory>
 #include <KToggleAction>
@@ -32,11 +36,20 @@ K_PLUGIN_FACTORY_WITH_JSON(CodeineFactory, "dragonplayer_part.json",
 
 namespace Dragon
 {
-    Part::Part( QWidget* parentWidget, QObject* parent, const QList<QVariant>& /*args*/ )
+#if KPARTS_VERSION >= QT_VERSION_CHECK(5, 77, 0)
+    Part::Part(QWidget* parentWidget, QObject* parent, const KPluginMetaData& metaData, const QVariantList& /*args*/)
+#else
+    Part::Part(QWidget* parentWidget, QObject* parent, const QVariantList& /*args*/)
+#endif
         : ReadOnlyPart( parent )
         , m_statusBarExtension( new KParts::StatusBarExtension( this ) )
         , m_playPause( nullptr )
     {
+#if KPARTS_VERSION >= QT_VERSION_CHECK(5, 77, 0)
+        setMetaData(metaData);
+#else
+        setComponentData(*createAboutData());
+#endif
         KActionCollection * const ac = actionCollection();
 
         setWidget( new QWidget( parentWidget ) ); //, widgetName
@@ -86,6 +99,7 @@ namespace Dragon
         return true;
     }
 
+#if KPARTS_VERSION < QT_VERSION_CHECK(5, 77, 0)
     KAboutData* Part::createAboutData()
     {
         // generic factory expects this on the heap
@@ -97,6 +111,7 @@ namespace Dragon
                                "https://multimedia.kde.org",
                                "imonroe@kde.org" );
     }
+#endif
 
     void Part::videoContextMenu( const QPoint & pos )
     {

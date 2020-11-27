@@ -60,7 +60,7 @@ set(videoplayer_part_SRCS
     partToolBar.cpp )
 
 add_library(dragonpart MODULE ${videoplayer_part_SRCS})
-kcoreaddons_desktop_to_json(dragonpart ${CMAKE_SOURCE_DIR}/misc/dragonplayer_part.desktop)
+kcoreaddons_desktop_to_json(dragonpart ${CMAKE_BINARY_DIR}/misc/dragonplayer_part.desktop)
 
 target_link_libraries(dragonpart
     Qt5::Core
