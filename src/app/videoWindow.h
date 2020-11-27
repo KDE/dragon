@@ -65,9 +65,9 @@ private:
 
     friend class TheStream;
 
-    template<class ChannelDescription>
+    template<class ChannelDescription, class Func>
     void updateActionGroup( QActionGroup* channelActions, const QList<ChannelDescription>& availableChannels
-                            , const char* actionSlot );
+                            , Func actionSlot );
 
 public:
     explicit VideoWindow( QWidget *parent );

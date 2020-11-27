@@ -16,7 +16,7 @@
 
 #include "videoWindow.h"
 
-Dragon::PlayAction::PlayAction( QObject *receiver, const char *slot, KActionCollection *ac )
+Dragon::PlayAction::PlayAction(KActionCollection *ac)
     : KDualAction( ac )
 {
     setObjectName( QLatin1String( "play" ) );
@@ -26,7 +26,6 @@ Dragon::PlayAction::PlayAction( QObject *receiver, const char *slot, KActionColl
     setAutoToggle( false );
     ac->setDefaultShortcuts(this, QList<QKeySequence>() << Qt::Key_Space << Qt::Key_MediaPlay);
     ac->addAction( objectName(), this );
-    connect( this, SIGNAL(triggered(bool)), receiver, slot );
 }
 
 void Dragon::PlayAction::setPlaying( bool playing )
@@ -37,15 +36,14 @@ void Dragon::PlayAction::setPlaying( bool playing )
 /////////////////////////////////////////////////////
 ///Codeine::VolumeAction
 ////////////////////////////////////////////////////
-Dragon::VolumeAction::VolumeAction( QObject *receiver, const char *slot, KActionCollection *ac )
+Dragon::VolumeAction::VolumeAction(KActionCollection *ac)
     : KToggleAction(i18nc("@option:check Volume of sound output", "Volume"), ac)
 {
     setObjectName( QLatin1String( "volume" ) );
     setIcon( QIcon::fromTheme(QLatin1String( "player-volume" ) ) );
     ac->setDefaultShortcut(this, Qt::Key_V);
     ac->addAction( objectName(), this );
-    connect( this, SIGNAL(triggered(bool)), receiver, slot );
-    connect( engine(), SIGNAL(mutedChanged(bool)), this, SLOT(mutedChanged(bool)) );
+    connect(engine(), &Dragon::VideoWindow::mutedChanged, this, &Dragon::VolumeAction::mutedChanged);
 }
 
 void Dragon::VolumeAction::mutedChanged( bool mute )

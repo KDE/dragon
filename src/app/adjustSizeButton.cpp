@@ -37,12 +37,12 @@ AdjustSizeButton::AdjustSizeButton( QWidget *parent )
     setFrameStyle( QFrame::Plain | QFrame::Box );
 
     m_preferred = new QPushButton( QIcon::fromTheme( "viewmag" ), i18nc("@action:button", "Preferred Scale"), this );
-    connect( m_preferred, SIGNAL(clicked()), Dragon::mainWindow(), SLOT(adjustSize()) );
-    connect( m_preferred, SIGNAL(clicked()), SLOT(deleteLater()) );
+    connect( m_preferred, &QAbstractButton::clicked, Dragon::mainWindow(), &QWidget::adjustSize);
+    connect( m_preferred, &QAbstractButton::clicked, this, &QObject::deleteLater);
 
     m_oneToOne = new QPushButton( QIcon::fromTheme( "viewmag1" ), i18nc("@action:button", "Scale 100%"), this );
-    connect( m_oneToOne, SIGNAL(clicked()), (QObject*)videoWindow(), SLOT(resetZoom()) );
-    connect( m_oneToOne, SIGNAL(clicked()), SLOT(deleteLater()) );
+    connect( m_oneToOne, &QAbstractButton::clicked, videoWindow(), &VideoWindow::resetZoom);
+    connect( m_oneToOne, &QAbstractButton::clicked, this, &QObject::deleteLater);
 
     QBoxLayout *hbox = new QHBoxLayout( this );
     QBoxLayout *vbox = new QVBoxLayout( this );

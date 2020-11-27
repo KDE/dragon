@@ -91,25 +91,25 @@ VideoWindow::VideoWindow( QWidget *parent )
     Phonon::createPath(m_media, m_vWidget);
     m_audioPath = Phonon::createPath(m_media, m_aOutput);
     m_media->setTickInterval( 1000 );
-    connect( m_media, SIGNAL(tick(qint64)), this, SIGNAL(tick(qint64)) );
-    connect( m_media, SIGNAL(currentSourceChanged(Phonon::MediaSource)), this, SIGNAL(currentSourceChanged(Phonon::MediaSource)) );
-    connect( m_media, SIGNAL(totalTimeChanged(qint64)), this, SIGNAL(totalTimeChanged(qint64)) );
-    connect( m_media, SIGNAL(seekableChanged(bool)), this, SIGNAL(seekableChanged(bool)) );
-    connect( m_media, SIGNAL(metaDataChanged()), this, SIGNAL(metaDataChanged()) );
-    connect( m_aOutput, SIGNAL(mutedChanged(bool)), this, SIGNAL(mutedChanged(bool)) );
-    connect( m_aOutput, SIGNAL(volumeChanged(qreal)), this, SIGNAL(volumeChanged(qreal)));
-    connect( m_media, SIGNAL(hasVideoChanged(bool)), this, SIGNAL(hasVideoChanged(bool)) );
-    connect( m_media, SIGNAL(hasVideoChanged(bool)), m_vWidget, SLOT(setVisible(bool)) ); //hide video widget if no video to show
-    connect( m_media, SIGNAL(hasVideoChanged(bool)), m_logo, SLOT(setHidden(bool)) );
-    connect( m_media, SIGNAL(finished()), this, SIGNAL(finished()) );
-    connect( m_controller, SIGNAL(availableSubtitlesChanged()), this, SLOT(updateChannels()) );
+    connect(m_media, &Phonon::MediaObject::tick, this, &VideoWindow::tick);
+    connect(m_media, &Phonon::MediaObject::currentSourceChanged, this, &VideoWindow::currentSourceChanged);
+    connect(m_media, &Phonon::MediaObject::totalTimeChanged, this, &VideoWindow::totalTimeChanged);
+    connect(m_media, &Phonon::MediaObject::seekableChanged, this, &VideoWindow::seekableChanged);
+    connect(m_media, &Phonon::MediaObject::metaDataChanged, this, &VideoWindow::metaDataChanged);
+    connect(m_aOutput, &Phonon::AudioOutput::mutedChanged, this, &VideoWindow::mutedChanged);
+    connect(m_aOutput, &Phonon::AudioOutput::volumeChanged, this, &VideoWindow::volumeChanged);
+    connect(m_media, &Phonon::MediaObject::hasVideoChanged, this, &VideoWindow::hasVideoChanged);
+    connect(m_media, &Phonon::MediaObject::hasVideoChanged, m_vWidget, &QWidget::setVisible); //hide video widget if no video to show
+    connect(m_media, &Phonon::MediaObject::hasVideoChanged, m_logo, &QWidget::setHidden);
+    connect(m_media, &Phonon::MediaObject::finished, this, &VideoWindow::finished);
+    connect(m_controller, &Phonon::MediaController::availableSubtitlesChanged, this, &VideoWindow::updateChannels);
 
     {
         m_subLanguages->setExclusive( true );
         QAction* turnOff = new QAction( i18nc("@option:radio", "&DVD Subtitle Selection"), m_subLanguages );
         turnOff->setCheckable( true );
         turnOff->setProperty( TheStream::CHANNEL_PROPERTY, -1 );
-        connect( turnOff, SIGNAL(triggered()), this, SLOT(slotSetSubtitle()) );
+        connect(turnOff, &QAction::triggered, this, &VideoWindow::slotSetSubtitle);
 
         QAction* separator = new QAction( m_subLanguages );
         separator->setSeparator( true );
@@ -119,14 +119,14 @@ VideoWindow::VideoWindow( QWidget *parent )
         QAction* autoLang = new QAction( i18nc("@option:radio audio language", "&Auto"), m_audioLanguages );
         autoLang->setProperty( TheStream::CHANNEL_PROPERTY, -1 );
         autoLang->setCheckable( true );
-        connect( autoLang, SIGNAL(triggered()), this, SLOT(slotSetAudio()) );
+        connect(autoLang, &QAction::triggered, this, &VideoWindow::slotSetAudio);
 
         QAction* separator = new QAction( m_audioLanguages );
         separator->setSeparator( true );
     }
 
-    connect( m_media, SIGNAL(stateChanged(Phonon::State,Phonon::State)), this, SLOT(stateChanged(Phonon::State,Phonon::State)) );
-    connect( m_cursorTimer, SIGNAL(timeout()), this, SLOT(hideCursor()) );
+    connect(m_media, &Phonon::MediaObject::stateChanged, this, &VideoWindow::stateChanged);
+    connect(m_cursorTimer, &QTimer::timeout, this, &VideoWindow::hideCursor);
     m_cursorTimer->setSingleShot( true );
     {
         m_logo->setAutoFillBackground( true );
@@ -551,10 +551,10 @@ VideoWindow::loadSettings()
     }
 }
 
-template<class ChannelDescription> void
+template<class ChannelDescription, class Func> void
 VideoWindow::updateActionGroup( QActionGroup* channelActions
                                 , const QList<ChannelDescription>& availableChannels
-                                , const char* actionSlot )
+                                , Func actionSlot )
 {
     {
         QList<QAction*> subActions = channelActions->actions();
@@ -567,7 +567,7 @@ VideoWindow::updateActionGroup( QActionGroup* channelActions
         lang->setCheckable( true );
         lang->setText( channel.name() );
         lang->setProperty( TheStream::CHANNEL_PROPERTY, channel.index() );
-        connect( lang, SIGNAL(triggered()), this, actionSlot );
+        connect(lang, &QAction::triggered, this, actionSlot);
     }
 }
 
@@ -576,9 +576,9 @@ VideoWindow::updateChannels()
 {
     qDebug() << "Updating channels, subtitle count:" <<  m_controller->availableSubtitles().count();
 
-    updateActionGroup( m_subLanguages, m_controller->availableSubtitles(), SLOT(slotSetSubtitle()) );
+    updateActionGroup( m_subLanguages, m_controller->availableSubtitles(), &VideoWindow::slotSetSubtitle);
     Q_EMIT subChannelsChanged( m_subLanguages->actions() );
-    updateActionGroup( m_audioLanguages, m_controller->availableAudioChannels(), SLOT(slotSetAudio()) );
+    updateActionGroup( m_audioLanguages, m_controller->availableAudioChannels(), &VideoWindow::slotSetAudio);
     Q_EMIT audioChannelsChanged( m_audioLanguages->actions() );
 }
 

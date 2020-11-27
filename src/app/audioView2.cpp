@@ -21,7 +21,7 @@ AudioView2::AudioView2(QWidget *parent) :
     ui->m_analyzerFrame->setMinimumSize(ui->m_analyzer->minimumSize());
 
     setupAnalyzer();
-    connect(engine(), SIGNAL(metaDataChanged()), this, SLOT(update()));
+    connect(engine(), &VideoWindow::metaDataChanged, this, &AudioView2::update);
 }
 
 AudioView2::~AudioView2()

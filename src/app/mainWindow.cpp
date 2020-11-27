@@ -135,7 +135,7 @@ MainWindow::MainWindow()
         menuAction = new KActionMenu( text, this ); \
         menuAction->setObjectName( name ); \
         menuAction->setEnabled( false ); \
-        connect( menuAction->menu(), SIGNAL(aboutToShow()), SLOT(aboutToShowMenu()) ); \
+        connect(menuAction->menu(), &QMenu::aboutToShow, this, &MainWindow::aboutToShowMenu); \
         ac->addAction( menuAction->objectName(), menuAction );
         make_menu( QLatin1String( "aspect_ratio_menu" ), i18nc("@title:menu", "Aspect &Ratio" ) );
         make_menu( QLatin1String( "audio_channels_menu" ), i18nc("@title:menu", "&Audio Channels") );
@@ -152,7 +152,7 @@ MainWindow::MainWindow()
     m_aspectRatios->addAction( ratioAction ); \
     TheStream::addRatio( aspectEnum, ratioAction ); \
     ac->addAction( objectname, ratioAction ); \
-    connect( ratioAction, SIGNAL(triggered()), this, SLOT(streamSettingChange()) ); \
+    connect(ratioAction, &QAction::triggered, this, &MainWindow::streamSettingChange); \
 }
             make_ratio_action( i18nc("@option:radio aspect ratio", "Determine &Automatically"), QLatin1String( "ratio_auto" ),  Phonon::VideoWidget::AspectRatioAuto );
             make_ratio_action( i18nc("@option:radio aspect ratio", "&4:3"), QLatin1String( "ratio_golden" ), Phonon::VideoWidget::AspectRatio4_3 );
@@ -174,7 +174,7 @@ MainWindow::MainWindow()
 
     //"faster" startup
     //TODO if we have a size stored for this video, do the "faster" route
-    QTimer::singleShot( 0, this, SLOT(init()) );
+    QTimer::singleShot(0, this, &MainWindow::init);
     QApplication::setOverrideCursor( Qt::WaitCursor );
 }
 
@@ -182,23 +182,23 @@ void
 MainWindow::init()
 {
     //connect the stuff in loadView
-    connect( m_loadView, SIGNAL(openDVDPressed()), this, SLOT(playDisc()) );
-    connect( m_loadView, SIGNAL(openFilePressed()), this, SLOT(openFileDialog()) );
-    connect( m_loadView, SIGNAL(openStreamPressed()), this, SLOT(openStreamDialog()) );
-    connect( m_loadView, SIGNAL(loadUrl(QUrl)), this, SLOT(open(QUrl)) );
+    connect(m_loadView, &LoadView::openDVDPressed, this, &MainWindow::playDisc);
+    connect(m_loadView, &LoadView::openFilePressed, this, &MainWindow::openFileDialog);
+    connect(m_loadView, &LoadView::openStreamPressed, this, &MainWindow::openStreamDialog);
+    connect(m_loadView, &LoadView::loadUrl, this, &MainWindow::open);
 
     //connect the video player
-    connect( engine(), SIGNAL(stateUpdated(Phonon::State,Phonon::State)), this, SLOT(engineStateChanged(Phonon::State)) );
-    connect( engine(), SIGNAL(currentSourceChanged(Phonon::MediaSource)), this, SLOT(engineMediaChanged(Phonon::MediaSource)) );
-    connect( engine(), SIGNAL(seekableChanged(bool)), this, SLOT(engineSeekableChanged(bool)) );
-    connect( engine(), SIGNAL(metaDataChanged()), this, SLOT(engineMetaDataChanged()) );
-    connect( engine(), SIGNAL(hasVideoChanged(bool)), this, SLOT(engineHasVideoChanged(bool)) );
+    connect(engine(), &VideoWindow::stateUpdated, this, &MainWindow::engineStateChanged);
+    connect(engine(), &VideoWindow::currentSourceChanged, this, &MainWindow::engineMediaChanged);
+    connect(engine(), &VideoWindow::seekableChanged, this, &MainWindow::engineSeekableChanged);
+    connect(engine(), &VideoWindow::metaDataChanged, this, &MainWindow::engineMetaDataChanged);
+    connect(engine(), &VideoWindow::hasVideoChanged, this, &MainWindow::engineHasVideoChanged);
 
-    connect( engine(), SIGNAL(subChannelsChanged(QList<QAction*>)), this, SLOT(subChannelsChanged(QList<QAction*>)) );
-    connect( engine(), SIGNAL(audioChannelsChanged(QList<QAction*>)), this, SLOT(audioChannelsChanged(QList<QAction*>)) );
-    connect( engine(), SIGNAL(mutedChanged(bool)), this, SLOT(mutedChanged(bool)) );
+    connect(engine(), &VideoWindow::subChannelsChanged, this, &MainWindow::subChannelsChanged);
+    connect(engine(), &VideoWindow::audioChannelsChanged, this, &MainWindow::audioChannelsChanged);
+    connect(engine(), &VideoWindow::mutedChanged, this, &MainWindow::mutedChanged);
 
-    connect( engine(), &VideoWindow::finished, this, &MainWindow::toggleLoadView );
+    connect(engine(), &VideoWindow::finished, this, &MainWindow::toggleLoadView);
 
     if( !engine()->init() ) {
         KMessageBox::error( this, i18n(
@@ -208,11 +208,11 @@ MainWindow::init()
 
     //would be dangerous for these to happen before the videoWindow() is initialised
     setAcceptDrops( true );
-    connect( statusBar(), SIGNAL(messageChanged(QString)), engine(), SLOT(showOSD(QString)) );
+    connect( statusBar(), &QStatusBar::messageChanged, engine(), &VideoWindow::showOSD);
     //statusBar()->insertPermanentItem( "hello world", 0, 0 );
     m_timeLabel = new TimeLabel( statusBar() );
-    connect( videoWindow(), SIGNAL(tick(qint64)), m_timeLabel, SLOT(setCurrentTime(qint64)) );
-    connect( videoWindow(), SIGNAL(totalTimeChanged(qint64)), m_timeLabel, SLOT(setTotalTime(qint64)) );
+    connect( videoWindow(), &VideoWindow::tick, m_timeLabel, &TimeLabel::setCurrentTime);
+    connect(videoWindow(), &VideoWindow::totalTimeChanged, m_timeLabel, &TimeLabel::setTotalTime);
     statusBar()->addPermanentWidget( m_titleLabel, 100 );
     statusBar()->addPermanentWidget( m_timeLabel );
 
@@ -263,9 +263,9 @@ MainWindow::setupActions()
 {
     KActionCollection * const ac = actionCollection();
 
-    KStandardAction::quit( qApp, SLOT(closeAllWindows()), ac );
+    KStandardAction::quit(qApp, &QApplication::closeAllWindows, ac);
 
-    KStandardAction::open( this, SLOT(toggleLoadView()), ac )->setText( i18nc("@action", "Play &Media...") );
+    KStandardAction::open(this, &MainWindow::toggleLoadView, ac)->setText( i18nc("@action", "Play &Media...") );
 
 #define addToAc( X ) ac->addAction( X->objectName(), X );
 
@@ -274,10 +274,11 @@ MainWindow::setupActions()
     ac->setDefaultShortcuts(toggleFullScreen, QList<QKeySequence>() << Qt::Key_F << KStandardShortcut::fullScreen());
     toggleFullScreen->setAutoRepeat( false );
     connect( toggleFullScreen, SIGNAL(toggled(bool)), Dragon::mainWindow(), SLOT(setFullScreen(bool)) );
+
     addToAc( toggleFullScreen );
 
-    new PlayAction( this, SLOT(play()), ac );
-    new VolumeAction( this, SLOT(toggleVolumeSlider(bool)), ac );
+    new PlayAction(this, &MainWindow::play, ac);
+    new VolumeAction(this, &MainWindow::toggleVolumeSlider, ac);
 
     m_menuToggleAction =
             static_cast<KToggleAction*>(ac->addAction(KStandardAction::ShowMenubar,
@@ -286,36 +287,36 @@ MainWindow::setupActions()
 
     QAction *action = new QAction(i18nc("@action", "Increase Volume"), ac);
     action->setObjectName(QLatin1String("volume_inc"));
-    connect(action, SIGNAL(triggered()), engine(), SLOT(increaseVolume()));
+    connect(action, &QAction::triggered, engine(), &VideoWindow::increaseVolume);
     addToAc(action);
 
     action = new QAction(i18nc("@action", "Decrease Volume"), ac);
     action->setObjectName(QLatin1String("volume_dec"));
-    connect(action, SIGNAL(triggered()), engine(), SLOT(decreaseVolume()));
+    connect(action, &QAction::triggered, engine(), &VideoWindow::decreaseVolume);
     addToAc(action);
 
     QAction* playerStop = new QAction( QIcon::fromTheme(QLatin1String( "media-playback-stop" )), i18nc("@action", "Stop"), ac );
     playerStop->setObjectName( QLatin1String( "stop" ) );
     ac->setDefaultShortcuts(playerStop, QList<QKeySequence>() << Qt::Key_S << Qt::Key_MediaStop);
-    connect( playerStop, SIGNAL(triggered()), this, SLOT(stop()) );
+    connect(playerStop, &QAction::triggered, this, &MainWindow::stop);
     addToAc( playerStop )
 
     KToggleAction* mute = new KToggleAction( QIcon::fromTheme(QLatin1String( "player-volume-muted" )), i18nc("@action Mute the sound output", "Mute"), ac );
     mute->setObjectName( QLatin1String( "mute" ) );
     ac->setDefaultShortcut(mute, Qt::Key_M);
-    connect( mute, SIGNAL(toggled(bool)), videoWindow(), SLOT(mute(bool)) );
+    connect(mute, &QAction::toggled, videoWindow(), &VideoWindow::mute);
     addToAc( mute )
 
     QAction* resetZoom = new QAction( QIcon::fromTheme(QLatin1String( "zoom-fit-best" )), i18nc("@action", "Reset Video Scale"), ac );
     resetZoom->setObjectName( QLatin1String( "reset_zoom" ) );
     ac->setDefaultShortcut(resetZoom, Qt::Key_Equal);
-    connect( resetZoom, SIGNAL(triggered()), videoWindow(), SLOT(resetZoom()) );
+    connect(resetZoom, &QAction::triggered, videoWindow(), &VideoWindow::resetZoom);
     addToAc( resetZoom )
 
     QAction* dvdMenu = new QAction( QIcon::fromTheme(QLatin1String( "media-optical-video" )), i18nc("@action", "Menu Toggle"), ac );
     dvdMenu->setObjectName( QLatin1String( "toggle_dvd_menu" ) );
     ac->setDefaultShortcut(dvdMenu, Qt::Key_R);
-    connect( dvdMenu, SIGNAL(triggered()), engine(), SLOT(toggleDVDMenu()) );
+    connect(dvdMenu, &QAction::triggered, engine(), &VideoWindow::toggleDVDMenu);
     addToAc( dvdMenu )
 
     QWidgetAction* positionSlider = new QWidgetAction( ac );
@@ -327,7 +328,7 @@ MainWindow::setupActions()
     QAction* videoSettings = new QAction( i18nc("@option:check", "Video Settings"), ac );
     videoSettings->setObjectName( QLatin1String( "video_settings" ) );
     videoSettings->setCheckable( true );
-    connect( videoSettings, SIGNAL(toggled(bool)), this, SLOT(toggleVideoSettings(bool)) );
+    connect(videoSettings, &QAction::toggled, this, &MainWindow::toggleVideoSettings);
     addToAc( videoSettings )
 
     QAction* uniqueToggle =
@@ -337,45 +338,45 @@ MainWindow::setupActions()
     uniqueToggle->setObjectName( QLatin1String( "unique" ) );
     uniqueToggle->setCheckable( true );
     uniqueToggle->setChecked( !KSharedConfig::openConfig()->group("KDE").readEntry("MultipleInstances", QVariant(false)).toBool() );
-    connect( uniqueToggle, SIGNAL(toggled(bool)), this, SLOT(toggleUnique(bool)) );
+    connect(uniqueToggle, &QAction::toggled, this, &MainWindow::toggleUnique);
     addToAc( uniqueToggle )
 
     QAction* prev_chapter = new QAction( QIcon::fromTheme(QLatin1String( "media-skip-backward" )), i18nc("@action previous chapter", "Previous"), ac );
     prev_chapter->setObjectName( QLatin1String( "prev_chapter" ) );
     ac->setDefaultShortcuts(prev_chapter, QList<QKeySequence>() << Qt::Key_Comma << Qt::Key_MediaPrevious);
-    connect( prev_chapter, SIGNAL(triggered()), engine(), SLOT(prevChapter()) );
+    connect(prev_chapter, &QAction::triggered, engine(), &VideoWindow::prevChapter);
     addToAc( prev_chapter )
 
     QAction* next_chapter = new QAction( QIcon::fromTheme(QLatin1String( "media-skip-forward" )), i18nc("@action next chapter", "Next"), ac );
     next_chapter->setObjectName( QLatin1String( "next_chapter" ) );
     ac->setDefaultShortcuts(next_chapter, QList<QKeySequence>() << Qt::Key_Period << Qt::Key_MediaNext);
-    connect( next_chapter, SIGNAL(triggered()), engine(), SLOT(nextChapter()) );
+    connect(next_chapter, &QAction::triggered, engine(), &VideoWindow::nextChapter);
     addToAc( next_chapter )
 
     // xgettext: no-c-format
     QAction* tenPercentBack = new QAction( QIcon::fromTheme(QLatin1String( "media-seek-backward" )), i18nc("@action", "Return 10% Back"), ac );
     tenPercentBack->setObjectName( QLatin1String( "ten_percent_back" ) );
     ac->setDefaultShortcut(tenPercentBack, Qt::Key_PageUp);
-    connect( tenPercentBack, SIGNAL(triggered()), engine(), SLOT(tenPercentBack()) );
+    connect(tenPercentBack, &QAction::triggered, engine(), &VideoWindow::tenPercentBack);
     addToAc( tenPercentBack )
 
     // xgettext: no-c-format
     QAction* tenPercentForward = new QAction( QIcon::fromTheme(QLatin1String( "media-seek-forward" )), i18nc("@action", "Go 10% Forward"), ac );
     tenPercentForward->setObjectName( QLatin1String( "ten_percent_forward" ) );
     ac->setDefaultShortcut(tenPercentForward, Qt::Key_PageDown);
-    connect( tenPercentForward, SIGNAL(triggered()), engine(), SLOT(tenPercentForward()) );
+    connect(tenPercentForward, &QAction::triggered, engine(), &VideoWindow::tenPercentForward);
     addToAc( tenPercentForward )
 
     QAction* tenSecondsBack = new QAction( QIcon::fromTheme(QLatin1String( "media-seek-backward" )), i18nc("@action", "Return 10 Seconds Back"), ac );
     tenSecondsBack->setObjectName( QLatin1String( "ten_seconds_back" ) );
     ac->setDefaultShortcut(tenSecondsBack, Qt::Key_Minus);
-    connect( tenSecondsBack, SIGNAL(triggered()), engine(), SLOT(tenSecondsBack()) );
+    connect(tenSecondsBack, &QAction::triggered, engine(), &VideoWindow::tenSecondsBack);
     addToAc( tenSecondsBack )
 
     QAction* tenSecondsForward = new QAction( QIcon::fromTheme(QLatin1String( "media-seek-forward" )), i18nc("@action", "Go 10 Seconds Forward"), ac );
     tenSecondsForward->setObjectName( QLatin1String( "ten_seconds_forward" ) );
     ac->setDefaultShortcut(tenSecondsForward, Qt::Key_Plus);
-    connect( tenSecondsForward, SIGNAL(triggered()), engine(), SLOT(tenSecondsForward()) );
+    connect(tenSecondsForward, &QAction::triggered, engine(), &VideoWindow::tenSecondsForward);
     addToAc( tenSecondsForward )
     #undef addToAc
 }
@@ -407,12 +408,12 @@ MainWindow::toggleVideoSettings( bool show )
         m_sliders << ui.brightnessSlider << ui.contrastSlider << ui.hueSlider <<  ui.saturationSlider;
         updateSliders();
         for (QSlider* slider : qAsConst(m_sliders)) {
-            connect( slider, SIGNAL(valueChanged(int)), engine(), SLOT(settingChanged(int)) );
+            connect(slider, &QAbstractSlider::valueChanged, engine(), &VideoWindow::settingChanged);
         }
 
-        connect( ui.defaultsButton, SIGNAL(clicked(bool)), this, SLOT(restoreDefaultVideoSettings()) );
-        connect( ui.closeButton, SIGNAL(clicked(bool)), action( "video_settings" ), SLOT(setChecked(bool)) );
-        connect( ui.closeButton, SIGNAL(clicked(bool)), m_leftDock, SLOT(deleteLater()) );
+        connect(ui.defaultsButton, &QAbstractButton::clicked, this, &MainWindow::restoreDefaultVideoSettings);
+        connect(ui.closeButton, &QAbstractButton::clicked, action("video_settings"), &QAction::setChecked);
+        connect(ui.closeButton, &QAbstractButton::clicked, m_leftDock, &QObject::deleteLater);
     } else {
         m_sliders.clear();
         delete m_leftDock;
@@ -464,7 +465,7 @@ MainWindow::toggleVolumeSlider( bool show )
         m_muteCheckBox = new QCheckBox();
         m_muteCheckBox->setText( i18nc( "@option:check Mute the sound output", "Mute" ) );
         m_muteCheckBox->setChecked ( engine()->isMuted() );
-        connect( m_muteCheckBox, SIGNAL(toggled(bool)), videoWindow(), SLOT(mute(bool)) );
+        connect(m_muteCheckBox, &QCheckBox::toggled, videoWindow(), &VideoWindow::mute);
 
         QVBoxLayout *layout = new QVBoxLayout();
         layout->addWidget(m_volumeSlider);
@@ -480,7 +481,7 @@ MainWindow::toggleVolumeSlider( bool show )
         m_rightDock->setWidget( dock );
         addDockWidget( Qt::RightDockWidgetArea, m_rightDock );
     } else {
-        disconnect( m_muteCheckBox, SIGNAL(toggled(bool)), videoWindow(), SLOT(mute(bool)) );
+        disconnect(m_muteCheckBox, &QCheckBox::toggled, videoWindow(), &VideoWindow::mute);
         delete m_rightDock; // it's a QPointer, it will 0 itself
     }
 }

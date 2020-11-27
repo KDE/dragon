@@ -21,7 +21,7 @@ public:
     explicit LoadView(QWidget *parent);
     void setThumbnail(QWidget *object);
 Q_SIGNALS:
-    void loadUrl(QUrl);
+    void loadUrl(const QUrl&);
     void openFilePressed();
     void openDVDPressed();
     void openStreamPressed();

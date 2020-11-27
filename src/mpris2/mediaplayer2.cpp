@@ -21,8 +21,9 @@
 MediaPlayer2::MediaPlayer2(QObject* parent)
     : QDBusAbstractAdaptor(parent)
 {
-    connect(Dragon::action("fullscreen"), SIGNAL(toggled(bool)), this, SLOT(emitFullscreenChange(bool)));
-    connect(Dragon::videoWindow(), SIGNAL(hasVideoChanged(bool)), this, SLOT(emitFullscreenChange(bool)));
+    connect(Dragon::action("fullscreen"), &QAction::toggled, this, &MediaPlayer2::emitFullscreenChange);
+    connect(Dragon::videoWindow(), &Dragon::VideoWindow::hasVideoChanged,
+            this, &MediaPlayer2::emitFullscreenChange);
 }
 
 MediaPlayer2::~MediaPlayer2()

@@ -87,7 +87,8 @@ DiscSelectionDialog::DiscSelectionDialog( QWidget* parent, const QList< Solid::D
     layout->addWidget(bbox);
     setLayout( layout );
 
-    connect( m_listWidget, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(discItemSelected(QListWidgetItem*)) );
+    connect(m_listWidget, &QListWidget::itemDoubleClicked,
+            this, &DiscSelectionDialog::discItemSelected);
     connect( bbox, &QDialogButtonBox::accepted, this, &DiscSelectionDialog::okClicked);
     connect( bbox, &QDialogButtonBox::rejected, this, &QDialog::deleteLater );
     //connect( bbox, &QDialogButtonBox::rejected, const_cast<QObject *>(Dragon::mainWindow()), &Dragon::MainWindow::playDisc ); // kf5 FIXME? this could have never worked

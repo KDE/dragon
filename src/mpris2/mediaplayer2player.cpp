@@ -20,13 +20,19 @@ static QByteArray makeTrackId(const QString& source)
 
 MediaPlayer2Player::MediaPlayer2Player(QObject* parent) : QDBusAbstractAdaptor(parent)
 {
-    connect(Dragon::engine(), SIGNAL(tick(qint64)), this, SLOT(tick(qint64)));
-    connect(Dragon::engine(), SIGNAL(currentSourceChanged(Phonon::MediaSource)), this, SLOT(currentSourceChanged()));
-    connect(Dragon::engine(), SIGNAL(metaDataChanged()), this, SLOT(emitMetadataChange()));
-    connect(Dragon::engine(), SIGNAL(stateUpdated(Phonon::State,Phonon::State)), this, SLOT(stateUpdated()));
-    connect(Dragon::engine(), SIGNAL(totalTimeChanged(qint64)), this, SLOT(emitMetadataChange()));
-    connect(Dragon::engine(), SIGNAL(seekableChanged(bool)), this, SLOT(seekableChanged(bool)));
-    connect(Dragon::engine(), SIGNAL(volumeChanged(qreal)), this, SLOT(volumeChanged()));
+    connect(Dragon::engine(), &Dragon::VideoWindow::tick, this, &MediaPlayer2Player::tick);
+    connect(Dragon::engine(), &Dragon::VideoWindow::currentSourceChanged,
+            this, &MediaPlayer2Player::currentSourceChanged);
+    connect(Dragon::engine(), &Dragon::VideoWindow::metaDataChanged,
+            this, &MediaPlayer2Player::emitMetadataChange);
+    connect(Dragon::engine(), &Dragon::VideoWindow::stateUpdated,
+            this, &MediaPlayer2Player::stateUpdated);
+    connect(Dragon::engine(), &Dragon::VideoWindow::totalTimeChanged,
+            this, &MediaPlayer2Player::emitMetadataChange);
+    connect(Dragon::engine(), &Dragon::VideoWindow::seekableChanged,
+            this, &MediaPlayer2Player::seekableChanged);
+    connect(Dragon::engine(), &Dragon::VideoWindow::volumeChanged,
+            this, &MediaPlayer2Player::volumeChanged);
 }
 
 MediaPlayer2Player::~MediaPlayer2Player()

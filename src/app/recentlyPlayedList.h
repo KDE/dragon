@@ -28,7 +28,7 @@ public Q_SLOTS:
     void copyUrl();
     void itemDoubleClicked(QListWidgetItem*);
 Q_SIGNALS:
-    void itemDoubleClicked(QUrl);
+    void itemDoubleClicked(const QUrl&);
 };
 
 #endif

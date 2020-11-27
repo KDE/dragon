@@ -20,11 +20,12 @@ LoadView::LoadView( QWidget *parent )
     setupUi( this );
     setStyleSheet( QLatin1String( "QPushButton { text-align: center; }" ));
 
-    connect( m_playDiskButton, SIGNAL(clicked()), this, SIGNAL(openDVDPressed()) );
-    connect( m_playFileButton, SIGNAL(clicked()), this, SIGNAL(openFilePressed()) );
-    connect( m_playStreamButton, SIGNAL(clicked()), this, SIGNAL(openStreamPressed()) );
-    connect( m_recentlyPlayed, SIGNAL(itemDoubleClicked(QUrl)), this, SIGNAL(loadUrl(QUrl)) );
-    connect( this, SIGNAL(reloadRecentlyList()), m_recentlyPlayed, SLOT(loadEntries()) );
+    connect(m_playDiskButton, &QAbstractButton::clicked, this, &LoadView::openDVDPressed);
+    connect(m_playFileButton, &QAbstractButton::clicked, this, &LoadView::openFilePressed);
+    connect(m_playStreamButton, &QAbstractButton::clicked, this, &LoadView::openStreamPressed);
+    connect(m_recentlyPlayed, QOverload<const QUrl&>::of(&RecentlyPlayedList::itemDoubleClicked),
+            this, &LoadView::loadUrl);
+    connect(this, &LoadView::reloadRecentlyList, m_recentlyPlayed, &RecentlyPlayedList::loadEntries);
 }
 
 void LoadView::setThumbnail(QWidget *object)

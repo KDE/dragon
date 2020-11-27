@@ -26,7 +26,8 @@
 RecentlyPlayedList::RecentlyPlayedList(QWidget *parent)
     : QListWidget(parent)
 {
-    connect(this,SIGNAL(itemDoubleClicked(QListWidgetItem*)),this, SLOT(itemDoubleClicked(QListWidgetItem*)));
+    connect(this, QOverload<QListWidgetItem*>::of(&QListWidget::itemDoubleClicked),
+            this, QOverload<QListWidgetItem*>::of(&RecentlyPlayedList::itemDoubleClicked));
     setAlternatingRowColors( true );
     setSelectionMode(QAbstractItemView::SingleSelection);
 

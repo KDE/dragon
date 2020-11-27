@@ -30,7 +30,7 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
     setWindowTitle( i18nc("@title:window", "Play Media") );
 
     QSignalMapper *mapper = new QSignalMapper( this );
-    QWidget *o;
+    QPushButton *o;
     QPushButton *closeButton = new QPushButton( this );
     KGuiItem::assign(closeButton, KStandardGuiItem::close());
     QBoxLayout *vbox = new QVBoxLayout();
@@ -48,15 +48,15 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
 
     //TODO use the kguiItems from the actions
     mapper->setMapping( o = new QPushButton( QIcon::fromTheme( "document-open" ), i18nc("@action:button", "Play File..."), this ), FILE );
-    connect( o, SIGNAL(clicked()), mapper, SLOT(map()) );
+    connect(o, &QAbstractButton::clicked, mapper, QOverload<>::of(&QSignalMapper::map));
     grid->addWidget( o, 0, 0 );
 
     mapper->setMapping( o = new QPushButton( QIcon::fromTheme( "media-optical-video" ), i18nc("@action:button", "Play Disc"), this ), DVD );
-    connect( o, SIGNAL(clicked()), mapper, SLOT(map()) );
+    connect(o, &QAbstractButton::clicked, mapper, QOverload<>::of(&QSignalMapper::map));
     grid->addWidget( o, 0, 1 );
 
     mapper->setMapping( closeButton, QDialog::Rejected );
-    connect( closeButton, SIGNAL(clicked()), mapper, SLOT(map()) );
+    connect(closeButton, &QAbstractButton::clicked, mapper, QOverload<>::of(&QSignalMapper::map));
 
     createRecentFileWidget( grid );
 
@@ -67,7 +67,7 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
         QPushButton *w = new QPushButton( this );
         KGuiItem::assign(w, KStandardGuiItem::quit());
         hbox->addWidget( w );
-        connect( w, SIGNAL(clicked()), qApp, SLOT(closeAllWindows()) );
+        connect(w, &QAbstractButton::clicked, qApp, &QApplication::closeAllWindows);
     }
 
     hbox->addWidget( closeButton );
@@ -86,7 +86,7 @@ PlayDialog::createRecentFileWidget( QGridLayout *layout )
     //delete list view widget if there are no items in it
     if( lv->count() ) {
         layout->addWidget( lv, 1, 0, 1, -1);
-        connect( lv, SIGNAL(itemActivated(QListWidgetItem*)), this, SLOT(finished(QListWidgetItem*)) );
+        connect(lv, &QListWidget::itemActivated, this, &PlayDialog::finished);
     }
     else
         delete lv;

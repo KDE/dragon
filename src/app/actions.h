@@ -22,17 +22,31 @@ class PlayAction : public KDualAction
 {
     Q_OBJECT
 public:
-    PlayAction( QObject *receiver, const char *slot, KActionCollection* );
+    template<class Receiver, class Func>
+    inline PlayAction(const Receiver *receiver, Func slot, KActionCollection* ac)
+        : PlayAction(ac)
+    {
+        connect(this, &QAction::triggered, receiver, slot);
+    }
     void setPlaying( bool playing );
+private:
+    explicit PlayAction(KActionCollection* ac);
 };
 
 class VolumeAction : public KToggleAction
 {
     Q_OBJECT
 public:
-    VolumeAction( QObject *receiver, const char *slot, KActionCollection* );
+    template<class Receiver, class Func>
+    inline VolumeAction(const Receiver *receiver, Func slot, KActionCollection* ac)
+        : VolumeAction(ac)
+    {
+        connect(this, &QAction::triggered, receiver, slot);
+    }
 private Q_SLOTS:
     void mutedChanged( bool );
+private:
+    explicit VolumeAction(KActionCollection* ac);
 };
 }
 

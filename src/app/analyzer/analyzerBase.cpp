@@ -147,10 +147,10 @@ void Analyzer::Base::demo() //virtual
 Analyzer::Base2D::Base2D(QWidget *parent, uint scopeSize)
     : Base(parent, scopeSize)
 {
-    QTimer::singleShot(0, this, SLOT(init())); // needs to know the size
+    QTimer::singleShot(0, this, &Base2D::init); // needs to know the size
     timer.setInterval(34);
     timer.setSingleShot(false);
-    connect(&timer, SIGNAL(timeout()), this, SLOT(demo()));
+    connect(&timer, &QTimer::timeout, this, &Base2D::demo);
     timer.start();
 }
 

@@ -12,6 +12,7 @@
 
 class QEvent;
 class QTimerEvent;
+class QPushButton;
 
 namespace Dragon
 {
@@ -23,8 +24,8 @@ class AdjustSizeButton : public QFrame
     int m_offset;
     int m_timerId;
 
-    QWidget *m_preferred;
-    QWidget *m_oneToOne;
+    QPushButton *m_preferred;
+    QPushButton *m_oneToOne;
 
     QFrame *m_thingy;
 

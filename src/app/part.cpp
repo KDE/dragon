@@ -60,7 +60,7 @@ namespace Dragon
         layout->addWidget( toolBar );
         layout->addWidget( new VideoWindow( widget() ) );
 
-        m_playPause = new Dragon::PlayAction( videoWindow(), SLOT(playPause()), ac );
+        m_playPause = new Dragon::PlayAction(videoWindow(), &VideoWindow::playPause, ac);
         toolBar->addAction( m_playPause );
         {
             QWidget* slider = videoWindow()->newPositionSlider();
@@ -71,9 +71,9 @@ namespace Dragon
             ac->addAction( sliderAction->objectName(), sliderAction );
             toolBar->addAction( sliderAction );
         }
-        connect( engine(), SIGNAL(stateChanged(Phonon::State)), this, SLOT(engineStateChanged(Phonon::State)) );
+        connect(engine(), &VideoWindow::stateChanged, this, &Part::engineStateChanged);
         videoWindow()->setContextMenuPolicy( Qt::CustomContextMenu );
-        connect( videoWindow(), SIGNAL(customContextMenuRequested()), this, SLOT(videoContextMenu()) );
+        connect(videoWindow(), &QWidget::customContextMenuRequested, this, &Part::videoContextMenu);
 
         widget()->setLayout( layout );
     }
