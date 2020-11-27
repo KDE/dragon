@@ -30,7 +30,7 @@ PlayerApplication::~PlayerApplication()
 void PlayerApplication::slotActivateRequested(const QStringList &arguments, const QString &workingDirectory)
 {
     qDebug() << Q_FUNC_INFO << arguments;
-    if (!arguments.filter("play-dvd", Qt::CaseInsensitive).isEmpty()) {
+    if (!arguments.filter(QStringLiteral("play-dvd"), Qt::CaseInsensitive).isEmpty()) {
         newInstance(true);
         forceActiveWindow();
     } else if (arguments.count() == 2) { // 1st arg binary name, 2nd arg file to open

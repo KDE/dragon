@@ -104,24 +104,24 @@ QString MediaPlayer2Player::PlaybackStatus() const
 {
     switch (Dragon::engine()->state()) {
     case (Phonon::PlayingState):
-        return "Playing";
+        return QStringLiteral("Playing");
         break;
     case (Phonon::PausedState):
     case (Phonon::BufferingState):
-        return "Paused";
+        return QStringLiteral("Paused");
         break;
     case (Phonon::StoppedState):
-        return "Stopped";
+        return QStringLiteral("Stopped");
         break;
     default:
-        return "Stopped";
+        return QStringLiteral("Stopped");
         break;
     }
 }
 
 QString MediaPlayer2Player::LoopStatus() const
 {
-    return "None";
+    return QStringLiteral("None");
 }
 
 void MediaPlayer2Player::setLoopStatus(const QString& loopStatus) const
@@ -158,19 +158,22 @@ QVariantMap MediaPlayer2Player::Metadata() const
     case Phonon::MediaSource::Empty:
         break;
     default:
-        metaData["mpris:trackid"] = QVariant::fromValue<QDBusObjectPath>(QDBusObjectPath(makeTrackId(Dragon::engine()->urlOrDisc()).constData()));
-        metaData["mpris:length"] = Dragon::engine()->length() * 1000;
-        metaData["xesam:url"] = Dragon::engine()->urlOrDisc();
+        metaData = {
+            { QStringLiteral("mpris:trackid"),
+              QVariant::fromValue<QDBusObjectPath>(QDBusObjectPath(makeTrackId(Dragon::engine()->urlOrDisc()).constData())) },
+            { QStringLiteral("mpris:length"), Dragon::engine()->length() * 1000 },
+            { QStringLiteral("xesam:url"), Dragon::engine()->urlOrDisc() },
+        };
     }
 
     QMultiMap<QString, QString> phononMetaData = Dragon::engine()->metaData();
     QMultiMap<QString, QString>::const_iterator i = phononMetaData.constBegin();
 
     while (i != phononMetaData.constEnd()) {
-        if (i.key() == "ALBUM" || i.key() == "TITLE")
-            metaData["xesam:" + i.key().toLower()] = i.value();
-        else if (i.key() == "ARTIST" || i.key() == "GENRE")
-            metaData["xesam:" + i.key().toLower()] = QStringList(i.value());
+        if (i.key() == QLatin1String("ALBUM") || i.key() == QLatin1String("TITLE"))
+            metaData[QLatin1String("xesam:") + i.key().toLower()] = i.value();
+        else if (i.key() == QLatin1String("ARTIST") || i.key() == QLatin1String("GENRE"))
+            metaData[QLatin1String("xesam:") + i.key().toLower()] = QStringList(i.value());
 
         ++i;
     }
@@ -228,44 +231,42 @@ void MediaPlayer2Player::tick(qint64 newPos)
 
 void MediaPlayer2Player::emitMetadataChange() const
 {
-    QVariantMap properties;
-    properties["Metadata"] = Metadata();
+    const QVariantMap properties { { QStringLiteral("Metadata"), Metadata() } };
     Mpris2::signalPropertiesChange(this, properties);
 }
 
 void MediaPlayer2Player::currentSourceChanged() const
 {
-    QVariantMap properties;
-    properties["Metadata"] = Metadata();
-    properties["CanSeek"] = CanSeek();
+    const QVariantMap properties {
+        { QStringLiteral("Metadata"), Metadata() },
+        { QStringLiteral("CanSeek"), CanSeek() },
+    };
     Mpris2::signalPropertiesChange(this, properties);
 }
 
 void MediaPlayer2Player::stateUpdated() const
 {
-    QVariantMap properties;
-    properties["PlaybackStatus"] = PlaybackStatus();
-    properties["CanPause"] = CanPause();
+    const QVariantMap properties {
+        { QStringLiteral("PlaybackStatus"), PlaybackStatus() },
+        { QStringLiteral("CanPause"), CanPause() },
+    };
     Mpris2::signalPropertiesChange(this, properties);
 }
 
 void MediaPlayer2Player::totalTimeChanged() const
 {
-    QVariantMap properties;
-    properties["Metadata"] = Metadata();
+    const QVariantMap properties { { QStringLiteral("Metadata"), Metadata() } };
     Mpris2::signalPropertiesChange(this, properties);
 }
 
 void MediaPlayer2Player::seekableChanged(bool seekable) const
 {
-    QVariantMap properties;
-    properties["CanSeek"] = seekable;
+    const QVariantMap properties { { QStringLiteral("CanSeek"), seekable } };
     Mpris2::signalPropertiesChange(this, properties);
 }
 
 void MediaPlayer2Player::volumeChanged() const
 {
-    QVariantMap properties;
-    properties["Volume"] = Volume();
+    const QVariantMap properties { { QStringLiteral("Volume"), Volume() } };
     Mpris2::signalPropertiesChange(this, properties);
 }

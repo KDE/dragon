@@ -31,11 +31,13 @@ int main( int argc, char **argv )
 
     KLocalizedString::setApplicationDomain("dragonplayer");
 
-    KAboutData aboutData( APP_NAME, i18n("Dragon Player"), QLatin1String(APP_VERSION),
+    KAboutData aboutData( QStringLiteral(APP_NAME),
+                          i18n("Dragon Player"),
+                          QStringLiteral(APP_VERSION),
                           i18n("A video player that has a usability focus"), KAboutLicense::GPL_V2,
                           i18n("Copyright 2006, Max Howell\nCopyright 2007, Ian Monroe"),
                           i18n("IRC:\nirc.freenode.net #dragonplayer\n\nFeedback:\nimonroe@kde.org"),
-                          "https://multimedia.kde.org" );
+                          QStringLiteral("https://commits.kde.org/dragon"));
     aboutData.setDesktopFileName(QStringLiteral("org.kde.dragonplayer"));
     aboutData.addCredit( QStringLiteral("David Edmundson"), i18n("Improvements and polish") );
     aboutData.addCredit( QStringLiteral("Matthias Kretz"), i18n("Creator of Phonon") );
@@ -51,8 +53,9 @@ int main( int argc, char **argv )
     QCommandLineParser parser;
     aboutData.setupCommandLine(&parser);
 
-    parser.addOption(QCommandLineOption("play-dvd", i18n("Play DVD Video")));
-    parser.addPositionalArgument("url", i18n("Play 'URL'"), QStringLiteral("+[URL]"));
+    const QCommandLineOption playDvDOption(QStringLiteral("play-dvd"), i18n("Play DVD Video"));
+    parser.addOption(playDvDOption);
+    parser.addPositionalArgument(QStringLiteral("url"), i18n("Play 'URL'"), QStringLiteral("+[URL]"));
 
     parser.process(app);
     aboutData.processCommandLine(&parser);
@@ -70,7 +73,7 @@ int main( int argc, char **argv )
                                         QUrl::AssumeLocalFile));
     }
 
-    app.newInstance(parser.isSet("play-dvd"), urls);
+    app.newInstance(parser.isSet(playDvDOption), urls);
 
     return app.exec();
 }

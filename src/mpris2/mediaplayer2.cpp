@@ -63,9 +63,10 @@ void MediaPlayer2::setFullscreen(bool fullscreen) const
 
 void MediaPlayer2::emitFullscreenChange(bool fullscreen) const
 {
-    QVariantMap properties;
-    properties["Fullscreen"] = fullscreen;
-    properties["CanSetFullscreen"] = CanSetFullscreen();
+    const QVariantMap properties {
+        { QStringLiteral("Fullscreen"), fullscreen },
+        { QStringLiteral("CanSetFullscreen"), CanSetFullscreen()},
+    };
     Mpris2::signalPropertiesChange(this, properties);
 }
 
@@ -104,7 +105,7 @@ QStringList MediaPlayer2::SupportedUriSchemes() const
 
 QStringList MediaPlayer2::SupportedMimeTypes() const
 {
-    KService::Ptr app = KService::serviceByDesktopName("org.kde." APP_NAME);
+    KService::Ptr app = KService::serviceByDesktopName(DesktopEntry());
 
     if (app)
         return app->mimeTypes();

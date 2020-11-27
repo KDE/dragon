@@ -47,11 +47,11 @@ PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
     grid->setVerticalSpacing( 20 );
 
     //TODO use the kguiItems from the actions
-    mapper->setMapping( o = new QPushButton( QIcon::fromTheme( "document-open" ), i18nc("@action:button", "Play File..."), this ), FILE );
+    mapper->setMapping( o = new QPushButton( QIcon::fromTheme(QStringLiteral("document-open")), i18nc("@action:button", "Play File..."), this ), FILE );
     connect(o, &QAbstractButton::clicked, mapper, QOverload<>::of(&QSignalMapper::map));
     grid->addWidget( o, 0, 0 );
 
-    mapper->setMapping( o = new QPushButton( QIcon::fromTheme( "media-optical-video" ), i18nc("@action:button", "Play Disc"), this ), DVD );
+    mapper->setMapping( o = new QPushButton( QIcon::fromTheme(QStringLiteral("media-optical-video")), i18nc("@action:button", "Play Disc"), this ), DVD );
     connect(o, &QAbstractButton::clicked, mapper, QOverload<>::of(&QSignalMapper::map));
     grid->addWidget( o, 0, 1 );
 
