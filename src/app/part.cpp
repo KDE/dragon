@@ -104,12 +104,12 @@ namespace Dragon
     {
         // generic factory expects this on the heap
         //return new KAboutData( APP_NAME, "Dragon Player", APP_VERSION );
-        return new KAboutData( APP_NAME,
-                               i18n("Dragon Player"), APP_VERSION,
+        return new KAboutData( QStringLiteral(APP_NAME),
+                               i18n("Dragon Player"), QStringLiteral(APP_VERSION),
                                i18n("A video player that has a usability focus"), KAboutLicense::GPL_V2,
                                i18n("Copyright 2006, Max Howell\nCopyright 2007, Ian Monroe"), QString(),
-                               "https://multimedia.kde.org",
-                               "imonroe@kde.org" );
+                               QStringLiteral("https://multimedia.kde.org"),
+                               QStringLiteral("imonroe@kde.org") );
     }
 #endif
 
