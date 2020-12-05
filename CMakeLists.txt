@@ -61,7 +61,7 @@ include_directories(BEFORE SYSTEM ${PHONON_INCLUDES})
 include(CheckIncludeFiles)
 check_include_files(unistd.h HAVE_UNISTD_H)
 
-configure_file(config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h)
+configure_file(config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
 add_definitions(
     -DQT_DEPRECATED_WARNINGS
