@@ -1,4 +1,4 @@
-configure_file(dragonplayer_part.desktop ${CMAKE_CURRENT_BINARY_DIR}/dragonplayer_part.desktop @ONLY)
+configure_file(dragonplayer_part.desktop.in ${CMAKE_CURRENT_BINARY_DIR}/dragonplayer_part.desktop @ONLY)
 
 install(PROGRAMS org.kde.dragonplayer.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 install(FILES dragonplayer-opendvd.desktop dragonplayer-openaudiocd.desktop DESTINATION ${DATA_INSTALL_DIR}/solid/actions )
