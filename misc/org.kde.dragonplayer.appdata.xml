@@ -4,6 +4,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>Dragon Player</name>
+  <name xml:lang="bg">Dragon Player</name>
   <name xml:lang="bs">Dragon plejer</name>
   <name xml:lang="ca">Dragon Player</name>
   <name xml:lang="ca-valencia">Dragon Player</name>
@@ -44,6 +45,7 @@
   <name xml:lang="zh-CN">Dragon Player</name>
   <name xml:lang="zh-TW">影音播放_DragonPlayer</name>
   <summary>Video player with focus on simplicity</summary>
+  <summary xml:lang="bg">Възпроизвеждане на видео</summary>
   <summary xml:lang="ca">Reproductor de vídeo amb enfocament en la simplicitat</summary>
   <summary xml:lang="ca-valencia">Reproductor de vídeo amb enfocament en la simplicitat</summary>
   <summary xml:lang="cs">Přehrávač videa se zaměřením na jednoduchost použití</summary>
