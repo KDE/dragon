@@ -36,7 +36,7 @@ int main( int argc, char **argv )
                           QStringLiteral(APP_VERSION),
                           i18n("A video player that has a usability focus"), KAboutLicense::GPL_V2,
                           i18n("Copyright 2006, Max Howell\nCopyright 2007, Ian Monroe"),
-                          i18n("IRC:\nirc.freenode.net #dragonplayer\n\nFeedback:\nimonroe@kde.org"),
+                          QString(),
                           QStringLiteral("https://commits.kde.org/dragon"));
     aboutData.setDesktopFileName(QStringLiteral("org.kde.dragonplayer"));
     aboutData.addCredit( QStringLiteral("David Edmundson"), i18n("Improvements and polish") );
