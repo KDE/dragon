@@ -37,9 +37,9 @@ ki18n_wrap_ui(dragon
 )
 
 target_link_libraries(dragon
-    Qt5::Core
+    Qt::Core
     KF5::Crash
-    Qt5::Widgets
+    Qt::Widgets
     KF5::CoreAddons
     KF5::I18n
     KF5::KIOCore
@@ -81,8 +81,8 @@ target_link_libraries(dragonpart
     KF5::WindowSystem
     KF5::Notifications
     ${PHONON_LIBRARY}
-    Qt5::Core
-    Qt5::Widgets
+    Qt::Core
+    Qt::Widgets
 )
 
 install(TARGETS dragonpart DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/parts)
