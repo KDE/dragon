@@ -12,15 +12,10 @@
 
 #include <QList>
 
-#include <kparts_version.h>
 #include <KParts/StatusBarExtension>
 #include <KParts/ReadOnlyPart>
 #include <QUrl>
 #include <Phonon/MediaSource>
-
-#if KPARTS_VERSION < QT_VERSION_CHECK(5, 77, 0)
-class KAboutData;
-#endif
 
 
 namespace Dragon
@@ -31,17 +26,9 @@ class Part : public KParts::ReadOnlyPart
 {
     Q_OBJECT
 public:
-#if KPARTS_VERSION >= QT_VERSION_CHECK(5, 77, 0)
     Part(QWidget* parentWidget, QObject* parent, const KPluginMetaData& metaData, const QVariantList& /*args*/);
-#else
-    Part(QWidget* parentWidget, QObject* parent, const QVariantList& /*args*/);
-#endif
 
     bool closeUrl() override;
-
-#if KPARTS_VERSION < QT_VERSION_CHECK(5, 77, 0)
-    static KAboutData *createAboutData();
-#endif
 
 public Q_SLOTS:
     bool openUrl( const QUrl& ) override;

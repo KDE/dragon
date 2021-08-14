@@ -12,11 +12,7 @@
 #include "partToolBar.h"
 #include "videoWindow.h"
 
-#if KPARTS_VERSION >= QT_VERSION_CHECK(5, 77, 0)
 #include <KPluginMetaData>
-#else
-#include <KAboutData>
-#endif
 #include <KActionCollection>
 #include <KPluginFactory>
 #include <KToggleAction>
@@ -36,20 +32,13 @@ K_PLUGIN_FACTORY_WITH_JSON(CodeineFactory, "dragonplayer_part.json",
 
 namespace Dragon
 {
-#if KPARTS_VERSION >= QT_VERSION_CHECK(5, 77, 0)
     Part::Part(QWidget* parentWidget, QObject* parent, const KPluginMetaData& metaData, const QVariantList& /*args*/)
-#else
-    Part::Part(QWidget* parentWidget, QObject* parent, const QVariantList& /*args*/)
-#endif
         : ReadOnlyPart( parent )
         , m_statusBarExtension( new KParts::StatusBarExtension( this ) )
         , m_playPause( nullptr )
     {
-#if KPARTS_VERSION >= QT_VERSION_CHECK(5, 77, 0)
         setMetaData(metaData);
-#else
-        setComponentData(*createAboutData());
-#endif
+
         KActionCollection * const ac = actionCollection();
 
         setWidget( new QWidget( parentWidget ) ); //, widgetName
@@ -98,20 +87,6 @@ namespace Dragon
         videoWindow()->stop();
         return true;
     }
-
-#if KPARTS_VERSION < QT_VERSION_CHECK(5, 77, 0)
-    KAboutData* Part::createAboutData()
-    {
-        // generic factory expects this on the heap
-        //return new KAboutData( APP_NAME, "Dragon Player", APP_VERSION );
-        return new KAboutData( QStringLiteral(APP_NAME),
-                               i18n("Dragon Player"), QStringLiteral(APP_VERSION),
-                               i18n("A video player that has a usability focus"), KAboutLicense::GPL_V2,
-                               i18n("Copyright 2006, Max Howell\nCopyright 2007, Ian Monroe"), QString(),
-                               QStringLiteral("https://multimedia.kde.org"),
-                               QStringLiteral("imonroe@kde.org") );
-    }
-#endif
 
     void Part::videoContextMenu( const QPoint & pos )
     {
