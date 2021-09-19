@@ -281,7 +281,7 @@
       <li xml:lang="tr">Alt yazı desteği: İsmi uyuşan alt yazıları otomatik olarak yükler</li>
       <li xml:lang="uk">підтримка субтитрів: програма автоматично завантажує субтитри з відповідною назвою;</li>
       <li xml:lang="x-test">xxSupport for subtitles: Automatically loads subtitles with the matching namexx</li>
-      <li xml:lang="zh-CN">支持字幕：自动装入名称匹配的字幕</li>
+      <li xml:lang="zh-CN">支持字幕：自动加载名称匹配的字幕</li>
       <li xml:lang="zh-TW">支援字幕：名稱相符的話自動載入字幕</li>
       <li>Video display settings (brightness, contrast)</li>
       <li xml:lang="bg">Настройки на видео (яркост, контраст)</li>
