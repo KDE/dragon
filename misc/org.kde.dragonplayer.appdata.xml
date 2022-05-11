@@ -41,7 +41,7 @@
   <name xml:lang="sr-ijekavian">Змајев плејер</name>
   <name xml:lang="sr-ijekavianlatin">Zmajev plejer</name>
   <name xml:lang="sv">Dragon videospelare</name>
-  <name xml:lang="tr">Dragon Oynatıcı</name>
+  <name xml:lang="tr">Dragon</name>
   <name xml:lang="uk">Програвач Dragon</name>
   <name xml:lang="x-test">xxDragon Playerxx</name>
   <name xml:lang="zh-CN">Dragon Player</name>
@@ -122,7 +122,7 @@
     <p xml:lang="sr-ijekavian">Змајев плејер је мултимедијални плејер са тежиштем на једноставности уместо на могућностима. Има једну и само једну намену: пуштање мултимедијалних фајлова. Пружа једноставно сучеље које вас не замара детаљима, већ омогућава да једноставно пуштате мултимедијалне фајлове.</p>
     <p xml:lang="sr-ijekavianlatin">Zmajev plejer je multimedijalni plejer sa težištem na jednostavnosti umesto na mogućnostima. Ima jednu i samo jednu namenu: puštanje multimedijalnih fajlova. Pruža jednostavno sučelje koje vas ne zamara detaljima, već omogućava da jednostavno puštate multimedijalne fajlove.</p>
     <p xml:lang="sv">Dragon videospelare är en multimediaspelare med fokus på enkelhet istället för funktioner. Dragon videospelare gör endast en sak, nämligen spela multimediafiler. Dess enkla gränssnitt är konstruerat för att inte vara i vägen utan istället ge dig möjlighet att enkelt spela upp multimediafiler.</p>
-    <p xml:lang="tr">Dragon Oynatıcı özellikli olma yerine basitliğe odaklanılan bir çoklu ortam oynatıcıdır. Dragon Oynatıcı bir şeyi, sadece bir şeyi yapar; çoklu ortam dosyalarını oynatır. Basit arayüzü kendi yolunu bulmanız için değil basitçe çoklu ortam dosyalarını oynatmanız için tasarlanmıştır.</p>
+    <p xml:lang="tr">Dragon, özellikli olma yerine basitliğe odaklanılan bir çoklu ortam oynatıcıdır. Dragon; bir şeyi, yalnızca bir şeyi yapar; çoklu ortam dosyalarını oynatır. Basit arayüzü kendi yolunu bulmanız için değil basitçe çoklu ortam dosyalarını oynatmanız için tasarlanmıştır.</p>
     <p xml:lang="uk">Програвач Dragon — програма для відтворення мультимедійних даних, основною перевагою якої є простота. Програвач Dragon робить одну річ і лише одну річ, а саме, відтворює файли мультимедійних даних. Простий інтерфейс програми просто не дасть вам зробити щось неправильно, але надасть вам змогу відтворити потрібні вам дані.</p>
     <p xml:lang="x-test">xxDragon Player is a multimedia player where the focus is on simplicity, instead of features. Dragon Player does one thing, and only one thing, which is playing multimedia files. Its simple interface is designed not to get in your way and instead empower you to simply play multimedia files.xx</p>
     <p xml:lang="zh-CN">Dragon Player 是一个相比于功能来说更注重简洁的多媒体播放器。Dragon Player 做且只做一件事，就是播放多媒体文件。界面简单，减少干扰，立即播放文件。</p>
@@ -209,7 +209,7 @@
       <li xml:lang="sr-ijekavian">Једноставно сучеље.</li>
       <li xml:lang="sr-ijekavianlatin">Jednostavno sučelje.</li>
       <li xml:lang="sv">Enkelt gränssnitt</li>
-      <li xml:lang="tr">Basit Arayüz</li>
+      <li xml:lang="tr">Yalın Arayüz</li>
       <li xml:lang="uk">простий інтерфейс;</li>
       <li xml:lang="x-test">xxSimple Interfacexx</li>
       <li xml:lang="zh-CN">简洁的界面</li>
@@ -250,7 +250,7 @@
       <li xml:lang="sr-ijekavian">Настављање видеа: започиње пуштање видеа тамо где сте последње пут стали.</li>
       <li xml:lang="sr-ijekavianlatin">Nastavljanje videa: započinje puštanje videa tamo gde ste poslednje put stali.</li>
       <li xml:lang="sv">Återuppta videor: Börjar spela en video på stället du senast tittade på den</li>
-      <li xml:lang="tr">Videoları kaldığı yerden devam etme: Bir videoyu son izlediğiniz yerden oynatmaya başlar</li>
+      <li xml:lang="tr">Videoları kaldığı yerden sürdürme: Bir videoyu son izlediğiniz yerden oynatmaya başlar</li>
       <li xml:lang="uk">поновлення відтворення відео: відео починає відтворюватися з того моменту, на якому ви зупинили відтворення під час попереднього сеансу роботи з програмою;</li>
       <li xml:lang="x-test">xxResuming videos: Starts playing a video where you were watching it last timexx</li>
       <li xml:lang="zh-CN">恢复视频：从上次观看时间开始播放</li>
@@ -292,7 +292,7 @@
       <li xml:lang="sr-ijekavian">Титлови: аутоматски учитава титлове са поклапајућим именом.</li>
       <li xml:lang="sr-ijekavianlatin">Titlovi: automatski učitava titlove sa poklapajućim imenom.</li>
       <li xml:lang="sv">Stöd för textning: Laddar automatiskt textning med motsvarande namn</li>
-      <li xml:lang="tr">Alt yazı desteği: İsmi uyuşan alt yazıları otomatik olarak yükler</li>
+      <li xml:lang="tr">Altyazı desteği: Adı uyuşan altyazıları otomatik olarak yükler</li>
       <li xml:lang="uk">підтримка субтитрів: програма автоматично завантажує субтитри з відповідною назвою;</li>
       <li xml:lang="x-test">xxSupport for subtitles: Automatically loads subtitles with the matching namexx</li>
       <li xml:lang="zh-CN">支持字幕：自动加载名称匹配的字幕</li>
@@ -334,7 +334,7 @@
       <li xml:lang="sr-ijekavian">Поставке видео приказа (осветљај, контраст).</li>
       <li xml:lang="sr-ijekavianlatin">Postavke video prikaza (osvetljaj, kontrast).</li>
       <li xml:lang="sv">Inställningar av videovisning (ljusstyrka, kontrast)</li>
-      <li xml:lang="tr">Video görüntüleme ayarları (parlaklık, kontrast)</li>
+      <li xml:lang="tr">Video görüntüleme ayarları (parlaklık, karşıtlık)</li>
       <li xml:lang="uk">можливість зміни параметрів показу відео (яскравості, контрастності);</li>
       <li xml:lang="x-test">xxVideo display settings (brightness, contrast)xx</li>
       <li xml:lang="zh-CN">视频显示设置 (亮度，对比度)</li>
@@ -374,7 +374,7 @@
       <li xml:lang="sr-ijekavian">Будући да користи Солид и Фонон, Змајев плејер је независан од осталих мултимедијалних радних оквира и слојева апстракције хардвера.</li>
       <li xml:lang="sr-ijekavianlatin">Budući da koristi Solid i Phonon, Zmajev plejer je nezavisan od ostalih multimedijalnih radnih okvira i slojeva apstrakcije hardvera.</li>
       <li xml:lang="sv">På grund av att Solid och Phonon används är Dragon videospelare oberoende av alla ramverk för multimedia och hårdvaruabstraktionslager</li>
-      <li xml:lang="tr">Solid ve Phonon kullandığı için Dragon Oynatıcı herhangi bir çoklu ortam çatısına veya donanım soyutlama katmanına bağlı değildir</li>
+      <li xml:lang="tr">Solid ve Phonon kullandığı için Dragon herhangi bir çoklu ortam çatısına veya donanım soyutlama katmanına bağlı değildir</li>
       <li xml:lang="uk">оскільки у програмі використовуються бібліотеки Solid та Phonon, її робота не залежить від використаного набору мультимедійних бібліотек та рівня абстрагування від обладнання;</li>
       <li xml:lang="x-test">xxDue to using Solid and Phonon DragonPlayer is independent of any multimedia framework or hardware abstraction layerxx</li>
       <li xml:lang="zh-CN">因对使用 Solid 和 Phonon，DragonPlayer 独立于任何多媒体框架或者硬件抽象层。</li>
