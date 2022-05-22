@@ -423,6 +423,7 @@
       <li xml:lang="zh-TW">支援播放 CD 與 DVD</li>
     </ul>
   </description>
+  <content_rating type="oars-1.1" />
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=dragonplayer</url>
   <url type="help">https://docs.kde.org/?application=dragonplayer</url>
   <url type="donation">https://www.kde.org/community/donations/?app=dragon&amp;source=appdata</url>
