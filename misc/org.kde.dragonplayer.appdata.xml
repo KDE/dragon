@@ -92,6 +92,7 @@
       empower you to simply play multimedia files.
     </p>
     <p xml:lang="ar">مشغل التنين هو مشغل وسائط متعددة حيث يركز على البساطة عوضاً عن الميزات. يقوم مشغل التنين بشيء واحد، وشيء واحد فقط، وهو تشغيل ملفات الوسائط المتعددة. صممت واجهته البسيطة بحيث لا تقف في طريقك وتمكّنك من تشغيل ملفات الوسائط المتعددة.</p>
+    <p xml:lang="bg">Dragon е програма за мултимедийно възпроизвеждане, където фокусът е върху простотата на използване, вместо функции. Dragon прави едно и само едно нещо като възпроизвежда мултимедийни файлове. Неговият прост интерфейс е предназначен да не се натрапва и вместо това ще ви даде възможност просто да възпроизведете вашите мултимедийни файлове.</p>
     <p xml:lang="ca">El Dragon Player és un reproductor multimèdia que se centra en la simplicitat, en lloc de les característiques. El Dragon Player fa una cosa, i només una cosa, la qual és reproduir fitxers multimèdia. Té una interfície senzilla, la qual està dissenyada perquè no s'interposi en el vostre camí i que simplement pugueu reproduir els fitxers multimèdia.</p>
     <p xml:lang="ca-valencia">Dragon Player és un reproductor multimèdia que se centra en la simplicitat, en lloc de les característiques. Dragon Player fa una cosa, i només una cosa, la qual és reproduir fitxers multimèdia. Té una interfície senzilla, la qual està dissenyada perquè no s'interposi en el vostre camí i que simplement pugueu reproduir els fitxers multimèdia.</p>
     <p xml:lang="da">Dragon Player er en multimedieafspiller med fokus på enkelthed fremfor funktioner. Dragon Player gør én ting og kun én ting, hvilket er at afspille multimediefiler. Dens simple brugerflade er designet til ikke at være i vejen og i stedet styrke dig i ganske enkelt at afspille multimediefiler.</p>
@@ -341,6 +342,7 @@
       <li xml:lang="zh-TW">影像顯示設定（亮度、對比）</li>
       <li>Due to using Solid and Phonon DragonPlayer is independent of any multimedia framework or hardware abstraction layer</li>
       <li xml:lang="ar">نظرًا لاستخدام Solid و Phonon ، فإن مشغل التنين مستقل عن أي إطار عمل للوسائط المتعددة أو طبقة تجريد للعتاد</li>
+      <li xml:lang="bg">Поради използване на Solid и Phonon Dragon е независим от всякаква мултимедийна рамка и слой за хардуерна абстракция</li>
       <li xml:lang="bs">Pošto kotisti Solid i Phonon DragonPlayer je neovisan od bilo kog multimedijalnog radnog okvira ili hardverskog sloja apstracije.</li>
       <li xml:lang="ca">A causa de l'ús de Solid i Phonon, el Dragon Player és independent de qualsevol marc de treball multimèdia o capa d'abstracció de maquinari</li>
       <li xml:lang="ca-valencia">A causa de l'ús de Solid i Phonon, Dragon Player és independent de qualsevol marc de treball multimèdia o capa d'abstracció de maquinari</li>
