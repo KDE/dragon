@@ -85,4 +85,4 @@ target_link_libraries(dragonpart
     Qt::Widgets
 )
 
-install(TARGETS dragonpart DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/parts)
+install(TARGETS dragonpart DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf${QT_MAJOR_VERSION}/parts)
