@@ -10,8 +10,8 @@ project(DragonPlayer VERSION ${RELEASE_SERVICE_VERSION})
 
 set(PROJECT_VERSION ${RELEASE_SERVICE_VERSION})
 
-set(QT_MIN_VERSION "5.15.0")
-set(KF5_MIN_VERSION "5.85.0")
+set(QT_MIN_VERSION "5.15.2")
+set(KF5_MIN_VERSION "5.90.0")
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
@@ -24,7 +24,7 @@ include(ECMInstallIcons)
 include(ECMSetupVersion)
 include(FeatureSummary)
 
-find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
     Widgets
 )
@@ -46,7 +46,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
     XmlGui
     Notifications
 )
-find_package(Phonon4Qt5 4.6.60 REQUIRED NO_MODULE)
+find_package(Phonon4Qt${QT_MAJOR_VERSION} 4.6.60 REQUIRED NO_MODULE)
 
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}/src
