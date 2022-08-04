@@ -539,7 +539,7 @@ MainWindow::load( const QUrl &url )
     //FileWatch the file that is opened
 
     if( url.isEmpty() ) {
-        MessageBox::sorry( i18n( "Dragon Player was asked to open an empty URL; it cannot." ) );
+        MessageBox::error( i18n( "Dragon Player was asked to open an empty URL; it cannot." ) );
         return false;
     }
 
@@ -553,7 +553,7 @@ MainWindow::load( const QUrl &url )
         if( playlist.isValid() )
             ret = engine()->load( playlist.contents() );
         else {
-            MessageBox::sorry( playlist.error() );
+            MessageBox::error( playlist.error() );
             return false;
         }
     }
