@@ -22,6 +22,7 @@
   <name xml:lang="gl">Dragon Player</name>
   <name xml:lang="ia">Dragon Player (Reproductor Dragon)</name>
   <name xml:lang="id">Dragon Player</name>
+  <name xml:lang="is">Dragon spilari</name>
   <name xml:lang="it">Dragon Player</name>
   <name xml:lang="ko">Dragon 플레이어</name>
   <name xml:lang="nb">Dragon Player</name>
@@ -64,6 +65,7 @@
   <summary xml:lang="gl">Reprodutor de vídeo centrado na facilidade</summary>
   <summary xml:lang="ia">Reproductor de video focalisate sur le simplicitate</summary>
   <summary xml:lang="id">Pemutar video dengan fokus pada kesederhanaan</summary>
+  <summary xml:lang="is">Myndspilari með áherslu á einfaldleika</summary>
   <summary xml:lang="it">Lettore video con l'obiettivo della semplicità</summary>
   <summary xml:lang="ko">간단한 동영상 재생기</summary>
   <summary xml:lang="nl">Videospeler met focus op eenvoud</summary>
@@ -147,6 +149,7 @@
     <p xml:lang="gl">Funcionalidades:</p>
     <p xml:lang="ia">Characteristicas:</p>
     <p xml:lang="id">Fitur:</p>
+    <p xml:lang="is">Eiginleikar:</p>
     <p xml:lang="it">Caratteristiche:</p>
     <p xml:lang="ko">기능:</p>
     <p xml:lang="nb">Funksjoner:</p>
@@ -191,6 +194,7 @@
       <li xml:lang="gl">Interface sinxela</li>
       <li xml:lang="ia">Interfacie simplice</li>
       <li xml:lang="id">Antarmuka Sederhana</li>
+      <li xml:lang="is">Einfalt notandaviðmót</li>
       <li xml:lang="it">Interfaccia semplice</li>
       <li xml:lang="ko">간단한 인터페이스</li>
       <li xml:lang="nb">Enkel brukerflate</li>
