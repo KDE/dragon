@@ -237,6 +237,7 @@
       <li xml:lang="gl">Continuar a reprodución: comeza a reproducir os vídeos polo mesmo punto no que ía a última vez que os estivo a ver.</li>
       <li xml:lang="ia">Recuperante videos: Initia a reproducer un video ubi tu lo observava le ultime vice</li>
       <li xml:lang="id">Melanjutkan video: Mulai memutar video tempat di mana kamu menontonnya terakhir kali</li>
+      <li xml:lang="is">Halda áfram afspilun: Heldur áfram með myndskeið þar sem þú hættir síðast</li>
       <li xml:lang="it">Riavvio del video: avvia la riproduzione video dal punto in cui l'avevi interrotta l'ultima volta</li>
       <li xml:lang="ko">동영상 위치 기억: 마지막으로 본 지점부터 동영상을 다시 재생합니다</li>
       <li xml:lang="nb">Gjenopptar videospilling: Begynner å spille en video der du så på den sist</li>
@@ -279,6 +280,7 @@
       <li xml:lang="gl">Compatibilidade con subtítulos: carga automaticamente subtítulos que teñan o mesmo nome que o ficheiro de vídeo.</li>
       <li xml:lang="ia">Supporto per subtitulos: Autmaticamente carga subtitulos con le nomine correspondente</li>
       <li xml:lang="id">Mendukung subtitle: Secara otomatis memuat subtitles dengan nama yang cocok</li>
+      <li xml:lang="is">Stuðningur við skjátexta (þýðingar): Hleður sjálfkrafa inn skjátextaskrám með samsvarandi heitum</li>
       <li xml:lang="it">Supporto sottotitoli: carica automaticamente i sottotitoli che corrispondono al nome del video</li>
       <li xml:lang="ko">자막 지원: 파일 이름이 동일한 자막을 자동으로 불러옵니다</li>
       <li xml:lang="nb">Støtte for teksting: Laster automatisk tekstefiler med tilsvarende navn</li>
@@ -321,6 +323,7 @@
       <li xml:lang="gl">Configuración de vídeo (brillo, contraste)</li>
       <li xml:lang="ia">Preferentias de monstrator de video (Brillantia, contrasto)</li>
       <li xml:lang="id">Pengesetan tampilan video (kecerahan, kontras)</li>
+      <li xml:lang="is">Stillingar á birtingu myndmerkis (birtustig, birtuskil)</li>
       <li xml:lang="it">Impostazioni di visualizzazione (luminosità, contrasto)</li>
       <li xml:lang="ko">동영상 표시 설정(밝기, 명암)</li>
       <li xml:lang="nb">Video-innstillinger /lysstyrke / kontrast)</li>
@@ -404,6 +407,7 @@
       <li xml:lang="gl">Permite reproducir CD e DVD</li>
       <li xml:lang="ia">Supporta reproducer CDs e DVDs</li>
       <li xml:lang="id">Mendukung pemutaran CD dan DVD</li>
+      <li xml:lang="is">Styður afspilun CD og DVD-diska</li>
       <li xml:lang="it">Supporto per la riproduzione di CD e DVD</li>
       <li xml:lang="ko">CD 및 DVD 재생 지원</li>
       <li xml:lang="nb">Støtte for å spille CDer og DVDer</li>
