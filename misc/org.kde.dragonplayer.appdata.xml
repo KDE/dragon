@@ -23,6 +23,7 @@
   <name xml:lang="ia">Dragon Player (Reproductor Dragon)</name>
   <name xml:lang="id">Dragon Player</name>
   <name xml:lang="it">Dragon Player</name>
+  <name xml:lang="ka">დამკვრელი Dragon</name>
   <name xml:lang="ko">Dragon 플레이어</name>
   <name xml:lang="nb">Dragon Player</name>
   <name xml:lang="nds">Drakenspeler</name>
@@ -65,6 +66,7 @@
   <summary xml:lang="ia">Reproductor de video focalisate sur le simplicitate</summary>
   <summary xml:lang="id">Pemutar video dengan fokus pada kesederhanaan</summary>
   <summary xml:lang="it">Lettore video con l'obiettivo della semplicità</summary>
+  <summary xml:lang="ka">უმარტივესი ვიდეო დამკვრელი</summary>
   <summary xml:lang="ko">간단한 동영상 재생기</summary>
   <summary xml:lang="nl">Videospeler met focus op eenvoud</summary>
   <summary xml:lang="nn">Filmspelar som prøver å vera enkel</summary>
@@ -148,6 +150,7 @@
     <p xml:lang="ia">Characteristicas:</p>
     <p xml:lang="id">Fitur:</p>
     <p xml:lang="it">Caratteristiche:</p>
+    <p xml:lang="ka">თვისებები:</p>
     <p xml:lang="ko">기능:</p>
     <p xml:lang="nb">Funksjoner:</p>
     <p xml:lang="nds">Markmalen:</p>
@@ -192,6 +195,7 @@
       <li xml:lang="ia">Interfacie simplice</li>
       <li xml:lang="id">Antarmuka Sederhana</li>
       <li xml:lang="it">Interfaccia semplice</li>
+      <li xml:lang="ka">მარტივი ინტერფეისი</li>
       <li xml:lang="ko">간단한 인터페이스</li>
       <li xml:lang="nb">Enkel brukerflate</li>
       <li xml:lang="nds">Eenfach Böversiet</li>
@@ -318,6 +322,7 @@
       <li xml:lang="ia">Preferentias de monstrator de video (Brillantia, contrasto)</li>
       <li xml:lang="id">Pengesetan tampilan video (kecerahan, kontras)</li>
       <li xml:lang="it">Impostazioni di visualizzazione (luminosità, contrasto)</li>
+      <li xml:lang="ka">ვიდეოს ჩვენების მორგება (სიკაშკაშე, კონტრასტი)</li>
       <li xml:lang="ko">동영상 표시 설정(밝기, 명암)</li>
       <li xml:lang="nb">Video-innstillinger /lysstyrke / kontrast)</li>
       <li xml:lang="nds">Video-Afspeelinstellen (Helligkeit, Kontrast)</li>
