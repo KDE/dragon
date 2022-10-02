@@ -1,0 +1,119 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Dutch "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Gebruikershandleiding van Dragon Player</title>
+<author
+><firstname
+>Praveen</firstname
+><surname
+>Arimbrathodiyil</surname
+> <contrib
+>Dragon Player man page.</contrib
+> <email
+>pravi.a@gmail.com</email
+></author>
+<date
+>2016-06-29</date>
+<releaseinfo
+>Applications 16.04</releaseinfo>
+<productname
+>KDE Applications</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>dragon</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+>dragon</refname>
+<refpurpose
+>een videospeler met focus op gebruiksgemak</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis
+><command
+>dragon</command
+> <arg choice="opt"
+><replaceable
+>URL</replaceable
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+
+<refsect1 id="description"
+><title
+>Beschrijving</title>
+<para
+><command
+>dragon</command
+>-speler speelt audio en video af in verschillende formaten.</para>
+
+</refsect1>
+
+<refsect1 id="options"
+><title
+>Opties</title>
+<variablelist>
+  <varlistentry>
+  <term
+><option
+>--play-dvd</option
+></term>
+  <listitem>
+<para
+>Dvd-video afspelen.</para>
+  </listitem>
+  </varlistentry>
+</variablelist>
+</refsect1>
+
+<refsect1>
+<title
+>Zie ook</title>
+<simplelist>
+<member
+>U vindt uitvoeriger documentatie in <ulink url="help:/dragonplayer"
+>help:/dragonplayer</ulink
+> (voer deze <acronym
+>URL</acronym
+> in in &konqueror;, of start <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/dragonplayer</parameter
+></userinput
+>).</member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+</simplelist>
+</refsect1>
+
+<refsect1 id="copyright"
+><title
+>Copyright</title>
+<para
+>Copyright &copy; 2006 Max Howell</para>
+<para
+>Copyright &copy; 2007 Ian Monroe</para>
+<para
+>Licentie: GNU General Public Version 2 &lt;<ulink url="https://www.gnu.org/licenses/gpl-2.0.html"
+>https://www.gnu.org/licenses/gpl-2.0.html</ulink
+>&gt;</para>
+</refsect1>
+</refentry>
+

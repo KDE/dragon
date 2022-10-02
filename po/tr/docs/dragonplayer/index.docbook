@@ -1,0 +1,356 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&dragonplayer;">
+  <!ENTITY dragonplayer "<application
+>Dragon Player</application
+>">
+
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Turkish "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>&dragonplayer;  El Kitabı</title>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>Diehl</surname
+> <affiliation
+> <address
+><email
+>madpenguin8@yahoo.com</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Ian</firstname
+> <surname
+>Monroe</surname
+> <affiliation
+> <address
+><email
+>imonroe@kde.org</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Serdar</firstname
+><surname
+>Soytetir</surname
+><affiliation
+><address
+><email
+>tulliana@gmail.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2004</year>
+<holder
+>Mike Diehl</holder>
+</copyright>
+<copyright>
+<year
+>2007</year>
+<holder
+>Ian Monroe</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2010-10-21</date>
+<releaseinfo
+>2.0 (&kde; 4.5)</releaseinfo>
+
+<abstract>
+<para
+>&dragonplayer;, &kde; için basit bir video oynatıcıdır. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Codeine</keyword>
+<keyword
+>Phonon</keyword>
+<keyword
+>Dragon</keyword>
+<keyword
+>Oynatıcı</keyword>
+<keyword
+>Dragon Oynatıcı</keyword>
+<keyword
+>video</keyword>
+<keyword
+>çokluortam</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Giriş</title>
+
+<screenshot>
+<screeninfo
+>&dragonplayer; Ekran Görüntüsü</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="main.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Ekran Görüntüsü</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+
+<para
+>&dragonplayer; Phonon teknolojisini kullanan basit bir medya oynatıcıdır.&dragonplayer;, DVD veya film oynatırken sizi önemsemeyen, üstünlük taslayan gösterişli bir medya oynatıcı değildir. </para>
+
+</chapter>
+
+<chapter id="select-media">
+<title
+>Bir Ortam Seç</title>
+
+<para
+>&dragonplayer; uygulama başlatıcıdan çalıştırıldığında ya da araç çubuğundan ya da <guimenu
+>Oynat</guimenu
+> menüsünden <guibutton
+>Ortam Oynat</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+>) tıklandığında, bu pencere gösterilir:</para>
+
+<screenshot>
+<screeninfo
+>Ortam Oynat</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="playmedia.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Ortam Oynat</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Bir video dosyasını oynatmanın çeşitli yolları vardır:</para>
+<para
+><guibutton
+>Dosya Oynat</guibutton
+>, bir pencere açarak oynatmak için bir dosya seçmenizi sağlar.</para>
+<para
+><guibutton
+>Disk Oynat</guibutton
+>, CD vey DVD oynatmanızı sağlar.</para>
+<para
+>Bir dosyayı oynatmak için son açılan dosyalar listesinden bir ögeye çift tıklayın. Oynatma listesinin sağ tıklama menüsü, seçilen ögeyi listeden kaldırma ve tüm oynatma listesini temizleme seçeneklerini gösterir. Daha önce oynattığınız tüm dosyalar listeye otomatik olarak eklenir.</para>
+</chapter>
+
+<chapter id="features">
+<title
+>Özellikler</title>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Tam Ekran Kipi</guimenuitem>
+</term>
+<listitem
+><para
+>Bir filmi oynatırken tam ekran kipine geçebilirsiniz. Bu kip, filmi göstermek için tüm ekranınızı kullanır. Tam ekran kipindeyken fareyi hareket ettirirseniz, ekranın en üstünde bir araç çubuğu gösterilir. <guimenu
+>Ayarlar</guimenu
+> menüsünü kullanarak tam ekran kipini değiştirmek için menüdeki eyleme tıklayın. Video görüntüsüne çift tıklayark ya da <keycap
+>F</keycap
+> tuşuna basarak da tam ekran kipini değiştirebilirsiniz. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Video Ayarları</guimenuitem>
+</term>
+<listitem
+><para
+><guilabel
+>Parlaklık</guilabel
+>, <guilabel
+>Karşıtlık</guilabel
+>, <guilabel
+>Ton</guilabel
+> ve <guilabel
+>Doygunluk</guilabel
+> ayarlarını değiştirmek için <guimenu
+>Ayarlar</guimenu
+> menüsünü kullanın. Bu ayarlar her video dosyası için oynatma konumuyla birlikte kaydedilir. Bu özellik, bir video dosyasını daha sonra kaldığınız yerden ve ayarlamış olduğunuz görüntü değerleriyle izlemenizi sağlar. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Gezinme </term>
+<listitem
+><para
+><keycap
+>PgUp</keycap
+> tuşu videoyu %10 ileri sarar, <keycap
+>PgDown</keycap
+> ise %10 geri sarar.  <menuchoice
+><guimenu
+>Ayarlar</guimenu
+> <guimenuitem
+>Menüyü Aç / Kapat</guimenuitem
+></menuchoice
+> (<keycap
+>R</keycap
+>) yolunu kullanarak video menüsünün durumunu ve videounun oynatılan bölümünü değiştirebilirsiniz. <menuchoice
+><guimenu
+>Oynat</guimenu
+><guimenuitem
+>Oytnat / Duraklat</guimenuitem
+></menuchoice
+> (<keysym
+>Space</keysym
+>) yolunu takip ederek oynatılan videoyu durdurabilir ve oynatabilirsiniz. <menuchoice
+><guimenu
+>Oynat</guimenu
+><guimenuitem
+>Dur</guimenuitem
+></menuchoice
+> (<keycap
+>S</keycap
+>) ise videoyu durdurur. <guimenu
+>Oynat</guimenu
+> menüsünden <guimenuitem
+>Önceki Bölüm</guimenuitem
+> (<keycap
+>,</keycap
+>) ve <guimenuitem
+>Sonraki Bölüm</guimenuitem
+> (<keycap
+>.</keycap
+>) girdilerini kullanarak videonun önceki ve sonraki bölümlerine geçebilirsiniz. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Ses denetimi</guimenuitem>
+</term>
+<listitem
+><para
+>Eğer videoyu oynatırken araç çubuğu gizlemişseniz, <keycap
+>M</keycap
+> tuşunu kullanarak sesi kapatıp açabilirsiniz, <keycap
+>V</keycap
+> tuşunu kullanarak da ses düzeyi kaydırıcısının videonun sağ tarafında gösterilmesini sağlayabilirsiniz. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ayarlar</guimenu
+> <guisubmenu
+>Görüntü Oranı</guisubmenu
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Bu menü oynamakta olan filmin görüntü oranını ayarlamanıza yardımcı olur. Görüntü oranı, en ve boyun birbirine olan oranını ayarlar.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guisubmenu
+>Altyazılar</guisubmenu
+> ve <guisubmenu
+>Ses Kanalları</guisubmenu
+> </term>
+<listitem
+><para
+><guimenu
+>Ayarlar</guimenu
+> menüsündeki bu ögeler, oynatmakta olduğunuz video dosyasının altyazısı ve/veya ek ses kanalları (farklı dillerde seslendirmeler) varsa etkinleşir. Ses kanallarının ve altyazıların kullanılabilir duruma gelmesi için videoyu birkaç saniye oynatmanız gerektiğini unutmayın. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Yazarlar ve Lisans</title>
+
+<para
+>&dragonplayer; </para>
+
+<para
+>Program telif hakkın 2004 Max B. Howell <email
+>max.howell@methylblue.com</email
+></para>
+<para
+>Program telif hakkı 2007 Ian A. Monroe <email
+>imonroe@kde.org</email
+></para>
+
+<para
+>Belgelendirme telif hakkı 2004 Mike Diehl <email
+>madpenguin8@yahoo.com</email
+> </para>
+<para
+>Belgelendirme telif hakkı 2007 Ian Monroe <email
+>imonroe@kde.org</email
+> </para>
+
+<para
+>Çeviren Serdar Soytetir <email
+>tulliana@gmail.com</email
+></para
+> 
+&underGPL; &underFDL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

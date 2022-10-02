@@ -1,0 +1,586 @@
+# translation of dragonplayer.po to Punjabi
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Amanpreet Singh <aalam@users.sf.net>, 2008.
+# Amanpreet Singh Alam <aalam@users.sf.net>, 2009.
+# A S Alam <aalam@users.sf.net>, 2009, 2010, 2012, 2013, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: dragonplayer\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-02 00:45+0000\n"
+"PO-Revision-Date: 2021-03-06 10:38-0800\n"
+"Last-Translator: A S Alam <aalam@satluj.org>\n"
+"Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.08.1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "alam.yellow@gmail.com"
+
+#. i18n: ectx: Menu (file)
+#: misc/dragonplayerui.rc:4
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Play"
+msgstr "ਚਲਾਓ(&P)"
+
+#. i18n: ectx: Menu (settings)
+#: misc/dragonplayerui.rc:15
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Settings"
+msgstr "ਸੈਟਿੰਗਾਂ(&S)"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: misc/dragonplayerui.rc:31
+#, kde-format
+msgid "Main Toolbar"
+msgstr "ਮੇਨ ਟੂਲਬਾਰ"
+
+#: src/app/actions.cpp:24
+#, kde-format
+msgctxt "@action"
+msgid "Play"
+msgstr "ਚਲਾਓ"
+
+#: src/app/actions.cpp:25
+#, kde-format
+msgctxt "@action"
+msgid "Pause"
+msgstr "ਵਿਰਾਮ"
+
+#: src/app/actions.cpp:40
+#, kde-format
+msgctxt "@option:check Volume of sound output"
+msgid "Volume"
+msgstr "ਵਾਲੀਅਮ"
+
+#: src/app/adjustSizeButton.cpp:39
+#, kde-format
+msgctxt "@action:button"
+msgid "Preferred Scale"
+msgstr "ਪਸੰਦੀਦਾ ਸਕੇਲ"
+
+#: src/app/adjustSizeButton.cpp:43
+#, kde-format
+msgctxt "@action:button"
+msgid "Scale 100%"
+msgstr "ਸਕੇਲ 100%"
+
+#: src/app/adjustSizeButton.cpp:50
+#, kde-format
+msgid "<b>Adjust video scale?</b>"
+msgstr "<b>ਵੀਡਿਓ ਸਕੇਲ ਅਡਜੱਸਟ ਕਰਨਾ ਹੈ?</b>"
+
+#: src/app/discSelectionDialog.cpp:39
+#, kde-format
+msgctxt ""
+"%1 is the disc type, %2 is the name of the disc that the user can choose. "
+"Ex. 'DVD: OfficeSpace'"
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: src/app/discSelectionDialog.cpp:58
+#, kde-format
+msgctxt "Digital Versatile Disc, but keep it short"
+msgid "DVD"
+msgstr "DVD"
+
+#: src/app/discSelectionDialog.cpp:60
+#, kde-format
+msgid "Video CD"
+msgstr "ਵੀਡਿਓ CD"
+
+#: src/app/discSelectionDialog.cpp:62
+#, kde-format
+msgid "Audio CD"
+msgstr "ਆਡੀਓ CD"
+
+#: src/app/discSelectionDialog.cpp:64
+#, kde-format
+msgid "Data CD"
+msgstr "ਡਾਟਾ CD"
+
+#: src/app/discSelectionDialog.cpp:75
+#, kde-format
+msgctxt "@title:window"
+msgid "Select a Disc"
+msgstr "ਡਿਸਕ ਚੁਣੋ"
+
+#: src/app/discSelectionDialog.cpp:77
+#, kde-format
+msgid "Select a disc to play."
+msgstr "ਚਲਾਉਣ ਲਈ ਇੱਕ ਡਿਸਕ ਚੁਣੋ"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_playFileButton)
+#: src/app/loadView.ui:19
+#, kde-format
+msgctxt "@action:button"
+msgid "Play File"
+msgstr "ਫਾਇਲ ਚਲਾਓ"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_playDiskButton)
+#: src/app/loadView.ui:31 src/app/playDialog.cpp:54
+#, kde-format
+msgctxt "@action:button"
+msgid "Play Disc"
+msgstr "ਡਿਸਕ ਚਲਾਓ"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_playStreamButton)
+#: src/app/loadView.ui:43
+#, kde-format
+msgctxt "@action:button"
+msgid "Play Stream"
+msgstr "ਸਟਰੀਮ ਚਲਾਓ"
+
+#: src/app/main.cpp:37
+#, kde-format
+msgid "Dragon Player"
+msgstr "ਡਰੈਗਨ ਪਲੇਅਰ"
+
+#: src/app/main.cpp:39
+#, kde-format
+msgid "A video player that has a usability focus"
+msgstr "ਇੱਕ ਵੀਡਿਓ ਪਲੇਅਰ, ਜੋ ਕਿ ਵਰਤੋਂ ਨੂੰ ਧਿਆਨ 'ਚ ਰੱਖ ਕੇ ਬਣਾਇਆ ਗਿਆ ਹੈ"
+
+#: src/app/main.cpp:40
+#, kde-format
+msgid ""
+"Copyright 2006, Max Howell\n"
+"Copyright 2007, Ian Monroe"
+msgstr ""
+"Copyright 2006, Max Howell\n"
+"Copyright 2007, Ian Monroe"
+
+#: src/app/main.cpp:44
+#, kde-format
+msgid "Improvements and polish"
+msgstr "ਸੁਧਾਰ ਅਤੇ ਪਾਲਿਸ਼"
+
+#: src/app/main.cpp:45
+#, kde-format
+msgid "Creator of Phonon"
+msgstr "ਫੋਨੋਨ ਦਾ ਨਿਰਮਾਤਾ"
+
+#: src/app/main.cpp:46
+#, kde-format
+msgid "Dragon Player icon"
+msgstr "ਡਰੈਗਨ ਪਲੇਅਰ ਆਈਕਾਨ"
+
+#: src/app/main.cpp:47
+#, kde-format
+msgid "Handbook"
+msgstr "ਹੈਂਡਬੁੱਕ"
+
+#: src/app/main.cpp:48
+#, kde-format
+msgid "Great reference code"
+msgstr "ਮਹਾਨ ਰੈਫਰੈਂਸ ਕੋਡ"
+
+#: src/app/main.cpp:49
+#, kde-format
+msgid "Yatta happened to be the only video on my laptop to test with. :)"
+msgstr ""
+
+#: src/app/main.cpp:50
+#, kde-format
+msgid "MPRIS v2 support"
+msgstr "MPRIS v2 ਸਹਿਯੋਗ"
+
+#: src/app/main.cpp:51
+#, kde-format
+msgid "Port to KF5/Plasma 5"
+msgstr ""
+
+#: src/app/main.cpp:58
+#, kde-format
+msgid "Play DVD Video"
+msgstr "DVD ਵੀਡਿਓ ਚਲਾਓ"
+
+#: src/app/main.cpp:60
+#, kde-format
+msgid "Play 'URL'"
+msgstr "'URL' ਚਲਾਓ"
+
+#: src/app/mainWindow.cpp:139
+#, kde-format
+msgctxt "@title:menu"
+msgid "Aspect &Ratio"
+msgstr "ਅਕਾਰ ਅਨੁਪਾਤ(&R)"
+
+#: src/app/mainWindow.cpp:140
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Audio Channels"
+msgstr "ਆਡੀਓ ਚੈਨਲ(&A)"
+
+#: src/app/mainWindow.cpp:141
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Subtitles"
+msgstr "ਸਬ-ਟਾਈਟਲ(&S)"
+
+#: src/app/mainWindow.cpp:156
+#, kde-format
+msgctxt "@option:radio aspect ratio"
+msgid "Determine &Automatically"
+msgstr "ਆਟੋਮੈਟਿਕ ਪਛਾਣੋ(&A)"
+
+#: src/app/mainWindow.cpp:157
+#, kde-format
+msgctxt "@option:radio aspect ratio"
+msgid "&4:3"
+msgstr "&4:3"
+
+#: src/app/mainWindow.cpp:158
+#, kde-format
+msgctxt "@option:radio aspect ratio"
+msgid "Ana&morphic (16:9)"
+msgstr ""
+
+#: src/app/mainWindow.cpp:159
+#, kde-format
+msgctxt "@option:radio aspect ratio"
+msgid "&Window Size"
+msgstr "ਵਿੰਡੋ ਆਕਾਰ(&W)"
+
+#: src/app/mainWindow.cpp:204
+#, kde-format
+msgid ""
+"<qt>Phonon could not be successfully initialized. Dragon Player will now "
+"exit.</qt>"
+msgstr "<qt>ਫੋਨੋਨ ਠੀਕ ਤਰ੍ਹਾਂ ਸ਼ੁਰੂ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ ਹੈ। ਡਰੈਗਨ ਪਲੇਅਰ ਹੁਣ ਬੰਦ ਹੋਵੇਗਾ।</qt>"
+
+#: src/app/mainWindow.cpp:267
+#, kde-format
+msgctxt "@action"
+msgid "Play &Media..."
+msgstr "ਮੀਡਿਆ ਚਲਾਓ(&M)..."
+
+#: src/app/mainWindow.cpp:287
+#, kde-format
+msgctxt "@action"
+msgid "Increase Volume"
+msgstr "ਆਵਾਜ਼ ਵਧਾਓ"
+
+#: src/app/mainWindow.cpp:292
+#, kde-format
+msgctxt "@action"
+msgid "Decrease Volume"
+msgstr "ਆਵਾਜ਼ ਘਟਾਓ"
+
+#: src/app/mainWindow.cpp:297
+#, kde-format
+msgctxt "@action"
+msgid "Stop"
+msgstr "ਰੋਕੋ"
+
+#: src/app/mainWindow.cpp:303
+#, kde-format
+msgctxt "@action Mute the sound output"
+msgid "Mute"
+msgstr "ਚੁੱਪ"
+
+#: src/app/mainWindow.cpp:309
+#, kde-format
+msgctxt "@action"
+msgid "Reset Video Scale"
+msgstr "ਵੀਡਿਓ ਸਕੇਲ ਮੁੜ-ਸੈੱਟ"
+
+#: src/app/mainWindow.cpp:315
+#, kde-format
+msgctxt "@action"
+msgid "Menu Toggle"
+msgstr "ਮੇਨੂ ਬਦਲੋ"
+
+#: src/app/mainWindow.cpp:323 src/app/part.cpp:57
+#, kde-format
+msgid "Position Slider"
+msgstr "ਸਥਿਤੀ ਸਲਾਈਡਰ"
+
+#: src/app/mainWindow.cpp:327
+#, kde-format
+msgctxt "@option:check"
+msgid "Video Settings"
+msgstr "ਵੀਡਿਓ ਸੈਟਿੰਗਾਂ"
+
+#: src/app/mainWindow.cpp:336
+#, kde-format
+msgctxt ""
+"@option:check Whether only one instance of dragon can be started and will be "
+"reused when the user tries to play another file."
+msgid "One Instance Only"
+msgstr "ਕੇਵਲ ਇੱਕ ਹੀ ਮੌਕਾ"
+
+#: src/app/mainWindow.cpp:343
+#, kde-format
+msgctxt "@action previous chapter"
+msgid "Previous"
+msgstr "ਪਿੱਛੇ"
+
+#: src/app/mainWindow.cpp:349
+#, kde-format
+msgctxt "@action next chapter"
+msgid "Next"
+msgstr "ਅੱਗੇ"
+
+#: src/app/mainWindow.cpp:356
+#, no-c-format, kde-format
+msgctxt "@action"
+msgid "Return 10% Back"
+msgstr "10% ਪਿੱਛੇ ਜਾਓ"
+
+#: src/app/mainWindow.cpp:363
+#, no-c-format, kde-format
+msgctxt "@action"
+msgid "Go 10% Forward"
+msgstr "10% ਅੱਗੇ ਜਾਓ"
+
+#: src/app/mainWindow.cpp:369
+#, kde-format
+msgctxt "@action"
+msgid "Return 10 Seconds Back"
+msgstr "10 ਸਕਿੰਟ ਪਿੱਛੇ ਜਾਓ"
+
+#: src/app/mainWindow.cpp:375
+#, kde-format
+msgctxt "@action"
+msgid "Go 10 Seconds Forward"
+msgstr "10 ਸਕਿੰਟ ਅੱਗੇ ਜਾਓ"
+
+#: src/app/mainWindow.cpp:465
+#, kde-format
+msgctxt "@option:check Mute the sound output"
+msgid "Mute"
+msgstr "ਚੁੱਪ"
+
+#: src/app/mainWindow.cpp:542
+#, kde-format
+msgid "Dragon Player was asked to open an empty URL; it cannot."
+msgstr ""
+
+#: src/app/mainWindow.cpp:621
+#, kde-format
+msgctxt "@title:window"
+msgid "Select File to Play"
+msgstr "ਚਲਾਉਣ ਲਈ ਫਾਈਲ ਚੁਣੋ"
+
+#: src/app/mainWindow.cpp:649
+#, kde-format
+msgctxt "@title:window"
+msgid "Stream to Play"
+msgstr "ਸਟਰੀਮ ਨੂੰ ਚਲਾਓ"
+
+#: src/app/mainWindow.cpp:649
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Stream:"
+msgstr "ਸਟਰੀਮ:"
+
+#: src/app/mainWindow.cpp:790
+#, kde-format
+msgid "Sorry, no media was found in the drop"
+msgstr "ਅਫਸੋਸ, ਡਰੋਪ ਤੋਂ ਕੋਈ ਮੀਡਿਆ ਨਹੀਂ ਲੱਭਿਆ"
+
+#: src/app/mainWindow.cpp:840
+#, kde-format
+msgctxt "Notification inhibition reason"
+msgid "playing a video"
+msgstr "ਵੀਡੀਓ ਚੱਲ ਰਹੀ ਹੈ"
+
+#: src/app/mainWindow.cpp:876
+#, kde-format
+msgid "No media loaded"
+msgstr "ਕੋਈ ਮੀਡਿਆ ਲੋਡ ਨਹੀਂ ਹੈ"
+
+#: src/app/mainWindow.cpp:878
+#, kde-format
+msgid "Paused"
+msgstr "ਵਿਰਾਮ"
+
+#: src/app/playDialog.cpp:30
+#, kde-format
+msgctxt "@title:window"
+msgid "Play Media"
+msgstr "ਮੀਡੀਆ ਚਲਾਓ"
+
+#: src/app/playDialog.cpp:42
+#, kde-format
+msgid "What media would you like to play?"
+msgstr "ਕਿਹੜਾ ਮੀਡਿਆ ਤੁਸੀਂ ਚਲਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+
+#: src/app/playDialog.cpp:50
+#, kde-format
+msgctxt "@action:button"
+msgid "Play File..."
+msgstr "ਫਾਇਲ ਚਲਾਓ..."
+
+#: src/app/playlistFile.cpp:37
+#, kde-format
+msgid "The file is not a playlist"
+msgstr "ਫਾਇਲ ਪਲੇਅਲਿਸਟ ਨਹੀਂ ਹੈ"
+
+#: src/app/playlistFile.cpp:45
+#, kde-format
+msgid "Dragon Player could not download the remote playlist: %1"
+msgstr "ਡਰੈਗਨ ਪਲੇਅਰ ਰਿਮੋਟ ਪਲੇਅਲਿਸਟ ਨੂੰ ਡਾਊਨਲੋਡ ਨਹੀਂ ਕਰ ਸਕਿਆ: %1"
+
+#: src/app/playlistFile.cpp:62
+#, kde-format
+msgid ""
+"<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is empty?"
+"</qt>"
+msgstr ""
+
+#: src/app/playlistFile.cpp:66
+#, kde-format
+msgid "Dragon Player could not open the file: %1"
+msgstr "ਡਰੈਗਨ ਪਲੇਅਰ ਫਾਇਲ ਖੋਲ੍ਹ ਨਹੀਂ ਸਕਿਆ: %1"
+
+#: src/app/recentlyPlayedList.cpp:34
+#, kde-format
+msgctxt "@action Copy the URL of the selected multimedia"
+msgid "Copy URL"
+msgstr "URL ਕਾਪੀ ਕਰੋ"
+
+#: src/app/recentlyPlayedList.cpp:39
+#, kde-format
+msgctxt "@action"
+msgid "Clear List"
+msgstr "ਲਿਸਟ ਸਾਫ਼ ਕਰੋ"
+
+#: src/app/recentlyPlayedList.cpp:44
+#, kde-format
+msgctxt "@action"
+msgid "Remove Entry"
+msgstr "ਐਂਟਰੀ ਹਟਾਓ"
+
+#: src/app/recentlyPlayedList.cpp:125
+#, kde-format
+msgid ""
+"This file could not be found. Would you like to remove it from the playlist?"
+msgstr "ਇਹ ਫਾਇਲ ਨਹੀਂ ਲੱਭੀ ਜਾ ਸਕੀ। ਕੀ ਤੁਸੀਂ ਇਸ ਨੂੰ ਪਲੇਅਲਿਸਟ 'ਚੋਂ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+
+#: src/app/recentlyPlayedList.cpp:126
+#, kde-format
+msgctxt "@title:window"
+msgid "File not found"
+msgstr "ਫਾਇਲ ਨਹੀਂ ਲੱਭੀ"
+
+#: src/app/theStream.cpp:151
+#, kde-format
+msgid "Track %1/%2"
+msgstr "ਟਰੈਕ %1/%2"
+
+#. i18n: ectx: property (text), widget (QLabel, brightnessLabel)
+#: src/app/videoSettingsWidget.ui:19
+#, kde-format
+msgctxt "@label:slider"
+msgid "Brightness:"
+msgstr "ਚਮਕ:"
+
+#. i18n: ectx: property (text), widget (QLabel, contrastLabel)
+#: src/app/videoSettingsWidget.ui:42
+#, kde-format
+msgctxt "@label:slider"
+msgid "Contrast:"
+msgstr "ਕਨਟਰਾਸਟ:"
+
+#. i18n: ectx: property (text), widget (QLabel, hueLabel)
+#: src/app/videoSettingsWidget.ui:65
+#, kde-format
+msgctxt "@label:slider"
+msgid "Hue:"
+msgstr "ਆਭਾ:"
+
+#. i18n: ectx: property (text), widget (QLabel, saturationLabel)
+#: src/app/videoSettingsWidget.ui:88
+#, kde-format
+msgctxt "@label:slider"
+msgid "Saturation:"
+msgstr "ਸੰਤ੍ਰਿਪਤਾ:"
+
+#. i18n: ectx: property (text), widget (QPushButton, defaultsButton)
+#: src/app/videoSettingsWidget.ui:128
+#, kde-format
+msgctxt "@action:button"
+msgid "Restore Defaults"
+msgstr "ਡਿਫਾਲਟ ਬਹਾਲ ਕਰੋ"
+
+#. i18n: ectx: property (text), widget (QPushButton, closeButton)
+#: src/app/videoSettingsWidget.ui:135
+#, kde-format
+msgctxt "@action:button"
+msgid "Close"
+msgstr "ਬੰਦ ਕਰੋ"
+
+#: src/app/videoWindow.cpp:109
+#, kde-format
+msgctxt "@option:radio"
+msgid "&DVD Subtitle Selection"
+msgstr "&DVD ਸਬ-ਟਾਈਟਲ ਚੋਣ"
+
+#: src/app/videoWindow.cpp:119
+#, kde-format
+msgctxt "@option:radio audio language"
+msgid "&Auto"
+msgstr "ਆਟੋ(&A)"
+
+#~ msgid ""
+#~ "IRC:\n"
+#~ "irc.freenode.net #dragonplayer\n"
+#~ "\n"
+#~ "Feedback:\n"
+#~ "imonroe@kde.org"
+#~ msgstr ""
+#~ "IRC:\n"
+#~ "irc.freenode.net #dragonplayer\n"
+#~ "\n"
+#~ "Feedback:\n"
+#~ "imonroe@kde.org"
+
+#~ msgid "Eugene Trounev"
+#~ msgstr "Eugene Trounev"
+
+#~ msgid "Mike Diehl"
+#~ msgstr "Mike Diehl"
+
+#~ msgid "The Kaffeine Developers"
+#~ msgstr "ਕੈਫੀਨ ਡਿਵੈਲਪਰ"
+
+#~ msgid "Greenleaf"
+#~ msgstr "Greenleaf"
+
+#~ msgid "Next Chapter"
+#~ msgstr "ਅਗਲਾ ਚੈਪਟਰ"
+
+#~ msgctxt "Mute the sound output"
+#~ msgid "Mute "
+#~ msgstr "ਚੁੱਪ "
+
+#~ msgid "&Pause"
+#~ msgstr "ਵਿਰਾਮ(&P)"
+
+#~ msgid "There was an internal error with the media slave..."
+#~ msgstr "ਮੀਡਿਆ ਸਲੇਵ ਵਿੱਚ ਅੰਦਰੂਨੀ ਗਲਤੀ ਹੈ..."
+
+#~ msgid "Show Additional Debug Output"
+#~ msgstr "ਹੋਰ ਡੀਬੱਗ ਆਉਟਪੁੱਟ ਵੇਖੋ"
+
+#, fuzzy
+#~| msgid "Play Disc"
+#~ msgid "Play Disk"
+#~ msgstr "ਡਿਸਕ ਚਲਾਓ"

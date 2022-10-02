@@ -1,0 +1,342 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Dutch "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="dragon" lang="&language;">
+
+<bookinfo>
+<title
+>Het handboek van &dragon;</title>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>Diehl</surname
+> <affiliation
+> <address
+><email
+>madpenguin8@yahoo.com</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Ian</firstname
+> <surname
+>Monroe</surname
+> <affiliation
+> <address
+><email
+>imonroe@kde.org</email
+></address>
+</affiliation>
+</author>
+&Freek.de.Kruijf; 
+</authorgroup>
+
+<copyright>
+<year
+>2004</year>
+<holder
+>Mike Diehl</holder>
+</copyright>
+<copyright>
+<year
+>2007</year>
+<holder
+>Ian Monroe</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-06-29</date>
+<releaseinfo
+>Applications 16.04</releaseinfo>
+
+<abstract>
+<para
+>&dragon; is een eenvoudige videospeler door &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Codeine</keyword>
+<keyword
+>Phonon</keyword>
+<keyword
+>Draak</keyword>
+<keyword
+>Speler</keyword>
+<keyword
+>Dragon Player</keyword>
+<keyword
+>video</keyword>
+<keyword
+>multi-media</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Inleiding</title>
+
+<screenshot>
+<screeninfo
+>&dragon; schermafdruk</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="main.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Schermafdruk</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+
+<para
+>&dragon; is een eenvoudige mediaspeler met gebruik van de &phonon;-technologie. &dragon; is een mediaspeler zonder franje die uitmunt in het afspelen van dvd's en filmbestanden zonder in de weg te zitten. </para>
+
+</chapter>
+
+<chapter id="select-media">
+<title
+>Een medium selecteren</title>
+
+<para
+>Als u &dragon; start met het startprogramma voor toepassingen of <guibutton
+>Media afspelen</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+>) gebruikt vanaf de werkbalk of vanaf het menu <guimenu
+>Afspelen</guimenu
+> dan wordt dit venster getoond:</para>
+
+<screenshot>
+<screeninfo
+>Media afspelen</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="playmedia.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Media afspelen</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Er zijn drie manieren om een videobestand af te spelen:</para>
+<para
+><guibutton
+>Bestand afspelen</guibutton
+> opent de bestandsdialoog en laat u een bestand selecteren om af te spelen.</para>
+<para
+><guibutton
+>Schijf afspelen</guibutton
+> om een cd of dvd af te spelen.</para>
+<para
+><guibutton
+>Stream afspelen</guibutton
+> opent een dialoog om een adres van een <ulink url="https://en.wikipedia.org/wiki/Streaming_media"
+>multimedia-stream</ulink
+> in te voeren.</para>
+<para
+>Dubbelklik op een item in de afspeellijst met recent geopenede bestanden om afspelen te starten. Het contextmenu van de afspeellijst toont acties om een geselecteerd item te verwijderen of de gehele afspeellijst te wissen. Elk bestand dat u afspeelde zal automatisch aan de lijst worden toegevoegd.</para>
+</chapter>
+
+<chapter id="features">
+<title
+>Mogelijkheden</title>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Volledig schermmodus</guimenuitem>
+</term>
+<listitem
+><para
+>Bij het afspelen van een film kunt u in volledig schermmodus gaan. Dit gebruikt het gehele scherm om de film weer te geven. Met de muis bewegen toont een werkbalk bovenaan het scherm in volledig schermmodus. Schakel deze modus om met het menu <guimenu
+>Instellingen</guimenu
+>, de actie in de werkbalk, dubbelklik op de video of gebruik de sneltoets <keycap
+>F</keycap
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Video-instellingen</guimenuitem>
+</term>
+<listitem
+><para
+>Selecteer deze actie uit het menu <guimenu
+>Instellingen</guimenu
+> om de <guilabel
+>Helderheid</guilabel
+>, het <guilabel
+>Contrast</guilabel
+>, de <guilabel
+>Tint</guilabel
+> en de <guilabel
+>Verzadiging</guilabel
+>. Deze instellingen worden opgeslagen samen met de afspeelpositie voor elk videobestand. Dit stelt u in staat het afspelen van een video voort te zetten met de geselecteerde videoinstellingen en de positie waar u bent gestopt met afspelen. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Navigatie </term>
+<listitem
+><para
+>De sneltoets <keycap
+>PgUp</keycap
+> brengt u 10% voorwaarts / <keycap
+>+</keycap
+> 10 seconds voorwaarts en <keycap
+>PgDown</keycap
+> 10% achterwaarts / <keycap
+>-</keycap
+> 10 seconden achterwaarts. Gebruik <menuchoice
+><guimenu
+>Instellingen</guimenu
+> <guimenuitem
+>Menu omschakelen</guimenuitem
+></menuchoice
+> (<keycap
+>R</keycap
+>) om naar het video-menu te schakelen en een ander hoofdstuk af te spelen. <menuchoice
+><guimenu
+>Afspelen</guimenu
+><guimenuitem
+>Afspelen/Pauzeren</guimenuitem
+></menuchoice
+> (<keysym
+>Spatiebalk</keysym
+>) laat u afspelen pauzeren en verder gaan als er een film is geladen. <menuchoice
+><guimenu
+>Afspelen</guimenu
+><guimenuitem
+>Stoppen</guimenuitem
+></menuchoice
+> (<keycap
+>S</keycap
+>) stopt afspelen. Ga naar de voorgaand of volgend hoofdstuk van een video met <guimenuitem
+>Vorig hoofdstuk</guimenuitem
+> (<keycap
+>,</keycap
+>) of <guimenuitem
+>volgend hoofdstuk</guimenuitem
+> (<keycap
+>.</keycap
+>) uit het menu <guimenu
+>Afspelen</guimenu
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Volumebesturing</guimenuitem>
+</term>
+<listitem
+><para
+>Als u video's afspeelt met een verborgen werkbalk, dan kunt u de sneltoets <keycap
+>M</keycap
+> gebruiken om het geluid te dempen of het dempen op te heffen, en de sneltoets <keycap
+>V</keycap
+> om het tonen van de volumeregelaar rechts van de video om te schakelen. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Instellingen</guimenu
+> <guisubmenu
+>Beeldverhouding</guisubmenu
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Dit menu laat u de beeldverhouding kiezen van de af te spelen film. De beeldverhouding is de breedte van film vergeleken met de hoogte.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guisubmenu
+>Ondertitels</guisubmenu
+> en <guisubmenu
+>Audio-kanalen</guisubmenu
+> </term>
+<listitem
+><para
+>Deze menu-items uit het menu <guimenu
+>Instellingen</guimenu
+> zijn actief als er ondertitels of extra audio-kanalen beschikbaar zijn (&eg; met verschillende talen) in de nu spelende film. Merk op dat het een paar seconden afspelen kan kosten voordat de ondertitels of audio-kanalen beschikbaar komen. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Dankbetuigingen en licentie</title>
+
+<para
+>&dragon; </para>
+
+<para
+>Programma copyright 2004 Max B. Howell <email
+>max.howell@methylblue.com</email
+></para>
+<para
+>Programma copyright 2007 Ian A. Monroe <email
+>imonroe@kde.org</email
+></para>
+
+<para
+>Documentatie copyright 2004 Mike Diehl <email
+>madpenguin8@yahoo.com</email
+> </para>
+<para
+>Documentatie copyright 2007 Ian Monroe <email
+>imonroe@kde.org</email
+> </para>
+
+&meld.fouten;&vertaling.freek; &underGPL; &underFDL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

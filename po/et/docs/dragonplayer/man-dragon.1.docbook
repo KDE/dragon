@@ -1,0 +1,215 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Estonian  "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>KDE kasutaja käsiraamat</title>
+<author
+><firstname
+>Praveen</firstname
+><surname
+>Arimbrathodiyil</surname
+> <contrib
+>Dragoni mängija manuaalilehekülg.</contrib
+> <email
+>pravi.a@gmail.com</email
+></author>
+<date
+>2012-03-16</date>
+<productname
+>KDE töökeskkond</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>dragon</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+>dragon</refname>
+<refpurpose
+>Kasutaja mugavust silmas pidav videomängija</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis
+><command
+>dragon</command
+> <arg choice="opt"
+><replaceable
+>Qt võtmed</replaceable
+></arg
+> <arg choice="opt"
+><replaceable
+>KDE võtmed</replaceable
+></arg
+> <arg choice="opt"
+><replaceable
+>URL</replaceable
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+
+<refsect1 id="description"
+><title
+>Kirjeldus</title>
+<para
+><command
+>dragon</command
+> mängija esitab eri vormingutes heli ja videot.</para>
+
+</refsect1>
+
+<refsect1 id="generic_options"
+><title
+>Üldised võtmed</title>
+<variablelist>
+  <varlistentry>
+  <term
+><option
+>--help</option
+></term>
+  <listitem>
+<para
+>Abiteate näitamine võtmete kohta.</para>
+  </listitem>
+  </varlistentry>
+  <varlistentry>
+  <term
+><option
+>--help-qt</option
+></term>
+  <listitem>
+<para
+>Qt spetsiifiliste võtmete näitamine.</para>
+  </listitem>
+  </varlistentry>
+  <varlistentry>
+  <term
+><option
+>--help-kde</option
+></term>
+  <listitem>
+<para
+>KDE spetsiifiliste võtmete näitamine.</para>
+  </listitem>
+  </varlistentry>
+  <varlistentry>
+  <term
+><option
+>--help-all</option
+></term>
+  <listitem>
+<para
+>Kõigi võtmete näitamine.</para>
+  </listitem>
+  </varlistentry>
+  <varlistentry>
+  <term
+><option
+>--author</option
+></term>
+  <listitem>
+<para
+>Teabe näitamine autori kohta.</para>
+  </listitem>
+  </varlistentry>
+  <varlistentry>
+  <term
+><option
+>-v, --version</option
+></term>
+  <listitem>
+<para
+>Versiooniteabe näitamine.</para>
+  </listitem>
+  </varlistentry>
+  <varlistentry>
+  <term
+><option
+>--license</option
+></term>
+  <listitem>
+<para
+>Litsentsiteabe näitamine.</para>
+  </listitem>
+  </varlistentry>
+  <varlistentry>
+  <term
+><option
+>--</option
+></term>
+  <listitem>
+<para
+>Võtmete lõpp.</para>
+  </listitem>
+  </varlistentry>
+</variablelist>
+</refsect1>
+
+<refsect1 id="options"
+><title
+>Võtmed</title>
+<variablelist>
+  <varlistentry>
+  <term
+><option
+>--play-dvd</option
+></term>
+  <listitem>
+<para
+>DVD video esitamine.</para>
+  </listitem>
+  </varlistentry>
+</variablelist>
+</refsect1>
+
+<refsect1 id="feedback"
+><title
+>Tagasiside</title>
+<para
+>IRC-s irc.freenode.net #dragonplayer või e-postiga imonroe@kde.org või veebis &lt;<ulink url="http://multimedia.kde.org"
+>http://multimedia.kde.org</ulink
+>&gt;</para>
+</refsect1>
+
+<refsect1>
+<title
+>Vaata ka</title>
+<para
+>Põhjalikumat kasutaja dokumentatsiooni pakub <ulink url="help:/dragonplayer"
+>help:/dragonplayer</ulink
+> (kirjuta see <acronym
+>URL</acronym
+> &konqueror;i või käivita käsuga <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/dragonplayer</parameter
+></userinput
+>).</para>
+</refsect1>
+
+<refsect1 id="copyright"
+><title
+>Autoriõigus</title>
+<para
+>Autoriõigus &copy; 2006: Max Howell</para>
+<para
+>Autoriõigus &copy; 2007: Ian Monroe</para>
+<para
+>Litsents: GNU Üldine Avalik Litsents, versioon 2 &lt;<ulink url="http://www.gnu.org/licenses/gpl-2.0.html"
+>http://www.gnu.org/licenses/gpl-2.0.html</ulink
+>&gt;</para>
+</refsect1>
+</refentry>
+

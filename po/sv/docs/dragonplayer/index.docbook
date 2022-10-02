@@ -1,0 +1,360 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Swedish "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="dragon" lang="&language;">
+
+<bookinfo>
+<title
+>Handbok &dragon;</title>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>Diehl</surname
+> <affiliation
+> <address
+><email
+>madpenguin8@yahoo.com</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Ian</firstname
+> <surname
+>Monroe</surname
+> <affiliation
+> <address
+><email
+>imonroe@kde.org</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Stefan</firstname
+><surname
+>Asserhäll</surname
+><affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+><contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2004</year>
+<holder
+>Mike Diehl</holder>
+</copyright>
+<copyright>
+<year
+>2007</year>
+<holder
+>Ian Monroe</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-06-29</date>
+<releaseinfo
+>Program 16.04</releaseinfo>
+
+<abstract>
+<para
+>&dragon; är en enkel videospelare av &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Codeine</keyword>
+<keyword
+>Phonon</keyword>
+<keyword
+>Dragon</keyword>
+<keyword
+>Mediaspelare</keyword>
+<keyword
+>Dragon videospelare</keyword>
+<keyword
+>video</keyword>
+<keyword
+>multimedia</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Inledning</title>
+
+<screenshot>
+<screeninfo
+>Skärmbild av &dragon;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="main.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Skärmbild</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+
+<para
+>&dragon; är en enkel mediaspelare som använder &phonon;-teknologi. &dragon; är en mediaspelare utan onödiga finesser, som utmärker sig vid uppspelning av dvd:er och filmfiler utan att vara i vägen. </para>
+
+</chapter>
+
+<chapter id="select-media">
+<title
+>Välj media</title>
+
+<para
+>Om &dragon; startas från programstarten eller <guibutton
+>Spela media</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+>) i verktygsraden eller från menyn <guimenu
+>Spela</guimenu
+> används, visas detta fönster:</para>
+
+<screenshot>
+<screeninfo
+>Spela media</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="playmedia.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Spela media</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Det finns tre sätt att spela en videofil:</para>
+<para
+><guibutton
+>Spela fil</guibutton
+> visar fildialogrutan och låter dig välja en fil att spela.</para>
+<para
+><guibutton
+>Spela skiva</guibutton
+> för att spela en cd eller dvd.</para>
+<para
+><guibutton
+>Spela ström</guibutton
+> visar en dialogruta för att skriva in en adress till någon <ulink url="https://en.wikipedia.org/wiki/Streaming_media"
+>multimediaström</ulink
+>.</para>
+<para
+>Dubbelklicka på en post i spellistan med senast öppnade filer för att börja spela den. Spellistans sammanhangsberoende meny visar alternativ för att ta bort en markerad post, eller rensa hela spellistan. Alla filer som spelas läggs automatiskt till i listan.</para>
+</chapter>
+
+<chapter id="features">
+<title
+>Funktioner</title>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Fullskärmsläge</guimenuitem>
+</term>
+<listitem
+><para
+>Medan en film spelas, kan du starta fullskärmsläge. Det använder hela bildskärmen för att visa filmen. Att flytta musen visar en verktygsrad längst upp i skärmen i fullskärmsläge. Byt till fullskärmsläge med menyn <guimenu
+>Inställningar</guimenu
+>, åtgärden i verktygsraden, med dubbelklick på videon, eller med snabbtangenten <keycap
+>F</keycap
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Videoinställningar</guimenuitem>
+</term>
+<listitem
+><para
+>Välj alternativet i menyn <guimenu
+>Inställningar</guimenu
+> för att justera <guilabel
+>Ljusstyrka</guilabel
+>, <guilabel
+>Kontrast</guilabel
+>, <guilabel
+>Färgton</guilabel
+> och <guilabel
+>Färgmättnad</guilabel
+>. Inställningarna lagras tillsammans med uppspelningspositionen för varje videofil. Det gör det möjligt att återuppta uppspelning av en video med valda videoinställningar och på positionen där uppspelningen stoppades. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Navigering </term>
+<listitem
+><para
+>Snabbtangenten <keycap
+>Page Up</keycap
+> går 10 % framåt, <keycap
+>+</keycap
+> 10 sekunder framåt, <keycap
+>Page Down</keycap
+> 10 % bakåt, och <keycap
+>-</keycap
+> 10 sekunder bakåt. Använd <menuchoice
+><guimenu
+>Inställningar</guimenu
+><guimenuitem
+>Växla meny</guimenuitem
+></menuchoice
+> (<keycap
+>R</keycap
+>) för att växla till videomenyn och välja ett annat kapitel att spela upp. <menuchoice
+><guimenu
+>Spela</guimenu
+> <guimenuitem
+>Spela/Paus</guimenuitem
+></menuchoice
+> (<keysym
+>Mellanslag</keysym
+>) låter dig göra paus och återuppta uppspelning om en film är inläst. <menuchoice
+><guimenu
+>Spela</guimenu
+> <guimenuitem
+>Stoppa</guimenuitem
+></menuchoice
+> (<keycap
+>S</keycap
+>) stoppar uppspelning. Gå till föregående eller nästa kapitel i en video med <guimenuitem
+>Föregående kapitel</guimenuitem
+> (<keycap
+>,</keycap
+>) eller <guimenuitem
+>Nästa kapitel</guimenuitem
+> <keycap
+>.</keycap
+>) i menyn <guimenu
+>Spela</guimenu
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Volymkontroll</guimenuitem>
+</term>
+<listitem
+><para
+>Om du spelar videor med dold verktygsrad, kan snabbtangenten <keycap
+>M</keycap
+> användas för att tysta eller sätta på ljudet igen, och snabbtangenten <keycap
+>V</keycap
+> för att visa eller dölja volymreglaget till höger om videon. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guisubmenu
+>Proportion</guisubmenu
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Menyn låter dig välja proportion för filmen som spelas. Proportionen är filmens bredd jämfört med dess höjd.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guisubmenu
+>Textning</guisubmenu
+> och <guisubmenu
+>Ljudkanaler</guisubmenu
+> </term>
+<listitem
+><para
+>Dessa menyalternativ i menyn <guimenu
+>Inställningar</guimenu
+> är aktiva om det finns någon textning eller ytterligare ljudkanaler (t.ex. med andra språk) tillgängliga för filmen som för närvarande spelas. Observera att det kan ta några sekunders uppspelning innan textning eller ljudkanaler blir tillgänglig. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Tack till och licens</title>
+
+<para
+>&dragon; </para>
+
+<para
+>Program copyright 2004 Max B. Howell <email
+>max.howell@methylblue.com</email
+></para>
+<para
+>Program copyright 2007 Ian A. Monroe <email
+>imonroe@kde.org</email
+></para>
+
+<para
+>Dokumentation copyright 2004 Mike Diehl <email
+>madpenguin8@yahoo.com</email
+> </para>
+<para
+>Dokumentation copyright 2007 Ian Monroe <email
+>imonroe@kde.org</email
+> </para>
+
+<para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@bredband.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

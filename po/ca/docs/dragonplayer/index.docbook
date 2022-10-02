@@ -1,0 +1,344 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Catalan  "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="dragon" lang="&language;">
+
+<bookinfo>
+<title
+>El manual del &dragon;</title>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>Diehl</surname
+> <affiliation
+> <address
+><email
+>madpenguin8@yahoo.com</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Ian</firstname
+> <surname
+>Monroe</surname
+> <affiliation
+> <address
+><email
+>imonroe@kde.org</email
+></address>
+</affiliation>
+</author>
+&traductor.Antoni.Bella; 
+</authorgroup>
+
+<copyright>
+<year
+>2004</year>
+<holder
+>Mike Diehl</holder>
+</copyright>
+<copyright>
+<year
+>2007</year>
+<holder
+>Ian Monroe</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>29 de juny de 2016</date>
+<releaseinfo
+>Aplicacions 16.04</releaseinfo>
+
+<abstract>
+<para
+>El &dragon; és un senzill reproductor de vídeo pel &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Codeine</keyword>
+<keyword
+>Phonon</keyword>
+<keyword
+>Dragon</keyword>
+<keyword
+>Reproductor</keyword>
+<keyword
+>Dragon Player</keyword>
+<keyword
+>vídeo</keyword>
+<keyword
+>multimèdia</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introducció</title>
+
+<screenshot>
+<screeninfo
+>Captura de pantalla del &dragon;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="main.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Captura de pantalla</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+
+<para
+>El &dragon; és un senzill reproductor multimèdia utilitzant la tecnologia &phonon;. El &dragon; és un reproductor de suports sense floritures que sobresurt en la reproducció de DVD i fitxers de pel·lícules sense posar-se al vostre camí. </para>
+
+</chapter>
+
+<chapter id="select-media">
+<title
+>Seleccionar un suport</title>
+
+<para
+>Si inicieu el &dragon; des del llançador d'aplicacions o utilitzeu <guibutton
+>Reprodueix un suport</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+>) des de la barra d'eines o des del menú <guimenu
+>Reprodueix</guimenu
+> quan aparegui aquesta finestra:</para>
+
+<screenshot>
+<screeninfo
+>Reprodueix un suport</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="playmedia.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Reprodueix un suport</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Hi ha tres maneres per a reproduir un fitxer de vídeo:</para>
+<para
+><guibutton
+>Reprodueix un fitxer</guibutton
+> obre el diàleg de fitxers i us permet seleccionar un fitxer per reproduir.</para>
+<para
+><guibutton
+>Reprodueix un disc</guibutton
+> per a reproduir un &CD; o DVD.</para>
+<para
+><guibutton
+>Reprodueix un flux de dades</guibutton
+> per obrir un diàleg per introduir una adreça d'algun <ulink url="https://ca.wikipedia.org/wiki/Flux_de_dades_multimèdia"
+>flux de dades multimèdia</ulink
+>.</para>
+<para
+>Feu doble clic sobre una entrada a la llista de reproducció amb els fitxers oberts recentment per iniciar la seva reproducció. El menú contextual de la llista de reproducció mostra les accions per eliminar una entrada seleccionada o netejar tota la llista. Qualsevol fitxer que reproduïu s'afegirà automàticament a la llista.</para>
+</chapter>
+
+<chapter id="features">
+<title
+>Característiques</title>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Mode de pantalla completa</guimenuitem>
+</term>
+<listitem
+><para
+>Mentre es reprodueix una pel·lícula, podeu entrar en el mode de pantalla completa. Aquest utilitzarà tot el monitor per a visualitzar-la. Movent el ratolí es mostrarà una barra d'eines a la part superior de la pantalla. Alterneu el mode de pantalla completa utilitzant el menú <guimenu
+>Arranjament</guimenu
+>, l'acció en la barra d'eines, feu doble clic al vídeo o utilitzeu la drecera <keycap
+>F</keycap
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Arranjament del vídeo</guimenuitem>
+</term>
+<listitem
+><para
+>Seleccioneu aquesta acció al menú <guimenu
+>Arranjament</guimenu
+> per ajustar els valors de <guilabel
+>Lluminositat</guilabel
+>, <guilabel
+>Contrast</guilabel
+>, <guilabel
+>To</guilabel
+> i <guilabel
+>Saturació</guilabel
+>. Aquesta configuració s'emmagatzema juntament amb la posició de reproducció per a cada fitxer de vídeo. Això us permetrà reprendre la reproducció d'un vídeo amb la configuració de vídeo seleccionada i a la posició on el vau deixar. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Navegació </term>
+<listitem
+><para
+>La drecera <keycap
+>Av Pàg</keycap
+> salta un 10% cap endavant / <keycap
+>+</keycap
+> 10 segons cap endavant i <keycap
+>Re Pàg</keycap
+> un 10 % cap enrere / <keycap
+>-</keycap
+> 10 segons cap enrere. Utilitzeu <menuchoice
+><guimenu
+>Arranjament</guimenu
+> <guimenuitem
+>Commuta el menú</guimenuitem
+></menuchoice
+>(<keycap
+>R</keycap
+>) per a canviar al menú de vídeo i seleccionar un nou capítol a reproduir. <menuchoice
+><guimenu
+>Reprodueix</guimenu
+><guimenuitem
+>Reprodueix/Pausa</guimenuitem
+></menuchoice
+> (<keycap
+>Espai</keycap
+>) permet fer una pausa i reprendre la reproducció si una pel·lícula està carregada. <menuchoice
+><guimenu
+>Reprodueix</guimenu
+><guimenuitem
+>Atura</guimenuitem
+></menuchoice
+> (<keycap
+>S</keycap
+>) atura la reproducció. Aneu cap al capítol anterior o següent d'un vídeo amb <guimenuitem
+>Capítol anterior</guimenuitem
+> (<keycap
+>,</keycap
+>) o <guimenuitem
+>Capítol posterior</guimenuitem
+> (<keycap
+>.</keycap
+>) des del menú <guimenu
+>Reprodueix</guimenu
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Control del volum</guimenuitem>
+</term>
+<listitem
+><para
+>Si reproduïu vídeos amb una barra d'eines oculta, podeu utilitzar la drecera <keycap
+>M</keycap
+> per silenciar o activar el so, i la drecera <keycap
+>V</keycap
+> per alternar la vista del control lliscant de volum a la dreta del vídeo. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Arranjament</guimenu
+> <guisubmenu
+>Relació d'aspecte</guisubmenu
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Aquest menú us permet seleccionar la relació d'aspecte de la pel·lícula reproduïda. La relació d'aspecte és l'amplada de la pel·lícula en comparació amb l'alçada.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guisubmenu
+>Subtítols</guisubmenu
+> i <guisubmenu
+>Canals d'àudio</guisubmenu
+> </term>
+<listitem
+><para
+>Aquests elements de menú al menú <guimenu
+>Arranjament</guimenu
+> s'activen si hi ha subtítols o canals d'àudio addicionals (&pex;, amb diferents idiomes) disponibles a la pel·lícula que s'està reproduint. Tingueu en compte que poden passar uns quants segons de reproducció abans que els subtítols o canals d'àudio estiguin disponibles. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Crèdits i llicència</title>
+
+<para
+>&dragon; </para>
+
+<para
+>Copyright del programa 2004 Max B. Howell <email
+>max.howell@methylblue.com</email
+></para>
+<para
+>Copyright del programa 2007 Ian A. Monroe <email
+>imonroe@kde.org</email
+></para>
+
+<para
+>Copyright de la documentació 2004 Mike Diehl <email
+>madpenguin8@yahoo.com</email
+> </para>
+<para
+>Copyright de la documentació 2007 Ian Monroe <email
+>imonroe@kde.org</email
+> </para>
+
+<para
+>Traductor de la documentació: &credits.Antoni.Bella;</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

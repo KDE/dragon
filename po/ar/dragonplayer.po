@@ -1,0 +1,602 @@
+# translation of dragonplayer.po to Arabic
+# translation of videoplayer.po to
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Youssef Chahibi <chahibi@gmail.com>, 2007.
+# zayed <zayed.alsaidi@gmail.com>, 2009, 2021, 2022.
+# OsamaKhalid <osamak.wfm@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: dragonplayer\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-02 00:45+0000\n"
+"PO-Revision-Date: 2022-01-23 22:18+0400\n"
+"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
+"Language-Team: ar\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 21.07.70\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "زايد السعيدي"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "zayed.alsaidi@gmail.com"
+
+#. i18n: ectx: Menu (file)
+#: misc/dragonplayerui.rc:4
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Play"
+msgstr "&شغل"
+
+#. i18n: ectx: Menu (settings)
+#: misc/dragonplayerui.rc:15
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Settings"
+msgstr "إ&عدادات"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: misc/dragonplayerui.rc:31
+#, kde-format
+msgid "Main Toolbar"
+msgstr "شريط الأدوات الرئيسي"
+
+#: src/app/actions.cpp:24
+#, kde-format
+msgctxt "@action"
+msgid "Play"
+msgstr "شغّل"
+
+#: src/app/actions.cpp:25
+#, kde-format
+msgctxt "@action"
+msgid "Pause"
+msgstr "ألبث"
+
+#: src/app/actions.cpp:40
+#, kde-format
+msgctxt "@option:check Volume of sound output"
+msgid "Volume"
+msgstr "المستوى"
+
+#: src/app/adjustSizeButton.cpp:39
+#, kde-format
+msgctxt "@action:button"
+msgid "Preferred Scale"
+msgstr "المقياس المفضل"
+
+#: src/app/adjustSizeButton.cpp:43
+#, kde-format
+msgctxt "@action:button"
+msgid "Scale 100%"
+msgstr "الحجم ١٠٠٪"
+
+#: src/app/adjustSizeButton.cpp:50
+#, kde-format
+msgid "<b>Adjust video scale?</b>"
+msgstr "<b>أأعدل مقاس الفيديو؟</b>"
+
+#: src/app/discSelectionDialog.cpp:39
+#, kde-format
+msgctxt ""
+"%1 is the disc type, %2 is the name of the disc that the user can choose. "
+"Ex. 'DVD: OfficeSpace'"
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: src/app/discSelectionDialog.cpp:58
+#, kde-format
+msgctxt "Digital Versatile Disc, but keep it short"
+msgid "DVD"
+msgstr "DVD"
+
+#: src/app/discSelectionDialog.cpp:60
+#, kde-format
+msgid "Video CD"
+msgstr "قرص فيديو"
+
+#: src/app/discSelectionDialog.cpp:62
+#, kde-format
+msgid "Audio CD"
+msgstr "قرص صوتي"
+
+#: src/app/discSelectionDialog.cpp:64
+#, kde-format
+msgid "Data CD"
+msgstr "قرص بيانات"
+
+#: src/app/discSelectionDialog.cpp:75
+#, kde-format
+msgctxt "@title:window"
+msgid "Select a Disc"
+msgstr "اختر قرصا"
+
+#: src/app/discSelectionDialog.cpp:77
+#, kde-format
+msgid "Select a disc to play."
+msgstr "اختر قرصا لتشغله."
+
+#. i18n: ectx: property (text), widget (QPushButton, m_playFileButton)
+#: src/app/loadView.ui:19
+#, kde-format
+msgctxt "@action:button"
+msgid "Play File"
+msgstr "شغّل ملف"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_playDiskButton)
+#: src/app/loadView.ui:31 src/app/playDialog.cpp:54
+#, kde-format
+msgctxt "@action:button"
+msgid "Play Disc"
+msgstr "شغّل قرص"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_playStreamButton)
+#: src/app/loadView.ui:43
+#, kde-format
+msgctxt "@action:button"
+msgid "Play Stream"
+msgstr "شغّل بث"
+
+#: src/app/main.cpp:37
+#, kde-format
+msgid "Dragon Player"
+msgstr "مشغل التنين"
+
+#: src/app/main.cpp:39
+#, kde-format
+msgid "A video player that has a usability focus"
+msgstr "مشغل فيديو يركز على الاستعمالية"
+
+#: src/app/main.cpp:40
+#, kde-format
+msgid ""
+"Copyright 2006, Max Howell\n"
+"Copyright 2007, Ian Monroe"
+msgstr ""
+"Copyright 2006, Max Howell\n"
+"Copyright 2007, Ian Monroe"
+
+#: src/app/main.cpp:44
+#, kde-format
+msgid "Improvements and polish"
+msgstr "تحسينات و تلميع"
+
+#: src/app/main.cpp:45
+#, kde-format
+msgid "Creator of Phonon"
+msgstr "منشئ فونون"
+
+#: src/app/main.cpp:46
+#, kde-format
+msgid "Dragon Player icon"
+msgstr "أيقونة مشغل دراجن"
+
+#: src/app/main.cpp:47
+#, kde-format
+msgid "Handbook"
+msgstr "كتيب الاستعمال"
+
+#: src/app/main.cpp:48
+#, kde-format
+msgid "Great reference code"
+msgstr "مرجع عظيم للشفرة البرمجية"
+
+#: src/app/main.cpp:49
+#, kde-format
+msgid "Yatta happened to be the only video on my laptop to test with. :)"
+msgstr "كان Yatta الفيديو الوحيد على حاسوبي المحمول لأختبر به. :)"
+
+#: src/app/main.cpp:50
+#, kde-format
+msgid "MPRIS v2 support"
+msgstr "دعم MPRIS v2 "
+
+#: src/app/main.cpp:51
+#, kde-format
+msgid "Port to KF5/Plasma 5"
+msgstr "النقل إلى بلازما ٥"
+
+#: src/app/main.cpp:58
+#, kde-format
+msgid "Play DVD Video"
+msgstr "شغّل فيديو ديفيدي"
+
+#: src/app/main.cpp:60
+#, kde-format
+msgid "Play 'URL'"
+msgstr "شغّل 'عنوانا'"
+
+#: src/app/mainWindow.cpp:139
+#, kde-format
+msgctxt "@title:menu"
+msgid "Aspect &Ratio"
+msgstr "النّسبة ال&باعيّة"
+
+#: src/app/mainWindow.cpp:140
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Audio Channels"
+msgstr "&قنوات الصّوت"
+
+#: src/app/mainWindow.cpp:141
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Subtitles"
+msgstr "ال&ترجمة"
+
+#: src/app/mainWindow.cpp:156
+#, kde-format
+msgctxt "@option:radio aspect ratio"
+msgid "Determine &Automatically"
+msgstr "حدد تل&قائيا"
+
+#: src/app/mainWindow.cpp:157
+#, kde-format
+msgctxt "@option:radio aspect ratio"
+msgid "&4:3"
+msgstr "&٤:٣"
+
+#: src/app/mainWindow.cpp:158
+#, kde-format
+msgctxt "@option:radio aspect ratio"
+msgid "Ana&morphic (16:9)"
+msgstr "م&شوّهة (١٦:٩)"
+
+#: src/app/mainWindow.cpp:159
+#, kde-format
+msgctxt "@option:radio aspect ratio"
+msgid "&Window Size"
+msgstr "&حجم النافذة"
+
+#: src/app/mainWindow.cpp:204
+#, kde-format
+msgid ""
+"<qt>Phonon could not be successfully initialized. Dragon Player will now "
+"exit.</qt>"
+msgstr "<qt>تعذر تهيئة Phonon بنجاح. سيخرج مشغل التنين الآن.</qt>"
+
+#: src/app/mainWindow.cpp:267
+#, kde-format
+msgctxt "@action"
+msgid "Play &Media..."
+msgstr "&شغّل وسائط..."
+
+#: src/app/mainWindow.cpp:287
+#, kde-format
+msgctxt "@action"
+msgid "Increase Volume"
+msgstr "زد الصوت"
+
+#: src/app/mainWindow.cpp:292
+#, kde-format
+msgctxt "@action"
+msgid "Decrease Volume"
+msgstr "اخفض الصوت"
+
+#: src/app/mainWindow.cpp:297
+#, kde-format
+msgctxt "@action"
+msgid "Stop"
+msgstr "أوقف"
+
+#: src/app/mainWindow.cpp:303
+#, kde-format
+msgctxt "@action Mute the sound output"
+msgid "Mute"
+msgstr "اكتم"
+
+#: src/app/mainWindow.cpp:309
+#, kde-format
+msgctxt "@action"
+msgid "Reset Video Scale"
+msgstr "استعد قياس الفيديو"
+
+#: src/app/mainWindow.cpp:315
+#, kde-format
+msgctxt "@action"
+msgid "Menu Toggle"
+msgstr "بدّل القائمة"
+
+#: src/app/mainWindow.cpp:323 src/app/part.cpp:57
+#, kde-format
+msgid "Position Slider"
+msgstr "موضع المزلاق"
+
+#: src/app/mainWindow.cpp:327
+#, kde-format
+msgctxt "@option:check"
+msgid "Video Settings"
+msgstr "إعدادات الفيديو"
+
+#: src/app/mainWindow.cpp:336
+#, kde-format
+msgctxt ""
+"@option:check Whether only one instance of dragon can be started and will be "
+"reused when the user tries to play another file."
+msgid "One Instance Only"
+msgstr "نسخة واحد فقط"
+
+#: src/app/mainWindow.cpp:343
+#, kde-format
+msgctxt "@action previous chapter"
+msgid "Previous"
+msgstr "السابق"
+
+#: src/app/mainWindow.cpp:349
+#, kde-format
+msgctxt "@action next chapter"
+msgid "Next"
+msgstr "التالي"
+
+#: src/app/mainWindow.cpp:356
+#, no-c-format, kde-format
+msgctxt "@action"
+msgid "Return 10% Back"
+msgstr "أرجع ١٠٪ للخلف"
+
+#: src/app/mainWindow.cpp:363
+#, no-c-format, kde-format
+msgctxt "@action"
+msgid "Go 10% Forward"
+msgstr "تقدم ١٠٪ للأمام"
+
+#: src/app/mainWindow.cpp:369
+#, kde-format
+msgctxt "@action"
+msgid "Return 10 Seconds Back"
+msgstr "ارجع ١٠ ثواني للخلف"
+
+#: src/app/mainWindow.cpp:375
+#, kde-format
+msgctxt "@action"
+msgid "Go 10 Seconds Forward"
+msgstr "اذهب ١٠ ثواني للأمام"
+
+#: src/app/mainWindow.cpp:465
+#, kde-format
+msgctxt "@option:check Mute the sound output"
+msgid "Mute"
+msgstr "اكتم"
+
+#: src/app/mainWindow.cpp:542
+#, kde-format
+msgid "Dragon Player was asked to open an empty URL; it cannot."
+msgstr "سؤل مشغل دراجن فتح عنوان فارغ ، هذا لا يمكن."
+
+#: src/app/mainWindow.cpp:621
+#, kde-format
+msgctxt "@title:window"
+msgid "Select File to Play"
+msgstr "اختر ملف لتشغّيله"
+
+#: src/app/mainWindow.cpp:649
+#, kde-format
+msgctxt "@title:window"
+msgid "Stream to Play"
+msgstr "اختر بث لتشغّيله"
+
+#: src/app/mainWindow.cpp:649
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Stream:"
+msgstr "البث:"
+
+#: src/app/mainWindow.cpp:790
+#, kde-format
+msgid "Sorry, no media was found in the drop"
+msgstr "عذراً ، لا يوجد وسيط في المُلقى"
+
+#: src/app/mainWindow.cpp:840
+#, kde-format
+msgctxt "Notification inhibition reason"
+msgid "playing a video"
+msgstr "شغّل فيديو"
+
+#: src/app/mainWindow.cpp:876
+#, kde-format
+msgid "No media loaded"
+msgstr "لا يوجد وسيط محمل"
+
+#: src/app/mainWindow.cpp:878
+#, kde-format
+msgid "Paused"
+msgstr "أوقِفَ مؤقتا"
+
+#: src/app/playDialog.cpp:30
+#, kde-format
+msgctxt "@title:window"
+msgid "Play Media"
+msgstr "شغّل وسائط"
+
+#: src/app/playDialog.cpp:42
+#, kde-format
+msgid "What media would you like to play?"
+msgstr "أي وسائط تريد أن تشغل؟"
+
+#: src/app/playDialog.cpp:50
+#, kde-format
+msgctxt "@action:button"
+msgid "Play File..."
+msgstr "شغّل ملف..."
+
+#: src/app/playlistFile.cpp:37
+#, kde-format
+msgid "The file is not a playlist"
+msgstr "الملف ليس قائمة تشغيل"
+
+#: src/app/playlistFile.cpp:45
+#, kde-format
+msgid "Dragon Player could not download the remote playlist: %1"
+msgstr "لا يستطيع مشغل التنين تنزيل قائمة التشغيل البيعدة %1."
+
+#: src/app/playlistFile.cpp:62
+#, kde-format
+msgid ""
+"<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is empty?"
+"</qt>"
+msgstr ""
+"<qt>قائمة التشغيل ،<i>'%1'</i>،  لا يمكن ترجمتها ، ربما تكون فارغة؟</qt>"
+
+#: src/app/playlistFile.cpp:66
+#, kde-format
+msgid "Dragon Player could not open the file: %1"
+msgstr "لا يستطيع مشغل التنين فتح الملف : %1"
+
+#: src/app/recentlyPlayedList.cpp:34
+#, kde-format
+msgctxt "@action Copy the URL of the selected multimedia"
+msgid "Copy URL"
+msgstr "انسخ المسار"
+
+#: src/app/recentlyPlayedList.cpp:39
+#, kde-format
+msgctxt "@action"
+msgid "Clear List"
+msgstr "امسح القائمة"
+
+#: src/app/recentlyPlayedList.cpp:44
+#, kde-format
+msgctxt "@action"
+msgid "Remove Entry"
+msgstr "أزِل المدخلة"
+
+#: src/app/recentlyPlayedList.cpp:125
+#, kde-format
+msgid ""
+"This file could not be found. Would you like to remove it from the playlist?"
+msgstr "تعذر العثور على هذا الملف. هل تريد إزالته من قائمة التشغيل؟"
+
+#: src/app/recentlyPlayedList.cpp:126
+#, kde-format
+msgctxt "@title:window"
+msgid "File not found"
+msgstr "الملف غير موجود"
+
+#: src/app/theStream.cpp:151
+#, kde-format
+msgid "Track %1/%2"
+msgstr "المسار %1/%2"
+
+#. i18n: ectx: property (text), widget (QLabel, brightnessLabel)
+#: src/app/videoSettingsWidget.ui:19
+#, kde-format
+msgctxt "@label:slider"
+msgid "Brightness:"
+msgstr "السّطوع:"
+
+#. i18n: ectx: property (text), widget (QLabel, contrastLabel)
+#: src/app/videoSettingsWidget.ui:42
+#, kde-format
+msgctxt "@label:slider"
+msgid "Contrast:"
+msgstr "التّباين:"
+
+#. i18n: ectx: property (text), widget (QLabel, hueLabel)
+#: src/app/videoSettingsWidget.ui:65
+#, kde-format
+msgctxt "@label:slider"
+msgid "Hue:"
+msgstr "الصّبغة:"
+
+#. i18n: ectx: property (text), widget (QLabel, saturationLabel)
+#: src/app/videoSettingsWidget.ui:88
+#, kde-format
+msgctxt "@label:slider"
+msgid "Saturation:"
+msgstr "التّشبّع:"
+
+#. i18n: ectx: property (text), widget (QPushButton, defaultsButton)
+#: src/app/videoSettingsWidget.ui:128
+#, kde-format
+msgctxt "@action:button"
+msgid "Restore Defaults"
+msgstr "استعد المبدئيات"
+
+#. i18n: ectx: property (text), widget (QPushButton, closeButton)
+#: src/app/videoSettingsWidget.ui:135
+#, kde-format
+msgctxt "@action:button"
+msgid "Close"
+msgstr "أغلق"
+
+#: src/app/videoWindow.cpp:109
+#, kde-format
+msgctxt "@option:radio"
+msgid "&DVD Subtitle Selection"
+msgstr "ا&ختيار ترجمة DVD"
+
+#: src/app/videoWindow.cpp:119
+#, kde-format
+msgctxt "@option:radio audio language"
+msgid "&Auto"
+msgstr "آ&ليّ"
+
+#~ msgid ""
+#~ "IRC:\n"
+#~ "irc.freenode.net #dragonplayer\n"
+#~ "\n"
+#~ "Feedback:\n"
+#~ "imonroe@kde.org"
+#~ msgstr ""
+#~ "IRC:\n"
+#~ "irc.freenode.net #dragonplayer\n"
+#~ "\n"
+#~ "المقترحات:\n"
+#~ "imonroe@kde.org"
+
+#~ msgid "David Edmundson"
+#~ msgstr "David Edmundson"
+
+#~ msgid "Matthias Kretz"
+#~ msgstr "Matthias Kretz"
+
+#~ msgid "Eugene Trounev"
+#~ msgstr "Eugene Trounev"
+
+#~ msgid "Mike Diehl"
+#~ msgstr "Mike Diehl"
+
+#~ msgid "The Kaffeine Developers"
+#~ msgstr "مطوّرون Kaffeine "
+
+#~ msgid "Greenleaf"
+#~ msgstr "Greenleaf"
+
+#~ msgid "Next Chapter"
+#~ msgstr "الفصل التالي"
+
+#~ msgctxt "Mute the sound output"
+#~ msgid "Mute "
+#~ msgstr "اكتم "
+
+#~ msgid ""
+#~ "<qt>xine could not be successfully initialised. Dragon Player will now "
+#~ "exit. You can try to identify what is wrong with your xine installation "
+#~ "using the <b>xine-check</b> command at a command-prompt.</qt>"
+#~ msgstr ""
+#~ "<qt> لم يستطع xine تبدأ. سوف يخرج مشغل دراجن الآن. يمكنك التعرف ما هو "
+#~ "الخطأ في تثبيت  xine باستخدام أمر<b>xine-check</b> من الطرفية.</qt>"
+
+#~ msgid "&Pause"
+#~ msgstr "أ&وقف مؤقتاً"
+
+#~ msgid "There was an internal error with the media slave..."
+#~ msgstr "يوجد خطأ داخلي للوسيط التابع..."
+
+#~ msgid "Show Additional Debug Output"
+#~ msgstr "أظهر مخرجات تنقيح إضافية"
+
+#, fuzzy
+#~| msgid "Play Disc"
+#~ msgid "Play Disk"
+#~ msgstr "شغّل قرص"

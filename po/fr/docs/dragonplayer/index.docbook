@@ -1,0 +1,344 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % French "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="dragon" lang="&language;">
+
+<bookinfo>
+<title
+>Manuel utilisateur de &dragon;</title>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>Diehl</surname
+> <affiliation
+> <address
+><email
+>madpenguin8@yahoo.com</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Ian</firstname
+> <surname
+>Monroe</surname
+> <affiliation
+> <address
+><email
+>imonroe@kde.org</email
+></address>
+</affiliation>
+</author>
+&traducteurStanislasZeller;&traducteurLudovicGrossard; 
+</authorgroup>
+
+<copyright>
+<year
+>2004</year>
+<holder
+>Mike Diehl</holder>
+</copyright>
+<copyright>
+<year
+>2007</year>
+<holder
+>Ian Monroe</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>29-06-2016</date>
+<releaseinfo
+>Applications 16.04</releaseinfo>
+
+<abstract>
+<para
+>&dragon; est un lecteur vidéo simple pour &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Codeine</keyword>
+<keyword
+>Phonon</keyword>
+<keyword
+>Dragon</keyword>
+<keyword
+>Player</keyword>
+<keyword
+>Dragon Player</keyword>
+<keyword
+>vidéo</keyword>
+<keyword
+>multimédia</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introduction</title>
+
+<screenshot>
+<screeninfo
+>Copie d'écran de &dragon;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="main.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Capture d'écran</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+
+<para
+>&dragon; est un lecteur multimédia simple utilisant la technologie &phonon;. &dragon; est un lecteur multimédia sans fioriture, excellant dans la lecture de DVD et de fichiers vidéos sans vous embêter. </para>
+
+</chapter>
+
+<chapter id="select-media">
+<title
+>Choix d'un média</title>
+
+<para
+>Si vous démarrez &dragon; depuis le lanceur d'applications ou si vous utilisez le bouton <guibutton
+>Lire un média</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+>) à partir de la barre de menus ou à partir du menu <guimenu
+>Jouer</guimenu
+>, alors, cette fenêtre est affichée : </para>
+
+<screenshot>
+<screeninfo
+>Lire un média</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="playmedia.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Lire un média</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Il y a trois façons de lire un fichier vidéo :</para>
+<para
+><guibutton
+>Lire un fichier</guibutton
+> ouvre la boîte de dialogue d'ouverture de fichiers, et vous permet d'en choisir un à lire.</para>
+<para
+><guibutton
+>Lire un disque</guibutton
+> pour lire un &CD; ou un DVD.</para>
+<para
+><guibutton
+>Lire un flux</guibutton
+> ouvre une boîte de dialogue dans laquelle vous pouvez saisir l'adresse d'un <ulink url="http://fr.wikipedia.org/wiki/Streaming"
+>flux multimédia</ulink
+>.</para>
+<para
+>Double-cliquez sur un élément de la liste de lecture contenant les fichiers récemment ouverts pour commencer à le lire. Le menu contextuel de la liste de lecture affiche les actions pour supprimer un élément choisi, ou effacer la liste de lecture entière. Tout fichier lu sera automatiquement ajouté à la liste.</para>
+</chapter>
+
+<chapter id="features">
+<title
+>Caractéristiques</title>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Mode plein écran</guimenuitem>
+</term>
+<listitem
+><para
+>Vous pouvez entrer en mode plein écran alors que vous lisez une vidéo. L'écran sera alors entièrement utilisé pour la lecture. En déplaçant la souris, une barre d'outils s'affichera en haut de l'écran. Pour basculer en mode plein écran ou en sortir, vous pouvez soit utiliser le menu <guimenu
+>Configuration</guimenu
+>, l'action de la barre d'outils, double-cliquer sur la vidéo, ou utiliser le raccourci <keycap
+>F</keycap
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Paramètres vidéo</guimenuitem>
+</term>
+<listitem
+><para
+>Choisissez cette action depuis le menu <guimenu
+>Configuration</guimenu
+> pour ajuster la <guilabel
+>luminosité</guilabel
+>, le <guilabel
+>contraste</guilabel
+>, la <guilabel
+>teinte</guilabel
+> et la <guilabel
+>saturation</guilabel
+>. Ces réglages sont stockés avec la position de lecture pour chaque fichier vidéo. Ceci vous permet de reprendre la lecture avec les réglages que vous aviez faits, et à partir de la position à laquelle vous vous étiez arrêté(e). </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Navigation </term>
+<listitem
+><para
+>Le raccourci <keycap
+>Page Suiv.</keycap
+> vous fait avancer de 10 %, <keycap
+>+</keycap
+> de 10 secondes en avant <keycap
+>Page Préc.</keycap
+> vous fait reculer de 10 % et <keycap
+>-</keycap
+> de 10 secondes en arrière. Utilisez <menuchoice
+><guimenu
+>Configuration</guimenu
+><guimenuitem
+>Afficher ou cacher le menu</guimenuitem
+></menuchoice
+> (<keycap
+>R</keycap
+>) pour basculer vers le menu vidéo et choisir un autre chapitre à lire. <menuchoice
+><guimenu
+>Lire</guimenu
+><guimenuitem
+>Lire / Pause</guimenuitem
+></menuchoice
+> (<keysym
+>Espace</keysym
+>) vous permettent de mettre en pause et de reprendre la lecture si une vidéo est chargée. <menuchoice
+><guimenu
+>Lire</guimenu
+><guimenuitem
+>Arrêt</guimenuitem
+></menuchoice
+> (<keycap
+>S</keycap
+>) arrête la lecture. Vous pouvez aller au chapitre précédent ou suivant d'une vidéo avec <guimenuitem
+>Chapitre précédent</guimenuitem
+> (<keycap
+>,</keycap
+>) ou <guimenuitem
+>Chapitre suivant</guimenuitem
+> (<keycap
+>.</keycap
+>) depuis le menu <guimenu
+>Lire</guimenu
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Contrôle du volume</guimenuitem>
+</term>
+<listitem
+><para
+>Si vous lisez une vidéo alors que la barre d'outils est masquée, vous pouvez utiliser le raccourci <keycap
+>M</keycap
+> pour couper / remettre le son, et le raccourci <keycap
+>v</keycap
+> pour afficher ou non le curseur de volume à droite de la vidéo. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuration</guimenu
+> <guisubmenu
+>Proportions</guisubmenu
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Ce menu vous laisse le choix des proportions du film en cours de lecture. Il s'agit de la largeur du film par rapport à la hauteur.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guisubmenu
+>Sous-titres</guisubmenu
+> et <guisubmenu
+>Canaux audio</guisubmenu
+> </term>
+<listitem
+><para
+>Ces éléments de menu du menu <guimenu
+>Configuration</guimenu
+> sont actifs si des sous-titres ou des canaux audio supplémentaires (par exemples pour différentes langues) sont disponibles dans le film courant. Remarquez que cela peut prendre quelques secondes de lecture avant que les sous-titres ou les canaux audio ne deviennent disponibles. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Remerciements et licence</title>
+
+<para
+>&dragon; </para>
+
+<para
+>Copyright du programme 2004 Max B. Howell <email
+>max.howell@methylblue.com</email
+></para>
+<para
+> Copyright du programme 2007 Ian A. Monroe <email
+>imonroe@kde.org</email
+></para>
+
+<para
+>Copyright de la documentation 2004 Mike Diehl <email
+>madpenguin8@yahoo.com</email
+> </para>
+<para
+>Copyright de la documentation 2007 Ian Monroe <email
+>imonroe@dragonplayer.org</email
+> </para>
+
+<para
+>Traduction française par &StanislasZeller;, et &LudovicGrossard;.</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

@@ -1,0 +1,360 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % German "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="dragon" lang="&language;">
+
+<bookinfo>
+<title
+>Das Handbuch zu &dragon;</title>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>Diehl</surname
+> <affiliation
+> <address
+><email
+>madpenguin8@yahoo.com</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Ian</firstname
+> <surname
+>Monroe</surname
+> <affiliation
+> <address
+><email
+>imonroe@kde.org</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+> <firstname
+>Ingo</firstname
+><surname
+>Malchow</surname
+> <affiliation
+><address
+><email
+>ingomalchow@googlemail.com</email
+></address
+></affiliation
+> <contrib
+>Deutsche Übersetzung</contrib
+> </othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2004</year>
+<holder
+>Mike Diehl</holder>
+</copyright>
+<copyright>
+<year
+>2007</year>
+<holder
+>Ian Monroe</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-06-29</date>
+<releaseinfo
+>Anwendungen 16.04</releaseinfo>
+
+<abstract>
+<para
+>&dragon; ist ein einfacher Videospieler von &kde; </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Codeine</keyword>
+<keyword
+>Phonon</keyword>
+<keyword
+>Dragon</keyword>
+<keyword
+>Player</keyword>
+<keyword
+>Dragon Player</keyword>
+<keyword
+>video</keyword>
+<keyword
+>multi-media</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Einführung</title>
+
+<screenshot>
+<screeninfo
+>Bildschirmfoto von &dragon;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="main.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Bildschirmfoto</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+
+<para
+>&dragon; ist ein einfacher Medienabspieler, basierend auf der &phonon;-Technologie. &dragon; ist ein schnörkelloser Medienabspieler, der sich dadurch auszeichnet, DVDs und Videodateien abzuspielen, ohne die Bedienungsoberfläche mit unnötigen Funktionen zu überladen. </para>
+
+</chapter>
+
+<chapter id="select-media">
+<title
+>Medien auswählen</title>
+
+<para
+>Wenn Sie &dragon; vom Startmenü aufrufen oder <guibutton
+>Medien wiedergeben</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+>) in der Werkzeugleiste  oder aus dem Menü <guimenu
+>Wiedergabe</guimenu
+> benutzen, wird diese Fenster angezeigt:</para>
+
+<screenshot>
+<screeninfo
+>Medien wiedergeben</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="playmedia.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Medien wiedergeben</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Es gibt drei Möglichkeiten, eine Videodatei abzuspielen:</para>
+<para
+><guibutton
+>Datei</guibutton
+>  öffnet den Dateiauswahldialog, hier können Sie eine Datei zur Wiedergabe auswählen.</para>
+<para
+><guibutton
+>CD/DVD wiedergeben</guibutton
+> um eine &CD; oder DVD abzuspielen.</para>
+<para
+>Mit <guibutton
+>Stream wiedergeben</guibutton
+> wird ein Dialog geöffnet, in dem die Adresse (URL) eines <ulink url="https://de.wikipedia.org/wiki/Streaming_Media"
+>Multimedia-Streams</ulink
+> eingegeben werden kann.</para>
+<para
+>Klicken Sie zweimal auf einen Eintrag in der Wiedergabeliste mit zuletzt geöffneten Dateien, um die Wiedergabe zu starten. Im Kontextmenü der  Wiedergabeliste finden Sie Aktionen, um einen ausgewählten Eintrag zu löschen oder die gesamte Liste zu leeren. Jede gespielte Datei wird automatisch zur Liste hinzugefügt.</para>
+</chapter>
+
+<chapter id="features">
+<title
+>Funktionen</title>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Vollbildmodus</guimenuitem>
+</term>
+<listitem
+><para
+>Einen Film können Sie auch im Vollbildmodus abspielen. Dann wird der gesamte Bildschirm für das Video benutzt. Wenn Sie die Maus bewegen, wird eine Werkzeugleiste am oberen Rand des Bildschirms eingeblendet. Um diesen Modus ein- und auszuschalten, benutzen Sie das Menü <guimenu
+>Einstellungen</guimenu
+>, die Aktion in der Werkzeugleiste, den Kurzbefehl <keycap
+>F</keycap
+> oder klicken zweimal auf das Video. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Videoeinstellungen</guimenuitem>
+</term>
+<listitem
+><para
+>Wählen Sie diese Aktion aus dem Menü <guimenu
+>Einstellungen</guimenu
+>, um <guilabel
+>Helligkeit</guilabel
+>, <guilabel
+>Kontrast</guilabel
+>, <guilabel
+>Farbton</guilabel
+> und <guilabel
+>Sättigung</guilabel
+> einzustellen. Diese Einstellungen werden zusammen mit der Abspielposition für jede Videodatei gespeichert. Das erlaubt es Ihnen, ein Video mit allen ausgewählten Einstellungen da weiter anzusehen, wo Sie das letzte Mal aufgehört haben. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Navigation </term>
+<listitem
+><para
+>Mit dem Kurzbefehl <keycap
+>Bild auf</keycap
+> gehen Sie 10 % der Spielzeit nach vorne / mit <keycap
+>+</keycap
+> 10 Sekunden nach vorne, mit <keycap
+>Bild ab</keycap
+> 10 % zurück / mit <keycap
+>-</keycap
+> 10 Sekunden zurück . Benutzen Sie <menuchoice
+><guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>Menü umschalten</guimenuitem
+></menuchoice
+> (<keycap
+>R</keycap
+>), um zum Menü des Videos zu wechseln und ein anderes Kapitel abzuspielen. Mit <menuchoice
+><guimenu
+>Wiedergabe</guimenu
+><guimenuitem
+>Wiedergabe/Pause</guimenuitem
+></menuchoice
+> (<keysym
+>Leertaste</keysym
+>) halten Sie den Film an und starten ihn wieder. Wenn ein Film geladen ist, können Sie mit <menuchoice
+><guimenu
+>Wiedergabe</guimenu
+><guimenuitem
+>Anhalten</guimenuitem
+></menuchoice
+> (<keycap
+>S</keycap
+>) das Abspielen beenden. Zum vorherigen oder nächsten Kapitel eines Videos gehen Sie mit <guimenuitem
+>Vorheriges Kapitel</guimenuitem
+> (<keycap
+>,</keycap
+>) oder <guimenuitem
+>Nächstes Kapitel</guimenuitem
+> (<keycap
+>.</keycap
+>) aus dem Menü <guimenu
+>Wiedergabe</guimenu
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Lautstärkeeinstellung</guimenuitem>
+</term>
+<listitem
+><para
+>Spielen Sie ein Video mit ausgeblendeter Werkzeugleiste ab, können Sie den Ton mit dem Kurzbefehl <keycap
+>M</keycap
+> ein- oder ausschalten. Mit dem Kurzbefehl <keycap
+>V</keycap
+> wird der Lautstärkeregler rechts neben dem Video ein- und ausgeblendet. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Einstellungen</guimenu
+> <guisubmenu
+>Seitenverhältnis</guisubmenu
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Dieses Menü erlaubt Ihnen, das Seitenverhältnis des abgespielten Filmes zu wählen. Das Seitenverhältnis ist die Breite des Filmes verglichen mit der Höhe.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guimenu
+>Untertitel</guimenu
+> und <guisubmenu
+>Audiokanäle</guisubmenu
+> </term>
+<listitem
+><para
+>Diese Einträge aus dem Menü <guimenu
+>Einstellungen</guimenu
+> können ausgewählt werden, wenn der momentan gespielte Film über Untertitel oder zusätzliche Audiokanäle (&eg; mit verschiedenen Sprachen) verfügt. Beachten Sie, dass es einige Sekunden dauern kann, bevor die Untertitel oder die Audiokanäle verfügbar werden. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Danksagungen und Lizenz</title>
+
+<para
+>&dragon; </para>
+
+<para
+>Programm Copyright 2004 Max B. Howell <email
+>max.howell@methylblue.com</email
+></para>
+<para
+>Programm Copyright 2007 Ian A. Monroe <email
+>imonroe@kde.org</email
+></para>
+
+<para
+>Dokumentation Copyright 2004 Mike Diehl <email
+>madpenguin8@yahoo.com</email
+> </para>
+<para
+>Dokumentation Copyright 2007 Ian Monroe <email
+>imonroe@kde.org</email
+> </para>
+
+<para
+>Übersetzung Ingo Malchow<email
+>ingomalchow@googlemail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

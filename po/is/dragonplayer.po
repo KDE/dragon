@@ -1,0 +1,598 @@
+# translation of dragonplayer.po to Icelandic
+# Copyright (C) 2008 This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Sveinn í Felli <sveinki@nett.is>, 2008, 2009, 2011, 2013, 2015, 2018, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: dragonplayer\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-02 00:45+0000\n"
+"PO-Revision-Date: 2022-09-02 13:17+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"Language-Team: Icelandic\n"
+"Language: is\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 21.12.3\n"
+"Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
+"\n"
+"\n"
+"\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Sveinn í Felli"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sv1@fellsnet.is"
+
+#. i18n: ectx: Menu (file)
+#: misc/dragonplayerui.rc:4
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Play"
+msgstr "S&pila"
+
+#. i18n: ectx: Menu (settings)
+#: misc/dragonplayerui.rc:15
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Settings"
+msgstr "&Stillingar"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: misc/dragonplayerui.rc:31
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Aðalverkfærastika"
+
+#: src/app/actions.cpp:24
+#, kde-format
+msgctxt "@action"
+msgid "Play"
+msgstr "Spila"
+
+#: src/app/actions.cpp:25
+#, kde-format
+msgctxt "@action"
+msgid "Pause"
+msgstr "Í bið"
+
+#: src/app/actions.cpp:40
+#, kde-format
+msgctxt "@option:check Volume of sound output"
+msgid "Volume"
+msgstr "Hljóðstyrkur"
+
+#: src/app/adjustSizeButton.cpp:39
+#, kde-format
+msgctxt "@action:button"
+msgid "Preferred Scale"
+msgstr "Valin skjáhlutföll"
+
+#: src/app/adjustSizeButton.cpp:43
+#, kde-format
+msgctxt "@action:button"
+msgid "Scale 100%"
+msgstr "Kvarði 100%"
+
+#: src/app/adjustSizeButton.cpp:50
+#, kde-format
+msgid "<b>Adjust video scale?</b>"
+msgstr "<b>Aðlaga kvarða myndmerkis?</b>"
+
+#: src/app/discSelectionDialog.cpp:39
+#, kde-format
+msgctxt ""
+"%1 is the disc type, %2 is the name of the disc that the user can choose. "
+"Ex. 'DVD: OfficeSpace'"
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: src/app/discSelectionDialog.cpp:58
+#, kde-format
+msgctxt "Digital Versatile Disc, but keep it short"
+msgid "DVD"
+msgstr "DVD"
+
+#: src/app/discSelectionDialog.cpp:60
+#, kde-format
+msgid "Video CD"
+msgstr "CD-mynddiskur"
+
+#: src/app/discSelectionDialog.cpp:62
+#, kde-format
+msgid "Audio CD"
+msgstr "CD-hljóðdiskur"
+
+#: src/app/discSelectionDialog.cpp:64
+#, kde-format
+msgid "Data CD"
+msgstr "CD-gagnadiskur"
+
+#: src/app/discSelectionDialog.cpp:75
+#, kde-format
+msgctxt "@title:window"
+msgid "Select a Disc"
+msgstr "Veldu disk"
+
+#: src/app/discSelectionDialog.cpp:77
+#, kde-format
+msgid "Select a disc to play."
+msgstr "Veldu disk til að spila."
+
+#. i18n: ectx: property (text), widget (QPushButton, m_playFileButton)
+#: src/app/loadView.ui:19
+#, kde-format
+msgctxt "@action:button"
+msgid "Play File"
+msgstr "Spila skrá"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_playDiskButton)
+#: src/app/loadView.ui:31 src/app/playDialog.cpp:54
+#, kde-format
+msgctxt "@action:button"
+msgid "Play Disc"
+msgstr "Spila disk"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_playStreamButton)
+#: src/app/loadView.ui:43
+#, kde-format
+msgctxt "@action:button"
+msgid "Play Stream"
+msgstr "Spila streymi"
+
+#: src/app/main.cpp:37
+#, kde-format
+msgid "Dragon Player"
+msgstr "Dragon spilari"
+
+#: src/app/main.cpp:39
+#, kde-format
+msgid "A video player that has a usability focus"
+msgstr "Myndspilari með áherslu á þægindi við notkun"
+
+#: src/app/main.cpp:40
+#, kde-format
+msgid ""
+"Copyright 2006, Max Howell\n"
+"Copyright 2007, Ian Monroe"
+msgstr ""
+"Höfundarréttur 2006, Max Howell\n"
+"Höfundarréttur 2007, Ian Monroe"
+
+#: src/app/main.cpp:44
+#, kde-format
+msgid "Improvements and polish"
+msgstr "Viðbætur og fágun"
+
+#: src/app/main.cpp:45
+#, kde-format
+msgid "Creator of Phonon"
+msgstr "Skapari Phonon"
+
+#: src/app/main.cpp:46
+#, kde-format
+msgid "Dragon Player icon"
+msgstr "Táknmynd Dragon spilara"
+
+#: src/app/main.cpp:47
+#, kde-format
+msgid "Handbook"
+msgstr "Handbók"
+
+#: src/app/main.cpp:48
+#, kde-format
+msgid "Great reference code"
+msgstr "Ágætur tilvísunarkóði"
+
+#: src/app/main.cpp:49
+#, kde-format
+msgid "Yatta happened to be the only video on my laptop to test with. :)"
+msgstr ""
+"Jahérna, vildi svo til að þetta var eina myndskeiðið á fartölvunni til að "
+"prófa. :)"
+
+#: src/app/main.cpp:50
+#, kde-format
+msgid "MPRIS v2 support"
+msgstr "Stuðningur við MPRIS v2"
+
+#: src/app/main.cpp:51
+#, kde-format
+msgid "Port to KF5/Plasma 5"
+msgstr "Aðlögun að KF5/Plasma 5"
+
+#: src/app/main.cpp:58
+#, kde-format
+msgid "Play DVD Video"
+msgstr "Spila DVD-myndskeið"
+
+#: src/app/main.cpp:60
+#, kde-format
+msgid "Play 'URL'"
+msgstr "Spila slóð (URL)"
+
+#: src/app/mainWindow.cpp:139
+#, kde-format
+msgctxt "@title:menu"
+msgid "Aspect &Ratio"
+msgstr "Stærða&rhlutföll"
+
+#: src/app/mainWindow.cpp:140
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Audio Channels"
+msgstr "&Hljóðrásir"
+
+#: src/app/mainWindow.cpp:141
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Subtitles"
+msgstr "&Skjátextar"
+
+#: src/app/mainWindow.cpp:156
+#, kde-format
+msgctxt "@option:radio aspect ratio"
+msgid "Determine &Automatically"
+msgstr "Skilgrein&a sjálfvirkt"
+
+#: src/app/mainWindow.cpp:157
+#, kde-format
+msgctxt "@option:radio aspect ratio"
+msgid "&4:3"
+msgstr "&4:3"
+
+#: src/app/mainWindow.cpp:158
+#, kde-format
+msgctxt "@option:radio aspect ratio"
+msgid "Ana&morphic (16:9)"
+msgstr "Ana&morphic (16:9)"
+
+#: src/app/mainWindow.cpp:159
+#, kde-format
+msgctxt "@option:radio aspect ratio"
+msgid "&Window Size"
+msgstr "Stærð &glugga"
+
+#: src/app/mainWindow.cpp:204
+#, kde-format
+msgid ""
+"<qt>Phonon could not be successfully initialized. Dragon Player will now "
+"exit.</qt>"
+msgstr ""
+"<qt>Ekki tókst að ræsa Phonon rétt. Dragon spilarinn mun núna hætta.</qt>"
+
+#: src/app/mainWindow.cpp:267
+#, kde-format
+msgctxt "@action"
+msgid "Play &Media..."
+msgstr "Spila &margmiðlunarskrá..."
+
+#: src/app/mainWindow.cpp:287
+#, kde-format
+msgctxt "@action"
+msgid "Increase Volume"
+msgstr "Auka hljóðstyrk"
+
+#: src/app/mainWindow.cpp:292
+#, kde-format
+msgctxt "@action"
+msgid "Decrease Volume"
+msgstr "Minnka hljóðstyrk"
+
+#: src/app/mainWindow.cpp:297
+#, kde-format
+msgctxt "@action"
+msgid "Stop"
+msgstr "Stöðva"
+
+#: src/app/mainWindow.cpp:303
+#, kde-format
+msgctxt "@action Mute the sound output"
+msgid "Mute"
+msgstr "Þagga niður"
+
+#: src/app/mainWindow.cpp:309
+#, kde-format
+msgctxt "@action"
+msgid "Reset Video Scale"
+msgstr "Frumstilla kvarða myndmerkis"
+
+#: src/app/mainWindow.cpp:315
+#, kde-format
+msgctxt "@action"
+msgid "Menu Toggle"
+msgstr "Víxla valmynd af/á"
+
+#: src/app/mainWindow.cpp:323 src/app/part.cpp:57
+#, kde-format
+msgid "Position Slider"
+msgstr "Stöðuslá"
+
+#: src/app/mainWindow.cpp:327
+#, kde-format
+msgctxt "@option:check"
+msgid "Video Settings"
+msgstr "Stillingar myndmerkis"
+
+#: src/app/mainWindow.cpp:336
+#, kde-format
+msgctxt ""
+"@option:check Whether only one instance of dragon can be started and will be "
+"reused when the user tries to play another file."
+msgid "One Instance Only"
+msgstr "Aðeins eitt tilvik"
+
+#: src/app/mainWindow.cpp:343
+#, kde-format
+msgctxt "@action previous chapter"
+msgid "Previous"
+msgstr "Fyrra"
+
+#: src/app/mainWindow.cpp:349
+#, kde-format
+msgctxt "@action next chapter"
+msgid "Next"
+msgstr "Næsta"
+
+#: src/app/mainWindow.cpp:356
+#, no-c-format, kde-format
+msgctxt "@action"
+msgid "Return 10% Back"
+msgstr "Til baka um 10%"
+
+#: src/app/mainWindow.cpp:363
+#, no-c-format, kde-format
+msgctxt "@action"
+msgid "Go 10% Forward"
+msgstr "Fara 10% áfram"
+
+#: src/app/mainWindow.cpp:369
+#, kde-format
+msgctxt "@action"
+msgid "Return 10 Seconds Back"
+msgstr "Til baka um 10 sekúndur"
+
+#: src/app/mainWindow.cpp:375
+#, kde-format
+msgctxt "@action"
+msgid "Go 10 Seconds Forward"
+msgstr "Fara áfram um 10 sekúndur"
+
+#: src/app/mainWindow.cpp:465
+#, kde-format
+msgctxt "@option:check Mute the sound output"
+msgid "Mute"
+msgstr "Þagga niður"
+
+#: src/app/mainWindow.cpp:542
+#, kde-format
+msgid "Dragon Player was asked to open an empty URL; it cannot."
+msgstr ""
+"Dragon spilarinn var beðinn um að opna slóð sem var tóm; það getur ekki "
+"gengið."
+
+#: src/app/mainWindow.cpp:621
+#, kde-format
+msgctxt "@title:window"
+msgid "Select File to Play"
+msgstr "Veldu skrá til að spila"
+
+#: src/app/mainWindow.cpp:649
+#, kde-format
+msgctxt "@title:window"
+msgid "Stream to Play"
+msgstr "Veldu streymi til að spila"
+
+#: src/app/mainWindow.cpp:649
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Stream:"
+msgstr "Streymi:"
+
+#: src/app/mainWindow.cpp:790
+#, kde-format
+msgid "Sorry, no media was found in the drop"
+msgstr "Sorrý, enginn miðill fannst í því sem var sleppt"
+
+#: src/app/mainWindow.cpp:840
+#, kde-format
+msgctxt "Notification inhibition reason"
+msgid "playing a video"
+msgstr "spila myndskeið"
+
+#: src/app/mainWindow.cpp:876
+#, kde-format
+msgid "No media loaded"
+msgstr "Enginn miðill inni"
+
+#: src/app/mainWindow.cpp:878
+#, kde-format
+msgid "Paused"
+msgstr "Í bið"
+
+#: src/app/playDialog.cpp:30
+#, kde-format
+msgctxt "@title:window"
+msgid "Play Media"
+msgstr "Spila margmiðlunarskrá"
+
+#: src/app/playDialog.cpp:42
+#, kde-format
+msgid "What media would you like to play?"
+msgstr "Hvernig miðil viltu spila?"
+
+#: src/app/playDialog.cpp:50
+#, kde-format
+msgctxt "@action:button"
+msgid "Play File..."
+msgstr "Spila skrá..."
+
+#: src/app/playlistFile.cpp:37
+#, kde-format
+msgid "The file is not a playlist"
+msgstr "Skráin er ekki spilunarlisti"
+
+#: src/app/playlistFile.cpp:45
+#, kde-format
+msgid "Dragon Player could not download the remote playlist: %1"
+msgstr "Dragon spilarinn gat ekki halað niður fjarlæga lagalistanum: %1"
+
+#: src/app/playlistFile.cpp:62
+#, kde-format
+msgid ""
+"<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is empty?"
+"</qt>"
+msgstr ""
+"<qt>Spilunarlistann, <i>'%1'</i>, var ekki hægt að túlka. Ætli hann sé tómur?"
+"</qt>"
+
+#: src/app/playlistFile.cpp:66
+#, kde-format
+msgid "Dragon Player could not open the file: %1"
+msgstr "Dragon spilarinn gat ekki opnað skrána: %1"
+
+#: src/app/recentlyPlayedList.cpp:34
+#, kde-format
+msgctxt "@action Copy the URL of the selected multimedia"
+msgid "Copy URL"
+msgstr "Afrita slóð"
+
+#: src/app/recentlyPlayedList.cpp:39
+#, kde-format
+msgctxt "@action"
+msgid "Clear List"
+msgstr "Hreinsa lista"
+
+#: src/app/recentlyPlayedList.cpp:44
+#, kde-format
+msgctxt "@action"
+msgid "Remove Entry"
+msgstr "Fjarlægja færslu"
+
+#: src/app/recentlyPlayedList.cpp:125
+#, kde-format
+msgid ""
+"This file could not be found. Would you like to remove it from the playlist?"
+msgstr "Þessi skrá fannst ekki. Viltu fjarlægja hana úr spilunarlistanum?"
+
+#: src/app/recentlyPlayedList.cpp:126
+#, kde-format
+msgctxt "@title:window"
+msgid "File not found"
+msgstr "Skrá fannst ekki"
+
+#: src/app/theStream.cpp:151
+#, kde-format
+msgid "Track %1/%2"
+msgstr "Spor %1/%2"
+
+#. i18n: ectx: property (text), widget (QLabel, brightnessLabel)
+#: src/app/videoSettingsWidget.ui:19
+#, kde-format
+msgctxt "@label:slider"
+msgid "Brightness:"
+msgstr "Birtustig:"
+
+#. i18n: ectx: property (text), widget (QLabel, contrastLabel)
+#: src/app/videoSettingsWidget.ui:42
+#, kde-format
+msgctxt "@label:slider"
+msgid "Contrast:"
+msgstr "Birtuskil:"
+
+#. i18n: ectx: property (text), widget (QLabel, hueLabel)
+#: src/app/videoSettingsWidget.ui:65
+#, kde-format
+msgctxt "@label:slider"
+msgid "Hue:"
+msgstr "Litblær:"
+
+#. i18n: ectx: property (text), widget (QLabel, saturationLabel)
+#: src/app/videoSettingsWidget.ui:88
+#, kde-format
+msgctxt "@label:slider"
+msgid "Saturation:"
+msgstr "Litmettun:"
+
+#. i18n: ectx: property (text), widget (QPushButton, defaultsButton)
+#: src/app/videoSettingsWidget.ui:128
+#, kde-format
+msgctxt "@action:button"
+msgid "Restore Defaults"
+msgstr "Endurheimta sjálfgefið"
+
+#. i18n: ectx: property (text), widget (QPushButton, closeButton)
+#: src/app/videoSettingsWidget.ui:135
+#, kde-format
+msgctxt "@action:button"
+msgid "Close"
+msgstr "Loka"
+
+#: src/app/videoWindow.cpp:109
+#, kde-format
+msgctxt "@option:radio"
+msgid "&DVD Subtitle Selection"
+msgstr "Val þýðingartexta &DVD"
+
+#: src/app/videoWindow.cpp:119
+#, kde-format
+msgctxt "@option:radio audio language"
+msgid "&Auto"
+msgstr "Sjál&fvirkt"
+
+#~ msgid ""
+#~ "IRC:\n"
+#~ "irc.freenode.net #dragonplayer\n"
+#~ "\n"
+#~ "Feedback:\n"
+#~ "imonroe@kde.org"
+#~ msgstr ""
+#~ "IRC:\n"
+#~ "irc.freenode.net #dragonplayer\n"
+#~ "\n"
+#~ "Ábendingar:\n"
+#~ "imonroe@kde.org"
+
+#~ msgid "David Edmundson"
+#~ msgstr "David Edmundson"
+
+#~ msgid "Matthias Kretz"
+#~ msgstr "Matthias Kretz"
+
+#~ msgid "Eugene Trounev"
+#~ msgstr "Eugene Trounev"
+
+#~ msgid "Mike Diehl"
+#~ msgstr "Mike Diehl"
+
+#~ msgid "The Kaffeine Developers"
+#~ msgstr "Kaffeine þróunarteymið"
+
+#~ msgid "Greenleaf"
+#~ msgstr "Greenleaf"
+
+#~ msgid "Eike Hein"
+#~ msgstr "Eike Hein"
+
+#~ msgid "Next Chapter"
+#~ msgstr "Næsti kafli"
+
+#~ msgctxt "Mute the sound output"
+#~ msgid "Mute "
+#~ msgstr "Þagga "
+
+#~ msgid ""
+#~ "<qt>xine could not be successfully initialised. Dragon Player will now "
+#~ "exit. You can try to identify what is wrong with your xine installation "
+#~ "using the <b>xine-check</b> command at a command-prompt.</qt>"
+#~ msgstr ""
+#~ "<qt>Ekki var hægt að ræsa xine. Dragon spilarinn mun núna slökkva á sér. "
+#~ "Þú getur reynt að finna út hvað sé í ólagi með xine uppsetninguna með því "
+#~ "að nota <b>xine-check</b> skipunina á skipanalínu.</qt>"

@@ -1,0 +1,360 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Indonesian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="dragon" lang="&language;">
+
+<bookinfo>
+<title
+>Buku Petunjuk &dragon;</title>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>Diehl</surname
+> <affiliation
+> <address
+><email
+>madpenguin8@yahoo.com</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Ian</firstname
+> <surname
+>Monroe</surname
+> <affiliation
+> <address
+><email
+>imonroe@kde.org</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Wantoyo</firstname
+><surname
+></surname
+><affiliation
+><address
+><email
+>wantoyek@gmail.com</email
+></address
+></affiliation
+><contrib
+>Terjemahan</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2004</year>
+<holder
+>Mike Diehl</holder>
+</copyright>
+<copyright>
+<year
+>2007</year>
+<holder
+>Ian Monroe</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>29-06-2016</date>
+<releaseinfo
+>Applications 16.04</releaseinfo>
+
+<abstract>
+<para
+>&dragon; adalah pemutar video yang sederhana oleh &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Codeine</keyword>
+<keyword
+>Phonon</keyword>
+<keyword
+>Dragon</keyword>
+<keyword
+>Player</keyword>
+<keyword
+>Dragon Player</keyword>
+<keyword
+>video</keyword>
+<keyword
+>multi-media</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Pengenalan</title>
+
+<screenshot>
+<screeninfo
+>&dragon; Screenshot</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="main.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Screenshot</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+
+<para
+>&dragon; adalah sebuah pemutar media sederhana menggunakan teknologi &phonon;. &dragon; adalah pemutar media tanpa embel-embel yang unggul saat memutar DVD dan file film tanpa menghalangimu. </para>
+
+</chapter>
+
+<chapter id="select-media">
+<title
+>Pilih sebuah Media</title>
+
+<para
+>Jika kamu memulai &dragon; dari peluncur aplikasi atau menggunakan <guibutton
+>Play Media</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+>) dari toolbar atau dari menu <guimenu
+>Play</guimenu
+> window ini akan menampilkan:</para>
+
+<screenshot>
+<screeninfo
+>Play Media</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="playmedia.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Play Media</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Ada tiga cara untuk memutar sebuah file video:</para>
+<para
+><guibutton
+>Play File</guibutton
+> akan membuka dialog file dan memungkinkanmu untuk memilih sebuah file untuk diputar.</para>
+<para
+><guibutton
+>Play Disc</guibutton
+> untuk memutar sebuah &CD; atau DVD.</para>
+<para
+><guibutton
+>Play Stream</guibutton
+> akan membukakan sebuah dialog untuk memasukkan sebuah alamat beberapa <ulink url="http://en.wikipedia.org/wiki/Streaming_media"
+>multimedia stream</ulink
+>.</para>
+<para
+>Klik ganda pada entri dalam playlist dimana file yang baru dibuka untuk mulai memutarnya. Menu konteks playlist menampilkan aksi untuk menghapus sebuah entri terpilih atau membersihkan keseluruhan playlist. File apa pun yang kamu putarkan akan secara otomatis ditambahkan ke dalam daftar.</para>
+</chapter>
+
+<chapter id="features">
+<title
+>Fitur</title>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Full Screen Mode</guimenuitem>
+</term>
+<listitem
+><para
+>Ketika sedang memutar sebuah film, kamu bisa masuk dalam mode layar penuh. Ini menggunakan seluruh monitor untuk menampilkan film. Memindah mouse akan menampilkan sebuah toolbar di bagian atas layar dalam mode layar penuh. Jungkitan mode layar penuh menggunakan menu <guimenu
+>Settings</guimenu
+>, tindakan dalam toolbar, klik ganda pada video atau gunakan pintasan <keycap
+>F</keycap
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Video Settings</guimenuitem>
+</term>
+<listitem
+><para
+>Pilih tindakan ini dari menu <guimenu
+>Settings</guimenu
+> untuk menyesuaikan <guilabel
+>Brightness</guilabel
+>, <guilabel
+>Contrast</guilabel
+>, <guilabel
+>Hue</guilabel
+> dan <guilabel
+>Saturation</guilabel
+>. Pengaturan tersebut akan selalu disimpan pada posisi pemutaran untuk setiap file video. Ini memungkinkan kamu melanjutkan pemutaran sebuah video dengan pengaturan video terpilih dan posisi di mana kamu berhenti memutarnya. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Navigation </term>
+<listitem
+><para
+>Pintasan <keycap
+>PgUp</keycap
+> membawamu 10% maju / <keycap
+>+</keycap
+> 10 detik maju dan <keycap
+>PgDown</keycap
+> membawamu 10% mundur / <keycap
+>-</keycap
+> 10 detik mundur. Gunakan <menuchoice
+><guimenu
+>Settings</guimenu
+> <guimenuitem
+>Menu Toggle</guimenuitem
+></menuchoice
+> (<keycap
+>R</keycap
+>) untuk beralih ke menu video dan memilih bab lainnya untuk diputar. <menuchoice
+><guimenu
+>Play</guimenu
+><guimenuitem
+>Play/Pause</guimenuitem
+></menuchoice
+> (<keysym
+>Spasi</keysym
+>) memungkinkanmu untuk menjeda dan melanjutkan pemutaran jika film telah dimuat. <menuchoice
+><guimenu
+>Play</guimenu
+><guimenuitem
+>Stop</guimenuitem
+></menuchoice
+> (<keycap
+>S</keycap
+>) menghentikan pemutaran. Menuju ke bab sebelumnya atau selanjutnya pada sebuah video dengan <guimenuitem
+>Previous Chapter</guimenuitem
+> (<keycap
+>,</keycap
+>) atau <guimenuitem
+>Next Chapter</guimenuitem
+> (<keycap
+>.</keycap
+>) dari menu <guimenu
+>Play</guimenu
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Volume control</guimenuitem>
+</term>
+<listitem
+><para
+>Jika kamu memutar video dengan toolbar tersembunyi, kamu bisa menggunakan pintasan <keycap
+>M</keycap
+> untuk membungkam atau membunyikan suara; dan pintasan <keycap
+>V</keycap
+> untuk menjungkit tampilan penggeser volume sebelah kanan video. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Settings</guimenu
+> <guisubmenu
+>Aspect Ratio</guisubmenu
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Menu ini memungkinkan kamu memilih aspek rasio pemainan film. Aspek rasio adalah lebar dibandingkan dengan tinggi film.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guisubmenu
+>Subtitles</guisubmenu
+> dan <guisubmenu
+>Audio Channels</guisubmenu
+> </term>
+<listitem
+><para
+>Item menu ini dari menu <guimenu
+>Settings</guimenu
+> yang aktif jika ada subtitle atau channel audio tambahan (&eg; misal dengan bahasa yang berbeda) tersedia dari film yang sedang diputar. Perhatikan bahwa mungkin diperlukan beberapa detik pemutaran sebelum subtitle atau channel audio menjadi tersedia. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Pujian dan Lisensi</title>
+
+<para
+>&dragon; </para>
+
+<para
+>Hak cipta program 2004 Max B. Howell <email
+>max.howell@methylblue.com</email
+></para>
+<para
+>Hak cipta program 2007 Ian A. Monroe <email
+>imonroe@kde.org</email
+></para>
+
+<para
+>Hak cipta dokumentasi 2004 Mike Diehl <email
+>madpenguin8@yahoo.com</email
+> </para>
+<para
+>Hak cipta dokumentasi 2007 Ian Monroe <email
+>imonroe@kde.org</email
+> </para>
+
+<para
+>Wantoyo<email
+>wantoyek@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

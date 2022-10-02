@@ -1,0 +1,119 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Ukrainian "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Інструкція користувача програвача Dragon</title>
+<author
+><firstname
+>Praveen</firstname
+><surname
+>Arimbrathodiyil</surname
+> <contrib
+>Сторінка man програвача Dragon.</contrib
+> <email
+>pravi.a@gmail.com</email
+></author>
+<date
+>29 червня 2016 року</date>
+<releaseinfo
+>Програми 16.04</releaseinfo>
+<productname
+>Програми KDE</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>dragon</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+>dragon</refname>
+<refpurpose
+>програвач відео, зосереджений на зручності у користуванні</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis
+><command
+>dragon</command
+> <arg choice="opt"
+><replaceable
+>адреса</replaceable
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+
+<refsect1 id="description"
+><title
+>Опис</title>
+<para
+>Порогравач <command
+>dragon</command
+> відтворює звукові та відеодані у різних форматах.</para>
+
+</refsect1>
+
+<refsect1 id="options"
+><title
+>Параметри</title>
+<variablelist>
+  <varlistentry>
+  <term
+><option
+>--play-dvd</option
+></term>
+  <listitem>
+<para
+>Відтворити відео-DVD.</para>
+  </listitem>
+  </varlistentry>
+</variablelist>
+</refsect1>
+
+<refsect1>
+<title
+>Також прочитайте</title>
+<simplelist>
+<member
+>Доступ до докладнішої документації можна отримати за адресою <ulink url="help:/dragonplayer"
+>help:/dragonplayer</ulink
+> (або введіть цю адресу <acronym
+>URL</acronym
+> у рядок адреси &konqueror;, або виконайте команду <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/dragonplayer</parameter
+></userinput
+>).</member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+</simplelist>
+</refsect1>
+
+<refsect1 id="copyright"
+><title
+>Авторські права</title>
+<para
+>&copy; Max Howell, 2006</para>
+<para
+>&copy; Ian Monroe, 2007</para>
+<para
+>Умови ліцензування: GNU General Public License, версія 2 &lt;<ulink url="https://www.gnu.org/licenses/gpl-2.0.html"
+>https://www.gnu.org/licenses/gpl-2.0.html</ulink
+>&gt;</para>
+</refsect1>
+</refentry>
+

@@ -1,0 +1,144 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Serbian-Latin "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Korisnički priručnik za Zmajev plejer</title>
+<author
+><firstname
+>Praven</firstname
+> <surname
+>Arimbratodijil</surname
+> <contrib
+>Uputna stranica za Zmajev plejer.</contrib
+> <email
+>pravi.a@gmail.com</email
+></author>
+<date
+>29.6.2016.</date>
+<releaseinfo
+>Programi KDE-a 16.04</releaseinfo>
+<productname
+>Programi KDE-a</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>dragon</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+>dragon</refname>
+<refpurpose
+>video plejer usredsređen na upotrebljivost</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis
+><command
+>dragon</command
+> <arg choice="opt"
+><replaceable
+>URL</replaceable
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+
+<refsect1 id="description"
+><title
+>Opis</title>
+<para
+><command
+>dragon</command
+> (Zmajev plejer) pušta audio i video raznovrsnih formata.</para>
+
+</refsect1>
+
+<refsect1 id="options"
+><title
+>Opcije</title>
+<variablelist>
+  <varlistentry>
+  <term
+><option
+>--play-dvd</option
+></term>
+  <listitem>
+<para
+>Pusti DVD video.</para>
+  </listitem>
+  </varlistentry>
+</variablelist>
+</refsect1>
+
+<refsect1 id="feedback"
+><title
+>Reagovanja</title>
+<para
+>Na <acronym
+>IRC-u</acronym
+> irc.freenode.net #dragonplayer, e-poštom na imonroe@kde.org, na Webu &lt;<ulink url="http://multimedia.kde.org"
+>http://multimedia.kde.org</ulink
+>&gt;.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Vidi još</title>
+<simplelist>
+<member
+>Detaljnija korisnička dokumentacija dostupna je na <ulink url="help:/dragonplayer"
+><literal
+>help:/dragonplayer</literal
+></ulink
+> (unesite ovaj URL u <application
+>K-osvajač</application
+>, ili izvršite <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/dragonplayer</parameter
+></userinput
+>).</member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+</simplelist>
+</refsect1>
+
+<refsect1 id="copyright"
+><title
+>Autorska prava</title>
+<para
+>c 2006, <personname
+><firstname
+>Maks</firstname
+> <surname
+>Hauel</surname
+></personname
+>.</para>
+<para
+>c 2007, <personname
+><firstname
+>Ijan</firstname
+> <surname
+>Monro</surname
+></personname
+>.</para>
+<para
+>Licenca: GNU-ova Opšta javan licenca 2 &lt;<ulink url="http://www.gnu.org/licenses/gpl-2.0.html"
+>http://www.gnu.org/licenses/gpl-2.0.html</ulink
+>&gt;.</para>
+</refsect1>
+</refentry>
+

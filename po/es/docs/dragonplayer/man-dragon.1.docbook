@@ -1,0 +1,128 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Spanish "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Manual del usuario del reproductor Dragon</title>
+<author
+><firstname
+>Praveen</firstname
+><surname
+>Arimbrathodiyil</surname
+> <contrib
+>Página man de Dragon Player.</contrib
+> <email
+>pravi.a@gmail.com</email
+></author>
+<date
+>2016-06-29</date>
+<releaseinfo
+>Aplicaciones 16.04</releaseinfo>
+<productname
+>Aplicaciones KDE</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>dragon</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+>dragon</refname>
+<refpurpose
+>un reproductor de vídeo centrado en la ergonomía</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis
+><command
+>dragon</command
+> <arg choice="opt"
+><replaceable
+>URL</replaceable
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+
+<refsect1 id="description"
+><title
+>Descripción</title>
+<para
+>El reproductor <command
+>dragon</command
+> reproduce audio y vídeo en diferentes formatos.</para>
+
+</refsect1>
+
+<refsect1 id="options"
+><title
+>Opciones</title>
+<variablelist>
+  <varlistentry>
+  <term
+><option
+>--play-dvd</option
+></term>
+  <listitem>
+<para
+>Reproducir DVD de vídeo.</para>
+  </listitem>
+  </varlistentry>
+</variablelist>
+</refsect1>
+
+<refsect1 id="feedback"
+><title
+>Comentarios y sugerencias</title>
+<para
+>En IRC, irc.freenode.net #dragonplayer o por correo electrónico, imonroe@kde.org o en la web &lt;<ulink url="https://multimedia.kde.org"
+>https://multimedia.kde.org</ulink
+>&gt;</para>
+</refsect1>
+
+<refsect1>
+<title
+>Consulte también</title>
+<simplelist>
+<member
+>Dispone de documentación de usuario más detallada en <ulink url="help:/dragonplayer"
+>help:/dragonplayer</ulink
+> (o bien introduzca esta <acronym
+>URL</acronym
+> en &konqueror;, o ejecute <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/dragonplayer</parameter
+></userinput
+>).</member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+</simplelist>
+</refsect1>
+
+<refsect1 id="copyright"
+><title
+>Copyright</title>
+<para
+>Copyright &copy; 2006 Max Howell</para>
+<para
+>Copyright &copy; 2007 Ian Monroe</para>
+<para
+>Licencia: GNU General Public Version 2 &lt;<ulink url="https://www.gnu.org/licenses/gpl-2.0.html"
+>https://www.gnu.org/licenses/gpl-2.0.html</ulink
+>&gt;</para>
+</refsect1>
+</refentry>
+

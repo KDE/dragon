@@ -1,0 +1,613 @@
+# Translation of dragonplayer.po to Ukrainian
+# Copyright (C) 2008-2020 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2008, 2009, 2010, 2011, 2012, 2013, 2015, 2018, 2019, 2020.
+# Ivan Petrouchtchak <fr.ivan@ukrainian-orthodox.org>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: dragonplayer\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-02 00:45+0000\n"
+"PO-Revision-Date: 2020-05-05 08:27+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.07.70\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Юрій Чорноіван"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "yurchor@ukr.net"
+
+#. i18n: ectx: Menu (file)
+#: misc/dragonplayerui.rc:4
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Play"
+msgstr "&Пуск"
+
+#. i18n: ectx: Menu (settings)
+#: misc/dragonplayerui.rc:15
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Settings"
+msgstr "&Параметри"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: misc/dragonplayerui.rc:31
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Головний пенал"
+
+#: src/app/actions.cpp:24
+#, kde-format
+msgctxt "@action"
+msgid "Play"
+msgstr "Пуск"
+
+#: src/app/actions.cpp:25
+#, kde-format
+msgctxt "@action"
+msgid "Pause"
+msgstr "Пауза"
+
+#: src/app/actions.cpp:40
+#, kde-format
+msgctxt "@option:check Volume of sound output"
+msgid "Volume"
+msgstr "Гучність"
+
+#: src/app/adjustSizeButton.cpp:39
+#, kde-format
+msgctxt "@action:button"
+msgid "Preferred Scale"
+msgstr "Бажаний масштаб"
+
+#: src/app/adjustSizeButton.cpp:43
+#, kde-format
+msgctxt "@action:button"
+msgid "Scale 100%"
+msgstr "Масштаб 100%"
+
+#: src/app/adjustSizeButton.cpp:50
+#, kde-format
+msgid "<b>Adjust video scale?</b>"
+msgstr "<b>Відрегулювати масштаб відео?</b>"
+
+#: src/app/discSelectionDialog.cpp:39
+#, kde-format
+msgctxt ""
+"%1 is the disc type, %2 is the name of the disc that the user can choose. "
+"Ex. 'DVD: OfficeSpace'"
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: src/app/discSelectionDialog.cpp:58
+#, kde-format
+msgctxt "Digital Versatile Disc, but keep it short"
+msgid "DVD"
+msgstr "DVD"
+
+#: src/app/discSelectionDialog.cpp:60
+#, kde-format
+msgid "Video CD"
+msgstr "Відео КД"
+
+#: src/app/discSelectionDialog.cpp:62
+#, kde-format
+msgid "Audio CD"
+msgstr "Аудіо-КД"
+
+#: src/app/discSelectionDialog.cpp:64
+#, kde-format
+msgid "Data CD"
+msgstr "КД з даними"
+
+#: src/app/discSelectionDialog.cpp:75
+#, kde-format
+msgctxt "@title:window"
+msgid "Select a Disc"
+msgstr "Вибрати диск"
+
+#: src/app/discSelectionDialog.cpp:77
+#, kde-format
+msgid "Select a disc to play."
+msgstr "Виберіть диск для відтворення."
+
+#. i18n: ectx: property (text), widget (QPushButton, m_playFileButton)
+#: src/app/loadView.ui:19
+#, kde-format
+msgctxt "@action:button"
+msgid "Play File"
+msgstr "Відтворити файл"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_playDiskButton)
+#: src/app/loadView.ui:31 src/app/playDialog.cpp:54
+#, kde-format
+msgctxt "@action:button"
+msgid "Play Disc"
+msgstr "Відтворити диск"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_playStreamButton)
+#: src/app/loadView.ui:43
+#, kde-format
+msgctxt "@action:button"
+msgid "Play Stream"
+msgstr "Відтворити потік"
+
+#: src/app/main.cpp:37
+#, kde-format
+msgid "Dragon Player"
+msgstr "Програвач Dragon"
+
+#: src/app/main.cpp:39
+#, kde-format
+msgid "A video player that has a usability focus"
+msgstr "Програвач відео, зосереджений на зручності у користуванні"
+
+#: src/app/main.cpp:40
+#, kde-format
+msgid ""
+"Copyright 2006, Max Howell\n"
+"Copyright 2007, Ian Monroe"
+msgstr ""
+"© Max Howell, 2006\n"
+"© Ian Monroe, 2007"
+
+#: src/app/main.cpp:44
+#, kde-format
+msgid "Improvements and polish"
+msgstr "Покращення і шліфування"
+
+#: src/app/main.cpp:45
+#, kde-format
+msgid "Creator of Phonon"
+msgstr "Творець Phonon"
+
+#: src/app/main.cpp:46
+#, kde-format
+msgid "Dragon Player icon"
+msgstr "Піктограма Dragon Player"
+
+#: src/app/main.cpp:47
+#, kde-format
+msgid "Handbook"
+msgstr "Підручник"
+
+#: src/app/main.cpp:48
+#, kde-format
+msgid "Great reference code"
+msgstr "Чудовий зразковий код"
+
+#: src/app/main.cpp:49
+#, kde-format
+msgid "Yatta happened to be the only video on my laptop to test with. :)"
+msgstr ""
+"Це було єдине відео на моєму лептопі, з яким можна було проводити "
+"тестування. :)"
+
+#: src/app/main.cpp:50
+#, kde-format
+msgid "MPRIS v2 support"
+msgstr "Підтримка MPRIS версії 2"
+
+#: src/app/main.cpp:51
+#, kde-format
+msgid "Port to KF5/Plasma 5"
+msgstr "Портування на KF5/Плазму 5"
+
+#: src/app/main.cpp:58
+#, kde-format
+msgid "Play DVD Video"
+msgstr "Відтворити відео-DVD"
+
+#: src/app/main.cpp:60
+#, kde-format
+msgid "Play 'URL'"
+msgstr "Відтворити «URL»"
+
+#: src/app/mainWindow.cpp:139
+#, kde-format
+msgctxt "@title:menu"
+msgid "Aspect &Ratio"
+msgstr "Формат &зображення"
+
+#: src/app/mainWindow.cpp:140
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Audio Channels"
+msgstr "Канали &аудіо"
+
+#: src/app/mainWindow.cpp:141
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Subtitles"
+msgstr "&Субтитри"
+
+#: src/app/mainWindow.cpp:156
+#, kde-format
+msgctxt "@option:radio aspect ratio"
+msgid "Determine &Automatically"
+msgstr "Визначити &автоматично"
+
+#: src/app/mainWindow.cpp:157
+#, kde-format
+msgctxt "@option:radio aspect ratio"
+msgid "&4:3"
+msgstr "&4:3"
+
+#: src/app/mainWindow.cpp:158
+#, kde-format
+msgctxt "@option:radio aspect ratio"
+msgid "Ana&morphic (16:9)"
+msgstr "Ана&морфотний (16:9)"
+
+#: src/app/mainWindow.cpp:159
+#, kde-format
+msgctxt "@option:radio aspect ratio"
+msgid "&Window Size"
+msgstr "&Розміри вікна"
+
+#: src/app/mainWindow.cpp:204
+#, kde-format
+msgid ""
+"<qt>Phonon could not be successfully initialized. Dragon Player will now "
+"exit.</qt>"
+msgstr ""
+"<qt>Не вдалося ініціалізувати Phonon. Зараз роботу програвача Dragon буде "
+"завершено.</qt>"
+
+#: src/app/mainWindow.cpp:267
+#, kde-format
+msgctxt "@action"
+msgid "Play &Media..."
+msgstr "Відтворити &носій..."
+
+#: src/app/mainWindow.cpp:287
+#, kde-format
+msgctxt "@action"
+msgid "Increase Volume"
+msgstr "Збільшити гучність"
+
+#: src/app/mainWindow.cpp:292
+#, kde-format
+msgctxt "@action"
+msgid "Decrease Volume"
+msgstr "Зменшити гучність"
+
+#: src/app/mainWindow.cpp:297
+#, kde-format
+msgctxt "@action"
+msgid "Stop"
+msgstr "Зупинити"
+
+#: src/app/mainWindow.cpp:303
+#, kde-format
+msgctxt "@action Mute the sound output"
+msgid "Mute"
+msgstr "Вимкнути звук"
+
+#: src/app/mainWindow.cpp:309
+#, kde-format
+msgctxt "@action"
+msgid "Reset Video Scale"
+msgstr "Відновити масштаб відео"
+
+#: src/app/mainWindow.cpp:315
+#, kde-format
+msgctxt "@action"
+msgid "Menu Toggle"
+msgstr "Перемикач меню"
+
+#: src/app/mainWindow.cpp:323 src/app/part.cpp:57
+#, kde-format
+msgid "Position Slider"
+msgstr "Повзунок позиції"
+
+#: src/app/mainWindow.cpp:327
+#, kde-format
+msgctxt "@option:check"
+msgid "Video Settings"
+msgstr "Параметри відео"
+
+#: src/app/mainWindow.cpp:336
+#, kde-format
+msgctxt ""
+"@option:check Whether only one instance of dragon can be started and will be "
+"reused when the user tries to play another file."
+msgid "One Instance Only"
+msgstr "Лише один екземпляр"
+
+#: src/app/mainWindow.cpp:343
+#, kde-format
+msgctxt "@action previous chapter"
+msgid "Previous"
+msgstr "Назад"
+
+#: src/app/mainWindow.cpp:349
+#, kde-format
+msgctxt "@action next chapter"
+msgid "Next"
+msgstr "Далі"
+
+#: src/app/mainWindow.cpp:356
+#, no-c-format, kde-format
+msgctxt "@action"
+msgid "Return 10% Back"
+msgstr "Повернутися на 10% назад"
+
+#: src/app/mainWindow.cpp:363
+#, no-c-format, kde-format
+msgctxt "@action"
+msgid "Go 10% Forward"
+msgstr "Перейти на 10% вперед"
+
+#: src/app/mainWindow.cpp:369
+#, kde-format
+msgctxt "@action"
+msgid "Return 10 Seconds Back"
+msgstr "Повернутися на 10 секунд"
+
+#: src/app/mainWindow.cpp:375
+#, kde-format
+msgctxt "@action"
+msgid "Go 10 Seconds Forward"
+msgstr "Перейти на 10 секунд вперед"
+
+#: src/app/mainWindow.cpp:465
+#, kde-format
+msgctxt "@option:check Mute the sound output"
+msgid "Mute"
+msgstr "Вимкнути звук"
+
+#: src/app/mainWindow.cpp:542
+#, kde-format
+msgid "Dragon Player was asked to open an empty URL; it cannot."
+msgstr "Dragon Player наказано відкрити порожню адресу URL; це неможливо."
+
+#: src/app/mainWindow.cpp:621
+#, kde-format
+msgctxt "@title:window"
+msgid "Select File to Play"
+msgstr "Вибір файла для відтворення"
+
+#: src/app/mainWindow.cpp:649
+#, kde-format
+msgctxt "@title:window"
+msgid "Stream to Play"
+msgstr "Потік даних, який слід відтворити"
+
+#: src/app/mainWindow.cpp:649
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Stream:"
+msgstr "Потік:"
+
+#: src/app/mainWindow.cpp:790
+#, kde-format
+msgid "Sorry, no media was found in the drop"
+msgstr "Вибачте, у скинутому відсутні записи для відтворення"
+
+#: src/app/mainWindow.cpp:840
+#, kde-format
+msgctxt "Notification inhibition reason"
+msgid "playing a video"
+msgstr "відтворюємо відео"
+
+#: src/app/mainWindow.cpp:876
+#, kde-format
+msgid "No media loaded"
+msgstr "Не завантажено відео"
+
+#: src/app/mainWindow.cpp:878
+#, kde-format
+msgid "Paused"
+msgstr "Призупинено"
+
+#: src/app/playDialog.cpp:30
+#, kde-format
+msgctxt "@title:window"
+msgid "Play Media"
+msgstr "Відтворити"
+
+#: src/app/playDialog.cpp:42
+#, kde-format
+msgid "What media would you like to play?"
+msgstr "Який носій інформації ви бажаєте відтворити?"
+
+#: src/app/playDialog.cpp:50
+#, kde-format
+msgctxt "@action:button"
+msgid "Play File..."
+msgstr "Відтворити файл..."
+
+#: src/app/playlistFile.cpp:37
+#, kde-format
+msgid "The file is not a playlist"
+msgstr "Файл не знаходиться у списку відтворення"
+
+#: src/app/playlistFile.cpp:45
+#, kde-format
+msgid "Dragon Player could not download the remote playlist: %1"
+msgstr "Dragon Player не вдалося отримати віддалений список відтворення: %1"
+
+#: src/app/playlistFile.cpp:62
+#, kde-format
+msgid ""
+"<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is empty?"
+"</qt>"
+msgstr ""
+"<qt>Список відтворення, <i>«%1»</i>, неможливо розібрати. Можливо він "
+"порожній?</qt>"
+
+#: src/app/playlistFile.cpp:66
+#, kde-format
+msgid "Dragon Player could not open the file: %1"
+msgstr "Dragon Player не вдалося відкрити файл: %1"
+
+#: src/app/recentlyPlayedList.cpp:34
+#, kde-format
+msgctxt "@action Copy the URL of the selected multimedia"
+msgid "Copy URL"
+msgstr "Копіювати адресу"
+
+#: src/app/recentlyPlayedList.cpp:39
+#, kde-format
+msgctxt "@action"
+msgid "Clear List"
+msgstr "Спорожнити список"
+
+#: src/app/recentlyPlayedList.cpp:44
+#, kde-format
+msgctxt "@action"
+msgid "Remove Entry"
+msgstr "Вилучити запис"
+
+#: src/app/recentlyPlayedList.cpp:125
+#, kde-format
+msgid ""
+"This file could not be found. Would you like to remove it from the playlist?"
+msgstr ""
+"Цей файл не вдалося знайти. Бажаєте вилучити його зі списку відтворення?"
+
+#: src/app/recentlyPlayedList.cpp:126
+#, kde-format
+msgctxt "@title:window"
+msgid "File not found"
+msgstr "Файл не знайдено"
+
+#: src/app/theStream.cpp:151
+#, kde-format
+msgid "Track %1/%2"
+msgstr "Композиція %1 з %2"
+
+#. i18n: ectx: property (text), widget (QLabel, brightnessLabel)
+#: src/app/videoSettingsWidget.ui:19
+#, kde-format
+msgctxt "@label:slider"
+msgid "Brightness:"
+msgstr "Яскравість:"
+
+#. i18n: ectx: property (text), widget (QLabel, contrastLabel)
+#: src/app/videoSettingsWidget.ui:42
+#, kde-format
+msgctxt "@label:slider"
+msgid "Contrast:"
+msgstr "Контрастність:"
+
+#. i18n: ectx: property (text), widget (QLabel, hueLabel)
+#: src/app/videoSettingsWidget.ui:65
+#, kde-format
+msgctxt "@label:slider"
+msgid "Hue:"
+msgstr "Відтінок:"
+
+#. i18n: ectx: property (text), widget (QLabel, saturationLabel)
+#: src/app/videoSettingsWidget.ui:88
+#, kde-format
+msgctxt "@label:slider"
+msgid "Saturation:"
+msgstr "Насиченість:"
+
+#. i18n: ectx: property (text), widget (QPushButton, defaultsButton)
+#: src/app/videoSettingsWidget.ui:128
+#, kde-format
+msgctxt "@action:button"
+msgid "Restore Defaults"
+msgstr "Відновити типові"
+
+#. i18n: ectx: property (text), widget (QPushButton, closeButton)
+#: src/app/videoSettingsWidget.ui:135
+#, kde-format
+msgctxt "@action:button"
+msgid "Close"
+msgstr "Закрити"
+
+#: src/app/videoWindow.cpp:109
+#, kde-format
+msgctxt "@option:radio"
+msgid "&DVD Subtitle Selection"
+msgstr "Вибір субтитрів &DVD"
+
+#: src/app/videoWindow.cpp:119
+#, kde-format
+msgctxt "@option:radio audio language"
+msgid "&Auto"
+msgstr "&Авто"
+
+#~ msgid ""
+#~ "IRC:\n"
+#~ "irc.freenode.net #dragonplayer\n"
+#~ "\n"
+#~ "Feedback:\n"
+#~ "imonroe@kde.org"
+#~ msgstr ""
+#~ "IRC:\n"
+#~ "irc.freenode.net #dragonplayer\n"
+#~ "\n"
+#~ "Зворотний зв’язок:\n"
+#~ "imonroe@kde.org"
+
+#~ msgid "David Edmundson"
+#~ msgstr "David Edmundson"
+
+#~ msgid "Matthias Kretz"
+#~ msgstr "Matthias Kretz"
+
+#~ msgid "Eugene Trounev"
+#~ msgstr "Eugene Trounev"
+
+#~ msgid "Mike Diehl"
+#~ msgstr "Mike Diehl"
+
+#~ msgid "The Kaffeine Developers"
+#~ msgstr "Розробники Kaffeine"
+
+#~ msgid "Greenleaf"
+#~ msgstr "Greenleaf"
+
+#~ msgid "Eike Hein"
+#~ msgstr "Eike Hein"
+
+#~ msgid "Next Chapter"
+#~ msgstr "Наступний розділ"
+
+#~ msgctxt "Mute the sound output"
+#~ msgid "Mute "
+#~ msgstr "Вимкнути звук "
+
+#~ msgid "Form"
+#~ msgstr "Форма"
+
+#~ msgid ""
+#~ "<qt>xine could not be successfully initialised. Dragon Player will now "
+#~ "exit. You can try to identify what is wrong with your xine installation "
+#~ "using the <b>xine-check</b> command at a command-prompt.</qt>"
+#~ msgstr ""
+#~ "<qt>Не вдалося ініціалізувати xine. Зараз програвач Dragon завершить "
+#~ "роботу. Визначити джерело помилок у встановленому xine можна за допомогою "
+#~ "команди <b>xine-check</b>, відданої з командного рядка.</qt>"
+
+#~ msgid "&Pause"
+#~ msgstr "&Пауза"
+
+#~ msgid "There was an internal error with the media slave..."
+#~ msgstr "У підпорядкованій програмі сталася внутрішня помилка..."
+
+#~ msgid "Show Additional Debug Output"
+#~ msgstr "Показати додаткову інформацію для усування вад"
+
+#~ msgid "Play Disk"
+#~ msgstr "Відтворити диск"

@@ -1,0 +1,581 @@
+# Translation of dragonplayer to Korean.
+# Copyright (C) 2008 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kdereview package.
+# Shinjo Park <kde@peremen.name>, 2008, 2009, 2011, 2012, 2013, 2015, 2019, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: dragonplayer\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-02 00:45+0000\n"
+"PO-Revision-Date: 2020-07-01 00:44+0200\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 19.12.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "박신조"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde@peremen.name"
+
+#. i18n: ectx: Menu (file)
+#: misc/dragonplayerui.rc:4
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Play"
+msgstr "재생(&P)"
+
+#. i18n: ectx: Menu (settings)
+#: misc/dragonplayerui.rc:15
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Settings"
+msgstr "설정(&S)"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: misc/dragonplayerui.rc:31
+#, kde-format
+msgid "Main Toolbar"
+msgstr "주 도구 모음"
+
+#: src/app/actions.cpp:24
+#, kde-format
+msgctxt "@action"
+msgid "Play"
+msgstr "재생"
+
+#: src/app/actions.cpp:25
+#, kde-format
+msgctxt "@action"
+msgid "Pause"
+msgstr "일시 정지"
+
+#: src/app/actions.cpp:40
+#, kde-format
+msgctxt "@option:check Volume of sound output"
+msgid "Volume"
+msgstr "음량"
+
+#: src/app/adjustSizeButton.cpp:39
+#, kde-format
+msgctxt "@action:button"
+msgid "Preferred Scale"
+msgstr "선호하는 화면 크기"
+
+#: src/app/adjustSizeButton.cpp:43
+#, kde-format
+msgctxt "@action:button"
+msgid "Scale 100%"
+msgstr "100%"
+
+#: src/app/adjustSizeButton.cpp:50
+#, kde-format
+msgid "<b>Adjust video scale?</b>"
+msgstr "<b>화면 크기를 조정하시겠습니까?</b>"
+
+#: src/app/discSelectionDialog.cpp:39
+#, kde-format
+msgctxt ""
+"%1 is the disc type, %2 is the name of the disc that the user can choose. "
+"Ex. 'DVD: OfficeSpace'"
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: src/app/discSelectionDialog.cpp:58
+#, kde-format
+msgctxt "Digital Versatile Disc, but keep it short"
+msgid "DVD"
+msgstr "DVD"
+
+#: src/app/discSelectionDialog.cpp:60
+#, kde-format
+msgid "Video CD"
+msgstr "비디오 CD"
+
+#: src/app/discSelectionDialog.cpp:62
+#, kde-format
+msgid "Audio CD"
+msgstr "오디오 CD"
+
+#: src/app/discSelectionDialog.cpp:64
+#, kde-format
+msgid "Data CD"
+msgstr "데이터 CD"
+
+#: src/app/discSelectionDialog.cpp:75
+#, kde-format
+msgctxt "@title:window"
+msgid "Select a Disc"
+msgstr "디스크 선택"
+
+#: src/app/discSelectionDialog.cpp:77
+#, kde-format
+msgid "Select a disc to play."
+msgstr "재생할 디스크를 선택하십시오."
+
+#. i18n: ectx: property (text), widget (QPushButton, m_playFileButton)
+#: src/app/loadView.ui:19
+#, kde-format
+msgctxt "@action:button"
+msgid "Play File"
+msgstr "파일 재생"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_playDiskButton)
+#: src/app/loadView.ui:31 src/app/playDialog.cpp:54
+#, kde-format
+msgctxt "@action:button"
+msgid "Play Disc"
+msgstr "디스크 재생"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_playStreamButton)
+#: src/app/loadView.ui:43
+#, kde-format
+msgctxt "@action:button"
+msgid "Play Stream"
+msgstr "스트림 재생"
+
+#: src/app/main.cpp:37
+#, kde-format
+msgid "Dragon Player"
+msgstr "Dragon 플레이어"
+
+#: src/app/main.cpp:39
+#, kde-format
+msgid "A video player that has a usability focus"
+msgstr "사용 편의성에 초점을 맞춘 비디오 재생기"
+
+#: src/app/main.cpp:40
+#, kde-format
+msgid ""
+"Copyright 2006, Max Howell\n"
+"Copyright 2007, Ian Monroe"
+msgstr ""
+"저작권자 2006, Max Howell\n"
+"저작권자 2007, Ian Monroe"
+
+#: src/app/main.cpp:44
+#, kde-format
+msgid "Improvements and polish"
+msgstr "개선과 다듬기"
+
+#: src/app/main.cpp:45
+#, kde-format
+msgid "Creator of Phonon"
+msgstr "Phonon 제작자"
+
+#: src/app/main.cpp:46
+#, kde-format
+msgid "Dragon Player icon"
+msgstr "Dragon 플레이어 아이콘"
+
+#: src/app/main.cpp:47
+#, kde-format
+msgid "Handbook"
+msgstr "도움말"
+
+#: src/app/main.cpp:48
+#, kde-format
+msgid "Great reference code"
+msgstr "좋은 참고 코드"
+
+#: src/app/main.cpp:49
+#, kde-format
+msgid "Yatta happened to be the only video on my laptop to test with. :)"
+msgstr "제 노트북에서 테스트한 비디오. :)"
+
+#: src/app/main.cpp:50
+#, kde-format
+msgid "MPRIS v2 support"
+msgstr "MPRIS v2 지원"
+
+#: src/app/main.cpp:51
+#, kde-format
+msgid "Port to KF5/Plasma 5"
+msgstr "KF5/Plasma 5 포팅"
+
+#: src/app/main.cpp:58
+#, kde-format
+msgid "Play DVD Video"
+msgstr "DVD 비디오 재생"
+
+#: src/app/main.cpp:60
+#, kde-format
+msgid "Play 'URL'"
+msgstr "'URL' 재생"
+
+#: src/app/mainWindow.cpp:139
+#, kde-format
+msgctxt "@title:menu"
+msgid "Aspect &Ratio"
+msgstr "화면 비율(&R)"
+
+#: src/app/mainWindow.cpp:140
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Audio Channels"
+msgstr "오디오 채널(&A)"
+
+#: src/app/mainWindow.cpp:141
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Subtitles"
+msgstr "자막(&S)"
+
+#: src/app/mainWindow.cpp:156
+#, kde-format
+msgctxt "@option:radio aspect ratio"
+msgid "Determine &Automatically"
+msgstr "자동 감지(&A)"
+
+#: src/app/mainWindow.cpp:157
+#, kde-format
+msgctxt "@option:radio aspect ratio"
+msgid "&4:3"
+msgstr "4:3(&4)"
+
+#: src/app/mainWindow.cpp:158
+#, kde-format
+msgctxt "@option:radio aspect ratio"
+msgid "Ana&morphic (16:9)"
+msgstr "와이드(16:9)(&M)"
+
+#: src/app/mainWindow.cpp:159
+#, kde-format
+msgctxt "@option:radio aspect ratio"
+msgid "&Window Size"
+msgstr "창 크기(&W)"
+
+#: src/app/mainWindow.cpp:204
+#, kde-format
+msgid ""
+"<qt>Phonon could not be successfully initialized. Dragon Player will now "
+"exit.</qt>"
+msgstr "<qt>Phonon을 초기화할 수 없습니다. Dragon 플레이어를 종료합니다.</qt>"
+
+#: src/app/mainWindow.cpp:267
+#, kde-format
+msgctxt "@action"
+msgid "Play &Media..."
+msgstr "미디어 재생(&M)..."
+
+#: src/app/mainWindow.cpp:287
+#, kde-format
+msgctxt "@action"
+msgid "Increase Volume"
+msgstr "음량 증가"
+
+#: src/app/mainWindow.cpp:292
+#, kde-format
+msgctxt "@action"
+msgid "Decrease Volume"
+msgstr "음량 감소"
+
+#: src/app/mainWindow.cpp:297
+#, kde-format
+msgctxt "@action"
+msgid "Stop"
+msgstr "정지"
+
+#: src/app/mainWindow.cpp:303
+#, kde-format
+msgctxt "@action Mute the sound output"
+msgid "Mute"
+msgstr "음소거"
+
+#: src/app/mainWindow.cpp:309
+#, kde-format
+msgctxt "@action"
+msgid "Reset Video Scale"
+msgstr "비디오 크기 초기화"
+
+#: src/app/mainWindow.cpp:315
+#, kde-format
+msgctxt "@action"
+msgid "Menu Toggle"
+msgstr "메뉴 켬/끔"
+
+#: src/app/mainWindow.cpp:323 src/app/part.cpp:57
+#, kde-format
+msgid "Position Slider"
+msgstr "위치 슬라이더"
+
+#: src/app/mainWindow.cpp:327
+#, kde-format
+msgctxt "@option:check"
+msgid "Video Settings"
+msgstr "비디오 설정"
+
+#: src/app/mainWindow.cpp:336
+#, kde-format
+msgctxt ""
+"@option:check Whether only one instance of dragon can be started and will be "
+"reused when the user tries to play another file."
+msgid "One Instance Only"
+msgstr "단일 인스턴스만"
+
+#: src/app/mainWindow.cpp:343
+#, kde-format
+msgctxt "@action previous chapter"
+msgid "Previous"
+msgstr "이전"
+
+#: src/app/mainWindow.cpp:349
+#, kde-format
+msgctxt "@action next chapter"
+msgid "Next"
+msgstr "다음"
+
+#: src/app/mainWindow.cpp:356
+#, no-c-format, kde-format
+msgctxt "@action"
+msgid "Return 10% Back"
+msgstr "10% 뒤로 가기"
+
+#: src/app/mainWindow.cpp:363
+#, no-c-format, kde-format
+msgctxt "@action"
+msgid "Go 10% Forward"
+msgstr "10% 앞으로 가기"
+
+#: src/app/mainWindow.cpp:369
+#, kde-format
+msgctxt "@action"
+msgid "Return 10 Seconds Back"
+msgstr "10초 뒤로 가기"
+
+#: src/app/mainWindow.cpp:375
+#, kde-format
+msgctxt "@action"
+msgid "Go 10 Seconds Forward"
+msgstr "10초 앞으로 가기"
+
+#: src/app/mainWindow.cpp:465
+#, kde-format
+msgctxt "@option:check Mute the sound output"
+msgid "Mute"
+msgstr "음소거"
+
+#: src/app/mainWindow.cpp:542
+#, kde-format
+msgid "Dragon Player was asked to open an empty URL; it cannot."
+msgstr "Dragon 플레이어에서 빈 URL을 열도록 요청받았으나 처리할 수 없습니다."
+
+#: src/app/mainWindow.cpp:621
+#, kde-format
+msgctxt "@title:window"
+msgid "Select File to Play"
+msgstr "재생할 파일 선택"
+
+#: src/app/mainWindow.cpp:649
+#, kde-format
+msgctxt "@title:window"
+msgid "Stream to Play"
+msgstr "재생할 스트림 선택"
+
+#: src/app/mainWindow.cpp:649
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Stream:"
+msgstr "스트림:"
+
+#: src/app/mainWindow.cpp:790
+#, kde-format
+msgid "Sorry, no media was found in the drop"
+msgstr "죄송합니다. 끌어다 놓은 파일에서 미디어를 찾을 수 없습니다."
+
+#: src/app/mainWindow.cpp:840
+#, kde-format
+msgctxt "Notification inhibition reason"
+msgid "playing a video"
+msgstr "동영상 재생"
+
+#: src/app/mainWindow.cpp:876
+#, kde-format
+msgid "No media loaded"
+msgstr "미디어를 불러오지 않았습니다"
+
+#: src/app/mainWindow.cpp:878
+#, kde-format
+msgid "Paused"
+msgstr "일시 정지됨"
+
+#: src/app/playDialog.cpp:30
+#, kde-format
+msgctxt "@title:window"
+msgid "Play Media"
+msgstr "미디어 재생"
+
+#: src/app/playDialog.cpp:42
+#, kde-format
+msgid "What media would you like to play?"
+msgstr "어떤 미디어를 재생하시겠습니까?"
+
+#: src/app/playDialog.cpp:50
+#, kde-format
+msgctxt "@action:button"
+msgid "Play File..."
+msgstr "파일 재생..."
+
+#: src/app/playlistFile.cpp:37
+#, kde-format
+msgid "The file is not a playlist"
+msgstr "파일은 재생 목록이 아닙니다"
+
+#: src/app/playlistFile.cpp:45
+#, kde-format
+msgid "Dragon Player could not download the remote playlist: %1"
+msgstr "Dragon 플레이어에서 원격 재생 목록을 다운로드할 수 없습니다: %1"
+
+#: src/app/playlistFile.cpp:62
+#, kde-format
+msgid ""
+"<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is empty?"
+"</qt>"
+msgstr ""
+"<qt>재생 목록 <i>%1</i>을(를) 처리할 수 없습니다. 비어 있을 수도 있습니다.</"
+"qt>"
+
+#: src/app/playlistFile.cpp:66
+#, kde-format
+msgid "Dragon Player could not open the file: %1"
+msgstr "Dragon 플레이어에서 파일을 열 수 없습니다: %1"
+
+#: src/app/recentlyPlayedList.cpp:34
+#, kde-format
+msgctxt "@action Copy the URL of the selected multimedia"
+msgid "Copy URL"
+msgstr "URL 복사"
+
+#: src/app/recentlyPlayedList.cpp:39
+#, kde-format
+msgctxt "@action"
+msgid "Clear List"
+msgstr "목록 비우기"
+
+#: src/app/recentlyPlayedList.cpp:44
+#, kde-format
+msgctxt "@action"
+msgid "Remove Entry"
+msgstr "항목 삭제"
+
+#: src/app/recentlyPlayedList.cpp:125
+#, kde-format
+msgid ""
+"This file could not be found. Would you like to remove it from the playlist?"
+msgstr "파일을 찾을 수 없습니다. 재생 목록에서 삭제하시겠습니까?"
+
+#: src/app/recentlyPlayedList.cpp:126
+#, kde-format
+msgctxt "@title:window"
+msgid "File not found"
+msgstr "파일을 찾을 수 없음"
+
+#: src/app/theStream.cpp:151
+#, kde-format
+msgid "Track %1/%2"
+msgstr "트랙 %1/%2"
+
+#. i18n: ectx: property (text), widget (QLabel, brightnessLabel)
+#: src/app/videoSettingsWidget.ui:19
+#, kde-format
+msgctxt "@label:slider"
+msgid "Brightness:"
+msgstr "밝기:"
+
+#. i18n: ectx: property (text), widget (QLabel, contrastLabel)
+#: src/app/videoSettingsWidget.ui:42
+#, kde-format
+msgctxt "@label:slider"
+msgid "Contrast:"
+msgstr "명암:"
+
+#. i18n: ectx: property (text), widget (QLabel, hueLabel)
+#: src/app/videoSettingsWidget.ui:65
+#, kde-format
+msgctxt "@label:slider"
+msgid "Hue:"
+msgstr "채도:"
+
+#. i18n: ectx: property (text), widget (QLabel, saturationLabel)
+#: src/app/videoSettingsWidget.ui:88
+#, kde-format
+msgctxt "@label:slider"
+msgid "Saturation:"
+msgstr "선명도:"
+
+#. i18n: ectx: property (text), widget (QPushButton, defaultsButton)
+#: src/app/videoSettingsWidget.ui:128
+#, kde-format
+msgctxt "@action:button"
+msgid "Restore Defaults"
+msgstr "기본값 복원"
+
+#. i18n: ectx: property (text), widget (QPushButton, closeButton)
+#: src/app/videoSettingsWidget.ui:135
+#, kde-format
+msgctxt "@action:button"
+msgid "Close"
+msgstr "닫기"
+
+#: src/app/videoWindow.cpp:109
+#, kde-format
+msgctxt "@option:radio"
+msgid "&DVD Subtitle Selection"
+msgstr "DVD 자막 선택(&D)"
+
+#: src/app/videoWindow.cpp:119
+#, kde-format
+msgctxt "@option:radio audio language"
+msgid "&Auto"
+msgstr "자동(&A)"
+
+#~ msgid ""
+#~ "IRC:\n"
+#~ "irc.freenode.net #dragonplayer\n"
+#~ "\n"
+#~ "Feedback:\n"
+#~ "imonroe@kde.org"
+#~ msgstr ""
+#~ "IRC:\n"
+#~ "irc.freenode.net #dragonplayer\n"
+#~ "\n"
+#~ "피드백:\n"
+#~ "imonroe@kde.org"
+
+#~ msgid "David Edmundson"
+#~ msgstr "David Edmundson"
+
+#~ msgid "Matthias Kretz"
+#~ msgstr "Matthias Kretz"
+
+#~ msgid "Eugene Trounev"
+#~ msgstr "Eugene Trounev"
+
+#~ msgid "Mike Diehl"
+#~ msgstr "Mike Diehl"
+
+#~ msgid "The Kaffeine Developers"
+#~ msgstr "Kaffeine 개발자"
+
+#~ msgid "Greenleaf"
+#~ msgstr "Greenleaf"
+
+#~ msgid "Eike Hein"
+#~ msgstr "Eike Hein"
+
+#~ msgid "Next Chapter"
+#~ msgstr "다음 챕터"
+
+#~ msgctxt "Mute the sound output"
+#~ msgid "Mute "
+#~ msgstr "음소거 "

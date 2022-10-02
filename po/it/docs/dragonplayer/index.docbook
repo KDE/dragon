@@ -1,0 +1,378 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Italian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="dragon" lang="&language;">
+
+<bookinfo>
+<title
+>Il manuale di &dragon;</title>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>Diehl</surname
+> <affiliation
+> <address
+><email
+>madpenguin8@yahoo.com</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Ian</firstname
+> <surname
+>Monroe</surname
+> <affiliation
+> <address
+><email
+>imonroe@kde.org</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Vincenzo</firstname
+><surname
+>Reale</surname
+><affiliation
+><address
+><email
+>smart2128vr@gmail.com</email
+></address
+></affiliation
+><contrib
+>Traduzione dell'interfaccia e della documentazione</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Alberto</firstname
+><surname
+>Campanile</surname
+><affiliation
+><address
+><email
+>acd_82@people.it</email
+></address
+></affiliation
+><contrib
+>Traduzione della documentazione</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2004</year>
+<holder
+>Mike Diehl</holder>
+</copyright>
+<copyright>
+<year
+>2007</year>
+<holder
+>Ian Monroe</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>29/06/2016</date>
+<releaseinfo
+>Applications 16.04</releaseinfo>
+
+<abstract>
+<para
+>&dragon; è un semplice lettore video per &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Codeine</keyword>
+<keyword
+>Phonon</keyword>
+<keyword
+>Dragon</keyword>
+<keyword
+>Lettore</keyword>
+<keyword
+>Dragon Player</keyword>
+<keyword
+>video</keyword>
+<keyword
+>multimedia</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introduzione</title>
+
+<screenshot>
+<screeninfo
+>Schermata di &dragon;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="main.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Immagine</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+
+<para
+>&dragon; è un semplice lettore multimediale che sfrutta la tecnologia &phonon;. &dragon; è un lettore multimediale senza fronzoli che eccelle nella riproduzione di DVD e filmati senza stare tra i piedi. </para>
+
+</chapter>
+
+<chapter id="select-media">
+<title
+>Selezionare un supporto</title>
+
+<para
+>Se avvii &dragon; dall'avviatore di applicazioni o usi <guibutton
+>Riproduci supporto</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+>) dalla barra degli strumenti o dal menu <guimenu
+>Riproduci</guimenu
+>, viene visualizzata questa finestra:</para>
+
+<screenshot>
+<screeninfo
+>Riprodurre un supporto</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="playmedia.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Riprodurre un supporto</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Ci sono tre modi di riprodurre un file video:</para>
+<para
+><guibutton
+>Riproduci file</guibutton
+> apre la finestra di selezione dei file e permette di selezionarne uno.</para>
+<para
+><guibutton
+>Riproduci disco</guibutton
+> per riprodurre un &CD; o un DVD.</para>
+<para
+><guibutton
+>Riproduci flusso</guibutton
+> apre una finestra per inserire l'indirizzo di qualche <ulink url="https://it.wikipedia.org/wiki/Streaming"
+>flusso multimediale</ulink
+>.</para>
+<para
+>Fai doppio clic su una voce nella scaletta dei file aperti di recente per riprodurlo. Il menu contestuale della scaletta ha delle azioni per rimuovere una voce selezionata e per svuotare tutta la scaletta. Tutti i file che riproduci verranno automaticamente aggiunti alla scaletta.</para>
+</chapter>
+
+<chapter id="features">
+<title
+>Funzionalità</title>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Modalità a tutto schermo</guimenuitem>
+</term>
+<listitem
+><para
+>Durante la riproduzione di un filmato, puoi andare in modalità a tutto schermo. Questa usa tutto lo schermo per visualizzare il filmato. Spostare il mouse fa apparire una barra in cima alla schermo. Attiva o disattiva questa modalità con il menu <guimenu
+>Impostazioni</guimenu
+>, l'azione apposita nella barra, facendo doppio clic sul video o usando la scorciatoia <keycap
+>F</keycap
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Impostazioni del video</guimenuitem>
+</term>
+<listitem
+><para
+>Seleziona questa azione dal menu <guimenu
+>Impostazioni</guimenu
+> per regolare <guilabel
+>Luminosità</guilabel
+>, <guilabel
+>Contrasto</guilabel
+>, <guilabel
+>Tonalità</guilabel
+> e <guilabel
+>Saturazione</guilabel
+>. Queste impostazioni vengono memorizzate assieme alla punto di riproduzione di ogni file video. Ciò permette di riprendere un video con le impostazioni selezionate e alla posizione a cui ti eri fermato. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Navigazione </term>
+<listitem
+><para
+>La scorciatoia <keycap
+>Pag↑</keycap
+> porta 10% in avanti / <keycap
+>+</keycap
+> 10 secondi avanti e <keycap
+>Pag↓</keycap
+> 10% indietro / <keycap
+>-</keycap
+> 10 secondi indietro. Usa <menuchoice
+><guimenu
+>Impostazioni</guimenu
+><guimenuitem
+>Attiva menu</guimenuitem
+></menuchoice
+> (<keycap
+>R</keycap
+>) per passare al menu video e selezionare un altro capitolo da riprodurre. <menuchoice
+><guimenu
+>Riproduci</guimenu
+><guimenuitem
+>Riproduci/Pausa</guimenuitem
+></menuchoice
+> (<keysym
+>Spazio</keysym
+>) permette di mettere in pausa e far ripartire la riproduzione di un filmato. <menuchoice
+><guimenu
+>Riproduci</guimenu
+><guimenuitem
+>Ferma</guimenuitem
+></menuchoice
+> (<keycap
+>S</keycap
+>) interrompe la riproduzione. Vai al capitolo precedente o successivo di un video con <guimenuitem
+>Capitolo precedente</guimenuitem
+> (<keycap
+>,</keycap
+>) o <guimenuitem
+>Capitolo successivo</guimenuitem
+> (<keycap
+>.</keycap
+>) dal menu <guimenu
+>Riproduci</guimenu
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Volume di uscita</guimenuitem>
+</term>
+<listitem
+><para
+>Se riproduci dei filmati con una barra nascosta, puoi usare la scorciatoia <keycap
+>M</keycap
+> per disattivare o riattivare il suono, e la scorciatoia <keycap
+>V</keycap
+> per attivare o disattivare la visualizzazione del cursore del volume a destra del video. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Impostazioni</guimenu
+> <guisubmenu
+>Proporzioni</guisubmenu
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Questo menu permette di scegliere le proporzioni del filmato in riproduzione. Le proporzioni sono il rapporto tra larghezza e altezza del filmato.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guisubmenu
+>Sottotitoli</guisubmenu
+> e <guisubmenu
+>Canali audio</guisubmenu
+> </term>
+<listitem
+><para
+>Questi elementi del menu <guimenu
+>Impostazioni</guimenu
+> sono attivi se ci sono dei sottotitoli o canali audio aggiuntivi (per esempio per altre lingue) per il filmato attualmente in riproduzione. Nota che ci potrebbero volere alcuni secondi di riproduzione prima dell'attivazione dei sottotitoli o dei canali audio. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Riconoscimenti e licenza</title>
+
+<para
+>&dragon; </para>
+
+<para
+>Copyright del programma 2004 Max B. Howell <email
+>max.howell@methylblue.com</email
+></para>
+<para
+>Copyright del programma 2007 Ian A. Monroe <email
+>imonroe@kde.org</email
+></para>
+
+<para
+>Copyright della documentazione 2004 Mike Diehl <email
+>madpenguin8@yahoo.com</email
+> </para>
+<para
+>Copyright della documentazione 2007 Ian Monroe <email
+>imonroe@kde.org</email
+> </para>
+
+<para
+>Traduzione: Vincenzo Reale<email
+>smart2128vr@gmail.com</email
+></para
+><para
+>Traduzione: Alberto Campanile<email
+>acd_82@people.it</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

@@ -1,0 +1,380 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&dragonplayer;">
+  <!ENTITY dragonplayer "<application
+>Dragon Player</application
+>">
+
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Russian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="dragon" lang="&language;">
+
+<bookinfo>
+<title
+>Руководство пользователя &dragonplayer;</title>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>Diehl</surname
+> <affiliation
+> <address
+><email
+>madpenguin8@yahoo.com</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Ian</firstname
+> <surname
+>Monroe</surname
+> <affiliation
+> <address
+><email
+>imonroe@kde.org</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Павел</firstname
+><surname
+>Малеев</surname
+><affiliation
+><address
+><email
+>rolland39@gmail.com</email
+></address
+></affiliation
+><contrib
+>Перевод на русский язык</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Александр</firstname
+><surname
+>Поташев</surname
+><affiliation
+><address
+><email
+>aspotashev@gmail.com</email
+></address
+></affiliation
+><contrib
+>Обновление перевода на русский язык</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2004</year>
+<holder
+>Mike Diehl</holder>
+</copyright>
+<copyright>
+<year
+>2007</year>
+<holder
+>Ian Monroe</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>11 мая 2013 г.</date>
+<releaseinfo
+>2.0 (&kde; 4.11)</releaseinfo>
+
+<abstract>
+<para
+>&dragonplayer; — простой медиапроигрыватель для &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Codeine</keyword>
+<keyword
+>Phonon</keyword>
+<keyword
+>Dragon</keyword>
+<keyword
+>Player</keyword>
+<keyword
+>Dragon Player</keyword>
+<keyword
+>видео</keyword>
+<keyword
+>мультимедиа</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Введение</title>
+
+<screenshot>
+<screeninfo
+>Главное окно &dragonplayer;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="main.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Главное окно</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+
+<para
+>&dragonplayer; — простой медиапроигрыватель, использующий технологию &phonon; для воспроизведения DVD и видеофайлов. </para>
+
+</chapter>
+
+<chapter id="select-media">
+<title
+>Выбор мультимедийного файла</title>
+
+<para
+>После запуска &dragonplayer; либо при нажатии кнопки <guibutton
+>Открыть</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+>) на панели инструментов или выборе этого пункта из меню <guimenu
+>Воспроизведение</guimenu
+> окно программы выглядит следующим образом:</para>
+
+<screenshot>
+<screeninfo
+>Выбор файла для воспроизведения</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="playmedia.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Выбор файла для воспроизведения</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Есть три способа воспроизвести видеозапись:</para>
+<para
+><guibutton
+>Воспроизвести файл</guibutton
+> открывает диалог, в котором вы сможете выбрать файл для воспроизведения.</para>
+<para
+><guibutton
+>Воспроизвести диск</guibutton
+> позволяет запустить воспроизведение компакт-диска или DVD.</para>
+<para
+><guibutton
+>Воспроизвести поток</guibutton
+> открывает диалог для ввода адреса <ulink url="http://ru.wikipedia.org/wiki/Потоковое_мультимедиа"
+>мультимедийного потока</ulink
+>.</para>
+<para
+>Для воспроизведения файла из списка недавних откройте его двойным щелчком в списке. С помощью контекстного меню в списке из него можно удалить выбранные записи либо очистить весь список. При воспроизведении любого файла он автоматически добавляется в список.</para>
+</chapter>
+
+<chapter id="features">
+<title
+>Возможности</title>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Полноэкранный режим</guimenuitem>
+</term>
+<listitem
+><para
+>Во время просмотра видео можно перейти в полноэкранный режим. В этом режиме видео показывается на всей площади монитора. При перемещении указателя мыши у верхнего края экрана появляется панель инструментов. Включить или выключить полноэкранный режим можно в меню <guimenu
+>Настройка</guimenu
+>, нажатием кнопки на панели инструментов, двойным щелчком мышью в области воспроизведения видео или нажатием клавиши <keycap
+>F</keycap
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Параметры видео</guimenuitem>
+</term>
+<listitem
+><para
+>Выберите этот пункт в меню <guimenu
+>Настройка</guimenu
+>, чтобы настроить <guilabel
+>Яркость</guilabel
+>, <guilabel
+>Контрастность</guilabel
+>, <guilabel
+>Тон</guilabel
+> и <guilabel
+>Насыщенность</guilabel
+>. Эти параметры сохраняются для каждого файла, так же как и текущая позиция воспроизведения, &mdash; поэтому вы можете продолжить смотреть видеозапись с момента, на котором остановились в прошлый раз, и с установленными ранее параметрами. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Навигация </term>
+<listitem
+><para
+>Клавиша <keycap
+>PgUp</keycap
+> перематывает на 10% длины файла вперёд, <keycap
+>PgDown</keycap
+> &mdash; на 10% назад. Используйте <menuchoice
+><guimenu
+>Настройка</guimenu
+><guimenuitem
+>Меню</guimenuitem
+></menuchoice
+> (<keycap
+>R</keycap
+>), чтобы перейти в меню видео и выбрать другую часть. Пункт меню <menuchoice
+><guimenu
+>Воспроизведение</guimenu
+><guimenuitem
+>Воспроизведение/приостановить</guimenuitem
+></menuchoice
+> (<keysym
+>Пробел</keysym
+>) запускает или приостанавливает воспроизведение, если видеофайл уже открыт. <menuchoice
+><guimenu
+>Воспроизведение</guimenu
+><guimenuitem
+>Остановить</guimenuitem
+></menuchoice
+> (<keycap
+>S</keycap
+>) останавливает воспроизведение. Перейти к предыдущей или следующей главе можно с помощью команд <guimenuitem
+>Предыдущая глава</guimenuitem
+> (<keycap
+>,</keycap
+>) и <guimenuitem
+>Следующая глава</guimenuitem
+> (<keycap
+>.</keycap
+>) из меню <guimenu
+>Воспроизведение</guimenu
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Регулятор громкости</guimenuitem>
+</term>
+<listitem
+><para
+>Если вы скрыли панель инструментов, то можно заглушить или вернуть звук клавишей <keycap
+>M</keycap
+>, либо добавить справа от видео регулятор громкости нажатием клавиши <keycap
+>V</keycap
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Настройка</guimenu
+> <guisubmenu
+>Соотношение сторон видео</guisubmenu
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Этот пункт меню позволяет выставить соотношение сторон проигрываемого видео. Соотношение сторон видео — соотношение ширины с высотой.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guisubmenu
+>Субтитры</guisubmenu
+> и <guisubmenu
+>Звуковые дорожки</guisubmenu
+> </term>
+<listitem
+><para
+>Эти пункты меню <guimenu
+>Настройка</guimenu
+> активны, если для воспроизводимого в данный момент файла есть субтитры или дополнительными звуковые дорожки, например на других языках. Помните, что для появления этих пунктов в меню может потребоваться несколько секунд после начала воспроизведения. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Авторские права и лицензия</title>
+
+<para
+>&dragonplayer; </para>
+
+<para
+>Авторские права на программу: © Max B. Howell <email
+>max.howell@methylblue.com</email
+>, 2004</para>
+<para
+>Авторские права на программу: © Ian A. Monroe <email
+>imonroe@kde.org</email
+>, 2007</para>
+
+<para
+>Авторские права на документацию: © Mike Diehl <email
+>madpenguin8@yahoo.com</email
+>, 2004 </para>
+<para
+>Авторские права на документацию: © Ian Monroe <email
+>imonroe@kde.org</email
+>, 2007 </para>
+
+<para
+>Перевод на русский язык: Павел Малеев<email
+>rolland39@gmail.com</email
+></para
+><para
+>Обновление перевода на русский язык: Александр Поташев<email
+>aspotashev@gmail.com</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

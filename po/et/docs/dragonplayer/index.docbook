@@ -1,0 +1,362 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&dragonplayer;">
+  <!ENTITY dragonplayer "<application
+>Dragon Player</application
+>">
+
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Estonian  "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="dragon" lang="&language;">
+
+<bookinfo>
+<title
+>&dragonplayer;i käsiraamat</title>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>Diehl</surname
+> <affiliation
+> <address
+><email
+>madpenguin8@yahoo.com</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Ian</firstname
+> <surname
+>Monroe</surname
+> <affiliation
+> <address
+><email
+>imonroe@kde.org</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Marek</firstname
+><surname
+>Laane</surname
+><affiliation
+><address
+><email
+>bald@smail.ee</email
+></address
+></affiliation
+><contrib
+>Tõlge eesti keelde</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2004</year>
+<holder
+>Mike Diehl</holder>
+</copyright>
+<copyright>
+<year
+>2007</year>
+<holder
+>Ian Monroe</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2013-05-11</date>
+<releaseinfo
+>2.0 (&kde; 4.11)</releaseinfo>
+
+<abstract>
+<para
+>&dragonplayer; on &kde; lihtne videomängija. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Codeine</keyword>
+<keyword
+>Phonon</keyword>
+<keyword
+>Dragon</keyword>
+<keyword
+>Mängija</keyword>
+<keyword
+>Dragoni mängija</keyword>
+<keyword
+>video</keyword>
+<keyword
+>multimeedia</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Sissejuhatus</title>
+
+<screenshot>
+<screeninfo
+>&dragonplayer;i pilt</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="main.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Pilt</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+
+<para
+>&dragonplayer; on lihtne multimeediamängija, mis kasutab &phonon;i tehnoloogiat. &dragonplayer; ei ole sugugi edev mängija, aga tuleb imekenasti toime DVD-de ja filmifailide esitamisega ilma sind häirimata. </para>
+
+</chapter>
+
+<chapter id="select-media">
+<title
+>Meediafaili valimine</title>
+
+<para
+>Kui käivitad &dragonplayer;i rakenduste käivitajast või kasutad tööriistariba nuppu <guibutton
+>Esita andmekandja</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+>) või valid sama käsu menüüst <guimenu
+>Esitus</guimenu
+>, ilmub selline aken:</para>
+
+<screenshot>
+<screeninfo
+>Andmekandja esitamine</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="playmedia.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Andmekandja esitamine</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Videofaili saab esitada kolmel viisil:</para>
+<para
+><guibutton
+>Esita fail</guibutton
+> avab failidialoogi ja võimaldab valida faili, mida soovid lasta esitada.</para>
+<para
+><guibutton
+>Esita plaat</guibutton
+> mängib ette &CD; või DVD.</para>
+<para
+><guibutton
+>Esita voog</guibutton
+> avab dialoogi, kus saab sisestada <ulink url="http://en.wikipedia.org/wiki/Streaming_media"
+>multimeediavoo</ulink
+> aadressi.</para>
+<para
+>Topeltklõpsuga viimati avatud failide esitusnimekirjas saab panna klõpsatud faili mängima. Esitusnimekirja kontekstimenüüs leiab käsud valitud kirje eemaldamiseks nimekirjast või ka kogu nimekirja puhastamiseks. Kõik esitatavad failid lisatakse automaatselt nimekirja.</para>
+</chapter>
+
+<chapter id="features">
+<title
+>Omadused</title>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Täisekraanirežiim</guimenuitem>
+</term>
+<listitem
+><para
+>Filmi esitades võib minna ka täisekraanirežiimi. Sel juhul kasutatakse filmi jaoks ära kogu ekraan. Hiire liigutamisel näeb täisekraanirežiimis ekraani ülaservas tööriistariba. Täisekraanirežiimi saab lülituda menüüst <guimenu
+>Seadistused</guimenu
+>, nupuga tööriistaribal, topeltklõpsuga videol või kiirklahviga <keycap
+>F</keycap
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Videoseadistused</guimenuitem>
+</term>
+<listitem
+><para
+>Menüü <guimenu
+>Seadistused</guimenu
+> abil saab vajaduse korral muuta <guilabel
+>heledus</guilabel
+>t, <guilabel
+>kontrast</guilabel
+>i, <guilabel
+>toon</guilabel
+>i ja <guilabel
+>küllastus</guilabel
+>t. Need seadistused salvestatakse iga videofaili puhul eraldi koos taasesituse asukohaga. See võimaldab taasalustada video esitamist valitud videoseadistustega ja just sellest asukohast, kus esitamine peatati. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Liikumine </term>
+<listitem
+><para
+>Kiirklahv <keycap
+>PgUp</keycap
+> viib 10% edasi, <keycap
+>PgDown</keycap
+> 10% tagasi. <menuchoice
+><guimenu
+>Seadistused</guimenu
+> <guimenuitem
+>Menüü lülitamine</guimenuitem
+></menuchoice
+> (<keycap
+>R</keycap
+>) võimaldab lülituda video menüüsse ning valida esitamiseks mõne muu peatüki. <menuchoice
+><guimenu
+>Esitus</guimenu
+><guimenuitem
+>Esitus/Paus</guimenuitem
+></menuchoice
+> (<keysym
+>tühikuklahv</keysym
+>) võimaldab esitust peatada ja taasalustada (kui film on ikka juba laaditud). <menuchoice
+><guimenu
+>Esitus</guimenu
+><guimenuitem
+>Peata</guimenuitem
+></menuchoice
+> (<keycap
+>S</keycap
+>) peatab esitamise. Video eelmisele või järgmisele peatükile saab liikuda käsuga <guimenuitem
+>Eelmine peatükk</guimenuitem
+> (<keycap
+>,</keycap
+>) või <guimenuitem
+>Järgmine peatükk</guimenuitem
+> (<keycap
+>.</keycap
+>), mille leiab menüüst <guimenu
+>Esitus</guimenu
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Helitugevuse juhtimine</guimenuitem>
+</term>
+<listitem
+><para
+>Kui video esitamisel on tööriistariba varjatud, saab heli muutmiseks tummaks või vastupidi kasutada kiirklahvi <keycap
+>M</keycap
+>. Kiirklahviga <keycap
+>V</keycap
+> saab lülitada helitugevuse liuguri näitamist videost paremal. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Seadistused</guimenu
+> <guisubmenu
+>Proportsioon</guisubmenu
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>See menüü võimaldab valida esitatava filmi proportsiooni. Proportsioon tähendab filmi laiuse ja kõrguse suhet.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guisubmenu
+>Subtiitrid</guisubmenu
+> ja <guisubmenu
+>Helikanalid</guisubmenu
+> </term>
+<listitem
+><para
+>Need menüü <guimenu
+>Seadistused</guimenu
+> kirjed muutuvad aktiivseks, kui esitataval filmil on subtiitreid või helikanaleid (s.t eri keeli). Pane tähele, et esituse ajal võib kuluda mõni hetk, enne kui subtiitrid või helikanalid suudetakse hankida. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Autorid ja litsents</title>
+
+<para
+>&dragonplayer; </para>
+
+<para
+>Rakenduse autoriõigus 2004: Maks B. Howell <email
+>max.howell@methylblue.com</email
+></para>
+<para
+>Rakenduse autoriõigus 2007: Ian A. Monroe <email
+>imonroe@kde.org</email
+></para>
+
+<para
+>Dokumentatsiooni autoriõigus 2004: Mike Diehl <email
+>madpenguin8@yahoo.com</email
+> </para>
+<para
+>Dokumentatsiooni autoriõigus 2007: Ian Monroe <email
+>imonroe@dragonplayer.org</email
+> </para>
+
+<para
+>Tõlge eesti keelde: Marek Laane <email
+>bald@smail.ee</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

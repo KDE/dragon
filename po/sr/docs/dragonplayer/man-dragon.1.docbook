@@ -1,0 +1,144 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Serbian "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Кориснички приручник за Змајев плејер</title>
+<author
+><firstname
+>Правен</firstname
+> <surname
+>Аримбратодијил</surname
+> <contrib
+>Упутна страница за Змајев плејер.</contrib
+> <email
+>pravi.a@gmail.com</email
+></author>
+<date
+>29.6.2016.</date>
+<releaseinfo
+>Програми КДЕ-а 16.04</releaseinfo>
+<productname
+>Програми КДЕ-а</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>dragon</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+>dragon</refname>
+<refpurpose
+>видео плејер усредсређен на употребљивост</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis
+><command
+>dragon</command
+> <arg choice="opt"
+><replaceable
+>УРЛ</replaceable
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+
+<refsect1 id="description"
+><title
+>Опис</title>
+<para
+><command
+>dragon</command
+> (Змајев плејер) пушта аудио и видео разноврсних формата.</para>
+
+</refsect1>
+
+<refsect1 id="options"
+><title
+>Опције</title>
+<variablelist>
+  <varlistentry>
+  <term
+><option
+>--play-dvd</option
+></term>
+  <listitem>
+<para
+>Пусти ДВД видео.</para>
+  </listitem>
+  </varlistentry>
+</variablelist>
+</refsect1>
+
+<refsect1 id="feedback"
+><title
+>Реаговања</title>
+<para
+>На <acronym
+>ИРЦ-у</acronym
+> irc.freenode.net #dragonplayer, е-поштом на imonroe@kde.org, на Вебу &lt;<ulink url="http://multimedia.kde.org"
+>http://multimedia.kde.org</ulink
+>&gt;.</para>
+</refsect1>
+
+<refsect1>
+<title
+>Види још</title>
+<simplelist>
+<member
+>Детаљнија корисничка документација доступна је на <ulink url="help:/dragonplayer"
+><literal
+>help:/dragonplayer</literal
+></ulink
+> (унесите овај УРЛ у <application
+>К-освајач</application
+>, или извршите <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/dragonplayer</parameter
+></userinput
+>).</member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+</simplelist>
+</refsect1>
+
+<refsect1 id="copyright"
+><title
+>Ауторска права</title>
+<para
+>c 2006, <personname
+><firstname
+>Макс</firstname
+> <surname
+>Хауел</surname
+></personname
+>.</para>
+<para
+>c 2007, <personname
+><firstname
+>Ијан</firstname
+> <surname
+>Монро</surname
+></personname
+>.</para>
+<para
+>Лиценца: Гнуова Општа јаван лиценца 2 &lt;<ulink url="http://www.gnu.org/licenses/gpl-2.0.html"
+>http://www.gnu.org/licenses/gpl-2.0.html</ulink
+>&gt;.</para>
+</refsect1>
+</refentry>
+

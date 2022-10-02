@@ -1,0 +1,385 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Serbian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="dragon" lang="&language;">
+
+<bookinfo>
+<title
+>Приручник за Змајев плејер</title>
+
+<authorgroup>
+<author
+><firstname
+>Мајк</firstname
+> <surname
+>Дил</surname
+> <affiliation
+> <address
+><email
+>madpenguin8@yahoo.com</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Ијан</firstname
+> <surname
+>Монро</surname
+> <affiliation
+> <address
+><email
+>imonroe@kde.org</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Драган</firstname
+><surname
+>Пантелић</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>превод</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2004</year>
+<holder
+>Мајк Дил</holder>
+</copyright>
+<copyright>
+<year
+>2007</year>
+<holder
+>Ијан Монро</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>29. 6. 2016.</date>
+<releaseinfo
+>Програми КДЕ‑а 16.04</releaseinfo>
+
+<abstract>
+<para
+>Змајев плејер је једноставан видео плејер из КДЕ‑а. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>КДЕ</keyword>
+<keyword
+>Змајев плејер</keyword>
+<keyword
+>Фонон</keyword>
+<keyword
+>змај</keyword>
+<keyword
+>плејер</keyword>
+<keyword
+>Змајев плејер</keyword>
+<keyword
+>видео</keyword>
+<keyword
+>мултимедија</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Увод</title>
+
+<screenshot>
+<screeninfo
+>Снимак екрана Змајевог плејера.</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="main.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Снимак екрана.</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+
+<para
+>Змајев плејер је једноставан медија плејер над технологијом <application
+>Фонона</application
+>. Без сувишних украса и ненаметљив, одличан је за пуштање ДВД‑ова и видео фајлова. </para>
+
+</chapter>
+
+<chapter id="select-media">
+<title
+>Избор медијума</title>
+
+<para
+>Ако покренете Змајев плејер преко покретача програма, или изаберете <guibutton
+>Пусти медијум</guibutton
+> (<keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>O</keycap
+></keycombo
+>) на траци алатки или из менија, добићете следећи прозор:</para>
+
+<screenshot>
+<screeninfo
+>Пуштање медијума.</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="playmedia.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Пуштање медијума.</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Видео фајл се може пустити на три начина:</para>
+<para
+><guibutton
+>Пусти фајл</guibutton
+> отвара фајл дијалог у којем можете изабрати фајл за пуштање.</para>
+<para
+><guibutton
+>Пусти диск</guibutton
+> за пуштање ЦД‑а или ДВД‑а.</para>
+<para
+><guibutton
+>Пусти ток</guibutton
+> отвара дијалог за унос адресе <ulink url="http://en.wikipedia.org/wiki/Streaming_media"
+>мултимедијалног тока</ulink
+>.</para>
+<para
+>Двокликните на ставку у листи пуштања недавно отвараних фајлова да је пустите. Контекстни мени листе пуштања нуди радње за уклањање изабране ставке или чишћење целе листе. Сваки фајл који пустите аутоматски се додаје на ову листу.</para>
+</chapter>
+
+<chapter id="features">
+<title
+>Могућности</title>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Режим преко целог екрана</guimenuitem>
+</term>
+<listitem
+><para
+>Током пуштања филма можете прећи у режим преко целог екрана, где се филм развлачи преко целог монитора. У овом режиму, померањем миша позивате траку алатки на врху екрана. Режим преко целог екрана смењује се кроз мени <guimenu
+>Подешавање</guimenu
+>, радњу на траци алатки, двокликом на видео или пречицом <keycap
+>F</keycap
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Видео поставке</guimenuitem>
+</term>
+<listitem
+><para
+>Ова радња из менија <guimenu
+>Подешавање</guimenu
+> служи за штеловање осветљаја, контраста, нијанси и засићења. Ове поставке складиште се заједно са положајем пуштања за сваки видео фајл, тако да можете наставити пуштање са изабраним поставкама на месту где сте раније стали. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Навигација </term>
+<listitem
+><para
+>Пречица <keycap
+>PgUp</keycap
+> пребацује пуштање 10% унапред, <keycap
+>+</keycap
+> 10 секунди унапред, <keycap
+>PgDown</keycap
+> 10% уназад, <keycap
+>-</keycap
+> 10 секунди уназад. Употребите <menuchoice
+><guimenu
+>Подешавање</guimenu
+> <guimenuitem
+>Укључи/искључи мени</guimenuitem
+></menuchoice
+> (<keycap
+>R</keycap
+>) за пребацивање на видео мени и бирање другог поглавља за пуштање. <menuchoice
+><guimenu
+>Пуштање</guimenu
+><guimenuitem
+>Паузирај</guimenuitem
+></menuchoice
+> и <menuchoice
+><guimenu
+>Пуштање</guimenu
+><guimenuitem
+>Пусти</guimenuitem
+></menuchoice
+> (<keycap
+>Space</keycap
+>) служе за паузирање и настављање пуштања учитаног филма. <menuchoice
+><guimenu
+>Пуштање</guimenu
+><guimenuitem
+>Заустави</guimenuitem
+></menuchoice
+> (<keycap
+>S</keycap
+>) зауставља пуштање. На претходно или следеће поглавља прелазите избором <guimenuitem
+>Претходно поглавље</guimenuitem
+> (<keycap
+>,</keycap
+>) или <guimenuitem
+>Следеће поглавље</guimenuitem
+> (<keycap
+>.</keycap
+>) из менија <guimenu
+>Пуштање</guimenu
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Управљање јачином звука</guimenuitem>
+</term>
+<listitem
+><para
+>Ако пуштате филмове уз скривену траку алатки, можете користити пречицу <keycap
+>M</keycap
+> за укидање и враћање звука, а пречицу <keycap
+>V</keycap
+> за смењивање приказа клизача јачине на десној страни слике. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Подешавање</guimenu
+> <guisubmenu
+>Пропорција</guisubmenu
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Из овог менија можете изабрати пропорцију филма током пуштања. Пропорција је однос ширине и висине слике.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guisubmenu
+>Титлови</guisubmenu
+> и <guisubmenu
+>Аудио канали</guisubmenu
+> </term>
+<listitem
+><para
+>Ове ставке менија <guimenu
+>Подешавање</guimenu
+> активне су ако тренутно пуштани филм има неких титлова или допунских аудио канала (нпр. на различитим језицима). Некад треба сачекати неколико секунди од почетка пуштања да би титлови или аудио канали постали доступни. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Заслуге и лиценца</title>
+
+<para
+>Змајев плејер </para>
+
+<para
+>© 2004, <personname
+><firstname
+>Макс</firstname
+> <surname
+>Хауел</surname
+></personname
+> <email
+>max.howell@methylblue.com</email
+>.</para>
+<para
+>© 2007, <personname
+><firstname
+>Ијан</firstname
+> <surname
+>Монро</surname
+></personname
+> <email
+>imonroe@kde.org</email
+>.</para>
+
+<para
+>© 2004, <personname
+><firstname
+>Мајк</firstname
+> <surname
+>Дил</surname
+></personname
+> <email
+>madpenguin8@yahoo.com</email
+>. </para>
+<para
+>© 2007, <personname
+><firstname
+>Ијан</firstname
+> <surname
+>Монро</surname
+></personname
+> <email
+>imonroe@dragonplayer.org</email
+>. </para>
+
+<para
+>Превео Драган Пантелић <email
+>falcon-10@gmx.de</email
+>.</para
+> 
+&underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

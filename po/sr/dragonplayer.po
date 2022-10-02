@@ -1,0 +1,618 @@
+# Translation of dragonplayer.po into Serbian.
+# Slobodan Simic <slsimic@gmail.com>, 2008, 2009.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2008, 2009, 2010, 2012, 2013, 2015, 2016.
+# Dalibor Djuric <daliborddjuric@gmail.com>, 2009, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: dragonplayer\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-05-05 03:14+0200\n"
+"PO-Revision-Date: 2016-03-20 15:25+0100\n"
+"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Слободан Симић"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "slsimic@gmail.com"
+
+#. i18n: ectx: Menu (file)
+#: misc/dragonplayerui.rc:4
+#, fuzzy, kde-format
+#| msgid "&Play"
+msgctxt "@title:menu"
+msgid "&Play"
+msgstr "П&уштање"
+
+#. i18n: ectx: Menu (settings)
+#: misc/dragonplayerui.rc:15
+#, fuzzy, kde-format
+#| msgid "&Settings"
+msgctxt "@title:menu"
+msgid "&Settings"
+msgstr "&Подешавање"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: misc/dragonplayerui.rc:31
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Главна трака"
+
+#: src/app/actions.cpp:37
+#, fuzzy, kde-format
+#| msgid "Play"
+msgctxt "@action"
+msgid "Play"
+msgstr "Пусти"
+
+#: src/app/actions.cpp:38
+#, fuzzy, kde-format
+#| msgid "Pause"
+msgctxt "@action"
+msgid "Pause"
+msgstr "Паузирај"
+
+#: src/app/actions.cpp:54
+#, fuzzy, kde-format
+#| msgctxt "Volume of sound output"
+#| msgid "Volume"
+msgctxt "@option:check Volume of sound output"
+msgid "Volume"
+msgstr "Јачина"
+
+#: src/app/adjustSizeButton.cpp:53
+#, fuzzy, kde-format
+#| msgid "Preferred Scale"
+msgctxt "@action:button"
+msgid "Preferred Scale"
+msgstr "Жељена размера"
+
+#: src/app/adjustSizeButton.cpp:57
+#, fuzzy, kde-format
+#| msgid "Scale 100%"
+msgctxt "@action:button"
+msgid "Scale 100%"
+msgstr "100%"
+
+#: src/app/adjustSizeButton.cpp:64
+#, kde-format
+msgid "<b>Adjust video scale?</b>"
+msgstr "<b>Подесити размеру?</b>"
+
+#: src/app/discSelectionDialog.cpp:53
+#, kde-format
+msgctxt ""
+"%1 is the disc type, %2 is the name of the disc that the user can choose. "
+"Ex. 'DVD: OfficeSpace'"
+msgid "%1: %2"
+msgstr "%1: %2"
+
+# >> @item
+#: src/app/discSelectionDialog.cpp:72
+#, kde-format
+msgctxt "Digital Versatile Disc, but keep it short"
+msgid "DVD"
+msgstr "ДВД"
+
+# >> @item
+#: src/app/discSelectionDialog.cpp:74
+#, kde-format
+msgid "Video CD"
+msgstr "видео ЦД"
+
+# >> @item
+#: src/app/discSelectionDialog.cpp:76
+#, kde-format
+msgid "Audio CD"
+msgstr "аудио ЦД"
+
+# >> @item
+#: src/app/discSelectionDialog.cpp:78
+#, kde-format
+msgid "Data CD"
+msgstr "ЦД са подацима"
+
+# >> @title:window
+#: src/app/discSelectionDialog.cpp:89
+#, fuzzy, kde-format
+#| msgid "Select a Disc"
+msgctxt "@title:window"
+msgid "Select a Disc"
+msgstr "Избор дијалога"
+
+#: src/app/discSelectionDialog.cpp:91
+#, kde-format
+msgid "Select a disc to play."
+msgstr "Изаберите диск за пуштање."
+
+#. i18n: ectx: property (text), widget (QPushButton, m_playFileButton)
+#: src/app/loadView.ui:19
+#, fuzzy, kde-format
+#| msgid "Play File"
+msgctxt "@action:button"
+msgid "Play File"
+msgstr "Пусти фајл"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_playDiskButton)
+#: src/app/loadView.ui:31 src/app/playDialog.cpp:68
+#, fuzzy, kde-format
+#| msgid "Play Disc"
+msgctxt "@action:button"
+msgid "Play Disc"
+msgstr "Пусти диск"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_playStreamButton)
+#: src/app/loadView.ui:43
+#, fuzzy, kde-format
+#| msgid "Play Stream"
+msgctxt "@action:button"
+msgid "Play Stream"
+msgstr "Пусти ток"
+
+#: src/app/main.cpp:47 src/app/part.cpp:108
+#, kde-format
+msgid "Dragon Player"
+msgstr "Змајев плејер"
+
+#: src/app/main.cpp:48 src/app/part.cpp:109
+#, kde-format
+msgid "A video player that has a usability focus"
+msgstr "Видео плејер коме је употребљивост најважнија"
+
+#: src/app/main.cpp:49 src/app/part.cpp:110
+#, kde-format
+msgid ""
+"Copyright 2006, Max Howell\n"
+"Copyright 2007, Ian Monroe"
+msgstr ""
+"© 2006, Макс Хауел\n"
+"© 2007, Ијан Монро"
+
+#: src/app/main.cpp:50
+#, kde-format
+msgid ""
+"IRC:\n"
+"irc.freenode.net #dragonplayer\n"
+"\n"
+"Feedback:\n"
+"imonroe@kde.org"
+msgstr ""
+"ИРЦ:\n"
+"irc.freenode.net #dragonplayer\n"
+"\n"
+"Реаговања:\n"
+"imonroe@kde.org"
+
+#: src/app/main.cpp:53
+#, kde-format
+msgid "Improvements and polish"
+msgstr "Побољшања и полирање"
+
+#: src/app/main.cpp:54
+#, kde-format
+msgid "Creator of Phonon"
+msgstr "Стваралац Фонона"
+
+#: src/app/main.cpp:55
+#, kde-format
+msgid "Dragon Player icon"
+msgstr "Иконица Змајевог плејера"
+
+#: src/app/main.cpp:56
+#, kde-format
+msgid "Handbook"
+msgstr "Приручник"
+
+#: src/app/main.cpp:57
+#, kde-format
+msgid "Great reference code"
+msgstr "Одличан упоредни кôд"
+
+# well-spelled: Јата
+#: src/app/main.cpp:58
+#, kde-format
+msgid "Yatta happened to be the only video on my laptop to test with. :)"
+msgstr "„Јата“ је био једини видео на мом лаптопу са којим бих тестирао. :)"
+
+#: src/app/main.cpp:59
+#, kde-format
+msgid "MPRIS v2 support"
+msgstr "Подршка за МПРИС 2"
+
+#: src/app/main.cpp:60
+#, kde-format
+msgid "Port to KF5/Plasma 5"
+msgstr "Преношење на КФ5/Плазму 5"
+
+#: src/app/main.cpp:67
+#, kde-format
+msgid "Play DVD Video"
+msgstr "Пусти ДВД видео"
+
+#: src/app/main.cpp:68
+#, kde-format
+msgid "Play 'URL'"
+msgstr "Пусти УРЛ"
+
+#: src/app/mainWindow.cpp:154
+#, fuzzy, kde-format
+#| msgid "Aspect &Ratio"
+msgctxt "@title:menu"
+msgid "Aspect &Ratio"
+msgstr "&Пропорција"
+
+#: src/app/mainWindow.cpp:155
+#, fuzzy, kde-format
+#| msgid "&Audio Channels"
+msgctxt "@title:menu"
+msgid "&Audio Channels"
+msgstr "&Аудио канали"
+
+#: src/app/mainWindow.cpp:156
+#, fuzzy, kde-format
+#| msgid "&Subtitles"
+msgctxt "@title:menu"
+msgid "&Subtitles"
+msgstr "&Титлови"
+
+#: src/app/mainWindow.cpp:171
+#, fuzzy, kde-format
+#| msgid "Determine &Automatically"
+msgctxt "@option:radio aspect ratio"
+msgid "Determine &Automatically"
+msgstr "Одреди &аутоматски"
+
+#: src/app/mainWindow.cpp:172
+#, fuzzy, kde-format
+#| msgid "&4:3"
+msgctxt "@option:radio aspect ratio"
+msgid "&4:3"
+msgstr "&4:3"
+
+#: src/app/mainWindow.cpp:173
+#, fuzzy, kde-format
+#| msgid "Ana&morphic (16:9)"
+msgctxt "@option:radio aspect ratio"
+msgid "Ana&morphic (16:9)"
+msgstr "Ана&морфно (16:9)"
+
+#: src/app/mainWindow.cpp:174
+#, fuzzy, kde-format
+#| msgid "&Window Size"
+msgctxt "@option:radio aspect ratio"
+msgid "&Window Size"
+msgstr "&Величина прозора"
+
+#: src/app/mainWindow.cpp:219
+#, kde-format
+msgid ""
+"<qt>Phonon could not be successfully initialized. Dragon Player will now "
+"exit.</qt>"
+msgstr ""
+"<qt>Припремање Фонона није успело. Змајев плејер ће сада бити напуштен.</qt>"
+
+#: src/app/mainWindow.cpp:282
+#, fuzzy, kde-format
+#| msgid "Play &Media..."
+msgctxt "@action"
+msgid "Play &Media..."
+msgstr "Пусти &медиј..."
+
+#: src/app/mainWindow.cpp:301
+#, kde-format
+msgctxt "@action"
+msgid "Increase Volume"
+msgstr "Појачај звук"
+
+#: src/app/mainWindow.cpp:306
+#, kde-format
+msgctxt "@action"
+msgid "Decrease Volume"
+msgstr "Смањи звук"
+
+#: src/app/mainWindow.cpp:311
+#, fuzzy, kde-format
+#| msgid "Stop"
+msgctxt "@action"
+msgid "Stop"
+msgstr "Заустави"
+
+#: src/app/mainWindow.cpp:317
+#, fuzzy, kde-format
+#| msgctxt "Mute the sound output"
+#| msgid "Mute"
+msgctxt "@action Mute the sound output"
+msgid "Mute"
+msgstr "Утишај"
+
+#: src/app/mainWindow.cpp:323
+#, fuzzy, kde-format
+#| msgid "Reset Video Scale"
+msgctxt "@action"
+msgid "Reset Video Scale"
+msgstr "Ресетуј размеру видеа"
+
+#: src/app/mainWindow.cpp:329
+#, fuzzy, kde-format
+#| msgid "Menu Toggle"
+msgctxt "@action"
+msgid "Menu Toggle"
+msgstr "Укључи/искључи мени"
+
+#: src/app/mainWindow.cpp:337 src/app/part.cpp:69
+#, kde-format
+msgid "Position Slider"
+msgstr "Клизач положаја"
+
+#: src/app/mainWindow.cpp:341
+#, fuzzy, kde-format
+#| msgid "Video Settings"
+msgctxt "@option:check"
+msgid "Video Settings"
+msgstr "Видео поставке"
+
+#: src/app/mainWindow.cpp:350
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:inmenu Whether only one instance of dragon can be started and "
+#| "will be reused when the user tries to play another file."
+#| msgid "One Instance Only"
+msgctxt ""
+"@option:check Whether only one instance of dragon can be started and will be "
+"reused when the user tries to play another file."
+msgid "One Instance Only"
+msgstr "Само један примерак"
+
+#: src/app/mainWindow.cpp:357
+#, fuzzy, kde-format
+#| msgid "Previous"
+msgctxt "@action previous chapter"
+msgid "Previous"
+msgstr "Претходно"
+
+#: src/app/mainWindow.cpp:363
+#, fuzzy, kde-format
+#| msgid "Next"
+msgctxt "@action next chapter"
+msgid "Next"
+msgstr "Следеће"
+
+#: src/app/mainWindow.cpp:370
+#, fuzzy, no-c-format, kde-format
+#| msgid "Return 10% Back"
+msgctxt "@action"
+msgid "Return 10% Back"
+msgstr "Назад 10%"
+
+#: src/app/mainWindow.cpp:377
+#, fuzzy, no-c-format, kde-format
+#| msgid "Go 10% Forward"
+msgctxt "@action"
+msgid "Go 10% Forward"
+msgstr "Напред 10%"
+
+#: src/app/mainWindow.cpp:383
+#, fuzzy, kde-format
+#| msgid "Return 10 Seconds Back"
+msgctxt "@action"
+msgid "Return 10 Seconds Back"
+msgstr "Назад 10 секунди"
+
+#: src/app/mainWindow.cpp:389
+#, fuzzy, kde-format
+#| msgid "Go 10 Seconds Forward"
+msgctxt "@action"
+msgid "Go 10 Seconds Forward"
+msgstr "Напред 10 секунди"
+
+#: src/app/mainWindow.cpp:479
+#, fuzzy, kde-format
+#| msgctxt "Mute the sound output"
+#| msgid "Mute"
+msgctxt "@option:check Mute the sound output"
+msgid "Mute"
+msgstr "Утишај"
+
+#: src/app/mainWindow.cpp:556
+#, kde-format
+msgid "Dragon Player was asked to open an empty URL; it cannot."
+msgstr "Змајевом плејеру је затражено да отвори празан УРЛ; неће моћи."
+
+# >> @title:window
+#: src/app/mainWindow.cpp:639
+#, fuzzy, kde-format
+#| msgid "Select File to Play"
+msgctxt "@title:window"
+msgid "Select File to Play"
+msgstr "Избор фајла за пуштање"
+
+#: src/app/mainWindow.cpp:667
+#, kde-format
+msgctxt "@title:window"
+msgid "Stream to Play"
+msgstr "Ток за пуштање"
+
+#: src/app/mainWindow.cpp:667
+#, fuzzy, kde-format
+#| msgid "Stream:"
+msgctxt "@label:textbox"
+msgid "Stream:"
+msgstr "Ток:"
+
+#: src/app/mainWindow.cpp:808
+#, kde-format
+msgid "Sorry, no media was found in the drop"
+msgstr "Извините, нема медијума у превученом."
+
+#: src/app/mainWindow.cpp:858
+#, fuzzy, kde-format
+#| msgid "Play DVD Video"
+msgctxt "Notification inhibition reason"
+msgid "playing a video"
+msgstr "Пусти ДВД видео"
+
+#: src/app/mainWindow.cpp:894
+#, kde-format
+msgid "No media loaded"
+msgstr "Нема учитаног медијума"
+
+#: src/app/mainWindow.cpp:896
+#, kde-format
+msgid "Paused"
+msgstr "Паузирано"
+
+#: src/app/playDialog.cpp:44
+#, fuzzy, kde-format
+#| msgid "Play Media"
+msgctxt "@title:window"
+msgid "Play Media"
+msgstr "Пусти медијум"
+
+#: src/app/playDialog.cpp:56
+#, kde-format
+msgid "What media would you like to play?"
+msgstr "Који медијум желите да пустите?"
+
+#: src/app/playDialog.cpp:64
+#, fuzzy, kde-format
+#| msgid "Play File..."
+msgctxt "@action:button"
+msgid "Play File..."
+msgstr "Пусти фајл..."
+
+#: src/app/playlistFile.cpp:52
+#, kde-format
+msgid "The file is not a playlist"
+msgstr "Фајл није листа пуштања"
+
+#: src/app/playlistFile.cpp:60
+#, kde-format
+msgid "Dragon Player could not download the remote playlist: %1"
+msgstr "Змајев плејер не може да преузме удаљену листу пуштања: %1"
+
+#: src/app/playlistFile.cpp:77
+#, kde-format
+msgid ""
+"<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is empty?"
+"</qt>"
+msgstr ""
+"<qt>Листа пуштања <i>%1</i> не може да се протумачи. Можда је празна?</qt>"
+
+#: src/app/playlistFile.cpp:81
+#, kde-format
+msgid "Dragon Player could not open the file: %1"
+msgstr "Змајев плејер не може да отвори фајл: %1"
+
+#: src/app/recentlyPlayedList.cpp:47
+#, kde-format
+msgctxt "@action Copy the URL of the selected multimedia"
+msgid "Copy URL"
+msgstr ""
+
+#: src/app/recentlyPlayedList.cpp:52
+#, fuzzy, kde-format
+#| msgid "Clear List"
+msgctxt "@action"
+msgid "Clear List"
+msgstr "Очисти листу"
+
+#: src/app/recentlyPlayedList.cpp:57
+#, fuzzy, kde-format
+#| msgid "Remove Entry"
+msgctxt "@action"
+msgid "Remove Entry"
+msgstr "Уклони ставку"
+
+#: src/app/recentlyPlayedList.cpp:138
+#, kde-format
+msgid ""
+"This file could not be found. Would you like to remove it from the playlist?"
+msgstr "Овај фајл се не може наћи. Желите ли да га уклоните са листе пуштања?"
+
+#: src/app/recentlyPlayedList.cpp:139
+#, fuzzy, kde-format
+#| msgid "File not found"
+msgctxt "@title:window"
+msgid "File not found"
+msgstr "Фајл није нађен"
+
+#: src/app/theStream.cpp:165
+#, kde-format
+msgid "Track %1/%2"
+msgstr "Нумера %1/%2"
+
+#. i18n: ectx: property (text), widget (QLabel, brightnessLabel)
+#: src/app/videoSettingsWidget.ui:19
+#, fuzzy, kde-format
+#| msgid "Brightness:"
+msgctxt "@label:slider"
+msgid "Brightness:"
+msgstr "Осветљај:"
+
+#. i18n: ectx: property (text), widget (QLabel, contrastLabel)
+#: src/app/videoSettingsWidget.ui:42
+#, fuzzy, kde-format
+#| msgid "Contrast:"
+msgctxt "@label:slider"
+msgid "Contrast:"
+msgstr "Контраст:"
+
+#. i18n: ectx: property (text), widget (QLabel, hueLabel)
+#: src/app/videoSettingsWidget.ui:65
+#, fuzzy, kde-format
+#| msgid "Hue:"
+msgctxt "@label:slider"
+msgid "Hue:"
+msgstr "Нијанса:"
+
+#. i18n: ectx: property (text), widget (QLabel, saturationLabel)
+#: src/app/videoSettingsWidget.ui:88
+#, fuzzy, kde-format
+#| msgid "Saturation:"
+msgctxt "@label:slider"
+msgid "Saturation:"
+msgstr "Засићење:"
+
+#. i18n: ectx: property (text), widget (QPushButton, defaultsButton)
+#: src/app/videoSettingsWidget.ui:128
+#, fuzzy, kde-format
+#| msgid "Restore Defaults"
+msgctxt "@action:button"
+msgid "Restore Defaults"
+msgstr "Врати подразумевано"
+
+#. i18n: ectx: property (text), widget (QPushButton, closeButton)
+#: src/app/videoSettingsWidget.ui:135
+#, fuzzy, kde-format
+#| msgid "Close"
+msgctxt "@action:button"
+msgid "Close"
+msgstr "Затвори"
+
+#: src/app/videoWindow.cpp:123
+#, fuzzy, kde-format
+#| msgid "&DVD Subtitle Selection"
+msgctxt "@option:radio"
+msgid "&DVD Subtitle Selection"
+msgstr "Избор &ДВД титла"
+
+#: src/app/videoWindow.cpp:133
+#, fuzzy, kde-format
+#| msgid "&Auto"
+msgctxt "@option:radio audio language"
+msgid "&Auto"
+msgstr "&Аутоматски"

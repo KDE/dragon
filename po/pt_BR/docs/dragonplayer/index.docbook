@@ -1,0 +1,362 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&dragonplayer;">
+  <!ENTITY dragonplayer "<application
+>Dragon Player</application
+>">
+
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Brazilian-Portuguese "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="dragon" lang="&language;">
+
+<bookinfo>
+<title
+>Manual do &dragonplayer;</title>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>Diehl</surname
+> <affiliation
+> <address
+><email
+>madpenguin8@yahoo.com</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Ian</firstname
+> <surname
+>Monroe</surname
+> <affiliation
+> <address
+><email
+>imonroe@kde.org</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Marcus</firstname
+><surname
+>Gama</surname
+><affiliation
+><address
+><email
+>marcus.gama@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2004</year>
+<holder
+>Mike Diehl</holder>
+</copyright>
+<copyright>
+<year
+>2007</year>
+<holder
+>Ian Monroe</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>11/05/2013</date>
+<releaseinfo
+>2.0 (&kde; 4.11)</releaseinfo>
+
+<abstract>
+<para
+>O &dragonplayer; é um leitor de vídeo simples para o &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Codeine</keyword>
+<keyword
+>Phonon</keyword>
+<keyword
+>Dragon</keyword>
+<keyword
+>Tocador</keyword>
+<keyword
+>Dragon Player</keyword>
+<keyword
+>vídeo</keyword>
+<keyword
+>multimídia</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introdução</title>
+
+<screenshot>
+<screeninfo
+>Imagem do &dragonplayer;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="main.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Imagem</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+
+<para
+>O &dragonplayer; é um reprodutor multimídia simples que usa a tecnologia do &phonon;. O &dragonplayer; é um reprodutor multimídia sem muitas opções, cuja excelência reside na reprodução de DVDs e filmes sem te atrapalhar. </para>
+
+</chapter>
+
+<chapter id="select-media">
+<title
+>Selecionar uma mídia</title>
+
+<para
+>Se você iniciar o &dragonplayer; a partir do lançador de aplicações ou usar o <guibutton
+>Reproduzir mídia</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+>) na barra de ferramentas ou no menu <guimenu
+>Reproduzir</guimenu
+>, será apresentada esta janela:</para>
+
+<screenshot>
+<screeninfo
+>Reproduzir mídia</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="playmedia.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Reproduzir mídia</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Existem três maneiras de reproduzir um arquivo de vídeo:</para>
+<para
+><guibutton
+>Reproduzir arquivo</guibutton
+> abre uma janela de arquivo que permite selecionar o arquivo a reproduzir.</para>
+<para
+><guibutton
+>Reproduzir disco</guibutton
+> para reproduzir um &CD; ou DVD.</para>
+<para
+><guibutton
+>Reproduzir transmissão</guibutton
+> abre uma janela para digitar o endereço de uma <ulink url="http://en.wikipedia.org/wiki/Streaming_media"
+>transmissão multimídia</ulink
+>.</para>
+<para
+>Faça duplo-clique sobre um item da lista de reprodução com os arquivos abertos recentemente para começar a tocá-lo. O menu de contexto da lista de reprodução mostra as ações para remover um item selecionado ou para limpar a lista de reprodução completa. Todos os arquivos que reproduzir serão adicionados automaticamente à lista.</para>
+</chapter>
+
+<chapter id="features">
+<title
+>Características</title>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Modo de tela inteira</guimenuitem>
+</term>
+<listitem
+><para
+>Ao reproduzir um filme, você poderá ativar o modo tela inteira. Ele usa o todo o monitor para mostrar o filme. Se movimentar o mouse, irá aparecer uma barra de ferramentas no topo da tela, no modo de tela inteira. Ative ou desative o modo de tela inteira com o menu <guimenu
+>Configurações</guimenu
+>, a ação da barra de ferramentas, faça duplo-clique sobre o vídeo ou use a tecla <keycap
+>F</keycap
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Configurações de vídeo</guimenuitem>
+</term>
+<listitem
+><para
+>Selecione esta ação no menu <guimenu
+>Configurações</guimenu
+> para ajustar o <guilabel
+>Brilho</guilabel
+>, <guilabel
+>Contraste</guilabel
+>, <guilabel
+>Matiz</guilabel
+> e <guilabel
+>Saturação</guilabel
+>. Estas opções são guardadas em conjunto com a posição de reprodução para cada arquivo de vídeo. Isto permite-lhe prosseguir a reprodução de um vídeo com a configuração do vídeo selecionada e com a posição onde a interrompeu da última vez. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Navegação </term>
+<listitem
+><para
+>A tecla <keycap
+>PgUp</keycap
+> permite-lhe avançar 10%, enquanto o <keycap
+>PgDown</keycap
+> recua 10%. Use a opção <menuchoice
+><guimenu
+>Configurações</guimenu
+> <guimenuitem
+>Comutar o menu</guimenuitem
+></menuchoice
+> (<keycap
+>R</keycap
+>) para mudar para o menu do vídeo e selecionar outro capítulo a reproduzir. A opção <menuchoice
+><guimenu
+>Tocar</guimenu
+><guimenuitem
+>Tocar/Pausa</guimenuitem
+></menuchoice
+> (<keysym
+>Espaço</keysym
+>) permite-lhe interromper e prosseguir a reprodução do filme, se estiver carregado. A opção <menuchoice
+><guimenu
+>Tocar</guimenu
+><guimenuitem
+>Parar</guimenuitem
+></menuchoice
+> (<keycap
+>S</keycap
+>) interrompe a reprodução por completo. Vá para o capítulo anterior ou seguinte de um vídeo com as opções <guimenuitem
+>Capítulo Anterior</guimenuitem
+> (<keycap
+>,</keycap
+>) ou <guimenuitem
+>Capítulo Seguinte</guimenuitem
+> (<keycap
+>.</keycap
+>) do menu <guimenu
+>Tocar</guimenu
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Controle de volume</guimenuitem>
+</term>
+<listitem
+><para
+>Se você reproduzir os vídeos com a barra de ferramentas oculta, poderá usar a tecla <keycap
+>M</keycap
+> para ativar ou desativar o som e a tecla <keycap
+>V</keycap
+> para ativar ou desativar a barra de volume à direita do vídeo. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configurações</guimenu
+> <guisubmenu
+>Proporções</guisubmenu
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Este menu permite-lhe escolher as proporções do filme em reprodução. As proporções correspondem à relação entre a largura do filme e a altura.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guisubmenu
+>Legendas</guisubmenu
+> e <guisubmenu
+>Canais de áudio</guisubmenu
+> </term>
+<listitem
+><para
+>Estes itens do menu <guimenu
+>Configurações</guimenu
+> ficam ativos se existirem legendas ou canais de áudio adicionais para o filme atualmente em reprodução (&eg;, com diferentes línguas). Lembre-se que poderá levar alguns segundos até que as legendas possam ficar disponíveis. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Créditos e licença</title>
+
+<para
+>&dragonplayer; </para>
+
+<para
+>Programa com 'copyright' 2004 de Max B. Howell <email
+>max.howell@methylblue.com</email
+></para>
+<para
+>Programa com 'copyright' 2007 de Ian A. Monroe <email
+>imonroe@dragonplayer.org</email
+></para>
+
+<para
+>Documentação com 'copyright' 2004 de Mike Diehl <email
+>madpenguin8@yahoo.com</email
+> </para>
+<para
+>Documentação com 'copyright' 2007 de Ian Monroe <email
+>imonroe@dragonplayer.org</email
+> </para>
+
+<para
+>Tradução de Marcus Gama <email
+>marcus.gama@gmail.com</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

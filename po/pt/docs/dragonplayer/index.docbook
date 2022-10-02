@@ -1,0 +1,361 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Portuguese "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="dragon" lang="&language;">
+
+<bookinfo>
+<title
+>O Manual do &dragon;</title>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>Diehl</surname
+> <affiliation
+> <address
+><email
+>madpenguin8@yahoo.com</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Ian</firstname
+> <surname
+>Monroe</surname
+> <affiliation
+> <address
+><email
+>imonroe@kde.org</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2004</year>
+<holder
+>Mike Diehl</holder>
+</copyright>
+<copyright>
+<year
+>2007</year>
+<holder
+>Ian Monroe</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-06-29</date>
+<releaseinfo
+>Aplicações 16.04</releaseinfo>
+
+<abstract>
+<para
+>O &dragon; é um leitor de vídeo simples do &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Codeine</keyword>
+<keyword
+>Phonon</keyword>
+<keyword
+>Dragão</keyword>
+<keyword
+>Jogador</keyword>
+<keyword
+>Dragon Player</keyword>
+<keyword
+>vídeo</keyword>
+<keyword
+>multimédia</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introdução</title>
+
+<screenshot>
+<screeninfo
+>Imagem do &dragon;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="main.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Imagem</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+
+<para
+>O &dragon; é um leitor de vídeo simples que usa a tecnologia do &phonon;. O &dragon; é um leitor multimédia sem muitas opções cuja excelência reside na reprodução de DVDs e filmes sem o atrapalhar a si. </para>
+
+</chapter>
+
+<chapter id="select-media">
+<title
+>Seleccionar um Conteúdo</title>
+
+<para
+>Se iniciar o &dragon; a partir do lançador de aplicações ou usar o <guibutton
+>Tocar um Conteúdo</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+>) na barra de ferramentas ou no menu <guimenu
+>Tocar</guimenu
+>, será apresentada esta janela:</para>
+
+<screenshot>
+<screeninfo
+>Tocar um Conteúdo</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="playmedia.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Tocar um Conteúdo</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Existem três formas de reproduzir um ficheiro de vídeo:</para>
+<para
+>O <guibutton
+>Tocar um Ficheiro</guibutton
+> abre a janela de ficheiros e permite-lhe seleccionar o ficheiro a reproduzir.</para>
+<para
+><guibutton
+>Tocar um Disco</guibutton
+> para reproduzir um &CD; ou DVD.</para>
+<para
+>O <guibutton
+>Tocar uma Transmissão</guibutton
+> abre uma janela para indicar o endereço de uma qualquer <ulink url="http://en.wikipedia.org/wiki/Streaming_media"
+>transmissão multimédia</ulink
+>.</para>
+<para
+>Faça duplo-click sobre um item da lista de reprodução com os ficheiros abertos recentemente para o começar a tocar. O menu de contexto da lista de reprodução mostra as acções para remover um item seleccionado ou para limpar a lista de reprodução completa. Todos os ficheiros que reproduzir serão adicionados automaticamente à lista.</para>
+</chapter>
+
+<chapter id="features">
+<title
+>Características</title>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Modo de Ecrã Completo</guimenuitem>
+</term>
+<listitem
+><para
+>Ao reproduzir um filme, poderá activar o modo de ecrã completo. Este usa o monitor completo para mostrar o filme. Se movimentar o rato, irá mostrar uma barra de ferramentas no topo do ecrã, no modo de ecrã completo. Active ou desactive o modo de ecrã completo com o menu <guimenu
+>Configuração </guimenu
+>, a acção da barra de ferramentas, faça duplo-click sobre o vídeo ou use a tecla <keycap
+>F</keycap
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Configuração do Vídeo</guimenuitem>
+</term>
+<listitem
+><para
+>Seleccione esta acção no menu <guimenu
+>Configuração</guimenu
+> para ajustar o <guilabel
+>Brilho</guilabel
+>, <guilabel
+>Contraste</guilabel
+>, <guilabel
+>Matiz</guilabel
+> e <guilabel
+>Saturação</guilabel
+>. Estas opções são guardadas em conjunto com a posição de reprodução para cada ficheiro de vídeo. Isto permite-lhe prosseguir a reprodução de um vídeo com a configuração do vídeo seleccionada e com a posição onde a interrompeu da última vez. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Navegação </term>
+<listitem
+><para
+>A tecla <keycap
+>PgUp</keycap
+> permite-lhe avançar 10%, o <keycap
+>+</keycap
+> avança 10 segundos, enquanto o <keycap
+>PgDown</keycap
+> recua 10% e o <keycap
+>-</keycap
+> recua 10 segundos. Use a opção <menuchoice
+><guimenu
+>Configuração</guimenu
+> <guimenuitem
+>Comutar o Menu</guimenuitem
+></menuchoice
+> (<keycap
+>R</keycap
+>) para mudar para o menu do vídeo e seleccionar outro capítulo a reproduzir. A opção <menuchoice
+><guimenu
+>Tocar</guimenu
+><guimenuitem
+>Tocar/Pausa</guimenuitem
+></menuchoice
+> (<keysym
+>Espaço</keysym
+>) permite-lhe interromper e prosseguir a reprodução do filme, se estiver carregado. A opção <menuchoice
+><guimenu
+>Tocar</guimenu
+><guimenuitem
+>Parar</guimenuitem
+></menuchoice
+> (<keycap
+>S</keycap
+>) interrompe a reprodução por completo. Vá para o capítulo anterior ou seguinte de um vídeo com as opções <guimenuitem
+>Capítulo Anterior</guimenuitem
+> (<keycap
+>,</keycap
+>) ou <guimenuitem
+>Capítulo Seguinte</guimenuitem
+> (<keycap
+>.</keycap
+>) do menu <guimenu
+>Tocar</guimenu
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Controlo de volume</guimenuitem>
+</term>
+<listitem
+><para
+>Se reproduzir os vídeos com a barra de ferramentas escondida, poderá usar a tecla <keycap
+>M</keycap
+> para activar ou desactivar o som e a tecla <keycap
+>V</keycap
+> para activar ou desactivar a barra de volume à direita do vídeo. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+> <guisubmenu
+>Proporções</guisubmenu
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Este menu permite-lhe escolher as proporções do filme em reprodução. As proporções correspondem à relação entre a largura do filme em comparação à altura.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guisubmenu
+>Legendas</guisubmenu
+> e <guisubmenu
+>Canais de Áudio</guisubmenu
+> </term>
+<listitem
+><para
+>Estes itens do menu <guimenu
+>Configuração</guimenu
+> ficam activos se existirem legendas ou canais de áudio adicionais para o filme actualmente em reprodução (&eg;, com diferentes línguas). Lembre-se que poderá levar alguns segundos até que as legendas possam ficar disponíveis. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Créditos e Licença</title>
+
+<para
+>&dragon; </para>
+
+<para
+>Programa com 'copyright' 2004 de Max B. Howell <email
+>max.howell@methylblue.com</email
+></para>
+<para
+>Programa com 'copyright' 2007 de Ian A. Monroe <email
+>imonroe@dragonplayer.org</email
+></para>
+
+<para
+>Documentação com 'copyright' 2004 de Mike Diehl <email
+>madpenguin8@yahoo.com</email
+> </para>
+<para
+>Documentação com 'copyright' 2007 de Ian Monroe <email
+>imonroe@kde.org</email
+> </para>
+
+<para
+>Tradução de José Nuno Pires <email
+>zepires@gmail.com</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

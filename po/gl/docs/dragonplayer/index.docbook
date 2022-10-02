@@ -1,0 +1,362 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&dragonplayer;">
+  <!ENTITY dragonplayer "<application
+>Dragon Player</application
+>">
+
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Galician  "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="dragon" lang="&language;">
+
+<bookinfo>
+<title
+>Manual de &dragonplayer;</title>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>Diehl</surname
+> <affiliation
+> <address
+><email
+>madpenguin8@yahoo.com</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Ian</firstname
+> <surname
+>Monroe</surname
+> <affiliation
+> <address
+><email
+>imonroe@kde.org</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Adrián</firstname
+><surname
+>Chaves Fernández</surname
+><affiliation
+><address
+><email
+>adriyetichaves@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradución ao galego.</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2004</year>
+<holder
+>Mike Diehl</holder>
+</copyright>
+<copyright>
+<year
+>2007</year>
+<holder
+>Ian Monroe</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>11/5/2013</date>
+<releaseinfo
+>2.0 (&kde; 4.11)</releaseinfo>
+
+<abstract>
+<para
+>&dragonplayer; é un reprodutor de vídeo simple de &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Codeine</keyword>
+<keyword
+>Phonon</keyword>
+<keyword
+>Dragon</keyword>
+<keyword
+>Player</keyword>
+<keyword
+>Dragon Player</keyword>
+<keyword
+>vídeo</keyword>
+<keyword
+>son e vídeo</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introdución</title>
+
+<screenshot>
+<screeninfo
+>Captura de &dragonplayer;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="main.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Captura</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+
+<para
+>&dragonplayer; é un reprodutor de vídeo simple que emprega a tecnoloxía &phonon;. &dragonplayer; é un reprodutor de son e vídeo sen complicacións que destaca pola súa capacidade para reproducir DVD e ficheiros de filmes sen que te decates sequera de que o estás a usar. </para>
+
+</chapter>
+
+<chapter id="select-media">
+<title
+>Escolla un recurso</title>
+
+<para
+>Se inicia &dragonplayer; desde o iniciador de programas ou usa <guibutton
+>Reproducir un recurso</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+>) desde a barra de ferramentas ou desde o menú <guimenu
+>Reproducir</guimenu
+>, móstrase a seguinte xanela:</para>
+
+<screenshot>
+<screeninfo
+>Reproducir un recurso</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="playmedia.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Reproducir un recurso</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Hai tres xeitos de reproducir un ficheiro de vídeo:</para>
+<para
+><guibutton
+>Reproducir un ficheiro</guibutton
+> abre un diálogo desde o que pode seleccionar un ficheiro para reproducir.</para>
+<para
+><guibutton
+>Reproducir un disco</guibutton
+> permite reproducir un &CD; ou DVD.</para>
+<para
+><guibutton
+>Reproducir unha transmisión</guibutton
+> abre un diálogo no que introducir o enderezo dunha <ulink url="http://en.wikipedia.org/wiki/Streaming_media"
+>transmisión de son ou vídeo</ulink
+>.</para>
+<para
+>Faga clic duplo nun elemento da lista de reprodución de ficheiros recentes para reproducilo. O menú de contexto da lista de reprodución fornece accións para retirar o elemento seleccionado ou baleirar toda a lista. Todos os ficheiros que reproducise algunha vez engadiranse automaticamente á lista.</para>
+</chapter>
+
+<chapter id="features">
+<title
+>Funcionalidades</title>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Modo a pantalla completa</guimenuitem>
+</term>
+<listitem
+><para
+>Durante a reprodución dun filme, pode poñer o programa a pantalla completa. Deste xeito, utilízase toda a superficie do monitor para reproducir o filme. Ao mover o cursor durante o modo a pantalla completa, móstrase unha barra de ferramentas na parte superior da pantalla. Para entrar no modo a pantalla completa use o menú de <guimenu
+>Configuración</guimenu
+>, a acción da barra de ferramentas, faga clic duplo no vídeo ou use a tecla <keycap
+>F</keycap
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Configuración do vídeo</guimenuitem>
+</term>
+<listitem
+><para
+>Seleccione esta acción desde o menú de <guimenu
+>Configuración</guimenu
+> para axustar o <guilabel
+>Brillo</guilabel
+>, o <guilabel
+>Contraste</guilabel
+>, o <guilabel
+>Ton</guilabel
+> e maila <guilabel
+>Saturación</guilabel
+>. Estas opcións gárdanse por separado para cada vídeo, xunto co punto que se está a reproducir. Isto permite retomar a reprodución dun vídeo coa configuración seleccionada, e desde o punto no que estaba cando o pechou. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Navegación </term>
+<listitem
+><para
+>O atallo <keycap
+>Av Páx</keycap
+> avanza un 10%, <keycap
+>Re Páx</keycap
+> retrocede un 10%. Use <menuchoice
+><guimenu
+>Configuración</guimenu
+> <guimenuitem
+>Conmutar o menú</guimenuitem
+></menuchoice
+> (<keycap
+>R</keycap
+>) para acceder ao menú do vídeo e seleccionar outro capítulo para reproducir. <menuchoice
+> <guimenu
+>Reproducir</guimenu
+><guimenuitem
+>Reproducir/Pausa</guimenuitem
+></menuchoice
+> (<keysym
+>Espazo</keysym
+>) permite poñer en pausa e continuar a reprodución cando hai un filme cargado. <menuchoice
+><guimenu
+>Reproducir</guimenu
+><guimenuitem
+>Deter</guimenuitem
+></menuchoice
+> (<keycap
+>S</keycap
+>) detén a reprodución. Use <guimenuitem
+>Capítulo anterior</guimenuitem
+> (<keycap
+>,</keycap
+>) e <guimenuitem
+>Seguinte capítulo</guimenuitem
+> (<keycap
+>.</keycap
+>) no menú <guimenu
+>Reproducir</guimenu
+> para navegar entre os capítulos do filme. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Control do volume</guimenuitem>
+</term>
+<listitem
+><para
+>Se está a reproducir vídeo cunha barra de ferramentas oculta, pode usar o atallo <keycap
+>M</keycap
+> para desactivar ou activar o son. Tamén pode usar o atallo <keycap
+>V</keycap
+> para mostrar ou ocultar o control desprazábel do volume na parte dereita do vídeo. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuración</guimenu
+> <guisubmenu
+>Proporcións</guisubmenu
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Este menú permítelle escoller as proporcións do filme que está a reproducir. As proporcións son a anchura dun filme en comparación coa súa altura.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guisubmenu
+>Subtítulos</guisubmenu
+> e <guisubmenu
+>Canles de son</guisubmenu
+> </term>
+<listitem
+><para
+>Estes elementos do menú de <guimenu
+>Configuración</guimenu
+> actívanse cando hai subtítulos ou canles de son (por exemplo, con outros idiomas) dispoñíbeis para o filme actual. Teña en conta que podería ser necesario que a reprodución avance uns segundos para que os subtítulos ou as canles de son pasen a estar dispoñíbeis. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Autores e licenza</title>
+
+<para
+>&dragonplayer; </para>
+
+<para
+>Programa © 2004, Max B. Howell <email
+>max.howell@methylblue.com</email
+></para>
+<para
+>Programa © 2007, Ian A. Monroe <email
+>imonroe@kde.org</email
+></para>
+
+<para
+>Documentación © 2004, Mike Diehl <email
+>madpenguin8@yahoo.com</email
+> </para>
+<para
+>Documentación © 2007, Ian Monroe <email
+>imonroe@kde.org</email
+> </para>
+
+<para
+>Adrián Chaves Fernández<email
+>adriyetichaves@gmail.com</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

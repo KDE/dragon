@@ -1,0 +1,406 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Spanish "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="dragon" lang="&language;">
+
+<bookinfo>
+<title
+>El manual de &dragon;</title>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>Diehl</surname
+> <affiliation
+> <address
+><email
+>madpenguin8@yahoo.com</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Ian</firstname
+> <surname
+>Monroe</surname
+> <affiliation
+> <address
+><email
+>imonroe@kde.org</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Víctor</firstname
+><surname
+>Rodrigo</surname
+><affiliation
+><address
+><email
+>vrcordoba@gmail.com</email
+></address
+></affiliation
+><contrib
+>Traducción</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Rocío</firstname
+><surname
+>Gallego</surname
+><affiliation
+><address
+><email
+>traducciones@rociogallego.com</email
+></address
+></affiliation
+><contrib
+>Traducción</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Enrique</firstname
+><surname
+>Matías Sánchez</surname
+><affiliation
+><address
+><email
+>cronopios@gmail.com</email
+></address
+></affiliation
+><contrib
+>Traducción</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Ayoze</firstname
+><surname
+>Hernández Díaz</surname
+><affiliation
+><address
+><email
+>ayoze12@gmail.com</email
+></address
+></affiliation
+><contrib
+>Traducción</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2004</year>
+<holder
+>Mike Diehl</holder>
+</copyright>
+<copyright>
+<year
+>2007</year>
+<holder
+>Ian Monroe</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-06-29</date>
+<releaseinfo
+>Aplicaciones 16.04</releaseinfo>
+
+<abstract>
+<para
+>&dragon; es un sencillo reproductor de vídeo para &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Codeine</keyword>
+<keyword
+>Phonon</keyword>
+<keyword
+>Dragon</keyword>
+<keyword
+>Reproductor</keyword>
+<keyword
+>Dragon Player</keyword>
+<keyword
+>vídeo</keyword>
+<keyword
+>multimedia</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introducción</title>
+
+<screenshot>
+<screeninfo
+>Captura de pantalla de &dragon;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="main.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Captura de pantalla</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+
+<para
+>&dragon; es un reproductor multimedia sencillo que utiliza la tecnología de &phonon;. &dragon; es un reproductor multimedia sin florituras que resulta excelente para reproducir DVD y archivos de películas sin estorbar. </para>
+
+</chapter>
+
+<chapter id="select-media">
+<title
+>Seleccionar un medio</title>
+
+<para
+>Si se inicia &dragon; desde el lanzador de aplicaciones o se utiliza <guibutton
+>Reproducir medio</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+>) desde la barra de herramientas o desde el menú <guimenu
+>Reproducir</guimenu
+> aparece esta ventana:</para>
+
+<screenshot>
+<screeninfo
+>Reproducir medio</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="playmedia.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Reproducir medio</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Hay tres formas de reproducir un archivo de vídeo:</para>
+<para
+>El botón <guibutton
+>Reproducir archivo</guibutton
+> abre el cuadro de diálogo de archivo y permite seleccionar un archivo para su reproducción.</para>
+<para
+><guibutton
+>Reproducir disco</guibutton
+> para reproducir un &CD; o un DVD.</para>
+<para
+><guibutton
+>Reproducir medio</guibutton
+> abre un cuadro de diálogo para introducir la dirección de algún <ulink url="https://en.wikipedia.org/wiki/Streaming_media"
+>medio multimedia</ulink
+>.</para>
+<para
+>Para empezar a reproducir una de las entradas de la lista de reproducción, haga clic sobre ella. El menú de contexto de la lista de reproducción muestra acciones para eliminar una entrada seleccionada o para borrar toda la lista de reproducción. Cualquier archivo que haya reproducido se añadirá automáticamente a la lista.</para>
+</chapter>
+
+<chapter id="features">
+<title
+>Características</title>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Modo de pantalla completa</guimenuitem>
+</term>
+<listitem
+><para
+>Mientras se reproduce una película, se puede acceder al modo de pantalla completa. De esta forma, se utiliza toda la pantalla del monitor para mostrar la película. Cuando este modo está activado, al mover el ratón, aparece una barra de herramientas en la parte superior de la pantalla. Se puede alternar entre el modo de pantalla completa y el modo normal mediante el menú <guimenu
+> Preferencias</guimenu
+>, la acción correspondiente en la barra de herramientas o usando el acceso rápido <keycap
+>F</keycap
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Preferencias de vídeo</guimenuitem>
+</term>
+<listitem
+><para
+>Seleccione dicha acción desde el menú <guimenu
+>Preferencias</guimenu
+> para ajustar el <guilabel
+>Brillo</guilabel
+>, el <guilabel
+>Contraste</guilabel
+>, el <guilabel
+>Color</guilabel
+> y la <guilabel
+>Saturación</guilabel
+>. Dichas preferencias se guardan junto con la posición de reproducción para cada archivo de vídeo. Esto permite reanudar la reproducción de un vídeo con las preferencias de vídeo seleccionadas y la posición en la que dejó de reproducirlo. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Navegación </term>
+<listitem
+><para
+>El acceso rápido <keycap
+>AvPág</keycap
+> proporciona un avance del 10 % / <keycap
+>+</keycap
+> un avance de 10 segundos, y <keycap
+>RePág</keycap
+>, un rebobinado del 10 % / <keycap
+>-</keycap
+> un rebobinado de 10 segundos. Utilice <menuchoice
+> <guimenu
+>Preferencias</guimenu
+> <guimenuitem
+>Alternar menú </guimenuitem
+></menuchoice
+> (<keycap
+>R</keycap
+>) para cambiar al menú del vídeo y seleccionar otro capítulo para reproducir. <menuchoice
+> <guimenu
+> Reproducir</guimenu
+><guimenuitem
+>Reproducir/Pausa</guimenuitem
+></menuchoice
+> (<keysym
+>Espacio</keysym
+>) permite detener y reanudar la reproducción si se ha cargado una película. <menuchoice
+><guimenu
+> Reproducir</guimenu
+><guimenuitem
+>Detener</guimenuitem
+></menuchoice
+> (<keycap
+>S</keycap
+>) detiene la reproducción. Vaya al capítulo siguiente o anterior con <guimenuitem
+>Capítulo anterior</guimenuitem
+> (<keycap
+>,</keycap
+>) o <guimenuitem
+>Siguiente capítulo</guimenuitem
+> (<keycap
+>.</keycap
+>) del menú <guimenu
+>Reproducir</guimenu
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Control del volumen</guimenuitem>
+</term>
+<listitem
+><para
+>Si reproduce vídeos con la barra de herramientas oculta, puede utilizar el acceso rápido <keycap
+>M</keycap
+> para silenciar y volver a activar el sonido y el acceso rápido <keycap
+>V</keycap
+> para alternar entre mostrar o no el deslizador del volumen a la derecha del vídeo. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Preferencias</guimenu
+> <guisubmenu
+>Proporciones</guisubmenu
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Este menú le permite escoger las proporciones de la película que esté reproduciendo. La proporción es la relación entre la anchura y la altura de la película.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guisubmenu
+>Subtítulos</guisubmenu
+> y <guisubmenu
+>Canales de audio</guisubmenu
+> </term>
+<listitem
+><para
+>Estas opciones del menú <guimenu
+>Preferencias</guimenu
+>están activas si hay algún subtítulo o más canales de audio (&eg; con diferentes idiomas) disponibles para la película que esté reproduciendo. Tenga en cuenta que pueden pasar algunos segundos de reproducción antes de que los subtítulos o los canales de audio estén disponibles. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Créditos y licencia</title>
+
+<para
+>&dragon; </para>
+
+<para
+>Programa copyright 2004 Max B. Howell <email
+>max.howell@methylblue.com</email
+></para>
+<para
+>Programa copyright 2007 Ian A. Monroe <email
+>imonroe@kde.org</email
+></para>
+
+<para
+>Documentación copyright 2004 Mike Diehl <email
+>madpenguin8@yahoo.com</email
+> </para>
+<para
+>Documentación copyright 2007 Ian Monroe <email
+>imonroe@kde.org</email
+> </para>
+
+<para
+>Traducido por Rocío Gallego <email
+>traducciones@rociogallego.com</email
+>, Enrique Matías Sánchez (Quique) <email
+>cronopios@gmail.com</email
+> y Ayoze Hernández Díaz <email
+>ayoze12@gmail.com</email
+>.</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

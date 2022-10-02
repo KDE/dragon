@@ -1,0 +1,360 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Ukrainian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="dragon" lang="&language;">
+
+<bookinfo>
+<title
+>Підручник з &dragon;</title>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>Diehl</surname
+> <affiliation
+> <address
+><email
+>madpenguin8@yahoo.com</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Ian</firstname
+> <surname
+>Monroe</surname
+> <affiliation
+> <address
+><email
+>imonroe@kde.org</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Юрій</firstname
+><surname
+>Чорноіван</surname
+><affiliation
+><address
+><email
+>yurchor@ukr.net</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2004</year>
+<holder
+>Mike Diehl</holder>
+</copyright>
+<copyright>
+<year
+>2007</year>
+<holder
+>Ian Monroe</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>29 червня 2016 року</date>
+<releaseinfo
+>Програми 16.04</releaseinfo>
+
+<abstract>
+<para
+>&dragon; — простий програвач відео у &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Codeine</keyword>
+<keyword
+>Phonon</keyword>
+<keyword
+>Dragon</keyword>
+<keyword
+>Програвач</keyword>
+<keyword
+>Програвач Dragon</keyword>
+<keyword
+>відео</keyword>
+<keyword
+>мультимедіа</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Вступ</title>
+
+<screenshot>
+<screeninfo
+>Знімок вікна &dragon;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="main.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Знімок вікна</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+
+<para
+>&dragon; є простим програвачем відео, що використовує технології &phonon;. &dragon; — програвач без зайвих витребеньок, який чудово пасує для відтворення DVD і фільмів без дурних запитань. </para>
+
+</chapter>
+
+<chapter id="select-media">
+<title
+>Вибір носія даних</title>
+
+<para
+>Якщо ви запустите &dragon; за допомогою пункту меню або інструменту запуску програм, скористаєтеся пунктом <guibutton
+>Відтворити з носія</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+>) на панелі інструментів або пунктом меню <guimenu
+>Пуск</guimenu
+>, буде показано таке вікно:</para>
+
+<screenshot>
+<screeninfo
+>Відтворення даних з носія</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="playmedia.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Відтворення даних з носія</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Передбачено три способи розпочати відтворення відеофайла:</para>
+<para
+>Натискання кнопки <guibutton
+>Відтворити файл</guibutton
+> відкриє діалогове вікно вибору файла. За допомогою цього вікна ви зможете вибрати файл, дані якого слід відтворити.</para>
+<para
+>Натискання кнопки <guibutton
+>Відтворити диск</guibutton
+> для відтворення даних з компакт-диска або DVD.</para>
+<para
+><guibutton
+>Відтворити потік</guibutton
+> відкриває діалогове вікно для введення адреси якогось <ulink url="https://en.wikipedia.org/wiki/Streaming_media"
+>потоку мультимедійних даних</ulink
+>.</para>
+<para
+>Подвійне клацання на пункті у списку відтворення (у цьому списку буде показано нещодавно відкриті файли) з метою розпочати його відтворення. За допомогою контекстного меню списку відтворення ви зможете вилучити позначений пункт зі списку або спорожнити список відтворення. До списку автоматично додаватимуться пункти всіх файлів, які ви відтворюватимете.</para>
+</chapter>
+
+<chapter id="features">
+<title
+>Можливості</title>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Повноекранний режим</guimenuitem>
+</term>
+<listitem
+><para
+>Під час відтворення відео ви можете перевести програму у режим повноекранного показу. У цьому режимі для показу буде використано всю площу екрана. Якщо у цьому режимі ви пересунете вказівник миші, програма покаже у верхній частині екрана панель інструментів. Увімкнути повноекранний режим можна за допомогою пункту меню <guimenu
+>Параметри</guimenu
+>, кнопки панелі інструментів, подвійного клацання лівою кнопкою миші на панелі показу відео або клавіатурного скорочення — клавіші <keycap
+>F</keycap
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Параметри відео</guimenuitem>
+</term>
+<listitem
+><para
+>За допомогою цього пункту меню <guimenu
+>Параметри</guimenu
+> можна змінити значення <guilabel
+>Яскравості</guilabel
+>, <guilabel
+>Контрастності</guilabel
+>, <guilabel
+>Відтінку</guilabel
+> і <guilabel
+>Насиченості</guilabel
+> зображення. Програма зберігатиме встановлені вами значення разом з даними щодо позиції відтворення для кожного з відеофайлів. Таким чином, ви зможете поновити перегляд відео з вказаними вами раніше параметрами зображення з позиції, на якій ви припинили попередній перегляд. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Навігація </term>
+<listitem
+><para
+>За допомогою клавіатурного скорочення <keycap
+>PgUp</keycap
+> ви можете пересунути позицію відтворення 10% тривалості запису вперед, а за допомогою <keycap
+>PgDown</keycap
+> — на 10% назад. Натискання клавіші <keycap
+>+</keycap
+> пересуне позицію відтворення на 10 секунд вперед, а клавіші <keycap
+>-</keycap
+> — на 10 секунд назад. За допомогою пункту меню <menuchoice
+><guimenu
+>Параметри</guimenu
+> <guimenuitem
+>Перемикач меню</guimenuitem
+></menuchoice
+> (<keycap
+>R</keycap
+>) ви зможете перемкнутися на меню відео і вибрати для відтворення іншу його частину. За допомогою пункту меню <menuchoice
+><guimenu
+>Пуск</guimenu
+><guimenuitem
+>Пуск/Пауза</guimenuitem
+></menuchoice
+> (<keysym
+>Пробіл</keysym
+>) ви можете призупинити і поновити відтворення після завантаження відео. За допомогою пункту меню <menuchoice
+><guimenu
+>Пуск</guimenu
+><guimenuitem
+>Зупинити</guimenuitem
+></menuchoice
+> (<keycap
+>S</keycap
+>) можна припинити відтворення. Перейти до попередньої або наступної частини відео можна за допомогою пунктів <guimenuitem
+>Попередній розділ</guimenuitem
+> (<keycap
+>,</keycap
+>) і <guimenuitem
+>Наступний розділ</guimenuitem
+> (<keycap
+>.</keycap
+>) з меню <guimenu
+>Пуск</guimenu
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Керування гучністю</guimenuitem>
+</term>
+<listitem
+><para
+>Якщо відтворення відео відбувається з прихованою панеллю інструментів, можна скористатися натисканням клавіші <keycap
+>M</keycap
+> для вимикання і вмикання звуку та натисканням клавіші <keycap
+>V</keycap
+> для вмикання або вимикання показу повзунка гучності праворуч від панелі показу відео. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Параметри</guimenu
+> <guimenuitem
+>Формат зображення</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>У цьому меню ви можете обрати формат (співвідношення сторін) зображення у відео, що відтворюється. Формат — це відношення ширини зображення до його висоти.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guisubmenu
+>Субтитри</guisubmenu
+> і <guisubmenu
+>Канали аудіо</guisubmenu
+> </term>
+<listitem
+><para
+>Цими пунктами меню <guimenu
+>Параметри</guimenu
+> можна буде скористатися, якщо у поточному записі є додаткові дані субтитрів або додаткові звукові канали (наприклад, переклади іншими мовами звукової доріжки). Зауважте, що для виявлення субтитрів або додаткових звукових каналів програмі потрібно буде відтворити декілька секунд запису. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Подяки і ліцензія</title>
+
+<para
+>Програвач Dragon </para>
+
+<para
+>Авторські права на програму належать Max B. Howell <email
+>max.howell@methylblue.com</email
+>, ©2004</para>
+<para
+>Авторські права на програму належать Ian A. Monroe <email
+>imonroe@kde.org</email
+>, ©2007</para>
+
+<para
+>Авторські права на документацію Mike Diehl <email
+>madpenguin8@yahoo.com</email
+>, ©2004 </para>
+<para
+>Авторські права на документацію належать Ian Monroe <email
+>imonroe@kde.org</email
+>, ©2007 </para>
+
+<para
+>Переклад українською: Юрій Чорноіван <email
+>yurchor@ukr.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

@@ -1,0 +1,215 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Turkish "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>KDE Kullanıcı El Kitabı</title>
+<author
+><firstname
+>Praveen</firstname
+><surname
+>Arimbrathodiyil</surname
+> <contrib
+>Dragon Player man sayfası.</contrib
+> <email
+>pravi.a@gmail.com</email
+></author>
+<date
+>2012-03-16</date>
+<productname
+>K Masaüstü Ortamı</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>dragon</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+>dragon</refname>
+<refpurpose
+>Kullanılabilirliğe odaklanmış bir video oynatıcı</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis
+><command
+>dragon</command
+> <arg choice="opt"
+><replaceable
+>Qt-seçenekleri</replaceable
+></arg
+> <arg choice="opt"
+><replaceable
+>KDE-seçenekleri</replaceable
+></arg
+> <arg choice="opt"
+><replaceable
+>URL</replaceable
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+
+<refsect1 id="description"
+><title
+>Tanımlama</title>
+<para
+><command
+>dragon</command
+> çeşitli biçimlerdeki video ve ses dosyalarını oynatır.</para>
+
+</refsect1>
+
+<refsect1 id="generic_options"
+><title
+>Temel Seçenekler</title>
+<variablelist>
+  <varlistentry>
+  <term
+><option
+>--help</option
+></term>
+  <listitem>
+<para
+>Seçeneklerle ilgili yardımı göster.</para>
+  </listitem>
+  </varlistentry>
+  <varlistentry>
+  <term
+><option
+>--help-qt</option
+></term>
+  <listitem>
+<para
+>Qt özel seçeneklerini göster.</para>
+  </listitem>
+  </varlistentry>
+  <varlistentry>
+  <term
+><option
+>--help-kde</option
+></term>
+  <listitem>
+<para
+>KDE özel seçeneklerini göster.</para>
+  </listitem>
+  </varlistentry>
+  <varlistentry>
+  <term
+><option
+>--help-all</option
+></term>
+  <listitem>
+<para
+>Tüm seçenekleri göster.</para>
+  </listitem>
+  </varlistentry>
+  <varlistentry>
+  <term
+><option
+>--author</option
+></term>
+  <listitem>
+<para
+>Yazar bilgisini göster.</para>
+  </listitem>
+  </varlistentry>
+  <varlistentry>
+  <term
+><option
+>-v, --version</option
+></term>
+  <listitem>
+<para
+>Sürüm bilgisini göster.</para>
+  </listitem>
+  </varlistentry>
+  <varlistentry>
+  <term
+><option
+>--license</option
+></term>
+  <listitem>
+<para
+>Lisans bilgisini göster.</para>
+  </listitem>
+  </varlistentry>
+  <varlistentry>
+  <term
+><option
+>--</option
+></term>
+  <listitem>
+<para
+>Seçeneklerin sonu.</para>
+  </listitem>
+  </varlistentry>
+</variablelist>
+</refsect1>
+
+<refsect1 id="options"
+><title
+>Seçenekler</title>
+<variablelist>
+  <varlistentry>
+  <term
+><option
+>--play-dvd</option
+></term>
+  <listitem>
+<para
+>DVD Video Oynat.</para>
+  </listitem>
+  </varlistentry>
+</variablelist>
+</refsect1>
+
+<refsect1 id="feedback"
+><title
+>Geribildirim</title>
+<para
+>IRC, irc.freenode.net #dragonplayer ya da e-posta ile, imonroe@kde.org veya web üzerinden, &lt;<ulink url="http://multimedia.kde.org"
+>http://multimedia.kde.org</ulink
+>&gt;</para>
+</refsect1>
+
+<refsect1>
+<title
+>Ayrıca Bakınız</title>
+<para
+>Ayrıntılı kullanıcı belgelendirmesine <ulink url="help:/dragonplayer"
+>help:/dragonplayer</ulink
+> bölümünden ulaşabilirsiniz (ya da bu <acronym
+>URL</acronym
+>'yi &konqueror; adres çubuğuna girin, veya <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/dragonplayer</parameter
+></userinput
+> komutunu çalıştırın).</para>
+</refsect1>
+
+<refsect1 id="copyright"
+><title
+>Telif Hakları</title>
+<para
+>Telif hakları &copy; 2006 Max Howell</para>
+<para
+>Telif hakları &copy; 2007 Ian Monroe</para>
+<para
+>Lisans: GNU Genel Kamı Lisansı Sürüm 2 &lt;<ulink url="http://www.gnu.org/licenses/gpl-2.0.html"
+>http://www.gnu.org/licenses/gpl-2.0.html</ulink
+>&gt;</para>
+</refsect1>
+</refentry>
+
