@@ -21,6 +21,7 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KSharedConfig>
+#include <kwidgetsaddons_version.h>
 
 //this is a widget for dispaying the recently played items in a list. It is subclassed so that we can hook up a context menu
 RecentlyPlayedList::RecentlyPlayedList(QWidget *parent)
@@ -121,9 +122,18 @@ void RecentlyPlayedList::itemDoubleClicked(QListWidgetItem* item)
         QFileInfo fileInfo( url.toLocalFile() );
 
         if( !fileInfo.exists() ) {
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+            if (KMessageBox::questionTwoActions( this,
+#else
             if( KMessageBox::questionYesNo( this,
+
+#endif
                                             i18n( "This file could not be found. Would you like to remove it from the playlist?" ),
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+                                            i18nc("@title:window", "File not found" ), KStandardGuiItem::remove(), KStandardGuiItem::cancel() ) == KMessageBox::ButtonCode::PrimaryAction) {
+#else
                                             i18nc("@title:window", "File not found" ) ) == KMessageBox::Yes ) {
+#endif
                 removeEntry();
             }
 
