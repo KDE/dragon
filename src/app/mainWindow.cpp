@@ -1,6 +1,7 @@
 /*
     SPDX-FileCopyrightText: 2005 Max Howell <max.howell@methylblue.com>
     SPDX-FileCopyrightText: 2007 Ian Monroe <ian@monroe.nu>
+    SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 */
@@ -614,7 +615,9 @@ MainWindow::openFileDialog()
     //temporary fixes for MimeTypes that Xine does support but it doesn't return - this is a Xine bug.
     mimeFilter << QLatin1String( "audio/x-flac");
     mimeFilter << QLatin1String( "video/mp4" );
-    mimeFilter << QLatin1String( "application/x-cd-image" ); // added for *.iso images
+    mimeFilter << QLatin1String("application/x-cd-image"); // added for *.iso images
+    // everything. Must be here or the native Qt dialog doesn't want to default to it! https://bugs.kde.org/show_bug.cgi?id=459326
+    mimeFilter << QLatin1String("application/octet-stream");
 
     static QUrl lastDirectory;
 
