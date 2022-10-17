@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragon\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-02 00:45+0000\n"
+"POT-Creation-Date: 2022-10-17 00:45+0000\n"
 "PO-Revision-Date: 2022-09-30 16:49+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -211,109 +211,109 @@ msgstr "DVD ვიდეოს დაკვრა"
 msgid "Play 'URL'"
 msgstr "URL-ის დაკვრა"
 
-#: src/app/mainWindow.cpp:139
+#: src/app/mainWindow.cpp:140
 #, kde-format
 msgctxt "@title:menu"
 msgid "Aspect &Ratio"
 msgstr ""
 
-#: src/app/mainWindow.cpp:140
+#: src/app/mainWindow.cpp:141
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Audio Channels"
 msgstr "&აუდიო არხები"
 
-#: src/app/mainWindow.cpp:141
+#: src/app/mainWindow.cpp:142
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Subtitles"
 msgstr "&სუბტიტრები"
 
-#: src/app/mainWindow.cpp:156
+#: src/app/mainWindow.cpp:157
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Determine &Automatically"
 msgstr "ავტომატურად &განსაზღვრა"
 
-#: src/app/mainWindow.cpp:157
+#: src/app/mainWindow.cpp:158
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "&4:3"
 msgstr "&4:3"
 
-#: src/app/mainWindow.cpp:158
+#: src/app/mainWindow.cpp:159
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Ana&morphic (16:9)"
 msgstr ""
 
-#: src/app/mainWindow.cpp:159
+#: src/app/mainWindow.cpp:160
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "&Window Size"
 msgstr "&ფანჯრის ზომა"
 
-#: src/app/mainWindow.cpp:204
+#: src/app/mainWindow.cpp:205
 #, kde-format
 msgid ""
 "<qt>Phonon could not be successfully initialized. Dragon Player will now "
 "exit.</qt>"
 msgstr ""
 
-#: src/app/mainWindow.cpp:267
+#: src/app/mainWindow.cpp:268
 #, kde-format
 msgctxt "@action"
 msgid "Play &Media..."
 msgstr "მედიის &დაკვრა..."
 
-#: src/app/mainWindow.cpp:287
+#: src/app/mainWindow.cpp:288
 #, kde-format
 msgctxt "@action"
 msgid "Increase Volume"
 msgstr "ხმის აწევა"
 
-#: src/app/mainWindow.cpp:292
+#: src/app/mainWindow.cpp:293
 #, kde-format
 msgctxt "@action"
 msgid "Decrease Volume"
 msgstr "ხმის დაწევა"
 
-#: src/app/mainWindow.cpp:297
+#: src/app/mainWindow.cpp:298
 #, kde-format
 msgctxt "@action"
 msgid "Stop"
 msgstr "გაჩერება"
 
-#: src/app/mainWindow.cpp:303
+#: src/app/mainWindow.cpp:304
 #, kde-format
 msgctxt "@action Mute the sound output"
 msgid "Mute"
 msgstr "დადუმება"
 
-#: src/app/mainWindow.cpp:309
+#: src/app/mainWindow.cpp:310
 #, kde-format
 msgctxt "@action"
 msgid "Reset Video Scale"
 msgstr ""
 
-#: src/app/mainWindow.cpp:315
+#: src/app/mainWindow.cpp:316
 #, kde-format
 msgctxt "@action"
 msgid "Menu Toggle"
 msgstr "მენიუს გადართვა"
 
-#: src/app/mainWindow.cpp:323 src/app/part.cpp:57
+#: src/app/mainWindow.cpp:324 src/app/part.cpp:57
 #, kde-format
 msgid "Position Slider"
 msgstr "მდებარეობის ცოცია"
 
-#: src/app/mainWindow.cpp:327
+#: src/app/mainWindow.cpp:328
 #, kde-format
 msgctxt "@option:check"
 msgid "Video Settings"
 msgstr "ვიდეოს პარამეტრები"
 
-#: src/app/mainWindow.cpp:336
+#: src/app/mainWindow.cpp:337
 #, kde-format
 msgctxt ""
 "@option:check Whether only one instance of dragon can be started and will be "
@@ -321,88 +321,88 @@ msgctxt ""
 msgid "One Instance Only"
 msgstr "მხოლოდ ერთი გაშვებული ასლი"
 
-#: src/app/mainWindow.cpp:343
+#: src/app/mainWindow.cpp:344
 #, kde-format
 msgctxt "@action previous chapter"
 msgid "Previous"
 msgstr "წინა"
 
-#: src/app/mainWindow.cpp:349
+#: src/app/mainWindow.cpp:350
 #, kde-format
 msgctxt "@action next chapter"
 msgid "Next"
 msgstr "შემდეგი"
 
-#: src/app/mainWindow.cpp:356
+#: src/app/mainWindow.cpp:357
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Return 10% Back"
 msgstr "10%-ით უკან გადასვლა"
 
-#: src/app/mainWindow.cpp:363
+#: src/app/mainWindow.cpp:364
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Go 10% Forward"
 msgstr "10%-ით წინ გადასვლა"
 
-#: src/app/mainWindow.cpp:369
+#: src/app/mainWindow.cpp:370
 #, kde-format
 msgctxt "@action"
 msgid "Return 10 Seconds Back"
 msgstr "10 წუთით უკან გადასვლა"
 
-#: src/app/mainWindow.cpp:375
+#: src/app/mainWindow.cpp:376
 #, kde-format
 msgctxt "@action"
 msgid "Go 10 Seconds Forward"
 msgstr "10 წამით წინ გადასვლა"
 
-#: src/app/mainWindow.cpp:465
+#: src/app/mainWindow.cpp:466
 #, kde-format
 msgctxt "@option:check Mute the sound output"
 msgid "Mute"
 msgstr "დადუმება"
 
-#: src/app/mainWindow.cpp:542
+#: src/app/mainWindow.cpp:543
 #, kde-format
 msgid "Dragon Player was asked to open an empty URL; it cannot."
 msgstr ""
 
-#: src/app/mainWindow.cpp:621
+#: src/app/mainWindow.cpp:624
 #, kde-format
 msgctxt "@title:window"
 msgid "Select File to Play"
 msgstr "აირჩიეთ დასაკრავი ფაილი"
 
-#: src/app/mainWindow.cpp:649
+#: src/app/mainWindow.cpp:652
 #, kde-format
 msgctxt "@title:window"
 msgid "Stream to Play"
 msgstr "ნაკადის დაკვრა"
 
-#: src/app/mainWindow.cpp:649
+#: src/app/mainWindow.cpp:652
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Stream:"
 msgstr "ნაკადი:"
 
-#: src/app/mainWindow.cpp:790
+#: src/app/mainWindow.cpp:793
 #, kde-format
 msgid "Sorry, no media was found in the drop"
 msgstr ""
 
-#: src/app/mainWindow.cpp:840
+#: src/app/mainWindow.cpp:843
 #, kde-format
 msgctxt "Notification inhibition reason"
 msgid "playing a video"
 msgstr ""
 
-#: src/app/mainWindow.cpp:876
+#: src/app/mainWindow.cpp:879
 #, kde-format
 msgid "No media loaded"
 msgstr ""
 
-#: src/app/mainWindow.cpp:878
+#: src/app/mainWindow.cpp:881
 #, kde-format
 msgid "Paused"
 msgstr "შეჩერება"
@@ -446,31 +446,31 @@ msgstr ""
 msgid "Dragon Player could not open the file: %1"
 msgstr ""
 
-#: src/app/recentlyPlayedList.cpp:34
+#: src/app/recentlyPlayedList.cpp:35
 #, kde-format
 msgctxt "@action Copy the URL of the selected multimedia"
 msgid "Copy URL"
 msgstr "URL-ის კოპირება"
 
-#: src/app/recentlyPlayedList.cpp:39
+#: src/app/recentlyPlayedList.cpp:40
 #, kde-format
 msgctxt "@action"
 msgid "Clear List"
 msgstr "სიის გასუფთავება"
 
-#: src/app/recentlyPlayedList.cpp:44
+#: src/app/recentlyPlayedList.cpp:45
 #, kde-format
 msgctxt "@action"
 msgid "Remove Entry"
 msgstr "ჩანაწერის ამოღება"
 
-#: src/app/recentlyPlayedList.cpp:125
+#: src/app/recentlyPlayedList.cpp:131
 #, kde-format
 msgid ""
 "This file could not be found. Would you like to remove it from the playlist?"
 msgstr ""
 
-#: src/app/recentlyPlayedList.cpp:126
+#: src/app/recentlyPlayedList.cpp:133 src/app/recentlyPlayedList.cpp:135
 #, kde-format
 msgctxt "@title:window"
 msgid "File not found"

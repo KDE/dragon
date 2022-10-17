@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-02 00:45+0000\n"
+"POT-Creation-Date: 2022-10-17 00:45+0000\n"
 "PO-Revision-Date: 2013-09-08 07:05+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -225,56 +225,56 @@ msgstr "DVD سىن چال"
 msgid "Play 'URL'"
 msgstr "'URL' چال"
 
-#: src/app/mainWindow.cpp:139
+#: src/app/mainWindow.cpp:140
 #, fuzzy, kde-format
 #| msgid "Aspect &Ratio"
 msgctxt "@title:menu"
 msgid "Aspect &Ratio"
 msgstr "ئۇزۇنلۇق كەڭلىك نىسبىتى(&R)"
 
-#: src/app/mainWindow.cpp:140
+#: src/app/mainWindow.cpp:141
 #, fuzzy, kde-format
 #| msgid "&Audio Channels"
 msgctxt "@title:menu"
 msgid "&Audio Channels"
 msgstr "ئۈن قاناللار(&A)"
 
-#: src/app/mainWindow.cpp:141
+#: src/app/mainWindow.cpp:142
 #, fuzzy, kde-format
 #| msgid "&Subtitles"
 msgctxt "@title:menu"
 msgid "&Subtitles"
 msgstr "ئېكران خېتى"
 
-#: src/app/mainWindow.cpp:156
+#: src/app/mainWindow.cpp:157
 #, fuzzy, kde-format
 #| msgid "Determine &Automatically"
 msgctxt "@option:radio aspect ratio"
 msgid "Determine &Automatically"
 msgstr "ئۆزلۈكىدىن جەزملە(&A)"
 
-#: src/app/mainWindow.cpp:157
+#: src/app/mainWindow.cpp:158
 #, fuzzy, kde-format
 #| msgid "&4:3"
 msgctxt "@option:radio aspect ratio"
 msgid "&4:3"
 msgstr "&4:3"
 
-#: src/app/mainWindow.cpp:158
+#: src/app/mainWindow.cpp:159
 #, fuzzy, kde-format
 #| msgid "Ana&morphic (16:9)"
 msgctxt "@option:radio aspect ratio"
 msgid "Ana&morphic (16:9)"
 msgstr "كەڭ ئېكران(16:9)(&M)"
 
-#: src/app/mainWindow.cpp:159
+#: src/app/mainWindow.cpp:160
 #, fuzzy, kde-format
 #| msgid "&Window Size"
 msgctxt "@option:radio aspect ratio"
 msgid "&Window Size"
 msgstr "كۆزنەك چوڭلۇقى(&W)"
 
-#: src/app/mainWindow.cpp:204
+#: src/app/mainWindow.cpp:205
 #, kde-format
 msgid ""
 "<qt>Phonon could not be successfully initialized. Dragon Player will now "
@@ -283,33 +283,33 @@ msgstr ""
 "<qt>Phonon نى مۇۋەپپەقىيەتلىك دەسلەپلەشتۈرەلمىدى. Dragon چالغۇچ چېكىنىدۇ.</"
 "qt>"
 
-#: src/app/mainWindow.cpp:267
+#: src/app/mainWindow.cpp:268
 #, fuzzy, kde-format
 #| msgid "Play &Media..."
 msgctxt "@action"
 msgid "Play &Media..."
 msgstr "ۋاسىتە چال(&M)…"
 
-#: src/app/mainWindow.cpp:287
+#: src/app/mainWindow.cpp:288
 #, kde-format
 msgctxt "@action"
 msgid "Increase Volume"
 msgstr "ئاۋازنى چوڭايتىش"
 
-#: src/app/mainWindow.cpp:292
+#: src/app/mainWindow.cpp:293
 #, kde-format
 msgctxt "@action"
 msgid "Decrease Volume"
 msgstr "ئاۋازنى كىچىكلىتىش"
 
-#: src/app/mainWindow.cpp:297
+#: src/app/mainWindow.cpp:298
 #, fuzzy, kde-format
 #| msgid "Stop"
 msgctxt "@action"
 msgid "Stop"
 msgstr "توختا"
 
-#: src/app/mainWindow.cpp:303
+#: src/app/mainWindow.cpp:304
 #, fuzzy, kde-format
 #| msgctxt "Mute the sound output"
 #| msgid "Mute"
@@ -317,33 +317,33 @@ msgctxt "@action Mute the sound output"
 msgid "Mute"
 msgstr "ئۈنسىز"
 
-#: src/app/mainWindow.cpp:309
+#: src/app/mainWindow.cpp:310
 #, fuzzy, kde-format
 #| msgid "Reset Video Scale"
 msgctxt "@action"
 msgid "Reset Video Scale"
 msgstr "سىن ئۆلچىكىنى ئەسلىگە قايتۇر"
 
-#: src/app/mainWindow.cpp:315
+#: src/app/mainWindow.cpp:316
 #, fuzzy, kde-format
 #| msgid "Menu Toggle"
 msgctxt "@action"
 msgid "Menu Toggle"
 msgstr "تىزىملىك ئالماشتۇر"
 
-#: src/app/mainWindow.cpp:323 src/app/part.cpp:57
+#: src/app/mainWindow.cpp:324 src/app/part.cpp:57
 #, kde-format
 msgid "Position Slider"
 msgstr "ئورۇن سۈرگۈچ"
 
-#: src/app/mainWindow.cpp:327
+#: src/app/mainWindow.cpp:328
 #, fuzzy, kde-format
 #| msgid "Video Settings"
 msgctxt "@option:check"
 msgid "Video Settings"
 msgstr "سىن تەڭشەكلىرى"
 
-#: src/app/mainWindow.cpp:336
+#: src/app/mainWindow.cpp:337
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:inmenu Whether only one instance of dragon can be started and "
@@ -355,48 +355,48 @@ msgctxt ""
 msgid "One Instance Only"
 msgstr "پەقەت بىر مىساللا"
 
-#: src/app/mainWindow.cpp:343
+#: src/app/mainWindow.cpp:344
 #, fuzzy, kde-format
 #| msgid "Previous Chapter"
 msgctxt "@action previous chapter"
 msgid "Previous"
 msgstr "ئالدىنقى بۆلۈم"
 
-#: src/app/mainWindow.cpp:349
+#: src/app/mainWindow.cpp:350
 #, kde-format
 msgctxt "@action next chapter"
 msgid "Next"
 msgstr ""
 
-#: src/app/mainWindow.cpp:356
+#: src/app/mainWindow.cpp:357
 #, fuzzy, no-c-format, kde-format
 #| msgid "Return 10% Back"
 msgctxt "@action"
 msgid "Return 10% Back"
 msgstr "كەينىگە 10% قايت"
 
-#: src/app/mainWindow.cpp:363
+#: src/app/mainWindow.cpp:364
 #, fuzzy, no-c-format, kde-format
 #| msgid "Go 10% Forward"
 msgctxt "@action"
 msgid "Go 10% Forward"
 msgstr "ئالدىغا 10% ئىلگىرىلە"
 
-#: src/app/mainWindow.cpp:369
+#: src/app/mainWindow.cpp:370
 #, fuzzy, kde-format
 #| msgid "Return 10 Seconds Back"
 msgctxt "@action"
 msgid "Return 10 Seconds Back"
 msgstr "كەينىگە 10 سېكۇنت قايت"
 
-#: src/app/mainWindow.cpp:375
+#: src/app/mainWindow.cpp:376
 #, fuzzy, kde-format
 #| msgid "Go 10 Seconds Forward"
 msgctxt "@action"
 msgid "Go 10 Seconds Forward"
 msgstr "ئالدىغا 10 سېكۇنت ئىلگىرىلە"
 
-#: src/app/mainWindow.cpp:465
+#: src/app/mainWindow.cpp:466
 #, fuzzy, kde-format
 #| msgctxt "Mute the sound output"
 #| msgid "Mute"
@@ -404,49 +404,49 @@ msgctxt "@option:check Mute the sound output"
 msgid "Mute"
 msgstr "ئۈنسىز"
 
-#: src/app/mainWindow.cpp:542
+#: src/app/mainWindow.cpp:543
 #, kde-format
 msgid "Dragon Player was asked to open an empty URL; it cannot."
 msgstr "Dragon چالغۇچ بوش URL نى ئاچالمايدۇ."
 
-#: src/app/mainWindow.cpp:621
+#: src/app/mainWindow.cpp:624
 #, fuzzy, kde-format
 #| msgid "Select File to Play"
 msgctxt "@title:window"
 msgid "Select File to Play"
 msgstr "چالىدىغان ھۆججەتنى تاللاڭ"
 
-#: src/app/mainWindow.cpp:649
+#: src/app/mainWindow.cpp:652
 #, kde-format
 msgctxt "@title:window"
 msgid "Stream to Play"
 msgstr "چالىدىغان ئېقىم"
 
-#: src/app/mainWindow.cpp:649
+#: src/app/mainWindow.cpp:652
 #, fuzzy, kde-format
 #| msgid "Stream:"
 msgctxt "@label:textbox"
 msgid "Stream:"
 msgstr "ئېقىم:"
 
-#: src/app/mainWindow.cpp:790
+#: src/app/mainWindow.cpp:793
 #, kde-format
 msgid "Sorry, no media was found in the drop"
 msgstr "كەچۈرۈڭ، بەلگىلەنگەن جايدىن ۋاسىتە تېپىلمىدى"
 
-#: src/app/mainWindow.cpp:840
+#: src/app/mainWindow.cpp:843
 #, fuzzy, kde-format
 #| msgid "Play DVD Video"
 msgctxt "Notification inhibition reason"
 msgid "playing a video"
 msgstr "DVD سىن چال"
 
-#: src/app/mainWindow.cpp:876
+#: src/app/mainWindow.cpp:879
 #, kde-format
 msgid "No media loaded"
 msgstr "ۋاسىتە يۈكلەنمىدى"
 
-#: src/app/mainWindow.cpp:878
+#: src/app/mainWindow.cpp:881
 #, kde-format
 msgid "Paused"
 msgstr "ۋاقىتلىق توختىدى"
@@ -492,33 +492,33 @@ msgstr "<qt>چالىدىغان تىزىم <i>'%1'</i> نى يېشەلمىدى. �
 msgid "Dragon Player could not open the file: %1"
 msgstr "Dragon چالغۇچ بۇ ھۆججەتنى ئاچالمىدى: %1"
 
-#: src/app/recentlyPlayedList.cpp:34
+#: src/app/recentlyPlayedList.cpp:35
 #, kde-format
 msgctxt "@action Copy the URL of the selected multimedia"
 msgid "Copy URL"
 msgstr ""
 
-#: src/app/recentlyPlayedList.cpp:39
+#: src/app/recentlyPlayedList.cpp:40
 #, fuzzy, kde-format
 #| msgid "Clear List"
 msgctxt "@action"
 msgid "Clear List"
 msgstr "تىزىملىكنى تازىلا"
 
-#: src/app/recentlyPlayedList.cpp:44
+#: src/app/recentlyPlayedList.cpp:45
 #, fuzzy, kde-format
 #| msgid "Remove Entry"
 msgctxt "@action"
 msgid "Remove Entry"
 msgstr "تۈرنى چىقىرىۋەت"
 
-#: src/app/recentlyPlayedList.cpp:125
+#: src/app/recentlyPlayedList.cpp:131
 #, kde-format
 msgid ""
 "This file could not be found. Would you like to remove it from the playlist?"
 msgstr "بۇ ھۆججەتنى تاپالمىدى. چالىدىغان تىزىمدىن ئۇنى چىقىرىۋېتەمسىز؟"
 
-#: src/app/recentlyPlayedList.cpp:126
+#: src/app/recentlyPlayedList.cpp:133 src/app/recentlyPlayedList.cpp:135
 #, fuzzy, kde-format
 #| msgid "File not found"
 msgctxt "@title:window"
