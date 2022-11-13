@@ -95,7 +95,7 @@ MainWindow::MainWindow()
     , m_profileMaxDays(30)
     , m_toolbarIsHidden(false)
     , m_statusbarIsHidden(false)
-    , m_menuBarIsHidden(false)
+    , m_menuBarIsHidden(true)
     , m_FullScreenHandler(nullptr)
 {
     s_instance = this;
@@ -178,6 +178,49 @@ MainWindow::MainWindow()
         toolBar()->setFloatable(false);
     }
     KXMLGUIClient::stateChanged(QLatin1String("empty"));
+
+    auto hamburgerMenu = KStandardAction::hamburgerMenu(nullptr, nullptr, actionCollection());
+    hamburgerMenu->setObjectName(QStringLiteral("hamburger_menu"));
+    toolBar()->addAction(hamburgerMenu);
+    hamburgerMenu->setMenuBar(menuBar());
+    if (hamburgerMenu->menu()) {
+        hamburgerMenu->menu()->clear();
+    }
+    connect(hamburgerMenu, &KHamburgerMenu::aboutToShowMenu, this, [this, hamburgerMenu] {
+        if (!hamburgerMenu->menu()) {
+            hamburgerMenu->setMenu(new QMenu);
+        }
+
+        auto ac = actionCollection();
+
+        auto menu = hamburgerMenu->menu();
+        if (!menu->isEmpty()) {
+            return;
+        }
+
+        auto originalSettingsMenu = qobject_cast<QMenu *>(guiFactory()->container(QStringLiteral("settings"), this));
+        auto settingsMenu = new QMenu(originalSettingsMenu->title());
+        settingsMenu->addActions(originalSettingsMenu->actions());
+
+        menu->addAction(ac->action(QStringLiteral("play")));
+        menu->addAction(ac->action(QStringLiteral("stop")));
+        menu->addAction(ac->action(QStringLiteral("prev_chapter")));
+        menu->addAction(ac->action(QStringLiteral("next_chapter")));
+        menu->addSeparator();
+        menu->addAction(ac->action(QStringLiteral("fullscreen")));
+        menu->addSeparator();
+        // Extract certain actions out of the settingsmenu and place them in the top level. They don't deserve to be hidden
+        for (const auto &id :
+             {"volume", "fullscreen", "aspect_ratio_menu", "subtitle_channels_menu", "audio_channels_menu", "toggle_dvd_menu", "video_settings"}) {
+            auto action = ac->action(QLatin1String(id));
+            menu->addAction(action);
+            settingsMenu->removeAction(action);
+        }
+
+        menu->addMenu(settingsMenu);
+        hamburgerMenu->setMenuBarAdvertised(false); // hide whatever remains (i.e. the quit action)
+    });
+    m_menuBarIsHidden = actionCollection()->action(QStringLiteral("options_show_menubar"))->isChecked();
 
     //"faster" startup
     // TODO if we have a size stored for this video, do the "faster" route
@@ -905,4 +948,13 @@ bool MainWindow::isFresh()
     return (date.daysTo(QDate::currentDate()) < m_profileMaxDays) ? true : false;
 }
 
+void MainWindow::contextMenuEvent(QContextMenuEvent *event)
+{
+    QMenu menu;
+    qobject_cast<KHamburgerMenu *>(action("hamburger_menu"))->addToMenu(&menu);
+    if (menu.isEmpty()) {
+        return;
+    }
+    menu.exec(event->globalPos());
+}
 } // namespace Dragon

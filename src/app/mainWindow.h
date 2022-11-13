@@ -86,6 +86,9 @@ private Q_SLOTS:
     void engineHasVideoChanged(bool);
     void toggleUnique(bool);
 
+protected:
+    void contextMenuEvent(QContextMenuEvent *event) override;
+
 private:
     bool load(const QUrl &);
     void setupActions();

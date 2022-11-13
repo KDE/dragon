@@ -4,6 +4,7 @@ ShowPreviews=false
 [MainWindow]
 Height=400
 Width=600
+MenuBar=Disabled
 
 [MainWindow Toolbar dvdToolBar]
 Hidden=true

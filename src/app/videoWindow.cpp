@@ -683,6 +683,7 @@ void VideoWindow::contextMenuEvent(QContextMenuEvent *event)
 {
     QMenu menu;
     if (mainWindow()) {
+        qobject_cast<KHamburgerMenu *>(action("hamburger_menu"))->addToMenu(&menu);
         menu.addAction(action("play"));
         menu.addAction(action("fullscreen"));
         menu.addAction(action("reset_zoom"));
