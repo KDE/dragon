@@ -16,19 +16,20 @@ class RecentlyPlayedList : public QListWidget
 {
     Q_OBJECT
 public:
-    explicit RecentlyPlayedList(QWidget*);
+    explicit RecentlyPlayedList(QWidget *);
     ~RecentlyPlayedList() override;
+
 private:
-    void contextMenuEvent(QContextMenuEvent*) override;
-    KConfigGroup* configGroup;
+    void contextMenuEvent(QContextMenuEvent *) override;
+    KConfigGroup *configGroup;
 public Q_SLOTS:
     void loadEntries();
     void removeEntry();
     void clearList();
     void copyUrl();
-    void itemDoubleClicked(QListWidgetItem*);
+    void itemDoubleClicked(QListWidgetItem *);
 Q_SIGNALS:
-    void itemDoubleClicked(const QUrl&);
+    void itemDoubleClicked(const QUrl &);
 };
 
 #endif

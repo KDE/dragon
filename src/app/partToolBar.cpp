@@ -11,24 +11,22 @@
 #include <QEvent>
 #include <QResizeEvent>
 
-MouseOverToolBar::MouseOverToolBar( QWidget *parent )
-    : KToolBar( parent )
+MouseOverToolBar::MouseOverToolBar(QWidget *parent)
+    : KToolBar(parent)
 {
-    parent->installEventFilter( this );
+    parent->installEventFilter(this);
     //  move( 0, 0 ); //TODO necessary?
     hide();
 
-    setPalette( QApplication::palette() ); //videoWindow palette has a black background
+    setPalette(QApplication::palette()); // videoWindow palette has a black background
 }
 
-bool
-MouseOverToolBar::eventFilter( QObject */*o*/, QEvent *e )
+bool MouseOverToolBar::eventFilter(QObject * /*o*/, QEvent *e)
 {
-    switch( e->type() )
-    {
-    /*case QEvent::Resize:
-      resize( static_cast<QResizeEvent*>(e)->size().width(), sizeHint().height() );
-      break;*/
+    switch (e->type()) {
+        /*case QEvent::Resize:
+          resize( static_cast<QResizeEvent*>(e)->size().width(), sizeHint().height() );
+          break;*/
 
     case QEvent::Enter:
         show();
@@ -38,8 +36,7 @@ MouseOverToolBar::eventFilter( QObject */*o*/, QEvent *e )
         hide();
         break;
 
-    default:
-        ;
+    default:;
     }
 
     return false;

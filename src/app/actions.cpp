@@ -11,45 +11,45 @@
 #include <QDebug>
 #include <QIcon>
 
-#include <KLocalizedString>
 #include <KGuiItem>
+#include <KLocalizedString>
 
 #include "videoWindow.h"
 
 Dragon::PlayAction::PlayAction(KActionCollection *ac)
-    : KDualAction( ac )
+    : KDualAction(ac)
 {
-    setObjectName( QLatin1String( "play" ) );
+    setObjectName(QLatin1String("play"));
 
     setInactiveGuiItem(KGuiItem(i18nc("@action", "Play"), QStringLiteral("media-playback-start")));
-    setActiveGuiItem(KGuiItem(i18nc("@action", "Pause"), QStringLiteral( "media-playback-pause")));
-    setAutoToggle( false );
+    setActiveGuiItem(KGuiItem(i18nc("@action", "Pause"), QStringLiteral("media-playback-pause")));
+    setAutoToggle(false);
     ac->setDefaultShortcuts(this, QList<QKeySequence>() << Qt::Key_Space << Qt::Key_MediaPlay);
-    ac->addAction( objectName(), this );
+    ac->addAction(objectName(), this);
 }
 
-void Dragon::PlayAction::setPlaying( bool playing )
+void Dragon::PlayAction::setPlaying(bool playing)
 {
-    setActive( playing );
+    setActive(playing);
 }
 
 /////////////////////////////////////////////////////
-///Codeine::VolumeAction
+/// Codeine::VolumeAction
 ////////////////////////////////////////////////////
 Dragon::VolumeAction::VolumeAction(KActionCollection *ac)
     : KToggleAction(i18nc("@option:check Volume of sound output", "Volume"), ac)
 {
-    setObjectName( QLatin1String( "volume" ) );
-    setIcon( QIcon::fromTheme(QLatin1String( "player-volume" ) ) );
+    setObjectName(QLatin1String("volume"));
+    setIcon(QIcon::fromTheme(QLatin1String("player-volume")));
     ac->setDefaultShortcut(this, Qt::Key_V);
-    ac->addAction( objectName(), this );
+    ac->addAction(objectName(), this);
     connect(engine(), &Dragon::VideoWindow::mutedChanged, this, &Dragon::VolumeAction::mutedChanged);
 }
 
-void Dragon::VolumeAction::mutedChanged( bool mute )
+void Dragon::VolumeAction::mutedChanged(bool mute)
 {
-    if ( mute )
-        setIcon( QIcon::fromTheme( QLatin1String( "player-volume-muted" ) ) );
+    if (mute)
+        setIcon(QIcon::fromTheme(QLatin1String("player-volume-muted")));
     else
-        setIcon( QIcon::fromTheme( QLatin1String( "player-volume" ) ) );
+        setIcon(QIcon::fromTheme(QLatin1String("player-volume")));
 }

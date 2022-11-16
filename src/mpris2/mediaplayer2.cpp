@@ -18,12 +18,11 @@
 #include <KService>
 #include <KWindowSystem>
 
-MediaPlayer2::MediaPlayer2(QObject* parent)
+MediaPlayer2::MediaPlayer2(QObject *parent)
     : QDBusAbstractAdaptor(parent)
 {
     connect(Dragon::action("fullscreen"), &QAction::toggled, this, &MediaPlayer2::emitFullscreenChange);
-    connect(Dragon::videoWindow(), &Dragon::VideoWindow::hasVideoChanged,
-            this, &MediaPlayer2::emitFullscreenChange);
+    connect(Dragon::videoWindow(), &Dragon::VideoWindow::hasVideoChanged, this, &MediaPlayer2::emitFullscreenChange);
 }
 
 MediaPlayer2::~MediaPlayer2()
@@ -63,9 +62,9 @@ void MediaPlayer2::setFullscreen(bool fullscreen) const
 
 void MediaPlayer2::emitFullscreenChange(bool fullscreen) const
 {
-    const QVariantMap properties {
-        { QStringLiteral("Fullscreen"), fullscreen },
-        { QStringLiteral("CanSetFullscreen"), CanSetFullscreen()},
+    const QVariantMap properties{
+        {QStringLiteral("Fullscreen"), fullscreen},
+        {QStringLiteral("CanSetFullscreen"), CanSetFullscreen()},
     };
     Mpris2::signalPropertiesChange(this, properties);
 }
@@ -95,7 +94,7 @@ QStringList MediaPlayer2::SupportedUriSchemes() const
     QStringList protocols;
 
     const auto allProtocols = KProtocolInfo::protocols();
-    for (const QString& protocol : allProtocols) {
+    for (const QString &protocol : allProtocols) {
         if (!KProtocolInfo::isHelperProtocol(protocol))
             protocols << protocol;
     }

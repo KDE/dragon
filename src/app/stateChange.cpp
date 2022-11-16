@@ -9,25 +9,25 @@
 #include "mainWindow.h"
 
 #include <KSharedConfig>
-#include <QDebug>
 #include <KToolBar>
+#include <QDebug>
 
 #include "actions.h"
+#include "audioView2.h"
 #include "theStream.h"
 #include "videoWindow.h"
-#include "audioView2.h"
 
 #define QT_FATAL_ASSERT
 
-namespace Dragon {
+namespace Dragon
+{
 
-void MainWindow::engineStateChanged( Phonon::State state )
+void MainWindow::engineStateChanged(Phonon::State state)
 {
     bool const isFullScreen = toggleAction("fullscreen")->isChecked();
     bool const hasMedia = TheStream::hasMedia();
 
-    switch(state)
-    {
+    switch (state) {
     case Phonon::LoadingState:
         qDebug() << "Loading state";
         break;
@@ -52,7 +52,7 @@ void MainWindow::engineStateChanged( Phonon::State state )
     action("stop")->setEnabled(enable);
     action("video_settings")->setEnabled(enable && TheStream::hasVideo());
     action("volume")->setEnabled(enable);
-    if( m_volumeSlider )
+    if (m_volumeSlider)
         m_volumeSlider->setEnabled(enable);
     action("fullscreen")->setEnabled(enable || isFullScreen);
     action("reset_zoom")->setEnabled(hasMedia && !isFullScreen);
@@ -86,40 +86,39 @@ void MainWindow::engineStateChanged( Phonon::State state )
     {
         // the toolbar play button is always enabled, but the menu item
         // is disabled if we are empty, this looks more sensible
-        PlayAction* playAction = static_cast<PlayAction*>( actionCollection()->action(QLatin1String( "play" )) );
-        playAction->setEnabled( hasMedia );
-        playAction->setPlaying( state == Phonon::PlayingState || state == Phonon::BufferingState );
-        actionCollection()->action(QLatin1String( "aspect_ratio_menu" ))->setEnabled((enable) && TheStream::hasVideo() );
+        PlayAction *playAction = static_cast<PlayAction *>(actionCollection()->action(QLatin1String("play")));
+        playAction->setEnabled(hasMedia);
+        playAction->setPlaying(state == Phonon::PlayingState || state == Phonon::BufferingState);
+        actionCollection()->action(QLatin1String("aspect_ratio_menu"))->setEnabled((enable) && TheStream::hasVideo());
 
         // set correct aspect ratio
-        if( state != Phonon::LoadingState )
-            TheStream::aspectRatioAction()->setChecked( true );
+        if (state != Phonon::LoadingState)
+            TheStream::aspectRatioAction()->setChecked(true);
     }
     qDebug() << "updated menus";
 
     /// turn off screensaver
-    if( state == Phonon::PlayingState )
+    if (state == Phonon::PlayingState)
         inhibitPowerSave();
-    else if( state == Phonon::StoppedState || !TheStream::hasMedia() )
+    else if (state == Phonon::StoppedState || !TheStream::hasMedia())
         releasePowerSave();
 
     updateTitleBarText();
 
     // enable/disable DVD specific buttons
-    QWidget *dvd_button = toolBar()->findChild< QWidget* >( QLatin1String( "toolbutton_toggle_dvd_menu" ));
-    if(videoWindow()->isDVD()) {
+    QWidget *dvd_button = toolBar()->findChild<QWidget *>(QLatin1String("toolbutton_toggle_dvd_menu"));
+    if (videoWindow()->isDVD()) {
         if (dvd_button) {
             dvd_button->setVisible(true);
         }
-        action("toggle_dvd_menu")->setEnabled( true );
+        action("toggle_dvd_menu")->setEnabled(true);
     } else {
         if (dvd_button) {
             dvd_button->setVisible(false);
         }
-        action("toggle_dvd_menu")->setEnabled( false );
+        action("toggle_dvd_menu")->setEnabled(false);
     }
-}//engineStateChanged
-
+} // engineStateChanged
 
 void MainWindow::engineMediaChanged(Phonon::MediaSource /*newSource*/)
 {
@@ -128,41 +127,39 @@ void MainWindow::engineMediaChanged(Phonon::MediaSource /*newSource*/)
     // update recently played list
     qDebug() << " update recent files list ";
 
-    Q_EMIT fileChanged( engine()->urlOrDisc() );
-    //TODO fetch this from the Media source
+    Q_EMIT fileChanged(engine()->urlOrDisc());
+    // TODO fetch this from the Media source
     QUrl const &url = TheStream::url();
     const QString url_string = url.url();
 
 #ifndef NO_SKIP_PR0N
     // ;-)
-    if( !(url_string.contains( QLatin1String( "porn" ), Qt::CaseInsensitive )
-          || url_string.contains( QLatin1String( "pr0n" ), Qt::CaseInsensitive )) ) {
+    if (!(url_string.contains(QLatin1String("porn"), Qt::CaseInsensitive) || url_string.contains(QLatin1String("pr0n"), Qt::CaseInsensitive))) {
 #endif
-        if( url.scheme() != QLatin1String( "dvd" ) && url.scheme() != QLatin1String( "vcd" ) && !url.toDisplayString().isEmpty()) {
-            KConfigGroup config = KConfigGroup( KSharedConfig::openConfig(), "General" );
-            const auto list = config.readPathEntry( "Recent Urls", QStringList() );
+        if (url.scheme() != QLatin1String("dvd") && url.scheme() != QLatin1String("vcd") && !url.toDisplayString().isEmpty()) {
+            KConfigGroup config = KConfigGroup(KSharedConfig::openConfig(), "General");
+            const auto list = config.readPathEntry("Recent Urls", QStringList());
             auto urls = QUrl::fromStringList(list);
             urls.removeAll(url);
-            config.writePathEntry( "Recent Urls", QUrl::toStringList(urls << url) );
+            config.writePathEntry("Recent Urls", QUrl::toStringList(urls << url));
             Q_EMIT m_loadView->reloadRecentlyList();
         }
 #ifndef NO_SKIP_PR0N
     }
 #endif
 
-}//engineMediaChanged
+} // engineMediaChanged
 
 void MainWindow::engineSeekableChanged(bool canSeek)
 {
     qDebug() << "seekable changed to " << canSeek;
-    m_positionSlider->setEnabled( canSeek );
-    action("ten_percent_back")->setEnabled( canSeek );
-    action("ten_percent_forward")->setEnabled( canSeek );
-    action("ten_seconds_back")->setEnabled( canSeek );
-    action("ten_seconds_forward")->setEnabled( canSeek );
-    //TODO connect/disconnect the jump forward/back here.
-}//engineSeekableChanged
-
+    m_positionSlider->setEnabled(canSeek);
+    action("ten_percent_back")->setEnabled(canSeek);
+    action("ten_percent_forward")->setEnabled(canSeek);
+    action("ten_seconds_back")->setEnabled(canSeek);
+    action("ten_seconds_forward")->setEnabled(canSeek);
+    // TODO connect/disconnect the jump forward/back here.
+} // engineSeekableChanged
 
 void MainWindow::engineMetaDataChanged()
 {
@@ -173,13 +170,13 @@ void MainWindow::engineMetaDataChanged()
         m_audioView->update();
 }
 
-void MainWindow::engineHasVideoChanged( bool hasVideo )
+void MainWindow::engineHasVideoChanged(bool hasVideo)
 {
     Q_UNUSED(hasVideo);
 
     qDebug() << "hasVideo changed" << hasVideo;
-    if( TheStream::hasVideo() ) {
-        if( m_mainView->indexOf(engine()) == -1 )
+    if (TheStream::hasVideo()) {
+        if (m_mainView->indexOf(engine()) == -1)
             m_mainView->addWidget(engine());
         m_mainView->setCurrentWidget(engine());
         m_currentWidget = engine();
@@ -204,4 +201,4 @@ void MainWindow::engineHasVideoChanged( bool hasVideo )
     }
 }
 
-}//namespace
+} // namespace

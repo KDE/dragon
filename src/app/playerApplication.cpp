@@ -34,9 +34,7 @@ void PlayerApplication::slotActivateRequested(const QStringList &arguments, cons
         newInstance(true);
         forceActiveWindow();
     } else if (arguments.count() == 2) { // 1st arg binary name, 2nd arg file to open
-        QUrl url = QUrl::fromUserInput(arguments.at(1),
-                                       workingDirectory,
-                                       QUrl::AssumeLocalFile);
+        QUrl url = QUrl::fromUserInput(arguments.at(1), workingDirectory, QUrl::AssumeLocalFile);
         newInstance(false, {url});
         forceActiveWindow();
     }

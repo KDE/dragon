@@ -19,13 +19,14 @@ class DiscSelectionDialog : public QDialog
 {
     Q_OBJECT
 public:
-    DiscSelectionDialog( QWidget* parent, const QList< Solid::Device >& deviceList );
+    DiscSelectionDialog(QWidget *parent, const QList<Solid::Device> &deviceList);
 private Q_SLOTS:
-    void discItemSelected( QListWidgetItem *item );
+    void discItemSelected(QListWidgetItem *item);
     void okClicked();
+
 private:
-    void openItem( QListWidgetItem *item );
-    QListWidget* m_listWidget;
+    void openItem(QListWidgetItem *item);
+    QListWidget *m_listWidget;
 };
 
 #endif

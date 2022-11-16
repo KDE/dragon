@@ -10,8 +10,8 @@
 #include "playerApplication.h"
 
 #include <QApplication>
-#include <QCommandLineParser>
 #include <QCommandLineOption>
+#include <QCommandLineParser>
 #include <QDebug>
 #include <QDir>
 #include <QUrl>
@@ -19,11 +19,11 @@
 #include <KAboutData>
 #include <KConfigGroup>
 #include <KCrash>
-#include <KSharedConfig>
-#include <KLocalizedString>
 #include <KDBusService>
+#include <KLocalizedString>
+#include <KSharedConfig>
 
-int main( int argc, char **argv )
+int main(int argc, char **argv)
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
@@ -33,22 +33,23 @@ int main( int argc, char **argv )
 
     KLocalizedString::setApplicationDomain("dragonplayer");
 
-    KAboutData aboutData( QStringLiteral(APP_NAME),
-                          i18n("Dragon Player"),
-                          QStringLiteral(APP_VERSION),
-                          i18n("A video player that has a usability focus"), KAboutLicense::GPL_V2,
-                          i18n("Copyright 2006, Max Howell\nCopyright 2007, Ian Monroe"),
-                          QString(),
-                          QStringLiteral("https://commits.kde.org/dragon"));
+    KAboutData aboutData(QStringLiteral(APP_NAME),
+                         i18n("Dragon Player"),
+                         QStringLiteral(APP_VERSION),
+                         i18n("A video player that has a usability focus"),
+                         KAboutLicense::GPL_V2,
+                         i18n("Copyright 2006, Max Howell\nCopyright 2007, Ian Monroe"),
+                         QString(),
+                         QStringLiteral("https://commits.kde.org/dragon"));
     aboutData.setDesktopFileName(QStringLiteral("org.kde.dragonplayer"));
-    aboutData.addCredit( QStringLiteral("David Edmundson"), i18n("Improvements and polish") );
-    aboutData.addCredit( QStringLiteral("Matthias Kretz"), i18n("Creator of Phonon") );
-    aboutData.addCredit( QStringLiteral("Eugene Trounev"), i18n("Dragon Player icon") );
-    aboutData.addCredit( QStringLiteral("Mike Diehl"), i18n("Handbook") );
-    aboutData.addCredit( QStringLiteral("The Kaffeine Developers"), i18n("Great reference code") );
-    aboutData.addCredit( QStringLiteral("Greenleaf"), i18n("Yatta happened to be the only video on my laptop to test with. :)") );
-    aboutData.addCredit( QStringLiteral("Eike Hein"), i18n("MPRIS v2 support") );
-    aboutData.addCredit( QStringLiteral("Lukáš Tinkl"), i18n("Port to KF5/Plasma 5"), QStringLiteral("lukas@kde.org") );
+    aboutData.addCredit(QStringLiteral("David Edmundson"), i18n("Improvements and polish"));
+    aboutData.addCredit(QStringLiteral("Matthias Kretz"), i18n("Creator of Phonon"));
+    aboutData.addCredit(QStringLiteral("Eugene Trounev"), i18n("Dragon Player icon"));
+    aboutData.addCredit(QStringLiteral("Mike Diehl"), i18n("Handbook"));
+    aboutData.addCredit(QStringLiteral("The Kaffeine Developers"), i18n("Great reference code"));
+    aboutData.addCredit(QStringLiteral("Greenleaf"), i18n("Yatta happened to be the only video on my laptop to test with. :)"));
+    aboutData.addCredit(QStringLiteral("Eike Hein"), i18n("MPRIS v2 support"));
+    aboutData.addCredit(QStringLiteral("Lukáš Tinkl"), i18n("Port to KF5/Plasma 5"), QStringLiteral("lukas@kde.org"));
 
     KAboutData::setApplicationData(aboutData);
 
@@ -70,9 +71,7 @@ int main( int argc, char **argv )
     QList<QUrl> urls;
     const QStringList args = parser.positionalArguments();
     if (!args.isEmpty()) {
-        urls.append(QUrl::fromUserInput(args.first(),
-                                        QDir::currentPath(),
-                                        QUrl::AssumeLocalFile));
+        urls.append(QUrl::fromUserInput(args.first(), QDir::currentPath(), QUrl::AssumeLocalFile));
     }
 
     app.newInstance(parser.isSet(playDvDOption), urls);

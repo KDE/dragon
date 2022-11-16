@@ -8,27 +8,42 @@
 #ifndef DRAGONPLAYER_PLAYLIST_FILE_H
 #define DRAGONPLAYER_PLAYLIST_FILE_H
 
-#include <QUrl>
-#include <QTextStream>
 #include <QList>
+#include <QTextStream>
+#include <QUrl>
 
 class PlaylistFile
 {
 public:
-    explicit PlaylistFile( const QUrl &url );
+    explicit PlaylistFile(const QUrl &url);
     ~PlaylistFile();
 
     enum FileFormat { M3U, PLS, Unknown, NotPlaylistFile = Unknown };
 
-    bool isPlaylist() const { return m_type != Unknown; }
-    bool isValid() const { return m_isValid; }
-    QUrl firstUrl() const { return m_contents.isEmpty() ? QUrl() : m_contents.first(); }
-    QList<QUrl> contents() const { return m_contents; }
-    QString error() const { return m_error; }
+    bool isPlaylist() const
+    {
+        return m_type != Unknown;
+    }
+    bool isValid() const
+    {
+        return m_isValid;
+    }
+    QUrl firstUrl() const
+    {
+        return m_contents.isEmpty() ? QUrl() : m_contents.first();
+    }
+    QList<QUrl> contents() const
+    {
+        return m_contents;
+    }
+    QString error() const
+    {
+        return m_error;
+    }
 
 private:
-    void parsePlsFile( QTextStream& );
-    void parseM3uFile( QTextStream& );
+    void parsePlsFile(QTextStream &);
+    void parseM3uFile(QTextStream &);
 
     void addToPlaylist(const QString &line);
 

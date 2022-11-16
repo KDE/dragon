@@ -5,15 +5,16 @@
 */
 
 #include "audioView2.h"
-#include "ui_audioView2.h"
 #include "theStream.h"
+#include "ui_audioView2.h"
 #include "videoWindow.h"
 
-namespace Dragon {
+namespace Dragon
+{
 
-AudioView2::AudioView2(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::AudioView2)
+AudioView2::AudioView2(QWidget *parent)
+    : QWidget(parent)
+    , ui(new Ui::AudioView2)
 {
     ui->setupUi(this);
 
@@ -41,9 +42,9 @@ void AudioView2::enableDemo(bool enable)
 
 void AudioView2::update()
 {
-    ui->m_artist->setText( TheStream::metaData( Phonon::ArtistMetaData ) );
-    ui->m_album->setText( TheStream::metaData( Phonon::AlbumMetaData ) );
-    ui->m_track->setText( TheStream::metaData( Phonon::TitleMetaData ) );
+    ui->m_artist->setText(TheStream::metaData(Phonon::ArtistMetaData));
+    ui->m_album->setText(TheStream::metaData(Phonon::AlbumMetaData));
+    ui->m_track->setText(TheStream::metaData(Phonon::TitleMetaData));
     //    { //somewhat of a longshot: try to find Amarok cover for the music
     //        QString imagePath = checkForAmarokImage( artist, album );
     //        if(imagePath.isNull())
@@ -69,7 +70,6 @@ void AudioView2::update()
     //        }
     //    }
 }
-
 
 void AudioView2::changeEvent(QEvent *e)
 {

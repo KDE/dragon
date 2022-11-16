@@ -8,19 +8,20 @@
 #define DRAGONPLAYER_MESSAGEBOX
 
 #include <KMessageBox>
-namespace Dragon {
-    static class VideoWindow* videoWindow();
-    namespace MessageBox
-    {
-        static inline void error( const QString &message )
-        {
-            KMessageBox::error( (QWidget*)videoWindow(), message );
-        }
-    
-        static inline void information( const QString &message, const QString &title )
-        {
-            KMessageBox::information( (QWidget*)videoWindow(), message, title );
-        }
-    }
+namespace Dragon
+{
+static class VideoWindow *videoWindow();
+namespace MessageBox
+{
+static inline void error(const QString &message)
+{
+    KMessageBox::error((QWidget *)videoWindow(), message);
+}
+
+static inline void information(const QString &message, const QString &title)
+{
+    KMessageBox::information((QWidget *)videoWindow(), message, title);
+}
+}
 }
 #endif

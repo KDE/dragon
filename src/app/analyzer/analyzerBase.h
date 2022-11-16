@@ -12,11 +12,11 @@
 #include <sys/types.h>
 #endif
 
-#include "fht.h"     //stack allocated and convenience
+#include "fht.h" //stack allocated and convenience
 #include <QPixmap> //stack allocated and convenience
-#include <QTimer>  //stack allocated
+#include <QTimer> //stack allocated
 #include <QWidget> //baseclass
-#include <vector>    //included for convenience
+#include <vector> //included for convenience
 
 #include <phonon/audiodataoutput.h>
 
@@ -24,8 +24,8 @@ class QEvent;
 class QPaintEvent;
 class QResizeEvent;
 
-
-namespace Analyzer {
+namespace Analyzer
+{
 
 typedef std::vector<float> Scope;
 
@@ -34,49 +34,63 @@ class Base : public QWidget
     Q_OBJECT
 
 public Q_SLOTS:
-    void drawFrame(const QMap<Phonon::AudioDataOutput::Channel, QVector<qint16> > &thescope);
+    void drawFrame(const QMap<Phonon::AudioDataOutput::Channel, QVector<qint16>> &thescope);
 
 protected:
-    Base(QWidget*, uint = 7);
-    ~Base() override { delete m_fht; }
+    Base(QWidget *, uint = 7);
+    ~Base() override
+    {
+        delete m_fht;
+    }
 
-    int  resizeExponent(int);
-    int  resizeForBands(int);
-    virtual void transform(QVector<float>&);
-    virtual void analyze(const QVector<float>&) = 0;
+    int resizeExponent(int);
+    int resizeForBands(int);
+    virtual void transform(QVector<float> &);
+    virtual void analyze(const QVector<float> &) = 0;
     virtual void paused();
 public Q_SLOTS:
     void demo();
+
 protected:
     FHT *m_fht;
 };
-
 
 class Base2D : public Base
 {
     Q_OBJECT
 public:
-    const QPixmap *canvas() const { return &m_canvas; }
+    const QPixmap *canvas() const
+    {
+        return &m_canvas;
+    }
 
     // private Q_SLOTS:
     //     void draw() { drawFrame(); bitBlt( this, 0, 0, canvas() ); }
 
-    void enableDemo(bool enable) { enable ? timer.start() : timer.stop(); }
-
+    void enableDemo(bool enable)
+    {
+        enable ? timer.start() : timer.stop();
+    }
 
 protected:
-    Base2D( QWidget*, uint scopeSize = 7);
+    Base2D(QWidget *, uint scopeSize = 7);
 
+    QPixmap *canvas()
+    {
+        return &m_canvas;
+    }
+    void eraseCanvas()
+    {
+        m_canvas.fill(Qt::transparent);
+    }
 
-    QPixmap     *canvas() { return &m_canvas; }
-    void    eraseCanvas() { m_canvas.fill(Qt::transparent); }
-
-    void paintEvent( QPaintEvent* ) override;
-    void resizeEvent( QResizeEvent* ) override;
-
+    void paintEvent(QPaintEvent *) override;
+    void resizeEvent(QResizeEvent *) override;
 
 protected Q_SLOTS:
-    virtual void init() {}
+    virtual void init()
+    {
+    }
 
 private:
     QPixmap m_canvas;
@@ -85,23 +99,22 @@ private:
 
 class Factory
 {
-    //Currently this is a rather small class, its only purpose
-    //to ensure that making changes to analyzers will not require
-    //rebuilding the world!
+    // Currently this is a rather small class, its only purpose
+    // to ensure that making changes to analyzers will not require
+    // rebuilding the world!
 
-    //eventually it would be better to make analyzers pluggable
-    //but I can't be arsed, nor can I see much reason to do so
-    //yet!
+    // eventually it would be better to make analyzers pluggable
+    // but I can't be arsed, nor can I see much reason to do so
+    // yet!
 public:
-    static QWidget* createAnalyzer(QWidget*);
-    static QWidget* createPlaylistAnalyzer(QWidget *);
+    static QWidget *createAnalyzer(QWidget *);
+    static QWidget *createPlaylistAnalyzer(QWidget *);
 };
 
+void interpolate(const QVector<float> &, QVector<float> &);
+void initSin(QVector<float> &, const uint = 6000);
 
-void interpolate(const QVector<float>&, QVector<float>&);
-void initSin(QVector<float>&, const uint = 6000);
-
-} //END namespace Analyzer
+} // END namespace Analyzer
 
 using Analyzer::Scope;
 

@@ -10,13 +10,12 @@
 
 #include <KToolBar>
 
-
 class MouseOverToolBar : public KToolBar
 {
-    bool eventFilter( QObject*, QEvent* ) override;
+    bool eventFilter(QObject *, QEvent *) override;
 
 public:
-    explicit MouseOverToolBar( QWidget *parent );
+    explicit MouseOverToolBar(QWidget *parent);
 };
 
 #endif

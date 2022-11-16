@@ -30,15 +30,15 @@ class AdjustSizeButton : public QFrame
     QFrame *m_thingy;
 
 public:
-    explicit AdjustSizeButton( QWidget *parent );
+    explicit AdjustSizeButton(QWidget *parent);
 
 private:
-    void timerEvent( QTimerEvent* ) override;
-    bool eventFilter( QObject*, QEvent* ) override;
+    void timerEvent(QTimerEvent *) override;
+    bool eventFilter(QObject *, QEvent *) override;
 
     inline void move()
     {
-        QWidget::move( parentWidget()->width() - width(), parentWidget()->height() - m_offset );
+        QWidget::move(parentWidget()->width() - width(), parentWidget()->height() - m_offset);
     }
 };
 }

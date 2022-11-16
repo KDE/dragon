@@ -12,91 +12,89 @@
 
 #include <QApplication>
 #include <QDebug>
-#include <QPushButton>
 #include <QFile>
+#include <QIcon>
 #include <QLabel>
 #include <QLayout>
+#include <QPushButton>
 #include <QSignalMapper>
-#include <QIcon>
 
 #include <KLocalizedString>
 #include <KStandardGuiItem>
 
-namespace Dragon {
-
-PlayDialog::PlayDialog( QWidget *parent, bool be_welcome_dialog )
-    : QDialog( parent )
+namespace Dragon
 {
-    setWindowTitle( i18nc("@title:window", "Play Media") );
 
-    QSignalMapper *mapper = new QSignalMapper( this );
+PlayDialog::PlayDialog(QWidget *parent, bool be_welcome_dialog)
+    : QDialog(parent)
+{
+    setWindowTitle(i18nc("@title:window", "Play Media"));
+
+    QSignalMapper *mapper = new QSignalMapper(this);
     QPushButton *o;
-    QPushButton *closeButton = new QPushButton( this );
+    QPushButton *closeButton = new QPushButton(this);
     KGuiItem::assign(closeButton, KStandardGuiItem::close());
     QBoxLayout *vbox = new QVBoxLayout();
-    //vbox->setContentsMargins(0, 0, 0, 0);
-    vbox->setSpacing( 15 );
+    // vbox->setContentsMargins(0, 0, 0, 0);
+    vbox->setSpacing(15);
     //    hbox->setMargin( 15 );  vbox->setMargin( 15 );
     //    hbox->setSpacing( 20 ); vbox->setSpacing( 20 );
 
-    vbox->addWidget( new QLabel( i18n( "What media would you like to play?" ), this ) );
+    vbox->addWidget(new QLabel(i18n("What media would you like to play?"), this));
 
     QGridLayout *grid = new QGridLayout();
-    vbox->addLayout( grid );
+    vbox->addLayout(grid);
     grid->setContentsMargins(0, 0, 0, 0);
-    grid->setVerticalSpacing( 20 );
+    grid->setVerticalSpacing(20);
 
-    //TODO use the kguiItems from the actions
-    mapper->setMapping( o = new QPushButton( QIcon::fromTheme(QStringLiteral("document-open")), i18nc("@action:button", "Play File..."), this ), FILE );
+    // TODO use the kguiItems from the actions
+    mapper->setMapping(o = new QPushButton(QIcon::fromTheme(QStringLiteral("document-open")), i18nc("@action:button", "Play File..."), this), FILE);
     connect(o, &QAbstractButton::clicked, mapper, QOverload<>::of(&QSignalMapper::map));
-    grid->addWidget( o, 0, 0 );
+    grid->addWidget(o, 0, 0);
 
-    mapper->setMapping( o = new QPushButton( QIcon::fromTheme(QStringLiteral("media-optical-video")), i18nc("@action:button", "Play Disc"), this ), DVD );
+    mapper->setMapping(o = new QPushButton(QIcon::fromTheme(QStringLiteral("media-optical-video")), i18nc("@action:button", "Play Disc"), this), DVD);
     connect(o, &QAbstractButton::clicked, mapper, QOverload<>::of(&QSignalMapper::map));
-    grid->addWidget( o, 0, 1 );
+    grid->addWidget(o, 0, 1);
 
-    mapper->setMapping( closeButton, QDialog::Rejected );
+    mapper->setMapping(closeButton, QDialog::Rejected);
     connect(closeButton, &QAbstractButton::clicked, mapper, QOverload<>::of(&QSignalMapper::map));
 
-    createRecentFileWidget( grid );
+    createRecentFileWidget(grid);
 
     QBoxLayout *hbox = new QHBoxLayout();
-    hbox->addItem( new QSpacerItem( 10, 10, QSizePolicy::Expanding ) );
+    hbox->addItem(new QSpacerItem(10, 10, QSizePolicy::Expanding));
 
-    if( be_welcome_dialog ) {
-        QPushButton *w = new QPushButton( this );
+    if (be_welcome_dialog) {
+        QPushButton *w = new QPushButton(this);
         KGuiItem::assign(w, KStandardGuiItem::quit());
-        hbox->addWidget( w );
+        hbox->addWidget(w);
         connect(w, &QAbstractButton::clicked, qApp, &QApplication::closeAllWindows);
     }
 
-    hbox->addWidget( closeButton );
+    hbox->addWidget(closeButton);
 
-    connect( mapper, SIGNAL(mapped(int)), mainWindow(), SLOT(playDialogResult(int)) );
-    vbox->addLayout( hbox );
-    setLayout( vbox );
-    setAttribute( Qt::WA_DeleteOnClose, true );
+    connect(mapper, SIGNAL(mapped(int)), mainWindow(), SLOT(playDialogResult(int)));
+    vbox->addLayout(hbox);
+    setLayout(vbox);
+    setAttribute(Qt::WA_DeleteOnClose, true);
 }
 
-void
-PlayDialog::createRecentFileWidget( QGridLayout *layout )
+void PlayDialog::createRecentFileWidget(QGridLayout *layout)
 {
-    RecentlyPlayedList *lv = new RecentlyPlayedList( this );
+    RecentlyPlayedList *lv = new RecentlyPlayedList(this);
 
-    //delete list view widget if there are no items in it
-    if( lv->count() ) {
-        layout->addWidget( lv, 1, 0, 1, -1);
+    // delete list view widget if there are no items in it
+    if (lv->count()) {
+        layout->addWidget(lv, 1, 0, 1, -1);
         connect(lv, &QListWidget::itemActivated, this, &PlayDialog::finished);
-    }
-    else
+    } else
         delete lv;
 }
 
-void
-PlayDialog::finished(QListWidgetItem * item )
+void PlayDialog::finished(QListWidgetItem *item)
 {
-    m_url = item->data( 0xdecade ).value<QUrl>();
-    ((Dragon::MainWindow*) mainWindow() )->openRecentFile( m_url );
+    m_url = item->data(0xdecade).value<QUrl>();
+    ((Dragon::MainWindow *)mainWindow())->openRecentFile(m_url);
 }
 
 }

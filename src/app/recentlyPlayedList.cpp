@@ -6,30 +6,32 @@
 
 #include "recentlyPlayedList.h"
 
-#include <QListWidget>
+#include <KConfig>
 #include <QApplication>
 #include <QClipboard>
-#include <KConfig>
+#include <QContextMenuEvent>
 #include <QDebug>
-#include <QMenu>
 #include <QDialog>
 #include <QFile>
 #include <QFileInfo>
-#include <QContextMenuEvent>
 #include <QIcon>
+#include <QListWidget>
+#include <QMenu>
 
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KSharedConfig>
 #include <kwidgetsaddons_version.h>
 
-//this is a widget for dispaying the recently played items in a list. It is subclassed so that we can hook up a context menu
+// this is a widget for dispaying the recently played items in a list. It is subclassed so that we can hook up a context menu
 RecentlyPlayedList::RecentlyPlayedList(QWidget *parent)
     : QListWidget(parent)
 {
-    connect(this, QOverload<QListWidgetItem*>::of(&QListWidget::itemDoubleClicked),
-            this, QOverload<QListWidgetItem*>::of(&RecentlyPlayedList::itemDoubleClicked));
-    setAlternatingRowColors( true );
+    connect(this,
+            QOverload<QListWidgetItem *>::of(&QListWidget::itemDoubleClicked),
+            this,
+            QOverload<QListWidgetItem *>::of(&RecentlyPlayedList::itemDoubleClicked));
+    setAlternatingRowColors(true);
     setSelectionMode(QAbstractItemView::SingleSelection);
 
     QAction *copy = new QAction(i18nc("@action Copy the URL of the selected multimedia", "Copy URL"), this);
@@ -49,7 +51,7 @@ RecentlyPlayedList::RecentlyPlayedList(QWidget *parent)
 
     addActions({copy, remove, clear});
 
-    configGroup = new KConfigGroup( KSharedConfig::openConfig(), "General" );
+    configGroup = new KConfigGroup(KSharedConfig::openConfig(), "General");
     loadEntries();
 }
 
@@ -61,24 +63,24 @@ RecentlyPlayedList::~RecentlyPlayedList()
 void RecentlyPlayedList::loadEntries()
 {
     clear();
-    const QStringList entries = configGroup->readPathEntry( "Recent Urls", QStringList() );
+    const QStringList entries = configGroup->readPathEntry("Recent Urls", QStringList());
 
     QListIterator<QString> i(entries);
     i.toBack();
-    while(i.hasPrevious()) {
+    while (i.hasPrevious()) {
         QUrl url = QUrl(i.previous()); // kf5 FIXME?
-        QListWidgetItem* listItem = new QListWidgetItem(  url.fileName().isEmpty() ? url.toDisplayString() : url.fileName() );
-        listItem->setData( 0xdecade, QVariant::fromValue( url ) );
+        QListWidgetItem *listItem = new QListWidgetItem(url.fileName().isEmpty() ? url.toDisplayString() : url.fileName());
+        listItem->setData(0xdecade, QVariant::fromValue(url));
 
-        if(KConfigGroup( KSharedConfig::openConfig(), url.toDisplayString() ).readPathEntry( "IsVideo", QString() )==QLatin1String( "false" ))
-            listItem->setIcon( QIcon::fromTheme( QLatin1String( "audio-x-generic" ) ) );
+        if (KConfigGroup(KSharedConfig::openConfig(), url.toDisplayString()).readPathEntry("IsVideo", QString()) == QLatin1String("false"))
+            listItem->setIcon(QIcon::fromTheme(QLatin1String("audio-x-generic")));
         else
-            listItem->setIcon( QIcon::fromTheme( QLatin1String( "video-x-generic" ) ) );
-        addItem( listItem );
+            listItem->setIcon(QIcon::fromTheme(QLatin1String("video-x-generic")));
+        addItem(listItem);
     }
 }
 
-void RecentlyPlayedList::contextMenuEvent(QContextMenuEvent * event )
+void RecentlyPlayedList::contextMenuEvent(QContextMenuEvent *event)
 {
     if (!currentItem())
         return;
@@ -91,7 +93,7 @@ void RecentlyPlayedList::removeEntry()
 {
     if (!currentItem())
         return;
-    const auto list = configGroup->readPathEntry( "Recent Urls", QStringList() );
+    const auto list = configGroup->readPathEntry("Recent Urls", QStringList());
     const QUrl toRemove = currentItem()->data(0xdecade).value<QUrl>();
     auto urls = QUrl::fromStringList(list);
     urls.removeAll(toRemove);
@@ -101,7 +103,7 @@ void RecentlyPlayedList::removeEntry()
 
 void RecentlyPlayedList::clearList()
 {
-    configGroup->writePathEntry("Recent Urls",QString());
+    configGroup->writePathEntry("Recent Urls", QString());
     loadEntries();
 }
 
@@ -113,26 +115,30 @@ void RecentlyPlayedList::copyUrl()
     QApplication::clipboard()->setText(toCopy.toString());
 }
 
-//send the url for the item clicked, not the item
-void RecentlyPlayedList::itemDoubleClicked(QListWidgetItem* item)
+// send the url for the item clicked, not the item
+void RecentlyPlayedList::itemDoubleClicked(QListWidgetItem *item)
 {
     const QUrl url = item->data(0xdecade).value<QUrl>();
 
-    if( url.isLocalFile() ) {
-        QFileInfo fileInfo( url.toLocalFile() );
+    if (url.isLocalFile()) {
+        QFileInfo fileInfo(url.toLocalFile());
 
-        if( !fileInfo.exists() ) {
+        if (!fileInfo.exists()) {
 #if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
-            if (KMessageBox::questionTwoActions( this,
+            if (KMessageBox::questionTwoActions(this,
 #else
-            if( KMessageBox::questionYesNo( this,
+            if (KMessageBox::questionYesNo(this,
 
 #endif
-                                            i18n( "This file could not be found. Would you like to remove it from the playlist?" ),
+                                                i18n("This file could not be found. Would you like to remove it from the playlist?"),
 #if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
-                                            i18nc("@title:window", "File not found" ), KStandardGuiItem::remove(), KStandardGuiItem::cancel() ) == KMessageBox::ButtonCode::PrimaryAction) {
+                                                i18nc("@title:window", "File not found"),
+                                                KStandardGuiItem::remove(),
+                                                KStandardGuiItem::cancel())
+                == KMessageBox::ButtonCode::PrimaryAction) {
 #else
-                                            i18nc("@title:window", "File not found" ) ) == KMessageBox::Yes ) {
+                                           i18nc("@title:window", "File not found"))
+                == KMessageBox::Yes) {
 #endif
                 removeEntry();
             }

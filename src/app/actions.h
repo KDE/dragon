@@ -8,29 +8,33 @@
 #ifndef DRAGONPLAYERACTIONS_H
 #define DRAGONPLAYERACTIONS_H
 
-#include <KDualAction>      //baseclass
-#include <KToggleAction>    //baseclass
 #include <KActionCollection> //convenience
+#include <KDualAction> //baseclass
+#include <KToggleAction> //baseclass
 
 namespace Dragon
 {
-KActionCollection *actionCollection(); ///defined in mainWindow.cpp, part.cpp
-QAction *action( const char* ); ///defined in mainWindow.cpp, part.cpp
-inline KToggleAction *toggleAction( const char *name ) { return (KToggleAction*)action( name ); }
+KActionCollection *actionCollection(); /// defined in mainWindow.cpp, part.cpp
+QAction *action(const char *); /// defined in mainWindow.cpp, part.cpp
+inline KToggleAction *toggleAction(const char *name)
+{
+    return (KToggleAction *)action(name);
+}
 
 class PlayAction : public KDualAction
 {
     Q_OBJECT
 public:
     template<class Receiver, class Func>
-    inline PlayAction(const Receiver *receiver, Func slot, KActionCollection* ac)
+    inline PlayAction(const Receiver *receiver, Func slot, KActionCollection *ac)
         : PlayAction(ac)
     {
         connect(this, &QAction::triggered, receiver, slot);
     }
-    void setPlaying( bool playing );
+    void setPlaying(bool playing);
+
 private:
-    explicit PlayAction(KActionCollection* ac);
+    explicit PlayAction(KActionCollection *ac);
 };
 
 class VolumeAction : public KToggleAction
@@ -38,17 +42,17 @@ class VolumeAction : public KToggleAction
     Q_OBJECT
 public:
     template<class Receiver, class Func>
-    inline VolumeAction(const Receiver *receiver, Func slot, KActionCollection* ac)
+    inline VolumeAction(const Receiver *receiver, Func slot, KActionCollection *ac)
         : VolumeAction(ac)
     {
         connect(this, &QAction::triggered, receiver, slot);
     }
 private Q_SLOTS:
-    void mutedChanged( bool );
+    void mutedChanged(bool);
+
 private:
-    explicit VolumeAction(KActionCollection* ac);
+    explicit VolumeAction(KActionCollection *ac);
 };
 }
 
 #endif
-

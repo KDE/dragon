@@ -20,17 +20,20 @@ class PlayDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit PlayDialog( QWidget*, bool show_welcome_dialog = false );
+    explicit PlayDialog(QWidget *, bool show_welcome_dialog = false);
 
-    QUrl url() const { return m_url; }
+    QUrl url() const
+    {
+        return m_url;
+    }
 
     enum DialogCode { FILE = QDialog::Accepted + 2, VCD, DVD, RECENT_FILE };
 
 private Q_SLOTS:
-    void finished(QListWidgetItem *item );
+    void finished(QListWidgetItem *item);
 
 private:
-    void createRecentFileWidget( QGridLayout* );
+    void createRecentFileWidget(QGridLayout *);
 
     QUrl m_url;
 };

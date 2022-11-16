@@ -14,15 +14,16 @@
 class KMainWindow;
 class QTimerEvent;
 
-namespace Dragon 
+namespace Dragon
 {
 class FullScreenToolBarHandler : QObject
 {
     Q_OBJECT
 public:
-    explicit FullScreenToolBarHandler(KMainWindow *parent );
-    bool eventFilter( QObject *o, QEvent *e ) override;
-    void timerEvent( QTimerEvent* ) override;
+    explicit FullScreenToolBarHandler(KMainWindow *parent);
+    bool eventFilter(QObject *o, QEvent *e) override;
+    void timerEvent(QTimerEvent *) override;
+
 private:
     int m_timer_id; // 0 when timer is not running
     QPoint m_home;

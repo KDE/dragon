@@ -13,14 +13,15 @@ class TimeLabel : public QLabel
 {
     Q_OBJECT
 public:
-    explicit TimeLabel( QWidget *parent );
+    explicit TimeLabel(QWidget *parent);
     ~TimeLabel() override;
-    void mousePressEvent( QMouseEvent * ) override;
+    void mousePressEvent(QMouseEvent *) override;
     void updateTime();
     enum TimeFormats { SHOW_REMAINING, SHOW_COMPLETED };
 public Q_SLOTS:
-    void setCurrentTime( qint64 );
-    void setTotalTime( qint64 );
+    void setCurrentTime(qint64);
+    void setTotalTime(qint64);
+
 private:
     TimeFormats m_timeFormat;
     qint64 m_currentTime;

@@ -9,19 +9,19 @@
 #define DRAGONPLAYER_THESTREAM_H
 
 #include <KConfigGroup>
-#include <QUrl>    // larger :( but no macros at least
-#include <QSize>   // small header
-#include <QString> // small header
 #include <Phonon/Global>
+#include <QSize> // small header
+#include <QString> // small header
+#include <QUrl> // larger :( but no macros at least
 
 /// for purely static classes
-#define DRAGONPLAYER_NO_EXPORT( T ) \
-    T(); \
-    ~T(); \
-    T( const T& ); \
-    T &operator=( const T& ); \
-    bool operator==( const T& ); \
-    bool operator!=( const T& );
+#define DRAGONPLAYER_NO_EXPORT(T)                                                                                                                              \
+    T();                                                                                                                                                       \
+    ~T();                                                                                                                                                      \
+    T(const T &);                                                                                                                                              \
+    T &operator=(const T &);                                                                                                                                   \
+    bool operator==(const T &);                                                                                                                                \
+    bool operator!=(const T &);
 
 class QAction;
 
@@ -29,10 +29,10 @@ namespace Dragon
 {
 class TheStream
 {
-    DRAGONPLAYER_NO_EXPORT( TheStream )
+    DRAGONPLAYER_NO_EXPORT(TheStream)
 
-    public:
-        static QUrl url();
+public:
+    static QUrl url();
 
     static bool canSeek();
     static bool hasAudio();
@@ -42,17 +42,16 @@ class TheStream
     static QSize defaultVideoSize();
 
     static int aspectRatio();
-    static QAction* aspectRatioAction();
-    static void setRatio( QAction* );
-    static void addRatio( int, QAction* );
+    static QAction *aspectRatioAction();
+    static void setRatio(QAction *);
+    static void addRatio(int, QAction *);
 
-    static const char* CHANNEL_PROPERTY;
+    static const char *CHANNEL_PROPERTY;
     static int subtitleChannel();
     static int audioChannel();
 
     static QString prettyTitle();
     static QString fullTitle();
-
 
     static QString metaData(Phonon::MetaData key);
     static QString discId();
@@ -60,8 +59,9 @@ class TheStream
     static bool hasProfile();
 
     static KConfigGroup profile();
+
 private:
-    static QHash<int, QAction*> s_aspectRatioActions;
+    static QHash<int, QAction *> s_aspectRatioActions;
 };
 }
 

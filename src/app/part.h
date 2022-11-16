@@ -12,11 +12,10 @@
 
 #include <QList>
 
-#include <KParts/StatusBarExtension>
 #include <KParts/ReadOnlyPart>
-#include <QUrl>
+#include <KParts/StatusBarExtension>
 #include <Phonon/MediaSource>
-
+#include <QUrl>
 
 namespace Dragon
 {
@@ -26,23 +25,26 @@ class Part : public KParts::ReadOnlyPart
 {
     Q_OBJECT
 public:
-    Part(QWidget* parentWidget, QObject* parent, const KPluginMetaData& metaData, const QVariantList& /*args*/);
+    Part(QWidget *parentWidget, QObject *parent, const KPluginMetaData &metaData, const QVariantList & /*args*/);
 
     bool closeUrl() override;
 
 public Q_SLOTS:
-    bool openUrl( const QUrl& ) override;
+    bool openUrl(const QUrl &) override;
 
 private Q_SLOTS:
-    void engineStateChanged( Phonon::State state );
-    void videoContextMenu( const QPoint & pos );
+    void engineStateChanged(Phonon::State state);
+    void videoContextMenu(const QPoint &pos);
 
 private:
     QUrl m_url;
     KParts::StatusBarExtension *m_statusBarExtension;
-    Dragon::PlayAction* m_playPause;
+    Dragon::PlayAction *m_playPause;
 
-    QStatusBar *statusBar() { return m_statusBarExtension->statusBar(); }
+    QStatusBar *statusBar()
+    {
+        return m_statusBarExtension->statusBar();
+    }
 };
 }
 

@@ -9,15 +9,15 @@
 #define DRAGONPLAYERMAINWINDOW_H
 
 #include "codeine.h"
-#include "timeLabel.h"
 #include "loadView.h"
+#include "timeLabel.h"
 
+#include <KXmlGuiWindow>
+#include <Phonon/MediaSource>
+#include <QCheckBox>
 #include <QList>
 #include <QPointer>
 #include <QStackedWidget>
-#include <QCheckBox>
-#include <Phonon/MediaSource>
-#include <KXmlGuiWindow>
 
 class KNotificationRestrictions;
 class KToggleAction;
@@ -47,58 +47,57 @@ class MainWindow : public KXmlGuiWindow
     static MainWindow *s_instance;
 
     friend class PlayerApplication;
-    friend QWidget* mainWindow();
+    friend QWidget *mainWindow();
 
 public:
-    void openRecentFile( const QUrl& );
-    void showVolume( bool );
-    bool volumeContains(const QPoint &mousePos );
+    void openRecentFile(const QUrl &);
+    void showVolume(bool);
+    bool volumeContains(const QPoint &mousePos);
 
 Q_SIGNALS:
-    void fileChanged( QString );
+    void fileChanged(QString);
 
 public Q_SLOTS:
-    bool open(const QUrl & );
+    bool open(const QUrl &);
     void playDisc();
     void openFileDialog();
     void openStreamDialog();
     void play();
-    void toggleVideoSettings( bool );
-    void toggleVolumeSlider( bool );
+    void toggleVideoSettings(bool);
+    void toggleVolumeSlider(bool);
     void restoreDefaultVideoSettings();
     void toggleLoadView();
 
 private Q_SLOTS:
-    void setFullScreen( bool full );
-    void engineMessage( const QString& );
+    void setFullScreen(bool full);
+    void engineMessage(const QString &);
     void init();
     void aboutToShowMenu();
     void streamSettingChange();
-    void subChannelsChanged( QList< QAction* > );
-    void audioChannelsChanged( QList< QAction* > );
-    void mutedChanged( bool );
+    void subChannelsChanged(QList<QAction *>);
+    void audioChannelsChanged(QList<QAction *>);
+    void mutedChanged(bool);
     void stop();
-    //in stateChange.cpp
-    void engineStateChanged( Phonon::State );
-    void engineMediaChanged( Phonon::MediaSource );
-    void engineSeekableChanged( bool );
+    // in stateChange.cpp
+    void engineStateChanged(Phonon::State);
+    void engineMediaChanged(Phonon::MediaSource);
+    void engineSeekableChanged(bool);
     void engineMetaDataChanged();
-    void engineHasVideoChanged( bool );
-    void toggleUnique( bool );
+    void engineHasVideoChanged(bool);
+    void toggleUnique(bool);
 
 private:
-    bool load(const QUrl & );
+    bool load(const QUrl &);
     void setupActions();
     void updateSliders();
     void updateTitleBarText();
     bool isFresh();
 
+    QMenu *menu(const char *name);
 
-    QMenu *menu( const char *name );
-
-    void dragEnterEvent( QDragEnterEvent* ) override;
-    void dropEvent( QDropEvent* ) override;
-    void keyPressEvent( QKeyEvent* ) override;
+    void dragEnterEvent(QDragEnterEvent *) override;
+    void dropEvent(QDropEvent *) override;
+    void keyPressEvent(QKeyEvent *) override;
 
     void inhibitPowerSave();
     void releasePowerSave();
@@ -118,7 +117,7 @@ private:
     QCheckBox *m_muteCheckBox;
     TimeLabel *m_timeLabel;
     QLabel *m_titleLabel;
-    QList<QSlider*> m_sliders;
+    QList<QSlider *> m_sliders;
     QPointer<PlayDialog> m_playDialog;
 
     KToggleAction *m_menuToggleAction;
@@ -138,8 +137,8 @@ private:
     Q_DISABLE_COPY(MainWindow)
 
 protected:
-    void closeEvent( QCloseEvent * event ) override;
-    void wheelEvent ( QWheelEvent * event ) override;
+    void closeEvent(QCloseEvent *event) override;
+    void wheelEvent(QWheelEvent *event) override;
 };
 
 }

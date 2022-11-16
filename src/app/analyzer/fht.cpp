@@ -6,16 +6,15 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-
 #include "fht.h"
 
 #include <math.h>
 #include <string.h>
 
-FHT::FHT(int n) :
-    m_buf(nullptr),
-    m_tab(nullptr),
-    m_log(nullptr)
+FHT::FHT(int n)
+    : m_buf(nullptr)
+    , m_tab(nullptr)
+    , m_log(nullptr)
 {
     if (n < 3) {
         m_num = 0;
@@ -31,14 +30,12 @@ FHT::FHT(int n) :
     }
 }
 
-
 FHT::~FHT()
 {
     delete[] m_buf;
     delete[] m_tab;
     delete[] m_log;
 }
-
 
 void FHT::makeCasTable(void)
 {
@@ -55,18 +52,15 @@ void FHT::makeCasTable(void)
     }
 }
 
-
-float* FHT::copy(float *d, float *s)
+float *FHT::copy(float *d, float *s)
 {
     return (float *)memcpy(d, s, m_num * sizeof(float));
 }
 
-
-float* FHT::clear(float *d)
+float *FHT::clear(float *d)
 {
     return (float *)memset(d, 0, m_num * sizeof(float));
 }
-
 
 void FHT::scale(float *p, float d)
 {
@@ -74,13 +68,11 @@ void FHT::scale(float *p, float d)
         *p++ *= d;
 }
 
-
 void FHT::ewma(float *d, float *s, float w)
 {
     for (int i = 0; i < (m_num / 2); i++, d++, s++)
         *d = *d * w + *s * (1 - w);
 }
-
 
 void FHT::logSpectrum(float *out, float *p)
 {
@@ -108,7 +100,6 @@ void FHT::logSpectrum(float *out, float *p)
     }
 }
 
-
 void FHT::semiLogSpectrum(float *p)
 {
     float e;
@@ -119,7 +110,6 @@ void FHT::semiLogSpectrum(float *p)
     }
 }
 
-
 void FHT::spectrum(float *p)
 {
     power2(p);
@@ -127,14 +117,12 @@ void FHT::spectrum(float *p)
         *p = (float)sqrt(*p * .5);
 }
 
-
 void FHT::power(float *p)
 {
     power2(p);
     for (int i = 0; i < (m_num / 2); i++)
         *p++ *= .5;
 }
-
 
 void FHT::power2(float *p)
 {
@@ -148,7 +136,6 @@ void FHT::power2(float *p)
         *p = (*p * *p) + (*q * *q), p++;
 }
 
-
 void FHT::transform(float *p)
 {
     if (m_num == 8)
@@ -156,7 +143,6 @@ void FHT::transform(float *p)
     else
         _transform(p, m_num, 0);
 }
-
 
 void FHT::transform8(float *p)
 {
@@ -185,7 +171,6 @@ void FHT::transform8(float *p)
     *--p = ac_e_g + b_f2;
     *--p = aceg + bdfh;
 }
-
 
 void FHT::_transform(float *p, int n, int k)
 {

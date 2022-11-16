@@ -7,9 +7,9 @@
 #ifndef LOADVIEW_H
 #define LOADVIEW_H
 
-#include <QWidget>
-#include <QUrl>
 #include "ui_loadView.h"
+#include <QUrl>
+#include <QWidget>
 
 namespace Dragon
 {
@@ -21,7 +21,7 @@ public:
     explicit LoadView(QWidget *parent);
     void setThumbnail(QWidget *object);
 Q_SIGNALS:
-    void loadUrl(const QUrl&);
+    void loadUrl(const QUrl &);
     void openFilePressed();
     void openDVDPressed();
     void openStreamPressed();
@@ -29,4 +29,4 @@ Q_SIGNALS:
 };
 
 }
-#endif 
+#endif

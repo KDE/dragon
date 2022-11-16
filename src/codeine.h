@@ -13,17 +13,18 @@
 // practically every implementation and many headers
 
 namespace Engine
-{}
+{
+}
 
 class QWidget;
 
 namespace Dragon
 {
-QWidget *mainWindow(); //defined in mainWindow.cpp
+QWidget *mainWindow(); // defined in mainWindow.cpp
 }
 
 /// used by mainWindow.h
-int main( int, char** );
+int main(int, char **);
 
 #define APP_VERSION PROJECT_VERSION
 #define APP_NAME "dragonplayer"

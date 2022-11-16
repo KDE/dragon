@@ -34,12 +34,12 @@ class MediaPlayer2Player : public QDBusAbstractAdaptor
     Q_PROPERTY(bool CanControl READ CanControl)
 
 public:
-    explicit MediaPlayer2Player(QObject* parent);
+    explicit MediaPlayer2Player(QObject *parent);
     ~MediaPlayer2Player() override;
 
     QString PlaybackStatus() const;
     QString LoopStatus() const;
-    void setLoopStatus(const QString& loopStatus) const;
+    void setLoopStatus(const QString &loopStatus) const;
     double Rate() const;
     void setRate(double rate) const;
     bool Shuffle() const;
@@ -68,7 +68,7 @@ public Q_SLOTS:
     void Stop() const;
     void Play() const;
     void Seek(qlonglong Offset) const;
-    void SetPosition(const QDBusObjectPath& TrackId, qlonglong Position) const;
+    void SetPosition(const QDBusObjectPath &TrackId, qlonglong Position) const;
     void OpenUri(QString Uri) const;
 
 private Q_SLOTS:

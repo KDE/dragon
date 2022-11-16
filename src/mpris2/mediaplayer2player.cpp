@@ -11,28 +11,21 @@
 
 #include <QCryptographicHash>
 
-static QByteArray makeTrackId(const QString& source)
+static QByteArray makeTrackId(const QString &source)
 {
-    return QByteArray("/org/kde/") + APP_NAME + "/tid_" +
-            QCryptographicHash::hash(source.toLocal8Bit(), QCryptographicHash::Sha1)
-            .toHex();
+    return QByteArray("/org/kde/") + APP_NAME + "/tid_" + QCryptographicHash::hash(source.toLocal8Bit(), QCryptographicHash::Sha1).toHex();
 }
 
-MediaPlayer2Player::MediaPlayer2Player(QObject* parent) : QDBusAbstractAdaptor(parent)
+MediaPlayer2Player::MediaPlayer2Player(QObject *parent)
+    : QDBusAbstractAdaptor(parent)
 {
     connect(Dragon::engine(), &Dragon::VideoWindow::tick, this, &MediaPlayer2Player::tick);
-    connect(Dragon::engine(), &Dragon::VideoWindow::currentSourceChanged,
-            this, &MediaPlayer2Player::currentSourceChanged);
-    connect(Dragon::engine(), &Dragon::VideoWindow::metaDataChanged,
-            this, &MediaPlayer2Player::emitMetadataChange);
-    connect(Dragon::engine(), &Dragon::VideoWindow::stateUpdated,
-            this, &MediaPlayer2Player::stateUpdated);
-    connect(Dragon::engine(), &Dragon::VideoWindow::totalTimeChanged,
-            this, &MediaPlayer2Player::emitMetadataChange);
-    connect(Dragon::engine(), &Dragon::VideoWindow::seekableChanged,
-            this, &MediaPlayer2Player::seekableChanged);
-    connect(Dragon::engine(), &Dragon::VideoWindow::volumeChanged,
-            this, &MediaPlayer2Player::volumeChanged);
+    connect(Dragon::engine(), &Dragon::VideoWindow::currentSourceChanged, this, &MediaPlayer2Player::currentSourceChanged);
+    connect(Dragon::engine(), &Dragon::VideoWindow::metaDataChanged, this, &MediaPlayer2Player::emitMetadataChange);
+    connect(Dragon::engine(), &Dragon::VideoWindow::stateUpdated, this, &MediaPlayer2Player::stateUpdated);
+    connect(Dragon::engine(), &Dragon::VideoWindow::totalTimeChanged, this, &MediaPlayer2Player::emitMetadataChange);
+    connect(Dragon::engine(), &Dragon::VideoWindow::seekableChanged, this, &MediaPlayer2Player::seekableChanged);
+    connect(Dragon::engine(), &Dragon::VideoWindow::volumeChanged, this, &MediaPlayer2Player::volumeChanged);
 }
 
 MediaPlayer2Player::~MediaPlayer2Player()
@@ -89,7 +82,7 @@ void MediaPlayer2Player::Play() const
     Dragon::engine()->play();
 }
 
-void MediaPlayer2Player::SetPosition(const QDBusObjectPath& TrackId, qlonglong Position) const
+void MediaPlayer2Player::SetPosition(const QDBusObjectPath &TrackId, qlonglong Position) const
 {
     if (TrackId.path().toLocal8Bit() == makeTrackId(Dragon::engine()->urlOrDisc()))
         Dragon::engine()->seek(Position / 1000);
@@ -97,7 +90,7 @@ void MediaPlayer2Player::SetPosition(const QDBusObjectPath& TrackId, qlonglong P
 
 void MediaPlayer2Player::OpenUri(QString Uri) const
 {
-    static_cast<Dragon::MainWindow*>(Dragon::mainWindow())->open(QUrl(Uri));
+    static_cast<Dragon::MainWindow *>(Dragon::mainWindow())->open(QUrl(Uri));
 }
 
 QString MediaPlayer2Player::PlaybackStatus() const
@@ -124,7 +117,7 @@ QString MediaPlayer2Player::LoopStatus() const
     return QStringLiteral("None");
 }
 
-void MediaPlayer2Player::setLoopStatus(const QString& loopStatus) const
+void MediaPlayer2Player::setLoopStatus(const QString &loopStatus) const
 {
     Q_UNUSED(loopStatus)
 }
@@ -159,10 +152,9 @@ QVariantMap MediaPlayer2Player::Metadata() const
         break;
     default:
         metaData = {
-            { QStringLiteral("mpris:trackid"),
-              QVariant::fromValue<QDBusObjectPath>(QDBusObjectPath(makeTrackId(Dragon::engine()->urlOrDisc()).constData())) },
-            { QStringLiteral("mpris:length"), Dragon::engine()->length() * 1000 },
-            { QStringLiteral("xesam:url"), Dragon::engine()->urlOrDisc() },
+            {QStringLiteral("mpris:trackid"), QVariant::fromValue<QDBusObjectPath>(QDBusObjectPath(makeTrackId(Dragon::engine()->urlOrDisc()).constData()))},
+            {QStringLiteral("mpris:length"), Dragon::engine()->length() * 1000},
+            {QStringLiteral("xesam:url"), Dragon::engine()->urlOrDisc()},
         };
     }
 
@@ -231,42 +223,42 @@ void MediaPlayer2Player::tick(qint64 newPos)
 
 void MediaPlayer2Player::emitMetadataChange() const
 {
-    const QVariantMap properties { { QStringLiteral("Metadata"), Metadata() } };
+    const QVariantMap properties{{QStringLiteral("Metadata"), Metadata()}};
     Mpris2::signalPropertiesChange(this, properties);
 }
 
 void MediaPlayer2Player::currentSourceChanged() const
 {
-    const QVariantMap properties {
-        { QStringLiteral("Metadata"), Metadata() },
-        { QStringLiteral("CanSeek"), CanSeek() },
+    const QVariantMap properties{
+        {QStringLiteral("Metadata"), Metadata()},
+        {QStringLiteral("CanSeek"), CanSeek()},
     };
     Mpris2::signalPropertiesChange(this, properties);
 }
 
 void MediaPlayer2Player::stateUpdated() const
 {
-    const QVariantMap properties {
-        { QStringLiteral("PlaybackStatus"), PlaybackStatus() },
-        { QStringLiteral("CanPause"), CanPause() },
+    const QVariantMap properties{
+        {QStringLiteral("PlaybackStatus"), PlaybackStatus()},
+        {QStringLiteral("CanPause"), CanPause()},
     };
     Mpris2::signalPropertiesChange(this, properties);
 }
 
 void MediaPlayer2Player::totalTimeChanged() const
 {
-    const QVariantMap properties { { QStringLiteral("Metadata"), Metadata() } };
+    const QVariantMap properties{{QStringLiteral("Metadata"), Metadata()}};
     Mpris2::signalPropertiesChange(this, properties);
 }
 
 void MediaPlayer2Player::seekableChanged(bool seekable) const
 {
-    const QVariantMap properties { { QStringLiteral("CanSeek"), seekable } };
+    const QVariantMap properties{{QStringLiteral("CanSeek"), seekable}};
     Mpris2::signalPropertiesChange(this, properties);
 }
 
 void MediaPlayer2Player::volumeChanged() const
 {
-    const QVariantMap properties { { QStringLiteral("Volume"), Volume() } };
+    const QVariantMap properties{{QStringLiteral("Volume"), Volume()}};
     Mpris2::signalPropertiesChange(this, properties);
 }

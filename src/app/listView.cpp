@@ -12,16 +12,16 @@
 
 namespace Dragon
 {
-    class ListView : public KListWidget
+class ListView : public KListWidget
+{
+public:
+    ListView(QWidget *parent)
+        : KListWidget(parent)
     {
-        public:
-            ListView( QWidget *parent ) 
-                : KListWidget( parent )
-            {
         //       setSizePolicy( QSizePolicy::Minimum, QSizePolicy::Minimum );
-                setAlternatingRowColors( true );
-            }
-    };
+        setAlternatingRowColors(true);
+    }
+};
 }
 
 #endif

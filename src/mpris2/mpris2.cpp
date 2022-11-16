@@ -5,9 +5,9 @@
 */
 
 #include "mpris2.h"
+#include "codeine.h"
 #include "mediaplayer2.h"
 #include "mediaplayer2player.h"
-#include "codeine.h"
 
 #include <QDBusConnection>
 #include <QDBusMessage>
@@ -16,7 +16,8 @@
 
 #include <unistd.h>
 
-Mpris2::Mpris2(QObject* parent) : QObject(parent)
+Mpris2::Mpris2(QObject *parent)
+    : QObject(parent)
 {
     const QString mpris2Name = QStringLiteral("org.mpris.MediaPlayer2." APP_NAME);
 
@@ -28,7 +29,7 @@ Mpris2::Mpris2(QObject* parent) : QObject(parent)
     if (!success)
         success = QDBusConnection::sessionBus().registerService(mpris2Name + QLatin1String(".instance") + QString::number(getpid()));
 
-    if (success)  {
+    if (success) {
         new MediaPlayer2(this);
         new MediaPlayer2Player(this);
         QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/mpris/MediaPlayer2"), this, QDBusConnection::ExportAdaptors);
@@ -39,10 +40,11 @@ Mpris2::~Mpris2()
 {
 }
 
-void Mpris2::signalPropertiesChange(const QObject* adaptor, const QVariantMap& properties)
+void Mpris2::signalPropertiesChange(const QObject *adaptor, const QVariantMap &properties)
 {
     QDBusMessage msg = QDBusMessage::createSignal(QStringLiteral("/org/mpris/MediaPlayer2"),
-                                                  QStringLiteral("org.freedesktop.DBus.Properties"), QStringLiteral("PropertiesChanged"));
+                                                  QStringLiteral("org.freedesktop.DBus.Properties"),
+                                                  QStringLiteral("PropertiesChanged"));
 
     msg << QString::fromUtf8(adaptor->metaObject()->classInfo(0).value());
     msg << properties;
