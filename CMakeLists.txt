@@ -71,9 +71,9 @@ ecm_set_disabled_deprecation_versions(
 
 add_definitions(-DTRANSLATION_DOMAIN="dragonplayer")
 
-add_subdirectory( src/app )
-add_subdirectory( misc )
-add_subdirectory( doc )
+add_subdirectory(src/app)
+add_subdirectory(misc)
+add_subdirectory(doc)
 
 ki18n_install(po)
 kdoctools_install(po)
