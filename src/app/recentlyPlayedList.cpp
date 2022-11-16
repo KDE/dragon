@@ -1,5 +1,6 @@
 /*
     SPDX-FileCopyrightText: 2008 David Edmundson <kde@davidedmundson.co.uk>
+    SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 */
@@ -78,6 +79,7 @@ void RecentlyPlayedList::loadEntries()
             listItem->setIcon(QIcon::fromTheme(QLatin1String("video-x-generic")));
         addItem(listItem);
     }
+    Q_EMIT changed();
 }
 
 void RecentlyPlayedList::contextMenuEvent(QContextMenuEvent *event)
@@ -99,12 +101,14 @@ void RecentlyPlayedList::removeEntry()
     urls.removeAll(toRemove);
     configGroup->writePathEntry("Recent Urls", QUrl::toStringList(urls));
     loadEntries();
+    Q_EMIT changed();
 }
 
 void RecentlyPlayedList::clearList()
 {
     configGroup->writePathEntry("Recent Urls", QString());
     loadEntries();
+    Q_EMIT changed();
 }
 
 void RecentlyPlayedList::copyUrl()

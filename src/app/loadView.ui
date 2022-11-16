@@ -6,22 +6,45 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>294</height>
+    <width>777</width>
+    <height>484</height>
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
+   <item row="0" column="1">
+    <widget class="QLabel" name="label">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="text">
+      <string>Recent Media</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
     <layout class="QVBoxLayout" name="verticalLayout_3">
      <item>
       <widget class="QPushButton" name="m_playFileButton">
        <property name="text">
-        <string comment="@action:button">Play File</string>
+        <string comment="@action:button">Play File…</string>
        </property>
        <property name="icon">
         <iconset theme="folder">
-         <normaloff/>
-        </iconset>
+         <normaloff>.</normaloff>.</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="m_playStreamButton">
+       <property name="text">
+        <string comment="@action:button">Play Stream…</string>
+       </property>
+       <property name="icon">
+        <iconset theme="document-open-remote">
+         <normaloff>.</normaloff>.</iconset>
        </property>
       </widget>
      </item>
@@ -32,18 +55,7 @@
        </property>
        <property name="icon">
         <iconset theme="media-optical">
-         <normaloff/>
-        </iconset>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="m_playStreamButton">
-       <property name="text">
-        <string comment="@action:button">Play Stream</string>
-       </property>
-       <property name="icon">
-        <iconset theme="document-open-remote"/>
+         <normaloff>.</normaloff>.</iconset>
        </property>
       </widget>
      </item>
@@ -75,8 +87,41 @@
      </item>
     </layout>
    </item>
-   <item row="0" column="1">
-    <widget class="RecentlyPlayedList" name="m_recentlyPlayed"/>
+   <item row="0" column="2">
+    <widget class="QPushButton" name="m_clearRecent">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="toolTip">
+      <string>Clear Recent Media</string>
+     </property>
+     <property name="accessibleName">
+      <string>Clear Recent Media</string>
+     </property>
+     <property name="text">
+      <string notr="true"/>
+     </property>
+     <property name="icon">
+      <iconset theme="edit-clear-all">
+       <normaloff>.</normaloff>.</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1" colspan="2">
+    <widget class="RecentlyPlayedList" name="m_recentlyPlayed">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="accessibleDescription">
+      <string>Recent Media List</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
