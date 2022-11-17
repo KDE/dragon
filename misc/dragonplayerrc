@@ -10,5 +10,5 @@ Hidden=true
 IconText=IconTextRight
 Index=0
 
-[MainWindow Toolbar mainToolBar]
-Index=1
+[MainWindow][Toolbar mainToolBar]
+ToolButtonStyle=IconOnly
