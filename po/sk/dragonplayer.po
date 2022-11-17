@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-17 00:45+0000\n"
+"POT-Creation-Date: 2022-11-17 00:44+0000\n"
 "PO-Revision-Date: 2022-04-08 18:42+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -67,24 +67,24 @@ msgctxt "@option:check Volume of sound output"
 msgid "Volume"
 msgstr "Hlasitosť"
 
-#: src/app/adjustSizeButton.cpp:39
+#: src/app/adjustSizeButton.cpp:38
 #, kde-format
 msgctxt "@action:button"
 msgid "Preferred Scale"
 msgstr "Preferovaná mierka"
 
-#: src/app/adjustSizeButton.cpp:43
+#: src/app/adjustSizeButton.cpp:42
 #, kde-format
 msgctxt "@action:button"
 msgid "Scale 100%"
 msgstr "Mierka 100%"
 
-#: src/app/adjustSizeButton.cpp:50
+#: src/app/adjustSizeButton.cpp:49
 #, kde-format
 msgid "<b>Adjust video scale?</b>"
 msgstr "<b>Prispôsobiť mierku videa?</b>"
 
-#: src/app/discSelectionDialog.cpp:39
+#: src/app/discSelectionDialog.cpp:38
 #, kde-format
 msgctxt ""
 "%1 is the disc type, %2 is the name of the disc that the user can choose. "
@@ -92,34 +92,34 @@ msgctxt ""
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/app/discSelectionDialog.cpp:58
+#: src/app/discSelectionDialog.cpp:57
 #, kde-format
 msgctxt "Digital Versatile Disc, but keep it short"
 msgid "DVD"
 msgstr "DVD"
 
-#: src/app/discSelectionDialog.cpp:60
+#: src/app/discSelectionDialog.cpp:59
 #, kde-format
 msgid "Video CD"
 msgstr "Video CD"
 
-#: src/app/discSelectionDialog.cpp:62
+#: src/app/discSelectionDialog.cpp:61
 #, kde-format
 msgid "Audio CD"
 msgstr "Zvukové CD"
 
-#: src/app/discSelectionDialog.cpp:64
+#: src/app/discSelectionDialog.cpp:63
 #, kde-format
 msgid "Data CD"
 msgstr "Dátové CD"
 
-#: src/app/discSelectionDialog.cpp:75
+#: src/app/discSelectionDialog.cpp:74
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a Disc"
 msgstr "Vybrať disk"
 
-#: src/app/discSelectionDialog.cpp:77
+#: src/app/discSelectionDialog.cpp:76
 #, kde-format
 msgid "Select a disc to play."
 msgstr "Vyberte disk na prehranie."
@@ -132,7 +132,7 @@ msgid "Play File"
 msgstr "Prehrať súbor"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_playDiskButton)
-#: src/app/loadView.ui:31 src/app/playDialog.cpp:54
+#: src/app/loadView.ui:31 src/app/playDialog.cpp:55
 #, kde-format
 msgctxt "@action:button"
 msgid "Play Disc"
@@ -155,7 +155,7 @@ msgstr "Prehrávač Dragon"
 msgid "A video player that has a usability focus"
 msgstr "Prehrávač videa so zameraním na použiteľnosť"
 
-#: src/app/main.cpp:40
+#: src/app/main.cpp:41
 #, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"
@@ -164,99 +164,99 @@ msgstr ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe"
 
-#: src/app/main.cpp:44
+#: src/app/main.cpp:45
 #, kde-format
 msgid "Improvements and polish"
 msgstr "Vylepšenia a doladenie"
 
-#: src/app/main.cpp:45
+#: src/app/main.cpp:46
 #, kde-format
 msgid "Creator of Phonon"
 msgstr "Tvorca Phononu"
 
-#: src/app/main.cpp:46
+#: src/app/main.cpp:47
 #, kde-format
 msgid "Dragon Player icon"
 msgstr "Ikona prehrávača Dragon"
 
-#: src/app/main.cpp:47
+#: src/app/main.cpp:48
 #, kde-format
 msgid "Handbook"
 msgstr "Príručka"
 
-#: src/app/main.cpp:48
+#: src/app/main.cpp:49
 #, kde-format
 msgid "Great reference code"
 msgstr "Skvelý referenčný kód"
 
-#: src/app/main.cpp:49
+#: src/app/main.cpp:50
 #, kde-format
 msgid "Yatta happened to be the only video on my laptop to test with. :)"
 msgstr "Jediné video, ktoré zostalo na mojom notebooku na testy je Yatta :)"
 
-#: src/app/main.cpp:50
+#: src/app/main.cpp:51
 #, kde-format
 msgid "MPRIS v2 support"
 msgstr "Podpora MPRIS v2"
 
-#: src/app/main.cpp:51
+#: src/app/main.cpp:52
 #, kde-format
 msgid "Port to KF5/Plasma 5"
 msgstr "Port do KF5/Plasma 5"
 
-#: src/app/main.cpp:58
+#: src/app/main.cpp:59
 #, kde-format
 msgid "Play DVD Video"
 msgstr "Prehrať DVD video"
 
-#: src/app/main.cpp:60
+#: src/app/main.cpp:61
 #, kde-format
 msgid "Play 'URL'"
 msgstr "Prehrať 'URL'"
 
-#: src/app/mainWindow.cpp:140
+#: src/app/mainWindow.cpp:143
 #, kde-format
 msgctxt "@title:menu"
 msgid "Aspect &Ratio"
 msgstr "Pomer strán"
 
-#: src/app/mainWindow.cpp:141
+#: src/app/mainWindow.cpp:144
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Audio Channels"
 msgstr "Zvukové kanály"
 
-#: src/app/mainWindow.cpp:142
+#: src/app/mainWindow.cpp:145
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Subtitles"
 msgstr "&Titulky"
 
-#: src/app/mainWindow.cpp:157
+#: src/app/mainWindow.cpp:160
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Determine &Automatically"
 msgstr "Určiť &automaticky"
 
-#: src/app/mainWindow.cpp:158
+#: src/app/mainWindow.cpp:163
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "&4:3"
 msgstr "&4:3"
 
-#: src/app/mainWindow.cpp:159
+#: src/app/mainWindow.cpp:164
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Ana&morphic (16:9)"
 msgstr "Anamorfické (16:9)"
 
-#: src/app/mainWindow.cpp:160
+#: src/app/mainWindow.cpp:167
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "&Window Size"
 msgstr "Veľkosť okna"
 
-#: src/app/mainWindow.cpp:205
+#: src/app/mainWindow.cpp:210
 #, kde-format
 msgid ""
 "<qt>Phonon could not be successfully initialized. Dragon Player will now "
@@ -265,54 +265,54 @@ msgstr ""
 "<qt>Nepodarilo sa úspešne inicializovať Phonon. Dragon Player sa teraz "
 "ukončí.</qt>"
 
-#: src/app/mainWindow.cpp:268
+#: src/app/mainWindow.cpp:272
 #, kde-format
 msgctxt "@action"
 msgid "Play &Media..."
 msgstr "Prehrať média..."
 
-#: src/app/mainWindow.cpp:288
+#: src/app/mainWindow.cpp:289
 #, kde-format
 msgctxt "@action"
 msgid "Increase Volume"
 msgstr "Zvýšiť hlasitosť"
 
-#: src/app/mainWindow.cpp:293
+#: src/app/mainWindow.cpp:294
 #, kde-format
 msgctxt "@action"
 msgid "Decrease Volume"
 msgstr "Znížiť hlasitosť"
 
-#: src/app/mainWindow.cpp:298
+#: src/app/mainWindow.cpp:299
 #, kde-format
 msgctxt "@action"
 msgid "Stop"
 msgstr "Zastaviť"
 
-#: src/app/mainWindow.cpp:304
+#: src/app/mainWindow.cpp:305
 #, kde-format
 msgctxt "@action Mute the sound output"
 msgid "Mute"
 msgstr "Stlmiť"
 
-#: src/app/mainWindow.cpp:310
+#: src/app/mainWindow.cpp:311
 #, kde-format
 msgctxt "@action"
 msgid "Reset Video Scale"
 msgstr "Obnoviť mierku videa"
 
-#: src/app/mainWindow.cpp:316
+#: src/app/mainWindow.cpp:317
 #, kde-format
 msgctxt "@action"
 msgid "Menu Toggle"
 msgstr "Prepnúť ponuku"
 
-#: src/app/mainWindow.cpp:324 src/app/part.cpp:57
+#: src/app/mainWindow.cpp:325 src/app/part.cpp:56
 #, kde-format
 msgid "Position Slider"
 msgstr "Posuvník pozície"
 
-#: src/app/mainWindow.cpp:328
+#: src/app/mainWindow.cpp:329
 #, kde-format
 msgctxt "@option:check"
 msgid "Video Settings"
@@ -326,104 +326,104 @@ msgctxt ""
 msgid "One Instance Only"
 msgstr "Iba jedna inštancia"
 
-#: src/app/mainWindow.cpp:344
+#: src/app/mainWindow.cpp:345
 #, kde-format
 msgctxt "@action previous chapter"
 msgid "Previous"
 msgstr "Predchádzajúci"
 
-#: src/app/mainWindow.cpp:350
+#: src/app/mainWindow.cpp:351
 #, kde-format
 msgctxt "@action next chapter"
 msgid "Next"
 msgstr "Nasledujúci"
 
-#: src/app/mainWindow.cpp:357
+#: src/app/mainWindow.cpp:358
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Return 10% Back"
 msgstr "Vrátiť sa o 10% späť"
 
-#: src/app/mainWindow.cpp:364
+#: src/app/mainWindow.cpp:365
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Go 10% Forward"
 msgstr "Prejsť dopredu 10%"
 
-#: src/app/mainWindow.cpp:370
+#: src/app/mainWindow.cpp:371
 #, kde-format
 msgctxt "@action"
 msgid "Return 10 Seconds Back"
 msgstr "Vrátiť sa o 10 sekúnd späť"
 
-#: src/app/mainWindow.cpp:376
+#: src/app/mainWindow.cpp:377
 #, kde-format
 msgctxt "@action"
 msgid "Go 10 Seconds Forward"
 msgstr "Prejsť o 10 sekúnd dopredu"
 
-#: src/app/mainWindow.cpp:466
+#: src/app/mainWindow.cpp:462
 #, kde-format
 msgctxt "@option:check Mute the sound output"
 msgid "Mute"
 msgstr "Stlmiť"
 
-#: src/app/mainWindow.cpp:543
+#: src/app/mainWindow.cpp:534
 #, kde-format
 msgid "Dragon Player was asked to open an empty URL; it cannot."
 msgstr "Prehrávač Dragon požiadal o otvorenie prázdnej URL. Toto nie je možné."
 
-#: src/app/mainWindow.cpp:624
+#: src/app/mainWindow.cpp:613
 #, kde-format
 msgctxt "@title:window"
 msgid "Select File to Play"
 msgstr "Vyberte súbor, ktorý ma byť prehraný"
 
-#: src/app/mainWindow.cpp:652
+#: src/app/mainWindow.cpp:640
 #, kde-format
 msgctxt "@title:window"
 msgid "Stream to Play"
 msgstr "Prúd na prehranie"
 
-#: src/app/mainWindow.cpp:652
+#: src/app/mainWindow.cpp:640
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Stream:"
 msgstr "Prúd:"
 
-#: src/app/mainWindow.cpp:793
+#: src/app/mainWindow.cpp:773
 #, kde-format
 msgid "Sorry, no media was found in the drop"
 msgstr "Ľutujem, ale žiadne médiá neboli nájdené"
 
-#: src/app/mainWindow.cpp:843
+#: src/app/mainWindow.cpp:821
 #, kde-format
 msgctxt "Notification inhibition reason"
 msgid "playing a video"
 msgstr "prehráva sa video"
 
-#: src/app/mainWindow.cpp:879
+#: src/app/mainWindow.cpp:853
 #, kde-format
 msgid "No media loaded"
 msgstr "Žiadne médium nebolo načítané"
 
-#: src/app/mainWindow.cpp:881
+#: src/app/mainWindow.cpp:855
 #, kde-format
 msgid "Paused"
 msgstr "Pozastavené"
 
-#: src/app/playDialog.cpp:30
+#: src/app/playDialog.cpp:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Play Media"
 msgstr "Prehrať média"
 
-#: src/app/playDialog.cpp:42
+#: src/app/playDialog.cpp:43
 #, kde-format
 msgid "What media would you like to play?"
 msgstr "Ktoré médiá majú byť prehrané?"
 
-#: src/app/playDialog.cpp:50
+#: src/app/playDialog.cpp:51
 #, kde-format
 msgctxt "@action:button"
 msgid "Play File..."
@@ -439,7 +439,7 @@ msgstr "Súbor nie je zoznam skladieb"
 msgid "Dragon Player could not download the remote playlist: %1"
 msgstr "Prehrávač Dragon nemôže stiahnuť vzdialený zoznam skladieb: %1"
 
-#: src/app/playlistFile.cpp:62
+#: src/app/playlistFile.cpp:66
 #, kde-format
 msgid ""
 "<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is empty?"
@@ -447,42 +447,42 @@ msgid ""
 msgstr ""
 "<qt>Zoznam skladieb, <i>'%1'</i>, nemôže byť spracovaný. Nie je prázdny?</qt>"
 
-#: src/app/playlistFile.cpp:66
+#: src/app/playlistFile.cpp:70
 #, kde-format
 msgid "Dragon Player could not open the file: %1"
 msgstr "Prehrávač Dragon nemôže otvoriť súbor: %1"
 
-#: src/app/recentlyPlayedList.cpp:35
+#: src/app/recentlyPlayedList.cpp:37
 #, kde-format
 msgctxt "@action Copy the URL of the selected multimedia"
 msgid "Copy URL"
 msgstr "Kopírovať URL"
 
-#: src/app/recentlyPlayedList.cpp:40
+#: src/app/recentlyPlayedList.cpp:42
 #, kde-format
 msgctxt "@action"
 msgid "Clear List"
 msgstr "Vyčistiť zoznam"
 
-#: src/app/recentlyPlayedList.cpp:45
+#: src/app/recentlyPlayedList.cpp:47
 #, kde-format
 msgctxt "@action"
 msgid "Remove Entry"
 msgstr "Odstrániť položku"
 
-#: src/app/recentlyPlayedList.cpp:131
+#: src/app/recentlyPlayedList.cpp:133
 #, kde-format
 msgid ""
 "This file could not be found. Would you like to remove it from the playlist?"
 msgstr "Súbor sa nepodarilo nájsť. Chcete ho odstrániť zo zoznamu skladieb?"
 
-#: src/app/recentlyPlayedList.cpp:133 src/app/recentlyPlayedList.cpp:135
+#: src/app/recentlyPlayedList.cpp:135 src/app/recentlyPlayedList.cpp:140
 #, kde-format
 msgctxt "@title:window"
 msgid "File not found"
 msgstr "Súbor nenájdený"
 
-#: src/app/theStream.cpp:151
+#: src/app/theStream.cpp:145
 #, kde-format
 msgid "Track %1/%2"
 msgstr "Stopa %1/%2"
@@ -529,13 +529,13 @@ msgctxt "@action:button"
 msgid "Close"
 msgstr "Zavrieť"
 
-#: src/app/videoWindow.cpp:109
+#: src/app/videoWindow.cpp:108
 #, kde-format
 msgctxt "@option:radio"
 msgid "&DVD Subtitle Selection"
 msgstr "&Výber DVD titulkov"
 
-#: src/app/videoWindow.cpp:119
+#: src/app/videoWindow.cpp:118
 #, kde-format
 msgctxt "@option:radio audio language"
 msgid "&Auto"

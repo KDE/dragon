@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragon\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-17 00:45+0000\n"
+"POT-Creation-Date: 2022-11-17 00:44+0000\n"
 "PO-Revision-Date: 2020-07-20 21:29+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -71,24 +71,24 @@ msgctxt "@option:check Volume of sound output"
 msgid "Volume"
 msgstr "Bolumena"
 
-#: src/app/adjustSizeButton.cpp:39
+#: src/app/adjustSizeButton.cpp:38
 #, kde-format
 msgctxt "@action:button"
 msgid "Preferred Scale"
 msgstr "Hobetsitako eskala"
 
-#: src/app/adjustSizeButton.cpp:43
+#: src/app/adjustSizeButton.cpp:42
 #, kde-format
 msgctxt "@action:button"
 msgid "Scale 100%"
 msgstr "Ezarri eskala % 100ean"
 
-#: src/app/adjustSizeButton.cpp:50
+#: src/app/adjustSizeButton.cpp:49
 #, kde-format
 msgid "<b>Adjust video scale?</b>"
 msgstr "<b>Bideo eskala egokitu?</b>"
 
-#: src/app/discSelectionDialog.cpp:39
+#: src/app/discSelectionDialog.cpp:38
 #, kde-format
 msgctxt ""
 "%1 is the disc type, %2 is the name of the disc that the user can choose. "
@@ -96,34 +96,34 @@ msgctxt ""
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/app/discSelectionDialog.cpp:58
+#: src/app/discSelectionDialog.cpp:57
 #, kde-format
 msgctxt "Digital Versatile Disc, but keep it short"
 msgid "DVD"
 msgstr "DVDa"
 
-#: src/app/discSelectionDialog.cpp:60
+#: src/app/discSelectionDialog.cpp:59
 #, kde-format
 msgid "Video CD"
 msgstr "Bideo CDa"
 
-#: src/app/discSelectionDialog.cpp:62
+#: src/app/discSelectionDialog.cpp:61
 #, kde-format
 msgid "Audio CD"
 msgstr "Audio CDa"
 
-#: src/app/discSelectionDialog.cpp:64
+#: src/app/discSelectionDialog.cpp:63
 #, kde-format
 msgid "Data CD"
 msgstr "Datu CDa"
 
-#: src/app/discSelectionDialog.cpp:75
+#: src/app/discSelectionDialog.cpp:74
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a Disc"
 msgstr "Hautatu disko bat"
 
-#: src/app/discSelectionDialog.cpp:77
+#: src/app/discSelectionDialog.cpp:76
 #, kde-format
 msgid "Select a disc to play."
 msgstr "Hautatu jo beharreko disko bat."
@@ -136,7 +136,7 @@ msgid "Play File"
 msgstr "Jo fitxategia"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_playDiskButton)
-#: src/app/loadView.ui:31 src/app/playDialog.cpp:54
+#: src/app/loadView.ui:31 src/app/playDialog.cpp:55
 #, kde-format
 msgctxt "@action:button"
 msgid "Play Disc"
@@ -159,7 +159,7 @@ msgstr "Dragon Player"
 msgid "A video player that has a usability focus"
 msgstr "Erabilerraztasuna helburu duen bideo jotzaile bat"
 
-#: src/app/main.cpp:40
+#: src/app/main.cpp:41
 #, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"
@@ -168,99 +168,99 @@ msgstr ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2008, Ian Monroe"
 
-#: src/app/main.cpp:44
+#: src/app/main.cpp:45
 #, kde-format
 msgid "Improvements and polish"
 msgstr "Hobekuntzak eta txukuntzea"
 
-#: src/app/main.cpp:45
+#: src/app/main.cpp:46
 #, kde-format
 msgid "Creator of Phonon"
 msgstr "Phonon-en sortzailea"
 
-#: src/app/main.cpp:46
+#: src/app/main.cpp:47
 #, kde-format
 msgid "Dragon Player icon"
 msgstr "Dragon Player-ren ikonoa"
 
-#: src/app/main.cpp:47
+#: src/app/main.cpp:48
 #, kde-format
 msgid "Handbook"
 msgstr "Eskuliburua"
 
-#: src/app/main.cpp:48
+#: src/app/main.cpp:49
 #, kde-format
 msgid "Great reference code"
 msgstr "Erreferentzi kode oso ona"
 
-#: src/app/main.cpp:49
+#: src/app/main.cpp:50
 #, kde-format
 msgid "Yatta happened to be the only video on my laptop to test with. :)"
 msgstr "«Yatta» izan zen nire magalekoan probatarako bideo bakarra. :)"
 
-#: src/app/main.cpp:50
+#: src/app/main.cpp:51
 #, kde-format
 msgid "MPRIS v2 support"
 msgstr "MPRIS v2 euskarria"
 
-#: src/app/main.cpp:51
+#: src/app/main.cpp:52
 #, kde-format
 msgid "Port to KF5/Plasma 5"
 msgstr "KF5/Plasma 5erako eratorpena"
 
-#: src/app/main.cpp:58
+#: src/app/main.cpp:59
 #, kde-format
 msgid "Play DVD Video"
 msgstr "Jo DVD bideoa"
 
-#: src/app/main.cpp:60
+#: src/app/main.cpp:61
 #, kde-format
 msgid "Play 'URL'"
 msgstr "Jo 'URL'a"
 
-#: src/app/mainWindow.cpp:140
+#: src/app/mainWindow.cpp:143
 #, kde-format
 msgctxt "@title:menu"
 msgid "Aspect &Ratio"
 msgstr "Itxura p&roportzioa"
 
-#: src/app/mainWindow.cpp:141
+#: src/app/mainWindow.cpp:144
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Audio Channels"
 msgstr "&Audio kanalak"
 
-#: src/app/mainWindow.cpp:142
+#: src/app/mainWindow.cpp:145
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Subtitles"
 msgstr "A&zpidatziak"
 
-#: src/app/mainWindow.cpp:157
+#: src/app/mainWindow.cpp:160
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Determine &Automatically"
 msgstr "Zehaztu &automatikoki"
 
-#: src/app/mainWindow.cpp:158
+#: src/app/mainWindow.cpp:163
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "&4:3"
 msgstr "&4:3"
 
-#: src/app/mainWindow.cpp:159
+#: src/app/mainWindow.cpp:164
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Ana&morphic (16:9)"
 msgstr "Ana&morfikoa (16:9)"
 
-#: src/app/mainWindow.cpp:160
+#: src/app/mainWindow.cpp:167
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "&Window Size"
 msgstr "&Leihoaren neurria"
 
-#: src/app/mainWindow.cpp:205
+#: src/app/mainWindow.cpp:210
 #, kde-format
 msgid ""
 "<qt>Phonon could not be successfully initialized. Dragon Player will now "
@@ -269,54 +269,54 @@ msgstr ""
 "<qt>Phonon ezin izan da ondo hasieratu. Dragon Player orain itxi egingo da.</"
 "qt>"
 
-#: src/app/mainWindow.cpp:268
+#: src/app/mainWindow.cpp:272
 #, kde-format
 msgctxt "@action"
 msgid "Play &Media..."
 msgstr "Jo &euskarria..."
 
-#: src/app/mainWindow.cpp:288
+#: src/app/mainWindow.cpp:289
 #, kde-format
 msgctxt "@action"
 msgid "Increase Volume"
 msgstr "Igo bolumena"
 
-#: src/app/mainWindow.cpp:293
+#: src/app/mainWindow.cpp:294
 #, kde-format
 msgctxt "@action"
 msgid "Decrease Volume"
 msgstr "Jaitsi bolumena"
 
-#: src/app/mainWindow.cpp:298
+#: src/app/mainWindow.cpp:299
 #, kde-format
 msgctxt "@action"
 msgid "Stop"
 msgstr "Gelditu"
 
-#: src/app/mainWindow.cpp:304
+#: src/app/mainWindow.cpp:305
 #, kde-format
 msgctxt "@action Mute the sound output"
 msgid "Mute"
 msgstr "Isilarazi"
 
-#: src/app/mainWindow.cpp:310
+#: src/app/mainWindow.cpp:311
 #, kde-format
 msgctxt "@action"
 msgid "Reset Video Scale"
 msgstr "Berrezarri bideo-eskala"
 
-#: src/app/mainWindow.cpp:316
+#: src/app/mainWindow.cpp:317
 #, kde-format
 msgctxt "@action"
 msgid "Menu Toggle"
 msgstr "Menua txandakatu"
 
-#: src/app/mainWindow.cpp:324 src/app/part.cpp:57
+#: src/app/mainWindow.cpp:325 src/app/part.cpp:56
 #, kde-format
 msgid "Position Slider"
 msgstr "Kokapen graduatzailea"
 
-#: src/app/mainWindow.cpp:328
+#: src/app/mainWindow.cpp:329
 #, kde-format
 msgctxt "@option:check"
 msgid "Video Settings"
@@ -330,104 +330,104 @@ msgctxt ""
 msgid "One Instance Only"
 msgstr "Instantzia bakarra"
 
-#: src/app/mainWindow.cpp:344
+#: src/app/mainWindow.cpp:345
 #, kde-format
 msgctxt "@action previous chapter"
 msgid "Previous"
 msgstr "Aurrekoa"
 
-#: src/app/mainWindow.cpp:350
+#: src/app/mainWindow.cpp:351
 #, kde-format
 msgctxt "@action next chapter"
 msgid "Next"
 msgstr "Hurrengoa"
 
-#: src/app/mainWindow.cpp:357
+#: src/app/mainWindow.cpp:358
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Return 10% Back"
 msgstr "Itzuli  % 10 atzerantz"
 
-#: src/app/mainWindow.cpp:364
+#: src/app/mainWindow.cpp:365
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Go 10% Forward"
 msgstr "Joan  % 10 aurrerantz"
 
-#: src/app/mainWindow.cpp:370
+#: src/app/mainWindow.cpp:371
 #, kde-format
 msgctxt "@action"
 msgid "Return 10 Seconds Back"
 msgstr "Itzuli 10 segundo atzerantz"
 
-#: src/app/mainWindow.cpp:376
+#: src/app/mainWindow.cpp:377
 #, kde-format
 msgctxt "@action"
 msgid "Go 10 Seconds Forward"
 msgstr "Joan 10 segundo aurrerantz"
 
-#: src/app/mainWindow.cpp:466
+#: src/app/mainWindow.cpp:462
 #, kde-format
 msgctxt "@option:check Mute the sound output"
 msgid "Mute"
 msgstr "Isilarazi"
 
-#: src/app/mainWindow.cpp:543
+#: src/app/mainWindow.cpp:534
 #, kde-format
 msgid "Dragon Player was asked to open an empty URL; it cannot."
 msgstr "Dragon Player-ri hutsik dagoen URL bat irekitzea eskatu zaio; ezin du."
 
-#: src/app/mainWindow.cpp:624
+#: src/app/mainWindow.cpp:613
 #, kde-format
 msgctxt "@title:window"
 msgid "Select File to Play"
 msgstr "Hautatu jo beharreko fitxategia"
 
-#: src/app/mainWindow.cpp:652
+#: src/app/mainWindow.cpp:640
 #, kde-format
 msgctxt "@title:window"
 msgid "Stream to Play"
 msgstr "Jo beharreko korrontea"
 
-#: src/app/mainWindow.cpp:652
+#: src/app/mainWindow.cpp:640
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Stream:"
 msgstr "Korrontea:"
 
-#: src/app/mainWindow.cpp:793
+#: src/app/mainWindow.cpp:773
 #, kde-format
 msgid "Sorry, no media was found in the drop"
 msgstr "Tamalez, ez euskarririk aurkitu jaregindako elementuan"
 
-#: src/app/mainWindow.cpp:843
+#: src/app/mainWindow.cpp:821
 #, kde-format
 msgctxt "Notification inhibition reason"
 msgid "playing a video"
 msgstr "bideo bat jotzen"
 
-#: src/app/mainWindow.cpp:879
+#: src/app/mainWindow.cpp:853
 #, kde-format
 msgid "No media loaded"
 msgstr "Ez da euskarririk zamatu"
 
-#: src/app/mainWindow.cpp:881
+#: src/app/mainWindow.cpp:855
 #, kde-format
 msgid "Paused"
 msgstr "Etenda"
 
-#: src/app/playDialog.cpp:30
+#: src/app/playDialog.cpp:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Play Media"
 msgstr "Jo euskarria"
 
-#: src/app/playDialog.cpp:42
+#: src/app/playDialog.cpp:43
 #, kde-format
 msgid "What media would you like to play?"
 msgstr "Zein euskarri jo nahi zenuke?"
 
-#: src/app/playDialog.cpp:50
+#: src/app/playDialog.cpp:51
 #, kde-format
 msgctxt "@action:button"
 msgid "Play File..."
@@ -443,7 +443,7 @@ msgstr "Fitxategia ez da jotze-zerrenda bat"
 msgid "Dragon Player could not download the remote playlist: %1"
 msgstr "Dragon Player-rek ezin izan du urruneko jotze-zerrenda zama-jaitsi: %1"
 
-#: src/app/playlistFile.cpp:62
+#: src/app/playlistFile.cpp:66
 #, kde-format
 msgid ""
 "<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is empty?"
@@ -452,43 +452,43 @@ msgstr ""
 "<qt><i>'%1'</i> jotze-zerrenda ezin izan da interpretatu. Agian hutsik dago?"
 "</qt>"
 
-#: src/app/playlistFile.cpp:66
+#: src/app/playlistFile.cpp:70
 #, kde-format
 msgid "Dragon Player could not open the file: %1"
 msgstr "Dragon Player-rek ezin izan du fitxategia ireki: %1"
 
-#: src/app/recentlyPlayedList.cpp:35
+#: src/app/recentlyPlayedList.cpp:37
 #, kde-format
 msgctxt "@action Copy the URL of the selected multimedia"
 msgid "Copy URL"
 msgstr "Kopiatu URLa"
 
-#: src/app/recentlyPlayedList.cpp:40
+#: src/app/recentlyPlayedList.cpp:42
 #, kde-format
 msgctxt "@action"
 msgid "Clear List"
 msgstr "Garbitu zerrenda"
 
-#: src/app/recentlyPlayedList.cpp:45
+#: src/app/recentlyPlayedList.cpp:47
 #, kde-format
 msgctxt "@action"
 msgid "Remove Entry"
 msgstr "Kendu sarrera"
 
-#: src/app/recentlyPlayedList.cpp:131
+#: src/app/recentlyPlayedList.cpp:133
 #, kde-format
 msgid ""
 "This file could not be found. Would you like to remove it from the playlist?"
 msgstr ""
 "Fitxategi hau ezin izan da aurkitu. Jotze-zerrendatik kendu nahi zenuke?"
 
-#: src/app/recentlyPlayedList.cpp:133 src/app/recentlyPlayedList.cpp:135
+#: src/app/recentlyPlayedList.cpp:135 src/app/recentlyPlayedList.cpp:140
 #, kde-format
 msgctxt "@title:window"
 msgid "File not found"
 msgstr "Fitxategia ez da aurkitu"
 
-#: src/app/theStream.cpp:151
+#: src/app/theStream.cpp:145
 #, kde-format
 msgid "Track %1/%2"
 msgstr "Aztarna %1/%2"
@@ -535,13 +535,13 @@ msgctxt "@action:button"
 msgid "Close"
 msgstr "Itxi"
 
-#: src/app/videoWindow.cpp:109
+#: src/app/videoWindow.cpp:108
 #, kde-format
 msgctxt "@option:radio"
 msgid "&DVD Subtitle Selection"
 msgstr "&DVD azpidatzi hautaketa"
 
-#: src/app/videoWindow.cpp:119
+#: src/app/videoWindow.cpp:118
 #, kde-format
 msgctxt "@option:radio audio language"
 msgid "&Auto"
