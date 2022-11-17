@@ -894,11 +894,11 @@ void MainWindow::streamSettingChange()
 void MainWindow::updateTitleBarText()
 {
     if (!TheStream::hasMedia()) {
-        m_titleLabel->setText(i18n("No media loaded"));
+        setWindowTitle(i18n("No media loaded"));
     } else if (engine()->state() == Phonon::PausedState) {
-        m_titleLabel->setText(i18n("Paused"));
+        setWindowTitle(i18n("Paused"));
     } else {
-        m_titleLabel->setText(TheStream::prettyTitle());
+        setWindowTitle(TheStream::prettyTitle());
     }
     qDebug() << "set titles ";
 }
