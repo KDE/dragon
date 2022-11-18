@@ -8,8 +8,9 @@
 #include "loadView.h"
 #include "codeine.h"
 
+#include <QAction>
 #include <QIcon>
-#include <QLabel>
+#include <QToolButton>
 
 namespace Dragon
 {
@@ -19,31 +20,22 @@ LoadView::LoadView(QWidget *parent)
     , Ui_LoadView()
 {
     setupUi(this);
-    setStyleSheet(QLatin1String("QPushButton { text-align: center; }"));
 
-    connect(m_playDiskButton, &QAbstractButton::clicked, this, &LoadView::openDVDPressed);
-    connect(m_playFileButton, &QAbstractButton::clicked, this, &LoadView::openFilePressed);
-    connect(m_playStreamButton, &QAbstractButton::clicked, this, &LoadView::openStreamPressed);
-    connect(m_recentlyPlayed, QOverload<const QUrl &>::of(&RecentlyPlayedList::itemDoubleClicked), this, &LoadView::loadUrl);
-    connect(this, &LoadView::reloadRecentlyList, m_recentlyPlayed, &RecentlyPlayedList::loadEntries);
-    connect(m_clearRecent, &QPushButton::clicked, m_recentlyPlayed, &RecentlyPlayedList::clearList);
-    auto enableClearButton = [this] {
-        m_clearRecent->setEnabled(m_recentlyPlayed->count() > 0);
-    };
-    connect(m_recentlyPlayed, &RecentlyPlayedList::changed, this, enableClearButton);
-    enableClearButton();
+    const auto largeSize = 128;
+    m_icon->setPixmap(QIcon::fromTheme(QStringLiteral("dragonplayer")).pixmap(largeSize));
 }
 
-void LoadView::setThumbnail(QWidget *object)
+void LoadView::setToolbarActions(const QList<QAction *> &actions)
 {
-    if (!object) {
-        m_vThumb->hide();
-        return;
+    for (const auto &action : actions) {
+        if (!action->isVisible()) {
+            continue;
+        }
+        auto button = new QToolButton(this);
+        button->setDefaultAction(action);
+        button->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+        horizontalLayout->insertWidget(horizontalLayout->count() - 1, button);
     }
-    m_vThumb->show();
-    object->setParent(m_vThumb);
-    object->resize(m_vThumb->size());
-    object->show();
 }
 
-}
+} // namespace Dragon

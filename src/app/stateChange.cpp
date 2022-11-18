@@ -135,12 +135,7 @@ void MainWindow::engineMediaChanged(Phonon::MediaSource /*newSource*/)
     if (!(url_string.contains(QLatin1String("porn"), Qt::CaseInsensitive) || url_string.contains(QLatin1String("pr0n"), Qt::CaseInsensitive))) {
 #endif
         if (url.scheme() != QLatin1String("dvd") && url.scheme() != QLatin1String("vcd") && !url.toDisplayString().isEmpty()) {
-            KConfigGroup config = KConfigGroup(KSharedConfig::openConfig(), "General");
-            const auto list = config.readPathEntry("Recent Urls", QStringList());
-            auto urls = QUrl::fromStringList(list);
-            urls.removeAll(url);
-            config.writePathEntry("Recent Urls", QUrl::toStringList(urls << url));
-            Q_EMIT m_loadView->reloadRecentlyList();
+            qobject_cast<KRecentFilesAction *>(action("file_open_recent"))->addUrl(url);
         }
 #ifndef NO_SKIP_PR0N
     }

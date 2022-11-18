@@ -20,13 +20,7 @@ class LoadView : public QWidget, private Ui_LoadView
     Q_OBJECT
 public:
     explicit LoadView(QWidget *parent);
-    void setThumbnail(QWidget *object);
-Q_SIGNALS:
-    void loadUrl(const QUrl &);
-    void openFilePressed();
-    void openDVDPressed();
-    void openStreamPressed();
-    void reloadRecentlyList();
+    void setToolbarActions(const QList<QAction *> &actions);
 };
 
 }

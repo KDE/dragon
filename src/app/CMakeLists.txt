@@ -12,7 +12,6 @@ target_sources(dragon PRIVATE
     analyzer/fht.cpp
     audioView2.cpp
     stateChange.cpp
-    playDialog.cpp
     discSelectionDialog.cpp
     adjustSizeButton.cpp
     fullScreenToolBarHandler.cpp
@@ -21,7 +20,6 @@ target_sources(dragon PRIVATE
     playerApplication.cpp
     timeLabel.cpp
     mainWindow.cpp
-    recentlyPlayedList.cpp
     loadView.cpp
     ../mpris2/mpris2.cpp
     ../mpris2/mediaplayer2.cpp

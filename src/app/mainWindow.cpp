@@ -60,7 +60,6 @@
 #include "loadView.h"
 #include "messageBox.h"
 #include "mpris2/mpris2.h"
-#include "playDialog.h" //::play()
 #include "playlistFile.h"
 #include "theStream.h"
 #include "ui_videoSettingsWidget.h"
@@ -87,7 +86,6 @@ MainWindow::MainWindow()
     , m_volumeSlider(nullptr)
     , m_timeLabel(nullptr)
     , m_titleLabel(new QLabel(this))
-    , m_playDialog(nullptr)
     , m_menuToggleAction(nullptr)
     , m_stopScreenSaver(nullptr)
     , m_stopSleepCookie(-1)
@@ -202,6 +200,8 @@ MainWindow::MainWindow()
         auto settingsMenu = new QMenu(originalSettingsMenu->title());
         settingsMenu->addActions(originalSettingsMenu->actions());
 
+        menu->addMenu(qobject_cast<QMenu *>(guiFactory()->container(QStringLiteral("play_media_menu"), this)));
+        menu->addAction(ac->action(QStringLiteral("file_open_recent")));
         menu->addAction(ac->action(QStringLiteral("play")));
         menu->addAction(ac->action(QStringLiteral("stop")));
         menu->addAction(ac->action(QStringLiteral("prev_chapter")));
@@ -230,12 +230,6 @@ MainWindow::MainWindow()
 
 void MainWindow::init()
 {
-    // connect the stuff in loadView
-    connect(m_loadView, &LoadView::openDVDPressed, this, &MainWindow::playDisc);
-    connect(m_loadView, &LoadView::openFilePressed, this, &MainWindow::openFileDialog);
-    connect(m_loadView, &LoadView::openStreamPressed, this, &MainWindow::openStreamDialog);
-    connect(m_loadView, &LoadView::loadUrl, this, &MainWindow::open);
-
     // connect the video player
     connect(engine(), &VideoWindow::stateUpdated, this, &MainWindow::engineStateChanged);
     connect(engine(), &VideoWindow::currentSourceChanged, this, &MainWindow::engineMediaChanged);
@@ -275,6 +269,7 @@ MainWindow::~MainWindow()
 {
     hide(); // so we appear to have quit, and then sound fades out below
     releasePowerSave();
+    qobject_cast<KRecentFilesAction *>(action("file_open_recent"))->saveEntries(KConfigGroup(KSharedConfig::openConfig(), "General"));
     delete videoWindow(); // fades out sound in dtor
 }
 
@@ -310,11 +305,28 @@ void MainWindow::setupActions()
 {
     KActionCollection *const ac = actionCollection();
 
+    auto open = KStandardAction::open(this, &MainWindow::openFileDialog, ac);
+    open->setText(i18nc("@action", "Play File…"));
+    open->setToolTip(i18nc("@info:tooltip", "Open a media file for playback"));
+    auto recent = KStandardAction::openRecent(this, &MainWindow::open, ac);
+    recent->loadEntries(KConfigGroup(KSharedConfig::openConfig(), "General"));
     KStandardAction::quit(qApp, &QApplication::closeAllWindows, ac);
 
-    KStandardAction::open(this, &MainWindow::toggleLoadView, ac)->setText(i18nc("@action", "Play &Media..."));
-
 #define addToAc(X) ac->addAction(X->objectName(), X);
+
+    auto playStreamAction = new QAction(i18nc("@action", "Play Stream…"), ac);
+    playStreamAction->setObjectName(QStringLiteral("play_stream"));
+    playStreamAction->setIcon(QIcon::fromTheme(QStringLiteral("document-open-remote")));
+    connect(playStreamAction, &QAction::triggered, this, &MainWindow::openStreamDialog);
+    addToAc(playStreamAction);
+
+    auto playDiscAction = new QAction(i18nc("@action", "Play Disc"), ac);
+    playDiscAction->setObjectName(QStringLiteral("play_disc"));
+    playDiscAction->setIcon(QIcon::fromTheme(QStringLiteral("media-optical")));
+    connect(playDiscAction, &QAction::triggered, this, &MainWindow::playDisc);
+    addToAc(playDiscAction);
+
+    m_loadView->setToolbarActions({open, playStreamAction, playDiscAction});
 
     KToggleFullScreenAction *toggleFullScreen = new KToggleFullScreenAction(this, ac);
     toggleFullScreen->setObjectName(QLatin1String("fullscreen"));
@@ -478,16 +490,12 @@ void MainWindow::toggleLoadView()
             }
             m_mainView->setCurrentWidget(m_currentWidget);
         }
-        if (engine()->state() == Phonon::StoppedState) {
-            m_loadView->setThumbnail(nullptr);
-        }
         engine()->isPreview(false);
     } else if (m_currentWidget != m_audioView) {
         m_mainView->setCurrentWidget(m_loadView);
         if (m_currentWidget && engine()->state() != Phonon::StoppedState) {
             m_mainView->removeWidget(m_currentWidget);
             engine()->isPreview(true);
-            m_loadView->setThumbnail(m_currentWidget);
         }
     } else {
         m_mainView->setCurrentWidget(m_loadView);
@@ -615,7 +623,6 @@ bool MainWindow::load(const QUrl &url)
 
     if (ret) {
         m_currentWidget = nullptr;
-        m_loadView->setThumbnail(nullptr);
     }
     return ret;
 }
@@ -634,7 +641,6 @@ void MainWindow::play()
     case Phonon::StoppedState:
         engine()->play();
         m_currentWidget = nullptr;
-        m_loadView->setThumbnail(nullptr);
         break;
     default:
         break;
@@ -715,7 +721,6 @@ void MainWindow::playDisc()
         }
     } else {
         engine()->playDvd();
-        m_loadView->setThumbnail(nullptr);
         toggleLoadView();
         qDebug() << "no disc in drive or Solid isn't working";
     }
@@ -723,8 +728,6 @@ void MainWindow::playDisc()
 
 void MainWindow::openRecentFile(const QUrl &url)
 {
-    m_playDialog->deleteLater();
-    m_playDialog = nullptr;
     this->open(url);
 }
 

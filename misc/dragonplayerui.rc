@@ -2,7 +2,12 @@
 <gui name="dragonplayer" translationDomain="dragonplayer" version="7">
 <MenuBar>
    <Menu name="file" noMerge="1"><text context="@title:menu">&amp;Play</text>
-      <Action name="file_open"/>
+      <Menu name="play_media_menu" noMerge="1" icon="folder"><text context="@title:menu">Play Media</text>
+         <Action name="file_open"/>
+         <Action name="play_stream"/>
+         <Action name="play_disc"/>
+      </Menu>
+      <Action name="file_open_recent"/>
       <Separator/>
       <Action name="play"/>
       <Action name="stop"/>

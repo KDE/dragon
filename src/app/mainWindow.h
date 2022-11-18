@@ -34,7 +34,6 @@ class AudioView2;
 
 namespace Dragon
 {
-class PlayDialog;
 class FullScreenToolBarHandler;
 
 class MainWindow : public KXmlGuiWindow
@@ -121,7 +120,6 @@ private:
     TimeLabel *m_timeLabel;
     QLabel *m_titleLabel;
     QList<QSlider *> m_sliders;
-    QPointer<PlayDialog> m_playDialog;
 
     KToggleAction *m_menuToggleAction;
 
