@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:44+0000\n"
+"POT-Creation-Date: 2022-11-20 00:45+0000\n"
 "PO-Revision-Date: 2009-11-15 12:06+0100\n"
 "Last-Translator: Axel Rousseau <axel@esperanto-jeunes.org>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -127,20 +127,18 @@ msgstr ""
 msgid "Select a disc to play."
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, m_playFileButton)
-#: src/app/loadView.ui:19
-#, fuzzy, kde-format
-#| msgid "Play"
-msgctxt "@action:button"
-msgid "Play File"
-msgstr "Ludi"
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/app/loadView.ui:23
+#, kde-format
+msgid "Recent Media"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, m_playDiskButton)
-#: src/app/loadView.ui:31 src/app/playDialog.cpp:55
+#. i18n: ectx: property (text), widget (QPushButton, m_playFileButton)
+#: src/app/loadView.ui:32
 #, fuzzy, kde-format
 #| msgid "Play"
 msgctxt "@action:button"
-msgid "Play Disc"
+msgid "Play File…"
 msgstr "Ludi"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_playStreamButton)
@@ -148,8 +146,29 @@ msgstr "Ludi"
 #, fuzzy, kde-format
 #| msgid "Play"
 msgctxt "@action:button"
-msgid "Play Stream"
+msgid "Play Stream…"
 msgstr "Ludi"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_playDiskButton)
+#: src/app/loadView.ui:54 src/app/playDialog.cpp:55
+#, fuzzy, kde-format
+#| msgid "Play"
+msgctxt "@action:button"
+msgid "Play Disc"
+msgstr "Ludi"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, m_clearRecent)
+#. i18n: ectx: property (accessibleName), widget (QPushButton, m_clearRecent)
+#: src/app/loadView.ui:99 src/app/loadView.ui:102
+#, kde-format
+msgid "Clear Recent Media"
+msgstr ""
+
+#. i18n: ectx: property (accessibleDescription), widget (RecentlyPlayedList, m_recentlyPlayed)
+#: src/app/loadView.ui:122
+#, kde-format
+msgid "Recent Media List"
+msgstr ""
 
 #: src/app/main.cpp:37
 #, kde-format
@@ -462,33 +481,33 @@ msgstr ""
 msgid "Dragon Player could not open the file: %1"
 msgstr ""
 
-#: src/app/recentlyPlayedList.cpp:37
+#: src/app/recentlyPlayedList.cpp:38
 #, kde-format
 msgctxt "@action Copy the URL of the selected multimedia"
 msgid "Copy URL"
 msgstr ""
 
-#: src/app/recentlyPlayedList.cpp:42
+#: src/app/recentlyPlayedList.cpp:43
 #, fuzzy, kde-format
 #| msgid "Clear List"
 msgctxt "@action"
 msgid "Clear List"
 msgstr "Forigi la liston"
 
-#: src/app/recentlyPlayedList.cpp:47
+#: src/app/recentlyPlayedList.cpp:48
 #, fuzzy, kde-format
 #| msgid "Remove Entry"
 msgctxt "@action"
 msgid "Remove Entry"
 msgstr "Forigi eron"
 
-#: src/app/recentlyPlayedList.cpp:133
+#: src/app/recentlyPlayedList.cpp:137
 #, kde-format
 msgid ""
 "This file could not be found. Would you like to remove it from the playlist?"
 msgstr ""
 
-#: src/app/recentlyPlayedList.cpp:135 src/app/recentlyPlayedList.cpp:140
+#: src/app/recentlyPlayedList.cpp:139 src/app/recentlyPlayedList.cpp:144
 #, fuzzy, kde-format
 #| msgid "File not found"
 msgctxt "@title:window"
