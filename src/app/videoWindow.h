@@ -49,7 +49,6 @@ private:
 
     QTimer *m_cursorTimer;
     bool m_justLoaded;
-    bool m_adjustedSize;
     QActionGroup *m_subLanguages;
     QActionGroup *m_audioLanguages;
     QWidget *m_logo;

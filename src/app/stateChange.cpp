@@ -74,8 +74,6 @@ void MainWindow::engineStateChanged(Phonon::State state)
             m_currentWidget = engine();
         } else {
             m_currentWidget = m_audioView;
-            if (!isMaximized())
-                resize(m_currentWidget->minimumSize());
         }
         toggleLoadView();
     }

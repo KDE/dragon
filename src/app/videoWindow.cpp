@@ -65,7 +65,6 @@ VideoWindow::VideoWindow(QWidget *parent)
     : QWidget(parent)
     , m_cursorTimer(new QTimer(this))
     , m_justLoaded(false)
-    , m_adjustedSize(false)
     , m_subLanguages(new QActionGroup(this))
     , m_audioLanguages(new QActionGroup(this))
     , m_logo(new QLabel(this))
@@ -170,7 +169,6 @@ bool VideoWindow::load(const QUrl &url)
     else
         m_media->setCurrentSource(url);
     m_justLoaded = true;
-    m_adjustedSize = false;
 
     QApplication::restoreOverrideCursor();
 
@@ -186,7 +184,6 @@ bool VideoWindow::load(const QList<QUrl> &urls)
     m_media->setCurrentSource(tmpUrls.takeFirst());
     m_media->enqueue(tmpUrls);
     m_justLoaded = true;
-    m_adjustedSize = false;
 
     QApplication::restoreOverrideCursor();
 
@@ -469,13 +466,6 @@ void VideoWindow::stateChanged(Phonon::State currentState, Phonon::State oldstat
         m_logo->hide();
         m_vWidget->show();
         updateChannels();
-
-        if (m_adjustedSize == false) {
-            if (mainWindow() && !mainWindow()->isMaximized())
-                ((QWidget *)mainWindow())->adjustSize();
-            m_adjustedSize = true;
-            qDebug() << "adjusting size to video resolution";
-        }
     }
     Q_EMIT stateUpdated(currentState, oldstate);
 }
