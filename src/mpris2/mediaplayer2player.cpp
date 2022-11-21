@@ -18,6 +18,7 @@ static QByteArray makeTrackId(const QString &source)
 
 MediaPlayer2Player::MediaPlayer2Player(QObject *parent)
     : QDBusAbstractAdaptor(parent)
+    , oldPos(0)
 {
     connect(Dragon::engine(), &Dragon::VideoWindow::tick, this, &MediaPlayer2Player::tick);
     connect(Dragon::engine(), &Dragon::VideoWindow::currentSourceChanged, this, &MediaPlayer2Player::currentSourceChanged);

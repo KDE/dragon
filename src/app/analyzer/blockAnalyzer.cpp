@@ -28,6 +28,7 @@ BlockAnalyzer::BlockAnalyzer(QWidget *parent)
     , m_fade_bars(FADE_SIZE) // vector<QPixmap>
     , m_fade_pos(1 << 8, 50) // vector<uint>
     , m_fade_intensity(1 << 8, 32) // vector<uint>
+    , m_step(0)
 {
     setMinimumSize(MIN_COLUMNS * (WIDTH + 1) - 1, MIN_ROWS * (HEIGHT + 1) - 1); //-1 is padding, no drawing takes place there
     setMaximumWidth(MAX_COLUMNS * (WIDTH + 1) - 1);
