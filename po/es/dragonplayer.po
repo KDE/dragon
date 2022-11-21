@@ -12,20 +12,20 @@
 # Rocio Gallego <traducciones @rociogallego.com>, 2012.
 # Ayoze Hernández Díaz <ayoze12@gmail.com>, 2013.
 # Eloy Cuadra <ecuadra@eloihr.net>, 2013, 2015.
-# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2018, 2019, 2020.
+# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2018, 2019, 2020, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-20 00:45+0000\n"
-"PO-Revision-Date: 2020-05-09 16:45+0200\n"
+"PO-Revision-Date: 2022-11-20 09:59+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 20.04.0\n"
+"X-Generator: Lokalize 20.04.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -140,25 +140,21 @@ msgstr "Seleccione un disco para reproducirlo."
 #: src/app/loadView.ui:23
 #, kde-format
 msgid "Recent Media"
-msgstr ""
+msgstr "Medios recientes"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_playFileButton)
 #: src/app/loadView.ui:32
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play File"
+#, kde-format
 msgctxt "@action:button"
 msgid "Play File…"
-msgstr "Reproducir archivo"
+msgstr "Reproducir archivo..."
 
 #. i18n: ectx: property (text), widget (QPushButton, m_playStreamButton)
 #: src/app/loadView.ui:43
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Stream"
+#, kde-format
 msgctxt "@action:button"
 msgid "Play Stream…"
-msgstr "Reproducir flujo de datos"
+msgstr "Reproducir flujo de datos..."
 
 #. i18n: ectx: property (text), widget (QPushButton, m_playDiskButton)
 #: src/app/loadView.ui:54 src/app/playDialog.cpp:55
@@ -172,13 +168,13 @@ msgstr "Reproducir disco"
 #: src/app/loadView.ui:99 src/app/loadView.ui:102
 #, kde-format
 msgid "Clear Recent Media"
-msgstr ""
+msgstr "Limpiar medios recientes"
 
 #. i18n: ectx: property (accessibleDescription), widget (RecentlyPlayedList, m_recentlyPlayed)
 #: src/app/loadView.ui:122
 #, kde-format
 msgid "Recent Media List"
-msgstr ""
+msgstr "Lista de medios recientes"
 
 #: src/app/main.cpp:37
 #, kde-format
@@ -579,16 +575,3 @@ msgstr "Selección de subtítulos del &DVD"
 msgctxt "@option:radio audio language"
 msgid "&Auto"
 msgstr "&Automático"
-
-#~ msgid ""
-#~ "IRC:\n"
-#~ "irc.freenode.net #dragonplayer\n"
-#~ "\n"
-#~ "Feedback:\n"
-#~ "imonroe@kde.org"
-#~ msgstr ""
-#~ "IRC:\n"
-#~ "irc.freenode.net #dragonplayer\n"
-#~ "\n"
-#~ "Comentarios y sugerencias:\n"
-#~ "imonroe@kde.org"

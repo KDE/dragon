@@ -1,8 +1,8 @@
 # Translation of dragonplayer.po to Catalan
-# Copyright (C) 2008-2021 This_file_is_part_of_KDE
+# Copyright (C) 2008-2022 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2 or later.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2008, 2009, 2010, 2012, 2013, 2015, 2019, 2020, 2021.
+# Josep M. Ferrer <txemaq@gmail.com>, 2008, 2009, 2010, 2012, 2013, 2015, 2019, 2020, 2021, 2022.
 # Joan Maspons <joanmaspons@gmail.com>, 2009.
 # Manuel Tortosa Moreno <manutortosa@chakra-project.org>, 2010, 2011.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2018, 2020.
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: dragon\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-20 00:45+0000\n"
-"PO-Revision-Date: 2021-10-26 21:07+0200\n"
+"PO-Revision-Date: 2022-11-20 10:21+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -131,25 +131,21 @@ msgstr "Seleccioneu un disc per a reproduir."
 #: src/app/loadView.ui:23
 #, kde-format
 msgid "Recent Media"
-msgstr ""
+msgstr "Fitxers multimèdia recents"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_playFileButton)
 #: src/app/loadView.ui:32
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play File"
+#, kde-format
 msgctxt "@action:button"
 msgid "Play File…"
-msgstr "Reprodueix un fitxer"
+msgstr "Reprodueix un fitxer…"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_playStreamButton)
 #: src/app/loadView.ui:43
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Stream"
+#, kde-format
 msgctxt "@action:button"
 msgid "Play Stream…"
-msgstr "Reprodueix un flux de dades"
+msgstr "Reprodueix un flux de dades…"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_playDiskButton)
 #: src/app/loadView.ui:54 src/app/playDialog.cpp:55
@@ -163,13 +159,13 @@ msgstr "Reprodueix un disc"
 #: src/app/loadView.ui:99 src/app/loadView.ui:102
 #, kde-format
 msgid "Clear Recent Media"
-msgstr ""
+msgstr "Neteja els fitxers multimèdia recents"
 
 #. i18n: ectx: property (accessibleDescription), widget (RecentlyPlayedList, m_recentlyPlayed)
 #: src/app/loadView.ui:122
 #, kde-format
 msgid "Recent Media List"
-msgstr ""
+msgstr "Llista de fitxers multimèdia recents"
 
 #: src/app/main.cpp:37
 #, kde-format
@@ -295,7 +291,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Play &Media..."
-msgstr "Reprodueix un &suport..."
+msgstr "Reprodueix un fitxer &multimèdia..."
 
 #: src/app/mainWindow.cpp:289
 #, kde-format
@@ -420,7 +416,7 @@ msgstr "Flux de dades:"
 #: src/app/mainWindow.cpp:773
 #, kde-format
 msgid "Sorry, no media was found in the drop"
-msgstr "No s'ha trobat cap suport en deixar anar"
+msgstr "No s'ha trobat cap fitxer multimèdia en deixar anar"
 
 #: src/app/mainWindow.cpp:821
 #, kde-format
@@ -431,7 +427,7 @@ msgstr "es reprodueix un vídeo"
 #: src/app/mainWindow.cpp:853
 #, kde-format
 msgid "No media loaded"
-msgstr "No s'ha carregat cap suport"
+msgstr "No s'ha carregat cap fitxer multimèdia"
 
 #: src/app/mainWindow.cpp:855
 #, kde-format
@@ -442,12 +438,12 @@ msgstr "En pausa"
 #, kde-format
 msgctxt "@title:window"
 msgid "Play Media"
-msgstr "Reproducció de suport"
+msgstr "Reproducció de fitxer multimèdia"
 
 #: src/app/playDialog.cpp:43
 #, kde-format
 msgid "What media would you like to play?"
-msgstr "Quin suport us agradaria reproduir?"
+msgstr "Quin fitxer multimèdia us agradaria reproduir?"
 
 #: src/app/playDialog.cpp:51
 #, kde-format
@@ -569,44 +565,3 @@ msgstr "Selecció de subtítols de &DVD"
 msgctxt "@option:radio audio language"
 msgid "&Auto"
 msgstr "&Automàtic"
-
-#~ msgid ""
-#~ "IRC:\n"
-#~ "irc.freenode.net #dragonplayer\n"
-#~ "\n"
-#~ "Feedback:\n"
-#~ "imonroe@kde.org"
-#~ msgstr ""
-#~ "IRC:\n"
-#~ "irc.freenode.net #dragonplayer\n"
-#~ "\n"
-#~ "Comentaris:\n"
-#~ "imonroe@kde.org"
-
-#~ msgid "David Edmundson"
-#~ msgstr "David Edmundson"
-
-#~ msgid "Matthias Kretz"
-#~ msgstr "Matthias Kretz"
-
-#~ msgid "Eugene Trounev"
-#~ msgstr "Eugene Trounev"
-
-#~ msgid "Mike Diehl"
-#~ msgstr "Mike Diehl"
-
-#~ msgid "The Kaffeine Developers"
-#~ msgstr "The Kaffeine Developers"
-
-#~ msgid "Greenleaf"
-#~ msgstr "Greenleaf"
-
-#~ msgid "Eike Hein"
-#~ msgstr "Eike Hein"
-
-#~ msgid "Next Chapter"
-#~ msgstr "Capítol posterior"
-
-#~ msgctxt "Mute the sound output"
-#~ msgid "Mute "
-#~ msgstr "Silencia "
