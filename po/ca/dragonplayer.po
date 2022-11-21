@@ -2,7 +2,7 @@
 # Copyright (C) 2008-2021 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2 or later.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2008, 2009, 2010, 2012, 2013, 2015, 2019, 2020, 2021.
+# Josep M. Ferrer <txemaq@gmail.com>, 2008, 2009, 2010, 2012, 2013, 2015, 2019, 2020, 2021, 2022.
 # Joan Maspons <joanmaspons@gmail.com>, 2009.
 # Manuel Tortosa Moreno <manutortosa@chakra-project.org>, 2010, 2011.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2018, 2020.
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: dragon\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-17 00:45+0000\n"
-"PO-Revision-Date: 2021-10-26 21:07+0200\n"
+"PO-Revision-Date: 2022-11-20 10:21+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -272,7 +272,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Play &Media..."
-msgstr "Reprodueix un &suport..."
+msgstr "Reprodueix un fitxer &multimèdia..."
 
 #: src/app/mainWindow.cpp:288
 #, kde-format
@@ -397,7 +397,7 @@ msgstr "Flux de dades:"
 #: src/app/mainWindow.cpp:793
 #, kde-format
 msgid "Sorry, no media was found in the drop"
-msgstr "No s'ha trobat cap suport en deixar anar"
+msgstr "No s'ha trobat cap fitxer multimèdia en deixar anar"
 
 #: src/app/mainWindow.cpp:843
 #, kde-format
@@ -408,7 +408,7 @@ msgstr "es reprodueix un vídeo"
 #: src/app/mainWindow.cpp:879
 #, kde-format
 msgid "No media loaded"
-msgstr "No s'ha carregat cap suport"
+msgstr "No s'ha carregat cap fitxer multimèdia"
 
 #: src/app/mainWindow.cpp:881
 #, kde-format
@@ -419,12 +419,12 @@ msgstr "En pausa"
 #, kde-format
 msgctxt "@title:window"
 msgid "Play Media"
-msgstr "Reproducció de suport"
+msgstr "Reproducció de fitxer multimèdia"
 
 #: src/app/playDialog.cpp:42
 #, kde-format
 msgid "What media would you like to play?"
-msgstr "Quin suport us agradaria reproduir?"
+msgstr "Quin fitxer multimèdia us agradaria reproduir?"
 
 #: src/app/playDialog.cpp:50
 #, kde-format
