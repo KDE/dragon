@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-20 00:45+0000\n"
-"PO-Revision-Date: 2022-01-23 22:18+0400\n"
+"PO-Revision-Date: 2022-11-21 20:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Lokalize 21.07.70\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -130,25 +130,21 @@ msgstr "اختر قرصا لتشغله."
 #: src/app/loadView.ui:23
 #, kde-format
 msgid "Recent Media"
-msgstr ""
+msgstr "وسائط حديثة"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_playFileButton)
 #: src/app/loadView.ui:32
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play File"
+#, kde-format
 msgctxt "@action:button"
 msgid "Play File…"
-msgstr "شغّل ملف"
+msgstr "شغّل ملف…"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_playStreamButton)
 #: src/app/loadView.ui:43
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Stream"
+#, kde-format
 msgctxt "@action:button"
 msgid "Play Stream…"
-msgstr "شغّل بث"
+msgstr "شغّل بث…"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_playDiskButton)
 #: src/app/loadView.ui:54 src/app/playDialog.cpp:55
@@ -162,13 +158,13 @@ msgstr "شغّل قرص"
 #: src/app/loadView.ui:99 src/app/loadView.ui:102
 #, kde-format
 msgid "Clear Recent Media"
-msgstr ""
+msgstr "امسح الوسائط الحديثة"
 
 #. i18n: ectx: property (accessibleDescription), widget (RecentlyPlayedList, m_recentlyPlayed)
 #: src/app/loadView.ui:122
 #, kde-format
 msgid "Recent Media List"
-msgstr ""
+msgstr "قائمة الوسائط الحديثة"
 
 #: src/app/main.cpp:37
 #, kde-format

@@ -9,7 +9,7 @@
 # Stanislas Zeller <uncensored.assault@gmail.com>, 2008.
 # Guillaume Pujol <guill.p@gmail.com>, 2009.
 # Geoffray Levasseur <geoffray.levasseurbrandin@numericable.fr>, 2010, 2011, 2012, 2013.
-# xavier <xavier.besnard@neuf.fr>, 2012, 2013, 2020.
+# xavier <xavier.besnard@neuf.fr>, 2012, 2013, 2020, 2022.
 # Vincent Pinon <vpinon@kde.org>, 2017.
 # Simon Depiets <sdepiets@gmail.com>, 2018, 2019.
 #
@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-20 00:45+0000\n"
-"PO-Revision-Date: 2020-05-27 16:53+0200\n"
+"PO-Revision-Date: 2022-11-21 12:27+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 20.04.1\n"
+"X-Generator: Lokalize 22.11.80\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -142,25 +142,21 @@ msgstr "Sélectionner un disque à lire."
 #: src/app/loadView.ui:23
 #, kde-format
 msgid "Recent Media"
-msgstr ""
+msgstr "Media récents"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_playFileButton)
 #: src/app/loadView.ui:32
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play File"
+#, kde-format
 msgctxt "@action:button"
 msgid "Play File…"
-msgstr "Lire un fichier"
+msgstr "Lire un fichier..."
 
 #. i18n: ectx: property (text), widget (QPushButton, m_playStreamButton)
 #: src/app/loadView.ui:43
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Stream"
+#, kde-format
 msgctxt "@action:button"
 msgid "Play Stream…"
-msgstr "Lire un flux"
+msgstr "Lire un flux..."
 
 #. i18n: ectx: property (text), widget (QPushButton, m_playDiskButton)
 #: src/app/loadView.ui:54 src/app/playDialog.cpp:55
@@ -174,13 +170,13 @@ msgstr "Lire un disque"
 #: src/app/loadView.ui:99 src/app/loadView.ui:102
 #, kde-format
 msgid "Clear Recent Media"
-msgstr ""
+msgstr "Effacer les media récents"
 
 #. i18n: ectx: property (accessibleDescription), widget (RecentlyPlayedList, m_recentlyPlayed)
 #: src/app/loadView.ui:122
 #, kde-format
 msgid "Recent Media List"
-msgstr ""
+msgstr "Liste des media récents"
 
 #: src/app/main.cpp:37
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: dragon\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-20 00:45+0000\n"
-"PO-Revision-Date: 2022-09-30 16:49+0200\n"
+"PO-Revision-Date: 2022-11-21 07:32+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -81,7 +81,7 @@ msgstr "100%-მდე გადიდება"
 #: src/app/adjustSizeButton.cpp:49
 #, kde-format
 msgid "<b>Adjust video scale?</b>"
-msgstr ""
+msgstr "<b>მოირგებთ ვიდეოს მასშტაბს?</b>"
 
 #: src/app/discSelectionDialog.cpp:38
 #, kde-format
@@ -127,25 +127,21 @@ msgstr "აირჩიეთ დასაკრავ დისკი."
 #: src/app/loadView.ui:23
 #, kde-format
 msgid "Recent Media"
-msgstr ""
+msgstr "უახლესი მედია"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_playFileButton)
 #: src/app/loadView.ui:32
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play File"
+#, kde-format
 msgctxt "@action:button"
 msgid "Play File…"
-msgstr "ფაილის დაკვრა"
+msgstr "ფაილის დაკვრა…"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_playStreamButton)
 #: src/app/loadView.ui:43
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Stream"
+#, kde-format
 msgctxt "@action:button"
 msgid "Play Stream…"
-msgstr "ნაკადის დაკვრა"
+msgstr "ნაკადის დაკვრა…"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_playDiskButton)
 #: src/app/loadView.ui:54 src/app/playDialog.cpp:55
@@ -159,13 +155,13 @@ msgstr "დისკის დაკვრა"
 #: src/app/loadView.ui:99 src/app/loadView.ui:102
 #, kde-format
 msgid "Clear Recent Media"
-msgstr ""
+msgstr "უახლესი მედიის გასუფთავება"
 
 #. i18n: ectx: property (accessibleDescription), widget (RecentlyPlayedList, m_recentlyPlayed)
 #: src/app/loadView.ui:122
 #, kde-format
 msgid "Recent Media List"
-msgstr ""
+msgstr "უახლესი მედიის სია"
 
 #: src/app/main.cpp:37
 #, kde-format
@@ -175,7 +171,7 @@ msgstr "დამკვრელი Dragon"
 #: src/app/main.cpp:39
 #, kde-format
 msgid "A video player that has a usability focus"
-msgstr ""
+msgstr "ვიდეო დამკვრელი ფოკუსით გამოყენებადობაზე"
 
 #: src/app/main.cpp:41
 #, kde-format
@@ -183,11 +179,13 @@ msgid ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe"
 msgstr ""
+"2006, Max Howell\n"
+"2007, Ian Monroe, ყველა უფლება დაცულია"
 
 #: src/app/main.cpp:45
 #, kde-format
 msgid "Improvements and polish"
-msgstr ""
+msgstr "გაუმჯობესებები და დეტალების ჩასწორება"
 
 #: src/app/main.cpp:46
 #, kde-format
@@ -207,12 +205,14 @@ msgstr "სახელმძღვანელო"
 #: src/app/main.cpp:49
 #, kde-format
 msgid "Great reference code"
-msgstr ""
+msgstr "დიდი მიმართვის კოდი"
 
 #: src/app/main.cpp:50
 #, kde-format
 msgid "Yatta happened to be the only video on my laptop to test with. :)"
 msgstr ""
+"მოხდა ისე, რომ Yatta ერთად-ერთი ვიდეო აღმოჩნდა ჩემს ლეპტოპზე, რომლითაც "
+"დატესტვა შემეძლო. :)"
 
 #: src/app/main.cpp:51
 #, kde-format
@@ -238,7 +238,7 @@ msgstr "URL-ის დაკვრა"
 #, kde-format
 msgctxt "@title:menu"
 msgid "Aspect &Ratio"
-msgstr ""
+msgstr "ასპექტის &ფარდობა"
 
 #: src/app/mainWindow.cpp:144
 #, kde-format
@@ -268,7 +268,7 @@ msgstr "&4:3"
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Ana&morphic (16:9)"
-msgstr ""
+msgstr "&ანამორფული (16:9)"
 
 #: src/app/mainWindow.cpp:167
 #, kde-format
@@ -282,6 +282,8 @@ msgid ""
 "<qt>Phonon could not be successfully initialized. Dragon Player will now "
 "exit.</qt>"
 msgstr ""
+"<qt>Phonon -ის ინიციალიზაცია წარუმატებელია. Dragon Player მუშაობას ასწრულებს."
+"</qt>"
 
 #: src/app/mainWindow.cpp:272
 #, kde-format
@@ -317,7 +319,7 @@ msgstr "დადუმება"
 #, kde-format
 msgctxt "@action"
 msgid "Reset Video Scale"
-msgstr ""
+msgstr "ვიდეოს მასშტაბის დაბრუნება"
 
 #: src/app/mainWindow.cpp:317
 #, kde-format
@@ -390,6 +392,8 @@ msgstr "დადუმება"
 #, kde-format
 msgid "Dragon Player was asked to open an empty URL; it cannot."
 msgstr ""
+"Dragon Player-ისთვის გადაცემული დასაკრავი URL ცარიელია. მისი დაკვრა კი "
+"შეუძლებელია."
 
 #: src/app/mainWindow.cpp:613
 #, kde-format
@@ -412,18 +416,18 @@ msgstr "ნაკადი:"
 #: src/app/mainWindow.cpp:773
 #, kde-format
 msgid "Sorry, no media was found in the drop"
-msgstr ""
+msgstr "რაც დააგდეთ, მასში მედიაფაილი ვერ ვიპოვე"
 
 #: src/app/mainWindow.cpp:821
 #, kde-format
 msgctxt "Notification inhibition reason"
 msgid "playing a video"
-msgstr ""
+msgstr "ვიდეოს დაკვრა"
 
 #: src/app/mainWindow.cpp:853
 #, kde-format
 msgid "No media loaded"
-msgstr ""
+msgstr "მედია ჩატვირთული არაა"
 
 #: src/app/mainWindow.cpp:855
 #, kde-format
@@ -439,7 +443,7 @@ msgstr "მედიის დაკვრა"
 #: src/app/playDialog.cpp:43
 #, kde-format
 msgid "What media would you like to play?"
-msgstr ""
+msgstr "რისი დაკვრა გსურთ?"
 
 #: src/app/playDialog.cpp:51
 #, kde-format
@@ -450,12 +454,12 @@ msgstr "ფაილის დაკვრა..."
 #: src/app/playlistFile.cpp:37
 #, kde-format
 msgid "The file is not a playlist"
-msgstr ""
+msgstr "ეს ფაილი დასაკრავ სიაში არაა"
 
 #: src/app/playlistFile.cpp:45
 #, kde-format
 msgid "Dragon Player could not download the remote playlist: %1"
-msgstr ""
+msgstr "Dragon Player-მა დაშორებული დასაკრავი სია ვერ გადმოწერა: %1"
 
 #: src/app/playlistFile.cpp:66
 #, kde-format
@@ -463,11 +467,12 @@ msgid ""
 "<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is empty?"
 "</qt>"
 msgstr ""
+"<qt>დასაკრავი სია, <i>'%1'</i>, არაინტერპრეტირებადია. ცარიელია ხომ არაა?</qt>"
 
 #: src/app/playlistFile.cpp:70
 #, kde-format
 msgid "Dragon Player could not open the file: %1"
-msgstr ""
+msgstr "Dragon Player-ის შეცდომა ფაილის გახსნისას: %1"
 
 #: src/app/recentlyPlayedList.cpp:38
 #, kde-format
@@ -491,7 +496,7 @@ msgstr "ჩანაწერის ამოღება"
 #, kde-format
 msgid ""
 "This file could not be found. Would you like to remove it from the playlist?"
-msgstr ""
+msgstr "ფაილი ვერ ვიპოვე. გნებავთ მისი წაშლა დასაკრავი სიიდან?"
 
 #: src/app/recentlyPlayedList.cpp:139 src/app/recentlyPlayedList.cpp:144
 #, kde-format
