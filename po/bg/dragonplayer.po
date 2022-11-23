@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-20 00:45+0000\n"
+"POT-Creation-Date: 2022-11-23 00:46+0000\n"
 "PO-Revision-Date: 2022-07-28 21:01+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -557,13 +557,13 @@ msgctxt "@action:button"
 msgid "Close"
 msgstr "Затваряне"
 
-#: src/app/videoWindow.cpp:108
+#: src/app/videoWindow.cpp:107
 #, kde-format
 msgctxt "@option:radio"
 msgid "&DVD Subtitle Selection"
 msgstr "Избор на надписи за &DVD"
 
-#: src/app/videoWindow.cpp:118
+#: src/app/videoWindow.cpp:117
 #, kde-format
 msgctxt "@option:radio audio language"
 msgid "&Auto"

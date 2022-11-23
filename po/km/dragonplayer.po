@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-20 00:45+0000\n"
+"POT-Creation-Date: 2022-11-23 00:46+0000\n"
 "PO-Revision-Date: 2012-06-20 14:45+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -590,14 +590,14 @@ msgctxt "@action:button"
 msgid "Close"
 msgstr "បិទ​"
 
-#: src/app/videoWindow.cpp:108
+#: src/app/videoWindow.cpp:107
 #, fuzzy, kde-format
 #| msgid "&DVD Subtitle Selection"
 msgctxt "@option:radio"
 msgid "&DVD Subtitle Selection"
 msgstr "ជម្រើស​ចំណងជើង​រង​របស់​ឌីវីឌី"
 
-#: src/app/videoWindow.cpp:118
+#: src/app/videoWindow.cpp:117
 #, fuzzy, kde-format
 #| msgid "&Auto"
 msgctxt "@option:radio audio language"
