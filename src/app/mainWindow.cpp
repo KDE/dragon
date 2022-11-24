@@ -324,6 +324,9 @@ void MainWindow::setupActions()
     playDiscAction->setObjectName(QStringLiteral("play_disc"));
     playDiscAction->setIcon(QIcon::fromTheme(QStringLiteral("media-optical")));
     connect(playDiscAction, &QAction::triggered, this, &MainWindow::playDisc);
+    if (Solid::Device::listFromType(Solid::DeviceInterface::OpticalDrive).isEmpty()) {
+        playDiscAction->setVisible(false);
+    }
     addToAc(playDiscAction);
 
     m_loadView->setToolbarActions({open, playStreamAction, playDiscAction});
