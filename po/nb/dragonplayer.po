@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: videoplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-20 00:45+0000\n"
+"POT-Creation-Date: 2022-11-23 00:46+0000\n"
 "PO-Revision-Date: 2015-04-26 22:26+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -548,13 +548,13 @@ msgctxt "@action:button"
 msgid "Close"
 msgstr ""
 
-#: src/app/videoWindow.cpp:108
+#: src/app/videoWindow.cpp:107
 #, kde-format
 msgctxt "@option:radio"
 msgid "&DVD Subtitle Selection"
 msgstr ""
 
-#: src/app/videoWindow.cpp:118
+#: src/app/videoWindow.cpp:117
 #, kde-format
 msgctxt "@option:radio audio language"
 msgid "&Auto"

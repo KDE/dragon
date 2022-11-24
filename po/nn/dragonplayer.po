@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-20 00:45+0000\n"
+"POT-Creation-Date: 2022-11-23 00:46+0000\n"
 "PO-Revision-Date: 2020-05-09 16:56+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -548,13 +548,13 @@ msgctxt "@action:button"
 msgid "Close"
 msgstr "Lukk"
 
-#: src/app/videoWindow.cpp:108
+#: src/app/videoWindow.cpp:107
 #, kde-format
 msgctxt "@option:radio"
 msgid "&DVD Subtitle Selection"
 msgstr "Val av &DVD-teksting"
 
-#: src/app/videoWindow.cpp:118
+#: src/app/videoWindow.cpp:117
 #, kde-format
 msgctxt "@option:radio audio language"
 msgid "&Auto"
