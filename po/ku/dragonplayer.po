@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-23 00:46+0000\n"
+"POT-Creation-Date: 2022-11-25 00:45+0000\n"
 "PO-Revision-Date: 2009-01-22 21:21+0200\n"
 "Last-Translator: Omer Ensari <oensari@gmail.com>\n"
 "Language-Team: Kurdish <kde-i18n-doc@kde.org>\n"
@@ -46,7 +46,7 @@ msgid "&Settings"
 msgstr "&Mîheng"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: misc/dragonplayerui.rc:31
+#: misc/dragonplayerui.rc:32
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Darikê Amûran ya Mak"
@@ -293,73 +293,73 @@ msgctxt "@option:radio aspect ratio"
 msgid "&Window Size"
 msgstr "Mezinahiyê &Paceyê"
 
-#: src/app/mainWindow.cpp:210
+#: src/app/mainWindow.cpp:253
 #, kde-format
 msgid ""
 "<qt>Phonon could not be successfully initialized. Dragon Player will now "
 "exit.</qt>"
 msgstr ""
 
-#: src/app/mainWindow.cpp:272
+#: src/app/mainWindow.cpp:315
 #, fuzzy, kde-format
 #| msgid "Play &Media..."
 msgctxt "@action"
 msgid "Play &Media..."
 msgstr "&Medya Lê Bide..."
 
-#: src/app/mainWindow.cpp:289
+#: src/app/mainWindow.cpp:332
 #, kde-format
 msgctxt "@action"
 msgid "Increase Volume"
 msgstr ""
 
-#: src/app/mainWindow.cpp:294
+#: src/app/mainWindow.cpp:337
 #, kde-format
 msgctxt "@action"
 msgid "Decrease Volume"
 msgstr ""
 
-#: src/app/mainWindow.cpp:299
+#: src/app/mainWindow.cpp:342
 #, fuzzy, kde-format
 #| msgid "Stop"
 msgctxt "@action"
 msgid "Stop"
 msgstr "Rawestîne"
 
-#: src/app/mainWindow.cpp:305
+#: src/app/mainWindow.cpp:348
 #, fuzzy, kde-format
 #| msgid "Mute"
 msgctxt "@action Mute the sound output"
 msgid "Mute"
 msgstr "Bêdeng"
 
-#: src/app/mainWindow.cpp:311
+#: src/app/mainWindow.cpp:354
 #, fuzzy, kde-format
 #| msgid "Reset Video Scale"
 msgctxt "@action"
 msgid "Reset Video Scale"
 msgstr "Pîvanga Vîdeoyê Vegerîne Nirxên Asayî"
 
-#: src/app/mainWindow.cpp:317
+#: src/app/mainWindow.cpp:360
 #, fuzzy, kde-format
 #| msgid "Menu Toggle"
 msgctxt "@action"
 msgid "Menu Toggle"
 msgstr "Pêşekê Veke/Bigire"
 
-#: src/app/mainWindow.cpp:325 src/app/part.cpp:56
+#: src/app/mainWindow.cpp:368 src/app/part.cpp:56
 #, kde-format
 msgid "Position Slider"
 msgstr "Cih Guhêrker"
 
-#: src/app/mainWindow.cpp:329
+#: src/app/mainWindow.cpp:372
 #, fuzzy, kde-format
 #| msgid "Video Settings"
 msgctxt "@option:check"
 msgid "Video Settings"
 msgstr "Vebijêrkên Vîdeoyê"
 
-#: src/app/mainWindow.cpp:337
+#: src/app/mainWindow.cpp:380
 #, kde-format
 msgctxt ""
 "@option:check Whether only one instance of dragon can be started and will be "
@@ -367,98 +367,98 @@ msgctxt ""
 msgid "One Instance Only"
 msgstr ""
 
-#: src/app/mainWindow.cpp:345
+#: src/app/mainWindow.cpp:388
 #, fuzzy, kde-format
 #| msgid "Previous chapter"
 msgctxt "@action previous chapter"
 msgid "Previous"
 msgstr "Beşa paş"
 
-#: src/app/mainWindow.cpp:351
+#: src/app/mainWindow.cpp:394
 #, kde-format
 msgctxt "@action next chapter"
 msgid "Next"
 msgstr ""
 
-#: src/app/mainWindow.cpp:358
+#: src/app/mainWindow.cpp:401
 #, fuzzy, no-c-format, kde-format
 #| msgid "Return 10% back"
 msgctxt "@action"
 msgid "Return 10% Back"
 msgstr "10% vegere paş"
 
-#: src/app/mainWindow.cpp:365
+#: src/app/mainWindow.cpp:408
 #, fuzzy, no-c-format, kde-format
 #| msgid "Go 10% forward"
 msgctxt "@action"
 msgid "Go 10% Forward"
 msgstr "10% biçe pêş"
 
-#: src/app/mainWindow.cpp:371
+#: src/app/mainWindow.cpp:414
 #, fuzzy, kde-format
 #| msgid "Return 10 seconds back"
 msgctxt "@action"
 msgid "Return 10 Seconds Back"
 msgstr "10 xulekan vegere paş"
 
-#: src/app/mainWindow.cpp:377
+#: src/app/mainWindow.cpp:420
 #, fuzzy, kde-format
 #| msgid "Go 10 seconds forward"
 msgctxt "@action"
 msgid "Go 10 Seconds Forward"
 msgstr "10 xulekan biçe pêş"
 
-#: src/app/mainWindow.cpp:462
+#: src/app/mainWindow.cpp:505
 #, fuzzy, kde-format
 #| msgid "Mute"
 msgctxt "@option:check Mute the sound output"
 msgid "Mute"
 msgstr "Bêdeng"
 
-#: src/app/mainWindow.cpp:534
+#: src/app/mainWindow.cpp:577
 #, kde-format
 msgid "Dragon Player was asked to open an empty URL; it cannot."
 msgstr "Lêdarê Dragon ji bo vekirina URL yekê vala hat lê pirsîn; nikare veke."
 
-#: src/app/mainWindow.cpp:613
+#: src/app/mainWindow.cpp:656
 #, fuzzy, kde-format
 #| msgid "Select A File To Play"
 msgctxt "@title:window"
 msgid "Select File to Play"
 msgstr "Ji bo Lêdanê Pelekî Hilbijêre"
 
-#: src/app/mainWindow.cpp:640
+#: src/app/mainWindow.cpp:683
 #, fuzzy, kde-format
 #| msgid "Select A File To Play"
 msgctxt "@title:window"
 msgid "Stream to Play"
 msgstr "Ji bo Lêdanê Pelekî Hilbijêre"
 
-#: src/app/mainWindow.cpp:640
+#: src/app/mainWindow.cpp:683
 #, fuzzy, kde-format
 #| msgid "Play Media"
 msgctxt "@label:textbox"
 msgid "Stream:"
 msgstr "Medya Lê Bide"
 
-#: src/app/mainWindow.cpp:773
+#: src/app/mainWindow.cpp:816
 #, kde-format
 msgid "Sorry, no media was found in the drop"
 msgstr "Lêborîne, tu medya nehat dîtin"
 
-#: src/app/mainWindow.cpp:821
+#: src/app/mainWindow.cpp:864
 #, fuzzy, kde-format
 #| msgid "Play DVD Video"
 msgctxt "Notification inhibition reason"
 msgid "playing a video"
 msgstr "DVD ya Vîdeoyê Lê Bide"
 
-#: src/app/mainWindow.cpp:853
+#: src/app/mainWindow.cpp:896
 #, kde-format
 msgid "No media loaded"
 msgstr "Tu medya nehat bar kirin"
 
-#: src/app/mainWindow.cpp:855
+#: src/app/mainWindow.cpp:898
 #, kde-format
 msgid "Paused"
 msgstr "Hatiye Sekinandin"

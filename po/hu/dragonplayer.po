@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-23 00:46+0000\n"
+"POT-Creation-Date: 2022-11-25 00:45+0000\n"
 "PO-Revision-Date: 2021-01-17 14:48+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -44,7 +44,7 @@ msgid "&Settings"
 msgstr "&Beállítások"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: misc/dragonplayerui.rc:31
+#: misc/dragonplayerui.rc:32
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Alap eszköztár"
@@ -279,67 +279,67 @@ msgctxt "@option:radio aspect ratio"
 msgid "&Window Size"
 msgstr "&Ablakméret"
 
-#: src/app/mainWindow.cpp:210
+#: src/app/mainWindow.cpp:253
 #, kde-format
 msgid ""
 "<qt>Phonon could not be successfully initialized. Dragon Player will now "
 "exit.</qt>"
 msgstr "<qt>A Phonon nem inicializálható. A Dragon Player kilép.</qt>"
 
-#: src/app/mainWindow.cpp:272
+#: src/app/mainWindow.cpp:315
 #, kde-format
 msgctxt "@action"
 msgid "Play &Media..."
 msgstr "Mé&dia lejátszása…"
 
-#: src/app/mainWindow.cpp:289
+#: src/app/mainWindow.cpp:332
 #, kde-format
 msgctxt "@action"
 msgid "Increase Volume"
 msgstr "Hangerő növelése"
 
-#: src/app/mainWindow.cpp:294
+#: src/app/mainWindow.cpp:337
 #, kde-format
 msgctxt "@action"
 msgid "Decrease Volume"
 msgstr "Hangerő csökkentése"
 
-#: src/app/mainWindow.cpp:299
+#: src/app/mainWindow.cpp:342
 #, kde-format
 msgctxt "@action"
 msgid "Stop"
 msgstr "Leállítás"
 
-#: src/app/mainWindow.cpp:305
+#: src/app/mainWindow.cpp:348
 #, kde-format
 msgctxt "@action Mute the sound output"
 msgid "Mute"
 msgstr "Némítás"
 
-#: src/app/mainWindow.cpp:311
+#: src/app/mainWindow.cpp:354
 #, kde-format
 msgctxt "@action"
 msgid "Reset Video Scale"
 msgstr "Alapértelmezett nagyítás"
 
-#: src/app/mainWindow.cpp:317
+#: src/app/mainWindow.cpp:360
 #, kde-format
 msgctxt "@action"
 msgid "Menu Toggle"
 msgstr "Menü"
 
-#: src/app/mainWindow.cpp:325 src/app/part.cpp:56
+#: src/app/mainWindow.cpp:368 src/app/part.cpp:56
 #, kde-format
 msgid "Position Slider"
 msgstr "Pozíciójelző"
 
-#: src/app/mainWindow.cpp:329
+#: src/app/mainWindow.cpp:372
 #, kde-format
 msgctxt "@option:check"
 msgid "Video Settings"
 msgstr "Videóbeállítások"
 
-#: src/app/mainWindow.cpp:337
+#: src/app/mainWindow.cpp:380
 #, kde-format
 msgctxt ""
 "@option:check Whether only one instance of dragon can be started and will be "
@@ -347,88 +347,88 @@ msgctxt ""
 msgid "One Instance Only"
 msgstr "Csak egy példány"
 
-#: src/app/mainWindow.cpp:345
+#: src/app/mainWindow.cpp:388
 #, kde-format
 msgctxt "@action previous chapter"
 msgid "Previous"
 msgstr "Előző"
 
-#: src/app/mainWindow.cpp:351
+#: src/app/mainWindow.cpp:394
 #, kde-format
 msgctxt "@action next chapter"
 msgid "Next"
 msgstr "Következő"
 
-#: src/app/mainWindow.cpp:358
+#: src/app/mainWindow.cpp:401
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Return 10% Back"
 msgstr "10%-kal vissza"
 
-#: src/app/mainWindow.cpp:365
+#: src/app/mainWindow.cpp:408
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Go 10% Forward"
 msgstr "10%-kal előre"
 
-#: src/app/mainWindow.cpp:371
+#: src/app/mainWindow.cpp:414
 #, kde-format
 msgctxt "@action"
 msgid "Return 10 Seconds Back"
 msgstr "Vissza 10 másodperccel"
 
-#: src/app/mainWindow.cpp:377
+#: src/app/mainWindow.cpp:420
 #, kde-format
 msgctxt "@action"
 msgid "Go 10 Seconds Forward"
 msgstr "Előre 10 másodperccel"
 
-#: src/app/mainWindow.cpp:462
+#: src/app/mainWindow.cpp:505
 #, kde-format
 msgctxt "@option:check Mute the sound output"
 msgid "Mute"
 msgstr "Némítás"
 
-#: src/app/mainWindow.cpp:534
+#: src/app/mainWindow.cpp:577
 #, kde-format
 msgid "Dragon Player was asked to open an empty URL; it cannot."
 msgstr "Üres URL-t nem lehet megnyitni."
 
-#: src/app/mainWindow.cpp:613
+#: src/app/mainWindow.cpp:656
 #, kde-format
 msgctxt "@title:window"
 msgid "Select File to Play"
 msgstr "Válassza ki a lejátszandó fájlt"
 
-#: src/app/mainWindow.cpp:640
+#: src/app/mainWindow.cpp:683
 #, kde-format
 msgctxt "@title:window"
 msgid "Stream to Play"
 msgstr "Lejátszandó adatfolyam"
 
-#: src/app/mainWindow.cpp:640
+#: src/app/mainWindow.cpp:683
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Stream:"
 msgstr "Adatfolyam:"
 
-#: src/app/mainWindow.cpp:773
+#: src/app/mainWindow.cpp:816
 #, kde-format
 msgid "Sorry, no media was found in the drop"
 msgstr "Nem található lejátszható anyag az ejtett fájlban"
 
-#: src/app/mainWindow.cpp:821
+#: src/app/mainWindow.cpp:864
 #, kde-format
 msgctxt "Notification inhibition reason"
 msgid "playing a video"
 msgstr "videó lejátszása"
 
-#: src/app/mainWindow.cpp:853
+#: src/app/mainWindow.cpp:896
 #, kde-format
 msgid "No media loaded"
 msgstr "Nincs betöltve média"
 
-#: src/app/mainWindow.cpp:855
+#: src/app/mainWindow.cpp:898
 #, kde-format
 msgid "Paused"
 msgstr "Szünet"

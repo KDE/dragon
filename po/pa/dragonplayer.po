@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-23 00:46+0000\n"
+"POT-Creation-Date: 2022-11-25 00:45+0000\n"
 "PO-Revision-Date: 2021-03-06 10:38-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -45,7 +45,7 @@ msgid "&Settings"
 msgstr "ਸੈਟਿੰਗਾਂ(&S)"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: misc/dragonplayerui.rc:31
+#: misc/dragonplayerui.rc:32
 #, kde-format
 msgid "Main Toolbar"
 msgstr "ਮੇਨ ਟੂਲਬਾਰ"
@@ -280,67 +280,67 @@ msgctxt "@option:radio aspect ratio"
 msgid "&Window Size"
 msgstr "ਵਿੰਡੋ ਆਕਾਰ(&W)"
 
-#: src/app/mainWindow.cpp:210
+#: src/app/mainWindow.cpp:253
 #, kde-format
 msgid ""
 "<qt>Phonon could not be successfully initialized. Dragon Player will now "
 "exit.</qt>"
 msgstr "<qt>ਫੋਨੋਨ ਠੀਕ ਤਰ੍ਹਾਂ ਸ਼ੁਰੂ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ ਹੈ। ਡਰੈਗਨ ਪਲੇਅਰ ਹੁਣ ਬੰਦ ਹੋਵੇਗਾ।</qt>"
 
-#: src/app/mainWindow.cpp:272
+#: src/app/mainWindow.cpp:315
 #, kde-format
 msgctxt "@action"
 msgid "Play &Media..."
 msgstr "ਮੀਡਿਆ ਚਲਾਓ(&M)..."
 
-#: src/app/mainWindow.cpp:289
+#: src/app/mainWindow.cpp:332
 #, kde-format
 msgctxt "@action"
 msgid "Increase Volume"
 msgstr "ਆਵਾਜ਼ ਵਧਾਓ"
 
-#: src/app/mainWindow.cpp:294
+#: src/app/mainWindow.cpp:337
 #, kde-format
 msgctxt "@action"
 msgid "Decrease Volume"
 msgstr "ਆਵਾਜ਼ ਘਟਾਓ"
 
-#: src/app/mainWindow.cpp:299
+#: src/app/mainWindow.cpp:342
 #, kde-format
 msgctxt "@action"
 msgid "Stop"
 msgstr "ਰੋਕੋ"
 
-#: src/app/mainWindow.cpp:305
+#: src/app/mainWindow.cpp:348
 #, kde-format
 msgctxt "@action Mute the sound output"
 msgid "Mute"
 msgstr "ਚੁੱਪ"
 
-#: src/app/mainWindow.cpp:311
+#: src/app/mainWindow.cpp:354
 #, kde-format
 msgctxt "@action"
 msgid "Reset Video Scale"
 msgstr "ਵੀਡਿਓ ਸਕੇਲ ਮੁੜ-ਸੈੱਟ"
 
-#: src/app/mainWindow.cpp:317
+#: src/app/mainWindow.cpp:360
 #, kde-format
 msgctxt "@action"
 msgid "Menu Toggle"
 msgstr "ਮੇਨੂ ਬਦਲੋ"
 
-#: src/app/mainWindow.cpp:325 src/app/part.cpp:56
+#: src/app/mainWindow.cpp:368 src/app/part.cpp:56
 #, kde-format
 msgid "Position Slider"
 msgstr "ਸਥਿਤੀ ਸਲਾਈਡਰ"
 
-#: src/app/mainWindow.cpp:329
+#: src/app/mainWindow.cpp:372
 #, kde-format
 msgctxt "@option:check"
 msgid "Video Settings"
 msgstr "ਵੀਡਿਓ ਸੈਟਿੰਗਾਂ"
 
-#: src/app/mainWindow.cpp:337
+#: src/app/mainWindow.cpp:380
 #, kde-format
 msgctxt ""
 "@option:check Whether only one instance of dragon can be started and will be "
@@ -348,88 +348,88 @@ msgctxt ""
 msgid "One Instance Only"
 msgstr "ਕੇਵਲ ਇੱਕ ਹੀ ਮੌਕਾ"
 
-#: src/app/mainWindow.cpp:345
+#: src/app/mainWindow.cpp:388
 #, kde-format
 msgctxt "@action previous chapter"
 msgid "Previous"
 msgstr "ਪਿੱਛੇ"
 
-#: src/app/mainWindow.cpp:351
+#: src/app/mainWindow.cpp:394
 #, kde-format
 msgctxt "@action next chapter"
 msgid "Next"
 msgstr "ਅੱਗੇ"
 
-#: src/app/mainWindow.cpp:358
+#: src/app/mainWindow.cpp:401
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Return 10% Back"
 msgstr "10% ਪਿੱਛੇ ਜਾਓ"
 
-#: src/app/mainWindow.cpp:365
+#: src/app/mainWindow.cpp:408
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Go 10% Forward"
 msgstr "10% ਅੱਗੇ ਜਾਓ"
 
-#: src/app/mainWindow.cpp:371
+#: src/app/mainWindow.cpp:414
 #, kde-format
 msgctxt "@action"
 msgid "Return 10 Seconds Back"
 msgstr "10 ਸਕਿੰਟ ਪਿੱਛੇ ਜਾਓ"
 
-#: src/app/mainWindow.cpp:377
+#: src/app/mainWindow.cpp:420
 #, kde-format
 msgctxt "@action"
 msgid "Go 10 Seconds Forward"
 msgstr "10 ਸਕਿੰਟ ਅੱਗੇ ਜਾਓ"
 
-#: src/app/mainWindow.cpp:462
+#: src/app/mainWindow.cpp:505
 #, kde-format
 msgctxt "@option:check Mute the sound output"
 msgid "Mute"
 msgstr "ਚੁੱਪ"
 
-#: src/app/mainWindow.cpp:534
+#: src/app/mainWindow.cpp:577
 #, kde-format
 msgid "Dragon Player was asked to open an empty URL; it cannot."
 msgstr ""
 
-#: src/app/mainWindow.cpp:613
+#: src/app/mainWindow.cpp:656
 #, kde-format
 msgctxt "@title:window"
 msgid "Select File to Play"
 msgstr "ਚਲਾਉਣ ਲਈ ਫਾਈਲ ਚੁਣੋ"
 
-#: src/app/mainWindow.cpp:640
+#: src/app/mainWindow.cpp:683
 #, kde-format
 msgctxt "@title:window"
 msgid "Stream to Play"
 msgstr "ਸਟਰੀਮ ਨੂੰ ਚਲਾਓ"
 
-#: src/app/mainWindow.cpp:640
+#: src/app/mainWindow.cpp:683
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Stream:"
 msgstr "ਸਟਰੀਮ:"
 
-#: src/app/mainWindow.cpp:773
+#: src/app/mainWindow.cpp:816
 #, kde-format
 msgid "Sorry, no media was found in the drop"
 msgstr "ਅਫਸੋਸ, ਡਰੋਪ ਤੋਂ ਕੋਈ ਮੀਡਿਆ ਨਹੀਂ ਲੱਭਿਆ"
 
-#: src/app/mainWindow.cpp:821
+#: src/app/mainWindow.cpp:864
 #, kde-format
 msgctxt "Notification inhibition reason"
 msgid "playing a video"
 msgstr "ਵੀਡੀਓ ਚੱਲ ਰਹੀ ਹੈ"
 
-#: src/app/mainWindow.cpp:853
+#: src/app/mainWindow.cpp:896
 #, kde-format
 msgid "No media loaded"
 msgstr "ਕੋਈ ਮੀਡਿਆ ਲੋਡ ਨਹੀਂ ਹੈ"
 
-#: src/app/mainWindow.cpp:855
+#: src/app/mainWindow.cpp:898
 #, kde-format
 msgid "Paused"
 msgstr "ਵਿਰਾਮ"
