@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-25 00:45+0000\n"
+"POT-Creation-Date: 2022-11-26 00:45+0000\n"
 "PO-Revision-Date: 2012-06-20 14:45+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -34,8 +34,16 @@ msgctxt "@title:menu"
 msgid "&Play"
 msgstr "ចាក់"
 
+#. i18n: ectx: Menu (play_media_menu)
+#: misc/dragonplayerui.rc:5
+#, fuzzy, kde-format
+#| msgid "Play Media"
+msgctxt "@title:menu"
+msgid "Play Media"
+msgstr "ចាក់​មេឌៀ"
+
 #. i18n: ectx: Menu (settings)
-#: misc/dragonplayerui.rc:15
+#: misc/dragonplayerui.rc:20
 #, fuzzy, kde-format
 #| msgid "&Settings"
 msgctxt "@title:menu"
@@ -43,7 +51,7 @@ msgid "&Settings"
 msgstr "ការ​កំណត់"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: misc/dragonplayerui.rc:32
+#: misc/dragonplayerui.rc:37
 #, kde-format
 msgid "Main Toolbar"
 msgstr "របារ​ឧបករណ៍​មេ"
@@ -130,48 +138,12 @@ msgstr "ជ្រើស​ឌីស"
 msgid "Select a disc to play."
 msgstr "ជ្រើស​ឌីស​ដែលត្រូវ​ចាក់ ។"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/app/loadView.ui:23
-#, kde-format
-msgid "Recent Media"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QPushButton, m_playFileButton)
-#: src/app/loadView.ui:32
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/app/loadView.ui:61
 #, fuzzy, kde-format
-#| msgid "Play File"
-msgctxt "@action:button"
-msgid "Play File…"
-msgstr "ចាក់​ឯកសារ"
-
-#. i18n: ectx: property (text), widget (QPushButton, m_playStreamButton)
-#: src/app/loadView.ui:43
-#, fuzzy, kde-format
-#| msgid "Play Media"
-msgctxt "@action:button"
-msgid "Play Stream…"
-msgstr "ចាក់​មេឌៀ"
-
-#. i18n: ectx: property (text), widget (QPushButton, m_playDiskButton)
-#: src/app/loadView.ui:54 src/app/playDialog.cpp:55
-#, fuzzy, kde-format
-#| msgid "Play Disc"
-msgctxt "@action:button"
-msgid "Play Disc"
-msgstr "ចាក់​ឌីស"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, m_clearRecent)
-#. i18n: ectx: property (accessibleName), widget (QPushButton, m_clearRecent)
-#: src/app/loadView.ui:99 src/app/loadView.ui:102
-#, kde-format
-msgid "Clear Recent Media"
-msgstr ""
-
-#. i18n: ectx: property (accessibleDescription), widget (RecentlyPlayedList, m_recentlyPlayed)
-#: src/app/loadView.ui:122
-#, kde-format
-msgid "Recent Media List"
-msgstr ""
+#| msgid "Dragon Player"
+msgid "Welcome to Dragon Player"
+msgstr "កម្មវិធី​ចាក់ Dragon"
 
 #: src/app/main.cpp:37
 #, kde-format
@@ -242,89 +214,109 @@ msgstr "ចាក់​វីដេអូ​ឌីវីឌី"
 msgid "Play 'URL'"
 msgstr "ចាក់ 'URL'"
 
-#: src/app/mainWindow.cpp:143
+#: src/app/mainWindow.cpp:141
 #, fuzzy, kde-format
 #| msgid "Aspect &Ratio"
 msgctxt "@title:menu"
 msgid "Aspect &Ratio"
 msgstr "សមាមាត្រ​ទិដ្ឋភាព"
 
-#: src/app/mainWindow.cpp:144
+#: src/app/mainWindow.cpp:142
 #, fuzzy, kde-format
 #| msgid "&Audio Channels"
 msgctxt "@title:menu"
 msgid "&Audio Channels"
 msgstr "ឆានែល​អូឌីយ៉ូ"
 
-#: src/app/mainWindow.cpp:145
+#: src/app/mainWindow.cpp:143
 #, fuzzy, kde-format
 #| msgid "&Subtitles"
 msgctxt "@title:menu"
 msgid "&Subtitles"
 msgstr "ចំណង​ជើង​រង"
 
-#: src/app/mainWindow.cpp:160
+#: src/app/mainWindow.cpp:158
 #, fuzzy, kde-format
 #| msgid "Determine &Automatically"
 msgctxt "@option:radio aspect ratio"
 msgid "Determine &Automatically"
 msgstr "កំណត់​ដោយ​ស្វ័យប្រវត្តិ"
 
-#: src/app/mainWindow.cpp:163
+#: src/app/mainWindow.cpp:161
 #, fuzzy, kde-format
 #| msgid "&4:3"
 msgctxt "@option:radio aspect ratio"
 msgid "&4:3"
 msgstr "4:3"
 
-#: src/app/mainWindow.cpp:164
+#: src/app/mainWindow.cpp:162
 #, fuzzy, kde-format
 #| msgid "Ana&morphic (16:9)"
 msgctxt "@option:radio aspect ratio"
 msgid "Ana&morphic (16:9)"
 msgstr "Anamorphic (16:9)"
 
-#: src/app/mainWindow.cpp:167
+#: src/app/mainWindow.cpp:165
 #, fuzzy, kde-format
 #| msgid "&Window Size"
 msgctxt "@option:radio aspect ratio"
 msgid "&Window Size"
 msgstr "ទំហំ​បង្អួច"
 
-#: src/app/mainWindow.cpp:253
+#: src/app/mainWindow.cpp:247
 #, kde-format
 msgid ""
 "<qt>Phonon could not be successfully initialized. Dragon Player will now "
 "exit.</qt>"
 msgstr "<qt>Phonon មិន​អាច​ចាប់ផ្ដើម​ដោយ​ជោគជ័យ​ទេ ។ កម្មវិធី​ចាក់ Dragon នឹង​បិទ​ឥឡូវ ។</qt>"
 
-#: src/app/mainWindow.cpp:315
+#: src/app/mainWindow.cpp:309
 #, fuzzy, kde-format
-#| msgid "Play &Media..."
+#| msgid "Play File"
 msgctxt "@action"
-msgid "Play &Media..."
-msgstr "ចាក់​មេឌៀ..."
+msgid "Play File…"
+msgstr "ចាក់​ឯកសារ"
 
-#: src/app/mainWindow.cpp:332
+#: src/app/mainWindow.cpp:310
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Open a media file for playback"
+msgstr ""
+
+#: src/app/mainWindow.cpp:317
+#, fuzzy, kde-format
+#| msgid "Play Media"
+msgctxt "@action"
+msgid "Play Stream…"
+msgstr "ចាក់​មេឌៀ"
+
+#: src/app/mainWindow.cpp:323
+#, fuzzy, kde-format
+#| msgid "Play Disc"
+msgctxt "@action"
+msgid "Play Disc"
+msgstr "ចាក់​ឌីស"
+
+#: src/app/mainWindow.cpp:347
 #, kde-format
 msgctxt "@action"
 msgid "Increase Volume"
 msgstr ""
 
-#: src/app/mainWindow.cpp:337
+#: src/app/mainWindow.cpp:352
 #, kde-format
 msgctxt "@action"
 msgid "Decrease Volume"
 msgstr ""
 
-#: src/app/mainWindow.cpp:342
+#: src/app/mainWindow.cpp:357
 #, fuzzy, kde-format
 #| msgid "Stop"
 msgctxt "@action"
 msgid "Stop"
 msgstr "បញ្ឈប់"
 
-#: src/app/mainWindow.cpp:348
+#: src/app/mainWindow.cpp:363
 #, fuzzy, kde-format
 #| msgctxt "Mute the sound output"
 #| msgid "Mute"
@@ -332,33 +324,33 @@ msgctxt "@action Mute the sound output"
 msgid "Mute"
 msgstr "ស្ងាត់"
 
-#: src/app/mainWindow.cpp:354
+#: src/app/mainWindow.cpp:369
 #, fuzzy, kde-format
 #| msgid "Reset Video Scale"
 msgctxt "@action"
 msgid "Reset Video Scale"
 msgstr "កំណត់​មាត្រដ្ឋាន​វីដេអូ​ឡើងវិញ"
 
-#: src/app/mainWindow.cpp:360
+#: src/app/mainWindow.cpp:375
 #, fuzzy, kde-format
 #| msgid "Menu Toggle"
 msgctxt "@action"
 msgid "Menu Toggle"
 msgstr "បិទបើក​ម៉ឺនុយ"
 
-#: src/app/mainWindow.cpp:368 src/app/part.cpp:56
+#: src/app/mainWindow.cpp:383 src/app/part.cpp:56
 #, kde-format
 msgid "Position Slider"
 msgstr "គ្រាប់​រំកិល​ទីតាំង"
 
-#: src/app/mainWindow.cpp:372
+#: src/app/mainWindow.cpp:387
 #, fuzzy, kde-format
 #| msgid "Video Settings"
 msgctxt "@option:check"
 msgid "Video Settings"
 msgstr "ការ​កំណត់​វីដេអូ"
 
-#: src/app/mainWindow.cpp:380
+#: src/app/mainWindow.cpp:395
 #, kde-format
 msgctxt ""
 "@option:check Whether only one instance of dragon can be started and will be "
@@ -366,48 +358,48 @@ msgctxt ""
 msgid "One Instance Only"
 msgstr ""
 
-#: src/app/mainWindow.cpp:388
+#: src/app/mainWindow.cpp:403
 #, fuzzy, kde-format
 #| msgid "Previous Chapter"
 msgctxt "@action previous chapter"
 msgid "Previous"
 msgstr "ជំពូក​មុន"
 
-#: src/app/mainWindow.cpp:394
+#: src/app/mainWindow.cpp:409
 #, kde-format
 msgctxt "@action next chapter"
 msgid "Next"
 msgstr ""
 
-#: src/app/mainWindow.cpp:401
+#: src/app/mainWindow.cpp:416
 #, fuzzy, no-c-format, kde-format
 #| msgid "Return 10% Back"
 msgctxt "@action"
 msgid "Return 10% Back"
 msgstr "ត្រឡប់​ក្រោយ 10%"
 
-#: src/app/mainWindow.cpp:408
+#: src/app/mainWindow.cpp:423
 #, fuzzy, no-c-format, kde-format
 #| msgid "Go 10% Forward"
 msgctxt "@action"
 msgid "Go 10% Forward"
 msgstr "ទៅមុខ 10%"
 
-#: src/app/mainWindow.cpp:414
+#: src/app/mainWindow.cpp:429
 #, fuzzy, kde-format
 #| msgid "Return 10 Seconds Back"
 msgctxt "@action"
 msgid "Return 10 Seconds Back"
 msgstr "ត្រឡប់​ក្រោយ ១០ វិនាទី"
 
-#: src/app/mainWindow.cpp:420
+#: src/app/mainWindow.cpp:435
 #, fuzzy, kde-format
 #| msgid "Go 10 Seconds Forward"
 msgctxt "@action"
 msgid "Go 10 Seconds Forward"
 msgstr "ទៅ​មុខ​ ១០ វិនាទី​"
 
-#: src/app/mainWindow.cpp:505
+#: src/app/mainWindow.cpp:516
 #, fuzzy, kde-format
 #| msgctxt "Mute the sound output"
 #| msgid "Mute"
@@ -415,72 +407,53 @@ msgctxt "@option:check Mute the sound output"
 msgid "Mute"
 msgstr "ស្ងាត់"
 
-#: src/app/mainWindow.cpp:577
+#: src/app/mainWindow.cpp:588
 #, kde-format
 msgid "Dragon Player was asked to open an empty URL; it cannot."
 msgstr "កម្មវិធី​ចាក់​ Dragon ត្រូវ​បាន​ស្នើ​ឲ្យ​បើក​ URL ទទេ វា​មិន​អាច ។"
 
-#: src/app/mainWindow.cpp:656
+#: src/app/mainWindow.cpp:665
 #, fuzzy, kde-format
 #| msgid "Select File to Play"
 msgctxt "@title:window"
 msgid "Select File to Play"
 msgstr "ជ្រើស​ឯកសារ​ដែលត្រូវ​ចាក់"
 
-#: src/app/mainWindow.cpp:683
+#: src/app/mainWindow.cpp:692
 #, fuzzy, kde-format
 #| msgid "Select File to Play"
 msgctxt "@title:window"
 msgid "Stream to Play"
 msgstr "ជ្រើស​ឯកសារ​ដែលត្រូវ​ចាក់"
 
-#: src/app/mainWindow.cpp:683
+#: src/app/mainWindow.cpp:692
 #, fuzzy, kde-format
 #| msgid "Play Media"
 msgctxt "@label:textbox"
 msgid "Stream:"
 msgstr "ចាក់​មេឌៀ"
 
-#: src/app/mainWindow.cpp:816
+#: src/app/mainWindow.cpp:822
 #, kde-format
 msgid "Sorry, no media was found in the drop"
 msgstr "សូម​អភ័យទោស រកមិន​ឃើញ​មេឌៀ​នៅ​ក្នុង​បញ្ជី​ទម្លាក់ចុះទេ"
 
-#: src/app/mainWindow.cpp:864
+#: src/app/mainWindow.cpp:870
 #, fuzzy, kde-format
 #| msgid "Play DVD Video"
 msgctxt "Notification inhibition reason"
 msgid "playing a video"
 msgstr "ចាក់​វីដេអូ​ឌីវីឌី"
 
-#: src/app/mainWindow.cpp:896
+#: src/app/mainWindow.cpp:902
 #, kde-format
 msgid "No media loaded"
 msgstr "គ្មាន​មេឌៀ​ត្រូវបាន​ផ្ទុកទេ"
 
-#: src/app/mainWindow.cpp:898
+#: src/app/mainWindow.cpp:904
 #, kde-format
 msgid "Paused"
 msgstr "បាន​ផ្អាក"
-
-#: src/app/playDialog.cpp:31
-#, fuzzy, kde-format
-#| msgid "Play Media"
-msgctxt "@title:window"
-msgid "Play Media"
-msgstr "ចាក់​មេឌៀ"
-
-#: src/app/playDialog.cpp:43
-#, kde-format
-msgid "What media would you like to play?"
-msgstr "តើ​អ្នក​ចង់​ចាក់​មេឌៀ​អ្វី ?"
-
-#: src/app/playDialog.cpp:51
-#, fuzzy, kde-format
-#| msgid "Play File..."
-msgctxt "@action:button"
-msgid "Play File..."
-msgstr "ចាក់​ឯកសារ..."
 
 #: src/app/playlistFile.cpp:37
 #, kde-format
@@ -503,39 +476,6 @@ msgstr "<qt>បញ្ជីចាក់​បកប្រែ <i>'%1'</i> បា�
 #, kde-format
 msgid "Dragon Player could not open the file: %1"
 msgstr "កម្មវិធី​ចាក់ Dragon មិនអាច​បើក​ឯកសារ ៖ %1"
-
-#: src/app/recentlyPlayedList.cpp:38
-#, kde-format
-msgctxt "@action Copy the URL of the selected multimedia"
-msgid "Copy URL"
-msgstr ""
-
-#: src/app/recentlyPlayedList.cpp:43
-#, fuzzy, kde-format
-#| msgid "Clear List"
-msgctxt "@action"
-msgid "Clear List"
-msgstr "ជម្រះ​បញ្ជី"
-
-#: src/app/recentlyPlayedList.cpp:48
-#, fuzzy, kde-format
-#| msgid "Remove Entry"
-msgctxt "@action"
-msgid "Remove Entry"
-msgstr "យក​ធាតុ​ចេញ"
-
-#: src/app/recentlyPlayedList.cpp:137
-#, kde-format
-msgid ""
-"This file could not be found. Would you like to remove it from the playlist?"
-msgstr "រក​មិនឃើញ​ឯកសារ​នេះ​ទេ ។ តើ​អ្នក​ចង់​យក​វា​ចេញ​ពី​បញ្ជី​ចាក់​ដែរឬទេ ?"
-
-#: src/app/recentlyPlayedList.cpp:139 src/app/recentlyPlayedList.cpp:144
-#, fuzzy, kde-format
-#| msgid "File not found"
-msgctxt "@title:window"
-msgid "File not found"
-msgstr "រកមិន​ឃើញ​ឯកសារ"
 
 #: src/app/theStream.cpp:145
 #, kde-format
@@ -603,6 +543,44 @@ msgstr "ជម្រើស​ចំណងជើង​រង​របស់​ឌ
 msgctxt "@option:radio audio language"
 msgid "&Auto"
 msgstr "ស្វ័យប្រវត្តិ"
+
+#, fuzzy
+#~| msgid "Play &Media..."
+#~ msgctxt "@action"
+#~ msgid "Play &Media..."
+#~ msgstr "ចាក់​មេឌៀ..."
+
+#~ msgid "What media would you like to play?"
+#~ msgstr "តើ​អ្នក​ចង់​ចាក់​មេឌៀ​អ្វី ?"
+
+#, fuzzy
+#~| msgid "Play File..."
+#~ msgctxt "@action:button"
+#~ msgid "Play File..."
+#~ msgstr "ចាក់​ឯកសារ..."
+
+#, fuzzy
+#~| msgid "Clear List"
+#~ msgctxt "@action"
+#~ msgid "Clear List"
+#~ msgstr "ជម្រះ​បញ្ជី"
+
+#, fuzzy
+#~| msgid "Remove Entry"
+#~ msgctxt "@action"
+#~ msgid "Remove Entry"
+#~ msgstr "យក​ធាតុ​ចេញ"
+
+#~ msgid ""
+#~ "This file could not be found. Would you like to remove it from the "
+#~ "playlist?"
+#~ msgstr "រក​មិនឃើញ​ឯកសារ​នេះ​ទេ ។ តើ​អ្នក​ចង់​យក​វា​ចេញ​ពី​បញ្ជី​ចាក់​ដែរឬទេ ?"
+
+#, fuzzy
+#~| msgid "File not found"
+#~ msgctxt "@title:window"
+#~ msgid "File not found"
+#~ msgstr "រកមិន​ឃើញ​ឯកសារ"
 
 #~ msgid ""
 #~ "IRC:\n"

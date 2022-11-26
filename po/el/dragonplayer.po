@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-25 00:45+0000\n"
+"POT-Creation-Date: 2022-11-26 00:45+0000\n"
 "PO-Revision-Date: 2020-08-06 19:16+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -44,15 +44,24 @@ msgctxt "@title:menu"
 msgid "&Play"
 msgstr "&Αναπαραγωγή"
 
+#. i18n: ectx: Menu (play_media_menu)
+#: misc/dragonplayerui.rc:5
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Play Media"
+msgctxt "@title:menu"
+msgid "Play Media"
+msgstr "Αναπαραγωγή πολυμέσων"
+
 #. i18n: ectx: Menu (settings)
-#: misc/dragonplayerui.rc:15
+#: misc/dragonplayerui.rc:20
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Settings"
 msgstr "&Ρυθμίσεις"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: misc/dragonplayerui.rc:32
+#: misc/dragonplayerui.rc:37
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Κύρια γραμμή εργαλείων"
@@ -132,49 +141,12 @@ msgstr "Επιλέξτε ένα δίσκο"
 msgid "Select a disc to play."
 msgstr "Επιλέξτε ένα δίσκο για αναπαραγωγή."
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/app/loadView.ui:23
-#, kde-format
-msgid "Recent Media"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QPushButton, m_playFileButton)
-#: src/app/loadView.ui:32
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/app/loadView.ui:61
 #, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play File"
-msgctxt "@action:button"
-msgid "Play File…"
-msgstr "Αναπαραγωγή αρχείου"
-
-#. i18n: ectx: property (text), widget (QPushButton, m_playStreamButton)
-#: src/app/loadView.ui:43
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Stream"
-msgctxt "@action:button"
-msgid "Play Stream…"
-msgstr "Αναπαραγωγή ροής"
-
-#. i18n: ectx: property (text), widget (QPushButton, m_playDiskButton)
-#: src/app/loadView.ui:54 src/app/playDialog.cpp:55
-#, kde-format
-msgctxt "@action:button"
-msgid "Play Disc"
-msgstr "Αναπαραγωγή δίσκου"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, m_clearRecent)
-#. i18n: ectx: property (accessibleName), widget (QPushButton, m_clearRecent)
-#: src/app/loadView.ui:99 src/app/loadView.ui:102
-#, kde-format
-msgid "Clear Recent Media"
-msgstr ""
-
-#. i18n: ectx: property (accessibleDescription), widget (RecentlyPlayedList, m_recentlyPlayed)
-#: src/app/loadView.ui:122
-#, kde-format
-msgid "Recent Media List"
-msgstr ""
+#| msgid "Dragon Player"
+msgid "Welcome to Dragon Player"
+msgstr "Αναπαραγωγέας Dragon"
 
 #: src/app/main.cpp:37
 #, kde-format
@@ -245,49 +217,49 @@ msgstr "Αναπαραγωγή βίντεο DVD"
 msgid "Play 'URL'"
 msgstr "Αναπαραγωγή 'URL'"
 
-#: src/app/mainWindow.cpp:143
+#: src/app/mainWindow.cpp:141
 #, kde-format
 msgctxt "@title:menu"
 msgid "Aspect &Ratio"
 msgstr "Α&ναλογία διαστάσεων"
 
-#: src/app/mainWindow.cpp:144
+#: src/app/mainWindow.cpp:142
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Audio Channels"
 msgstr "&Κανάλια ήχου"
 
-#: src/app/mainWindow.cpp:145
+#: src/app/mainWindow.cpp:143
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Subtitles"
 msgstr "&Υπότιτλοι"
 
-#: src/app/mainWindow.cpp:160
+#: src/app/mainWindow.cpp:158
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Determine &Automatically"
 msgstr "Αυτόματος &καθορισμός"
 
-#: src/app/mainWindow.cpp:163
+#: src/app/mainWindow.cpp:161
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "&4:3"
 msgstr "&4:3"
 
-#: src/app/mainWindow.cpp:164
+#: src/app/mainWindow.cpp:162
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Ana&morphic (16:9)"
 msgstr "Ανα&μορφικό (16:9)"
 
-#: src/app/mainWindow.cpp:167
+#: src/app/mainWindow.cpp:165
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "&Window Size"
 msgstr "&Μέγεθος παραθύρου"
 
-#: src/app/mainWindow.cpp:253
+#: src/app/mainWindow.cpp:247
 #, kde-format
 msgid ""
 "<qt>Phonon could not be successfully initialized. Dragon Player will now "
@@ -296,60 +268,84 @@ msgstr ""
 "<qt>Η αρχικοποίηση του Phonon δεν ήταν επιτυχής. Το Dragon Player θα κλείσει."
 "</qt>"
 
-#: src/app/mainWindow.cpp:315
-#, kde-format
+#: src/app/mainWindow.cpp:309
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Play File"
 msgctxt "@action"
-msgid "Play &Media..."
-msgstr "Αναπαραγωγή &μέσου..."
+msgid "Play File…"
+msgstr "Αναπαραγωγή αρχείου"
 
-#: src/app/mainWindow.cpp:332
+#: src/app/mainWindow.cpp:310
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Open a media file for playback"
+msgstr ""
+
+#: src/app/mainWindow.cpp:317
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Play Stream"
+msgctxt "@action"
+msgid "Play Stream…"
+msgstr "Αναπαραγωγή ροής"
+
+#: src/app/mainWindow.cpp:323
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Play Disc"
+msgctxt "@action"
+msgid "Play Disc"
+msgstr "Αναπαραγωγή δίσκου"
+
+#: src/app/mainWindow.cpp:347
 #, kde-format
 msgctxt "@action"
 msgid "Increase Volume"
 msgstr "Αύξηση έντασης ήχου"
 
-#: src/app/mainWindow.cpp:337
+#: src/app/mainWindow.cpp:352
 #, kde-format
 msgctxt "@action"
 msgid "Decrease Volume"
 msgstr "Μείωση έντασης ήχου"
 
-#: src/app/mainWindow.cpp:342
+#: src/app/mainWindow.cpp:357
 #, kde-format
 msgctxt "@action"
 msgid "Stop"
 msgstr "Διακοπή"
 
-#: src/app/mainWindow.cpp:348
+#: src/app/mainWindow.cpp:363
 #, kde-format
 msgctxt "@action Mute the sound output"
 msgid "Mute"
 msgstr "Κλείσιμο ήχου"
 
-#: src/app/mainWindow.cpp:354
+#: src/app/mainWindow.cpp:369
 #, kde-format
 msgctxt "@action"
 msgid "Reset Video Scale"
 msgstr "Επαναφορά κλίμακας βίντεο"
 
-#: src/app/mainWindow.cpp:360
+#: src/app/mainWindow.cpp:375
 #, kde-format
 msgctxt "@action"
 msgid "Menu Toggle"
 msgstr "Εναλλαγή μενού"
 
-#: src/app/mainWindow.cpp:368 src/app/part.cpp:56
+#: src/app/mainWindow.cpp:383 src/app/part.cpp:56
 #, kde-format
 msgid "Position Slider"
 msgstr "Κύλιση θέσης"
 
-#: src/app/mainWindow.cpp:372
+#: src/app/mainWindow.cpp:387
 #, kde-format
 msgctxt "@option:check"
 msgid "Video Settings"
 msgstr "Ρυθμίσεις βίντεο"
 
-#: src/app/mainWindow.cpp:380
+#: src/app/mainWindow.cpp:395
 #, kde-format
 msgctxt ""
 "@option:check Whether only one instance of dragon can be started and will be "
@@ -357,108 +353,91 @@ msgctxt ""
 msgid "One Instance Only"
 msgstr "Μία διεργασία μόνο"
 
-#: src/app/mainWindow.cpp:388
+#: src/app/mainWindow.cpp:403
 #, kde-format
 msgctxt "@action previous chapter"
 msgid "Previous"
 msgstr "Προηγούμενο"
 
-#: src/app/mainWindow.cpp:394
+#: src/app/mainWindow.cpp:409
 #, kde-format
 msgctxt "@action next chapter"
 msgid "Next"
 msgstr "Επόμενο"
 
-#: src/app/mainWindow.cpp:401
+#: src/app/mainWindow.cpp:416
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Return 10% Back"
 msgstr "Επιστροφή 10% πίσω"
 
-#: src/app/mainWindow.cpp:408
+#: src/app/mainWindow.cpp:423
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Go 10% Forward"
 msgstr "Μετάβαση 10% εμπρός"
 
-#: src/app/mainWindow.cpp:414
+#: src/app/mainWindow.cpp:429
 #, kde-format
 msgctxt "@action"
 msgid "Return 10 Seconds Back"
 msgstr "Επιστροφή 10 δευτερόλεπτα πίσω"
 
-#: src/app/mainWindow.cpp:420
+#: src/app/mainWindow.cpp:435
 #, kde-format
 msgctxt "@action"
 msgid "Go 10 Seconds Forward"
 msgstr "Μετάβαση 10 δευτερόλεπτα εμπρός"
 
-#: src/app/mainWindow.cpp:505
+#: src/app/mainWindow.cpp:516
 #, kde-format
 msgctxt "@option:check Mute the sound output"
 msgid "Mute"
 msgstr "Κλείσιμο ήχου"
 
-#: src/app/mainWindow.cpp:577
+#: src/app/mainWindow.cpp:588
 #, kde-format
 msgid "Dragon Player was asked to open an empty URL; it cannot."
 msgstr "Ζητήθηκε από τον Dragon το άνοιγμα ενός κενού URL: αδύνατη λειτουργία."
 
-#: src/app/mainWindow.cpp:656
+#: src/app/mainWindow.cpp:665
 #, kde-format
 msgctxt "@title:window"
 msgid "Select File to Play"
 msgstr "Επιλέξτε ένα αρχείο για αναπαραγωγή"
 
-#: src/app/mainWindow.cpp:683
+#: src/app/mainWindow.cpp:692
 #, kde-format
 msgctxt "@title:window"
 msgid "Stream to Play"
 msgstr "Ροή για αναπαραγωγή"
 
-#: src/app/mainWindow.cpp:683
+#: src/app/mainWindow.cpp:692
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Stream:"
 msgstr "Ροή:"
 
-#: src/app/mainWindow.cpp:816
+#: src/app/mainWindow.cpp:822
 #, kde-format
 msgid "Sorry, no media was found in the drop"
 msgstr "Δυστυχώς, δεν βρέθηκαν πολυμέσα στην εναπόθεση"
 
-#: src/app/mainWindow.cpp:864
+#: src/app/mainWindow.cpp:870
 #, kde-format
 msgctxt "Notification inhibition reason"
 msgid "playing a video"
 msgstr "Αναπαραγωγή βίντεο"
 
-#: src/app/mainWindow.cpp:896
+#: src/app/mainWindow.cpp:902
 #, kde-format
 msgid "No media loaded"
 msgstr "Δε φορτώθηκαν πολυμέσα"
 
-#: src/app/mainWindow.cpp:898
+#: src/app/mainWindow.cpp:904
 #, kde-format
 msgid "Paused"
 msgstr "Σε παύση"
-
-#: src/app/playDialog.cpp:31
-#, kde-format
-msgctxt "@title:window"
-msgid "Play Media"
-msgstr "Αναπαραγωγή πολυμέσων"
-
-#: src/app/playDialog.cpp:43
-#, kde-format
-msgid "What media would you like to play?"
-msgstr "Ποιο μέσο επιθυμείτε να αναπαράγετε;"
-
-#: src/app/playDialog.cpp:51
-#, kde-format
-msgctxt "@action:button"
-msgid "Play File..."
-msgstr "Αναπαραγωγή αρχείου..."
 
 #: src/app/playlistFile.cpp:37
 #, kde-format
@@ -485,38 +464,6 @@ msgstr ""
 #, kde-format
 msgid "Dragon Player could not open the file: %1"
 msgstr "Ο αναπαραγωγέας Dragon αδυνατεί να ανοίξει το αρχείο: %1"
-
-#: src/app/recentlyPlayedList.cpp:38
-#, kde-format
-msgctxt "@action Copy the URL of the selected multimedia"
-msgid "Copy URL"
-msgstr "Αντιγραφή URL"
-
-#: src/app/recentlyPlayedList.cpp:43
-#, kde-format
-msgctxt "@action"
-msgid "Clear List"
-msgstr "Καθαρισμός λίστας"
-
-#: src/app/recentlyPlayedList.cpp:48
-#, kde-format
-msgctxt "@action"
-msgid "Remove Entry"
-msgstr "Αφαίρεση καταχώρησης"
-
-#: src/app/recentlyPlayedList.cpp:137
-#, kde-format
-msgid ""
-"This file could not be found. Would you like to remove it from the playlist?"
-msgstr ""
-"Αυτό το αρχείο δεν μπορεί να βρεθεί. Θέλετε να το αφαιρέσετε από την λίστα "
-"αναπαραγωγής;"
-
-#: src/app/recentlyPlayedList.cpp:139 src/app/recentlyPlayedList.cpp:144
-#, kde-format
-msgctxt "@title:window"
-msgid "File not found"
-msgstr "Το αρχείο δεν βρέθηκε"
 
 #: src/app/theStream.cpp:145
 #, kde-format
@@ -576,6 +523,40 @@ msgstr "Επιλογή υποτίτλων &DVD"
 msgctxt "@option:radio audio language"
 msgid "&Auto"
 msgstr "&Αυτόματο"
+
+#~ msgctxt "@action"
+#~ msgid "Play &Media..."
+#~ msgstr "Αναπαραγωγή &μέσου..."
+
+#~ msgid "What media would you like to play?"
+#~ msgstr "Ποιο μέσο επιθυμείτε να αναπαράγετε;"
+
+#~ msgctxt "@action:button"
+#~ msgid "Play File..."
+#~ msgstr "Αναπαραγωγή αρχείου..."
+
+#~ msgctxt "@action Copy the URL of the selected multimedia"
+#~ msgid "Copy URL"
+#~ msgstr "Αντιγραφή URL"
+
+#~ msgctxt "@action"
+#~ msgid "Clear List"
+#~ msgstr "Καθαρισμός λίστας"
+
+#~ msgctxt "@action"
+#~ msgid "Remove Entry"
+#~ msgstr "Αφαίρεση καταχώρησης"
+
+#~ msgid ""
+#~ "This file could not be found. Would you like to remove it from the "
+#~ "playlist?"
+#~ msgstr ""
+#~ "Αυτό το αρχείο δεν μπορεί να βρεθεί. Θέλετε να το αφαιρέσετε από την "
+#~ "λίστα αναπαραγωγής;"
+
+#~ msgctxt "@title:window"
+#~ msgid "File not found"
+#~ msgstr "Το αρχείο δεν βρέθηκε"
 
 #~ msgid ""
 #~ "IRC:\n"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-25 00:45+0000\n"
+"POT-Creation-Date: 2022-11-26 00:45+0000\n"
 "PO-Revision-Date: 2019-07-28 11:19+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -45,8 +45,16 @@ msgctxt "@title:menu"
 msgid "&Play"
 msgstr "&Reproducir"
 
+#. i18n: ectx: Menu (play_media_menu)
+#: misc/dragonplayerui.rc:5
+#, fuzzy, kde-format
+#| msgid "Play Media"
+msgctxt "@title:menu"
+msgid "Play Media"
+msgstr "Reproducir un recurso"
+
 #. i18n: ectx: Menu (settings)
-#: misc/dragonplayerui.rc:15
+#: misc/dragonplayerui.rc:20
 #, fuzzy, kde-format
 #| msgid "&Settings"
 msgctxt "@title:menu"
@@ -54,7 +62,7 @@ msgid "&Settings"
 msgstr "&Configuración"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: misc/dragonplayerui.rc:32
+#: misc/dragonplayerui.rc:37
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Barra de ferramentas principal"
@@ -141,48 +149,12 @@ msgstr "Selección de disco"
 msgid "Select a disc to play."
 msgstr "Escolle un disco para reproducilo."
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/app/loadView.ui:23
-#, kde-format
-msgid "Recent Media"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QPushButton, m_playFileButton)
-#: src/app/loadView.ui:32
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/app/loadView.ui:61
 #, fuzzy, kde-format
-#| msgid "Play File"
-msgctxt "@action:button"
-msgid "Play File…"
-msgstr "Reproducir un ficheiro"
-
-#. i18n: ectx: property (text), widget (QPushButton, m_playStreamButton)
-#: src/app/loadView.ui:43
-#, fuzzy, kde-format
-#| msgid "Play Stream"
-msgctxt "@action:button"
-msgid "Play Stream…"
-msgstr "Reproducir unha transmisión"
-
-#. i18n: ectx: property (text), widget (QPushButton, m_playDiskButton)
-#: src/app/loadView.ui:54 src/app/playDialog.cpp:55
-#, fuzzy, kde-format
-#| msgid "Play Disc"
-msgctxt "@action:button"
-msgid "Play Disc"
-msgstr "Reproducir un disco"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, m_clearRecent)
-#. i18n: ectx: property (accessibleName), widget (QPushButton, m_clearRecent)
-#: src/app/loadView.ui:99 src/app/loadView.ui:102
-#, kde-format
-msgid "Clear Recent Media"
-msgstr ""
-
-#. i18n: ectx: property (accessibleDescription), widget (RecentlyPlayedList, m_recentlyPlayed)
-#: src/app/loadView.ui:122
-#, kde-format
-msgid "Recent Media List"
-msgstr ""
+#| msgid "Dragon Player"
+msgid "Welcome to Dragon Player"
+msgstr "Dragon Player"
 
 #: src/app/main.cpp:37
 #, kde-format
@@ -255,89 +227,109 @@ msgstr "Reproducir un DVD"
 msgid "Play 'URL'"
 msgstr "Reproducir un URL"
 
-#: src/app/mainWindow.cpp:143
+#: src/app/mainWindow.cpp:141
 #, fuzzy, kde-format
 #| msgid "Aspect &Ratio"
 msgctxt "@title:menu"
 msgid "Aspect &Ratio"
 msgstr "&Proporcións"
 
-#: src/app/mainWindow.cpp:144
+#: src/app/mainWindow.cpp:142
 #, fuzzy, kde-format
 #| msgid "&Audio Channels"
 msgctxt "@title:menu"
 msgid "&Audio Channels"
 msgstr "Canles de &son"
 
-#: src/app/mainWindow.cpp:145
+#: src/app/mainWindow.cpp:143
 #, fuzzy, kde-format
 #| msgid "&Subtitles"
 msgctxt "@title:menu"
 msgid "&Subtitles"
 msgstr "&Subtítulos"
 
-#: src/app/mainWindow.cpp:160
+#: src/app/mainWindow.cpp:158
 #, fuzzy, kde-format
 #| msgid "Determine &Automatically"
 msgctxt "@option:radio aspect ratio"
 msgid "Determine &Automatically"
 msgstr "Determinar &automaticamente"
 
-#: src/app/mainWindow.cpp:163
+#: src/app/mainWindow.cpp:161
 #, fuzzy, kde-format
 #| msgid "&4:3"
 msgctxt "@option:radio aspect ratio"
 msgid "&4:3"
 msgstr "&4:3"
 
-#: src/app/mainWindow.cpp:164
+#: src/app/mainWindow.cpp:162
 #, fuzzy, kde-format
 #| msgid "Ana&morphic (16:9)"
 msgctxt "@option:radio aspect ratio"
 msgid "Ana&morphic (16:9)"
 msgstr "&Panorámico (16:9)"
 
-#: src/app/mainWindow.cpp:167
+#: src/app/mainWindow.cpp:165
 #, fuzzy, kde-format
 #| msgid "&Window Size"
 msgctxt "@option:radio aspect ratio"
 msgid "&Window Size"
 msgstr "&Tamaño da xanela"
 
-#: src/app/mainWindow.cpp:253
+#: src/app/mainWindow.cpp:247
 #, kde-format
 msgid ""
 "<qt>Phonon could not be successfully initialized. Dragon Player will now "
 "exit.</qt>"
 msgstr "<qt>Phonon non puido inicializarse. Dragon Player vai saír.</qt>"
 
-#: src/app/mainWindow.cpp:315
+#: src/app/mainWindow.cpp:309
 #, fuzzy, kde-format
-#| msgid "Play &Media..."
+#| msgid "Play File"
 msgctxt "@action"
-msgid "Play &Media..."
-msgstr "Reproducir un &recurso…"
+msgid "Play File…"
+msgstr "Reproducir un ficheiro"
 
-#: src/app/mainWindow.cpp:332
+#: src/app/mainWindow.cpp:310
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Open a media file for playback"
+msgstr ""
+
+#: src/app/mainWindow.cpp:317
+#, fuzzy, kde-format
+#| msgid "Play Stream"
+msgctxt "@action"
+msgid "Play Stream…"
+msgstr "Reproducir unha transmisión"
+
+#: src/app/mainWindow.cpp:323
+#, fuzzy, kde-format
+#| msgid "Play Disc"
+msgctxt "@action"
+msgid "Play Disc"
+msgstr "Reproducir un disco"
+
+#: src/app/mainWindow.cpp:347
 #, kde-format
 msgctxt "@action"
 msgid "Increase Volume"
 msgstr "Aumentar o volume"
 
-#: src/app/mainWindow.cpp:337
+#: src/app/mainWindow.cpp:352
 #, kde-format
 msgctxt "@action"
 msgid "Decrease Volume"
 msgstr "Baixar o volume"
 
-#: src/app/mainWindow.cpp:342
+#: src/app/mainWindow.cpp:357
 #, fuzzy, kde-format
 #| msgid "Stop"
 msgctxt "@action"
 msgid "Stop"
 msgstr "Deter"
 
-#: src/app/mainWindow.cpp:348
+#: src/app/mainWindow.cpp:363
 #, fuzzy, kde-format
 #| msgctxt "Mute the sound output"
 #| msgid "Mute"
@@ -345,33 +337,33 @@ msgctxt "@action Mute the sound output"
 msgid "Mute"
 msgstr "Sen son"
 
-#: src/app/mainWindow.cpp:354
+#: src/app/mainWindow.cpp:369
 #, fuzzy, kde-format
 #| msgid "Reset Video Scale"
 msgctxt "@action"
 msgid "Reset Video Scale"
 msgstr "Reiniciar a escala da imaxe"
 
-#: src/app/mainWindow.cpp:360
+#: src/app/mainWindow.cpp:375
 #, fuzzy, kde-format
 #| msgid "Menu Toggle"
 msgctxt "@action"
 msgid "Menu Toggle"
 msgstr "Conmutar o menú"
 
-#: src/app/mainWindow.cpp:368 src/app/part.cpp:56
+#: src/app/mainWindow.cpp:383 src/app/part.cpp:56
 #, kde-format
 msgid "Position Slider"
 msgstr "Barra de posición"
 
-#: src/app/mainWindow.cpp:372
+#: src/app/mainWindow.cpp:387
 #, fuzzy, kde-format
 #| msgid "Video Settings"
 msgctxt "@option:check"
 msgid "Video Settings"
 msgstr "Configuración do vídeo"
 
-#: src/app/mainWindow.cpp:380
+#: src/app/mainWindow.cpp:395
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:inmenu Whether only one instance of dragon can be started and "
@@ -383,49 +375,49 @@ msgctxt ""
 msgid "One Instance Only"
 msgstr "Só unha instancia"
 
-#: src/app/mainWindow.cpp:388
+#: src/app/mainWindow.cpp:403
 #, fuzzy, kde-format
 #| msgid "Previous"
 msgctxt "@action previous chapter"
 msgid "Previous"
 msgstr "Anterior"
 
-#: src/app/mainWindow.cpp:394
+#: src/app/mainWindow.cpp:409
 #, fuzzy, kde-format
 #| msgid "Next"
 msgctxt "@action next chapter"
 msgid "Next"
 msgstr "Seguinte"
 
-#: src/app/mainWindow.cpp:401
+#: src/app/mainWindow.cpp:416
 #, fuzzy, no-c-format, kde-format
 #| msgid "Return 10% Back"
 msgctxt "@action"
 msgid "Return 10% Back"
 msgstr "Ir un 10% cara atrás"
 
-#: src/app/mainWindow.cpp:408
+#: src/app/mainWindow.cpp:423
 #, fuzzy, no-c-format, kde-format
 #| msgid "Go 10% Forward"
 msgctxt "@action"
 msgid "Go 10% Forward"
 msgstr "Ir un 10% cara adiante"
 
-#: src/app/mainWindow.cpp:414
+#: src/app/mainWindow.cpp:429
 #, fuzzy, kde-format
 #| msgid "Return 10 Seconds Back"
 msgctxt "@action"
 msgid "Return 10 Seconds Back"
 msgstr "Ir 10s cara atrás"
 
-#: src/app/mainWindow.cpp:420
+#: src/app/mainWindow.cpp:435
 #, fuzzy, kde-format
 #| msgid "Go 10 Seconds Forward"
 msgctxt "@action"
 msgid "Go 10 Seconds Forward"
 msgstr "Ir 10s cara adiante"
 
-#: src/app/mainWindow.cpp:505
+#: src/app/mainWindow.cpp:516
 #, fuzzy, kde-format
 #| msgctxt "Mute the sound output"
 #| msgid "Mute"
@@ -433,70 +425,51 @@ msgctxt "@option:check Mute the sound output"
 msgid "Mute"
 msgstr "Sen son"
 
-#: src/app/mainWindow.cpp:577
+#: src/app/mainWindow.cpp:588
 #, kde-format
 msgid "Dragon Player was asked to open an empty URL; it cannot."
 msgstr "Dragon Player pediu abrir un URL baleiro; non se pode."
 
-#: src/app/mainWindow.cpp:656
+#: src/app/mainWindow.cpp:665
 #, fuzzy, kde-format
 #| msgid "Select File to Play"
 msgctxt "@title:window"
 msgid "Select File to Play"
 msgstr "Escolle un ficheiro para reproducilo"
 
-#: src/app/mainWindow.cpp:683
+#: src/app/mainWindow.cpp:692
 #, kde-format
 msgctxt "@title:window"
 msgid "Stream to Play"
 msgstr "A transmisión que se vai reproducir"
 
-#: src/app/mainWindow.cpp:683
+#: src/app/mainWindow.cpp:692
 #, fuzzy, kde-format
 #| msgid "Stream:"
 msgctxt "@label:textbox"
 msgid "Stream:"
 msgstr "Transmisión:"
 
-#: src/app/mainWindow.cpp:816
+#: src/app/mainWindow.cpp:822
 #, kde-format
 msgid "Sorry, no media was found in the drop"
 msgstr "Non se atopou ningún recurso"
 
-#: src/app/mainWindow.cpp:864
+#: src/app/mainWindow.cpp:870
 #, kde-format
 msgctxt "Notification inhibition reason"
 msgid "playing a video"
 msgstr "reproducindo un vídeo"
 
-#: src/app/mainWindow.cpp:896
+#: src/app/mainWindow.cpp:902
 #, kde-format
 msgid "No media loaded"
 msgstr "Non se cargou ningún recurso"
 
-#: src/app/mainWindow.cpp:898
+#: src/app/mainWindow.cpp:904
 #, kde-format
 msgid "Paused"
 msgstr "En pausa"
-
-#: src/app/playDialog.cpp:31
-#, fuzzy, kde-format
-#| msgid "Play Media"
-msgctxt "@title:window"
-msgid "Play Media"
-msgstr "Reproducir un recurso"
-
-#: src/app/playDialog.cpp:43
-#, kde-format
-msgid "What media would you like to play?"
-msgstr "Que recurso desexa reproducir?"
-
-#: src/app/playDialog.cpp:51
-#, fuzzy, kde-format
-#| msgid "Play File..."
-msgctxt "@action:button"
-msgid "Play File..."
-msgstr "Reproducir un ficheiro…"
 
 #: src/app/playlistFile.cpp:37
 #, kde-format
@@ -521,42 +494,6 @@ msgstr ""
 #, kde-format
 msgid "Dragon Player could not open the file: %1"
 msgstr "Dragon Player non puido abrir o ficheiro: %1"
-
-#: src/app/recentlyPlayedList.cpp:38
-#, fuzzy, kde-format
-#| msgctxt "Copy the URL of the selected multimedia"
-#| msgid "Copy URL"
-msgctxt "@action Copy the URL of the selected multimedia"
-msgid "Copy URL"
-msgstr "Copiar o URL"
-
-#: src/app/recentlyPlayedList.cpp:43
-#, fuzzy, kde-format
-#| msgid "Clear List"
-msgctxt "@action"
-msgid "Clear List"
-msgstr "Limpar a lista"
-
-#: src/app/recentlyPlayedList.cpp:48
-#, fuzzy, kde-format
-#| msgid "Remove Entry"
-msgctxt "@action"
-msgid "Remove Entry"
-msgstr "Retirar a entrada"
-
-#: src/app/recentlyPlayedList.cpp:137
-#, kde-format
-msgid ""
-"This file could not be found. Would you like to remove it from the playlist?"
-msgstr ""
-"Non se puido atopar este ficheiro. Quere retiralo da lista de reprodución?"
-
-#: src/app/recentlyPlayedList.cpp:139 src/app/recentlyPlayedList.cpp:144
-#, fuzzy, kde-format
-#| msgid "File not found"
-msgctxt "@title:window"
-msgid "File not found"
-msgstr "Non se atopou o ficheiro"
 
 #: src/app/theStream.cpp:145
 #, kde-format
@@ -624,6 +561,52 @@ msgstr "Selección de subtítulos do &DVD"
 msgctxt "@option:radio audio language"
 msgid "&Auto"
 msgstr "&Automática"
+
+#, fuzzy
+#~| msgid "Play &Media..."
+#~ msgctxt "@action"
+#~ msgid "Play &Media..."
+#~ msgstr "Reproducir un &recurso…"
+
+#~ msgid "What media would you like to play?"
+#~ msgstr "Que recurso desexa reproducir?"
+
+#, fuzzy
+#~| msgid "Play File..."
+#~ msgctxt "@action:button"
+#~ msgid "Play File..."
+#~ msgstr "Reproducir un ficheiro…"
+
+#, fuzzy
+#~| msgctxt "Copy the URL of the selected multimedia"
+#~| msgid "Copy URL"
+#~ msgctxt "@action Copy the URL of the selected multimedia"
+#~ msgid "Copy URL"
+#~ msgstr "Copiar o URL"
+
+#, fuzzy
+#~| msgid "Clear List"
+#~ msgctxt "@action"
+#~ msgid "Clear List"
+#~ msgstr "Limpar a lista"
+
+#, fuzzy
+#~| msgid "Remove Entry"
+#~ msgctxt "@action"
+#~ msgid "Remove Entry"
+#~ msgstr "Retirar a entrada"
+
+#~ msgid ""
+#~ "This file could not be found. Would you like to remove it from the "
+#~ "playlist?"
+#~ msgstr ""
+#~ "Non se puido atopar este ficheiro. Quere retiralo da lista de reprodución?"
+
+#, fuzzy
+#~| msgid "File not found"
+#~ msgctxt "@title:window"
+#~ msgid "File not found"
+#~ msgstr "Non se atopou o ficheiro"
 
 #~ msgid ""
 #~ "IRC:\n"

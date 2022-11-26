@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-25 00:45+0000\n"
+"POT-Creation-Date: 2022-11-26 00:45+0000\n"
 "PO-Revision-Date: 2022-11-20 08:48+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -38,15 +38,24 @@ msgctxt "@title:menu"
 msgid "&Play"
 msgstr "&Пуск"
 
+#. i18n: ectx: Menu (play_media_menu)
+#: misc/dragonplayerui.rc:5
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Play Media"
+msgctxt "@title:menu"
+msgid "Play Media"
+msgstr "Відтворити"
+
 #. i18n: ectx: Menu (settings)
-#: misc/dragonplayerui.rc:15
+#: misc/dragonplayerui.rc:20
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Settings"
 msgstr "&Параметри"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: misc/dragonplayerui.rc:32
+#: misc/dragonplayerui.rc:37
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Головний пенал"
@@ -126,45 +135,12 @@ msgstr "Вибрати диск"
 msgid "Select a disc to play."
 msgstr "Виберіть диск для відтворення."
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/app/loadView.ui:23
-#, kde-format
-msgid "Recent Media"
-msgstr "Нещодавні мультимедіа"
-
-#. i18n: ectx: property (text), widget (QPushButton, m_playFileButton)
-#: src/app/loadView.ui:32
-#, kde-format
-msgctxt "@action:button"
-msgid "Play File…"
-msgstr "Відтворити файл…"
-
-#. i18n: ectx: property (text), widget (QPushButton, m_playStreamButton)
-#: src/app/loadView.ui:43
-#, kde-format
-msgctxt "@action:button"
-msgid "Play Stream…"
-msgstr "Відтворити потік…"
-
-#. i18n: ectx: property (text), widget (QPushButton, m_playDiskButton)
-#: src/app/loadView.ui:54 src/app/playDialog.cpp:55
-#, kde-format
-msgctxt "@action:button"
-msgid "Play Disc"
-msgstr "Відтворити диск"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, m_clearRecent)
-#. i18n: ectx: property (accessibleName), widget (QPushButton, m_clearRecent)
-#: src/app/loadView.ui:99 src/app/loadView.ui:102
-#, kde-format
-msgid "Clear Recent Media"
-msgstr "Спорожнити список нещодавніх мультимедіа"
-
-#. i18n: ectx: property (accessibleDescription), widget (RecentlyPlayedList, m_recentlyPlayed)
-#: src/app/loadView.ui:122
-#, kde-format
-msgid "Recent Media List"
-msgstr "Список нещодавніх мультимедіа"
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/app/loadView.ui:61
+#, fuzzy, kde-format
+#| msgid "Dragon Player"
+msgid "Welcome to Dragon Player"
+msgstr "Програвач Dragon"
 
 #: src/app/main.cpp:37
 #, kde-format
@@ -237,49 +213,49 @@ msgstr "Відтворити відео-DVD"
 msgid "Play 'URL'"
 msgstr "Відтворити «URL»"
 
-#: src/app/mainWindow.cpp:143
+#: src/app/mainWindow.cpp:141
 #, kde-format
 msgctxt "@title:menu"
 msgid "Aspect &Ratio"
 msgstr "Формат &зображення"
 
-#: src/app/mainWindow.cpp:144
+#: src/app/mainWindow.cpp:142
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Audio Channels"
 msgstr "Канали &аудіо"
 
-#: src/app/mainWindow.cpp:145
+#: src/app/mainWindow.cpp:143
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Subtitles"
 msgstr "&Субтитри"
 
-#: src/app/mainWindow.cpp:160
+#: src/app/mainWindow.cpp:158
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Determine &Automatically"
 msgstr "Визначити &автоматично"
 
-#: src/app/mainWindow.cpp:163
+#: src/app/mainWindow.cpp:161
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "&4:3"
 msgstr "&4:3"
 
-#: src/app/mainWindow.cpp:164
+#: src/app/mainWindow.cpp:162
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Ana&morphic (16:9)"
 msgstr "Ана&морфотний (16:9)"
 
-#: src/app/mainWindow.cpp:167
+#: src/app/mainWindow.cpp:165
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "&Window Size"
 msgstr "&Розміри вікна"
 
-#: src/app/mainWindow.cpp:253
+#: src/app/mainWindow.cpp:247
 #, kde-format
 msgid ""
 "<qt>Phonon could not be successfully initialized. Dragon Player will now "
@@ -288,60 +264,84 @@ msgstr ""
 "<qt>Не вдалося ініціалізувати Phonon. Зараз роботу програвача Dragon буде "
 "завершено.</qt>"
 
-#: src/app/mainWindow.cpp:315
-#, kde-format
+#: src/app/mainWindow.cpp:309
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Play File…"
 msgctxt "@action"
-msgid "Play &Media..."
-msgstr "Відтворити &носій..."
+msgid "Play File…"
+msgstr "Відтворити файл…"
 
-#: src/app/mainWindow.cpp:332
+#: src/app/mainWindow.cpp:310
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Open a media file for playback"
+msgstr ""
+
+#: src/app/mainWindow.cpp:317
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Play Stream…"
+msgctxt "@action"
+msgid "Play Stream…"
+msgstr "Відтворити потік…"
+
+#: src/app/mainWindow.cpp:323
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Play Disc"
+msgctxt "@action"
+msgid "Play Disc"
+msgstr "Відтворити диск"
+
+#: src/app/mainWindow.cpp:347
 #, kde-format
 msgctxt "@action"
 msgid "Increase Volume"
 msgstr "Збільшити гучність"
 
-#: src/app/mainWindow.cpp:337
+#: src/app/mainWindow.cpp:352
 #, kde-format
 msgctxt "@action"
 msgid "Decrease Volume"
 msgstr "Зменшити гучність"
 
-#: src/app/mainWindow.cpp:342
+#: src/app/mainWindow.cpp:357
 #, kde-format
 msgctxt "@action"
 msgid "Stop"
 msgstr "Зупинити"
 
-#: src/app/mainWindow.cpp:348
+#: src/app/mainWindow.cpp:363
 #, kde-format
 msgctxt "@action Mute the sound output"
 msgid "Mute"
 msgstr "Вимкнути звук"
 
-#: src/app/mainWindow.cpp:354
+#: src/app/mainWindow.cpp:369
 #, kde-format
 msgctxt "@action"
 msgid "Reset Video Scale"
 msgstr "Відновити масштаб відео"
 
-#: src/app/mainWindow.cpp:360
+#: src/app/mainWindow.cpp:375
 #, kde-format
 msgctxt "@action"
 msgid "Menu Toggle"
 msgstr "Перемикач меню"
 
-#: src/app/mainWindow.cpp:368 src/app/part.cpp:56
+#: src/app/mainWindow.cpp:383 src/app/part.cpp:56
 #, kde-format
 msgid "Position Slider"
 msgstr "Повзунок позиції"
 
-#: src/app/mainWindow.cpp:372
+#: src/app/mainWindow.cpp:387
 #, kde-format
 msgctxt "@option:check"
 msgid "Video Settings"
 msgstr "Параметри відео"
 
-#: src/app/mainWindow.cpp:380
+#: src/app/mainWindow.cpp:395
 #, kde-format
 msgctxt ""
 "@option:check Whether only one instance of dragon can be started and will be "
@@ -349,108 +349,91 @@ msgctxt ""
 msgid "One Instance Only"
 msgstr "Лише один екземпляр"
 
-#: src/app/mainWindow.cpp:388
+#: src/app/mainWindow.cpp:403
 #, kde-format
 msgctxt "@action previous chapter"
 msgid "Previous"
 msgstr "Назад"
 
-#: src/app/mainWindow.cpp:394
+#: src/app/mainWindow.cpp:409
 #, kde-format
 msgctxt "@action next chapter"
 msgid "Next"
 msgstr "Далі"
 
-#: src/app/mainWindow.cpp:401
+#: src/app/mainWindow.cpp:416
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Return 10% Back"
 msgstr "Повернутися на 10% назад"
 
-#: src/app/mainWindow.cpp:408
+#: src/app/mainWindow.cpp:423
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Go 10% Forward"
 msgstr "Перейти на 10% вперед"
 
-#: src/app/mainWindow.cpp:414
+#: src/app/mainWindow.cpp:429
 #, kde-format
 msgctxt "@action"
 msgid "Return 10 Seconds Back"
 msgstr "Повернутися на 10 секунд"
 
-#: src/app/mainWindow.cpp:420
+#: src/app/mainWindow.cpp:435
 #, kde-format
 msgctxt "@action"
 msgid "Go 10 Seconds Forward"
 msgstr "Перейти на 10 секунд вперед"
 
-#: src/app/mainWindow.cpp:505
+#: src/app/mainWindow.cpp:516
 #, kde-format
 msgctxt "@option:check Mute the sound output"
 msgid "Mute"
 msgstr "Вимкнути звук"
 
-#: src/app/mainWindow.cpp:577
+#: src/app/mainWindow.cpp:588
 #, kde-format
 msgid "Dragon Player was asked to open an empty URL; it cannot."
 msgstr "Dragon Player наказано відкрити порожню адресу URL; це неможливо."
 
-#: src/app/mainWindow.cpp:656
+#: src/app/mainWindow.cpp:665
 #, kde-format
 msgctxt "@title:window"
 msgid "Select File to Play"
 msgstr "Вибір файла для відтворення"
 
-#: src/app/mainWindow.cpp:683
+#: src/app/mainWindow.cpp:692
 #, kde-format
 msgctxt "@title:window"
 msgid "Stream to Play"
 msgstr "Потік даних, який слід відтворити"
 
-#: src/app/mainWindow.cpp:683
+#: src/app/mainWindow.cpp:692
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Stream:"
 msgstr "Потік:"
 
-#: src/app/mainWindow.cpp:816
+#: src/app/mainWindow.cpp:822
 #, kde-format
 msgid "Sorry, no media was found in the drop"
 msgstr "Вибачте, у скинутому відсутні записи для відтворення"
 
-#: src/app/mainWindow.cpp:864
+#: src/app/mainWindow.cpp:870
 #, kde-format
 msgctxt "Notification inhibition reason"
 msgid "playing a video"
 msgstr "відтворюємо відео"
 
-#: src/app/mainWindow.cpp:896
+#: src/app/mainWindow.cpp:902
 #, kde-format
 msgid "No media loaded"
 msgstr "Не завантажено відео"
 
-#: src/app/mainWindow.cpp:898
+#: src/app/mainWindow.cpp:904
 #, kde-format
 msgid "Paused"
 msgstr "Призупинено"
-
-#: src/app/playDialog.cpp:31
-#, kde-format
-msgctxt "@title:window"
-msgid "Play Media"
-msgstr "Відтворити"
-
-#: src/app/playDialog.cpp:43
-#, kde-format
-msgid "What media would you like to play?"
-msgstr "Який носій інформації ви бажаєте відтворити?"
-
-#: src/app/playDialog.cpp:51
-#, kde-format
-msgctxt "@action:button"
-msgid "Play File..."
-msgstr "Відтворити файл..."
 
 #: src/app/playlistFile.cpp:37
 #, kde-format
@@ -475,37 +458,6 @@ msgstr ""
 #, kde-format
 msgid "Dragon Player could not open the file: %1"
 msgstr "Dragon Player не вдалося відкрити файл: %1"
-
-#: src/app/recentlyPlayedList.cpp:38
-#, kde-format
-msgctxt "@action Copy the URL of the selected multimedia"
-msgid "Copy URL"
-msgstr "Копіювати адресу"
-
-#: src/app/recentlyPlayedList.cpp:43
-#, kde-format
-msgctxt "@action"
-msgid "Clear List"
-msgstr "Спорожнити список"
-
-#: src/app/recentlyPlayedList.cpp:48
-#, kde-format
-msgctxt "@action"
-msgid "Remove Entry"
-msgstr "Вилучити запис"
-
-#: src/app/recentlyPlayedList.cpp:137
-#, kde-format
-msgid ""
-"This file could not be found. Would you like to remove it from the playlist?"
-msgstr ""
-"Цей файл не вдалося знайти. Бажаєте вилучити його зі списку відтворення?"
-
-#: src/app/recentlyPlayedList.cpp:139 src/app/recentlyPlayedList.cpp:144
-#, kde-format
-msgctxt "@title:window"
-msgid "File not found"
-msgstr "Файл не знайдено"
 
 #: src/app/theStream.cpp:145
 #, kde-format
@@ -565,6 +517,48 @@ msgstr "Вибір субтитрів &DVD"
 msgctxt "@option:radio audio language"
 msgid "&Auto"
 msgstr "&Авто"
+
+#~ msgid "Recent Media"
+#~ msgstr "Нещодавні мультимедіа"
+
+#~ msgid "Clear Recent Media"
+#~ msgstr "Спорожнити список нещодавніх мультимедіа"
+
+#~ msgid "Recent Media List"
+#~ msgstr "Список нещодавніх мультимедіа"
+
+#~ msgctxt "@action"
+#~ msgid "Play &Media..."
+#~ msgstr "Відтворити &носій..."
+
+#~ msgid "What media would you like to play?"
+#~ msgstr "Який носій інформації ви бажаєте відтворити?"
+
+#~ msgctxt "@action:button"
+#~ msgid "Play File..."
+#~ msgstr "Відтворити файл..."
+
+#~ msgctxt "@action Copy the URL of the selected multimedia"
+#~ msgid "Copy URL"
+#~ msgstr "Копіювати адресу"
+
+#~ msgctxt "@action"
+#~ msgid "Clear List"
+#~ msgstr "Спорожнити список"
+
+#~ msgctxt "@action"
+#~ msgid "Remove Entry"
+#~ msgstr "Вилучити запис"
+
+#~ msgid ""
+#~ "This file could not be found. Would you like to remove it from the "
+#~ "playlist?"
+#~ msgstr ""
+#~ "Цей файл не вдалося знайти. Бажаєте вилучити його зі списку відтворення?"
+
+#~ msgctxt "@title:window"
+#~ msgid "File not found"
+#~ msgstr "Файл не знайдено"
 
 #~ msgid ""
 #~ "IRC:\n"

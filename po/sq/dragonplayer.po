@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-25 00:45+0000\n"
+"POT-Creation-Date: 2022-11-26 00:45+0000\n"
 "PO-Revision-Date: 2009-08-12 00:53+0000\n"
 "Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
@@ -37,8 +37,16 @@ msgctxt "@title:menu"
 msgid "&Play"
 msgstr "&Luaje"
 
+#. i18n: ectx: Menu (play_media_menu)
+#: misc/dragonplayerui.rc:5
+#, fuzzy, kde-format
+#| msgid "Play Media"
+msgctxt "@title:menu"
+msgid "Play Media"
+msgstr "Luaj MEdia"
+
 #. i18n: ectx: Menu (settings)
-#: misc/dragonplayerui.rc:15
+#: misc/dragonplayerui.rc:20
 #, fuzzy, kde-format
 #| msgid "&Settings"
 msgctxt "@title:menu"
@@ -46,7 +54,7 @@ msgid "&Settings"
 msgstr "&Parametrat"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: misc/dragonplayerui.rc:32
+#: misc/dragonplayerui.rc:37
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Shiriti Kryesor"
@@ -133,48 +141,12 @@ msgstr "Zgjidh një disk"
 msgid "Select a disc to play."
 msgstr "Zgjidh një disk për të luajtur."
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/app/loadView.ui:23
-#, kde-format
-msgid "Recent Media"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QPushButton, m_playFileButton)
-#: src/app/loadView.ui:32
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/app/loadView.ui:61
 #, fuzzy, kde-format
-#| msgid "Play File"
-msgctxt "@action:button"
-msgid "Play File…"
-msgstr "Luaj Skedën"
-
-#. i18n: ectx: property (text), widget (QPushButton, m_playStreamButton)
-#: src/app/loadView.ui:43
-#, fuzzy, kde-format
-#| msgid "Play Media"
-msgctxt "@action:button"
-msgid "Play Stream…"
-msgstr "Luaj MEdia"
-
-#. i18n: ectx: property (text), widget (QPushButton, m_playDiskButton)
-#: src/app/loadView.ui:54 src/app/playDialog.cpp:55
-#, fuzzy, kde-format
-#| msgid "Play Disc"
-msgctxt "@action:button"
-msgid "Play Disc"
-msgstr "Luaj Disk"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, m_clearRecent)
-#. i18n: ectx: property (accessibleName), widget (QPushButton, m_clearRecent)
-#: src/app/loadView.ui:99 src/app/loadView.ui:102
-#, kde-format
-msgid "Clear Recent Media"
-msgstr ""
-
-#. i18n: ectx: property (accessibleDescription), widget (RecentlyPlayedList, m_recentlyPlayed)
-#: src/app/loadView.ui:122
-#, kde-format
-msgid "Recent Media List"
-msgstr ""
+#| msgid "Dragon Player"
+msgid "Welcome to Dragon Player"
+msgstr "Dragon Player"
 
 #: src/app/main.cpp:37
 #, kde-format
@@ -246,89 +218,109 @@ msgstr "Luaj DVD Video"
 msgid "Play 'URL'"
 msgstr "Luaj 'URL'"
 
-#: src/app/mainWindow.cpp:143
+#: src/app/mainWindow.cpp:141
 #, fuzzy, kde-format
 #| msgid "Aspect &Ratio"
 msgctxt "@title:menu"
 msgid "Aspect &Ratio"
 msgstr "Shkalla e &Pamjes"
 
-#: src/app/mainWindow.cpp:144
+#: src/app/mainWindow.cpp:142
 #, fuzzy, kde-format
 #| msgid "&Audio Channels"
 msgctxt "@title:menu"
 msgid "&Audio Channels"
 msgstr "&kanalet Audio"
 
-#: src/app/mainWindow.cpp:145
+#: src/app/mainWindow.cpp:143
 #, fuzzy, kde-format
 #| msgid "&Subtitles"
 msgctxt "@title:menu"
 msgid "&Subtitles"
 msgstr "&Nëntitujt"
 
-#: src/app/mainWindow.cpp:160
+#: src/app/mainWindow.cpp:158
 #, fuzzy, kde-format
 #| msgid "Determine &Automatically"
 msgctxt "@option:radio aspect ratio"
 msgid "Determine &Automatically"
 msgstr "Përcaktoje &Automatikisht"
 
-#: src/app/mainWindow.cpp:163
+#: src/app/mainWindow.cpp:161
 #, fuzzy, kde-format
 #| msgid "&4:3"
 msgctxt "@option:radio aspect ratio"
 msgid "&4:3"
 msgstr "&4:3"
 
-#: src/app/mainWindow.cpp:164
+#: src/app/mainWindow.cpp:162
 #, fuzzy, kde-format
 #| msgid "Ana&morphic (16:9)"
 msgctxt "@option:radio aspect ratio"
 msgid "Ana&morphic (16:9)"
 msgstr "Ana&morfik (16:9)"
 
-#: src/app/mainWindow.cpp:167
+#: src/app/mainWindow.cpp:165
 #, fuzzy, kde-format
 #| msgid "&Window Size"
 msgctxt "@option:radio aspect ratio"
 msgid "&Window Size"
 msgstr "&Përmasa e Dritares"
 
-#: src/app/mainWindow.cpp:253
+#: src/app/mainWindow.cpp:247
 #, kde-format
 msgid ""
 "<qt>Phonon could not be successfully initialized. Dragon Player will now "
 "exit.</qt>"
 msgstr ""
 
-#: src/app/mainWindow.cpp:315
+#: src/app/mainWindow.cpp:309
 #, fuzzy, kde-format
-#| msgid "Play &Media..."
+#| msgid "Play File"
 msgctxt "@action"
-msgid "Play &Media..."
-msgstr "Luaj &Media..."
+msgid "Play File…"
+msgstr "Luaj Skedën"
 
-#: src/app/mainWindow.cpp:332
+#: src/app/mainWindow.cpp:310
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Open a media file for playback"
+msgstr ""
+
+#: src/app/mainWindow.cpp:317
+#, fuzzy, kde-format
+#| msgid "Play Media"
+msgctxt "@action"
+msgid "Play Stream…"
+msgstr "Luaj MEdia"
+
+#: src/app/mainWindow.cpp:323
+#, fuzzy, kde-format
+#| msgid "Play Disc"
+msgctxt "@action"
+msgid "Play Disc"
+msgstr "Luaj Disk"
+
+#: src/app/mainWindow.cpp:347
 #, kde-format
 msgctxt "@action"
 msgid "Increase Volume"
 msgstr ""
 
-#: src/app/mainWindow.cpp:337
+#: src/app/mainWindow.cpp:352
 #, kde-format
 msgctxt "@action"
 msgid "Decrease Volume"
 msgstr ""
 
-#: src/app/mainWindow.cpp:342
+#: src/app/mainWindow.cpp:357
 #, fuzzy, kde-format
 #| msgid "Stop"
 msgctxt "@action"
 msgid "Stop"
 msgstr "Ndalo"
 
-#: src/app/mainWindow.cpp:348
+#: src/app/mainWindow.cpp:363
 #, fuzzy, kde-format
 #| msgctxt "Mute the sound output"
 #| msgid "Mute"
@@ -336,33 +328,33 @@ msgctxt "@action Mute the sound output"
 msgid "Mute"
 msgstr "Heshtje"
 
-#: src/app/mainWindow.cpp:354
+#: src/app/mainWindow.cpp:369
 #, fuzzy, kde-format
 #| msgid "Reset Video Scale"
 msgctxt "@action"
 msgid "Reset Video Scale"
 msgstr "Rivendos Shkallën e Videos"
 
-#: src/app/mainWindow.cpp:360
+#: src/app/mainWindow.cpp:375
 #, fuzzy, kde-format
 #| msgid "Menu Toggle"
 msgctxt "@action"
 msgid "Menu Toggle"
 msgstr "Etiketim i Menuë"
 
-#: src/app/mainWindow.cpp:368 src/app/part.cpp:56
+#: src/app/mainWindow.cpp:383 src/app/part.cpp:56
 #, kde-format
 msgid "Position Slider"
 msgstr "Kursori i Pozicionimit"
 
-#: src/app/mainWindow.cpp:372
+#: src/app/mainWindow.cpp:387
 #, fuzzy, kde-format
 #| msgid "Video Settings"
 msgctxt "@option:check"
 msgid "Video Settings"
 msgstr "Rregullimet video"
 
-#: src/app/mainWindow.cpp:380
+#: src/app/mainWindow.cpp:395
 #, kde-format
 msgctxt ""
 "@option:check Whether only one instance of dragon can be started and will be "
@@ -370,48 +362,48 @@ msgctxt ""
 msgid "One Instance Only"
 msgstr ""
 
-#: src/app/mainWindow.cpp:388
+#: src/app/mainWindow.cpp:403
 #, fuzzy, kde-format
 #| msgid "Previous Chapter"
 msgctxt "@action previous chapter"
 msgid "Previous"
 msgstr "Kapitulli i Mëparshëm"
 
-#: src/app/mainWindow.cpp:394
+#: src/app/mainWindow.cpp:409
 #, kde-format
 msgctxt "@action next chapter"
 msgid "Next"
 msgstr ""
 
-#: src/app/mainWindow.cpp:401
+#: src/app/mainWindow.cpp:416
 #, fuzzy, no-c-format, kde-format
 #| msgid "Return 10% Back"
 msgctxt "@action"
 msgid "Return 10% Back"
 msgstr "Kthehu 10% Mbrapsht"
 
-#: src/app/mainWindow.cpp:408
+#: src/app/mainWindow.cpp:423
 #, fuzzy, no-c-format, kde-format
 #| msgid "Go 10% Forward"
 msgctxt "@action"
 msgid "Go 10% Forward"
 msgstr "Shko 10% Përpara"
 
-#: src/app/mainWindow.cpp:414
+#: src/app/mainWindow.cpp:429
 #, fuzzy, kde-format
 #| msgid "Return 10 Seconds Back"
 msgctxt "@action"
 msgid "Return 10 Seconds Back"
 msgstr "Kthehu 10 Sekonda Mbrapa"
 
-#: src/app/mainWindow.cpp:420
+#: src/app/mainWindow.cpp:435
 #, fuzzy, kde-format
 #| msgid "Go 10 Seconds Forward"
 msgctxt "@action"
 msgid "Go 10 Seconds Forward"
 msgstr "Shko 10 Sekonda Përpara"
 
-#: src/app/mainWindow.cpp:505
+#: src/app/mainWindow.cpp:516
 #, fuzzy, kde-format
 #| msgctxt "Mute the sound output"
 #| msgid "Mute"
@@ -419,72 +411,53 @@ msgctxt "@option:check Mute the sound output"
 msgid "Mute"
 msgstr "Heshtje"
 
-#: src/app/mainWindow.cpp:577
+#: src/app/mainWindow.cpp:588
 #, kde-format
 msgid "Dragon Player was asked to open an empty URL; it cannot."
 msgstr ""
 
-#: src/app/mainWindow.cpp:656
+#: src/app/mainWindow.cpp:665
 #, fuzzy, kde-format
 #| msgid "Select File to Play"
 msgctxt "@title:window"
 msgid "Select File to Play"
 msgstr "Zgjidh Skedarin që dë të Luash"
 
-#: src/app/mainWindow.cpp:683
+#: src/app/mainWindow.cpp:692
 #, fuzzy, kde-format
 #| msgid "Select File to Play"
 msgctxt "@title:window"
 msgid "Stream to Play"
 msgstr "Zgjidh Skedarin që dë të Luash"
 
-#: src/app/mainWindow.cpp:683
+#: src/app/mainWindow.cpp:692
 #, fuzzy, kde-format
 #| msgid "Play Media"
 msgctxt "@label:textbox"
 msgid "Stream:"
 msgstr "Luaj MEdia"
 
-#: src/app/mainWindow.cpp:816
+#: src/app/mainWindow.cpp:822
 #, kde-format
 msgid "Sorry, no media was found in the drop"
 msgstr "Na vjen keq, nuk u gjet media në lëshim"
 
-#: src/app/mainWindow.cpp:864
+#: src/app/mainWindow.cpp:870
 #, fuzzy, kde-format
 #| msgid "Play DVD Video"
 msgctxt "Notification inhibition reason"
 msgid "playing a video"
 msgstr "Luaj DVD Video"
 
-#: src/app/mainWindow.cpp:896
+#: src/app/mainWindow.cpp:902
 #, kde-format
 msgid "No media loaded"
 msgstr "Nuk ka media të ngarkuar"
 
-#: src/app/mainWindow.cpp:898
+#: src/app/mainWindow.cpp:904
 #, kde-format
 msgid "Paused"
 msgstr "Në Pauzë"
-
-#: src/app/playDialog.cpp:31
-#, fuzzy, kde-format
-#| msgid "Play Media"
-msgctxt "@title:window"
-msgid "Play Media"
-msgstr "Luaj MEdia"
-
-#: src/app/playDialog.cpp:43
-#, kde-format
-msgid "What media would you like to play?"
-msgstr ""
-
-#: src/app/playDialog.cpp:51
-#, fuzzy, kde-format
-#| msgid "Play File..."
-msgctxt "@action:button"
-msgid "Play File..."
-msgstr "Luaj Skedar..."
 
 #: src/app/playlistFile.cpp:37
 #, kde-format
@@ -507,38 +480,6 @@ msgstr ""
 #, kde-format
 msgid "Dragon Player could not open the file: %1"
 msgstr "Dragon Player nuk mund të hapë skedarin: %1"
-
-#: src/app/recentlyPlayedList.cpp:38
-#, kde-format
-msgctxt "@action Copy the URL of the selected multimedia"
-msgid "Copy URL"
-msgstr ""
-
-#: src/app/recentlyPlayedList.cpp:43
-#, fuzzy, kde-format
-#| msgid "Clear List"
-msgctxt "@action"
-msgid "Clear List"
-msgstr "Pastro Listën"
-
-#: src/app/recentlyPlayedList.cpp:48
-#, fuzzy, kde-format
-#| msgid "Remove Entry"
-msgctxt "@action"
-msgid "Remove Entry"
-msgstr "Hiqe Hyrjen"
-
-#: src/app/recentlyPlayedList.cpp:137
-#, kde-format
-msgid ""
-"This file could not be found. Would you like to remove it from the playlist?"
-msgstr ""
-
-#: src/app/recentlyPlayedList.cpp:139 src/app/recentlyPlayedList.cpp:144
-#, kde-format
-msgctxt "@title:window"
-msgid "File not found"
-msgstr ""
 
 #: src/app/theStream.cpp:145
 #, kde-format
@@ -606,6 +547,30 @@ msgstr "&Përzgjedhje e Nëntitujve të DVD"
 msgctxt "@option:radio audio language"
 msgid "&Auto"
 msgstr "&Auto"
+
+#, fuzzy
+#~| msgid "Play &Media..."
+#~ msgctxt "@action"
+#~ msgid "Play &Media..."
+#~ msgstr "Luaj &Media..."
+
+#, fuzzy
+#~| msgid "Play File..."
+#~ msgctxt "@action:button"
+#~ msgid "Play File..."
+#~ msgstr "Luaj Skedar..."
+
+#, fuzzy
+#~| msgid "Clear List"
+#~ msgctxt "@action"
+#~ msgid "Clear List"
+#~ msgstr "Pastro Listën"
+
+#, fuzzy
+#~| msgid "Remove Entry"
+#~ msgctxt "@action"
+#~ msgid "Remove Entry"
+#~ msgstr "Hiqe Hyrjen"
 
 #~ msgid ""
 #~ "IRC:\n"
