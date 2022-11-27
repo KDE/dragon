@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: dragon\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-17 00:45+0000\n"
-"PO-Revision-Date: 2022-11-20 19:33+0100\n"
+"PO-Revision-Date: 2022-11-26 10:54+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -26,12 +26,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Julen Landa,Iñigo Salvador Azurmendi"
+msgstr "Iñigo Salvador Azurmendi,Julen Landa"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "julen@mundurat.net,xalba@euskalnet.net"
+msgstr "xalba@ni.eus,julen@mundurat.net"
 
 #. i18n: ectx: Menu (file)
 #: misc/dragonplayerui.rc:4
