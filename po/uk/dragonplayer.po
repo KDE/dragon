@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-26 00:45+0000\n"
-"PO-Revision-Date: 2022-11-20 08:48+0200\n"
+"PO-Revision-Date: 2022-11-26 10:56+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -40,9 +40,7 @@ msgstr "&Пуск"
 
 #. i18n: ectx: Menu (play_media_menu)
 #: misc/dragonplayerui.rc:5
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Play Media"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Play Media"
 msgstr "Відтворити"
@@ -137,10 +135,9 @@ msgstr "Виберіть диск для відтворення."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/app/loadView.ui:61
-#, fuzzy, kde-format
-#| msgid "Dragon Player"
+#, kde-format
 msgid "Welcome to Dragon Player"
-msgstr "Програвач Dragon"
+msgstr "Вітаємо у програвачі Dragon"
 
 #: src/app/main.cpp:37
 #, kde-format
@@ -265,9 +262,7 @@ msgstr ""
 "завершено.</qt>"
 
 #: src/app/mainWindow.cpp:309
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play File…"
+#, kde-format
 msgctxt "@action"
 msgid "Play File…"
 msgstr "Відтворити файл…"
@@ -276,20 +271,16 @@ msgstr "Відтворити файл…"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open a media file for playback"
-msgstr ""
+msgstr "Відкрити файл мультимедійних даних для відтворення"
 
 #: src/app/mainWindow.cpp:317
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Stream…"
+#, kde-format
 msgctxt "@action"
 msgid "Play Stream…"
 msgstr "Відтворити потік…"
 
 #: src/app/mainWindow.cpp:323
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Disc"
+#, kde-format
 msgctxt "@action"
 msgid "Play Disc"
 msgstr "Відтворити диск"

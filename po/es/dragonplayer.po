@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-26 00:45+0000\n"
-"PO-Revision-Date: 2022-11-20 09:59+0100\n"
+"PO-Revision-Date: 2022-11-26 17:36+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -50,12 +50,10 @@ msgstr "Re&producir"
 
 #. i18n: ectx: Menu (play_media_menu)
 #: misc/dragonplayerui.rc:5
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Play Media"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Play Media"
-msgstr "Reproducir un medio"
+msgstr "Reproducir medio"
 
 #. i18n: ectx: Menu (settings)
 #: misc/dragonplayerui.rc:20
@@ -147,10 +145,9 @@ msgstr "Seleccione un disco para reproducirlo."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/app/loadView.ui:61
-#, fuzzy, kde-format
-#| msgid "Dragon Player"
+#, kde-format
 msgid "Welcome to Dragon Player"
-msgstr "Dragon Player"
+msgstr "Bienvenido a Dragon Player"
 
 #: src/app/main.cpp:37
 #, kde-format
@@ -274,9 +271,7 @@ msgstr ""
 "ahora.</qt>"
 
 #: src/app/mainWindow.cpp:309
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play File…"
+#, kde-format
 msgctxt "@action"
 msgid "Play File…"
 msgstr "Reproducir archivo..."
@@ -285,20 +280,16 @@ msgstr "Reproducir archivo..."
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open a media file for playback"
-msgstr ""
+msgstr "Abrir un archivo de medios para reproducirlo"
 
 #: src/app/mainWindow.cpp:317
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Stream…"
+#, kde-format
 msgctxt "@action"
 msgid "Play Stream…"
 msgstr "Reproducir flujo de datos..."
 
 #: src/app/mainWindow.cpp:323
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Disc"
+#, kde-format
 msgctxt "@action"
 msgid "Play Disc"
 msgstr "Reproducir disco"

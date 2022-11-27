@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-26 00:45+0000\n"
-"PO-Revision-Date: 2022-11-21 20:45+0400\n"
+"PO-Revision-Date: 2022-11-26 10:55+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -40,9 +40,7 @@ msgstr "&شغل"
 
 #. i18n: ectx: Menu (play_media_menu)
 #: misc/dragonplayerui.rc:5
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Play Media"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Play Media"
 msgstr "شغّل وسائط"
@@ -137,10 +135,9 @@ msgstr "اختر قرصا لتشغله."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/app/loadView.ui:61
-#, fuzzy, kde-format
-#| msgid "Dragon Player"
+#, kde-format
 msgid "Welcome to Dragon Player"
-msgstr "مشغل التنين"
+msgstr "مرحباً بك في مشغل التنين"
 
 #: src/app/main.cpp:37
 #, kde-format
@@ -261,31 +258,25 @@ msgid ""
 msgstr "<qt>تعذر تهيئة Phonon بنجاح. سيخرج مشغل التنين الآن.</qt>"
 
 #: src/app/mainWindow.cpp:309
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play File…"
+#, kde-format
 msgctxt "@action"
 msgid "Play File…"
-msgstr "شغّل ملف…"
+msgstr "شغّل ملفاً…"
 
 #: src/app/mainWindow.cpp:310
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open a media file for playback"
-msgstr ""
+msgstr "افتح ملف وسائط لتشغله"
 
 #: src/app/mainWindow.cpp:317
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Stream…"
+#, kde-format
 msgctxt "@action"
 msgid "Play Stream…"
 msgstr "شغّل بث…"
 
 #: src/app/mainWindow.cpp:323
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Disc"
+#, kde-format
 msgctxt "@action"
 msgid "Play Disc"
 msgstr "شغّل قرص"

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdemultimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-26 00:45+0000\n"
-"PO-Revision-Date: 2022-11-21 22:28+0300\n"
+"PO-Revision-Date: 2022-11-26 18:49+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -39,9 +39,7 @@ msgstr "&Oynat"
 
 #. i18n: ectx: Menu (play_media_menu)
 #: misc/dragonplayerui.rc:5
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Play Media"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Play Media"
 msgstr "Ortam Oynat"
@@ -136,10 +134,9 @@ msgstr "Oynatmak için bir disk seçin."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/app/loadView.ui:61
-#, fuzzy, kde-format
-#| msgid "Dragon Player"
+#, kde-format
 msgid "Welcome to Dragon Player"
-msgstr "Dragon"
+msgstr "Dragon Oynatıcı'ya Hoş Geldiniz"
 
 #: src/app/main.cpp:37
 #, kde-format
@@ -261,9 +258,7 @@ msgstr ""
 "<qt>Phonon başarılı bir şekilde başlatılamadı. Dragon'dan çıkılıyor.</qt>"
 
 #: src/app/mainWindow.cpp:309
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play File…"
+#, kde-format
 msgctxt "@action"
 msgid "Play File…"
 msgstr "Dosya Oynat…"
@@ -272,20 +267,16 @@ msgstr "Dosya Oynat…"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open a media file for playback"
-msgstr ""
+msgstr "Oynatma için bir ortam dosyası aç"
 
 #: src/app/mainWindow.cpp:317
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Stream…"
+#, kde-format
 msgctxt "@action"
 msgid "Play Stream…"
 msgstr "Akış Oynat…"
 
 #: src/app/mainWindow.cpp:323
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Disc"
+#, kde-format
 msgctxt "@action"
 msgid "Play Disc"
 msgstr "Disk Oynat"

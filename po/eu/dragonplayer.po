@@ -6,13 +6,13 @@
 # Translators:
 # Julen Landa Alustiza <julen@mundurat.net>, 2009.
 # Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2009.
-# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2018, 2019, 2020, 2022.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2018, 2019, 2020, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: dragon\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-26 00:45+0000\n"
-"PO-Revision-Date: 2022-11-20 19:33+0100\n"
+"PO-Revision-Date: 2022-11-26 10:56+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -25,12 +25,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Julen Landa,Iñigo Salvador Azurmendi"
+msgstr "Iñigo Salvador Azurmendi,Julen Landa"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "julen@mundurat.net,xalba@euskalnet.net"
+msgstr "xalba@ni.eus,julen@mundurat.net"
 
 #. i18n: ectx: Menu (file)
 #: misc/dragonplayerui.rc:4
@@ -41,12 +41,10 @@ msgstr "&Jo"
 
 #. i18n: ectx: Menu (play_media_menu)
 #: misc/dragonplayerui.rc:5
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Play Media"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Play Media"
-msgstr "Jo komunikabidea"
+msgstr "Jo euskarria"
 
 #. i18n: ectx: Menu (settings)
 #: misc/dragonplayerui.rc:20
@@ -138,10 +136,9 @@ msgstr "Hautatu jo beharreko disko bat."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/app/loadView.ui:61
-#, fuzzy, kde-format
-#| msgid "Dragon Player"
+#, kde-format
 msgid "Welcome to Dragon Player"
-msgstr "Dragon Player"
+msgstr "Ongietorri Dragon jotzailera"
 
 #: src/app/main.cpp:37
 #, kde-format
@@ -264,9 +261,7 @@ msgstr ""
 "qt>"
 
 #: src/app/mainWindow.cpp:309
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play File…"
+#, kde-format
 msgctxt "@action"
 msgid "Play File…"
 msgstr "Jo fitxategia..."
@@ -275,20 +270,16 @@ msgstr "Jo fitxategia..."
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open a media file for playback"
-msgstr ""
+msgstr "Ireki atzera-jotzeko euskarri-fitxategi bat"
 
 #: src/app/mainWindow.cpp:317
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Stream…"
+#, kde-format
 msgctxt "@action"
 msgid "Play Stream…"
 msgstr "Jo korrontea..."
 
 #: src/app/mainWindow.cpp:323
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Disc"
+#, kde-format
 msgctxt "@action"
 msgid "Play Disc"
 msgstr "Jo diskoa"
