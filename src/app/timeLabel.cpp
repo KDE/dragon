@@ -41,7 +41,9 @@ void TimeLabel::mousePressEvent(QMouseEvent *)
 void TimeLabel::updateTime()
 {
     qint64 ms;
-#define zeroPad(n) n < 10 ? QString::fromLatin1("0%1").arg(n) : QString::number(n)
+    const auto zeroPad = [](int n) {
+        return n < 10 ? QString::fromLatin1("0%1").arg(n) : QString::number(n);
+    };
     if (m_timeFormat == SHOW_REMAINING)
         ms = m_totalTime - m_currentTime;
     else

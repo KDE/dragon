@@ -131,42 +131,36 @@ MainWindow::MainWindow()
 
     {
         KActionCollection *ac = actionCollection();
-        KActionMenu *menuAction = nullptr;
-#define make_menu(name, text)                                                                                                                                  \
-    menuAction = new KActionMenu(text, this);                                                                                                                  \
-    menuAction->setObjectName(name);                                                                                                                           \
-    menuAction->setEnabled(false);                                                                                                                             \
-    connect(menuAction->menu(), &QMenu::aboutToShow, this, &MainWindow::aboutToShowMenu);                                                                      \
-    ac->addAction(menuAction->objectName(), menuAction);
+
+        const auto make_menu = [this, ac](const QString &name, const QString &text) {
+            auto menuAction = new KActionMenu(text, this);
+            menuAction->setObjectName(name);
+            menuAction->setEnabled(false);
+            connect(menuAction->menu(), &QMenu::aboutToShow, this, &MainWindow::aboutToShowMenu);
+            ac->addAction(menuAction->objectName(), menuAction);
+        };
         make_menu(QLatin1String("aspect_ratio_menu"), i18nc("@title:menu", "Aspect &Ratio"));
         make_menu(QLatin1String("audio_channels_menu"), i18nc("@title:menu", "&Audio Channels"));
         make_menu(QLatin1String("subtitle_channels_menu"), i18nc("@title:menu", "&Subtitles"));
-#undef make_menu
-        {
-            m_aspectRatios = new QActionGroup(this);
-            m_aspectRatios->setExclusive(true);
-#define make_ratio_action(text, objectname, aspectEnum)                                                                                                        \
-    {                                                                                                                                                          \
-        QAction *ratioAction = new QAction(this);                                                                                                              \
-        ratioAction->setText(text);                                                                                                                            \
-        ratioAction->setCheckable(true);                                                                                                                       \
-        m_aspectRatios->addAction(ratioAction);                                                                                                                \
-        TheStream::addRatio(aspectEnum, ratioAction);                                                                                                          \
-        ac->addAction(objectname, ratioAction);                                                                                                                \
-        connect(ratioAction, &QAction::triggered, this, &MainWindow::streamSettingChange);                                                                     \
-    }
-            make_ratio_action(i18nc("@option:radio aspect ratio", "Determine &Automatically"),
-                              QLatin1String("ratio_auto"),
-                              Phonon::VideoWidget::AspectRatioAuto);
-            make_ratio_action(i18nc("@option:radio aspect ratio", "&4:3"), QLatin1String("ratio_golden"), Phonon::VideoWidget::AspectRatio4_3);
-            make_ratio_action(i18nc("@option:radio aspect ratio", "Ana&morphic (16:9)"),
-                              QLatin1String("ratio_anamorphic"),
-                              Phonon::VideoWidget::AspectRatio16_9);
-            make_ratio_action(i18nc("@option:radio aspect ratio", "&Window Size"), QLatin1String("ratio_window"), Phonon::VideoWidget::AspectRatioWidget);
-#undef make_ratio_action
-            ac->action(QLatin1String("ratio_auto"))->setChecked(true);
-            ac->action(QLatin1String("aspect_ratio_menu"))->menu()->addActions(m_aspectRatios->actions());
-        }
+
+        m_aspectRatios = new QActionGroup(this);
+        m_aspectRatios->setExclusive(true);
+        const auto make_ratio_action = [this, ac](const QString &text, const QString &objectName, int aspectEnum) {
+            auto ratioAction = new QAction(this);
+            ratioAction->setText(text);
+            ratioAction->setCheckable(true);
+            m_aspectRatios->addAction(ratioAction);
+            TheStream::addRatio(aspectEnum, ratioAction);
+            ac->addAction(objectName, ratioAction);
+            connect(ratioAction, &QAction::triggered, this, &MainWindow::streamSettingChange);
+        };
+        make_ratio_action(i18nc("@option:radio aspect ratio", "Determine &Automatically"), QLatin1String("ratio_auto"), Phonon::VideoWidget::AspectRatioAuto);
+        make_ratio_action(i18nc("@option:radio aspect ratio", "&4:3"), QLatin1String("ratio_golden"), Phonon::VideoWidget::AspectRatio4_3);
+        make_ratio_action(i18nc("@option:radio aspect ratio", "Ana&morphic (16:9)"), QLatin1String("ratio_anamorphic"), Phonon::VideoWidget::AspectRatio16_9);
+        make_ratio_action(i18nc("@option:radio aspect ratio", "&Window Size"), QLatin1String("ratio_window"), Phonon::VideoWidget::AspectRatioWidget);
+
+        ac->action(QLatin1String("ratio_auto"))->setChecked(true);
+        ac->action(QLatin1String("aspect_ratio_menu"))->menu()->addActions(m_aspectRatios->actions());
     }
 
     setupGUI(); // load xml dragonplayerui.rc file
@@ -312,7 +306,9 @@ void MainWindow::setupActions()
     recent->loadEntries(KConfigGroup(KSharedConfig::openConfig(), "General"));
     KStandardAction::quit(qApp, &QApplication::closeAllWindows, ac);
 
-#define addToAc(X) ac->addAction(X->objectName(), X);
+    const auto addToAc = [ac](QAction *action) {
+        ac->addAction(action->objectName(), action);
+    };
 
     auto playStreamAction = new QAction(i18nc("@action", "Play Stream…"), ac);
     playStreamAction->setObjectName(QStringLiteral("play_stream"));
@@ -344,7 +340,7 @@ void MainWindow::setupActions()
 
     m_menuToggleAction = static_cast<KToggleAction *>(ac->addAction(KStandardAction::ShowMenubar, menuBar(), SLOT(setVisible(bool))));
 
-    QAction *action = new QAction(i18nc("@action", "Increase Volume"), ac);
+    auto action = new QAction(i18nc("@action", "Increase Volume"), ac);
     action->setObjectName(QLatin1String("volume_inc"));
     connect(action, &QAction::triggered, engine(), &VideoWindow::increaseVolume);
     addToAc(action);
@@ -354,90 +350,89 @@ void MainWindow::setupActions()
     connect(action, &QAction::triggered, engine(), &VideoWindow::decreaseVolume);
     addToAc(action);
 
-    QAction *playerStop = new QAction(QIcon::fromTheme(QLatin1String("media-playback-stop")), i18nc("@action", "Stop"), ac);
+    auto playerStop = new QAction(QIcon::fromTheme(QLatin1String("media-playback-stop")), i18nc("@action", "Stop"), ac);
     playerStop->setObjectName(QLatin1String("stop"));
     ac->setDefaultShortcuts(playerStop, QList<QKeySequence>() << Qt::Key_S << Qt::Key_MediaStop);
     connect(playerStop, &QAction::triggered, this, &MainWindow::stop);
-    addToAc(playerStop)
+    addToAc(playerStop);
 
-        KToggleAction *mute = new KToggleAction(QIcon::fromTheme(QLatin1String("player-volume-muted")), i18nc("@action Mute the sound output", "Mute"), ac);
+    auto mute = new KToggleAction(QIcon::fromTheme(QLatin1String("player-volume-muted")), i18nc("@action Mute the sound output", "Mute"), ac);
     mute->setObjectName(QLatin1String("mute"));
     ac->setDefaultShortcut(mute, Qt::Key_M);
     connect(mute, &QAction::toggled, videoWindow(), &VideoWindow::mute);
-    addToAc(mute)
+    addToAc(mute);
 
-        QAction *resetZoom = new QAction(QIcon::fromTheme(QLatin1String("zoom-fit-best")), i18nc("@action", "Reset Video Scale"), ac);
+    auto resetZoom = new QAction(QIcon::fromTheme(QLatin1String("zoom-fit-best")), i18nc("@action", "Reset Video Scale"), ac);
     resetZoom->setObjectName(QLatin1String("reset_zoom"));
     ac->setDefaultShortcut(resetZoom, Qt::Key_Equal);
     connect(resetZoom, &QAction::triggered, videoWindow(), &VideoWindow::resetZoom);
-    addToAc(resetZoom)
+    addToAc(resetZoom);
 
-        QAction *dvdMenu = new QAction(QIcon::fromTheme(QLatin1String("media-optical-video")), i18nc("@action", "Menu Toggle"), ac);
+    auto dvdMenu = new QAction(QIcon::fromTheme(QLatin1String("media-optical-video")), i18nc("@action", "Menu Toggle"), ac);
     dvdMenu->setObjectName(QLatin1String("toggle_dvd_menu"));
     ac->setDefaultShortcut(dvdMenu, Qt::Key_R);
     connect(dvdMenu, &QAction::triggered, engine(), &VideoWindow::toggleDVDMenu);
-    addToAc(dvdMenu)
+    addToAc(dvdMenu);
 
-        QWidgetAction *positionSlider = new QWidgetAction(ac);
+    auto positionSlider = new QWidgetAction(ac);
     positionSlider->setObjectName(QLatin1String("position_slider"));
     positionSlider->setText(i18n("Position Slider"));
     positionSlider->setDefaultWidget(m_positionSlider);
-    addToAc(positionSlider)
+    addToAc(positionSlider);
 
-        QAction *videoSettings = new QAction(i18nc("@option:check", "Video Settings"), ac);
+    auto videoSettings = new QAction(i18nc("@option:check", "Video Settings"), ac);
     videoSettings->setObjectName(QLatin1String("video_settings"));
     videoSettings->setCheckable(true);
     connect(videoSettings, &QAction::toggled, this, &MainWindow::toggleVideoSettings);
-    addToAc(videoSettings)
+    addToAc(videoSettings);
 
-        QAction *uniqueToggle = new QAction(i18nc("@option:check Whether only one instance of dragon can be started"
-                                                  " and will be reused when the user tries to play another file.",
-                                                  "One Instance Only"),
-                                            ac);
+    auto uniqueToggle = new QAction(i18nc("@option:check Whether only one instance of dragon can be started"
+                                          " and will be reused when the user tries to play another file.",
+                                          "One Instance Only"),
+                                    ac);
     uniqueToggle->setObjectName(QLatin1String("unique"));
     uniqueToggle->setCheckable(true);
     uniqueToggle->setChecked(!KSharedConfig::openConfig()->group("KDE").readEntry("MultipleInstances", QVariant(false)).toBool());
     connect(uniqueToggle, &QAction::toggled, this, &MainWindow::toggleUnique);
-    addToAc(uniqueToggle)
+    addToAc(uniqueToggle);
 
-        QAction *prev_chapter = new QAction(QIcon::fromTheme(QLatin1String("media-skip-backward")), i18nc("@action previous chapter", "Previous"), ac);
+    auto prev_chapter = new QAction(QIcon::fromTheme(QLatin1String("media-skip-backward")), i18nc("@action previous chapter", "Previous"), ac);
     prev_chapter->setObjectName(QLatin1String("prev_chapter"));
     ac->setDefaultShortcuts(prev_chapter, QList<QKeySequence>() << Qt::Key_Comma << Qt::Key_MediaPrevious);
     connect(prev_chapter, &QAction::triggered, engine(), &VideoWindow::prevChapter);
-    addToAc(prev_chapter)
+    addToAc(prev_chapter);
 
-        QAction *next_chapter = new QAction(QIcon::fromTheme(QLatin1String("media-skip-forward")), i18nc("@action next chapter", "Next"), ac);
+    auto next_chapter = new QAction(QIcon::fromTheme(QLatin1String("media-skip-forward")), i18nc("@action next chapter", "Next"), ac);
     next_chapter->setObjectName(QLatin1String("next_chapter"));
     ac->setDefaultShortcuts(next_chapter, QList<QKeySequence>() << Qt::Key_Period << Qt::Key_MediaNext);
     connect(next_chapter, &QAction::triggered, engine(), &VideoWindow::nextChapter);
-    addToAc(next_chapter)
+    addToAc(next_chapter);
 
-        // xgettext: no-c-format
-        QAction *tenPercentBack = new QAction(QIcon::fromTheme(QLatin1String("media-seek-backward")), i18nc("@action", "Return 10% Back"), ac);
+    // xgettext: no-c-format
+    auto tenPercentBack = new QAction(QIcon::fromTheme(QLatin1String("media-seek-backward")), i18nc("@action", "Return 10% Back"), ac);
     tenPercentBack->setObjectName(QLatin1String("ten_percent_back"));
     ac->setDefaultShortcut(tenPercentBack, Qt::Key_PageUp);
     connect(tenPercentBack, &QAction::triggered, engine(), &VideoWindow::tenPercentBack);
-    addToAc(tenPercentBack)
+    addToAc(tenPercentBack);
 
-        // xgettext: no-c-format
-        QAction *tenPercentForward = new QAction(QIcon::fromTheme(QLatin1String("media-seek-forward")), i18nc("@action", "Go 10% Forward"), ac);
+    // xgettext: no-c-format
+    auto tenPercentForward = new QAction(QIcon::fromTheme(QLatin1String("media-seek-forward")), i18nc("@action", "Go 10% Forward"), ac);
     tenPercentForward->setObjectName(QLatin1String("ten_percent_forward"));
     ac->setDefaultShortcut(tenPercentForward, Qt::Key_PageDown);
     connect(tenPercentForward, &QAction::triggered, engine(), &VideoWindow::tenPercentForward);
-    addToAc(tenPercentForward)
+    addToAc(tenPercentForward);
 
-        QAction *tenSecondsBack = new QAction(QIcon::fromTheme(QLatin1String("media-seek-backward")), i18nc("@action", "Return 10 Seconds Back"), ac);
+    auto tenSecondsBack = new QAction(QIcon::fromTheme(QLatin1String("media-seek-backward")), i18nc("@action", "Return 10 Seconds Back"), ac);
     tenSecondsBack->setObjectName(QLatin1String("ten_seconds_back"));
     ac->setDefaultShortcut(tenSecondsBack, Qt::Key_Minus);
     connect(tenSecondsBack, &QAction::triggered, engine(), &VideoWindow::tenSecondsBack);
-    addToAc(tenSecondsBack)
+    addToAc(tenSecondsBack);
 
-        QAction *tenSecondsForward = new QAction(QIcon::fromTheme(QLatin1String("media-seek-forward")), i18nc("@action", "Go 10 Seconds Forward"), ac);
+    auto tenSecondsForward = new QAction(QIcon::fromTheme(QLatin1String("media-seek-forward")), i18nc("@action", "Go 10 Seconds Forward"), ac);
     tenSecondsForward->setObjectName(QLatin1String("ten_seconds_forward"));
     ac->setDefaultShortcut(tenSecondsForward, Qt::Key_Plus);
     connect(tenSecondsForward, &QAction::triggered, engine(), &VideoWindow::tenSecondsForward);
-    addToAc(tenSecondsForward)
-#undef addToAc
+    addToAc(tenSecondsForward);
 }
 
 void MainWindow::toggleUnique(bool unique)
