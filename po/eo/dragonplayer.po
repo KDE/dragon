@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:45+0000\n"
+"POT-Creation-Date: 2022-11-29 00:46+0000\n"
 "PO-Revision-Date: 2009-11-15 12:06+0100\n"
 "Last-Translator: Axel Rousseau <axel@esperanto-jeunes.org>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -210,134 +210,134 @@ msgstr ""
 msgid "Play 'URL'"
 msgstr ""
 
-#: src/app/mainWindow.cpp:141
+#: src/app/mainWindow.cpp:142
 #, kde-format
 msgctxt "@title:menu"
 msgid "Aspect &Ratio"
 msgstr ""
 
-#: src/app/mainWindow.cpp:142
+#: src/app/mainWindow.cpp:143
 #, fuzzy, kde-format
 #| msgid "Audio CD"
 msgctxt "@title:menu"
 msgid "&Audio Channels"
 msgstr "Sona KD"
 
-#: src/app/mainWindow.cpp:143
+#: src/app/mainWindow.cpp:144
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Subtitles"
 msgstr ""
 
-#: src/app/mainWindow.cpp:158
+#: src/app/mainWindow.cpp:157
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Determine &Automatically"
 msgstr ""
 
-#: src/app/mainWindow.cpp:161
+#: src/app/mainWindow.cpp:158
 #, fuzzy, kde-format
 #| msgid "&4:3"
 msgctxt "@option:radio aspect ratio"
 msgid "&4:3"
 msgstr "&4:3"
 
-#: src/app/mainWindow.cpp:162
+#: src/app/mainWindow.cpp:159
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Ana&morphic (16:9)"
 msgstr ""
 
-#: src/app/mainWindow.cpp:165
+#: src/app/mainWindow.cpp:160
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "&Window Size"
 msgstr ""
 
-#: src/app/mainWindow.cpp:247
+#: src/app/mainWindow.cpp:241
 #, kde-format
 msgid ""
 "<qt>Phonon could not be successfully initialized. Dragon Player will now "
 "exit.</qt>"
 msgstr ""
 
-#: src/app/mainWindow.cpp:309
+#: src/app/mainWindow.cpp:303
 #, fuzzy, kde-format
 #| msgid "Play"
 msgctxt "@action"
 msgid "Play File…"
 msgstr "Ludi"
 
-#: src/app/mainWindow.cpp:310
+#: src/app/mainWindow.cpp:304
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open a media file for playback"
 msgstr ""
 
-#: src/app/mainWindow.cpp:317
+#: src/app/mainWindow.cpp:313
 #, fuzzy, kde-format
 #| msgid "Play"
 msgctxt "@action"
 msgid "Play Stream…"
 msgstr "Ludi"
 
-#: src/app/mainWindow.cpp:323
+#: src/app/mainWindow.cpp:319
 #, fuzzy, kde-format
 #| msgid "Play"
 msgctxt "@action"
 msgid "Play Disc"
 msgstr "Ludi"
 
-#: src/app/mainWindow.cpp:347
+#: src/app/mainWindow.cpp:343
 #, kde-format
 msgctxt "@action"
 msgid "Increase Volume"
 msgstr "Pliigi la laŭtecon"
 
-#: src/app/mainWindow.cpp:352
+#: src/app/mainWindow.cpp:348
 #, kde-format
 msgctxt "@action"
 msgid "Decrease Volume"
 msgstr "Malpliigi la laŭtecon"
 
-#: src/app/mainWindow.cpp:357
+#: src/app/mainWindow.cpp:353
 #, fuzzy, kde-format
 #| msgid "Stop"
 msgctxt "@action"
 msgid "Stop"
 msgstr "Halti"
 
-#: src/app/mainWindow.cpp:363
+#: src/app/mainWindow.cpp:359
 #, kde-format
 msgctxt "@action Mute the sound output"
 msgid "Mute"
 msgstr ""
 
-#: src/app/mainWindow.cpp:369
+#: src/app/mainWindow.cpp:365
 #, kde-format
 msgctxt "@action"
 msgid "Reset Video Scale"
 msgstr ""
 
-#: src/app/mainWindow.cpp:375
+#: src/app/mainWindow.cpp:371
 #, kde-format
 msgctxt "@action"
 msgid "Menu Toggle"
 msgstr ""
 
-#: src/app/mainWindow.cpp:383 src/app/part.cpp:56
+#: src/app/mainWindow.cpp:379 src/app/part.cpp:56
 #, kde-format
 msgid "Position Slider"
 msgstr ""
 
-#: src/app/mainWindow.cpp:387
+#: src/app/mainWindow.cpp:383
 #, fuzzy, kde-format
 #| msgid "&Settings"
 msgctxt "@option:check"
 msgid "Video Settings"
 msgstr "A&gordo"
 
-#: src/app/mainWindow.cpp:395
+#: src/app/mainWindow.cpp:391
 #, kde-format
 msgctxt ""
 "@option:check Whether only one instance of dragon can be started and will be "
@@ -345,89 +345,89 @@ msgctxt ""
 msgid "One Instance Only"
 msgstr ""
 
-#: src/app/mainWindow.cpp:403
+#: src/app/mainWindow.cpp:399
 #, kde-format
 msgctxt "@action previous chapter"
 msgid "Previous"
 msgstr ""
 
-#: src/app/mainWindow.cpp:409
+#: src/app/mainWindow.cpp:405
 #, kde-format
 msgctxt "@action next chapter"
 msgid "Next"
 msgstr ""
 
-#: src/app/mainWindow.cpp:416
+#: src/app/mainWindow.cpp:412
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Return 10% Back"
 msgstr ""
 
-#: src/app/mainWindow.cpp:423
+#: src/app/mainWindow.cpp:419
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Go 10% Forward"
 msgstr ""
 
-#: src/app/mainWindow.cpp:429
+#: src/app/mainWindow.cpp:425
 #, kde-format
 msgctxt "@action"
 msgid "Return 10 Seconds Back"
 msgstr ""
 
-#: src/app/mainWindow.cpp:435
+#: src/app/mainWindow.cpp:431
 #, kde-format
 msgctxt "@action"
 msgid "Go 10 Seconds Forward"
 msgstr ""
 
-#: src/app/mainWindow.cpp:516
+#: src/app/mainWindow.cpp:511
 #, kde-format
 msgctxt "@option:check Mute the sound output"
 msgid "Mute"
 msgstr ""
 
-#: src/app/mainWindow.cpp:588
+#: src/app/mainWindow.cpp:583
 #, kde-format
 msgid "Dragon Player was asked to open an empty URL; it cannot."
 msgstr ""
 
-#: src/app/mainWindow.cpp:665
+#: src/app/mainWindow.cpp:660
 #, kde-format
 msgctxt "@title:window"
 msgid "Select File to Play"
 msgstr ""
 
-#: src/app/mainWindow.cpp:692
+#: src/app/mainWindow.cpp:687
 #, kde-format
 msgctxt "@title:window"
 msgid "Stream to Play"
 msgstr ""
 
-#: src/app/mainWindow.cpp:692
+#: src/app/mainWindow.cpp:687
 #, fuzzy, kde-format
 #| msgid "Play"
 msgctxt "@label:textbox"
 msgid "Stream:"
 msgstr "Ludi"
 
-#: src/app/mainWindow.cpp:822
+#: src/app/mainWindow.cpp:817
 #, kde-format
 msgid "Sorry, no media was found in the drop"
 msgstr ""
 
-#: src/app/mainWindow.cpp:870
+#: src/app/mainWindow.cpp:865
 #, kde-format
 msgctxt "Notification inhibition reason"
 msgid "playing a video"
 msgstr ""
 
-#: src/app/mainWindow.cpp:902
+#: src/app/mainWindow.cpp:897
 #, kde-format
 msgid "No media loaded"
 msgstr ""
 
-#: src/app/mainWindow.cpp:904
+#: src/app/mainWindow.cpp:899
 #, kde-format
 msgid "Paused"
 msgstr "Paŭzita"
