@@ -5,13 +5,13 @@
 # Giovanni Venturi <giovanni@kde.org>, 2009, 2010, 2011, 2012, 2013.
 # Federico Zenith <federico.zenith@member.fsf.org>, 2010.
 # Pino Toscano <toscano.pino@tiscali.it>, 2011.
-# Vincenzo Reale <smart2128vr@gmail.com>, 2013, 2018, 2019, 2020.
+# Vincenzo Reale <smart2128vr@gmail.com>, 2013, 2018, 2019, 2020, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-29 00:46+0000\n"
-"PO-Revision-Date: 2020-05-06 01:51+0200\n"
+"PO-Revision-Date: 2022-11-28 00:00+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 20.04.0\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -40,9 +40,7 @@ msgstr "Ri&produci"
 
 #. i18n: ectx: Menu (play_media_menu)
 #: misc/dragonplayerui.rc:5
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Play Media"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Play Media"
 msgstr "Riproduci supporto"
@@ -137,10 +135,9 @@ msgstr "Seleziona un disco da riprodurre."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/app/loadView.ui:61
-#, fuzzy, kde-format
-#| msgid "Dragon Player"
+#, kde-format
 msgid "Welcome to Dragon Player"
-msgstr "Dragon Player"
+msgstr "Benvenuto in Dragon Player"
 
 #: src/app/main.cpp:37
 #, kde-format
@@ -263,31 +260,25 @@ msgstr ""
 "qui.</qt>"
 
 #: src/app/mainWindow.cpp:303
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play File"
+#, kde-format
 msgctxt "@action"
 msgid "Play File…"
-msgstr "Riproduci file"
+msgstr "Riproduci file…"
 
 #: src/app/mainWindow.cpp:304
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open a media file for playback"
-msgstr ""
+msgstr "Apri un file multimediale per la riproduzione"
 
 #: src/app/mainWindow.cpp:313
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Stream"
+#, kde-format
 msgctxt "@action"
 msgid "Play Stream…"
-msgstr "Riproduci flusso"
+msgstr "Riproduci flusso…"
 
 #: src/app/mainWindow.cpp:319
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Disc"
+#, kde-format
 msgctxt "@action"
 msgid "Play Disc"
 msgstr "Riproduci disco"
