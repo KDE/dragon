@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-29 00:46+0000\n"
-"PO-Revision-Date: 2022-11-23 23:16+0100\n"
+"PO-Revision-Date: 2022-12-02 00:03+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -21,7 +21,7 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Ясен Праматаров"
+msgstr "Ясен Праматаров, Минчо Кондарев"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -37,9 +37,7 @@ msgstr "&Изпълнение"
 
 #. i18n: ectx: Menu (play_media_menu)
 #: misc/dragonplayerui.rc:5
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Play Media"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Play Media"
 msgstr "Изпълнение на медиа"
@@ -134,10 +132,9 @@ msgstr "Изберете диск за изпълнение."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/app/loadView.ui:61
-#, fuzzy, kde-format
-#| msgid "Dragon Player"
+#, kde-format
 msgid "Welcome to Dragon Player"
-msgstr "Програма за видео Dragon"
+msgstr "Добре дошли в програмата за изпълнение на видео Dragon"
 
 #: src/app/main.cpp:37
 #, kde-format
@@ -262,9 +259,7 @@ msgstr ""
 "qt>"
 
 #: src/app/mainWindow.cpp:303
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play File…"
+#, kde-format
 msgctxt "@action"
 msgid "Play File…"
 msgstr "Изпълнение на файл…"
@@ -273,20 +268,16 @@ msgstr "Изпълнение на файл…"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open a media file for playback"
-msgstr ""
+msgstr "Отваряне на медиен файл за възпроизвеждане"
 
 #: src/app/mainWindow.cpp:313
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Stream…"
+#, kde-format
 msgctxt "@action"
 msgid "Play Stream…"
 msgstr "Изпълнение на поток…"
 
 #: src/app/mainWindow.cpp:319
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Disc"
+#, kde-format
 msgctxt "@action"
 msgid "Play Disc"
 msgstr "Изпълнение на диск"
