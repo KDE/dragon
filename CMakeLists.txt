@@ -68,7 +68,7 @@ configure_file(config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
 ecm_set_disabled_deprecation_versions(
     QT 5.15.2
-    KF 5.91
+    KF 5.100
 )
 
 add_definitions(-DTRANSLATION_DOMAIN="dragonplayer")
