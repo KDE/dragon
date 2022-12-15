@@ -8,7 +8,6 @@
 #include "part.h"
 
 #include "actions.h"
-#include "codeine.h"
 #include "partToolBar.h"
 #include "videoWindow.h"
 

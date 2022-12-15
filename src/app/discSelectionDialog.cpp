@@ -18,7 +18,6 @@
 #include <QVBoxLayout>
 
 #include <KLocalizedString>
-#include <Solid/Device>
 #include <Solid/OpticalDisc>
 
 class SolidListItem : public QListWidgetItem

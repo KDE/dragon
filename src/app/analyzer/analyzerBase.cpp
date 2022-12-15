@@ -11,8 +11,6 @@
 #include <QEvent> //event()
 #include <QPainter>
 
-#include <phonon/audiodataoutput.h>
-
 // INSTRUCTIONS Base2D
 // 1. do anything that depends on height() in init(), Base2D will call it before you are shown
 // 2. otherwise you can use the constructor to initialise things

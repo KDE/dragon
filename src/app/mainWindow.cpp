@@ -7,7 +7,6 @@
 */
 
 #include "mainWindow.h"
-#include "timeLabel.h"
 
 #include <QActionGroup>
 #include <QApplication>
@@ -54,10 +53,8 @@
 #include <Solid/OpticalDisc>
 
 #include "actions.h"
-#include "audioView2.h"
 #include "discSelectionDialog.h"
 #include "fullScreenToolBarHandler.h"
-#include "loadView.h"
 #include "messageBox.h"
 #include "mpris2/mpris2.h"
 #include "playlistFile.h"
