@@ -15,8 +15,6 @@
 #include <QPixmap>
 #include <QResizeEvent>
 
-class QResizeEvent;
-class QMouseEvent;
 class QPalette;
 
 /**

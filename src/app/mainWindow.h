@@ -27,7 +27,6 @@ class QCloseEvent;
 class QLabel;
 class QMenu;
 class QSlider;
-class QCheckBox;
 
 class AudioView2;
 #include "audioView2.h"
