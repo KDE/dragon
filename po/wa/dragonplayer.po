@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-29 00:46+0000\n"
+"POT-Creation-Date: 2022-12-16 00:49+0000\n"
 "PO-Revision-Date: 2012-11-14 22:13+0100\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -99,7 +99,7 @@ msgstr "Schåle a 100%"
 msgid "<b>Adjust video scale?</b>"
 msgstr "<b>Apontyî l' schåle del videyo?</b>"
 
-#: src/app/discSelectionDialog.cpp:38
+#: src/app/discSelectionDialog.cpp:37
 #, kde-format
 msgctxt ""
 "%1 is the disc type, %2 is the name of the disc that the user can choose. "
@@ -107,35 +107,35 @@ msgctxt ""
 msgid "%1: %2"
 msgstr "%1 : %2"
 
-#: src/app/discSelectionDialog.cpp:57
+#: src/app/discSelectionDialog.cpp:56
 #, kde-format
 msgctxt "Digital Versatile Disc, but keep it short"
 msgid "DVD"
 msgstr "Plake DVD"
 
-#: src/app/discSelectionDialog.cpp:59
+#: src/app/discSelectionDialog.cpp:58
 #, kde-format
 msgid "Video CD"
 msgstr "Plake lazer CD videyo"
 
-#: src/app/discSelectionDialog.cpp:61
+#: src/app/discSelectionDialog.cpp:60
 #, kde-format
 msgid "Audio CD"
 msgstr "Plake lazer CD odio"
 
-#: src/app/discSelectionDialog.cpp:63
+#: src/app/discSelectionDialog.cpp:62
 #, kde-format
 msgid "Data CD"
 msgstr "Plake lazer CD di dnêyes"
 
-#: src/app/discSelectionDialog.cpp:74
+#: src/app/discSelectionDialog.cpp:73
 #, fuzzy, kde-format
 #| msgid "Select a Disc"
 msgctxt "@title:window"
 msgid "Select a Disc"
 msgstr "Tchoezi ene plake"
 
-#: src/app/discSelectionDialog.cpp:76
+#: src/app/discSelectionDialog.cpp:75
 #, kde-format
 msgid "Select a disc to play."
 msgstr "Tchoezi ene plake a djouwer."
@@ -216,56 +216,56 @@ msgstr "Djouwer plake videyo DVD"
 msgid "Play 'URL'"
 msgstr "Djouwer « URL »"
 
-#: src/app/mainWindow.cpp:142
+#: src/app/mainWindow.cpp:139
 #, fuzzy, kde-format
 #| msgid "Aspect &Ratio"
 msgctxt "@title:menu"
 msgid "Aspect &Ratio"
 msgstr "&Rapoirt lårdjeur/hôteur"
 
-#: src/app/mainWindow.cpp:143
+#: src/app/mainWindow.cpp:140
 #, fuzzy, kde-format
 #| msgid "&Audio Channels"
 msgctxt "@title:menu"
 msgid "&Audio Channels"
 msgstr "C&anås odio"
 
-#: src/app/mainWindow.cpp:144
+#: src/app/mainWindow.cpp:141
 #, fuzzy, kde-format
 #| msgid "&Subtitles"
 msgctxt "@title:menu"
 msgid "&Subtitles"
 msgstr "&Sortites"
 
-#: src/app/mainWindow.cpp:157
+#: src/app/mainWindow.cpp:154
 #, fuzzy, kde-format
 #| msgid "Determine &Automatically"
 msgctxt "@option:radio aspect ratio"
 msgid "Determine &Automatically"
 msgstr "Dire &otomaticmint"
 
-#: src/app/mainWindow.cpp:158
+#: src/app/mainWindow.cpp:155
 #, fuzzy, kde-format
 #| msgid "&4:3"
 msgctxt "@option:radio aspect ratio"
 msgid "&4:3"
 msgstr "&4:3"
 
-#: src/app/mainWindow.cpp:159
+#: src/app/mainWindow.cpp:156
 #, fuzzy, kde-format
 #| msgid "Ana&morphic (16:9)"
 msgctxt "@option:radio aspect ratio"
 msgid "Ana&morphic (16:9)"
 msgstr "Ana&morfike (16:9)"
 
-#: src/app/mainWindow.cpp:160
+#: src/app/mainWindow.cpp:157
 #, fuzzy, kde-format
 #| msgid "&Window Size"
 msgctxt "@option:radio aspect ratio"
 msgid "&Window Size"
 msgstr "Grandeu del &finiesse"
 
-#: src/app/mainWindow.cpp:241
+#: src/app/mainWindow.cpp:238
 #, kde-format
 msgid ""
 "<qt>Phonon could not be successfully initialized. Dragon Player will now "
@@ -274,53 +274,53 @@ msgstr ""
 "<qt>Phonon n' a nén savou esse inicialijhî comifåt. Li Djouweu Dragon va "
 "moussî foû do côp.</qt>"
 
-#: src/app/mainWindow.cpp:303
+#: src/app/mainWindow.cpp:300
 #, fuzzy, kde-format
 #| msgid "Play File"
 msgctxt "@action"
 msgid "Play File…"
 msgstr "Djouwer fitchî"
 
-#: src/app/mainWindow.cpp:304
+#: src/app/mainWindow.cpp:301
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open a media file for playback"
 msgstr ""
 
-#: src/app/mainWindow.cpp:313
+#: src/app/mainWindow.cpp:310
 #, fuzzy, kde-format
 #| msgid "Play Media"
 msgctxt "@action"
 msgid "Play Stream…"
 msgstr "Djouwer on media"
 
-#: src/app/mainWindow.cpp:319
+#: src/app/mainWindow.cpp:316
 #, fuzzy, kde-format
 #| msgid "Play Disc"
 msgctxt "@action"
 msgid "Play Disc"
 msgstr "Djouwer ene plake"
 
-#: src/app/mainWindow.cpp:343
+#: src/app/mainWindow.cpp:340
 #, kde-format
 msgctxt "@action"
 msgid "Increase Volume"
 msgstr "Monter volume"
 
-#: src/app/mainWindow.cpp:348
+#: src/app/mainWindow.cpp:345
 #, kde-format
 msgctxt "@action"
 msgid "Decrease Volume"
 msgstr "Dischinde volume"
 
-#: src/app/mainWindow.cpp:353
+#: src/app/mainWindow.cpp:350
 #, fuzzy, kde-format
 #| msgid "Stop"
 msgctxt "@action"
 msgid "Stop"
 msgstr "Hôw"
 
-#: src/app/mainWindow.cpp:359
+#: src/app/mainWindow.cpp:356
 #, fuzzy, kde-format
 #| msgctxt "Mute the sound output"
 #| msgid "Mute"
@@ -328,33 +328,33 @@ msgctxt "@action Mute the sound output"
 msgid "Mute"
 msgstr "Moya"
 
-#: src/app/mainWindow.cpp:365
+#: src/app/mainWindow.cpp:362
 #, fuzzy, kde-format
 #| msgid "Reset Video Scale"
 msgctxt "@action"
 msgid "Reset Video Scale"
 msgstr "Rimete a zero li schåle del videyo"
 
-#: src/app/mainWindow.cpp:371
+#: src/app/mainWindow.cpp:368
 #, fuzzy, kde-format
 #| msgid "Menu Toggle"
 msgctxt "@action"
 msgid "Menu Toggle"
 msgstr "(Dis)mete li dressêye"
 
-#: src/app/mainWindow.cpp:379 src/app/part.cpp:56
+#: src/app/mainWindow.cpp:376 src/app/part.cpp:55
 #, kde-format
 msgid "Position Slider"
 msgstr "Boton d' acinseu d' pôzucion"
 
-#: src/app/mainWindow.cpp:383
+#: src/app/mainWindow.cpp:380
 #, fuzzy, kde-format
 #| msgid "Video Settings"
 msgctxt "@option:check"
 msgid "Video Settings"
 msgstr "Apontiaedjes del videyo"
 
-#: src/app/mainWindow.cpp:391
+#: src/app/mainWindow.cpp:388
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:inmenu Whether only one instance of dragon can be started and "
@@ -366,48 +366,48 @@ msgctxt ""
 msgid "One Instance Only"
 msgstr "Ene seule instance"
 
-#: src/app/mainWindow.cpp:399
+#: src/app/mainWindow.cpp:396
 #, fuzzy, kde-format
 #| msgid "Previous Chapter"
 msgctxt "@action previous chapter"
 msgid "Previous"
 msgstr "Tchaptrê di dvant"
 
-#: src/app/mainWindow.cpp:405
+#: src/app/mainWindow.cpp:402
 #, kde-format
 msgctxt "@action next chapter"
 msgid "Next"
 msgstr ""
 
-#: src/app/mainWindow.cpp:412
+#: src/app/mainWindow.cpp:409
 #, fuzzy, no-c-format, kde-format
 #| msgid "Return 10% Back"
 msgctxt "@action"
 msgid "Return 10% Back"
 msgstr "Ritourner 10% en erî"
 
-#: src/app/mainWindow.cpp:419
+#: src/app/mainWindow.cpp:416
 #, fuzzy, no-c-format, kde-format
 #| msgid "Go 10% Forward"
 msgctxt "@action"
 msgid "Go 10% Forward"
 msgstr "Aler 10% en avant"
 
-#: src/app/mainWindow.cpp:425
+#: src/app/mainWindow.cpp:422
 #, fuzzy, kde-format
 #| msgid "Return 10 Seconds Back"
 msgctxt "@action"
 msgid "Return 10 Seconds Back"
 msgstr "Ritourner 10 segondes en erî"
 
-#: src/app/mainWindow.cpp:431
+#: src/app/mainWindow.cpp:428
 #, fuzzy, kde-format
 #| msgid "Go 10 Seconds Forward"
 msgctxt "@action"
 msgid "Go 10 Seconds Forward"
 msgstr "Aler 10 segondes en avant"
 
-#: src/app/mainWindow.cpp:511
+#: src/app/mainWindow.cpp:508
 #, fuzzy, kde-format
 #| msgctxt "Mute the sound output"
 #| msgid "Mute"
@@ -415,51 +415,51 @@ msgctxt "@option:check Mute the sound output"
 msgid "Mute"
 msgstr "Moya"
 
-#: src/app/mainWindow.cpp:583
+#: src/app/mainWindow.cpp:580
 #, kde-format
 msgid "Dragon Player was asked to open an empty URL; it cannot."
 msgstr ""
 "Il a stî dmandé å Djouweu Dragon di drovi ene vude URL; i nel sait nén fé."
 
-#: src/app/mainWindow.cpp:660
+#: src/app/mainWindow.cpp:657
 #, fuzzy, kde-format
 #| msgid "Select File to Play"
 msgctxt "@title:window"
 msgid "Select File to Play"
 msgstr "Tchoezixhoz on fitchî a djouwer"
 
-#: src/app/mainWindow.cpp:687
+#: src/app/mainWindow.cpp:684
 #, fuzzy, kde-format
 #| msgid "Select File to Play"
 msgctxt "@title:window"
 msgid "Stream to Play"
 msgstr "Tchoezixhoz on fitchî a djouwer"
 
-#: src/app/mainWindow.cpp:687
+#: src/app/mainWindow.cpp:684
 #, fuzzy, kde-format
 #| msgid "Play Media"
 msgctxt "@label:textbox"
 msgid "Stream:"
 msgstr "Djouwer on media"
 
-#: src/app/mainWindow.cpp:817
+#: src/app/mainWindow.cpp:814
 #, kde-format
 msgid "Sorry, no media was found in the drop"
 msgstr "Dji rgrete, i gn a nou media dins l' boket vos avoz bodjî"
 
-#: src/app/mainWindow.cpp:865
+#: src/app/mainWindow.cpp:862
 #, fuzzy, kde-format
 #| msgid "Play DVD Video"
 msgctxt "Notification inhibition reason"
 msgid "playing a video"
 msgstr "Djouwer plake videyo DVD"
 
-#: src/app/mainWindow.cpp:897
+#: src/app/mainWindow.cpp:894
 #, kde-format
 msgid "No media loaded"
 msgstr "Nou media tcherdjî"
 
-#: src/app/mainWindow.cpp:899
+#: src/app/mainWindow.cpp:896
 #, kde-format
 msgid "Paused"
 msgstr "Djoké"

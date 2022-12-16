@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-29 00:46+0000\n"
+"POT-Creation-Date: 2022-12-16 00:49+0000\n"
 "PO-Revision-Date: 2011-04-10 13:06-0700\n"
 "Last-Translator: Fumiaki Okushi <okushi@kde.gr.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -99,7 +99,7 @@ msgstr "拡大率 100%"
 msgid "<b>Adjust video scale?</b>"
 msgstr "動画の拡大率を調整しますか？"
 
-#: src/app/discSelectionDialog.cpp:38
+#: src/app/discSelectionDialog.cpp:37
 #, kde-format
 msgctxt ""
 "%1 is the disc type, %2 is the name of the disc that the user can choose. "
@@ -107,35 +107,35 @@ msgctxt ""
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/app/discSelectionDialog.cpp:57
+#: src/app/discSelectionDialog.cpp:56
 #, kde-format
 msgctxt "Digital Versatile Disc, but keep it short"
 msgid "DVD"
 msgstr "DVD"
 
-#: src/app/discSelectionDialog.cpp:59
+#: src/app/discSelectionDialog.cpp:58
 #, kde-format
 msgid "Video CD"
 msgstr "ビデオ CD"
 
-#: src/app/discSelectionDialog.cpp:61
+#: src/app/discSelectionDialog.cpp:60
 #, kde-format
 msgid "Audio CD"
 msgstr "オーディオ CD"
 
-#: src/app/discSelectionDialog.cpp:63
+#: src/app/discSelectionDialog.cpp:62
 #, kde-format
 msgid "Data CD"
 msgstr "データ CD"
 
-#: src/app/discSelectionDialog.cpp:74
+#: src/app/discSelectionDialog.cpp:73
 #, fuzzy, kde-format
 #| msgid "Select a Disc"
 msgctxt "@title:window"
 msgid "Select a Disc"
 msgstr "ディスクを選択"
 
-#: src/app/discSelectionDialog.cpp:76
+#: src/app/discSelectionDialog.cpp:75
 #, kde-format
 msgid "Select a disc to play."
 msgstr "再生するディスクを選択します。"
@@ -216,42 +216,42 @@ msgstr "DVD ビデオを再生"
 msgid "Play 'URL'"
 msgstr "URL を再生"
 
-#: src/app/mainWindow.cpp:142
+#: src/app/mainWindow.cpp:139
 #, fuzzy, kde-format
 #| msgid "Aspect &Ratio"
 msgctxt "@title:menu"
 msgid "Aspect &Ratio"
 msgstr "アスペクト比(&R)"
 
-#: src/app/mainWindow.cpp:143
+#: src/app/mainWindow.cpp:140
 #, fuzzy, kde-format
 #| msgid "&Audio Channels"
 msgctxt "@title:menu"
 msgid "&Audio Channels"
 msgstr "音声チャンネル(&A)"
 
-#: src/app/mainWindow.cpp:144
+#: src/app/mainWindow.cpp:141
 #, fuzzy, kde-format
 #| msgid "&Subtitles"
 msgctxt "@title:menu"
 msgid "&Subtitles"
 msgstr "字幕(&S)"
 
-#: src/app/mainWindow.cpp:157
+#: src/app/mainWindow.cpp:154
 #, fuzzy, kde-format
 #| msgid "Determine &Automatically"
 msgctxt "@option:radio aspect ratio"
 msgid "Determine &Automatically"
 msgstr "自動(&A)|/|$[~setProps ~full 'アスペクト比 - 自動']"
 
-#: src/app/mainWindow.cpp:158
+#: src/app/mainWindow.cpp:155
 #, fuzzy, kde-format
 #| msgid "&4:3"
 msgctxt "@option:radio aspect ratio"
 msgid "&4:3"
 msgstr "4:3|/|$[~setProps ~full 'アスペクト比 - 4:3']"
 
-#: src/app/mainWindow.cpp:159
+#: src/app/mainWindow.cpp:156
 #, fuzzy, kde-format
 #| msgid "Ana&morphic (16:9)"
 msgctxt "@option:radio aspect ratio"
@@ -260,68 +260,68 @@ msgstr ""
 "16:9 (アナモルフィック)|/|$[~setProps ~full 'アスペクト比 - 16:9 (アナモル"
 "フィック)']"
 
-#: src/app/mainWindow.cpp:160
+#: src/app/mainWindow.cpp:157
 #, fuzzy, kde-format
 #| msgid "&Window Size"
 msgctxt "@option:radio aspect ratio"
 msgid "&Window Size"
 msgstr "ウィンドウのサイズ(&W)"
 
-#: src/app/mainWindow.cpp:241
+#: src/app/mainWindow.cpp:238
 #, kde-format
 msgid ""
 "<qt>Phonon could not be successfully initialized. Dragon Player will now "
 "exit.</qt>"
 msgstr ""
 
-#: src/app/mainWindow.cpp:303
+#: src/app/mainWindow.cpp:300
 #, fuzzy, kde-format
 #| msgid "Play File"
 msgctxt "@action"
 msgid "Play File…"
 msgstr "ファイルを再生"
 
-#: src/app/mainWindow.cpp:304
+#: src/app/mainWindow.cpp:301
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open a media file for playback"
 msgstr ""
 
-#: src/app/mainWindow.cpp:313
+#: src/app/mainWindow.cpp:310
 #, fuzzy, kde-format
 #| msgid "Play Media"
 msgctxt "@action"
 msgid "Play Stream…"
 msgstr "メディアを再生"
 
-#: src/app/mainWindow.cpp:319
+#: src/app/mainWindow.cpp:316
 #, fuzzy, kde-format
 #| msgid "Play Disc"
 msgctxt "@action"
 msgid "Play Disc"
 msgstr "ディスクを再生"
 
-#: src/app/mainWindow.cpp:343
+#: src/app/mainWindow.cpp:340
 #, kde-format
 msgctxt "@action"
 msgid "Increase Volume"
 msgstr ""
 
-#: src/app/mainWindow.cpp:348
+#: src/app/mainWindow.cpp:345
 #, kde-format
 msgctxt "@action"
 msgid "Decrease Volume"
 msgstr ""
 
 # ACCELERATOR added by translator
-#: src/app/mainWindow.cpp:353
+#: src/app/mainWindow.cpp:350
 #, fuzzy, kde-format
 #| msgid "Stop"
 msgctxt "@action"
 msgid "Stop"
 msgstr "停止(&S)"
 
-#: src/app/mainWindow.cpp:359
+#: src/app/mainWindow.cpp:356
 #, fuzzy, kde-format
 #| msgctxt "Mute the sound output"
 #| msgid "Mute"
@@ -329,7 +329,7 @@ msgctxt "@action Mute the sound output"
 msgid "Mute"
 msgstr "ミュート"
 
-#: src/app/mainWindow.cpp:365
+#: src/app/mainWindow.cpp:362
 #, fuzzy, kde-format
 #| msgid "Reset Video Scale"
 msgctxt "@action"
@@ -337,27 +337,27 @@ msgid "Reset Video Scale"
 msgstr "動画の拡大率をリセット"
 
 # ACCELERATOR added by translator
-#: src/app/mainWindow.cpp:371
+#: src/app/mainWindow.cpp:368
 #, fuzzy, kde-format
 #| msgid "Menu Toggle"
 msgctxt "@action"
 msgid "Menu Toggle"
 msgstr "メニューの切り替え(&M)"
 
-#: src/app/mainWindow.cpp:379 src/app/part.cpp:56
+#: src/app/mainWindow.cpp:376 src/app/part.cpp:55
 #, kde-format
 msgid "Position Slider"
 msgstr "再生位置スライダー"
 
 # ACCELERATOR added by translator
-#: src/app/mainWindow.cpp:383
+#: src/app/mainWindow.cpp:380
 #, fuzzy, kde-format
 #| msgid "Video Settings"
 msgctxt "@option:check"
 msgid "Video Settings"
 msgstr "画像の調整(&V)"
 
-#: src/app/mainWindow.cpp:391
+#: src/app/mainWindow.cpp:388
 #, kde-format
 msgctxt ""
 "@option:check Whether only one instance of dragon can be started and will be "
@@ -365,48 +365,48 @@ msgctxt ""
 msgid "One Instance Only"
 msgstr ""
 
-#: src/app/mainWindow.cpp:399
+#: src/app/mainWindow.cpp:396
 #, fuzzy, kde-format
 #| msgid "Previous Chapter"
 msgctxt "@action previous chapter"
 msgid "Previous"
 msgstr "前のチャプター"
 
-#: src/app/mainWindow.cpp:405
+#: src/app/mainWindow.cpp:402
 #, kde-format
 msgctxt "@action next chapter"
 msgid "Next"
 msgstr ""
 
-#: src/app/mainWindow.cpp:412
+#: src/app/mainWindow.cpp:409
 #, fuzzy, no-c-format, kde-format
 #| msgid "Return 10% Back"
 msgctxt "@action"
 msgid "Return 10% Back"
 msgstr "10% 戻る"
 
-#: src/app/mainWindow.cpp:419
+#: src/app/mainWindow.cpp:416
 #, fuzzy, no-c-format, kde-format
 #| msgid "Go 10% Forward"
 msgctxt "@action"
 msgid "Go 10% Forward"
 msgstr "10% 進む"
 
-#: src/app/mainWindow.cpp:425
+#: src/app/mainWindow.cpp:422
 #, fuzzy, kde-format
 #| msgid "Return 10 Seconds Back"
 msgctxt "@action"
 msgid "Return 10 Seconds Back"
 msgstr "10 秒戻る"
 
-#: src/app/mainWindow.cpp:431
+#: src/app/mainWindow.cpp:428
 #, fuzzy, kde-format
 #| msgid "Go 10 Seconds Forward"
 msgctxt "@action"
 msgid "Go 10 Seconds Forward"
 msgstr "10 秒進む"
 
-#: src/app/mainWindow.cpp:511
+#: src/app/mainWindow.cpp:508
 #, fuzzy, kde-format
 #| msgctxt "Mute the sound output"
 #| msgid "Mute"
@@ -414,50 +414,50 @@ msgctxt "@option:check Mute the sound output"
 msgid "Mute"
 msgstr "ミュート"
 
-#: src/app/mainWindow.cpp:583
+#: src/app/mainWindow.cpp:580
 #, kde-format
 msgid "Dragon Player was asked to open an empty URL; it cannot."
 msgstr "空の URL を開くことはできません。"
 
-#: src/app/mainWindow.cpp:660
+#: src/app/mainWindow.cpp:657
 #, fuzzy, kde-format
 #| msgid "Select File to Play"
 msgctxt "@title:window"
 msgid "Select File to Play"
 msgstr "再生するファイルを選択"
 
-#: src/app/mainWindow.cpp:687
+#: src/app/mainWindow.cpp:684
 #, fuzzy, kde-format
 #| msgid "Select File to Play"
 msgctxt "@title:window"
 msgid "Stream to Play"
 msgstr "再生するファイルを選択"
 
-#: src/app/mainWindow.cpp:687
+#: src/app/mainWindow.cpp:684
 #, fuzzy, kde-format
 #| msgid "Play Media"
 msgctxt "@label:textbox"
 msgid "Stream:"
 msgstr "メディアを再生"
 
-#: src/app/mainWindow.cpp:817
+#: src/app/mainWindow.cpp:814
 #, kde-format
 msgid "Sorry, no media was found in the drop"
 msgstr "ドロップにメディアが見つかりませんでした"
 
-#: src/app/mainWindow.cpp:865
+#: src/app/mainWindow.cpp:862
 #, fuzzy, kde-format
 #| msgid "Play DVD Video"
 msgctxt "Notification inhibition reason"
 msgid "playing a video"
 msgstr "DVD ビデオを再生"
 
-#: src/app/mainWindow.cpp:897
+#: src/app/mainWindow.cpp:894
 #, kde-format
 msgid "No media loaded"
 msgstr "メディアがロードされていません"
 
-#: src/app/mainWindow.cpp:899
+#: src/app/mainWindow.cpp:896
 #, kde-format
 msgid "Paused"
 msgstr "一時停止中"
