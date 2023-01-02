@@ -3,19 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Sveinn í Felli <sveinki@nett.is>, 2008, 2009, 2011, 2013, 2015, 2018, 2022.
+# Guðmundur Erlingsson <gudmundure@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-16 00:49+0000\n"
-"PO-Revision-Date: 2022-09-02 13:17+0000\n"
-"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
-"Language-Team: Icelandic\n"
+"PO-Revision-Date: 2022-12-12 20:56+0000\n"
+"Last-Translator: gummi <gudmundure@gmail.com>\n"
+"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.08.3\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 "\n"
@@ -24,12 +25,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Sveinn í Felli"
+msgstr "Sveinn í Felli,Guðmundur Erlingsson"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sv1@fellsnet.is"
+msgstr "sv1@fellsnet.is,gudmundure@gmail.com"
 
 #. i18n: ectx: Menu (file)
 #: misc/dragonplayerui.rc:4
@@ -45,7 +46,7 @@ msgstr "S&pila"
 #| msgid "Play Media"
 msgctxt "@title:menu"
 msgid "Play Media"
-msgstr "Spila margmiðlunarskrá"
+msgstr "Spila miðlaskrá"
 
 #. i18n: ectx: Menu (settings)
 #: misc/dragonplayerui.rc:20
@@ -70,7 +71,7 @@ msgstr "Spila"
 #, kde-format
 msgctxt "@action"
 msgid "Pause"
-msgstr "Í bið"
+msgstr "Setja á pásu"
 
 #: src/app/actions.cpp:40
 #, kde-format
@@ -82,18 +83,18 @@ msgstr "Hljóðstyrkur"
 #, kde-format
 msgctxt "@action:button"
 msgid "Preferred Scale"
-msgstr "Valin skjáhlutföll"
+msgstr "Æskileg stærð"
 
 #: src/app/adjustSizeButton.cpp:42
 #, kde-format
 msgctxt "@action:button"
 msgid "Scale 100%"
-msgstr "Kvarði 100%"
+msgstr "Stærð 100%"
 
 #: src/app/adjustSizeButton.cpp:49
 #, kde-format
 msgid "<b>Adjust video scale?</b>"
-msgstr "<b>Aðlaga kvarða myndmerkis?</b>"
+msgstr "<b>Breyta stærð myndar?</b>"
 
 #: src/app/discSelectionDialog.cpp:37
 #, kde-format
@@ -112,23 +113,23 @@ msgstr "DVD"
 #: src/app/discSelectionDialog.cpp:58
 #, kde-format
 msgid "Video CD"
-msgstr "CD-mynddiskur"
+msgstr "Vídeódiskur (CD)"
 
 #: src/app/discSelectionDialog.cpp:60
 #, kde-format
 msgid "Audio CD"
-msgstr "CD-hljóðdiskur"
+msgstr "Hljóðdiskur (CD)"
 
 #: src/app/discSelectionDialog.cpp:62
 #, kde-format
 msgid "Data CD"
-msgstr "CD-gagnadiskur"
+msgstr "Gagnadiskur (CD)"
 
 #: src/app/discSelectionDialog.cpp:73
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a Disc"
-msgstr "Veldu disk"
+msgstr "Velja disk"
 
 #: src/app/discSelectionDialog.cpp:75
 #, kde-format
@@ -150,7 +151,7 @@ msgstr "Dragon spilari"
 #: src/app/main.cpp:39
 #, kde-format
 msgid "A video player that has a usability focus"
-msgstr "Myndspilari með áherslu á þægindi við notkun"
+msgstr "Notandavænn myndspilari"
 
 #: src/app/main.cpp:41
 #, kde-format
@@ -164,7 +165,7 @@ msgstr ""
 #: src/app/main.cpp:45
 #, kde-format
 msgid "Improvements and polish"
-msgstr "Viðbætur og fágun"
+msgstr "Viðbætur og lagfæringar"
 
 #: src/app/main.cpp:46
 #, kde-format
@@ -174,7 +175,7 @@ msgstr "Skapari Phonon"
 #: src/app/main.cpp:47
 #, kde-format
 msgid "Dragon Player icon"
-msgstr "Táknmynd Dragon spilara"
+msgstr "Tákn fyrir Dragon spilara"
 
 #: src/app/main.cpp:48
 #, kde-format
@@ -190,8 +191,7 @@ msgstr "Ágætur tilvísunarkóði"
 #, kde-format
 msgid "Yatta happened to be the only video on my laptop to test with. :)"
 msgstr ""
-"Jahérna, vildi svo til að þetta var eina myndskeiðið á fartölvunni til að "
-"prófa. :)"
+"Þetta var bara eina myndskeiðið sem ég átti á fartölvunni til að prófa. :)"
 
 #: src/app/main.cpp:51
 #, kde-format
@@ -206,7 +206,7 @@ msgstr "Aðlögun að KF5/Plasma 5"
 #: src/app/main.cpp:59
 #, kde-format
 msgid "Play DVD Video"
-msgstr "Spila DVD-myndskeið"
+msgstr "Spila DVD-myndefni"
 
 #: src/app/main.cpp:61
 #, kde-format
@@ -217,7 +217,7 @@ msgstr "Spila slóð (URL)"
 #, kde-format
 msgctxt "@title:menu"
 msgid "Aspect &Ratio"
-msgstr "Stærða&rhlutföll"
+msgstr "My&ndhlutfall"
 
 #: src/app/mainWindow.cpp:140
 #, kde-format
@@ -247,7 +247,7 @@ msgstr "&4:3"
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Ana&morphic (16:9)"
-msgstr "Ana&morphic (16:9)"
+msgstr "Víð&skjár (16:9)"
 
 #: src/app/mainWindow.cpp:157
 #, kde-format
@@ -260,8 +260,7 @@ msgstr "Stærð &glugga"
 msgid ""
 "<qt>Phonon could not be successfully initialized. Dragon Player will now "
 "exit.</qt>"
-msgstr ""
-"<qt>Ekki tókst að ræsa Phonon rétt. Dragon spilarinn mun núna hætta.</qt>"
+msgstr "<qt>Ekki tókst að ræsa Phonon. Dragon spilaranum verður lokað.</qt>"
 
 #: src/app/mainWindow.cpp:300
 #, fuzzy, kde-format
@@ -297,13 +296,13 @@ msgstr "Spila disk"
 #, kde-format
 msgctxt "@action"
 msgid "Increase Volume"
-msgstr "Auka hljóðstyrk"
+msgstr "Hækka"
 
 #: src/app/mainWindow.cpp:345
 #, kde-format
 msgctxt "@action"
 msgid "Decrease Volume"
-msgstr "Minnka hljóðstyrk"
+msgstr "Lækka"
 
 #: src/app/mainWindow.cpp:350
 #, kde-format
@@ -315,13 +314,13 @@ msgstr "Stöðva"
 #, kde-format
 msgctxt "@action Mute the sound output"
 msgid "Mute"
-msgstr "Þagga niður"
+msgstr "Þagga"
 
 #: src/app/mainWindow.cpp:362
 #, kde-format
 msgctxt "@action"
 msgid "Reset Video Scale"
-msgstr "Frumstilla kvarða myndmerkis"
+msgstr "Endurstilla stærð myndar"
 
 #: src/app/mainWindow.cpp:368
 #, kde-format
@@ -332,13 +331,13 @@ msgstr "Víxla valmynd af/á"
 #: src/app/mainWindow.cpp:376 src/app/part.cpp:55
 #, kde-format
 msgid "Position Slider"
-msgstr "Stöðuslá"
+msgstr "Staðsetningarsleði"
 
 #: src/app/mainWindow.cpp:380
 #, kde-format
 msgctxt "@option:check"
 msgid "Video Settings"
-msgstr "Stillingar myndmerkis"
+msgstr "Stillingar myndefnis"
 
 #: src/app/mainWindow.cpp:388
 #, kde-format
@@ -388,14 +387,12 @@ msgstr "Fara áfram um 10 sekúndur"
 #, kde-format
 msgctxt "@option:check Mute the sound output"
 msgid "Mute"
-msgstr "Þagga niður"
+msgstr "Þagga"
 
 #: src/app/mainWindow.cpp:580
 #, kde-format
 msgid "Dragon Player was asked to open an empty URL; it cannot."
-msgstr ""
-"Dragon spilarinn var beðinn um að opna slóð sem var tóm; það getur ekki "
-"gengið."
+msgstr "Dragon spilarinn var beðinn um að opna auða slóð. Það getur hann ekki."
 
 #: src/app/mainWindow.cpp:657
 #, kde-format
@@ -418,7 +415,7 @@ msgstr "Streymi:"
 #: src/app/mainWindow.cpp:814
 #, kde-format
 msgid "Sorry, no media was found in the drop"
-msgstr "Sorrý, enginn miðill fannst í því sem var sleppt"
+msgstr "Sorrý, enginn miðlaskrá fannst í því sem var sleppt"
 
 #: src/app/mainWindow.cpp:862
 #, kde-format
@@ -429,12 +426,12 @@ msgstr "spila myndskeið"
 #: src/app/mainWindow.cpp:894
 #, kde-format
 msgid "No media loaded"
-msgstr "Enginn miðill inni"
+msgstr "Enginn miðlaskrá inni"
 
 #: src/app/mainWindow.cpp:896
 #, kde-format
 msgid "Paused"
-msgstr "Í bið"
+msgstr "Á pásu"
 
 #: src/app/playlistFile.cpp:37
 #, kde-format
@@ -444,7 +441,7 @@ msgstr "Skráin er ekki spilunarlisti"
 #: src/app/playlistFile.cpp:45
 #, kde-format
 msgid "Dragon Player could not download the remote playlist: %1"
-msgstr "Dragon spilarinn gat ekki halað niður fjarlæga lagalistanum: %1"
+msgstr "Dragon spilarinn gat ekki sótt fjartengda lagalistann: %1"
 
 #: src/app/playlistFile.cpp:66
 #, kde-format
@@ -498,7 +495,7 @@ msgstr "Litmettun:"
 #, kde-format
 msgctxt "@action:button"
 msgid "Restore Defaults"
-msgstr "Endurheimta sjálfgefið"
+msgstr "Endurheimta sjálfgildi"
 
 #. i18n: ectx: property (text), widget (QPushButton, closeButton)
 #: src/app/videoSettingsWidget.ui:135
@@ -511,7 +508,7 @@ msgstr "Loka"
 #, kde-format
 msgctxt "@option:radio"
 msgid "&DVD Subtitle Selection"
-msgstr "Val þýðingartexta &DVD"
+msgstr "Skjátextaval fyrir &DVD"
 
 #: src/app/videoWindow.cpp:117
 #, kde-format
@@ -521,10 +518,10 @@ msgstr "Sjál&fvirkt"
 
 #~ msgctxt "@action"
 #~ msgid "Play &Media..."
-#~ msgstr "Spila &margmiðlunarskrá..."
+#~ msgstr "Spila &miðlaskrá..."
 
 #~ msgid "What media would you like to play?"
-#~ msgstr "Hvernig miðil viltu spila?"
+#~ msgstr "Hvernig miðlaskrá viltu spila?"
 
 #~ msgctxt "@action:button"
 #~ msgid "Play File..."
