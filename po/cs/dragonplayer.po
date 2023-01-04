@@ -37,12 +37,10 @@ msgstr "&Přehrát"
 
 #. i18n: ectx: Menu (play_media_menu)
 #: misc/dragonplayerui.rc:5
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Play Media"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Play Media"
-msgstr "Přehrát média"
+msgstr ""
 
 #. i18n: ectx: Menu (settings)
 #: misc/dragonplayerui.rc:20
@@ -134,10 +132,9 @@ msgstr "Vybrat disk k přehrání."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/app/loadView.ui:61
-#, fuzzy, kde-format
-#| msgid "Dragon Player"
+#, kde-format
 msgid "Welcome to Dragon Player"
-msgstr "Přehrávač Dragon"
+msgstr ""
 
 #: src/app/main.cpp:37
 #, kde-format
@@ -259,12 +256,10 @@ msgid ""
 msgstr "<qt>Spuštění Phononu selhalo. Dragon Player bude nyní ukončen.</qt>"
 
 #: src/app/mainWindow.cpp:300
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play File"
+#, kde-format
 msgctxt "@action"
 msgid "Play File…"
-msgstr "Přehrát soubor"
+msgstr ""
 
 #: src/app/mainWindow.cpp:301
 #, kde-format
@@ -273,20 +268,16 @@ msgid "Open a media file for playback"
 msgstr ""
 
 #: src/app/mainWindow.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Stream"
+#, kde-format
 msgctxt "@action"
 msgid "Play Stream…"
-msgstr "Přehrát proud"
+msgstr ""
 
 #: src/app/mainWindow.cpp:316
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Disc"
+#, kde-format
 msgctxt "@action"
 msgid "Play Disc"
-msgstr "Přehrát disk"
+msgstr ""
 
 #: src/app/mainWindow.cpp:340
 #, kde-format
@@ -511,35 +502,3 @@ msgstr "Výběr &DVD titulků"
 msgctxt "@option:radio audio language"
 msgid "&Auto"
 msgstr "&Automaticky"
-
-#~ msgctxt "@action"
-#~ msgid "Play &Media..."
-#~ msgstr "Přehrát &média..."
-
-#~ msgid "What media would you like to play?"
-#~ msgstr "Která média si přejete přehrát?"
-
-#~ msgctxt "@action:button"
-#~ msgid "Play File..."
-#~ msgstr "Přehrát soubor..."
-
-#~ msgctxt "@action Copy the URL of the selected multimedia"
-#~ msgid "Copy URL"
-#~ msgstr "Kopírovat URL"
-
-#~ msgctxt "@action"
-#~ msgid "Clear List"
-#~ msgstr "Smazat seznam"
-
-#~ msgctxt "@action"
-#~ msgid "Remove Entry"
-#~ msgstr "Odstranit položku"
-
-#~ msgid ""
-#~ "This file could not be found. Would you like to remove it from the "
-#~ "playlist?"
-#~ msgstr "Soubor nelze najít. Přejete si jej odebrat ze seznamu skladeb?"
-
-#~ msgctxt "@title:window"
-#~ msgid "File not found"
-#~ msgstr "Soubor nenalezen"
