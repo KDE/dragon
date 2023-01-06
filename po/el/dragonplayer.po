@@ -7,7 +7,7 @@
 # Σπύρος Γεωργαράς <sngeorgaras@otenet.gr>, 2008.
 # Spiros Georgaras <sngeorgaras@otenet.gr>, 2008.
 # Glentadakis Dimitrios <translators_team@mandrivalinux.gr>, 2009.
-# Stelios <sstavra@gmail.com>, 2011, 2017, 2019, 2020.
+# Stelios <sstavra@gmail.com>, 2011, 2017, 2019, 2020, 2023.
 # Dimitrios Glentadakis <dglent@gmail.com>, 2011, 2012.
 # Antonis Geralis <capoiosct@gmail.com>, 2012.
 # Dimitris Kardarakos <dimkard@gmail.com>, 2014.
@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-16 00:49+0000\n"
-"PO-Revision-Date: 2020-08-06 19:16+0300\n"
+"PO-Revision-Date: 2023-01-05 09:15+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
 "Language: el\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -46,9 +46,7 @@ msgstr "&Αναπαραγωγή"
 
 #. i18n: ectx: Menu (play_media_menu)
 #: misc/dragonplayerui.rc:5
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Play Media"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Play Media"
 msgstr "Αναπαραγωγή πολυμέσων"
@@ -143,10 +141,9 @@ msgstr "Επιλέξτε ένα δίσκο για αναπαραγωγή."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/app/loadView.ui:61
-#, fuzzy, kde-format
-#| msgid "Dragon Player"
+#, kde-format
 msgid "Welcome to Dragon Player"
-msgstr "Αναπαραγωγέας Dragon"
+msgstr "Καλώς ήρθατε στον αναπαραγωγέα Dragon"
 
 #: src/app/main.cpp:37
 #, kde-format
@@ -269,31 +266,25 @@ msgstr ""
 "</qt>"
 
 #: src/app/mainWindow.cpp:300
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play File"
+#, kde-format
 msgctxt "@action"
 msgid "Play File…"
-msgstr "Αναπαραγωγή αρχείου"
+msgstr "Αναπαραγωγή αρχείου…"
 
 #: src/app/mainWindow.cpp:301
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open a media file for playback"
-msgstr ""
+msgstr "Άνοιγμα αρχείου πολυμέσων για αναπαραγωγή"
 
 #: src/app/mainWindow.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Stream"
+#, kde-format
 msgctxt "@action"
 msgid "Play Stream…"
-msgstr "Αναπαραγωγή ροής"
+msgstr "Αναπαραγωγή ροής…"
 
 #: src/app/mainWindow.cpp:316
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Disc"
+#, kde-format
 msgctxt "@action"
 msgid "Play Disc"
 msgstr "Αναπαραγωγή δίσκου"
