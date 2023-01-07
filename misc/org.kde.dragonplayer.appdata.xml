@@ -362,7 +362,7 @@
       <li xml:lang="et">Solidi ja Phononi tõttu ei sõltu Dragoni mängija ühestki multimeediaraamistikust ega riistvaralise abstraheerimise kihist</li>
       <li xml:lang="eu">Solid eta Phonon erabiltzen dituelako, DragonPlayer multimedia azpiegituretatik eta hardware abstrakzio geruzetatik independentea da</li>
       <li xml:lang="fi">Solidin ja Phononin ansiosta Dragon Player ei ole riippuvainen muista multimediakirjastoista tai laitteistosta</li>
-      <li xml:lang="fr">Grâce à l'utilisation de Solid et Phonon, Dragonplayer est indépendant de toute infrastructure multimédia ou couche d'abstraction matérielle</li>
+      <li xml:lang="fr">Grâce à l'utilisation de Solid et Phonon, Dragon Player est indépendant de toute infrastructure multimédia ou couche d'abstraction matérielle</li>
       <li xml:lang="gl">Grazas a Solid e Phonon, Dragon Player é independente de calquera infraestrutura multimedia ou capa de abstracción de soporte físico.</li>
       <li xml:lang="ia">Proque DragonPlayer es usante Solid e Phonon illo es independente ab ulle structura de multimedia o strato de abstraction hardware</li>
       <li xml:lang="id">Karena menggunakan Solid dan Phonon DragonPlayer tidak bergantung pada kerangka kerja multimedia apapun atau lapisan abstraksi perangkat keras</li>
@@ -405,7 +405,7 @@
       <li xml:lang="et">CD-de ja DVD-de esitamise toetus</li>
       <li xml:lang="eu">CDak eta DVDak jotzeko gaitasuna du</li>
       <li xml:lang="fi">Tukee CD- ja DVD-toistoa</li>
-      <li xml:lang="fr">Prend en charge la lecture des CDs et DVDs</li>
+      <li xml:lang="fr">Prend en charge la lecture des CD et DVD</li>
       <li xml:lang="gl">Permite reproducir CD e DVD</li>
       <li xml:lang="ia">Supporta reproducer CDs e DVDs</li>
       <li xml:lang="id">Mendukung pemutaran CD dan DVD</li>
