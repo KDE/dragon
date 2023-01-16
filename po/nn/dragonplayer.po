@@ -1,20 +1,20 @@
 # Translation of dragonplayer to Norwegian Nynorsk
 #
-# Karl Ove Hufthammer <karl@huftis.org>, 2007, 2008, 2009, 2010, 2016, 2018, 2019, 2020.
+# Karl Ove Hufthammer <karl@huftis.org>, 2007, 2008, 2009, 2010, 2016, 2018, 2019, 2020, 2023.
 # Eirik U. Birkeland <eirbir@gmail.com>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-16 00:49+0000\n"
-"PO-Revision-Date: 2020-05-09 16:56+0200\n"
+"PO-Revision-Date: 2023-01-15 11:56+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 20.04.0\n"
+"X-Generator: Lokalize 22.12.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
@@ -42,7 +42,7 @@ msgstr "&Spel"
 #, kde-format
 msgctxt "@title:menu"
 msgid "Play Media"
-msgstr ""
+msgstr "Spel medium"
 
 #. i18n: ectx: Menu (settings)
 #: misc/dragonplayerui.rc:20
@@ -136,7 +136,7 @@ msgstr "Vel plata du vil spela."
 #: src/app/loadView.ui:61
 #, kde-format
 msgid "Welcome to Dragon Player"
-msgstr ""
+msgstr "Velkommen til Dragon Player"
 
 #: src/app/main.cpp:37
 #, kde-format
@@ -262,25 +262,25 @@ msgstr "<qt>Klarte ikkje starta Phonon. Dragon Player vert no avslutta.</qt>"
 #, kde-format
 msgctxt "@action"
 msgid "Play File…"
-msgstr ""
+msgstr "Spel fil …"
 
 #: src/app/mainWindow.cpp:301
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open a media file for playback"
-msgstr ""
+msgstr "Opna mediefil for avspeling"
 
 #: src/app/mainWindow.cpp:310
 #, kde-format
 msgctxt "@action"
 msgid "Play Stream…"
-msgstr ""
+msgstr "Spel straum …"
 
 #: src/app/mainWindow.cpp:316
 #, kde-format
 msgctxt "@action"
 msgid "Play Disc"
-msgstr ""
+msgstr "Spel plate"
 
 #: src/app/mainWindow.cpp:340
 #, kde-format
