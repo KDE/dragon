@@ -329,7 +329,7 @@ msgstr "Posició del control lliscant"
 #, kde-format
 msgctxt "@option:check"
 msgid "Video Settings"
-msgstr "Configuració del vídeo"
+msgstr "Configureu el vídeo"
 
 #: src/app/mainWindow.cpp:388
 #, kde-format
@@ -390,7 +390,7 @@ msgstr "S'ha demanat a Dragon Player que òbriga un URL buit; no ho pot fer."
 #, kde-format
 msgctxt "@title:window"
 msgid "Select File to Play"
-msgstr "Seleccioneu el fitxer que s'ha de reproduir"
+msgstr "Seleccioneu un fitxer que s'ha de reproduir"
 
 #: src/app/mainWindow.cpp:684
 #, kde-format
