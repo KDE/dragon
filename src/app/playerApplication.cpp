@@ -8,7 +8,7 @@
 #include "playerApplication.h"
 #include "mainWindow.h"
 
-#include <KWindowSystem>
+#include <KX11Extras>
 
 namespace Dragon
 {
@@ -49,7 +49,7 @@ void PlayerApplication::slotOpenRequested(const QList<QUrl> &uris)
 
 void PlayerApplication::forceActiveWindow()
 {
-    KWindowSystem::forceActiveWindow(Dragon::mainWindow()->winId());
+    KX11Extras::forceActiveWindow(Dragon::mainWindow()->winId());
 }
 
 void PlayerApplication::newInstance(bool playDisc, const QList<QUrl> &uris)

@@ -25,6 +25,13 @@ include(KDEGitCommitHooks)
 include(ECMInstallIcons)
 include(ECMSetupVersion)
 include(ECMDeprecationSettings)
+if (QT_MAJOR_VERSION STREQUAL "6")
+    set(QT_REQUIRED_VERSION "6.4.0")
+    set(KF_MIN_VERSION "5.240.0")
+    set(KF_MAJOR_VERSION "6")
+else()
+    set(KF_MAJOR_VERSION "5")
+endif()
 include(FeatureSummary)
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
@@ -32,7 +39,7 @@ find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Widgets
 )
 
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
+find_package(KF${KF_MAJOR_VERSION} ${KF5_MIN_VERSION} REQUIRED
     Config
     ConfigWidgets
     CoreAddons
@@ -67,7 +74,7 @@ check_include_files(unistd.h HAVE_UNISTD_H)
 configure_file(config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
 ecm_set_disabled_deprecation_versions(
-    QT 5.15.2
+    QT 6.4
     KF 5.100
 )
 

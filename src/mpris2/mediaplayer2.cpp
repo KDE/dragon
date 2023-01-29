@@ -16,7 +16,7 @@
 #include <KAboutData>
 #include <KProtocolInfo>
 #include <KService>
-#include <KWindowSystem>
+#include <KX11Extras>
 
 MediaPlayer2::MediaPlayer2(QObject *parent)
     : QDBusAbstractAdaptor(parent)
@@ -47,7 +47,7 @@ bool MediaPlayer2::CanRaise() const
 void MediaPlayer2::Raise() const
 {
     Dragon::mainWindow()->raise();
-    KWindowSystem::forceActiveWindow(Dragon::mainWindow()->winId());
+    KX11Extras::forceActiveWindow(Dragon::mainWindow()->winId());
 }
 
 bool MediaPlayer2::Fullscreen() const

@@ -36,20 +36,20 @@ ki18n_wrap_ui(dragon
 
 target_link_libraries(dragon
     Qt::Core
-    KF5::Crash
+    KF${KF_MAJOR_VERSION}::Crash
     Qt::Widgets
-    KF5::CoreAddons
-    KF5::I18n
-    KF5::KIOCore
-    KF5::KIOWidgets
-    KF5::WidgetsAddons
-    KF5::ConfigCore
-    KF5::Solid
-    KF5::XmlGui
-    KF5::DBusAddons
-    KF5::JobWidgets
-    KF5::WindowSystem
-    KF5::Notifications
+    KF${KF_MAJOR_VERSION}::CoreAddons
+    KF${KF_MAJOR_VERSION}::I18n
+    KF${KF_MAJOR_VERSION}::KIOCore
+    KF${KF_MAJOR_VERSION}::KIOWidgets
+    KF${KF_MAJOR_VERSION}::WidgetsAddons
+    KF${KF_MAJOR_VERSION}::ConfigCore
+    KF${KF_MAJOR_VERSION}::Solid
+    KF${KF_MAJOR_VERSION}::XmlGui
+    KF${KF_MAJOR_VERSION}::DBusAddons
+    KF${KF_MAJOR_VERSION}::JobWidgets
+    KF${KF_MAJOR_VERSION}::WindowSystem
+    KF${KF_MAJOR_VERSION}::Notifications
     ${PHONON_LIBRARY}
     )
 
@@ -66,18 +66,18 @@ target_sources(dragonpart PRIVATE
 kcoreaddons_desktop_to_json(dragonpart ${CMAKE_BINARY_DIR}/misc/dragonplayer_part.desktop)
 
 target_link_libraries(dragonpart
-    KF5::CoreAddons
-    KF5::I18n
-    KF5::KIOCore
-    KF5::KIOWidgets
-    KF5::WidgetsAddons
-    KF5::ConfigCore
-    KF5::Parts
-    KF5::Solid
-    KF5::XmlGui
-    KF5::JobWidgets
-    KF5::WindowSystem
-    KF5::Notifications
+    KF${KF_MAJOR_VERSION}::CoreAddons
+    KF${KF_MAJOR_VERSION}::I18n
+    KF${KF_MAJOR_VERSION}::KIOCore
+    KF${KF_MAJOR_VERSION}::KIOWidgets
+    KF${KF_MAJOR_VERSION}::WidgetsAddons
+    KF${KF_MAJOR_VERSION}::ConfigCore
+    KF${KF_MAJOR_VERSION}::Parts
+    KF${KF_MAJOR_VERSION}::Solid
+    KF${KF_MAJOR_VERSION}::XmlGui
+    KF${KF_MAJOR_VERSION}::JobWidgets
+    KF${KF_MAJOR_VERSION}::WindowSystem
+    KF${KF_MAJOR_VERSION}::Notifications
     ${PHONON_LIBRARY}
     Qt::Core
     Qt::Widgets
