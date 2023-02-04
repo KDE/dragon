@@ -1,6 +1,6 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2012, 2013, 2015, 2017, 2018, 2019, 2020.
+# Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2012, 2013, 2015, 2017, 2018, 2019, 2020, 2023.
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012.
 #
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-16 00:49+0000\n"
-"PO-Revision-Date: 2020-05-25 21:59+0200\n"
+"PO-Revision-Date: 2023-01-30 11:11+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 20.04.0\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -40,7 +40,7 @@ msgstr "&Přehrát"
 #, kde-format
 msgctxt "@title:menu"
 msgid "Play Media"
-msgstr ""
+msgstr "Přehrát média"
 
 #. i18n: ectx: Menu (settings)
 #: misc/dragonplayerui.rc:20
@@ -134,7 +134,7 @@ msgstr "Vybrat disk k přehrání."
 #: src/app/loadView.ui:61
 #, kde-format
 msgid "Welcome to Dragon Player"
-msgstr ""
+msgstr "Vítejte v přehrávači Dragon"
 
 #: src/app/main.cpp:37
 #, kde-format
@@ -259,25 +259,25 @@ msgstr "<qt>Spuštění Phononu selhalo. Dragon Player bude nyní ukončen.</qt>
 #, kde-format
 msgctxt "@action"
 msgid "Play File…"
-msgstr ""
+msgstr "Přehrát soubor…"
 
 #: src/app/mainWindow.cpp:301
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open a media file for playback"
-msgstr ""
+msgstr "Otevřít soubor média pro přehrání"
 
 #: src/app/mainWindow.cpp:310
 #, kde-format
 msgctxt "@action"
 msgid "Play Stream…"
-msgstr ""
+msgstr "Přehrát proud…"
 
 #: src/app/mainWindow.cpp:316
 #, kde-format
 msgctxt "@action"
 msgid "Play Disc"
-msgstr ""
+msgstr "Přehrát disk"
 
 #: src/app/mainWindow.cpp:340
 #, kde-format
