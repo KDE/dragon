@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-16 00:49+0000\n"
-"PO-Revision-Date: 2023-02-15 11:04\n"
+"PO-Revision-Date: 2023-02-24 12:43\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -133,7 +133,7 @@ msgstr "选择一张要播放的盘片。"
 #: src/app/loadView.ui:61
 #, kde-format
 msgid "Welcome to Dragon Player"
-msgstr ""
+msgstr "欢迎使用 Dragon Player 播放器"
 
 #: src/app/main.cpp:37
 #, kde-format
@@ -257,19 +257,19 @@ msgstr "<qt>Phonon 初始化失败。Dragon Player 将立即退出。</qt>"
 #, kde-format
 msgctxt "@action"
 msgid "Play File…"
-msgstr ""
+msgstr "播放文件…"
 
 #: src/app/mainWindow.cpp:301
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open a media file for playback"
-msgstr ""
+msgstr "打开媒体文件进行播放"
 
 #: src/app/mainWindow.cpp:310
 #, kde-format
 msgctxt "@action"
 msgid "Play Stream…"
-msgstr ""
+msgstr "播放流…"
 
 #: src/app/mainWindow.cpp:316
 #, kde-format

@@ -6,7 +6,7 @@
 <refentry lang="&language;">
 <refentryinfo>
 <title
->Manual do Usuário KDE</title>
+>Manual do usuário do Dragon Player</title>
 <author
 ><firstname
 >Praveen</firstname
@@ -18,9 +18,11 @@
 >pravi.a@gmail.com</email
 ></author>
 <date
->16/03/2012</date>
+>29/06/2016</date>
+<releaseinfo
+>Aplicativo 16.04</releaseinfo>
 <productname
->KDE</productname>
+>Aplicativos do KDE</productname>
 </refentryinfo>
 
 <refmeta>
@@ -45,14 +47,6 @@
 >dragon</command
 > <arg choice="opt"
 ><replaceable
->opções do Qt</replaceable
-></arg
-> <arg choice="opt"
-><replaceable
->opções do KDE</replaceable
-></arg
-> <arg choice="opt"
-><replaceable
 >URL</replaceable
 ></arg
 > </cmdsynopsis>
@@ -67,93 +61,6 @@
 >dragon</command
 > toca arquivos de áudio e vídeo em diferentes formatos.</para>
 
-</refsect1>
-
-<refsect1 id="generic_options"
-><title
->Opções genéricas</title>
-<variablelist>
-  <varlistentry>
-  <term
-><option
->--help</option
-></term>
-  <listitem>
-<para
->Mostra a ajuda sobre as opções.</para>
-  </listitem>
-  </varlistentry>
-  <varlistentry>
-  <term
-><option
->--help-qt</option
-></term>
-  <listitem>
-<para
->Mostra as opções específicas do Qt.</para>
-  </listitem>
-  </varlistentry>
-  <varlistentry>
-  <term
-><option
->--help-kde</option
-></term>
-  <listitem>
-<para
->Mostra as opções específicas do KDE.</para>
-  </listitem>
-  </varlistentry>
-  <varlistentry>
-  <term
-><option
->--help-all</option
-></term>
-  <listitem>
-<para
->Mostra todas as opções.</para>
-  </listitem>
-  </varlistentry>
-  <varlistentry>
-  <term
-><option
->--author</option
-></term>
-  <listitem>
-<para
->Mostra informações sobre o autor.</para>
-  </listitem>
-  </varlistentry>
-  <varlistentry>
-  <term
-><option
->-v, --version</option
-></term>
-  <listitem>
-<para
->Mostra informações sobre a versão.</para>
-  </listitem>
-  </varlistentry>
-  <varlistentry>
-  <term
-><option
->--license</option
-></term>
-  <listitem>
-<para
->Mostra informações sobre a licença.</para>
-  </listitem>
-  </varlistentry>
-  <varlistentry>
-  <term
-><option
->--</option
-></term>
-  <listitem>
-<para
->Fim das opções.</para>
-  </listitem>
-  </varlistentry>
-</variablelist>
 </refsect1>
 
 <refsect1 id="options"
@@ -173,19 +80,11 @@
 </variablelist>
 </refsect1>
 
-<refsect1 id="feedback"
-><title
->Sugestões e comentários</title>
-<para
->No IRC, irc.freenode.net #dragonplayer ou por e-mail, imonroe@kde.org ou na Web, &lt;<ulink url="http://multimedia.kde.org"
->http://multimedia.kde.org</ulink
->&gt;</para>
-</refsect1>
-
 <refsect1>
 <title
 >Veja também</title>
-<para
+<simplelist>
+<member
 >Uma documentação mais detalhada está disponível em <ulink url="help:/dragonplayer"
 >help:/dragonplayer</ulink
 > (insira esta <acronym
@@ -196,19 +95,24 @@
 > <parameter
 >help:/dragonplayer</parameter
 ></userinput
->).</para>
+>).</member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+</simplelist>
 </refsect1>
 
 <refsect1 id="copyright"
 ><title
 >Direitos autorais</title>
 <para
->Copyright &copy; 2006 Max Howell</para>
+>Direitos autorais &copy; 2006 Max Howell</para>
 <para
->Copyright &copy; 2007 Ian Monroe</para>
+>Direitos autorais &copy; 2007 Ian Monroe</para>
 <para
->Licença: Geral Pública da GNU Versão 2 &lt;<ulink url="http://www.gnu.org/licenses/gpl-2.0.html"
->http://www.gnu.org/licenses/gpl-2.0.html</ulink
+>Licença: Pública Geral GNU versão 2 &lt;<ulink url="https://www.gnu.org/licenses/gpl-2.0.html"
+>https://www.gnu.org/licenses/gpl-2.0.html</ulink
 >&gt;</para>
 </refsect1>
 </refentry>
