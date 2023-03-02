@@ -20,7 +20,6 @@ random_seed
 CMakeLists.txt.user*
 *.unc-backup*
 *.gcov
-.reuse
 
 # LSP & IDE
 /.clang-format
