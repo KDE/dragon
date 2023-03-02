@@ -63,8 +63,6 @@ target_sources(dragonpart PRIVATE
     partToolBar.cpp
 )
 
-kcoreaddons_desktop_to_json(dragonpart ${CMAKE_BINARY_DIR}/misc/dragonplayer_part.desktop)
-
 target_link_libraries(dragonpart
     KF${KF_MAJOR_VERSION}::CoreAddons
     KF${KF_MAJOR_VERSION}::I18n

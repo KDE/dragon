@@ -26,7 +26,7 @@
 #include <QVBoxLayout>
 #include <QWidgetAction>
 
-K_PLUGIN_FACTORY_WITH_JSON(CodeineFactory, "dragonplayer_part.json", registerPlugin<Dragon::Part>();)
+K_PLUGIN_FACTORY_WITH_JSON(CodeineFactory, "../../misc/dragonplayer_part.json", registerPlugin<Dragon::Part>();)
 
 namespace Dragon
 {
