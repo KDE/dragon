@@ -3,15 +3,35 @@
         "Authors": [
             {
                 "Email": "max.howell@methylblue.com",
-                "Name": "Max Howell"
+                "Name": "Max Howell",
+                "Name[ca]": "Max Howell",
+                "Name[nl]": "Max Howell",
+                "Name[pt_BR]": "Max Howell",
+                "Name[uk]": "Max Howell",
+                "Name[x-test]": "xxMax Howellxx"
             },
             {
                 "Email": "ian@monroe.nu",
-                "Name": "Ian Monroe"
+                "Name": "Ian Monroe",
+                "Name[ca]": "Ian Monroe",
+                "Name[nl]": "Ian Monroe",
+                "Name[pt_BR]": "Ian Monroe",
+                "Name[uk]": "Ian Monroe",
+                "Name[x-test]": "xxIan Monroexx"
             }
         ],
         "Copyright": "Copyright 2006 Max Howell, 2007 Ian Monroe",
+        "Copyright[ca]": "Copyright 2006 Max Howell, 2007 Ian Monroe",
+        "Copyright[nl]": "Copyright 2006 Max Howell, 2007 Ian Monroe",
+        "Copyright[pt_BR]": "Copyright 2006 Max Howell, 2007 Ian Monroe",
+        "Copyright[uk]": "© Max Howell, 2006; © Ian Monroe, 2007",
+        "Copyright[x-test]": "xxCopyright 2006 Max Howell, 2007 Ian Monroexx",
         "Description": "Embeddable Video Player",
+        "Description[ca]": "Reproductor de vídeo incrustable",
+        "Description[nl]": "Inbedbare videospeler",
+        "Description[pt_BR]": "Reprodutor de vídeo incorporado",
+        "Description[uk]": "Придатний до вбудовування програвач відео",
+        "Description[x-test]": "xxEmbeddable Video Playerxx",
         "Icon": "dragonplayer",
         "Id": "dragonpart",
         "InitialPreference": 9,
@@ -34,6 +54,11 @@
             "video/webm"
         ],
         "Name": "Dragon Player Part",
+        "Name[ca]": "Part del Dragon Player",
+        "Name[nl]": "Dragon Player-component",
+        "Name[pt_BR]": "Componente do Dragon Player",
+        "Name[uk]": "Модуль програвача Dragon",
+        "Name[x-test]": "xxDragon Player Partxx",
         "ServiceTypes": [
             "KParts/ReadOnlyPart"
         ],
