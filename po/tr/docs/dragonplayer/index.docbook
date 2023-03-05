@@ -1,0 +1,205 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % English "INCLUDE"><!-- change language only here -->
+]>
+
+<book id="dragon" lang="&language;">
+
+<bookinfo>
+<title>The &dragon; Handbook</title>
+
+<authorgroup>
+<author>
+<firstname>Mike</firstname>
+<surname>Diehl</surname>
+<affiliation>
+<address><email>madpenguin8@yahoo.com</email></address>
+</affiliation>
+</author>
+<author>
+<firstname>Ian</firstname>
+<surname>Monroe</surname>
+<affiliation>
+<address><email>imonroe@kde.org</email></address>
+</affiliation>
+</author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+</authorgroup>
+
+<copyright>
+<year>2004</year>
+<holder>Mike Diehl</holder>
+</copyright>
+<copyright>
+<year>2007</year>
+<holder>Ian Monroe</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<date>2016-06-29</date>
+<releaseinfo>Applications 16.04</releaseinfo>
+
+<abstract>
+<para>
+&dragon; is a simple video player by &kde;.
+</para>
+</abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>Codeine</keyword>
+<keyword>Phonon</keyword>
+<keyword>Dragon</keyword>
+<keyword>Player</keyword>
+<keyword>Dragon Player</keyword>
+<keyword>video</keyword>
+<keyword>multi-media</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title>Introduction</title>
+
+<screenshot>
+<screeninfo>&dragon; Screenshot</screeninfo>
+<mediaobject>
+<imageobject><imagedata fileref="main.png" format="PNG"/></imageobject>
+<textobject><phrase>Screenshot</phrase></textobject>
+</mediaobject>
+</screenshot>
+
+
+<para>
+&dragon; is a simple media player using &phonon; technology. &dragon; is a no frills media player that excels at playing DVDs and movie files without getting in your way.
+</para>
+
+</chapter>
+
+<chapter id="select-media">
+<title>Select a Media</title>
+
+<para>If you start &dragon; from the application launcher or use <guibutton>Play Media</guibutton>
+(<keycombo action="simul">&Ctrl;<keycap>O</keycap></keycombo>) from the toolbar or from the <guimenu>Play</guimenu> 
+menu this window is displayed:</para>
+
+<screenshot>
+<screeninfo>Play Media</screeninfo>
+<mediaobject>
+<imageobject><imagedata fileref="playmedia.png" format="PNG"/></imageobject>
+<textobject><phrase>Play Media</phrase></textobject>
+</mediaobject>
+</screenshot>
+
+<para>There are three ways to play a video file:</para>
+<para><guibutton>Play File</guibutton> opens the file dialog and allows you to select a file to play.</para>
+<para><guibutton>Play Disc</guibutton> to play a &CD; or DVD.</para>
+<para><guibutton>Play Stream</guibutton> opens a dialog to enter an address of some <ulink url="https://en.wikipedia.org/wiki/Streaming_media">multimedia stream</ulink>.</para>
+<para>Double click on an entry in the play list with recently opened files to start playing it. 
+The context menu of the play list shows actions to remove a selected entry or clear the whole play list. 
+Any file you played will be automatically added to the list.</para>
+</chapter>
+
+<chapter id="features">
+<title>Features</title>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<guimenuitem>Full Screen Mode</guimenuitem>
+</term>
+<listitem><para>
+While playing a movie, you can enter full screen mode. This uses the entire monitor to display the movie. 
+Moving the mouse shows a toolbar at the top of the screen in full screen mode.
+Toggle the full screen mode using the <guimenu>Settings</guimenu> menu, the action in the toolbar, double click on the video or use the shortcut 
+<keycap>F</keycap>.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem>Video Settings</guimenuitem>
+</term>
+<listitem><para>Select this action from the <guimenu>Settings</guimenu> menu to adjust <guilabel>Brightness</guilabel>, <guilabel>Contrast</guilabel>, <guilabel>Hue</guilabel> and <guilabel>Saturation</guilabel>.
+These settings are stored together with the playback position for each video file. This enables you resume playing a video with the selected video  settings and the position where you stopped playing.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+Navigation
+</term>
+<listitem><para>The shortcut <keycap>PgUp</keycap> brings you 10% forward / <keycap>+</keycap> 10 seconds forward and <keycap>PgDown</keycap> brings you 10% backward / <keycap>-</keycap> 10 seconds backward.
+Use <menuchoice><guimenu>Settings</guimenu> <guimenuitem>Menu Toggle</guimenuitem></menuchoice> (<keycap>R</keycap>) to switch to the video menu and select another chapter to play.
+<menuchoice><guimenu>Play</guimenu><guimenuitem>Play/Pause</guimenuitem></menuchoice> (<keysym>Space</keysym>) allows you to pause and resume playback if a movie is loaded. <menuchoice><guimenu>Play</guimenu><guimenuitem>Stop</guimenuitem></menuchoice> (<keycap>S</keycap>) stops playback.
+Go to the previous or next chapter of a video with <guimenuitem>Previous Chapter</guimenuitem> (<keycap>,</keycap>) or <guimenuitem>Next Chapter</guimenuitem> (<keycap>.</keycap>) from the <guimenu>Play</guimenu> menu.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem>Volume control</guimenuitem>
+</term>
+<listitem><para>If you play videos with a hidden toolbar, you can use the shortcut <keycap>M</keycap> to mute or unmute the sound; and the shortcut <keycap>V</keycap> to toggle the display of the volume slider right to the video.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guisubmenu>Aspect Ratio</guisubmenu>
+</menuchoice></term>
+<listitem><para><action>This menu lets you pick the aspect ratio of the playing movie. The aspect ratio is width of movie compared to the height.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guisubmenu>Subtitles</guisubmenu> and <guisubmenu>Audio Channels</guisubmenu>
+</term>
+<listitem><para>
+These menu items from the <guimenu>Settings</guimenu> menu are active if there are any subtitles or additional audio channels (&eg; with different languages) available from the currently playing movie. Note that it may take a few seconds of playback before the subtitles or audio channels become available.
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+</chapter>
+
+<chapter id="credits">
+
+<title>Credits and License</title>
+
+<para>
+&dragon;
+</para>
+
+<para>Program copyright 2004 Max B. Howell <email>max.howell@methylblue.com</email></para>
+<para>Program copyright 2007 Ian A. Monroe <email>imonroe@kde.org</email></para>
+
+<para>
+Documentation copyright 2004 Mike Diehl <email>madpenguin8@yahoo.com</email>
+</para>
+<para>
+Documentation copyright 2007 Ian Monroe <email>imonroe@kde.org</email>
+</para>
+
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+&underFDL;
+&underGPL;
+
+</chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

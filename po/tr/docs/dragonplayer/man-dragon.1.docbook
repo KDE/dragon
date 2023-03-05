@@ -1,0 +1,119 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Turkish "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Dragon Oynatıcı Kullanıcı Kılavuzu</title>
+<author
+><firstname
+>Praveen</firstname
+><surname
+>Arimbrathodiyil</surname
+> <contrib
+>Dragon Player man sayfası.</contrib
+> <email
+>pravi.a@gmail.com</email
+></author>
+<date
+>2016-06-29</date>
+<releaseinfo
+>Uygulamalar 16.04</releaseinfo>
+<productname
+>KDE Uygulamaları</productname>
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>dragon</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+>dragon</refname>
+<refpurpose
+>Kullanılabilirliğe odaklanmış bir video oynatıcı</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis
+><command
+>dragon</command
+> <arg choice="opt"
+><replaceable
+>URL</replaceable
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+
+<refsect1 id="description"
+><title
+>Açıklama</title>
+<para
+><command
+>dragon</command
+>, çeşitli biçimlerdeki video ve ses dosyalarını çalar/oynatır.</para>
+
+</refsect1>
+
+<refsect1 id="options"
+><title
+>Seçenekler</title>
+<variablelist>
+  <varlistentry>
+  <term
+><option
+>--play-dvd</option
+></term>
+  <listitem>
+<para
+>DVD Video Oynat.</para>
+  </listitem>
+  </varlistentry>
+</variablelist>
+</refsect1>
+
+<refsect1>
+<title
+>Ayrıca Bakınız</title>
+<simplelist>
+<member
+>Ayrıntılı kullanıcı belgelendirmesi <ulink url="help:/dragonplayer"
+>help:/dragonplayer</ulink
+>adresinde bulunabilir (bu <acronym
+>URL</acronym
+>'yi ister &konqueror;'a girin veya <userinput
+><command
+>khelpcenter</command
+> <parameter
+>help:/dragonplayer</parameter
+></userinput
+> komutunu çalıştırın).</member>
+<member
+>kf5options(7)</member>
+<member
+>qt5options(7)</member>
+</simplelist>
+</refsect1>
+
+<refsect1 id="copyright"
+><title
+>Telif Hakkı</title>
+<para
+>Telif hakkı &copy; 2006 Max Howell</para>
+<para
+>Telif hakkı &copy; 2007 Ian Monroe</para>
+<para
+>Lisans: GNU Genel Kamı Lisansı Sürüm 2 &lt;<ulink url="http://www.gnu.org/licenses/gpl-2.0.html"
+>https://www.gnu.org/licenses/gpl-2.0.html</ulink
+>&gt;</para>
+</refsect1>
+</refentry>
+
