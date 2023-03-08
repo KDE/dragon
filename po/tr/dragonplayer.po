@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdemultimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-16 00:49+0000\n"
-"PO-Revision-Date: 2023-02-04 18:53+0300\n"
+"PO-Revision-Date: 2023-03-07 20:17+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -205,7 +205,7 @@ msgstr "DVD Video Oynat"
 #: src/app/main.cpp:61
 #, kde-format
 msgid "Play 'URL'"
-msgstr "Adres Oynat"
+msgstr "'URL' Oynat"
 
 #: src/app/mainWindow.cpp:139
 #, kde-format
@@ -381,7 +381,7 @@ msgstr "Sessiz"
 #: src/app/mainWindow.cpp:580
 #, kde-format
 msgid "Dragon Player was asked to open an empty URL; it cannot."
-msgstr "Dragon'a boş bir adres açması önerildi, bu yapılamaz."
+msgstr "Dragon'a boş bir URL'yi açması önerildi, bu yapılamaz."
 
 #: src/app/mainWindow.cpp:657
 #, kde-format
