@@ -1,167 +1,310 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
   <!ENTITY % addindex "IGNORE">
-  <!ENTITY % English "INCLUDE"><!-- change language only here -->
+  <!ENTITY % Turkish "INCLUDE"
+><!-- change language only here -->
 ]>
 
 <book id="dragon" lang="&language;">
 
 <bookinfo>
-<title>The &dragon; Handbook</title>
+<title
+>&dragon; El Kitabı</title>
 
 <authorgroup>
-<author>
-<firstname>Mike</firstname>
-<surname>Diehl</surname>
-<affiliation>
-<address><email>madpenguin8@yahoo.com</email></address>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>Diehl</surname
+> <affiliation
+> <address
+><email
+>madpenguin8@yahoo.com</email
+></address>
 </affiliation>
 </author>
-<author>
-<firstname>Ian</firstname>
-<surname>Monroe</surname>
-<affiliation>
-<address><email>imonroe@kde.org</email></address>
+<author
+><firstname
+>Ian</firstname
+> <surname
+>Monroe</surname
+> <affiliation
+> <address
+><email
+>imonroe@kde.org</email
+></address>
 </affiliation>
 </author>
-<!-- TRANS:ROLES_OF_TRANSLATORS -->
+<othercredit role="translator"
+><firstname
+>Serdar</firstname
+><surname
+>Soytetir</surname
+><affiliation
+><address
+><email
+>tulliana@gmail.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
 </authorgroup>
 
 <copyright>
-<year>2004</year>
-<holder>Mike Diehl</holder>
+<year
+>2004</year>
+<holder
+>Mike Diehl</holder>
 </copyright>
 <copyright>
-<year>2007</year>
-<holder>Ian Monroe</holder>
+<year
+>2007</year>
+<holder
+>Ian Monroe</holder>
 </copyright>
 
-<legalnotice>&FDLNotice;</legalnotice>
+<legalnotice
+>&FDLNotice;</legalnotice>
 
-<date>2016-06-29</date>
-<releaseinfo>Applications 16.04</releaseinfo>
+<date
+>2016-06-29</date>
+<releaseinfo
+>Uygulamalar 16.04</releaseinfo>
 
 <abstract>
-<para>
-&dragon; is a simple video player by &kde;.
-</para>
+<para
+>&dragon;, &kde; için basit bir video oynatıcıdır. </para>
 </abstract>
 
 <keywordset>
-<keyword>KDE</keyword>
-<keyword>Codeine</keyword>
-<keyword>Phonon</keyword>
-<keyword>Dragon</keyword>
-<keyword>Player</keyword>
-<keyword>Dragon Player</keyword>
-<keyword>video</keyword>
-<keyword>multi-media</keyword>
+<keyword
+>KDE</keyword>
+<keyword
+>Codeine</keyword>
+<keyword
+>Phonon</keyword>
+<keyword
+>Dragon</keyword>
+<keyword
+>Oynatıcı</keyword>
+<keyword
+>Dragon Oynatıcı</keyword>
+<keyword
+>video</keyword>
+<keyword
+>çoklu ortam</keyword>
 </keywordset>
 
 </bookinfo>
 
 <chapter id="introduction">
-<title>Introduction</title>
+<title
+>Giriş</title>
 
 <screenshot>
-<screeninfo>&dragon; Screenshot</screeninfo>
+<screeninfo
+>&dragon; Ekran Görüntüsü</screeninfo>
 <mediaobject>
-<imageobject><imagedata fileref="main.png" format="PNG"/></imageobject>
-<textobject><phrase>Screenshot</phrase></textobject>
+<imageobject
+><imagedata fileref="main.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Ekran Görüntüsü</phrase
+></textobject>
 </mediaobject>
 </screenshot>
 
 
-<para>
-&dragon; is a simple media player using &phonon; technology. &dragon; is a no frills media player that excels at playing DVDs and movie files without getting in your way.
-</para>
+<para
+>&dragon;, &phonon; teknolojisini kullanan basit bir ortam oynatıcıdır. &dragon;, DVD'leri ve film dosyalarını yolunuza çıkmadan oynatmada mükemmeldir ve gösterişten uzaktır. </para>
 
 </chapter>
 
 <chapter id="select-media">
-<title>Select a Media</title>
+<title
+>Bir Ortam Seç</title>
 
-<para>If you start &dragon; from the application launcher or use <guibutton>Play Media</guibutton>
-(<keycombo action="simul">&Ctrl;<keycap>O</keycap></keycombo>) from the toolbar or from the <guimenu>Play</guimenu> 
-menu this window is displayed:</para>
+<para
+>&dragon;'u uygulama başlatıcıdan başlattığınızda veya araç çubuğundan <guibutton
+>Ortam Oynat</guibutton
+>'ı seçtiğinizde (<keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+>) veya <guimenu
+>Oynat</guimenu
+> menüsüne tıkladığınızda bu pencere görüntülenir::</para>
 
 <screenshot>
-<screeninfo>Play Media</screeninfo>
+<screeninfo
+>Ortam Oynat</screeninfo>
 <mediaobject>
-<imageobject><imagedata fileref="playmedia.png" format="PNG"/></imageobject>
-<textobject><phrase>Play Media</phrase></textobject>
+<imageobject
+><imagedata fileref="playmedia.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Ortam Oynat</phrase
+></textobject>
 </mediaobject>
 </screenshot>
 
-<para>There are three ways to play a video file:</para>
-<para><guibutton>Play File</guibutton> opens the file dialog and allows you to select a file to play.</para>
-<para><guibutton>Play Disc</guibutton> to play a &CD; or DVD.</para>
-<para><guibutton>Play Stream</guibutton> opens a dialog to enter an address of some <ulink url="https://en.wikipedia.org/wiki/Streaming_media">multimedia stream</ulink>.</para>
-<para>Double click on an entry in the play list with recently opened files to start playing it. 
-The context menu of the play list shows actions to remove a selected entry or clear the whole play list. 
-Any file you played will be automatically added to the list.</para>
+<para
+>Bir video dosyasını oynatmanın çeşitli yolları vardır:</para>
+<para
+><guibutton
+>Dosya Oynat</guibutton
+>, bir pencere açarak oynatmak için bir dosya seçmenizi sağlar.</para>
+<para
+><guibutton
+>Disk Oynat</guibutton
+>, &CD; veya DVD oynatmanızı sağlar.</para>
+<para
+><guibutton
+>Akış Oynat</guibutton
+>, belirli bir <ulink url="http://en.wikipedia.org/wiki/Streaming_media"
+>çoklu ortam akışı</ulink
+> adresi girilebilmesi için bir iletişim kutusu açar.</para>
+<para
+>Oynatmaya başlamak için son açılan dosyalarla oynatma listesindeki bir girişe çift tıklayın. Oynatma listesinin bağlam menüsü, seçilen bir girişi kaldırmaya veya tüm oynatma listesini temizlemeye yönelik eylemleri gösterir. Oynattığınız herhangi bir dosya otomatik olarak listeye eklenecektir.</para>
 </chapter>
 
 <chapter id="features">
-<title>Features</title>
+<title
+>Özellikler</title>
 
 <variablelist>
 
 <varlistentry>
 <term>
-<guimenuitem>Full Screen Mode</guimenuitem>
+<guimenuitem
+>Tam Ekran Kipi</guimenuitem>
 </term>
-<listitem><para>
-While playing a movie, you can enter full screen mode. This uses the entire monitor to display the movie. 
-Moving the mouse shows a toolbar at the top of the screen in full screen mode.
-Toggle the full screen mode using the <guimenu>Settings</guimenu> menu, the action in the toolbar, double click on the video or use the shortcut 
-<keycap>F</keycap>.
-</para></listitem>
+<listitem
+><para
+>Bir filmi oynatırken tam ekran kipine geçebilirsiniz. Bu kip, filmi göstermek için tüm ekranınızı kullanır. Tam ekran kipindeyken fareyi hareket ettirirseniz ekranın en üstünde bir araç çubuğu gösterilir. <guimenu
+>Ayarlar</guimenu
+> menüsünü kullanarak tam ekran kipini değiştirmek için menüdeki eyleme tıklayın. Video görüntüsüne çift tıklayarak veya <keycap
+>F</keycap
+> düğmesine basarak da tam ekran kipini açıp kapatabilirsiniz. </para
+></listitem>
 </varlistentry>
 
 <varlistentry>
 <term>
-<guimenuitem>Video Settings</guimenuitem>
+<guimenuitem
+>Video Ayarları</guimenuitem>
 </term>
-<listitem><para>Select this action from the <guimenu>Settings</guimenu> menu to adjust <guilabel>Brightness</guilabel>, <guilabel>Contrast</guilabel>, <guilabel>Hue</guilabel> and <guilabel>Saturation</guilabel>.
-These settings are stored together with the playback position for each video file. This enables you resume playing a video with the selected video  settings and the position where you stopped playing.
-</para></listitem>
+<listitem
+><para
+><guilabel
+>Parlaklık</guilabel
+>, <guilabel
+>Karşıtlık</guilabel
+>, <guilabel
+>Ton</guilabel
+> ve <guilabel
+>Doygunluk</guilabel
+> ayarlarını değiştirmek için <guimenu
+>Ayarlar</guimenu
+> menüsünü kullanın. Bu ayarlar, her video dosyası için oynatma konumuyla birlikte kaydedilir. Bu özellik, bir video dosyasını daha sonra kaldığınız yerden ve ayarlamış olduğunuz görüntü değerleriyle izlemenizi sağlar. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Dolaşma </term>
+<listitem
+><para
+><keycap
+>PgUp</keycap
+> düğmesi, videoyu %​10 ileri sarar, <keycap
+>PgDown</keycap
+> ise %​10 geri sarar. <menuchoice
+><guimenu
+>Ayarlar</guimenu
+> <guimenuitem
+>Menüyü Aç/Kapat</guimenuitem
+></menuchoice
+> (<keycap
+>R</keycap
+>) yolunu kullanarak video menüsünün durumunu ve videonun oynatılan bölümünü değiştirebilirsiniz. <menuchoice
+><guimenu
+>Oynat</guimenu
+><guimenuitem
+>Oynat/Duraklat</guimenuitem
+></menuchoice
+> (<keysym
+>Boşluk</keysym
+>) yolunu takip ederek oynatılan videoyu duraklatabilir ve yeniden sürdürebilirsiniz. <menuchoice
+><guimenu
+>Oynat</guimenu
+><guimenuitem
+>Durdur</guimenuitem
+></menuchoice
+> (<keycap
+>S</keycap
+>) ise videoyu durdurur. <guimenu
+>Oynat</guimenu
+> menüsünden <guimenuitem
+>Önceki Bölüm</guimenuitem
+> (<keycap
+>,</keycap
+>) ve <guimenuitem
+>Sonraki Bölüm</guimenuitem
+> (<keycap
+>.</keycap
+>) girdilerini kullanarak videonun önceki ve sonraki bölümlerine geçebilirsiniz. </para
+></listitem>
 </varlistentry>
 
 <varlistentry>
 <term>
-Navigation
+<guimenuitem
+>Ses düzeyi denetimi</guimenuitem>
 </term>
-<listitem><para>The shortcut <keycap>PgUp</keycap> brings you 10% forward / <keycap>+</keycap> 10 seconds forward and <keycap>PgDown</keycap> brings you 10% backward / <keycap>-</keycap> 10 seconds backward.
-Use <menuchoice><guimenu>Settings</guimenu> <guimenuitem>Menu Toggle</guimenuitem></menuchoice> (<keycap>R</keycap>) to switch to the video menu and select another chapter to play.
-<menuchoice><guimenu>Play</guimenu><guimenuitem>Play/Pause</guimenuitem></menuchoice> (<keysym>Space</keysym>) allows you to pause and resume playback if a movie is loaded. <menuchoice><guimenu>Play</guimenu><guimenuitem>Stop</guimenuitem></menuchoice> (<keycap>S</keycap>) stops playback.
-Go to the previous or next chapter of a video with <guimenuitem>Previous Chapter</guimenuitem> (<keycap>,</keycap>) or <guimenuitem>Next Chapter</guimenuitem> (<keycap>.</keycap>) from the <guimenu>Play</guimenu> menu.
-</para></listitem>
+<listitem
+><para
+>Eğer videoyu oynatırken araç çubuğu gizlediyseniz <keycap
+>M</keycap
+> düğmesini kullanarak sesi kapatıp açabilirsiniz, <keycap
+>V</keycap
+> düğmesini kullanarak da ses düzeyi kaydırıcısının videonun sağ tarafında gösterilmesini sağlayabilirsiniz. </para
+></listitem>
 </varlistentry>
 
 <varlistentry>
-<term>
-<guimenuitem>Volume control</guimenuitem>
-</term>
-<listitem><para>If you play videos with a hidden toolbar, you can use the shortcut <keycap>M</keycap> to mute or unmute the sound; and the shortcut <keycap>V</keycap> to toggle the display of the volume slider right to the video.
-</para></listitem>
+<term
+><menuchoice
+><guimenu
+>Ayarlar</guimenu
+> <guisubmenu
+>En-Boy Oranı</guisubmenu
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Bu menü, oynatılan filmin en-boy oranını seçmenizi sağlar. En-boy oranı, yüksekliğe kıyasla filmin genişliğidir.</action
+></para
+></listitem>
 </varlistentry>
 
 <varlistentry>
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guisubmenu>Aspect Ratio</guisubmenu>
-</menuchoice></term>
-<listitem><para><action>This menu lets you pick the aspect ratio of the playing movie. The aspect ratio is width of movie compared to the height.</action></para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term>
-<guisubmenu>Subtitles</guisubmenu> and <guisubmenu>Audio Channels</guisubmenu>
-</term>
-<listitem><para>
-These menu items from the <guimenu>Settings</guimenu> menu are active if there are any subtitles or additional audio channels (&eg; with different languages) available from the currently playing movie. Note that it may take a few seconds of playback before the subtitles or audio channels become available.
-</para></listitem>
+<term
+><guisubmenu
+>Altyazılar</guisubmenu
+> ve <guisubmenu
+>Ses Kanalları</guisubmenu
+> </term>
+<listitem
+><para
+><guimenu
+>Ayarlar</guimenu
+> menüsündeki bu ögeler, oynatmakta olduğunuz video dosyasının altyazısı ve/veya ek ses kanalları (farklı dillerde seslendirmeler) varsa etkinleşir. Ses kanallarının ve altyazıların kullanılabilir duruma gelmesi için videoyu birkaç saniye oynatmanız gerektiğini unutmayın. </para
+></listitem>
 </varlistentry>
 
 </variablelist>
@@ -170,27 +313,35 @@ These menu items from the <guimenu>Settings</guimenu> menu are active if there a
 
 <chapter id="credits">
 
-<title>Credits and License</title>
+<title
+>Emeği Geçenler ve Lisans</title>
 
-<para>
-&dragon;
-</para>
+<para
+>&dragon; </para>
 
-<para>Program copyright 2004 Max B. Howell <email>max.howell@methylblue.com</email></para>
-<para>Program copyright 2007 Ian A. Monroe <email>imonroe@kde.org</email></para>
+<para
+>Program telif hakkı 2004 Max B. Howell <email
+>max.howell@methylblue.com</email
+></para>
+<para
+>Program telif hakkı 2007 Ian A. Monroe <email
+>imonroe@kde.org</email
+></para>
 
-<para>
-Documentation copyright 2004 Mike Diehl <email>madpenguin8@yahoo.com</email>
-</para>
-<para>
-Documentation copyright 2007 Ian Monroe <email>imonroe@kde.org</email>
-</para>
+<para
+>Belgelendirme telif hakkı 2004 Mike Diehl <email
+>madpenguin8@yahoo.com</email
+> </para>
+<para
+>Belgelendirme telif hakkı 2007 Ian Monroe <email
+>imonroe@kde.org</email
+> </para>
 
-<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
-&underFDL;
-&underGPL;
-
-</chapter>
+<para
+>Serdar Soytetir<email
+>tulliana@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
 
 &documentation.index;
 </book>
