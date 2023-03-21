@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-16 00:49+0000\n"
-"PO-Revision-Date: 2009-11-15 12:06+0100\n"
-"Last-Translator: Axel Rousseau <axel@esperanto-jeunes.org>\n"
+"PO-Revision-Date: 2023-03-20 22:31+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -28,24 +28,21 @@ msgstr "axel@esperanto-jeunes.org"
 
 #. i18n: ectx: Menu (file)
 #: misc/dragonplayerui.rc:4
-#, fuzzy, kde-format
-#| msgid "&Play"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Play"
 msgstr "&Ludi"
 
 #. i18n: ectx: Menu (play_media_menu)
 #: misc/dragonplayerui.rc:5
-#, fuzzy, kde-format
-#| msgid "Play"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Play Media"
-msgstr "Ludi"
+msgstr ""
 
 #. i18n: ectx: Menu (settings)
 #: misc/dragonplayerui.rc:20
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Settings"
 msgstr "A&gordo"
@@ -57,23 +54,19 @@ msgid "Main Toolbar"
 msgstr "Ĉefa ilobreto"
 
 #: src/app/actions.cpp:24
-#, fuzzy, kde-format
-#| msgid "Play"
+#, kde-format
 msgctxt "@action"
 msgid "Play"
 msgstr "Ludi"
 
 #: src/app/actions.cpp:25
-#, fuzzy, kde-format
-#| msgid "Pause"
+#, kde-format
 msgctxt "@action"
 msgid "Pause"
 msgstr "Paŭzi"
 
 #: src/app/actions.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "Volume of sound output"
-#| msgid "Volume"
+#, kde-format
 msgctxt "@option:check Volume of sound output"
 msgid "Volume"
 msgstr "Laŭteco"
@@ -217,11 +210,10 @@ msgid "Aspect &Ratio"
 msgstr ""
 
 #: src/app/mainWindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "Audio CD"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Audio Channels"
-msgstr "Sona KD"
+msgstr ""
 
 #: src/app/mainWindow.cpp:141
 #, kde-format
@@ -236,8 +228,7 @@ msgid "Determine &Automatically"
 msgstr ""
 
 #: src/app/mainWindow.cpp:155
-#, fuzzy, kde-format
-#| msgid "&4:3"
+#, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "&4:3"
 msgstr "&4:3"
@@ -262,11 +253,10 @@ msgid ""
 msgstr ""
 
 #: src/app/mainWindow.cpp:300
-#, fuzzy, kde-format
-#| msgid "Play"
+#, kde-format
 msgctxt "@action"
 msgid "Play File…"
-msgstr "Ludi"
+msgstr ""
 
 #: src/app/mainWindow.cpp:301
 #, kde-format
@@ -275,18 +265,16 @@ msgid "Open a media file for playback"
 msgstr ""
 
 #: src/app/mainWindow.cpp:310
-#, fuzzy, kde-format
-#| msgid "Play"
+#, kde-format
 msgctxt "@action"
 msgid "Play Stream…"
-msgstr "Ludi"
+msgstr ""
 
 #: src/app/mainWindow.cpp:316
-#, fuzzy, kde-format
-#| msgid "Play"
+#, kde-format
 msgctxt "@action"
 msgid "Play Disc"
-msgstr "Ludi"
+msgstr ""
 
 #: src/app/mainWindow.cpp:340
 #, kde-format
@@ -301,8 +289,7 @@ msgid "Decrease Volume"
 msgstr "Malpliigi la laŭtecon"
 
 #: src/app/mainWindow.cpp:350
-#, fuzzy, kde-format
-#| msgid "Stop"
+#, kde-format
 msgctxt "@action"
 msgid "Stop"
 msgstr "Halti"
@@ -331,11 +318,10 @@ msgid "Position Slider"
 msgstr ""
 
 #: src/app/mainWindow.cpp:380
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgctxt "@option:check"
 msgid "Video Settings"
-msgstr "A&gordo"
+msgstr ""
 
 #: src/app/mainWindow.cpp:388
 #, kde-format
@@ -405,11 +391,10 @@ msgid "Stream to Play"
 msgstr ""
 
 #: src/app/mainWindow.cpp:684
-#, fuzzy, kde-format
-#| msgid "Play"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Stream:"
-msgstr "Ludi"
+msgstr ""
 
 #: src/app/mainWindow.cpp:814
 #, kde-format
@@ -461,48 +446,42 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, brightnessLabel)
 #: src/app/videoSettingsWidget.ui:19
-#, fuzzy, kde-format
-#| msgid "Brightness:"
+#, kde-format
 msgctxt "@label:slider"
 msgid "Brightness:"
 msgstr "Brileco:"
 
 #. i18n: ectx: property (text), widget (QLabel, contrastLabel)
 #: src/app/videoSettingsWidget.ui:42
-#, fuzzy, kde-format
-#| msgid "Contrast:"
+#, kde-format
 msgctxt "@label:slider"
 msgid "Contrast:"
 msgstr "Kontrasto:"
 
 #. i18n: ectx: property (text), widget (QLabel, hueLabel)
 #: src/app/videoSettingsWidget.ui:65
-#, fuzzy, kde-format
-#| msgid "Hue:"
+#, kde-format
 msgctxt "@label:slider"
 msgid "Hue:"
 msgstr "Nuanco:"
 
 #. i18n: ectx: property (text), widget (QLabel, saturationLabel)
 #: src/app/videoSettingsWidget.ui:88
-#, fuzzy, kde-format
-#| msgid "Saturation:"
+#, kde-format
 msgctxt "@label:slider"
 msgid "Saturation:"
 msgstr "Saturo:"
 
 #. i18n: ectx: property (text), widget (QPushButton, defaultsButton)
 #: src/app/videoSettingsWidget.ui:128
-#, fuzzy, kde-format
-#| msgid "Restore Defaults"
+#, kde-format
 msgctxt "@action:button"
 msgid "Restore Defaults"
 msgstr "Restarigi defaŭltojn"
 
 #. i18n: ectx: property (text), widget (QPushButton, closeButton)
 #: src/app/videoSettingsWidget.ui:135
-#, fuzzy, kde-format
-#| msgid "Close"
+#, kde-format
 msgctxt "@action:button"
 msgid "Close"
 msgstr "Fermi"
@@ -518,45 +497,3 @@ msgstr ""
 msgctxt "@option:radio audio language"
 msgid "&Auto"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Play"
-#~ msgctxt "@action:button"
-#~ msgid "Play File..."
-#~ msgstr "Ludi"
-
-#, fuzzy
-#~| msgid "Clear List"
-#~ msgctxt "@action"
-#~ msgid "Clear List"
-#~ msgstr "Forigi la liston"
-
-#, fuzzy
-#~| msgid "Remove Entry"
-#~ msgctxt "@action"
-#~ msgid "Remove Entry"
-#~ msgstr "Forigi eron"
-
-#, fuzzy
-#~| msgid "File not found"
-#~ msgctxt "@title:window"
-#~ msgid "File not found"
-#~ msgstr "La dosiero ne troviĝis"
-
-#~ msgid "David Edmundson"
-#~ msgstr "David Edmundson"
-
-#~ msgid "Matthias Kretz"
-#~ msgstr "Matthias Kretz"
-
-#~ msgid "Eugene Trounev"
-#~ msgstr "Eugene Trounev"
-
-#~ msgid "Mike Diehl"
-#~ msgstr "Mike Diehl"
-
-#~ msgid "Greenleaf"
-#~ msgstr "Greenleaf"
-
-#~ msgid "&Pause"
-#~ msgstr "&Paŭzi"
