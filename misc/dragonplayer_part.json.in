@@ -25,7 +25,8 @@
                 "Name[sl]": "Max Howell",
                 "Name[tr]": "Max Howell",
                 "Name[uk]": "Max Howell",
-                "Name[x-test]": "xxMax Howellxx"
+                "Name[x-test]": "xxMax Howellxx",
+                "Name[zh_CN]": "Max Howell"
             },
             {
                 "Email": "ian@monroe.nu",
@@ -51,7 +52,8 @@
                 "Name[sl]": "Ian Monroe",
                 "Name[tr]": "Ian Monroe",
                 "Name[uk]": "Ian Monroe",
-                "Name[x-test]": "xxIan Monroexx"
+                "Name[x-test]": "xxIan Monroexx",
+                "Name[zh_CN]": "Ian Monroe"
             }
         ],
         "Copyright": "Copyright 2006 Max Howell, 2007 Ian Monroe",
@@ -77,6 +79,7 @@
         "Copyright[tr]": "Telif hakkı 2006 Max Howell, 2007 Ian Monroe",
         "Copyright[uk]": "© Max Howell, 2006; © Ian Monroe, 2007",
         "Copyright[x-test]": "xxCopyright 2006 Max Howell, 2007 Ian Monroexx",
+        "Copyright[zh_CN]": "Copyright 2006 Max Howell, 2007 Ian Monroe",
         "Description": "Embeddable Video Player",
         "Description[ar]": "مشغّل فيديوهات قابل للتّضمين",
         "Description[ca@valencia]": "Reproductor de vídeo incrustable",
@@ -100,6 +103,7 @@
         "Description[tr]": "Gömülebilir Video Oynatıcı",
         "Description[uk]": "Придатний до вбудовування програвач відео",
         "Description[x-test]": "xxEmbeddable Video Playerxx",
+        "Description[zh_CN]": "可嵌入的视频播放器",
         "Icon": "dragonplayer",
         "Id": "dragonpart",
         "InitialPreference": 9,
@@ -144,6 +148,7 @@
         "Name[tr]": "Dragon Oynatıcı Kısmı",
         "Name[uk]": "Модуль програвача Dragon",
         "Name[x-test]": "xxDragon Player Partxx",
+        "Name[zh_CN]": "Dragon Player 部件",
         "ServiceTypes": [
             "KParts/ReadOnlyPart"
         ],
