@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-16 00:49+0000\n"
-"PO-Revision-Date: 2023-03-11 04:55\n"
+"PO-Revision-Date: 2023-03-26 02:20\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -36,9 +36,7 @@ msgstr "播放(&P)"
 
 #. i18n: ectx: Menu (play_media_menu)
 #: misc/dragonplayerui.rc:5
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Play Media"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Play Media"
 msgstr "播放媒体"
@@ -133,10 +131,9 @@ msgstr "选择一张要播放的盘片。"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/app/loadView.ui:61
-#, fuzzy, kde-format
-#| msgid "Dragon Player"
+#, kde-format
 msgid "Welcome to Dragon Player"
-msgstr "Dragon Player"
+msgstr "欢迎使用 Dragon Player 播放器"
 
 #: src/app/main.cpp:37
 #, kde-format
@@ -257,34 +254,28 @@ msgid ""
 msgstr "<qt>Phonon 初始化失败。Dragon Player 将立即退出。</qt>"
 
 #: src/app/mainWindow.cpp:300
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play File"
+#, kde-format
 msgctxt "@action"
 msgid "Play File…"
-msgstr "播放文件"
+msgstr "播放文件…"
 
 #: src/app/mainWindow.cpp:301
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open a media file for playback"
-msgstr ""
+msgstr "打开媒体文件进行播放"
 
 #: src/app/mainWindow.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Stream"
+#, kde-format
 msgctxt "@action"
 msgid "Play Stream…"
-msgstr "播放流"
+msgstr "播放流…"
 
 #: src/app/mainWindow.cpp:316
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Disc"
+#, kde-format
 msgctxt "@action"
 msgid "Play Disc"
-msgstr "播放盘片"
+msgstr "播放光盘"
 
 #: src/app/mainWindow.cpp:340
 #, kde-format
@@ -507,35 +498,3 @@ msgstr "&DVD 字幕选择"
 msgctxt "@option:radio audio language"
 msgid "&Auto"
 msgstr "自动(&A)"
-
-#~ msgctxt "@action"
-#~ msgid "Play &Media..."
-#~ msgstr "播放媒体(&M)..."
-
-#~ msgid "What media would you like to play?"
-#~ msgstr "您想要播放什么媒体？"
-
-#~ msgctxt "@action:button"
-#~ msgid "Play File..."
-#~ msgstr "播放文件..."
-
-#~ msgctxt "@action Copy the URL of the selected multimedia"
-#~ msgid "Copy URL"
-#~ msgstr "复制 URL"
-
-#~ msgctxt "@action"
-#~ msgid "Clear List"
-#~ msgstr "清除列表"
-
-#~ msgctxt "@action"
-#~ msgid "Remove Entry"
-#~ msgstr "删除条目"
-
-#~ msgid ""
-#~ "This file could not be found. Would you like to remove it from the "
-#~ "playlist?"
-#~ msgstr "未找到此文件。您想从播放列表中删除它吗？"
-
-#~ msgctxt "@title:window"
-#~ msgid "File not found"
-#~ msgstr "文件未找到"
