@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdemultimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-16 00:49+0000\n"
-"PO-Revision-Date: 2023-03-07 20:17+0300\n"
+"PO-Revision-Date: 2023-04-19 14:17+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.03.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -35,7 +35,7 @@ msgstr "tulliana@gmail.com, emir_sari@icloud.com"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Play"
-msgstr "&Oynat"
+msgstr "&Oynatım"
 
 #. i18n: ectx: Menu (play_media_menu)
 #: misc/dragonplayerui.rc:5
@@ -136,7 +136,7 @@ msgstr "Oynatmak için bir disk seçin."
 #: src/app/loadView.ui:61
 #, kde-format
 msgid "Welcome to Dragon Player"
-msgstr "Dragon Oynatıcı'ya Hoş Geldiniz"
+msgstr "Dragon'a Hoş Geldiniz"
 
 #: src/app/main.cpp:37
 #, kde-format
@@ -154,8 +154,8 @@ msgid ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe"
 msgstr ""
-"Copyright 2006, Max Howell\n"
-"Copyright 2007, Ian Monroe"
+"Telif hakkı 2006, Max Howell\n"
+"Telif hakkı 2007, Ian Monroe"
 
 #: src/app/main.cpp:45
 #, kde-format
@@ -165,7 +165,7 @@ msgstr "Geliştirmeler ve düzeltmeler"
 #: src/app/main.cpp:46
 #, kde-format
 msgid "Creator of Phonon"
-msgstr "Phonon yazarı"
+msgstr "Phonon'un yaratıcısı"
 
 #: src/app/main.cpp:47
 #, kde-format
@@ -415,7 +415,7 @@ msgstr "bir video oynatılıyor"
 #: src/app/mainWindow.cpp:894
 #, kde-format
 msgid "No media loaded"
-msgstr "Yüklenen ortam yok"
+msgstr "Yüklü ortam yok"
 
 #: src/app/mainWindow.cpp:896
 #, kde-format
