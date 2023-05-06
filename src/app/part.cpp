@@ -31,11 +31,18 @@ K_PLUGIN_FACTORY_WITH_JSON(CodeineFactory, "../../misc/dragonplayer_part.json", 
 namespace Dragon
 {
 Part::Part(QWidget *parentWidget, QObject *parent, const KPluginMetaData &metaData, const QVariantList & /*args*/)
+#if QT_VERSION_MAJOR < 6
     : ReadOnlyPart(parent)
+#else
+    : ReadOnlyPart(parent, metaData)
+#endif
+
     , m_statusBarExtension(new KParts::StatusBarExtension(this))
     , m_playPause(nullptr)
 {
+#if QT_VERSION_MAJOR < 6
     setMetaData(metaData);
+#endif
 
     KActionCollection *const ac = actionCollection();
 
