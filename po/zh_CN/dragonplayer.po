@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:49+0000\n"
+"POT-Creation-Date: 2023-05-08 00:45+0000\n"
 "PO-Revision-Date: 2023-04-29 08:33\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -313,7 +313,7 @@ msgctxt "@action"
 msgid "Menu Toggle"
 msgstr "菜单切换"
 
-#: src/app/mainWindow.cpp:376 src/app/part.cpp:55
+#: src/app/mainWindow.cpp:376 src/app/part.cpp:62
 #, kde-format
 msgid "Position Slider"
 msgstr "位置滑动器"
