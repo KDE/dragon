@@ -86,7 +86,7 @@ msgstr "المقياس المفضل"
 #, kde-format
 msgctxt "@action:button"
 msgid "Scale 100%"
-msgstr "الحجم ١٠٠٪"
+msgstr "الحجم 100٪"
 
 #: src/app/adjustSizeButton.cpp:49
 #, kde-format
@@ -196,7 +196,7 @@ msgstr "دعم MPRIS v2 "
 #: src/app/main.cpp:52
 #, kde-format
 msgid "Port to KF5/Plasma 5"
-msgstr "النقل إلى بلازما ٥"
+msgstr "النقل إلى بلازما 5"
 
 #: src/app/main.cpp:59
 #, kde-format
@@ -236,13 +236,13 @@ msgstr "حدد تل&قائيا"
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "&4:3"
-msgstr "&٤:٣"
+msgstr "&4:3"
 
 #: src/app/mainWindow.cpp:156
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Ana&morphic (16:9)"
-msgstr "م&شوّهة (١٦:٩)"
+msgstr "م&شوّهة (16:9)"
 
 #: src/app/mainWindow.cpp:157
 #, kde-format
@@ -352,25 +352,25 @@ msgstr "التالي"
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Return 10% Back"
-msgstr "أرجع ١٠٪ للخلف"
+msgstr "أرجع 10٪ للخلف"
 
 #: src/app/mainWindow.cpp:416
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Go 10% Forward"
-msgstr "تقدم ١٠٪ للأمام"
+msgstr "تقدم 10٪ للأمام"
 
 #: src/app/mainWindow.cpp:422
 #, kde-format
 msgctxt "@action"
 msgid "Return 10 Seconds Back"
-msgstr "ارجع ١٠ ثواني للخلف"
+msgstr "ارجع 10 ثواني للخلف"
 
 #: src/app/mainWindow.cpp:428
 #, kde-format
 msgctxt "@action"
 msgid "Go 10 Seconds Forward"
-msgstr "اذهب ١٠ ثواني للأمام"
+msgstr "اذهب 10 ثواني للأمام"
 
 #: src/app/mainWindow.cpp:508
 #, kde-format
