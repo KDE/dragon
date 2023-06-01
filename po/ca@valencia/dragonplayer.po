@@ -459,7 +459,7 @@ msgstr "Peça %1/%2"
 #, kde-format
 msgctxt "@label:slider"
 msgid "Brightness:"
-msgstr "Lluminositat:"
+msgstr "Brillantor:"
 
 #. i18n: ectx: property (text), widget (QLabel, contrastLabel)
 #: src/app/videoSettingsWidget.ui:42
