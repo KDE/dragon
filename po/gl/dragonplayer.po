@@ -7,7 +7,7 @@
 # Manuel A. Vazquez <xixirei@yahoo.es>, 2011.
 # Marce Villarino <mvillarino@kde-espana.es>, 2013.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015, 2017.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2023.
 #
 # Manuel A. Vazquez <xixireiATyahooDOTes>, 2011, 2012.
 msgid ""
@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-16 00:49+0000\n"
-"PO-Revision-Date: 2019-07-28 11:19+0200\n"
+"PO-Revision-Date: 2023-06-06 08:12+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.04.1\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -39,24 +39,21 @@ msgstr ""
 
 #. i18n: ectx: Menu (file)
 #: misc/dragonplayerui.rc:4
-#, fuzzy, kde-format
-#| msgid "&Play"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Play"
 msgstr "&Reproducir"
 
 #. i18n: ectx: Menu (play_media_menu)
 #: misc/dragonplayerui.rc:5
-#, fuzzy, kde-format
-#| msgid "Play Media"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Play Media"
 msgstr "Reproducir un recurso"
 
 #. i18n: ectx: Menu (settings)
 #: misc/dragonplayerui.rc:20
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Settings"
 msgstr "&Configuración"
@@ -68,37 +65,31 @@ msgid "Main Toolbar"
 msgstr "Barra de ferramentas principal"
 
 #: src/app/actions.cpp:24
-#, fuzzy, kde-format
-#| msgid "Play"
+#, kde-format
 msgctxt "@action"
 msgid "Play"
 msgstr "Reproducir"
 
 #: src/app/actions.cpp:25
-#, fuzzy, kde-format
-#| msgid "Pause"
+#, kde-format
 msgctxt "@action"
 msgid "Pause"
-msgstr "Pausa"
+msgstr "Pausar"
 
 #: src/app/actions.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "Volume of sound output"
-#| msgid "Volume"
+#, kde-format
 msgctxt "@option:check Volume of sound output"
 msgid "Volume"
 msgstr "Volume"
 
 #: src/app/adjustSizeButton.cpp:38
-#, fuzzy, kde-format
-#| msgid "Preferred Scale"
+#, kde-format
 msgctxt "@action:button"
 msgid "Preferred Scale"
 msgstr "Escala preferida"
 
 #: src/app/adjustSizeButton.cpp:42
-#, fuzzy, kde-format
-#| msgid "Scale 100%"
+#, kde-format
 msgctxt "@action:button"
 msgid "Scale 100%"
 msgstr "Escala 100%"
@@ -138,8 +129,7 @@ msgid "Data CD"
 msgstr "CD de datos"
 
 #: src/app/discSelectionDialog.cpp:73
-#, fuzzy, kde-format
-#| msgid "Select a Disc"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select a Disc"
 msgstr "Selección de disco"
@@ -151,10 +141,9 @@ msgstr "Escolle un disco para reproducilo."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/app/loadView.ui:61
-#, fuzzy, kde-format
-#| msgid "Dragon Player"
+#, kde-format
 msgid "Welcome to Dragon Player"
-msgstr "Dragon Player"
+msgstr "Benvida a Dragon Player"
 
 #: src/app/main.cpp:37
 #, kde-format
@@ -228,50 +217,43 @@ msgid "Play 'URL'"
 msgstr "Reproducir un URL"
 
 #: src/app/mainWindow.cpp:139
-#, fuzzy, kde-format
-#| msgid "Aspect &Ratio"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Aspect &Ratio"
 msgstr "&Proporcións"
 
 #: src/app/mainWindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "&Audio Channels"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Audio Channels"
 msgstr "Canles de &son"
 
 #: src/app/mainWindow.cpp:141
-#, fuzzy, kde-format
-#| msgid "&Subtitles"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Subtitles"
 msgstr "&Subtítulos"
 
 #: src/app/mainWindow.cpp:154
-#, fuzzy, kde-format
-#| msgid "Determine &Automatically"
+#, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Determine &Automatically"
 msgstr "Determinar &automaticamente"
 
 #: src/app/mainWindow.cpp:155
-#, fuzzy, kde-format
-#| msgid "&4:3"
+#, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "&4:3"
 msgstr "&4:3"
 
 #: src/app/mainWindow.cpp:156
-#, fuzzy, kde-format
-#| msgid "Ana&morphic (16:9)"
+#, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Ana&morphic (16:9)"
 msgstr "&Panorámico (16:9)"
 
 #: src/app/mainWindow.cpp:157
-#, fuzzy, kde-format
-#| msgid "&Window Size"
+#, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "&Window Size"
 msgstr "&Tamaño da xanela"
@@ -284,28 +266,25 @@ msgid ""
 msgstr "<qt>Phonon non puido inicializarse. Dragon Player vai saír.</qt>"
 
 #: src/app/mainWindow.cpp:300
-#, fuzzy, kde-format
-#| msgid "Play File"
+#, kde-format
 msgctxt "@action"
 msgid "Play File…"
-msgstr "Reproducir un ficheiro"
+msgstr "Reproducir un ficheiro…"
 
 #: src/app/mainWindow.cpp:301
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open a media file for playback"
-msgstr ""
+msgstr "Abrir un ficheiro multimedia para reproducilo."
 
 #: src/app/mainWindow.cpp:310
-#, fuzzy, kde-format
-#| msgid "Play Stream"
+#, kde-format
 msgctxt "@action"
 msgid "Play Stream…"
-msgstr "Reproducir unha transmisión"
+msgstr "Reproducir unha transmisión…"
 
 #: src/app/mainWindow.cpp:316
-#, fuzzy, kde-format
-#| msgid "Play Disc"
+#, kde-format
 msgctxt "@action"
 msgid "Play Disc"
 msgstr "Reproducir un disco"
@@ -323,30 +302,25 @@ msgid "Decrease Volume"
 msgstr "Baixar o volume"
 
 #: src/app/mainWindow.cpp:350
-#, fuzzy, kde-format
-#| msgid "Stop"
+#, kde-format
 msgctxt "@action"
 msgid "Stop"
 msgstr "Deter"
 
 #: src/app/mainWindow.cpp:356
-#, fuzzy, kde-format
-#| msgctxt "Mute the sound output"
-#| msgid "Mute"
+#, kde-format
 msgctxt "@action Mute the sound output"
 msgid "Mute"
-msgstr "Sen son"
+msgstr "Silenciar"
 
 #: src/app/mainWindow.cpp:362
-#, fuzzy, kde-format
-#| msgid "Reset Video Scale"
+#, kde-format
 msgctxt "@action"
 msgid "Reset Video Scale"
 msgstr "Reiniciar a escala da imaxe"
 
 #: src/app/mainWindow.cpp:368
-#, fuzzy, kde-format
-#| msgid "Menu Toggle"
+#, kde-format
 msgctxt "@action"
 msgid "Menu Toggle"
 msgstr "Conmutar o menú"
@@ -357,18 +331,13 @@ msgid "Position Slider"
 msgstr "Barra de posición"
 
 #: src/app/mainWindow.cpp:380
-#, fuzzy, kde-format
-#| msgid "Video Settings"
+#, kde-format
 msgctxt "@option:check"
 msgid "Video Settings"
-msgstr "Configuración do vídeo"
+msgstr "Configuración de vídeo"
 
 #: src/app/mainWindow.cpp:388
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:inmenu Whether only one instance of dragon can be started and "
-#| "will be reused when the user tries to play another file."
-#| msgid "One Instance Only"
+#, kde-format
 msgctxt ""
 "@option:check Whether only one instance of dragon can be started and will be "
 "reused when the user tries to play another file."
@@ -376,54 +345,46 @@ msgid "One Instance Only"
 msgstr "Só unha instancia"
 
 #: src/app/mainWindow.cpp:396
-#, fuzzy, kde-format
-#| msgid "Previous"
+#, kde-format
 msgctxt "@action previous chapter"
 msgid "Previous"
 msgstr "Anterior"
 
 #: src/app/mainWindow.cpp:402
-#, fuzzy, kde-format
-#| msgid "Next"
+#, kde-format
 msgctxt "@action next chapter"
 msgid "Next"
 msgstr "Seguinte"
 
 #: src/app/mainWindow.cpp:409
-#, fuzzy, no-c-format, kde-format
-#| msgid "Return 10% Back"
+#, no-c-format, kde-format
 msgctxt "@action"
 msgid "Return 10% Back"
 msgstr "Ir un 10% cara atrás"
 
 #: src/app/mainWindow.cpp:416
-#, fuzzy, no-c-format, kde-format
-#| msgid "Go 10% Forward"
+#, no-c-format, kde-format
 msgctxt "@action"
 msgid "Go 10% Forward"
 msgstr "Ir un 10% cara adiante"
 
 #: src/app/mainWindow.cpp:422
-#, fuzzy, kde-format
-#| msgid "Return 10 Seconds Back"
+#, kde-format
 msgctxt "@action"
 msgid "Return 10 Seconds Back"
 msgstr "Ir 10s cara atrás"
 
 #: src/app/mainWindow.cpp:428
-#, fuzzy, kde-format
-#| msgid "Go 10 Seconds Forward"
+#, kde-format
 msgctxt "@action"
 msgid "Go 10 Seconds Forward"
 msgstr "Ir 10s cara adiante"
 
 #: src/app/mainWindow.cpp:508
-#, fuzzy, kde-format
-#| msgctxt "Mute the sound output"
-#| msgid "Mute"
+#, kde-format
 msgctxt "@option:check Mute the sound output"
 msgid "Mute"
-msgstr "Sen son"
+msgstr "Silenciar"
 
 #: src/app/mainWindow.cpp:580
 #, kde-format
@@ -431,8 +392,7 @@ msgid "Dragon Player was asked to open an empty URL; it cannot."
 msgstr "Dragon Player pediu abrir un URL baleiro; non se pode."
 
 #: src/app/mainWindow.cpp:657
-#, fuzzy, kde-format
-#| msgid "Select File to Play"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select File to Play"
 msgstr "Escolle un ficheiro para reproducilo"
@@ -444,8 +404,7 @@ msgid "Stream to Play"
 msgstr "A transmisión que se vai reproducir"
 
 #: src/app/mainWindow.cpp:684
-#, fuzzy, kde-format
-#| msgid "Stream:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Stream:"
 msgstr "Transmisión:"
@@ -502,65 +461,57 @@ msgstr "Pista %1/%2"
 
 #. i18n: ectx: property (text), widget (QLabel, brightnessLabel)
 #: src/app/videoSettingsWidget.ui:19
-#, fuzzy, kde-format
-#| msgid "Brightness:"
+#, kde-format
 msgctxt "@label:slider"
 msgid "Brightness:"
 msgstr "Brillo:"
 
 #. i18n: ectx: property (text), widget (QLabel, contrastLabel)
 #: src/app/videoSettingsWidget.ui:42
-#, fuzzy, kde-format
-#| msgid "Contrast:"
+#, kde-format
 msgctxt "@label:slider"
 msgid "Contrast:"
 msgstr "Contraste:"
 
 #. i18n: ectx: property (text), widget (QLabel, hueLabel)
 #: src/app/videoSettingsWidget.ui:65
-#, fuzzy, kde-format
-#| msgid "Hue:"
+#, kde-format
 msgctxt "@label:slider"
 msgid "Hue:"
 msgstr "Ton:"
 
 #. i18n: ectx: property (text), widget (QLabel, saturationLabel)
 #: src/app/videoSettingsWidget.ui:88
-#, fuzzy, kde-format
-#| msgid "Saturation:"
+#, kde-format
 msgctxt "@label:slider"
 msgid "Saturation:"
 msgstr "Saturación:"
 
 #. i18n: ectx: property (text), widget (QPushButton, defaultsButton)
 #: src/app/videoSettingsWidget.ui:128
-#, fuzzy, kde-format
-#| msgid "Restore Defaults"
+#, kde-format
 msgctxt "@action:button"
 msgid "Restore Defaults"
 msgstr "Restaurar os valores predeterminados"
 
 #. i18n: ectx: property (text), widget (QPushButton, closeButton)
 #: src/app/videoSettingsWidget.ui:135
-#, fuzzy, kde-format
-#| msgid "Close"
+#, kde-format
 msgctxt "@action:button"
 msgid "Close"
 msgstr "Pechar"
 
 #: src/app/videoWindow.cpp:107
-#, fuzzy, kde-format
-#| msgid "&DVD Subtitle Selection"
+#, kde-format
 msgctxt "@option:radio"
 msgid "&DVD Subtitle Selection"
 msgstr "Selección de subtítulos do &DVD"
 
 #: src/app/videoWindow.cpp:117
-#, fuzzy, kde-format
-#| msgid "&Auto"
+#, kde-format
 msgctxt "@option:radio audio language"
 msgid "&Auto"
-msgstr "&Automática"
+msgstr "&Automático"
 
 #, fuzzy
 #~| msgid "Play &Media..."
