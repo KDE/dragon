@@ -14,6 +14,7 @@
   <name xml:lang="de">Dragon Player</name>
   <name xml:lang="el">Dragon Player</name>
   <name xml:lang="en-GB">Dragon Player</name>
+  <name xml:lang="eo">Dragon Player</name>
   <name xml:lang="es">Dragon Player</name>
   <name xml:lang="et">Dragoni mängija</name>
   <name xml:lang="eu">Dragon Player</name>
@@ -57,6 +58,7 @@
   <summary xml:lang="de">Videospieler mit dem Fokus auf einfacher Bedienung</summary>
   <summary xml:lang="el">Πρόγραμμα αναπαραγωγής βίντεο με βάση την απλότητα</summary>
   <summary xml:lang="en-GB">Video player with focus on simplicity</summary>
+  <summary xml:lang="eo">Videoludilo fokusita al simpleco</summary>
   <summary xml:lang="es">Reproductor de vídeo centrado en la sencillez</summary>
   <summary xml:lang="et">Lihtsusele panustav videomängija</summary>
   <summary xml:lang="eu">Erraztasuna helburu duen bideo-jotzailea</summary>
@@ -142,6 +144,7 @@
     <p xml:lang="de">Funktionen:</p>
     <p xml:lang="el">Χαρακτηριστικά:</p>
     <p xml:lang="en-GB">Features:</p>
+    <p xml:lang="eo">Trajtoj:</p>
     <p xml:lang="es">Características:</p>
     <p xml:lang="et">Omadused:</p>
     <p xml:lang="eu">Ezaugarriak:</p>
@@ -187,6 +190,7 @@
       <li xml:lang="de">Einfache Benutzerschnittstelle</li>
       <li xml:lang="el">Απλή διεπαφή</li>
       <li xml:lang="en-GB">Simple Interface</li>
+      <li xml:lang="eo">Simpla Interfaco</li>
       <li xml:lang="es">Interfaz sencilla</li>
       <li xml:lang="et">Lihtne liides</li>
       <li xml:lang="eu">Interfaze erraza</li>
@@ -316,6 +320,7 @@
       <li xml:lang="de">Einstellungen für die Videoanzeige (Helligkeit/Kontrast)</li>
       <li xml:lang="el">Ρυθμίσεις οθόνης βίντεο (λαμπρότητα, αντίθεση)</li>
       <li xml:lang="en-GB">Video display settings (brightness, contrast)</li>
+      <li xml:lang="eo">Videobildaj agordoj (heleco, kontrasto)</li>
       <li xml:lang="es">Preferencias de visualización de vídeos (brillo, contraste)</li>
       <li xml:lang="et">Video taasesituse juhtelemendid (heledus, kontrast)</li>
       <li xml:lang="eu">Bideoa azaltzeko ezarpenak (distira, kontrastea)</li>
@@ -401,6 +406,7 @@
       <li xml:lang="de">Unterstützt die Wiedergabe von CDs und DVDs</li>
       <li xml:lang="el">Υποστηρίζει την αναπαραγωγή CD και DVD</li>
       <li xml:lang="en-GB">Supports playing CDs and DVDs</li>
+      <li xml:lang="eo">Subtenas ludadon de KD-oj and DVD-oj</li>
       <li xml:lang="es">Permite la reproducción de CD y DVD</li>
       <li xml:lang="et">CD-de ja DVD-de esitamise toetus</li>
       <li xml:lang="eu">CDak eta DVDak jotzeko gaitasuna du</li>
