@@ -3,7 +3,11 @@ configure_file(dragonplayer_part.json.in ${CMAKE_CURRENT_BINARY_DIR}/dragonplaye
 install(PROGRAMS org.kde.dragonplayer.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES dragonplayer-opendvd.desktop dragonplayer-openaudiocd.desktop DESTINATION ${KDE_INSTALL_DATADIR}/solid/actions )
 install(FILES dragonplayerrc DESTINATION ${KDE_INSTALL_CONFDIR})
-install(FILES dragonplayer_play_dvd.desktop DESTINATION ${KDE_INSTALL_KSERVICESDIR}/ServiceMenus)
+if (QT_MAJOR_VERSION STREQUAL "6")
+	install(FILES dragonplayer_play_dvd.desktop DESTINATION ${KDE_INSTALL_DATADIR}/kio/servicemenus)
+else()
+	install(FILES dragonplayer_play_dvd.desktop DESTINATION ${KDE_INSTALL_KSERVICESDIR}/ServiceMenus)
+endif()
 install(FILES org.kde.dragonplayer.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR} )
 
 ecm_install_icons(
