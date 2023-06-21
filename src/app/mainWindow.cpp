@@ -956,3 +956,5 @@ void MainWindow::contextMenuEvent(QContextMenuEvent *event)
     menu.exec(event->globalPos());
 }
 } // namespace Dragon
+
+#include "moc_mainWindow.cpp"

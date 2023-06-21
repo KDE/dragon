@@ -129,3 +129,5 @@ bool AdjustSizeButton::eventFilter(QObject * /*o*/, QEvent *e)
     return false;
 }
 }
+
+#include "moc_adjustSizeButton.cpp"

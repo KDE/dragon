@@ -112,3 +112,5 @@ void DiscSelectionDialog::openItem(QListWidgetItem *item)
         Dragon::engine()->playDisc(solidItem->device());
     }
 }
+
+#include "moc_discSelectionDialog.cpp"

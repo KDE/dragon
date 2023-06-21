@@ -85,3 +85,5 @@ void Dragon::FullScreenToolBarHandler::timerEvent(QTimerEvent *e)
     static_cast<Dragon::MainWindow *>(Dragon::mainWindow())->showVolume(false);
     m_parent->toolBar()->hide();
 }
+
+#include "moc_fullScreenToolBarHandler.cpp"

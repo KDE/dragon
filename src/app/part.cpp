@@ -112,3 +112,5 @@ QWidget *mainWindow()
 }
 
 #include "part.moc"
+
+#include "moc_part.cpp"

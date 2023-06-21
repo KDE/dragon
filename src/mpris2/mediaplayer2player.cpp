@@ -263,3 +263,5 @@ void MediaPlayer2Player::volumeChanged() const
     const QVariantMap properties{{QStringLiteral("Volume"), Volume()}};
     Mpris2::signalPropertiesChange(this, properties);
 }
+
+#include "moc_mediaplayer2player.cpp"

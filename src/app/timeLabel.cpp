@@ -72,3 +72,5 @@ void TimeLabel::setTotalTime(qint64 time)
     m_totalTime = time;
     updateTime();
 }
+
+#include "moc_timeLabel.cpp"

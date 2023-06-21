@@ -39,3 +39,5 @@ void LoadView::setToolbarActions(const QList<QAction *> &actions)
 }
 
 } // namespace Dragon
+
+#include "moc_loadView.cpp"

@@ -202,3 +202,5 @@ void Analyzer::initSin(QVector<float> &v, const uint size) // static
         radian += step;
     }
 }
+
+#include "moc_analyzerBase.cpp"

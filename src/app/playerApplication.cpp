@@ -70,3 +70,5 @@ void PlayerApplication::newInstance(bool playDisc, const QList<QUrl> &uris)
 }
 
 } // namespace Dragon
+
+#include "moc_playerApplication.cpp"

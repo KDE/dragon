@@ -84,3 +84,5 @@ void AudioView2::changeEvent(QEvent *e)
 }
 
 } // namespace Dragon
+
+#include "moc_audioView2.cpp"

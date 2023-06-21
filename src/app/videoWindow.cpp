@@ -769,3 +769,5 @@ void VideoWindow::eject()
 }
 
 } // namespace Dragon
+
+#include "moc_videoWindow.cpp"
