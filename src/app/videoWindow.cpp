@@ -29,13 +29,13 @@
 #include <KLocalizedString>
 #include <KSharedConfig>
 
-#include <Phonon/AudioOutput>
-#include <Phonon/MediaController>
-#include <Phonon/MediaObject>
-#include <Phonon/SeekSlider>
-#include <Phonon/VideoWidget>
-#include <Phonon/VolumeFaderEffect>
-#include <Phonon/VolumeSlider>
+#include <phonon/AudioOutput>
+#include <phonon/MediaController>
+#include <phonon/MediaObject>
+#include <phonon/SeekSlider>
+#include <phonon/VideoWidget>
+#include <phonon/VolumeFaderEffect>
+#include <phonon/VolumeSlider>
 #include <phonon/audiodataoutput.h>
 
 #include <Solid/Block>

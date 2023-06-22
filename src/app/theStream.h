@@ -9,10 +9,10 @@
 #define DRAGONPLAYER_THESTREAM_H
 
 #include <KConfigGroup>
-#include <Phonon/Global>
 #include <QSize> // small header
 #include <QString> // small header
 #include <QUrl> // larger :( but no macros at least
+#include <phonon/Global>
 
 /// for purely static classes
 #define DRAGONPLAYER_NO_EXPORT(T)                                                                                                                              \

@@ -13,11 +13,11 @@
 #include "timeLabel.h"
 
 #include <KXmlGuiWindow>
-#include <Phonon/MediaSource>
 #include <QCheckBox>
 #include <QList>
 #include <QPointer>
 #include <QStackedWidget>
+#include <phonon/MediaSource>
 
 class KNotificationRestrictions;
 class KToggleAction;

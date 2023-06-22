@@ -14,8 +14,8 @@
 
 #include <KParts/ReadOnlyPart>
 #include <KParts/StatusBarExtension>
-#include <Phonon/MediaSource>
 #include <QUrl>
+#include <phonon/MediaSource>
 
 namespace Dragon
 {

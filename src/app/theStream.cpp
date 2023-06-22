@@ -10,10 +10,10 @@
 #include <QDebug>
 #include <QHash>
 
-#include <Phonon/MediaController>
-#include <Phonon/MediaObject>
-#include <Phonon/MediaSource>
-#include <Phonon/VideoWidget>
+#include <phonon/MediaController>
+#include <phonon/MediaObject>
+#include <phonon/MediaSource>
+#include <phonon/VideoWidget>
 
 #include <KLocalizedString>
 #include <KSharedConfig>

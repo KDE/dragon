@@ -10,7 +10,7 @@
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
 
-#include <Phonon/MediaSource>
+#include <phonon/MediaSource>
 
 class MediaPlayer2Player : public QDBusAbstractAdaptor
 {

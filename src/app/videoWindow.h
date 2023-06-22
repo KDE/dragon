@@ -14,10 +14,10 @@
 #include <QUrl>
 #include <QWidget>
 
-#include <Phonon/Global>
-#include <Phonon/MediaSource>
-#include <Phonon/ObjectDescription>
-#include <Phonon/Path>
+#include <phonon/Global>
+#include <phonon/MediaSource>
+#include <phonon/ObjectDescription>
+#include <phonon/Path>
 
 #include <Solid/Device>
 

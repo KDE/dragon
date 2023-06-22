@@ -46,8 +46,8 @@
 #include <KToolBar>
 #include <KXMLGUIFactory>
 
-#include <Phonon/BackendCapabilities>
-#include <Phonon/VideoWidget>
+#include <phonon/BackendCapabilities>
+#include <phonon/VideoWidget>
 
 #include <Solid/Device>
 #include <Solid/OpticalDisc>
