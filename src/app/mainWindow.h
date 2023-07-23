@@ -19,7 +19,8 @@
 #include <QStackedWidget>
 #include <phonon/MediaSource>
 
-class KNotificationRestrictions;
+#include <optional>
+
 class KToggleAction;
 class QUrl;
 class QActionGroup;
@@ -122,8 +123,7 @@ private:
 
     KToggleAction *m_menuToggleAction;
 
-    KNotificationRestrictions *m_stopScreenSaver;
-    int m_screensaverDisableCookie;
+    std::optional<int> m_screensaverDisableCookie;
     int m_stopSleepCookie;
     int m_stopScreenPowerMgmtCookie;
     int m_profileMaxDays;

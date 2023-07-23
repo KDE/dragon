@@ -49,7 +49,6 @@ target_link_libraries(dragon
     KF${KF_MAJOR_VERSION}::DBusAddons
     KF${KF_MAJOR_VERSION}::JobWidgets
     KF${KF_MAJOR_VERSION}::WindowSystem
-    KF${KF_MAJOR_VERSION}::Notifications
     ${PHONON_LIBRARY}
     )
 
@@ -75,7 +74,6 @@ target_link_libraries(dragonpart
     KF${KF_MAJOR_VERSION}::XmlGui
     KF${KF_MAJOR_VERSION}::JobWidgets
     KF${KF_MAJOR_VERSION}::WindowSystem
-    KF${KF_MAJOR_VERSION}::Notifications
     ${PHONON_LIBRARY}
     Qt::Core
     Qt::Widgets

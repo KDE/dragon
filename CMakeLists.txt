@@ -54,7 +54,6 @@ find_package(KF${KF_MAJOR_VERSION} ${KF5_MIN_VERSION} REQUIRED
     WidgetsAddons
     WindowSystem
     XmlGui
-    Notifications
 )
 find_package(Phonon4Qt${QT_MAJOR_VERSION} 4.6.60 REQUIRED NO_MODULE)
 

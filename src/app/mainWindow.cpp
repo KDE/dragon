@@ -38,7 +38,6 @@
 #include <KIO/UDSEntry>
 #include <KJobWidgets>
 #include <KLocalizedString>
-#include <KNotificationRestrictions>
 #include <KProtocolInfo>
 #include <KSharedConfig>
 #include <KSqueezedTextLabel>
@@ -85,7 +84,6 @@ MainWindow::MainWindow()
     , m_timeLabel(nullptr)
     , m_titleLabel(new QLabel(this))
     , m_menuToggleAction(nullptr)
-    , m_stopScreenSaver(nullptr)
     , m_stopSleepCookie(-1)
     , m_stopScreenPowerMgmtCookie(-1)
     , m_profileMaxDays(30)
@@ -863,8 +861,19 @@ void MainWindow::inhibitPowerSave()
     }
     // TODO: inhibit screen sleep. No viable API found.
     // https://git.reviewboard.kde.org/r/129651
-    if (!m_stopScreenSaver && TheStream::hasVideo())
-        m_stopScreenSaver = new KNotificationRestrictions(KNotificationRestrictions::ScreenSaver, i18nc("Notification inhibition reason", "playing a video"));
+    if (TheStream::hasVideo()) {
+        QDBusMessage message = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.ScreenSaver"),
+                                                              QStringLiteral("/ScreenSaver"),
+                                                              QStringLiteral("org.freedesktop.ScreenSaver"),
+                                                              QStringLiteral("Inhibit"));
+        message << QGuiApplication::desktopFileName();
+        message << i18nc("Notification inhibition reason", "Playing a video");
+        QDBusReply<uint> reply = QDBusConnection::sessionBus().call(message);
+        if (reply.isValid()) {
+            m_screensaverDisableCookie = reply.value();
+            return;
+        }
+    }
 }
 
 void MainWindow::releasePowerSave()
@@ -876,8 +885,17 @@ void MainWindow::releasePowerSave()
     }
 
     // stop disabling screensaver
-    delete m_stopScreenSaver; // It is always 0, I have been careful.
-    m_stopScreenSaver = nullptr;
+    if (m_screensaverDisableCookie.has_value()) {
+        QDBusMessage message = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.ScreenSaver"),
+                                                              QStringLiteral("/ScreenSaver"),
+                                                              QStringLiteral("org.freedesktop.ScreenSaver"),
+                                                              QStringLiteral("UnInhibit"));
+        message << static_cast<uint>(m_screensaverDisableCookie.value());
+        m_screensaverDisableCookie = {};
+        if (QDBusConnection::sessionBus().send(message)) {
+            return;
+        }
+    }
 }
 
 QMenu *MainWindow::menu(const char *name)
