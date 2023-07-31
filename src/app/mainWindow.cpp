@@ -45,6 +45,7 @@
 #include <KToggleFullScreenAction>
 #include <KToolBar>
 #include <KXMLGUIFactory>
+#include <kio_version.h>
 
 #include <phonon/BackendCapabilities>
 #include <phonon/VideoWidget>
@@ -600,7 +601,11 @@ bool MainWindow::load(const QUrl &url)
     // check if an UDS_LOCAL_PATH is defined.
     if (!ret && KProtocolInfo::protocolClass(url.scheme()) == QLatin1String(":local")) {
         // #define UDS_LOCAL_PATH (7 | KIO::UDS_STRING)
+#if KIO_VERSION >= QT_VERSION_CHECK(5, 240, 0)
+        KIO::StatJob *job = KIO::stat(url, KIO::StatJob::SourceSide, KIO::StatBasic);
+#else
         KIO::StatJob *job = KIO::statDetails(url, KIO::StatJob::SourceSide, KIO::StatBasic);
+#endif
         KJobWidgets::setWindow(job, this);
         if (job->exec()) {
             KIO::UDSEntry e = job->statResult();
