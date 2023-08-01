@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playground-multimedia/videoplayer.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-08 00:45+0000\n"
+"POT-Creation-Date: 2023-08-01 00:45+0000\n"
 "PO-Revision-Date: 2007-08-01 07:33-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -218,56 +218,56 @@ msgstr "Seinn Fís DVD"
 msgid "Play 'URL'"
 msgstr "Seinn 'URL'"
 
-#: src/app/mainWindow.cpp:139
+#: src/app/mainWindow.cpp:140
 #, fuzzy, kde-format
 #| msgid "Aspect &Ratio"
 msgctxt "@title:menu"
 msgid "Aspect &Ratio"
 msgstr "Cóimheas T&reoíochta"
 
-#: src/app/mainWindow.cpp:140
+#: src/app/mainWindow.cpp:141
 #, fuzzy, kde-format
 #| msgid "&Audio Channels"
 msgctxt "@title:menu"
 msgid "&Audio Channels"
 msgstr "C&ainéil Fhuaime"
 
-#: src/app/mainWindow.cpp:141
+#: src/app/mainWindow.cpp:142
 #, fuzzy, kde-format
 #| msgid "&Subtitles"
 msgctxt "@title:menu"
 msgid "&Subtitles"
 msgstr "&Fotheidil"
 
-#: src/app/mainWindow.cpp:154
+#: src/app/mainWindow.cpp:155
 #, fuzzy, kde-format
 #| msgid "Determine &Automatically"
 msgctxt "@option:radio aspect ratio"
 msgid "Determine &Automatically"
 msgstr "Socraigh go h&Uathoibríoch"
 
-#: src/app/mainWindow.cpp:155
+#: src/app/mainWindow.cpp:156
 #, fuzzy, kde-format
 #| msgid "&4:3"
 msgctxt "@option:radio aspect ratio"
 msgid "&4:3"
 msgstr "&4:3"
 
-#: src/app/mainWindow.cpp:156
+#: src/app/mainWindow.cpp:157
 #, fuzzy, kde-format
 #| msgid "Ana&morphic (16:9)"
 msgctxt "@option:radio aspect ratio"
 msgid "Ana&morphic (16:9)"
 msgstr "Ana&morfach (16:9)"
 
-#: src/app/mainWindow.cpp:157
+#: src/app/mainWindow.cpp:158
 #, fuzzy, kde-format
 #| msgid "&Window Size"
 msgctxt "@option:radio aspect ratio"
 msgid "&Window Size"
 msgstr "&Méid na Fuinneoige"
 
-#: src/app/mainWindow.cpp:238
+#: src/app/mainWindow.cpp:239
 #, kde-format
 msgid ""
 "<qt>Phonon could not be successfully initialized. Dragon Player will now "
@@ -276,53 +276,53 @@ msgstr ""
 "<qt>Níorbh fhéidir Phonon a thúsú. Cuirfear deireadh le Dragon Player anois."
 "</qt>"
 
-#: src/app/mainWindow.cpp:300
+#: src/app/mainWindow.cpp:301
 #, fuzzy, kde-format
 #| msgid "Play File"
 msgctxt "@action"
 msgid "Play File…"
 msgstr "Seinn Comhad"
 
-#: src/app/mainWindow.cpp:301
+#: src/app/mainWindow.cpp:302
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open a media file for playback"
 msgstr ""
 
-#: src/app/mainWindow.cpp:310
+#: src/app/mainWindow.cpp:311
 #, fuzzy, kde-format
 #| msgid "Play Media"
 msgctxt "@action"
 msgid "Play Stream…"
 msgstr "Seinn Meáin"
 
-#: src/app/mainWindow.cpp:316
+#: src/app/mainWindow.cpp:317
 #, fuzzy, kde-format
 #| msgid "Play Disc"
 msgctxt "@action"
 msgid "Play Disc"
 msgstr "Seinn Diosca"
 
-#: src/app/mainWindow.cpp:340
+#: src/app/mainWindow.cpp:341
 #, kde-format
 msgctxt "@action"
 msgid "Increase Volume"
 msgstr "Méadaigh an Airde"
 
-#: src/app/mainWindow.cpp:345
+#: src/app/mainWindow.cpp:346
 #, kde-format
 msgctxt "@action"
 msgid "Decrease Volume"
 msgstr "Laghdaigh an Airde"
 
-#: src/app/mainWindow.cpp:350
+#: src/app/mainWindow.cpp:351
 #, fuzzy, kde-format
 #| msgid "Stop"
 msgctxt "@action"
 msgid "Stop"
 msgstr "Stad"
 
-#: src/app/mainWindow.cpp:356
+#: src/app/mainWindow.cpp:357
 #, fuzzy, kde-format
 #| msgctxt "Mute the sound output"
 #| msgid "Mute"
@@ -330,33 +330,33 @@ msgctxt "@action Mute the sound output"
 msgid "Mute"
 msgstr "Gan fuaim"
 
-#: src/app/mainWindow.cpp:362
+#: src/app/mainWindow.cpp:363
 #, fuzzy, kde-format
 #| msgid "Reset Video Scale"
 msgctxt "@action"
 msgid "Reset Video Scale"
 msgstr "Athshocraigh Scála na Físe"
 
-#: src/app/mainWindow.cpp:368
+#: src/app/mainWindow.cpp:369
 #, fuzzy, kde-format
 #| msgid "Menu Toggle"
 msgctxt "@action"
 msgid "Menu Toggle"
 msgstr "Scoránú an Roghchláir"
 
-#: src/app/mainWindow.cpp:376 src/app/part.cpp:62
+#: src/app/mainWindow.cpp:377 src/app/part.cpp:62
 #, kde-format
 msgid "Position Slider"
 msgstr "Barra Sleamhnáin"
 
-#: src/app/mainWindow.cpp:380
+#: src/app/mainWindow.cpp:381
 #, fuzzy, kde-format
 #| msgid "Video Settings"
 msgctxt "@option:check"
 msgid "Video Settings"
 msgstr "Socruithe Físe"
 
-#: src/app/mainWindow.cpp:388
+#: src/app/mainWindow.cpp:389
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:inmenu Whether only one instance of dragon can be started and "
@@ -368,48 +368,48 @@ msgctxt ""
 msgid "One Instance Only"
 msgstr "Ásc Amháin"
 
-#: src/app/mainWindow.cpp:396
+#: src/app/mainWindow.cpp:397
 #, fuzzy, kde-format
 #| msgid "Previous Chapter"
 msgctxt "@action previous chapter"
 msgid "Previous"
 msgstr "An Chaibidil Roimhe Seo"
 
-#: src/app/mainWindow.cpp:402
+#: src/app/mainWindow.cpp:403
 #, kde-format
 msgctxt "@action next chapter"
 msgid "Next"
 msgstr ""
 
-#: src/app/mainWindow.cpp:409
+#: src/app/mainWindow.cpp:410
 #, fuzzy, no-c-format, kde-format
 #| msgid "Return 10% Back"
 msgctxt "@action"
 msgid "Return 10% Back"
 msgstr "Téigh 10% ar gcúl"
 
-#: src/app/mainWindow.cpp:416
+#: src/app/mainWindow.cpp:417
 #, fuzzy, no-c-format, kde-format
 #| msgid "Go 10% Forward"
 msgctxt "@action"
 msgid "Go 10% Forward"
 msgstr "Téigh 10% ar aghaidh"
 
-#: src/app/mainWindow.cpp:422
+#: src/app/mainWindow.cpp:423
 #, fuzzy, kde-format
 #| msgid "Return 10 Seconds Back"
 msgctxt "@action"
 msgid "Return 10 Seconds Back"
 msgstr "Téigh 10 soicind ar gcúl"
 
-#: src/app/mainWindow.cpp:428
+#: src/app/mainWindow.cpp:429
 #, fuzzy, kde-format
 #| msgid "Go 10 Seconds Forward"
 msgctxt "@action"
 msgid "Go 10 Seconds Forward"
 msgstr "Téigh 10 soicind ar aghaidh"
 
-#: src/app/mainWindow.cpp:508
+#: src/app/mainWindow.cpp:509
 #, fuzzy, kde-format
 #| msgctxt "Mute the sound output"
 #| msgid "Mute"
@@ -417,50 +417,50 @@ msgctxt "@option:check Mute the sound output"
 msgid "Mute"
 msgstr "Gan fuaim"
 
-#: src/app/mainWindow.cpp:580
+#: src/app/mainWindow.cpp:581
 #, kde-format
 msgid "Dragon Player was asked to open an empty URL; it cannot."
 msgstr "Fiafraíodh de Dragon Player URL folamh a oscailt; ní féidir é seo."
 
-#: src/app/mainWindow.cpp:657
+#: src/app/mainWindow.cpp:662
 #, fuzzy, kde-format
 #| msgid "Select File to Play"
 msgctxt "@title:window"
 msgid "Select File to Play"
 msgstr "Roghnaigh Comhad le Seinm"
 
-#: src/app/mainWindow.cpp:684
+#: src/app/mainWindow.cpp:689
 #, fuzzy, kde-format
 #| msgid "Select File to Play"
 msgctxt "@title:window"
 msgid "Stream to Play"
 msgstr "Roghnaigh Comhad le Seinm"
 
-#: src/app/mainWindow.cpp:684
+#: src/app/mainWindow.cpp:689
 #, fuzzy, kde-format
 #| msgid "Play Media"
 msgctxt "@label:textbox"
 msgid "Stream:"
 msgstr "Seinn Meáin"
 
-#: src/app/mainWindow.cpp:814
+#: src/app/mainWindow.cpp:819
 #, kde-format
 msgid "Sorry, no media was found in the drop"
 msgstr "Brón orm, níor aimsíodh aon mheáin sa titim"
 
-#: src/app/mainWindow.cpp:862
+#: src/app/mainWindow.cpp:867
 #, fuzzy, kde-format
 #| msgid "Play DVD Video"
 msgctxt "Notification inhibition reason"
 msgid "playing a video"
 msgstr "Seinn Fís DVD"
 
-#: src/app/mainWindow.cpp:894
+#: src/app/mainWindow.cpp:899
 #, kde-format
 msgid "No media loaded"
 msgstr "Níor luchtaíodh aon mheáin"
 
-#: src/app/mainWindow.cpp:896
+#: src/app/mainWindow.cpp:901
 #, kde-format
 msgid "Paused"
 msgstr "Moillithe"
