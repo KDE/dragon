@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-01 00:45+0000\n"
+"POT-Creation-Date: 2023-08-19 00:44+0000\n"
 "PO-Revision-Date: 2022-12-02 00:03+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -207,49 +207,49 @@ msgstr "Изпълнение на видео DVD"
 msgid "Play 'URL'"
 msgstr "Изпълнение на URL-адрес"
 
-#: src/app/mainWindow.cpp:140
+#: src/app/mainWindow.cpp:138
 #, kde-format
 msgctxt "@title:menu"
 msgid "Aspect &Ratio"
 msgstr "&Съотношение"
 
-#: src/app/mainWindow.cpp:141
+#: src/app/mainWindow.cpp:139
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Audio Channels"
 msgstr "&Звукови канали"
 
-#: src/app/mainWindow.cpp:142
+#: src/app/mainWindow.cpp:140
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Subtitles"
 msgstr "&Надписи"
 
-#: src/app/mainWindow.cpp:155
+#: src/app/mainWindow.cpp:153
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Determine &Automatically"
 msgstr "&Автоматично определяне"
 
-#: src/app/mainWindow.cpp:156
+#: src/app/mainWindow.cpp:154
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "&4:3"
 msgstr "&4:3"
 
-#: src/app/mainWindow.cpp:157
+#: src/app/mainWindow.cpp:155
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Ana&morphic (16:9)"
 msgstr "Ана&морфично (16:9)"
 
-#: src/app/mainWindow.cpp:158
+#: src/app/mainWindow.cpp:156
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "&Window Size"
 msgstr "Размер на &прозореца"
 
-#: src/app/mainWindow.cpp:239
+#: src/app/mainWindow.cpp:237
 #, kde-format
 msgid ""
 "<qt>Phonon could not be successfully initialized. Dragon Player will now "
@@ -258,78 +258,78 @@ msgstr ""
 "<qt>Phonon не беше успешно зареден. Програмата Dragon Player ще приключи.</"
 "qt>"
 
-#: src/app/mainWindow.cpp:301
+#: src/app/mainWindow.cpp:299
 #, kde-format
 msgctxt "@action"
 msgid "Play File…"
 msgstr "Изпълнение на файл…"
 
-#: src/app/mainWindow.cpp:302
+#: src/app/mainWindow.cpp:300
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open a media file for playback"
 msgstr "Отваряне на медиен файл за възпроизвеждане"
 
-#: src/app/mainWindow.cpp:311
+#: src/app/mainWindow.cpp:309
 #, kde-format
 msgctxt "@action"
 msgid "Play Stream…"
 msgstr "Изпълнение на поток…"
 
-#: src/app/mainWindow.cpp:317
+#: src/app/mainWindow.cpp:315
 #, kde-format
 msgctxt "@action"
 msgid "Play Disc"
 msgstr "Изпълнение на диск"
 
-#: src/app/mainWindow.cpp:341
+#: src/app/mainWindow.cpp:339
 #, kde-format
 msgctxt "@action"
 msgid "Increase Volume"
 msgstr "Увеличаване на звука"
 
-#: src/app/mainWindow.cpp:346
+#: src/app/mainWindow.cpp:344
 #, kde-format
 msgctxt "@action"
 msgid "Decrease Volume"
 msgstr "Намаляване на звука"
 
-#: src/app/mainWindow.cpp:351
+#: src/app/mainWindow.cpp:349
 #, kde-format
 msgctxt "@action"
 msgid "Stop"
 msgstr "Стоп"
 
-#: src/app/mainWindow.cpp:357
+#: src/app/mainWindow.cpp:355
 #, kde-format
 msgctxt "@action Mute the sound output"
 msgid "Mute"
 msgstr "Заглушаване"
 
-#: src/app/mainWindow.cpp:363
+#: src/app/mainWindow.cpp:361
 #, kde-format
 msgctxt "@action"
 msgid "Reset Video Scale"
 msgstr "Възстановяване мащаба на видеото"
 
-#: src/app/mainWindow.cpp:369
+#: src/app/mainWindow.cpp:367
 #, kde-format
 msgctxt "@action"
 msgid "Menu Toggle"
 msgstr "Превключване на менюто"
 
-#: src/app/mainWindow.cpp:377 src/app/part.cpp:62
+#: src/app/mainWindow.cpp:375 src/app/part.cpp:62
 #, kde-format
 msgid "Position Slider"
 msgstr "Плъзгач за местоположението"
 
-#: src/app/mainWindow.cpp:381
+#: src/app/mainWindow.cpp:379
 #, kde-format
 msgctxt "@option:check"
 msgid "Video Settings"
 msgstr "Видео настройки"
 
-#: src/app/mainWindow.cpp:389
+#: src/app/mainWindow.cpp:387
 #, kde-format
 msgctxt ""
 "@option:check Whether only one instance of dragon can be started and will be "
@@ -337,90 +337,92 @@ msgctxt ""
 msgid "One Instance Only"
 msgstr "Само едно работещо копие на програмата"
 
-#: src/app/mainWindow.cpp:397
+#: src/app/mainWindow.cpp:395
 #, kde-format
 msgctxt "@action previous chapter"
 msgid "Previous"
 msgstr "Предишно"
 
-#: src/app/mainWindow.cpp:403
+#: src/app/mainWindow.cpp:401
 #, kde-format
 msgctxt "@action next chapter"
 msgid "Next"
 msgstr "Следващо"
 
-#: src/app/mainWindow.cpp:410
+#: src/app/mainWindow.cpp:408
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Return 10% Back"
 msgstr "Връщане назад с 10%"
 
-#: src/app/mainWindow.cpp:417
+#: src/app/mainWindow.cpp:415
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Go 10% Forward"
 msgstr "Отиване напред с 10%"
 
-#: src/app/mainWindow.cpp:423
+#: src/app/mainWindow.cpp:421
 #, kde-format
 msgctxt "@action"
 msgid "Return 10 Seconds Back"
 msgstr "Връщане назад с 10 секунди"
 
-#: src/app/mainWindow.cpp:429
+#: src/app/mainWindow.cpp:427
 #, kde-format
 msgctxt "@action"
 msgid "Go 10 Seconds Forward"
 msgstr "Отиване напред с 10 секунди"
 
-#: src/app/mainWindow.cpp:509
+#: src/app/mainWindow.cpp:507
 #, kde-format
 msgctxt "@option:check Mute the sound output"
 msgid "Mute"
 msgstr "Заглушаване"
 
-#: src/app/mainWindow.cpp:581
+#: src/app/mainWindow.cpp:579
 #, kde-format
 msgid "Dragon Player was asked to open an empty URL; it cannot."
 msgstr ""
 "Беше зададено на програмата да отвори празев URL-адрес, което тя не може да "
 "направи."
 
-#: src/app/mainWindow.cpp:662
+#: src/app/mainWindow.cpp:660
 #, kde-format
 msgctxt "@title:window"
 msgid "Select File to Play"
 msgstr "Избор на файл за изпълнение"
 
-#: src/app/mainWindow.cpp:689
+#: src/app/mainWindow.cpp:687
 #, kde-format
 msgctxt "@title:window"
 msgid "Stream to Play"
 msgstr "Поток за изпълнение"
 
-#: src/app/mainWindow.cpp:689
+#: src/app/mainWindow.cpp:687
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Stream:"
 msgstr "Поток:"
 
-#: src/app/mainWindow.cpp:819
+#: src/app/mainWindow.cpp:817
 #, kde-format
 msgid "Sorry, no media was found in the drop"
 msgstr "Не е открита медия"
 
-#: src/app/mainWindow.cpp:867
-#, kde-format
+#: src/app/mainWindow.cpp:870
+#, fuzzy, kde-format
+#| msgctxt "Notification inhibition reason"
+#| msgid "playing a video"
 msgctxt "Notification inhibition reason"
-msgid "playing a video"
+msgid "Playing a video"
 msgstr "изпълнение на видео"
 
-#: src/app/mainWindow.cpp:899
+#: src/app/mainWindow.cpp:917
 #, kde-format
 msgid "No media loaded"
 msgstr "Не е заредена медия"
 
-#: src/app/mainWindow.cpp:901
+#: src/app/mainWindow.cpp:919
 #, kde-format
 msgid "Paused"
 msgstr "На пауза"
