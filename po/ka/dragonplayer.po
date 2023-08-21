@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: dragon\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-19 00:44+0000\n"
-"PO-Revision-Date: 2022-11-27 07:21+0100\n"
+"PO-Revision-Date: 2023-08-20 07:15+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -410,12 +410,10 @@ msgid "Sorry, no media was found in the drop"
 msgstr "რაც დააგდეთ, მასში მედიაფაილი ვერ ვიპოვე"
 
 #: src/app/mainWindow.cpp:870
-#, fuzzy, kde-format
-#| msgctxt "Notification inhibition reason"
-#| msgid "playing a video"
+#, kde-format
 msgctxt "Notification inhibition reason"
 msgid "Playing a video"
-msgstr "ვიდეოს დაკვრა"
+msgstr "მიმდინარეობს ვიდეოს დაკვრა"
 
 #: src/app/mainWindow.cpp:917
 #, kde-format
