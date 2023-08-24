@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdemultimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-19 00:44+0000\n"
-"PO-Revision-Date: 2023-08-19 13:10+0300\n"
+"PO-Revision-Date: 2023-08-23 13:41+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -136,7 +136,7 @@ msgstr "Oynatmak için bir disk seçin."
 #: src/app/loadView.ui:61
 #, kde-format
 msgid "Welcome to Dragon Player"
-msgstr "Dragon'a Hoş Geldiniz"
+msgstr "Dragon'a hoş geldiniz"
 
 #: src/app/main.cpp:37
 #, kde-format
