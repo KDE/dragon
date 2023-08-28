@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-19 00:44+0000\n"
-"PO-Revision-Date: 2023-08-02 12:39\n"
+"PO-Revision-Date: 2023-08-27 03:40\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -403,9 +403,7 @@ msgid "Sorry, no media was found in the drop"
 msgstr "抱歉，未在指定位置找到媒体"
 
 #: src/app/mainWindow.cpp:870
-#, fuzzy, kde-format
-#| msgctxt "Notification inhibition reason"
-#| msgid "playing a video"
+#, kde-format
 msgctxt "Notification inhibition reason"
 msgid "Playing a video"
 msgstr "播放视频"
