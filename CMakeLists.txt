@@ -26,7 +26,7 @@ include(ECMInstallIcons)
 include(ECMSetupVersion)
 include(ECMDeprecationSettings)
 if (QT_MAJOR_VERSION STREQUAL "6")
-    set(QT_REQUIRED_VERSION "6.4.0")
+    set(QT_REQUIRED_VERSION "6.5.0")
     set(KF_MIN_VERSION "5.240.0")
     set(KF_MAJOR_VERSION "6")
 else()
@@ -73,7 +73,7 @@ check_include_files(unistd.h HAVE_UNISTD_H)
 configure_file(config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
 ecm_set_disabled_deprecation_versions(
-    QT 6.4
+    QT 6.5
     KF 5.100
 )
 
