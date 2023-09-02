@@ -406,12 +406,10 @@ msgid "Sorry, no media was found in the drop"
 msgstr "Bohužel, nebyla nalezena žádná média"
 
 #: src/app/mainWindow.cpp:870
-#, fuzzy, kde-format
-#| msgctxt "Notification inhibition reason"
-#| msgid "playing a video"
+#, kde-format
 msgctxt "Notification inhibition reason"
 msgid "Playing a video"
-msgstr "přehrávání videa"
+msgstr ""
 
 #: src/app/mainWindow.cpp:917
 #, kde-format
