@@ -13,14 +13,14 @@ msgstr ""
 "Project-Id-Version: dragonplayer2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-19 00:44+0000\n"
-"PO-Revision-Date: 2023-02-04 09:22+0100\n"
+"PO-Revision-Date: 2023-10-01 08:53+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 23.04.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
@@ -412,12 +412,10 @@ msgid "Sorry, no media was found in the drop"
 msgstr "Przepraszamy, żaden plik multimedialny nie został znaleziony"
 
 #: src/app/mainWindow.cpp:870
-#, fuzzy, kde-format
-#| msgctxt "Notification inhibition reason"
-#| msgid "playing a video"
+#, kde-format
 msgctxt "Notification inhibition reason"
 msgid "Playing a video"
-msgstr "odtwarzanie filmu"
+msgstr "Odtwarzanie filmu"
 
 #: src/app/mainWindow.cpp:917
 #, kde-format
