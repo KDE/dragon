@@ -36,19 +36,19 @@ ki18n_wrap_ui(dragon
 
 target_link_libraries(dragon
     Qt::Core
-    KF${KF_MAJOR_VERSION}::Crash
+    KF6::Crash
     Qt::Widgets
-    KF${KF_MAJOR_VERSION}::CoreAddons
-    KF${KF_MAJOR_VERSION}::I18n
-    KF${KF_MAJOR_VERSION}::KIOCore
-    KF${KF_MAJOR_VERSION}::KIOWidgets
-    KF${KF_MAJOR_VERSION}::WidgetsAddons
-    KF${KF_MAJOR_VERSION}::ConfigCore
-    KF${KF_MAJOR_VERSION}::Solid
-    KF${KF_MAJOR_VERSION}::XmlGui
-    KF${KF_MAJOR_VERSION}::DBusAddons
-    KF${KF_MAJOR_VERSION}::JobWidgets
-    KF${KF_MAJOR_VERSION}::WindowSystem
+    KF6::CoreAddons
+    KF6::I18n
+    KF6::KIOCore
+    KF6::KIOWidgets
+    KF6::WidgetsAddons
+    KF6::ConfigCore
+    KF6::Solid
+    KF6::XmlGui
+    KF6::DBusAddons
+    KF6::JobWidgets
+    KF6::WindowSystem
     ${PHONON_LIBRARY}
     )
 
@@ -63,20 +63,20 @@ target_sources(dragonpart PRIVATE
 )
 
 target_link_libraries(dragonpart
-    KF${KF_MAJOR_VERSION}::CoreAddons
-    KF${KF_MAJOR_VERSION}::I18n
-    KF${KF_MAJOR_VERSION}::KIOCore
-    KF${KF_MAJOR_VERSION}::KIOWidgets
-    KF${KF_MAJOR_VERSION}::WidgetsAddons
-    KF${KF_MAJOR_VERSION}::ConfigCore
-    KF${KF_MAJOR_VERSION}::Parts
-    KF${KF_MAJOR_VERSION}::Solid
-    KF${KF_MAJOR_VERSION}::XmlGui
-    KF${KF_MAJOR_VERSION}::JobWidgets
-    KF${KF_MAJOR_VERSION}::WindowSystem
+    KF6::CoreAddons
+    KF6::I18n
+    KF6::KIOCore
+    KF6::KIOWidgets
+    KF6::WidgetsAddons
+    KF6::ConfigCore
+    KF6::Parts
+    KF6::Solid
+    KF6::XmlGui
+    KF6::JobWidgets
+    KF6::WindowSystem
     ${PHONON_LIBRARY}
     Qt::Core
     Qt::Widgets
 )
 
-install(TARGETS dragonpart DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf${QT_MAJOR_VERSION}/parts)
+install(TARGETS dragonpart DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf6/parts)

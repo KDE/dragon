@@ -49,15 +49,15 @@ void MainWindow::engineStateChanged(Phonon::State state)
     }
 
     bool enable = engine()->isActiveState(state);
-    action("stop")->setEnabled(enable);
-    action("video_settings")->setEnabled(enable && TheStream::hasVideo());
-    action("volume")->setEnabled(enable);
+    action(QStringLiteral("stop"))->setEnabled(enable);
+    action(QStringLiteral("video_settings"))->setEnabled(enable && TheStream::hasVideo());
+    action(QStringLiteral("volume"))->setEnabled(enable);
     if (m_volumeSlider)
         m_volumeSlider->setEnabled(enable);
-    action("fullscreen")->setEnabled(enable || isFullScreen);
-    action("reset_zoom")->setEnabled(hasMedia && !isFullScreen);
-    action("prev_chapter")->setEnabled(engine()->canGoPrev());
-    action("next_chapter")->setEnabled(engine()->canGoNext());
+    action(QStringLiteral("fullscreen"))->setEnabled(enable || isFullScreen);
+    action(QStringLiteral("reset_zoom"))->setEnabled(hasMedia && !isFullScreen);
+    action(QStringLiteral("prev_chapter"))->setEnabled(engine()->canGoPrev());
+    action(QStringLiteral("next_chapter"))->setEnabled(engine()->canGoNext());
 
     m_timeLabel->setVisible(enable);
     m_audioView->enableDemo(!enable);
@@ -109,12 +109,12 @@ void MainWindow::engineStateChanged(Phonon::State state)
         if (dvd_button) {
             dvd_button->setVisible(true);
         }
-        action("toggle_dvd_menu")->setEnabled(true);
+        action(QStringLiteral("toggle_dvd_menu"))->setEnabled(true);
     } else {
         if (dvd_button) {
             dvd_button->setVisible(false);
         }
-        action("toggle_dvd_menu")->setEnabled(false);
+        action(QStringLiteral("toggle_dvd_menu"))->setEnabled(false);
     }
 } // engineStateChanged
 
@@ -135,7 +135,7 @@ void MainWindow::engineMediaChanged(Phonon::MediaSource /*newSource*/)
     if (!(url_string.contains(QLatin1String("porn"), Qt::CaseInsensitive) || url_string.contains(QLatin1String("pr0n"), Qt::CaseInsensitive))) {
 #endif
         if (url.scheme() != QLatin1String("dvd") && url.scheme() != QLatin1String("vcd") && !url.toDisplayString().isEmpty()) {
-            qobject_cast<KRecentFilesAction *>(action("file_open_recent"))->addUrl(url);
+            qobject_cast<KRecentFilesAction *>(action(QStringLiteral("file_open_recent")))->addUrl(url);
         }
 #ifndef NO_SKIP_PR0N
     }
@@ -147,10 +147,10 @@ void MainWindow::engineSeekableChanged(bool canSeek)
 {
     qDebug() << "seekable changed to " << canSeek;
     m_positionSlider->setEnabled(canSeek);
-    action("ten_percent_back")->setEnabled(canSeek);
-    action("ten_percent_forward")->setEnabled(canSeek);
-    action("ten_seconds_back")->setEnabled(canSeek);
-    action("ten_seconds_forward")->setEnabled(canSeek);
+    action(QStringLiteral("ten_percent_back"))->setEnabled(canSeek);
+    action(QStringLiteral("ten_percent_forward"))->setEnabled(canSeek);
+    action(QStringLiteral("ten_seconds_back"))->setEnabled(canSeek);
+    action(QStringLiteral("ten_seconds_forward"))->setEnabled(canSeek);
     // TODO connect/disconnect the jump forward/back here.
 } // engineSeekableChanged
 

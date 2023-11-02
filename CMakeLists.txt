@@ -10,8 +10,8 @@ project(DragonPlayer VERSION ${RELEASE_SERVICE_VERSION})
 
 set(PROJECT_VERSION ${RELEASE_SERVICE_VERSION})
 
-set(QT_MIN_VERSION "5.15.2")
-set(KF5_MIN_VERSION "5.91.0")
+set(QT_MIN_VERSION "6.5.0")
+set(KF5_MIN_VERSION "5.240.0")
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
@@ -25,21 +25,14 @@ include(KDEGitCommitHooks)
 include(ECMInstallIcons)
 include(ECMSetupVersion)
 include(ECMDeprecationSettings)
-if (QT_MAJOR_VERSION STREQUAL "6")
-    set(QT_REQUIRED_VERSION "6.5.0")
-    set(KF_MIN_VERSION "5.240.0")
-    set(KF_MAJOR_VERSION "6")
-else()
-    set(KF_MAJOR_VERSION "5")
-endif()
 include(FeatureSummary)
 
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
     Widgets
 )
 
-find_package(KF${KF_MAJOR_VERSION} ${KF5_MIN_VERSION} REQUIRED
+find_package(KF6 ${KF5_MIN_VERSION} REQUIRED
     Config
     ConfigWidgets
     CoreAddons
@@ -55,7 +48,7 @@ find_package(KF${KF_MAJOR_VERSION} ${KF5_MIN_VERSION} REQUIRED
     WindowSystem
     XmlGui
 )
-find_package(Phonon4Qt${QT_MAJOR_VERSION} 4.6.60 REQUIRED NO_MODULE)
+find_package(Phonon4Qt6 4.6.60 REQUIRED NO_MODULE)
 
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}/src

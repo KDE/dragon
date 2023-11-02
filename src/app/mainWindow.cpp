@@ -259,7 +259,7 @@ MainWindow::~MainWindow()
 {
     hide(); // so we appear to have quit, and then sound fades out below
     releasePowerSave();
-    qobject_cast<KRecentFilesAction *>(action("file_open_recent"))->saveEntries(KConfigGroup(KSharedConfig::openConfig(), "General"));
+    qobject_cast<KRecentFilesAction *>(action(QStringLiteral("file_open_recent")))->saveEntries(KConfigGroup(KSharedConfig::openConfig(), "General"));
     delete videoWindow(); // fades out sound in dtor
 }
 
@@ -455,12 +455,12 @@ void MainWindow::toggleVideoSettings(bool show)
         m_sliders.clear();
         m_sliders << ui.brightnessSlider << ui.contrastSlider << ui.hueSlider << ui.saturationSlider;
         updateSliders();
-        for (QSlider *slider : qAsConst(m_sliders)) {
+        for (QSlider *slider : std::as_const(m_sliders)) {
             connect(slider, &QAbstractSlider::valueChanged, engine(), &VideoWindow::settingChanged);
         }
 
         connect(ui.defaultsButton, &QAbstractButton::clicked, this, &MainWindow::restoreDefaultVideoSettings);
-        connect(ui.closeButton, &QAbstractButton::clicked, action("video_settings"), &QAction::setChecked);
+        connect(ui.closeButton, &QAbstractButton::clicked, action(QStringLiteral("video_settings")), &QAction::setChecked);
         connect(ui.closeButton, &QAbstractButton::clicked, m_leftDock, &QObject::deleteLater);
     } else {
         m_sliders.clear();
@@ -470,7 +470,7 @@ void MainWindow::toggleVideoSettings(bool show)
 
 void MainWindow::restoreDefaultVideoSettings()
 {
-    for (QSlider *slider : qAsConst(m_sliders)) {
+    for (QSlider *slider : std::as_const(m_sliders)) {
         slider->setValue(0);
     }
 }
@@ -543,7 +543,7 @@ void MainWindow::stop()
 
 void MainWindow::updateSliders()
 {
-    for (QSlider *slider : qAsConst(m_sliders)) {
+    for (QSlider *slider : std::as_const(m_sliders)) {
         slider->setValue(engine()->videoSetting(slider->objectName()));
     }
 }
@@ -599,11 +599,7 @@ bool MainWindow::load(const QUrl &url)
     // check if an UDS_LOCAL_PATH is defined.
     if (!ret && KProtocolInfo::protocolClass(url.scheme()) == QLatin1String(":local")) {
         // #define UDS_LOCAL_PATH (7 | KIO::UDS_STRING)
-#if KIO_VERSION >= QT_VERSION_CHECK(5, 240, 0)
         KIO::StatJob *job = KIO::stat(url, KIO::StatJob::SourceSide, KIO::StatBasic);
-#else
-        KIO::StatJob *job = KIO::statDetails(url, KIO::StatJob::SourceSide, KIO::StatBasic);
-#endif
         KJobWidgets::setWindow(job, this);
         if (job->exec()) {
             KIO::UDSEntry e = job->statResult();
@@ -757,7 +753,7 @@ void MainWindow::setFullScreen(bool isFullScreen)
         if (!m_FullScreenHandler)
             m_FullScreenHandler = new FullScreenToolBarHandler(this);
     } else {
-        action("fullscreen")->setEnabled(videoWindow()->state() == Phonon::PlayingState || videoWindow()->state() == Phonon::PausedState);
+        action(QStringLiteral("fullscreen"))->setEnabled(videoWindow()->state() == Phonon::PlayingState || videoWindow()->state() == Phonon::PausedState);
         delete m_FullScreenHandler;
         m_FullScreenHandler = nullptr;
     }
@@ -781,7 +777,7 @@ void MainWindow::aboutToShowMenu()
     TheStream::aspectRatioAction()->setChecked(true);
     {
         const int subId = TheStream::subtitleChannel();
-        const QList<QAction *> subs = action("subtitle_channels_menu")->menu()->actions();
+        const QList<QAction *> subs = action(QStringLiteral("subtitle_channels_menu"))->menu()->actions();
         qDebug() << "subtitle #" << subId << " is going to be checked";
         for (QAction *subAction : subs) {
             if (subAction->property(TheStream::CHANNEL_PROPERTY).toInt() == subId) {
@@ -793,7 +789,7 @@ void MainWindow::aboutToShowMenu()
     }
     {
         const int audioId = TheStream::audioChannel();
-        const QList<QAction *> audios = action("audio_channels_menu")->menu()->actions();
+        const QList<QAction *> audios = action(QStringLiteral("audio_channels_menu"))->menu()->actions();
         qDebug() << "audio #" << audioId << " is going to be checked";
         for (QAction *audioAction : audios) {
             if (audioAction->property(TheStream::CHANNEL_PROPERTY).toInt() == audioId) {
@@ -827,7 +823,7 @@ void MainWindow::keyPressEvent(QKeyEvent *e)
         engine()->relativeSeek(5000);
         break;
     case Qt::Key_Escape:
-        action("fullscreen")->setChecked(false);
+        action(QStringLiteral("fullscreen"))->setChecked(false);
     default:;
     }
 }
@@ -934,8 +930,8 @@ void MainWindow::updateTitleBarText()
         }                                                                                                                                                      \
     }
 
-CHANNELS_CHANGED(subChannelsChanged, "subtitle_channels_menu")
-CHANNELS_CHANGED(audioChannelsChanged, "audio_channels_menu")
+CHANNELS_CHANGED(subChannelsChanged, QStringLiteral("subtitle_channels_menu"))
+CHANNELS_CHANGED(audioChannelsChanged, QStringLiteral("audio_channels_menu"))
 #undef CHANNELS_CHANGED
 
 /// Convenience class for other classes that need access to the actionCollection
@@ -972,7 +968,7 @@ bool MainWindow::isFresh()
 void MainWindow::contextMenuEvent(QContextMenuEvent *event)
 {
     QMenu menu;
-    qobject_cast<KHamburgerMenu *>(action("hamburger_menu"))->addToMenu(&menu);
+    qobject_cast<KHamburgerMenu *>(action(QStringLiteral("hamburger_menu")))->addToMenu(&menu);
     if (menu.isEmpty()) {
         return;
     }
