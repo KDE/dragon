@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-19 00:44+0000\n"
+"POT-Creation-Date: 2023-11-03 01:39+0000\n"
 "PO-Revision-Date: 2023-08-19 20:16+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -385,41 +385,41 @@ msgstr "Silenzia"
 msgid "Dragon Player was asked to open an empty URL; it cannot."
 msgstr "Dragon Player non può aprire un URL vuoto."
 
-#: src/app/mainWindow.cpp:660
+#: src/app/mainWindow.cpp:656
 #, kde-format
 msgctxt "@title:window"
 msgid "Select File to Play"
 msgstr "Seleziona file da riprodurre"
 
-#: src/app/mainWindow.cpp:687
+#: src/app/mainWindow.cpp:683
 #, kde-format
 msgctxt "@title:window"
 msgid "Stream to Play"
 msgstr "Flusso da riprodurre"
 
-#: src/app/mainWindow.cpp:687
+#: src/app/mainWindow.cpp:683
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Stream:"
 msgstr "Flusso:"
 
-#: src/app/mainWindow.cpp:817
+#: src/app/mainWindow.cpp:813
 #, kde-format
 msgid "Sorry, no media was found in the drop"
 msgstr "Nessun supporto trovato nel rilascio"
 
-#: src/app/mainWindow.cpp:870
+#: src/app/mainWindow.cpp:866
 #, kde-format
 msgctxt "Notification inhibition reason"
 msgid "Playing a video"
 msgstr "Riproduzione di un video"
 
-#: src/app/mainWindow.cpp:917
+#: src/app/mainWindow.cpp:913
 #, kde-format
 msgid "No media loaded"
 msgstr "Nessun supporto caricato"
 
-#: src/app/mainWindow.cpp:919
+#: src/app/mainWindow.cpp:915
 #, kde-format
 msgid "Paused"
 msgstr "In pausa"

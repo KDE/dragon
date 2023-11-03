@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-19 00:44+0000\n"
+"POT-Creation-Date: 2023-11-03 01:39+0000\n"
 "PO-Revision-Date: 2021-01-17 14:48+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -390,30 +390,30 @@ msgstr "Némítás"
 msgid "Dragon Player was asked to open an empty URL; it cannot."
 msgstr "Üres URL-t nem lehet megnyitni."
 
-#: src/app/mainWindow.cpp:660
+#: src/app/mainWindow.cpp:656
 #, kde-format
 msgctxt "@title:window"
 msgid "Select File to Play"
 msgstr "Válassza ki a lejátszandó fájlt"
 
-#: src/app/mainWindow.cpp:687
+#: src/app/mainWindow.cpp:683
 #, kde-format
 msgctxt "@title:window"
 msgid "Stream to Play"
 msgstr "Lejátszandó adatfolyam"
 
-#: src/app/mainWindow.cpp:687
+#: src/app/mainWindow.cpp:683
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Stream:"
 msgstr "Adatfolyam:"
 
-#: src/app/mainWindow.cpp:817
+#: src/app/mainWindow.cpp:813
 #, kde-format
 msgid "Sorry, no media was found in the drop"
 msgstr "Nem található lejátszható anyag az ejtett fájlban"
 
-#: src/app/mainWindow.cpp:870
+#: src/app/mainWindow.cpp:866
 #, fuzzy, kde-format
 #| msgctxt "Notification inhibition reason"
 #| msgid "playing a video"
@@ -421,12 +421,12 @@ msgctxt "Notification inhibition reason"
 msgid "Playing a video"
 msgstr "videó lejátszása"
 
-#: src/app/mainWindow.cpp:917
+#: src/app/mainWindow.cpp:913
 #, kde-format
 msgid "No media loaded"
 msgstr "Nincs betöltve média"
 
-#: src/app/mainWindow.cpp:919
+#: src/app/mainWindow.cpp:915
 #, kde-format
 msgid "Paused"
 msgstr "Szünet"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-19 00:44+0000\n"
+"POT-Creation-Date: 2023-11-03 01:39+0000\n"
 "PO-Revision-Date: 2020-07-21 18:24+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -392,30 +392,30 @@ msgstr "Lydløs"
 msgid "Dragon Player was asked to open an empty URL; it cannot."
 msgstr "Dragon Player blev bedt om at åbne en tom URL, det kan den ikke."
 
-#: src/app/mainWindow.cpp:660
+#: src/app/mainWindow.cpp:656
 #, kde-format
 msgctxt "@title:window"
 msgid "Select File to Play"
 msgstr "Vælg en fil til afspilning"
 
-#: src/app/mainWindow.cpp:687
+#: src/app/mainWindow.cpp:683
 #, kde-format
 msgctxt "@title:window"
 msgid "Stream to Play"
 msgstr "Stream der skal afspilles"
 
-#: src/app/mainWindow.cpp:687
+#: src/app/mainWindow.cpp:683
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Stream:"
 msgstr "Stream:"
 
-#: src/app/mainWindow.cpp:817
+#: src/app/mainWindow.cpp:813
 #, kde-format
 msgid "Sorry, no media was found in the drop"
 msgstr "Beklager, intet medie blev fundet i droppet"
 
-#: src/app/mainWindow.cpp:870
+#: src/app/mainWindow.cpp:866
 #, fuzzy, kde-format
 #| msgctxt "Notification inhibition reason"
 #| msgid "playing a video"
@@ -423,12 +423,12 @@ msgctxt "Notification inhibition reason"
 msgid "Playing a video"
 msgstr "afspiller en video"
 
-#: src/app/mainWindow.cpp:917
+#: src/app/mainWindow.cpp:913
 #, kde-format
 msgid "No media loaded"
 msgstr "Intet medie indlæst"
 
-#: src/app/mainWindow.cpp:919
+#: src/app/mainWindow.cpp:915
 #, kde-format
 msgid "Paused"
 msgstr "På pause"
