@@ -138,7 +138,7 @@ VideoWindow::VideoWindow(QWidget *parent)
         m_logo->show();
     }
     {
-        KConfigGroup config = KSharedConfig::openConfig()->group(QLatin1String("General"));
+        KConfigGroup config = KSharedConfig::openConfig()->group(QStringLiteral("General"));
         m_aOutput->setVolume(config.readEntry<double>("Volume", 1.0));
     }
 }
@@ -146,7 +146,7 @@ VideoWindow::VideoWindow(QWidget *parent)
 VideoWindow::~VideoWindow()
 {
     eject();
-    KConfigGroup config = KSharedConfig::openConfig()->group(QLatin1String("General"));
+    KConfigGroup config = KSharedConfig::openConfig()->group(QStringLiteral("General"));
     config.writeEntry("Volume", static_cast<double>(m_aOutput->volume()));
 }
 

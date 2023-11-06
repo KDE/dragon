@@ -63,7 +63,7 @@ int main(int argc, char **argv)
     parser.process(app);
     aboutData.processCommandLine(&parser);
 
-    const bool multiple = KSharedConfig::openConfig()->group(QLatin1String("KDE")).readEntry("MultipleInstances", QVariant(false)).toBool();
+    const bool multiple = KSharedConfig::openConfig()->group(QStringLiteral("KDE")).readEntry("MultipleInstances", QVariant(false)).toBool();
     KDBusService service(multiple ? KDBusService::Multiple : KDBusService::Unique);
     QObject::connect(&service, &KDBusService::activateRequested, &app, &Dragon::PlayerApplication::slotActivateRequested);
     QObject::connect(&service, &KDBusService::openRequested, &app, &Dragon::PlayerApplication::slotOpenRequested);
