@@ -1,97 +1,93 @@
-# translation of dragonplayer.po to hebrew
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) 2023 This file is copyright:
+# This file is distributed under the same license as the dragon package.
 #
-# tahmar1900 <tahmar1900@gmail.com>, 2008, 2009.
-# Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
-# SPDX-FileCopyrightText: 2023 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2023 Enol P. <enolp@softastur.org>
 msgid ""
 msgstr ""
-"Project-Id-Version: dragonplayer\n"
+"Project-Id-Version: dragon\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-03 01:39+0000\n"
-"PO-Revision-Date: 2023-11-05 22:47+0200\n"
-"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: צוות התרגום של KDE ישראל\n"
-"Language: he\n"
+"PO-Revision-Date: 2023-11-06 01:08+0100\n"
+"Last-Translator: Enol P. <enolp@softastur.org>\n"
+"Language-Team: \n"
+"Language: ast_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.1\n"
-"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
-"n % 10 == 0) ? 2 : 3));\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "צוות התרגום של KDE ישראל"
+msgstr "Softastur"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kde-l10n-he@kde.org"
+msgstr "alministradores@softastur.org"
 
 #. i18n: ectx: Menu (file)
 #: misc/dragonplayerui.rc:4
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Play"
-msgstr "&ניגון"
+msgstr ""
 
 #. i18n: ectx: Menu (play_media_menu)
 #: misc/dragonplayerui.rc:5
 #, kde-format
 msgctxt "@title:menu"
 msgid "Play Media"
-msgstr "נגינת מדיה"
+msgstr ""
 
 #. i18n: ectx: Menu (settings)
 #: misc/dragonplayerui.rc:20
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Settings"
-msgstr "ה&גדרות"
+msgstr ""
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: misc/dragonplayerui.rc:37
 #, kde-format
 msgid "Main Toolbar"
-msgstr "סרגל כלים ראשי"
+msgstr ""
 
 #: src/app/actions.cpp:24
 #, kde-format
 msgctxt "@action"
 msgid "Play"
-msgstr "נגינה"
+msgstr ""
 
 #: src/app/actions.cpp:25
 #, kde-format
 msgctxt "@action"
 msgid "Pause"
-msgstr "השהיה"
+msgstr ""
 
 #: src/app/actions.cpp:40
 #, kde-format
 msgctxt "@option:check Volume of sound output"
 msgid "Volume"
-msgstr "עוצמה"
+msgstr ""
 
 #: src/app/adjustSizeButton.cpp:38
 #, kde-format
 msgctxt "@action:button"
 msgid "Preferred Scale"
-msgstr "קנה מידה מועדף"
+msgstr ""
 
 #: src/app/adjustSizeButton.cpp:42
 #, kde-format
 msgctxt "@action:button"
 msgid "Scale 100%"
-msgstr "קנה מידה 100%"
+msgstr ""
 
 #: src/app/adjustSizeButton.cpp:49
 #, kde-format
 msgid "<b>Adjust video scale?</b>"
-msgstr "<b>להתאים קנה מידה של סרטון?</b>"
+msgstr ""
 
 #: src/app/discSelectionDialog.cpp:37
 #, kde-format
@@ -99,55 +95,55 @@ msgctxt ""
 "%1 is the disc type, %2 is the name of the disc that the user can choose. "
 "Ex. 'DVD: OfficeSpace'"
 msgid "%1: %2"
-msgstr "%1: %2"
+msgstr ""
 
 #: src/app/discSelectionDialog.cpp:56
 #, kde-format
 msgctxt "Digital Versatile Disc, but keep it short"
 msgid "DVD"
-msgstr "DVD"
+msgstr ""
 
 #: src/app/discSelectionDialog.cpp:58
 #, kde-format
 msgid "Video CD"
-msgstr "תקליטור וידאו"
+msgstr ""
 
 #: src/app/discSelectionDialog.cpp:60
 #, kde-format
 msgid "Audio CD"
-msgstr "תקליטור שמע"
+msgstr ""
 
 #: src/app/discSelectionDialog.cpp:62
 #, kde-format
 msgid "Data CD"
-msgstr "תקליטור נתונים"
+msgstr ""
 
 #: src/app/discSelectionDialog.cpp:73
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a Disc"
-msgstr "נא לבחור תקליטור"
+msgstr ""
 
 #: src/app/discSelectionDialog.cpp:75
 #, kde-format
 msgid "Select a disc to play."
-msgstr "בחירת תקליטור לנגן."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/app/loadView.ui:61
 #, kde-format
 msgid "Welcome to Dragon Player"
-msgstr "ברוך בואך לנגן Dragon"
+msgstr ""
 
 #: src/app/main.cpp:37
 #, kde-format
 msgid "Dragon Player"
-msgstr "נגן Dragon"
+msgstr ""
 
 #: src/app/main.cpp:39
 #, kde-format
 msgid "A video player that has a usability focus"
-msgstr "נגן וידאו שממוקד שימושיות"
+msgstr ""
 
 #: src/app/main.cpp:41
 #, kde-format
@@ -155,178 +151,176 @@ msgid ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe"
 msgstr ""
-"כל הזכויות שמורות 2006, מקס האוול\n"
-"כל הזכויות שמורות 2007, איאן מונרו"
 
 #: src/app/main.cpp:45
 #, kde-format
 msgid "Improvements and polish"
-msgstr "שיפורים וגימור"
+msgstr ""
 
 #: src/app/main.cpp:46
 #, kde-format
 msgid "Creator of Phonon"
-msgstr "היוצר של Phonon"
+msgstr ""
 
 #: src/app/main.cpp:47
 #, kde-format
 msgid "Dragon Player icon"
-msgstr "צלמית נגן Dragon"
+msgstr ""
 
 #: src/app/main.cpp:48
 #, kde-format
 msgid "Handbook"
-msgstr "מדריך"
+msgstr ""
 
 #: src/app/main.cpp:49
 #, kde-format
 msgid "Great reference code"
-msgstr "קוד למופת שאפשר ללמוד ממנו"
+msgstr ""
 
 #: src/app/main.cpp:50
 #, kde-format
 msgid "Yatta happened to be the only video on my laptop to test with. :)"
-msgstr "Yatta היה הסרטון היחידי במחשב הנייד שלי שאפשר היה לבדוק אתו. :)"
+msgstr ""
 
 #: src/app/main.cpp:51
 #, kde-format
 msgid "MPRIS v2 support"
-msgstr "תמיכה ב־MPRIS v2"
+msgstr ""
 
 #: src/app/main.cpp:52
 #, kde-format
 msgid "Port to KF5/Plasma 5"
-msgstr "הסבה ל־KF5/פלזמה 5"
+msgstr ""
 
 #: src/app/main.cpp:59
 #, kde-format
 msgid "Play DVD Video"
-msgstr "נגן DVD וידאו"
+msgstr ""
 
 #: src/app/main.cpp:61
 #, kde-format
 msgid "Play 'URL'"
-msgstr "נגן כתובת"
+msgstr ""
 
 #: src/app/mainWindow.cpp:138
 #, kde-format
 msgctxt "@title:menu"
 msgid "Aspect &Ratio"
-msgstr "יחס &תצוגה"
+msgstr ""
 
 #: src/app/mainWindow.cpp:139
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Audio Channels"
-msgstr "&ערוצי שמע"
+msgstr ""
 
 #: src/app/mainWindow.cpp:140
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Subtitles"
-msgstr "&כתוביות"
+msgstr ""
 
 #: src/app/mainWindow.cpp:153
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Determine &Automatically"
-msgstr "קביעה &אוטומטית"
+msgstr ""
 
 #: src/app/mainWindow.cpp:154
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "&4:3"
-msgstr "&4:3"
+msgstr ""
 
 #: src/app/mainWindow.cpp:155
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Ana&morphic (16:9)"
-msgstr "&אנמורפית (16:9)"
+msgstr ""
 
 #: src/app/mainWindow.cpp:156
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "&Window Size"
-msgstr "&גודל חלון"
+msgstr ""
 
 #: src/app/mainWindow.cpp:237
 #, kde-format
 msgid ""
 "<qt>Phonon could not be successfully initialized. Dragon Player will now "
 "exit.</qt>"
-msgstr "<qt>אי אפשר לאתחל את Phonon. נגן Dragon ייסגר כעת.</qt>"
+msgstr ""
 
 #: src/app/mainWindow.cpp:299
 #, kde-format
 msgctxt "@action"
 msgid "Play File…"
-msgstr "ניגון קובץ…"
+msgstr ""
 
 #: src/app/mainWindow.cpp:300
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open a media file for playback"
-msgstr "פתיחת קובץ מדיה לנגינה"
+msgstr ""
 
 #: src/app/mainWindow.cpp:309
 #, kde-format
 msgctxt "@action"
 msgid "Play Stream…"
-msgstr "ניגון תזרים…"
+msgstr ""
 
 #: src/app/mainWindow.cpp:315
 #, kde-format
 msgctxt "@action"
 msgid "Play Disc"
-msgstr "ניגון תקליטור"
+msgstr ""
 
 #: src/app/mainWindow.cpp:339
 #, kde-format
 msgctxt "@action"
 msgid "Increase Volume"
-msgstr "הגברת עוצמת השמע"
+msgstr ""
 
 #: src/app/mainWindow.cpp:344
 #, kde-format
 msgctxt "@action"
 msgid "Decrease Volume"
-msgstr "החלשת עוצמת השמע"
+msgstr ""
 
 #: src/app/mainWindow.cpp:349
 #, kde-format
 msgctxt "@action"
 msgid "Stop"
-msgstr "עצירה"
+msgstr ""
 
 #: src/app/mainWindow.cpp:355
 #, kde-format
 msgctxt "@action Mute the sound output"
 msgid "Mute"
-msgstr "השתקה"
+msgstr ""
 
 #: src/app/mainWindow.cpp:361
 #, kde-format
 msgctxt "@action"
 msgid "Reset Video Scale"
-msgstr "איפוס קנה מידה וידאו"
+msgstr ""
 
 #: src/app/mainWindow.cpp:367
 #, kde-format
 msgctxt "@action"
 msgid "Menu Toggle"
-msgstr "מתג תפריטים"
+msgstr ""
 
 #: src/app/mainWindow.cpp:375 src/app/part.cpp:62
 #, kde-format
 msgid "Position Slider"
-msgstr "מחוון מקום"
+msgstr ""
 
 #: src/app/mainWindow.cpp:379
 #, kde-format
 msgctxt "@option:check"
 msgid "Video Settings"
-msgstr "הגדרות וידאו"
+msgstr ""
 
 #: src/app/mainWindow.cpp:387
 #, kde-format
@@ -334,205 +328,171 @@ msgctxt ""
 "@option:check Whether only one instance of dragon can be started and will be "
 "reused when the user tries to play another file."
 msgid "One Instance Only"
-msgstr "מופע אחד בלבד"
+msgstr ""
 
 #: src/app/mainWindow.cpp:395
 #, kde-format
 msgctxt "@action previous chapter"
 msgid "Previous"
-msgstr "הקודם"
+msgstr ""
 
 #: src/app/mainWindow.cpp:401
 #, kde-format
 msgctxt "@action next chapter"
 msgid "Next"
-msgstr "הבא"
+msgstr ""
 
 #: src/app/mainWindow.cpp:408
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Return 10% Back"
-msgstr "חזרה 10% אחורה"
+msgstr ""
 
 #: src/app/mainWindow.cpp:415
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Go 10% Forward"
-msgstr "התקדמות 10% קדימה"
+msgstr ""
 
 #: src/app/mainWindow.cpp:421
 #, kde-format
 msgctxt "@action"
 msgid "Return 10 Seconds Back"
-msgstr "חזזרה ב־10 שניות אחורה"
+msgstr ""
 
 #: src/app/mainWindow.cpp:427
 #, kde-format
 msgctxt "@action"
 msgid "Go 10 Seconds Forward"
-msgstr "קפיצה ב־10 שניות קדימה"
+msgstr ""
 
 #: src/app/mainWindow.cpp:507
 #, kde-format
 msgctxt "@option:check Mute the sound output"
 msgid "Mute"
-msgstr "השתקה"
+msgstr ""
 
 #: src/app/mainWindow.cpp:579
 #, kde-format
 msgid "Dragon Player was asked to open an empty URL; it cannot."
-msgstr "נגן Dragon התבקש לפתוח קישור ריק, אין באפשרותו לעשות כן."
+msgstr ""
 
 #: src/app/mainWindow.cpp:656
 #, kde-format
 msgctxt "@title:window"
 msgid "Select File to Play"
-msgstr "נא לבחור קובץ לנגינה"
+msgstr ""
 
 #: src/app/mainWindow.cpp:683
 #, kde-format
 msgctxt "@title:window"
 msgid "Stream to Play"
-msgstr "תזרים לנגינה"
+msgstr ""
 
 #: src/app/mainWindow.cpp:683
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Stream:"
-msgstr "תזרים:"
+msgstr ""
 
 #: src/app/mainWindow.cpp:813
 #, kde-format
 msgid "Sorry, no media was found in the drop"
-msgstr "לא נמצאה מדיה במה שגררת, סליחה"
+msgstr ""
 
 #: src/app/mainWindow.cpp:866
 #, kde-format
 msgctxt "Notification inhibition reason"
 msgid "Playing a video"
-msgstr "ניגון וידאו"
+msgstr ""
 
 #: src/app/mainWindow.cpp:913
 #, kde-format
 msgid "No media loaded"
-msgstr "שום מדיה לא נטענה"
+msgstr ""
 
 #: src/app/mainWindow.cpp:915
 #, kde-format
 msgid "Paused"
-msgstr "מושהה"
+msgstr ""
 
 #: src/app/playlistFile.cpp:37
 #, kde-format
 msgid "The file is not a playlist"
-msgstr "הקובץ אינו ברשימת ההשמעה"
+msgstr ""
 
 #: src/app/playlistFile.cpp:45
 #, kde-format
 msgid "Dragon Player could not download the remote playlist: %1"
-msgstr "נגן Dragon לא הצליח להוריד את רשימת הנגינה המרוחקת: %1"
+msgstr ""
 
 #: src/app/playlistFile.cpp:66
 #, kde-format
 msgid ""
 "<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is empty?"
 "</qt>"
-msgstr "<qt>אי אפשר לפענח את רשימת הנגינה, <i>‚%1’</i>. אולי היא ריקה?</qt>"
+msgstr ""
 
 #: src/app/playlistFile.cpp:70
 #, kde-format
 msgid "Dragon Player could not open the file: %1"
-msgstr "נגן Dragon לא יכול לפתוח את הקובץ: %1"
+msgstr ""
 
 #: src/app/theStream.cpp:145
 #, kde-format
 msgid "Track %1/%2"
-msgstr "רצועה %1/%2"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, brightnessLabel)
 #: src/app/videoSettingsWidget.ui:19
 #, kde-format
 msgctxt "@label:slider"
 msgid "Brightness:"
-msgstr "בהירות:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, contrastLabel)
 #: src/app/videoSettingsWidget.ui:42
 #, kde-format
 msgctxt "@label:slider"
 msgid "Contrast:"
-msgstr "ניגודיות:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, hueLabel)
 #: src/app/videoSettingsWidget.ui:65
 #, kde-format
 msgctxt "@label:slider"
 msgid "Hue:"
-msgstr "גוון:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, saturationLabel)
 #: src/app/videoSettingsWidget.ui:88
 #, kde-format
 msgctxt "@label:slider"
 msgid "Saturation:"
-msgstr "רוויה:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, defaultsButton)
 #: src/app/videoSettingsWidget.ui:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Restore Defaults"
-msgstr "שחזור לברירות־המחדל"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, closeButton)
 #: src/app/videoSettingsWidget.ui:135
 #, kde-format
 msgctxt "@action:button"
 msgid "Close"
-msgstr "סגירה"
+msgstr ""
 
 #: src/app/videoWindow.cpp:107
 #, kde-format
 msgctxt "@option:radio"
 msgid "&DVD Subtitle Selection"
-msgstr "&בחירת כתוביות ל־DVD"
+msgstr ""
 
 #: src/app/videoWindow.cpp:117
 #, kde-format
 msgctxt "@option:radio audio language"
 msgid "&Auto"
-msgstr "&אוטומטי"
-
-#, fuzzy
-#~| msgid "Play &Media..."
-#~ msgctxt "@action"
-#~ msgid "Play &Media..."
-#~ msgstr "נגן &מדיה..."
-
-#~ msgid "What media would you like to play?"
-#~ msgstr "איזו מדיע ברצונך לנגן?"
-
-#, fuzzy
-#~| msgid "Play File..."
-#~ msgctxt "@action:button"
-#~ msgid "Play File..."
-#~ msgstr "נגן קובץ..."
-
-#, fuzzy
-#~| msgid "Clear List"
-#~ msgctxt "@action"
-#~ msgid "Clear List"
-#~ msgstr "נקה רשימה"
-
-#~ msgid ""
-#~ "IRC:\n"
-#~ "irc.freenode.net #dragonplayer\n"
-#~ "\n"
-#~ "Feedback:\n"
-#~ "imonroe@kde.org"
-#~ msgstr ""
-#~ "IRC:\n"
-#~ "שרת: irc.freenode.net ערוץ: #dragonplayer\n"
-#~ "\n"
-#~ "משוב:\n"
-#~ "imonroe@kde.org"
+msgstr ""
