@@ -19,13 +19,13 @@ TimeLabel::TimeLabel(QWidget *parent)
     setFont(QFontDatabase::systemFont(QFontDatabase::FixedFont));
     setAlignment(Qt::AlignCenter);
     setMinimumSize(sizeHint());
-    KConfigGroup config(KSharedConfig::openConfig(), "General");
+    KConfigGroup config(KSharedConfig::openConfig(), QLatin1String("General"));
     m_timeFormat = static_cast<TimeFormats>(config.readEntry<int>("TimeFormat", static_cast<int>(SHOW_COMPLETED)));
 }
 
 TimeLabel::~TimeLabel()
 {
-    KConfigGroup config(KSharedConfig::openConfig(), "General");
+    KConfigGroup config(KSharedConfig::openConfig(), QLatin1String("General"));
     config.writeEntry("TimeFormat", static_cast<int>(m_timeFormat));
 }
 

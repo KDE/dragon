@@ -259,7 +259,8 @@ MainWindow::~MainWindow()
 {
     hide(); // so we appear to have quit, and then sound fades out below
     releasePowerSave();
-    qobject_cast<KRecentFilesAction *>(action(QStringLiteral("file_open_recent")))->saveEntries(KConfigGroup(KSharedConfig::openConfig(), "General"));
+    qobject_cast<KRecentFilesAction *>(action(QStringLiteral("file_open_recent")))
+        ->saveEntries(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("General")));
     delete videoWindow(); // fades out sound in dtor
 }
 
@@ -299,7 +300,7 @@ void MainWindow::setupActions()
     open->setText(i18nc("@action", "Play File…"));
     open->setToolTip(i18nc("@info:tooltip", "Open a media file for playback"));
     auto recent = KStandardAction::openRecent(this, &MainWindow::open, ac);
-    recent->loadEntries(KConfigGroup(KSharedConfig::openConfig(), "General"));
+    recent->loadEntries(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("General")));
     KStandardAction::quit(qApp, &QApplication::closeAllWindows, ac);
 
     const auto addToAc = [ac](QAction *action) {
@@ -388,7 +389,7 @@ void MainWindow::setupActions()
                                     ac);
     uniqueToggle->setObjectName(QLatin1String("unique"));
     uniqueToggle->setCheckable(true);
-    uniqueToggle->setChecked(!KSharedConfig::openConfig()->group("KDE").readEntry("MultipleInstances", QVariant(false)).toBool());
+    uniqueToggle->setChecked(!KSharedConfig::openConfig()->group(QStringLiteral("KDE")).readEntry("MultipleInstances", QVariant(false)).toBool());
     connect(uniqueToggle, &QAction::toggled, this, &MainWindow::toggleUnique);
     addToAc(uniqueToggle);
 
@@ -434,7 +435,7 @@ void MainWindow::setupActions()
 void MainWindow::toggleUnique(bool unique)
 {
     KSharedConfig::Ptr cfg = KSharedConfig::openConfig(); // kf5 FIXME? this might not work w/o KUniqueApplication
-    cfg->group("KDE").writeEntry("MultipleInstances", !unique);
+    cfg->group(QStringLiteral("KDE")).writeEntry("MultipleInstances", !unique);
     cfg->sync();
 }
 
