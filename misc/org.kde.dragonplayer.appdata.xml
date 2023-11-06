@@ -21,6 +21,7 @@
   <name xml:lang="fi">Dragon Player</name>
   <name xml:lang="fr">Dragon Player</name>
   <name xml:lang="gl">Dragon Player</name>
+  <name xml:lang="he">נגן Dragon</name>
   <name xml:lang="ia">Dragon Player (Reproductor Dragon)</name>
   <name xml:lang="id">Dragon Player</name>
   <name xml:lang="it">Dragon Player</name>
@@ -65,6 +66,7 @@
   <summary xml:lang="fi">Yksinkertaisuuteen pyrkivä videosoitin</summary>
   <summary xml:lang="fr">Un lecteur vidéo conçu pour la facilité d'utilisation</summary>
   <summary xml:lang="gl">Reprodutor de vídeo centrado na facilidade.</summary>
+  <summary xml:lang="he">נגן וידאו ממוקד פשטות</summary>
   <summary xml:lang="ia">Reproductor de video focalisate sur le simplicitate</summary>
   <summary xml:lang="id">Pemutar video dengan fokus pada kesederhanaan</summary>
   <summary xml:lang="it">Lettore video con l'obiettivo della semplicità</summary>
@@ -110,6 +112,7 @@
     <p xml:lang="fi">Dragon Player on multimediasoitin, joka keskittyy ominaisuuksien sijaan yksinkertaisuuteen. Dragon Player osaa yhden ja vain yhden asian: se toistaa multimediatiedostoja. Sen yksinkertainen käyttöliittymä on suunniteltu pysymään poissa tieltä, jotta sinä voisit toistaa multimediatiedostojasi.</p>
     <p xml:lang="fr">Dragon Player est un lecteur vidéo conçu pour la facilité d'utilisation, plutôt que le nombre de fonctionnalités. Dragon Player fait une chose, et une seule, qui est de lire les fichiers multimédia. Son interface simple est conçue pour ne pas vous embarrasser mais plutôt vous donner le pouvoir de simplement jouer des fichiers multimédia.</p>
     <p xml:lang="gl">Dragon Player é un reprodutor multimedia que prefire a simplicidade ás funcionalidades. Dragon Player fai unha cousa, e só unha cousa: reproducir ficheiros multimedia. A súa interface sinxela está deseñada para non molestar, e simplemente permitirlle reproducir ficheiros multimedia.</p>
+    <p xml:lang="he">נגן Dragon הוא נגן מולטימדיה שהמיקוד בו הוא פשטות, במקום עוד יכולות. נגן Dragon עושה דבר אחד, אבל דבר אחד בלבד, שזה לנגן קובצי מולטמדיה. הממשק הפשוט שלו תוכן לא להיתקע לך מול הפרצוף ובמקום להעניק לך מגוון של אפשרויות פשוט לנגן קובצי מולטימדיה.</p>
     <p xml:lang="ia">Dragon Player es un reproductor multimedial ubi le foco es sur simplicitate, in loco de charactersticas. Dragon Player face un cosa, e solmente un cosa, que es reproducer files multimedial. Su simple interfacie es designate non per obstacular te e in vice te autorisa simplemente a reproducer files multimedial.</p>
     <p xml:lang="id">Dragon Player adalah pemutar multimedia yang mana berfokus pada kesederhanaan, bukan fitur. Dragon Player melakukan satu hal, dan hanya satu hal, yaitu memutar file multimedia. Antarmuka yang sederhana dirancang agar tidak menghalangi kamu dan malah memberdayakan kamu untuk sekadar memutar file multimedia.</p>
     <p xml:lang="it">Dragon Player è un lettore multimediale il cui obiettivo è la semplicità, anziché la molteplicità di funzioni. Dragon Player fa solo una cosa: riprodurre i file multimediali. La sua interfaccia è semplice, progettata per non metterti in difficoltà e per permetterti semplicemente di riprodurre i file multimediali.</p>
@@ -136,6 +139,7 @@
     <p xml:lang="zh-TW">Dragon Player 是一套多媒體播放器，重點在簡單而非多樣功能。Dragon Player 只做一件事：播放多媒體檔案。</p>
     <p>Features:</p>
     <p xml:lang="ar">الميزات:</p>
+    <p xml:lang="ast">Funciones:</p>
     <p xml:lang="bg">Възможности:</p>
     <p xml:lang="bs">Svojstva:</p>
     <p xml:lang="ca">Característiques:</p>
@@ -152,6 +156,7 @@
     <p xml:lang="fi">Ominaisuudet:</p>
     <p xml:lang="fr">Fonctionnalités :</p>
     <p xml:lang="gl">Funcionalidades:</p>
+    <p xml:lang="he">יכולות:</p>
     <p xml:lang="ia">Characteristicas:</p>
     <p xml:lang="id">Fitur:</p>
     <p xml:lang="it">Caratteristiche:</p>
@@ -182,6 +187,7 @@
     <ul>
       <li>Simple Interface</li>
       <li xml:lang="ar">واجهة بسيطة</li>
+      <li xml:lang="ast">Interfaz simple</li>
       <li xml:lang="bg">Опростен интерфейс</li>
       <li xml:lang="bs">Prosto sučelje</li>
       <li xml:lang="ca">Interfície senzilla</li>
@@ -198,6 +204,7 @@
       <li xml:lang="fi">Yksinkertainen käyttöliittymä</li>
       <li xml:lang="fr">Interface simple</li>
       <li xml:lang="gl">Interface sinxela</li>
+      <li xml:lang="he">ממשק פשוט</li>
       <li xml:lang="ia">Interfacie simplice</li>
       <li xml:lang="id">Antarmuka Sederhana</li>
       <li xml:lang="it">Interfaccia semplice</li>
@@ -242,6 +249,7 @@
       <li xml:lang="fi">Videoiden jatkaminen: käynnistä video siitä, mihin viimeksi jäit</li>
       <li xml:lang="fr">Reprise des vidéos : démarre la lecture d'une vidéo de là où vous la regardiez la dernière fois</li>
       <li xml:lang="gl">Continuar a reprodución: comeza a reproducir os vídeos polo mesmo punto no que ía a última vez que os estivo a ver.</li>
+      <li xml:lang="he">המשך נגינה סרטונים: התחלת נגינת סרטון מאיפה שצפית בו בפעם האחרונה</li>
       <li xml:lang="ia">Recuperante videos: Initia a reproducer un video ubi tu lo observava le ultime vice</li>
       <li xml:lang="id">Melanjutkan video: Mulai memutar video tempat di mana kamu menontonnya terakhir kali</li>
       <li xml:lang="it">Riavvio del video: avvia la riproduzione video dal punto in cui l'avevi interrotta l'ultima volta</li>
@@ -286,6 +294,7 @@
       <li xml:lang="fi">Tekstityksen tuki: lataa samannimiset tekstitystiedostot automaattisesti</li>
       <li xml:lang="fr">Prise en charge des sous-titres : charge automatiquement les sous-titres don le nom correspond</li>
       <li xml:lang="gl">Compatibilidade con subtítulos: carga automaticamente subtítulos que teñan o mesmo nome que o ficheiro de vídeo.</li>
+      <li xml:lang="he">תמיכה בכתוביות: טוען כתוביות בשם תואם אוטומטית</li>
       <li xml:lang="ia">Supporto per subtitulos: Autmaticamente carga subtitulos con le nomine correspondente</li>
       <li xml:lang="id">Mendukung subtitle: Secara otomatis memuat subtitles dengan nama yang cocok</li>
       <li xml:lang="it">Supporto sottotitoli: carica automaticamente i sottotitoli che corrispondono al nome del video</li>
@@ -330,6 +339,7 @@
       <li xml:lang="fi">Videonäytön asetukset (kirkkaus ja kontrasti)</li>
       <li xml:lang="fr">Réglages de l'affichage de la vidéo (luminosité, contraste)</li>
       <li xml:lang="gl">Configuración de vídeo (brillo, contraste)</li>
+      <li xml:lang="he">הגדרות תצוגת וידאו (בהירות, ניגודיות)</li>
       <li xml:lang="ia">Preferentias de monstrator de video (Brillantia, contrasto)</li>
       <li xml:lang="id">Pengesetan tampilan video (kecerahan, kontras)</li>
       <li xml:lang="it">Impostazioni di visualizzazione (luminosità, contrasto)</li>
@@ -373,6 +383,7 @@
       <li xml:lang="fi">Solidin ja Phononin ansiosta Dragon Player ei ole riippuvainen muista multimediakirjastoista tai laitteistosta</li>
       <li xml:lang="fr">Grâce à l'utilisation de Solid et Phonon, Dragon Player est indépendant de toute infrastructure multimédia ou couche d'abstraction matérielle</li>
       <li xml:lang="gl">Grazas a Solid e Phonon, Dragon Player é independente de calquera infraestrutura multimedia ou capa de abstracción de soporte físico.</li>
+      <li xml:lang="he">השימוש ב־Solid וב־Phonon הופכים את Dragon לבלתי תלוי בתשתית מולטימדיה או שכבת הפשטת חומרה</li>
       <li xml:lang="ia">Proque DragonPlayer es usante Solid e Phonon illo es independente ab ulle structura de multimedia o strato de abstraction hardware</li>
       <li xml:lang="id">Karena menggunakan Solid dan Phonon DragonPlayer tidak bergantung pada kerangka kerja multimedia apapun atau lapisan abstraksi perangkat keras</li>
       <li xml:lang="it">Grazie all'uso di Solid e Phonon, DragonPlayer è indipendente da qualsiasi infrastruttura multimediale o livello di astrazione hardware</li>
@@ -417,6 +428,7 @@
       <li xml:lang="fi">Tukee CD- ja DVD-toistoa</li>
       <li xml:lang="fr">Prend en charge la lecture des CD et DVD</li>
       <li xml:lang="gl">Permite reproducir CD e DVD</li>
+      <li xml:lang="he">תומך בנגינת תקליטורי שמע ו־DVD</li>
       <li xml:lang="ia">Supporta reproducer CDs e DVDs</li>
       <li xml:lang="id">Mendukung pemutaran CD dan DVD</li>
       <li xml:lang="it">Supporto per la riproduzione di CD e DVD</li>
