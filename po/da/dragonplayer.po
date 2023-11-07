@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-03 01:39+0000\n"
+"POT-Creation-Date: 2023-11-07 02:43+0000\n"
 "PO-Revision-Date: 2020-07-21 18:24+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -260,7 +260,7 @@ msgid ""
 msgstr ""
 "<qt>Phonon kunne ikke initialiseres. Dragon Player vil nu afslutte.</qt>"
 
-#: src/app/mainWindow.cpp:299
+#: src/app/mainWindow.cpp:300
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Play File"
@@ -268,13 +268,13 @@ msgctxt "@action"
 msgid "Play File…"
 msgstr "Afspil fil"
 
-#: src/app/mainWindow.cpp:300
+#: src/app/mainWindow.cpp:301
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open a media file for playback"
 msgstr ""
 
-#: src/app/mainWindow.cpp:309
+#: src/app/mainWindow.cpp:310
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Play Stream"
@@ -282,7 +282,7 @@ msgctxt "@action"
 msgid "Play Stream…"
 msgstr "Afspil stream"
 
-#: src/app/mainWindow.cpp:315
+#: src/app/mainWindow.cpp:316
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Play Disc"
@@ -290,54 +290,54 @@ msgctxt "@action"
 msgid "Play Disc"
 msgstr "Afspil disk"
 
-#: src/app/mainWindow.cpp:339
+#: src/app/mainWindow.cpp:340
 #, kde-format
 msgctxt "@action"
 msgid "Increase Volume"
 msgstr "Forøg lydstyrken"
 
-#: src/app/mainWindow.cpp:344
+#: src/app/mainWindow.cpp:345
 #, kde-format
 msgctxt "@action"
 msgid "Decrease Volume"
 msgstr "Formindsk lydstyrken"
 
-#: src/app/mainWindow.cpp:349
+#: src/app/mainWindow.cpp:350
 #, kde-format
 msgctxt "@action"
 msgid "Stop"
 msgstr "Stop"
 
-#: src/app/mainWindow.cpp:355
+#: src/app/mainWindow.cpp:356
 #, kde-format
 msgctxt "@action Mute the sound output"
 msgid "Mute"
 msgstr "Lydløs"
 
-#: src/app/mainWindow.cpp:361
+#: src/app/mainWindow.cpp:362
 #, kde-format
 msgctxt "@action"
 msgid "Reset Video Scale"
 msgstr "Nulstil videoskala"
 
-#: src/app/mainWindow.cpp:367
+#: src/app/mainWindow.cpp:368
 #, kde-format
 msgctxt "@action"
 msgid "Menu Toggle"
 msgstr "Slå menu til og fra"
 
-#: src/app/mainWindow.cpp:375 src/app/part.cpp:62
+#: src/app/mainWindow.cpp:376 src/app/part.cpp:62
 #, kde-format
 msgid "Position Slider"
 msgstr "Position-slider"
 
-#: src/app/mainWindow.cpp:379
+#: src/app/mainWindow.cpp:380
 #, kde-format
 msgctxt "@option:check"
 msgid "Video Settings"
 msgstr "Videoindstillinger"
 
-#: src/app/mainWindow.cpp:387
+#: src/app/mainWindow.cpp:388
 #, kde-format
 msgctxt ""
 "@option:check Whether only one instance of dragon can be started and will be "
@@ -345,77 +345,77 @@ msgctxt ""
 msgid "One Instance Only"
 msgstr "Kun én instans"
 
-#: src/app/mainWindow.cpp:395
+#: src/app/mainWindow.cpp:396
 #, kde-format
 msgctxt "@action previous chapter"
 msgid "Previous"
 msgstr "Forrige"
 
-#: src/app/mainWindow.cpp:401
+#: src/app/mainWindow.cpp:402
 #, kde-format
 msgctxt "@action next chapter"
 msgid "Next"
 msgstr "Næste"
 
-#: src/app/mainWindow.cpp:408
+#: src/app/mainWindow.cpp:409
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Return 10% Back"
 msgstr "Gå 10% tilbage"
 
-#: src/app/mainWindow.cpp:415
+#: src/app/mainWindow.cpp:416
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Go 10% Forward"
 msgstr "Gå 10% fremad"
 
-#: src/app/mainWindow.cpp:421
+#: src/app/mainWindow.cpp:422
 #, kde-format
 msgctxt "@action"
 msgid "Return 10 Seconds Back"
 msgstr "Gå 10 sekunder tilbage"
 
-#: src/app/mainWindow.cpp:427
+#: src/app/mainWindow.cpp:428
 #, kde-format
 msgctxt "@action"
 msgid "Go 10 Seconds Forward"
 msgstr "Gå 10 sekunder frem"
 
-#: src/app/mainWindow.cpp:507
+#: src/app/mainWindow.cpp:508
 #, kde-format
 msgctxt "@option:check Mute the sound output"
 msgid "Mute"
 msgstr "Lydløs"
 
-#: src/app/mainWindow.cpp:579
+#: src/app/mainWindow.cpp:580
 #, kde-format
 msgid "Dragon Player was asked to open an empty URL; it cannot."
 msgstr "Dragon Player blev bedt om at åbne en tom URL, det kan den ikke."
 
-#: src/app/mainWindow.cpp:656
+#: src/app/mainWindow.cpp:657
 #, kde-format
 msgctxt "@title:window"
 msgid "Select File to Play"
 msgstr "Vælg en fil til afspilning"
 
-#: src/app/mainWindow.cpp:683
+#: src/app/mainWindow.cpp:684
 #, kde-format
 msgctxt "@title:window"
 msgid "Stream to Play"
 msgstr "Stream der skal afspilles"
 
-#: src/app/mainWindow.cpp:683
+#: src/app/mainWindow.cpp:684
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Stream:"
 msgstr "Stream:"
 
-#: src/app/mainWindow.cpp:813
+#: src/app/mainWindow.cpp:814
 #, kde-format
 msgid "Sorry, no media was found in the drop"
 msgstr "Beklager, intet medie blev fundet i droppet"
 
-#: src/app/mainWindow.cpp:866
+#: src/app/mainWindow.cpp:867
 #, fuzzy, kde-format
 #| msgctxt "Notification inhibition reason"
 #| msgid "playing a video"
@@ -423,12 +423,12 @@ msgctxt "Notification inhibition reason"
 msgid "Playing a video"
 msgstr "afspiller en video"
 
-#: src/app/mainWindow.cpp:913
+#: src/app/mainWindow.cpp:914
 #, kde-format
 msgid "No media loaded"
 msgstr "Intet medie indlæst"
 
-#: src/app/mainWindow.cpp:915
+#: src/app/mainWindow.cpp:916
 #, kde-format
 msgid "Paused"
 msgstr "På pause"

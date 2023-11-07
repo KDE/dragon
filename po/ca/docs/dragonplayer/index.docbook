@@ -142,7 +142,7 @@
 <para
 ><guibutton
 >Reprodueix un fitxer</guibutton
-> obre el diàleg de fitxers i us permet seleccionar un fitxer per reproduir.</para>
+> obre el diàleg de fitxers i us permet seleccionar un fitxer per a reproduir.</para>
 <para
 ><guibutton
 >Reprodueix un disc</guibutton
@@ -150,11 +150,11 @@
 <para
 ><guibutton
 >Reprodueix un flux de dades</guibutton
-> per obrir un diàleg per introduir una adreça d'algun <ulink url="https://ca.wikipedia.org/wiki/Flux_de_dades_multimèdia"
+> per a obrir un diàleg per a introduir una adreça d'algun <ulink url="https://ca.wikipedia.org/wiki/Flux_de_dades_multimèdia"
 >flux de dades multimèdia</ulink
 >.</para>
 <para
->Feu doble clic sobre una entrada a la llista de reproducció amb els fitxers oberts recentment per iniciar la seva reproducció. El menú contextual de la llista de reproducció mostra les accions per eliminar una entrada seleccionada o netejar tota la llista. Qualsevol fitxer que reproduïu s'afegirà automàticament a la llista.</para>
+>Feu doble clic sobre una entrada a la llista de reproducció amb els fitxers oberts recentment per a iniciar la seva reproducció. El menú contextual de la llista de reproducció mostra les accions per a eliminar una entrada seleccionada o netejar tota la llista. Qualsevol fitxer que reproduïu s'afegirà automàticament a la llista.</para>
 </chapter>
 
 <chapter id="features">
@@ -187,7 +187,7 @@
 ><para
 >Seleccioneu aquesta acció al menú <guimenu
 >Arranjament</guimenu
-> per ajustar els valors de <guilabel
+> per a ajustar els valors de <guilabel
 >Lluminositat</guilabel
 >, <guilabel
 >Contrast</guilabel
@@ -259,9 +259,9 @@
 ><para
 >Si reproduïu vídeos amb una barra d'eines oculta, podeu utilitzar la drecera <keycap
 >M</keycap
-> per silenciar o activar el so, i la drecera <keycap
+> per a silenciar o activar el so, i la drecera <keycap
 >V</keycap
-> per alternar la vista del control lliscant de volum a la dreta del vídeo. </para
+> per a alternar la vista del control lliscant de volum a la dreta del vídeo. </para
 ></listitem>
 </varlistentry>
 
