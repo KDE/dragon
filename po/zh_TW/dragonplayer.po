@@ -6,19 +6,20 @@
 # pan93412 <pan93412@gmail.com>, 2018, 2019, 2020.
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2008.
 # Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2008, 2009.
+# SPDX-FileCopyrightText: 2023 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-07 02:43+0000\n"
-"PO-Revision-Date: 2020-05-15 00:13+0800\n"
-"Last-Translator: Yi-Jyun Pan <pan93412@gmail.com>\n"
-"Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
+"PO-Revision-Date: 2023-11-11 00:38+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 20.04.0\n"
+"X-Generator: Lokalize 23.08.2\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -40,9 +41,7 @@ msgstr "播放(&P)"
 
 #. i18n: ectx: Menu (play_media_menu)
 #: misc/dragonplayerui.rc:5
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Play Media"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Play Media"
 msgstr "播放媒體"
@@ -137,10 +136,9 @@ msgstr "選擇要播放的碟片。"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/app/loadView.ui:61
-#, fuzzy, kde-format
-#| msgid "Dragon Player"
+#, kde-format
 msgid "Welcome to Dragon Player"
-msgstr "神龍播放器"
+msgstr "歡迎來到神龍播放器"
 
 #: src/app/main.cpp:37
 #, kde-format
@@ -261,31 +259,25 @@ msgid ""
 msgstr "<qt>Phonon 無法成功初始化。神龍播放器將離開。</qt>"
 
 #: src/app/mainWindow.cpp:300
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play File"
+#, kde-format
 msgctxt "@action"
 msgid "Play File…"
-msgstr "播放檔案"
+msgstr "播放檔案…"
 
 #: src/app/mainWindow.cpp:301
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open a media file for playback"
-msgstr ""
+msgstr "開啟媒體檔案來進行播放"
 
 #: src/app/mainWindow.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Stream"
+#, kde-format
 msgctxt "@action"
 msgid "Play Stream…"
-msgstr "播放串流"
+msgstr "播放串流…"
 
 #: src/app/mainWindow.cpp:316
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Disc"
+#, kde-format
 msgctxt "@action"
 msgid "Play Disc"
 msgstr "播放光碟"
@@ -416,12 +408,10 @@ msgid "Sorry, no media was found in the drop"
 msgstr "抱歉，找不到媒體"
 
 #: src/app/mainWindow.cpp:867
-#, fuzzy, kde-format
-#| msgctxt "Notification inhibition reason"
-#| msgid "playing a video"
+#, kde-format
 msgctxt "Notification inhibition reason"
 msgid "Playing a video"
-msgstr "播放一個影片"
+msgstr "正在播放影片"
 
 #: src/app/mainWindow.cpp:914
 #, kde-format
