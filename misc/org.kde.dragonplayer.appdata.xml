@@ -316,7 +316,7 @@
       <li xml:lang="sr-ijekavian">Титлови: аутоматски учитава титлове са поклапајућим именом.</li>
       <li xml:lang="sr-ijekavianlatin">Titlovi: automatski učitava titlove sa poklapajućim imenom.</li>
       <li xml:lang="sv">Stöd för textning: Laddar automatiskt textning med motsvarande namn</li>
-      <li xml:lang="tr">Altyazı desteği: Adı uyuşan altyazıları otomatik olarak yükler</li>
+      <li xml:lang="tr">Altyazı desteği: Adı uyuşan altyazıları kendiliğinden yükler</li>
       <li xml:lang="uk">підтримка субтитрів: програма автоматично завантажує субтитри з відповідною назвою;</li>
       <li xml:lang="x-test">xxSupport for subtitles: Automatically loads subtitles with the matching namexx</li>
       <li xml:lang="zh-CN">支持字幕：自动加载名称匹配的字幕</li>
