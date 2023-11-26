@@ -4,13 +4,13 @@
 # Translators:
 # obsoleteman <tulliana@gmail.com>, 2008-2009,2011-2012.
 # Volkan Gezer <volkangezer@gmail.com>, 2013-2014.
-# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-07 02:43+0000\n"
-"PO-Revision-Date: 2023-11-11 23:32+0300\n"
+"PO-Revision-Date: 2023-11-25 11:19+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -125,7 +125,7 @@ msgstr "Veri CD'si"
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a Disc"
-msgstr "Bir Disk Seçin"
+msgstr "Bir Disk Seç"
 
 #: src/app/discSelectionDialog.cpp:75
 #, kde-format
@@ -146,7 +146,7 @@ msgstr "Dragon"
 #: src/app/main.cpp:39
 #, kde-format
 msgid "A video player that has a usability focus"
-msgstr "Kullanılabilirliğe odaklanmış bir video oynatıcı"
+msgstr "Kullanılabilirliğe odaklanmış bir video oynatıcısı"
 
 #: src/app/main.cpp:41
 #, kde-format
@@ -180,7 +180,7 @@ msgstr "El Kitabı"
 #: src/app/main.cpp:49
 #, kde-format
 msgid "Great reference code"
-msgstr "Harika başvuru kodları"
+msgstr "Yararlı kod başvuruları"
 
 #: src/app/main.cpp:50
 #, kde-format
@@ -387,7 +387,7 @@ msgstr "Dragon'a boş bir URL'yi açması önerildi, bu yapılamaz."
 #, kde-format
 msgctxt "@title:window"
 msgid "Select File to Play"
-msgstr "Oynatılacak Dosyayı Seçin"
+msgstr "Oynatılacak Dosyayı Seç"
 
 #: src/app/mainWindow.cpp:684
 #, kde-format
@@ -404,7 +404,7 @@ msgstr "Akış:"
 #: src/app/mainWindow.cpp:814
 #, kde-format
 msgid "Sorry, no media was found in the drop"
-msgstr "Üzgünüm, hiç ortam yok"
+msgstr "Üzgünüm, sürüklemede bir ortam yok"
 
 #: src/app/mainWindow.cpp:867
 #, kde-format
@@ -442,7 +442,7 @@ msgstr "<qt><i>'%1'</i> oynatma listesi yorumlanamadı. Boş olabilir mi?</qt>"
 #: src/app/playlistFile.cpp:70
 #, kde-format
 msgid "Dragon Player could not open the file: %1"
-msgstr "Dragon, bu dosyayı açamadı: %1"
+msgstr "Dragon, dosyayı açamadı: %1"
 
 #: src/app/theStream.cpp:145
 #, kde-format
@@ -468,7 +468,7 @@ msgstr "Karşıtlık:"
 #, kde-format
 msgctxt "@label:slider"
 msgid "Hue:"
-msgstr "Renk:"
+msgstr "Renk tonu:"
 
 #. i18n: ectx: property (text), widget (QLabel, saturationLabel)
 #: src/app/videoSettingsWidget.ui:88
@@ -501,86 +501,4 @@ msgstr "&DVD Altyazı Seçimi"
 #, kde-format
 msgctxt "@option:radio audio language"
 msgid "&Auto"
-msgstr "&Otomatik"
-
-#~ msgid "Recent Media"
-#~ msgstr "Son Kullanılan Ortam"
-
-#~ msgid "Clear Recent Media"
-#~ msgstr "Son Kullanılan Ortamları Temizle"
-
-#~ msgid "Recent Media List"
-#~ msgstr "Son Kullanılan Ortam Listesi"
-
-#~ msgctxt "@action"
-#~ msgid "Play &Media..."
-#~ msgstr "Ortam &Oynat..."
-
-#~ msgid "What media would you like to play?"
-#~ msgstr "Hangi ortamı oynatmak istiyorsunuz?"
-
-#~ msgctxt "@action:button"
-#~ msgid "Play File..."
-#~ msgstr "Dosya Oynat..."
-
-#~ msgctxt "@action Copy the URL of the selected multimedia"
-#~ msgid "Copy URL"
-#~ msgstr "URL Kopyala"
-
-#~ msgctxt "@action"
-#~ msgid "Clear List"
-#~ msgstr "Listeyi Temizle"
-
-#~ msgctxt "@action"
-#~ msgid "Remove Entry"
-#~ msgstr "Girdiyi Kaldır"
-
-#~ msgid ""
-#~ "This file could not be found. Would you like to remove it from the "
-#~ "playlist?"
-#~ msgstr "Bu dosya bulunamadı. Oynatma listesinden silmek istiyor musunuz?"
-
-#~ msgctxt "@title:window"
-#~ msgid "File not found"
-#~ msgstr "Dosya bulunamadı"
-
-#~ msgid ""
-#~ "IRC:\n"
-#~ "irc.freenode.net #dragonplayer\n"
-#~ "\n"
-#~ "Feedback:\n"
-#~ "imonroe@kde.org"
-#~ msgstr ""
-#~ "IRC:\n"
-#~ "irc.freenode.net #dragonplayer\n"
-#~ "\n"
-#~ "Geribildirim:\n"
-#~ "imonroe@kde.org"
-
-#~ msgid "David Edmundson"
-#~ msgstr "David Edmundson"
-
-#~ msgid "Matthias Kretz"
-#~ msgstr "Matthias Kretz"
-
-#~ msgid "Eugene Trounev"
-#~ msgstr "Eugene Trounev"
-
-#~ msgid "Mike Diehl"
-#~ msgstr "Mike Diehl"
-
-#~ msgid "The Kaffeine Developers"
-#~ msgstr "Kaffeine Geliştiricileri"
-
-#~ msgid "Greenleaf"
-#~ msgstr "Greenleaf"
-
-#~ msgid "Eike Hein"
-#~ msgstr "Eike Hein"
-
-#~ msgid "Next Chapter"
-#~ msgstr "Sonraki Bölüm"
-
-#~ msgctxt "Mute the sound output"
-#~ msgid "Mute "
-#~ msgstr "Sessiz "
+msgstr "&Kendiliğinden"
