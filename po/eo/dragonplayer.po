@@ -1,30 +1,32 @@
 # Translation of dragonplayer into esperanto.
+# Copyright (C) 2009 Free Software Foundation, Inc.
 # Axel Rousseau <axel@esperanto-jeunes.org>, 2009.
+# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-08 00:45+0000\n"
-"PO-Revision-Date: 2023-03-20 22:31+0100\n"
+"PO-Revision-Date: 2023-11-03 23:51+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: pology\n"
+"X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Axel Rousseau"
+msgstr "Axel Rousseau,Oliver Kellogg"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "axel@esperanto-jeunes.org"
+msgstr "axel@esperanto-jeunes.org,okellogg@users.sourceforge.net"
 
 #. i18n: ectx: Menu (file)
 #: misc/dragonplayerui.rc:4
@@ -38,7 +40,7 @@ msgstr "&Ludi"
 #, kde-format
 msgctxt "@title:menu"
 msgid "Play Media"
-msgstr ""
+msgstr "Ludi Aŭdvidaĵon"
 
 #. i18n: ectx: Menu (settings)
 #: misc/dragonplayerui.rc:20
@@ -75,21 +77,25 @@ msgstr "Laŭteco"
 #, kde-format
 msgctxt "@action:button"
 msgid "Preferred Scale"
-msgstr ""
+msgstr "Preferata Skalo"
 
 #: src/app/adjustSizeButton.cpp:42
 #, kde-format
 msgctxt "@action:button"
 msgid "Scale 100%"
-msgstr ""
+msgstr "Skalo 100%"
 
 #: src/app/adjustSizeButton.cpp:49
 #, kde-format
 msgid "<b>Adjust video scale?</b>"
-msgstr ""
+msgstr "<b>Ĉu ĝustigi videoskalon?</b>"
 
 #: src/app/discSelectionDialog.cpp:37
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "%1 is the disc type, %2 is the name of the disc that the user can choose. "
+#| "¦Ex. 'DVD: OfficeSpace'"
+#| msgid "%1: %2"
 msgctxt ""
 "%1 is the disc type, %2 is the name of the disc that the user can choose. "
 "Ex. 'DVD: OfficeSpace'"
@@ -100,7 +106,7 @@ msgstr "%1: %2"
 #, kde-format
 msgctxt "Digital Versatile Disc, but keep it short"
 msgid "DVD"
-msgstr ""
+msgstr "DVD"
 
 #: src/app/discSelectionDialog.cpp:58
 #, kde-format
@@ -115,34 +121,34 @@ msgstr "Sona KD"
 #: src/app/discSelectionDialog.cpp:62
 #, kde-format
 msgid "Data CD"
-msgstr ""
+msgstr "KD de datumoj"
 
 #: src/app/discSelectionDialog.cpp:73
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a Disc"
-msgstr ""
+msgstr "Elekti Diskon"
 
 #: src/app/discSelectionDialog.cpp:75
 #, kde-format
 msgid "Select a disc to play."
-msgstr ""
+msgstr "Elektu diskon por ludi."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/app/loadView.ui:61
 #, kde-format
 msgid "Welcome to Dragon Player"
-msgstr ""
+msgstr "Bonvenon al Dragon Player"
 
 #: src/app/main.cpp:37
 #, kde-format
 msgid "Dragon Player"
-msgstr ""
+msgstr "Dragon Player"
 
 #: src/app/main.cpp:39
 #, kde-format
 msgid "A video player that has a usability focus"
-msgstr ""
+msgstr "Videoludilo, kiu fokusas pri uzebleco"
 
 #: src/app/main.cpp:41
 #, kde-format
@@ -156,17 +162,17 @@ msgstr ""
 #: src/app/main.cpp:45
 #, kde-format
 msgid "Improvements and polish"
-msgstr ""
+msgstr "Pliboniĝoj kaj polurado"
 
 #: src/app/main.cpp:46
 #, kde-format
 msgid "Creator of Phonon"
-msgstr ""
+msgstr "Kreinto de Phonon"
 
 #: src/app/main.cpp:47
 #, kde-format
 msgid "Dragon Player icon"
-msgstr ""
+msgstr "Piktogramo de Dragon Player"
 
 #: src/app/main.cpp:48
 #, kde-format
@@ -176,56 +182,57 @@ msgstr "Manlibro"
 #: src/app/main.cpp:49
 #, kde-format
 msgid "Great reference code"
-msgstr ""
+msgstr "Bonega referenckodo"
 
 #: src/app/main.cpp:50
 #, kde-format
 msgid "Yatta happened to be the only video on my laptop to test with. :)"
 msgstr ""
+"Yatta hazarde estis la nura video sur mia tekkomputilo kun kiu testi. :)"
 
 #: src/app/main.cpp:51
 #, kde-format
 msgid "MPRIS v2 support"
-msgstr ""
+msgstr "MPRIS v2 subteno"
 
 #: src/app/main.cpp:52
 #, kde-format
 msgid "Port to KF5/Plasma 5"
-msgstr ""
+msgstr "Portado al KF5/Plasma 5"
 
 #: src/app/main.cpp:59
 #, kde-format
 msgid "Play DVD Video"
-msgstr ""
+msgstr "Ludi DVD-Videon"
 
 #: src/app/main.cpp:61
 #, kde-format
 msgid "Play 'URL'"
-msgstr ""
+msgstr "Ludi 'URL'"
 
 #: src/app/mainWindow.cpp:139
 #, kde-format
 msgctxt "@title:menu"
 msgid "Aspect &Ratio"
-msgstr ""
+msgstr "Bildfo&rmato"
 
 #: src/app/mainWindow.cpp:140
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Audio Channels"
-msgstr ""
+msgstr "&Aŭdiokanaloj"
 
 #: src/app/mainWindow.cpp:141
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Subtitles"
-msgstr ""
+msgstr "&Subtekstoj"
 
 #: src/app/mainWindow.cpp:154
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Determine &Automatically"
-msgstr ""
+msgstr "Determini &Aŭtomate"
 
 #: src/app/mainWindow.cpp:155
 #, kde-format
@@ -237,13 +244,13 @@ msgstr "&4:3"
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Ana&morphic (16:9)"
-msgstr ""
+msgstr "Ana&morfa (16:9)"
 
 #: src/app/mainWindow.cpp:157
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "&Window Size"
-msgstr ""
+msgstr "&Fenestra Grandeco"
 
 #: src/app/mainWindow.cpp:238
 #, kde-format
@@ -251,30 +258,32 @@ msgid ""
 "<qt>Phonon could not be successfully initialized. Dragon Player will now "
 "exit.</qt>"
 msgstr ""
+"<qt>Phonon ne povis esti sukcese pravalorizita. Dragon Player nun eliros.</"
+"qt>"
 
 #: src/app/mainWindow.cpp:300
 #, kde-format
 msgctxt "@action"
 msgid "Play File…"
-msgstr ""
+msgstr "Ludi dosieron…"
 
 #: src/app/mainWindow.cpp:301
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open a media file for playback"
-msgstr ""
+msgstr "Malfermi aŭdvidaĵan dosieron por reludi"
 
 #: src/app/mainWindow.cpp:310
 #, kde-format
 msgctxt "@action"
 msgid "Play Stream…"
-msgstr ""
+msgstr "Ludi Stream…"
 
 #: src/app/mainWindow.cpp:316
 #, kde-format
 msgctxt "@action"
 msgid "Play Disc"
-msgstr ""
+msgstr "Ludi Diskon"
 
 #: src/app/mainWindow.cpp:340
 #, kde-format
@@ -298,108 +307,112 @@ msgstr "Halti"
 #, kde-format
 msgctxt "@action Mute the sound output"
 msgid "Mute"
-msgstr ""
+msgstr "Silentigi"
 
 #: src/app/mainWindow.cpp:362
 #, kde-format
 msgctxt "@action"
 msgid "Reset Video Scale"
-msgstr ""
+msgstr "Restarigi Video-Skalon"
 
 #: src/app/mainWindow.cpp:368
 #, kde-format
 msgctxt "@action"
 msgid "Menu Toggle"
-msgstr ""
+msgstr "Menu-Baskulo"
 
 #: src/app/mainWindow.cpp:376 src/app/part.cpp:62
 #, kde-format
 msgid "Position Slider"
-msgstr ""
+msgstr "Pozicia Glitilo"
 
 #: src/app/mainWindow.cpp:380
 #, kde-format
 msgctxt "@option:check"
 msgid "Video Settings"
-msgstr ""
+msgstr "Video-Agordoj"
 
 #: src/app/mainWindow.cpp:388
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@option:check Whether only one instance of dragon can be started and will "
+#| "be ¦reused when the user tries to play another file."
+#| msgid "One Instance Only"
 msgctxt ""
 "@option:check Whether only one instance of dragon can be started and will be "
 "reused when the user tries to play another file."
 msgid "One Instance Only"
-msgstr ""
+msgstr "Nur Unu Instanco"
 
 #: src/app/mainWindow.cpp:396
 #, kde-format
 msgctxt "@action previous chapter"
 msgid "Previous"
-msgstr ""
+msgstr "Antaŭa"
 
 #: src/app/mainWindow.cpp:402
 #, kde-format
 msgctxt "@action next chapter"
 msgid "Next"
-msgstr ""
+msgstr "Sekva"
 
 #: src/app/mainWindow.cpp:409
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Return 10% Back"
-msgstr ""
+msgstr "Reveni 10% Reen"
 
 #: src/app/mainWindow.cpp:416
 #, no-c-format, kde-format
 msgctxt "@action"
 msgid "Go 10% Forward"
-msgstr ""
+msgstr "Iri 10% Antaŭen"
 
 #: src/app/mainWindow.cpp:422
 #, kde-format
 msgctxt "@action"
 msgid "Return 10 Seconds Back"
-msgstr ""
+msgstr "Reveni 10 Sekundojn Reen"
 
 #: src/app/mainWindow.cpp:428
 #, kde-format
 msgctxt "@action"
 msgid "Go 10 Seconds Forward"
-msgstr ""
+msgstr "Iri 10 Sekundojn Antaŭen"
 
 #: src/app/mainWindow.cpp:508
 #, kde-format
 msgctxt "@option:check Mute the sound output"
 msgid "Mute"
-msgstr ""
+msgstr "Silentigi"
 
 #: src/app/mainWindow.cpp:580
 #, kde-format
 msgid "Dragon Player was asked to open an empty URL; it cannot."
-msgstr ""
+msgstr "Dragon Player estis petita malfermi malplenan URL; ĝi ne povas."
 
 #: src/app/mainWindow.cpp:657
 #, kde-format
 msgctxt "@title:window"
 msgid "Select File to Play"
-msgstr ""
+msgstr "Elekti Dosieron por Ludi"
 
 #: src/app/mainWindow.cpp:684
 #, kde-format
 msgctxt "@title:window"
 msgid "Stream to Play"
-msgstr ""
+msgstr "Fluo por Ludi"
 
 #: src/app/mainWindow.cpp:684
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Stream:"
-msgstr ""
+msgstr "Fluo:"
 
 #: src/app/mainWindow.cpp:814
 #, kde-format
 msgid "Sorry, no media was found in the drop"
-msgstr ""
+msgstr "Pardonu, neniu aŭdvidaĵo estis trovita en la guto"
 
 #: src/app/mainWindow.cpp:862
 #, kde-format
@@ -410,7 +423,7 @@ msgstr ""
 #: src/app/mainWindow.cpp:894
 #, kde-format
 msgid "No media loaded"
-msgstr ""
+msgstr "Neniu aŭdvidaĵo ŝargita"
 
 #: src/app/mainWindow.cpp:896
 #, kde-format
@@ -420,12 +433,12 @@ msgstr "Paŭzita"
 #: src/app/playlistFile.cpp:37
 #, kde-format
 msgid "The file is not a playlist"
-msgstr ""
+msgstr "La dosiero ne estas ludlisto"
 
 #: src/app/playlistFile.cpp:45
 #, kde-format
 msgid "Dragon Player could not download the remote playlist: %1"
-msgstr ""
+msgstr "Dragon Player ne povis elŝuti la foran ludliston: %1"
 
 #: src/app/playlistFile.cpp:66
 #, kde-format
@@ -433,16 +446,18 @@ msgid ""
 "<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is empty?"
 "</qt>"
 msgstr ""
+"<qt>La ludlisto, <i>'%1'</i>, ne povis esti interpretita. Eble ĝi estas "
+"malplena?</qt>"
 
 #: src/app/playlistFile.cpp:70
 #, kde-format
 msgid "Dragon Player could not open the file: %1"
-msgstr ""
+msgstr "Dragon Player ne povis malfermi la dosieron: %1"
 
 #: src/app/theStream.cpp:145
 #, kde-format
 msgid "Track %1/%2"
-msgstr ""
+msgstr "Vojo %1/%2"
 
 #. i18n: ectx: property (text), widget (QLabel, brightnessLabel)
 #: src/app/videoSettingsWidget.ui:19
@@ -490,10 +505,10 @@ msgstr "Fermi"
 #, kde-format
 msgctxt "@option:radio"
 msgid "&DVD Subtitle Selection"
-msgstr ""
+msgstr "&DVD-Selekto de Subtitoloj"
 
 #: src/app/videoWindow.cpp:117
 #, kde-format
 msgctxt "@option:radio audio language"
 msgid "&Auto"
-msgstr ""
+msgstr "&Aŭtomata"
