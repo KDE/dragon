@@ -91,11 +91,7 @@ msgid "<b>Adjust video scale?</b>"
 msgstr "<b>Ĉu ĝustigi videoskalon?</b>"
 
 #: src/app/discSelectionDialog.cpp:37
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is the disc type, %2 is the name of the disc that the user can choose. "
-#| "¦Ex. 'DVD: OfficeSpace'"
-#| msgid "%1: %2"
+#, kde-format
 msgctxt ""
 "%1 is the disc type, %2 is the name of the disc that the user can choose. "
 "Ex. 'DVD: OfficeSpace'"
@@ -333,11 +329,7 @@ msgid "Video Settings"
 msgstr "Video-Agordoj"
 
 #: src/app/mainWindow.cpp:388
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@option:check Whether only one instance of dragon can be started and will "
-#| "be ¦reused when the user tries to play another file."
-#| msgid "One Instance Only"
+#, kde-format
 msgctxt ""
 "@option:check Whether only one instance of dragon can be started and will be "
 "reused when the user tries to play another file."
