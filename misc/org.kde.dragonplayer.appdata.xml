@@ -491,10 +491,10 @@
     </ul>
   </description>
   <content_rating type="oars-1.1"/>
+  <url type="homepage">https://apps.kde.org/dragonplayer</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=dragonplayer</url>
   <url type="help">https://docs.kde.org/?application=dragonplayer</url>
   <url type="donation">https://www.kde.org/community/donations/?app=dragon&amp;source=appdata</url>
-  <url type="homepage">https://kde.org/applications/multimedia/org.kde.dragonplayer</url>
   <screenshots>
     <screenshot type="default">
       <image>https://cdn.kde.org/screenshots/dragonplayer/dragonplayer.png</image>

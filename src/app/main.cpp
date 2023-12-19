@@ -37,7 +37,7 @@ int main(int argc, char **argv)
                          KAboutLicense::GPL_V2,
                          i18n("Copyright 2006, Max Howell\nCopyright 2007, Ian Monroe"),
                          QString(),
-                         QStringLiteral("https://commits.kde.org/dragon"));
+                         QStringLiteral("https://apps.kde.org/dragonplayer"));
     aboutData.setDesktopFileName(QStringLiteral("org.kde.dragonplayer"));
     aboutData.addCredit(QStringLiteral("David Edmundson"), i18n("Improvements and polish"));
     aboutData.addCredit(QStringLiteral("Matthias Kretz"), i18n("Creator of Phonon"));
