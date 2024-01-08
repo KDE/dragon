@@ -2,14 +2,14 @@
 # Copyright (C) 2008 This_file_is_part_of_KDE
 # This file is distributed under the same license as the dragonplayer package.
 # Laurenţiu Buzdugan <lbuz@rolix.org>, 2008".
-# Sergiu Bivol <sergiu@cip.md>, 2008, 2009, 2011, 2013, 2022, 2023.
+# Sergiu Bivol <sergiu@cip.md>, 2008, 2009, 2011, 2013, 2022, 2023, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-07 02:43+0000\n"
-"PO-Revision-Date: 2023-04-10 17:58+0100\n"
+"PO-Revision-Date: 2024-01-07 16:27+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -409,12 +409,10 @@ msgid "Sorry, no media was found in the drop"
 msgstr "Nu s-a găsit niciun mediu de redat în ceea ce ați lăsat"
 
 #: src/app/mainWindow.cpp:867
-#, fuzzy, kde-format
-#| msgctxt "Notification inhibition reason"
-#| msgid "playing a video"
+#, kde-format
 msgctxt "Notification inhibition reason"
 msgid "Playing a video"
-msgstr "se redă un video"
+msgstr "Se redă un video"
 
 #: src/app/mainWindow.cpp:914
 #, kde-format
