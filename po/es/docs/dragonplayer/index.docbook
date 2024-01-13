@@ -228,7 +228,7 @@
 ><para
 >Mientras se reproduce una película, se puede acceder al modo de pantalla completa. De esta forma, se utiliza toda la pantalla del monitor para mostrar la película. Cuando este modo está activado, al mover el ratón, aparece una barra de herramientas en la parte superior de la pantalla. Se puede alternar entre el modo de pantalla completa y el modo normal mediante el menú <guimenu
 > Preferencias</guimenu
->, la acción correspondiente en la barra de herramientas o usando el acceso rápido <keycap
+>, la acción correspondiente en la barra de herramientas o usando el atajo de teclado <keycap
 >F</keycap
 >. </para
 ></listitem>
@@ -260,7 +260,7 @@
 >Navegación </term>
 <listitem
 ><para
->El acceso rápido <keycap
+>El atajo de teclado <keycap
 >AvPág</keycap
 > proporciona un avance del 10 % / <keycap
 >+</keycap
@@ -313,9 +313,9 @@
 </term>
 <listitem
 ><para
->Si reproduce vídeos con la barra de herramientas oculta, puede utilizar el acceso rápido <keycap
+>Si reproduce vídeos con la barra de herramientas oculta, puede utilizar el atajo de teclado <keycap
 >M</keycap
-> para silenciar y volver a activar el sonido y el acceso rápido <keycap
+> para silenciar y volver a activar el sonido y el atajo de teclado <keycap
 >V</keycap
 > para alternar entre mostrar o no el deslizador del volumen a la derecha del vídeo. </para
 ></listitem>
