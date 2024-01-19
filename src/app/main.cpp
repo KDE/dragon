@@ -14,6 +14,7 @@
 #include <QCommandLineParser>
 #include <QDebug>
 #include <QDir>
+#include <QIcon>
 #include <QUrl>
 
 #include <KAboutData>
@@ -52,6 +53,8 @@ int main(int argc, char **argv)
     aboutData.addCredit(QStringLiteral("Lukáš Tinkl"), i18n("Port to KF5/Plasma 5"), QStringLiteral("lukas@kde.org"));
 
     KAboutData::setApplicationData(aboutData);
+
+    QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("dragonplayer")));
 
     QCommandLineParser parser;
     aboutData.setupCommandLine(&parser);
