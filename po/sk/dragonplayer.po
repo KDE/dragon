@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:43+0000\n"
+"POT-Creation-Date: 2024-01-20 00:37+0000\n"
 "PO-Revision-Date: 2022-04-08 18:42+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -140,17 +140,17 @@ msgstr "Vyberte disk na prehranie."
 msgid "Welcome to Dragon Player"
 msgstr "Prehrávač Dragon"
 
-#: src/app/main.cpp:37
+#: src/app/main.cpp:38
 #, kde-format
 msgid "Dragon Player"
 msgstr "Prehrávač Dragon"
 
-#: src/app/main.cpp:39
+#: src/app/main.cpp:40
 #, kde-format
 msgid "A video player that has a usability focus"
 msgstr "Prehrávač videa so zameraním na použiteľnosť"
 
-#: src/app/main.cpp:41
+#: src/app/main.cpp:42
 #, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"
@@ -159,52 +159,52 @@ msgstr ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe"
 
-#: src/app/main.cpp:45
+#: src/app/main.cpp:46
 #, kde-format
 msgid "Improvements and polish"
 msgstr "Vylepšenia a doladenie"
 
-#: src/app/main.cpp:46
+#: src/app/main.cpp:47
 #, kde-format
 msgid "Creator of Phonon"
 msgstr "Tvorca Phononu"
 
-#: src/app/main.cpp:47
+#: src/app/main.cpp:48
 #, kde-format
 msgid "Dragon Player icon"
 msgstr "Ikona prehrávača Dragon"
 
-#: src/app/main.cpp:48
+#: src/app/main.cpp:49
 #, kde-format
 msgid "Handbook"
 msgstr "Príručka"
 
-#: src/app/main.cpp:49
+#: src/app/main.cpp:50
 #, kde-format
 msgid "Great reference code"
 msgstr "Skvelý referenčný kód"
 
-#: src/app/main.cpp:50
+#: src/app/main.cpp:51
 #, kde-format
 msgid "Yatta happened to be the only video on my laptop to test with. :)"
 msgstr "Jediné video, ktoré zostalo na mojom notebooku na testy je Yatta :)"
 
-#: src/app/main.cpp:51
+#: src/app/main.cpp:52
 #, kde-format
 msgid "MPRIS v2 support"
 msgstr "Podpora MPRIS v2"
 
-#: src/app/main.cpp:52
+#: src/app/main.cpp:53
 #, kde-format
 msgid "Port to KF5/Plasma 5"
 msgstr "Port do KF5/Plasma 5"
 
-#: src/app/main.cpp:59
+#: src/app/main.cpp:62
 #, kde-format
 msgid "Play DVD Video"
 msgstr "Prehrať DVD video"
 
-#: src/app/main.cpp:61
+#: src/app/main.cpp:64
 #, kde-format
 msgid "Play 'URL'"
 msgstr "Prehrať 'URL'"

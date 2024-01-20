@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:43+0000\n"
+"POT-Creation-Date: 2024-01-20 00:37+0000\n"
 "PO-Revision-Date: 2013-06-27 02:38+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -147,17 +147,17 @@ msgstr "Орындайтын дискін таңдау"
 msgid "Welcome to Dragon Player"
 msgstr "Dragon ойнатқышы"
 
-#: src/app/main.cpp:37
+#: src/app/main.cpp:38
 #, kde-format
 msgid "Dragon Player"
 msgstr "Dragon ойнатқышы"
 
-#: src/app/main.cpp:39
+#: src/app/main.cpp:40
 #, kde-format
 msgid "A video player that has a usability focus"
 msgstr "Ыңғайлықты алға қоятын видео ойнатқышы"
 
-#: src/app/main.cpp:41
+#: src/app/main.cpp:42
 #, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"
@@ -166,52 +166,52 @@ msgstr ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe"
 
-#: src/app/main.cpp:45
+#: src/app/main.cpp:46
 #, kde-format
 msgid "Improvements and polish"
 msgstr "жақсарту мен \"жылтырату\""
 
-#: src/app/main.cpp:46
+#: src/app/main.cpp:47
 #, kde-format
 msgid "Creator of Phonon"
 msgstr "Phonon-ның авторы"
 
-#: src/app/main.cpp:47
+#: src/app/main.cpp:48
 #, kde-format
 msgid "Dragon Player icon"
 msgstr "Dragon ойнатқышының таңбашасы"
 
-#: src/app/main.cpp:48
+#: src/app/main.cpp:49
 #, kde-format
 msgid "Handbook"
 msgstr "Анықтамасы"
 
-#: src/app/main.cpp:49
+#: src/app/main.cpp:50
 #, kde-format
 msgid "Great reference code"
 msgstr "Үлгілі коды"
 
-#: src/app/main.cpp:50
+#: src/app/main.cpp:51
 #, kde-format
 msgid "Yatta happened to be the only video on my laptop to test with. :)"
 msgstr "Yatta бірде менің ноутбугімде видеоны қарағысы келіген еді. :)"
 
-#: src/app/main.cpp:51
+#: src/app/main.cpp:52
 #, kde-format
 msgid "MPRIS v2 support"
 msgstr "MPRIS v2 қолдауы"
 
-#: src/app/main.cpp:52
+#: src/app/main.cpp:53
 #, kde-format
 msgid "Port to KF5/Plasma 5"
 msgstr ""
 
-#: src/app/main.cpp:59
+#: src/app/main.cpp:62
 #, kde-format
 msgid "Play DVD Video"
 msgstr "DVD Video-ны көрсету"
 
-#: src/app/main.cpp:61
+#: src/app/main.cpp:64
 #, kde-format
 msgid "Play 'URL'"
 msgstr "'URL' орындау"
