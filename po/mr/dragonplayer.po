@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-20 00:37+0000\n"
+"POT-Creation-Date: 2024-01-27 00:37+0000\n"
 "PO-Revision-Date: 2014-10-18 10:23+0530\n"
 "Last-Translator: Chetan Khona <chetan@sumconcepts.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -146,17 +146,17 @@ msgstr "प्ले करण्यासाठी डिस्क निवड
 msgid "Welcome to Dragon Player"
 msgstr "ड्रेगोन प्लेयर"
 
-#: src/app/main.cpp:38
+#: src/app/main.cpp:35
 #, kde-format
 msgid "Dragon Player"
 msgstr "ड्रेगोन प्लेयर"
 
-#: src/app/main.cpp:40
+#: src/app/main.cpp:37
 #, kde-format
 msgid "A video player that has a usability focus"
 msgstr "सुलभ वापराचे लक्ष्य असलेला व्हिडीओ प्लेयर"
 
-#: src/app/main.cpp:42
+#: src/app/main.cpp:39
 #, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"
@@ -165,52 +165,52 @@ msgstr ""
 "Copyright 2006, मेक्स होवेल\n"
 "Copyright 2007, आयन मन्रो"
 
-#: src/app/main.cpp:46
+#: src/app/main.cpp:43
 #, kde-format
 msgid "Improvements and polish"
 msgstr "सुधारणा व चकचकीतपणा"
 
-#: src/app/main.cpp:47
+#: src/app/main.cpp:44
 #, kde-format
 msgid "Creator of Phonon"
 msgstr "फोनॉन निर्माता"
 
-#: src/app/main.cpp:48
+#: src/app/main.cpp:45
 #, kde-format
 msgid "Dragon Player icon"
 msgstr "ड्रेगोन प्लेयर चिन्ह"
 
-#: src/app/main.cpp:49
+#: src/app/main.cpp:46
 #, kde-format
 msgid "Handbook"
 msgstr "पुस्तिका"
 
-#: src/app/main.cpp:50
+#: src/app/main.cpp:47
 #, kde-format
 msgid "Great reference code"
 msgstr "महत्वपूर्ण संदर्भ कोड"
 
-#: src/app/main.cpp:51
+#: src/app/main.cpp:48
 #, kde-format
 msgid "Yatta happened to be the only video on my laptop to test with. :)"
 msgstr "माझ्या संगणकावरील चाचणीकरिता एकमेव व्हिडीओ. :)"
 
-#: src/app/main.cpp:52
+#: src/app/main.cpp:49
 #, kde-format
 msgid "MPRIS v2 support"
 msgstr "MPRIS v2 समर्थन"
 
-#: src/app/main.cpp:53
+#: src/app/main.cpp:50
 #, kde-format
 msgid "Port to KF5/Plasma 5"
 msgstr ""
 
-#: src/app/main.cpp:62
+#: src/app/main.cpp:59
 #, kde-format
 msgid "Play DVD Video"
 msgstr "डीव्हीडी व्हिडीओ प्ले करा"
 
-#: src/app/main.cpp:64
+#: src/app/main.cpp:61
 #, kde-format
 msgid "Play 'URL'"
 msgstr "'URL' प्ले करा"
@@ -339,7 +339,7 @@ msgctxt "@action"
 msgid "Menu Toggle"
 msgstr "मेन्यू चालू/बंद"
 
-#: src/app/mainWindow.cpp:376 src/app/part.cpp:62
+#: src/app/mainWindow.cpp:376 src/app/part.cpp:54
 #, kde-format
 msgid "Position Slider"
 msgstr "स्थिती सरकविणारा"
