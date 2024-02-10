@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdemultimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-27 00:37+0000\n"
-"PO-Revision-Date: 2024-01-21 19:03+0300\n"
+"PO-Revision-Date: 2024-02-09 17:45+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -114,12 +114,12 @@ msgstr "Video CD"
 #: src/app/discSelectionDialog.cpp:60
 #, kde-format
 msgid "Audio CD"
-msgstr "Ses CD'si"
+msgstr "Ses CD’si"
 
 #: src/app/discSelectionDialog.cpp:62
 #, kde-format
 msgid "Data CD"
-msgstr "Veri CD'si"
+msgstr "Veri CD’si"
 
 #: src/app/discSelectionDialog.cpp:73
 #, kde-format
@@ -136,7 +136,7 @@ msgstr "Oynatmak için bir disk seçin."
 #: src/app/loadView.ui:61
 #, kde-format
 msgid "Welcome to Dragon Player"
-msgstr "Dragon'a hoş geldiniz"
+msgstr "Dragon’a hoş geldiniz"
 
 #: src/app/main.cpp:35
 #, kde-format
@@ -165,7 +165,7 @@ msgstr "Geliştirmeler ve düzeltmeler"
 #: src/app/main.cpp:44
 #, kde-format
 msgid "Creator of Phonon"
-msgstr "Phonon'un yaratıcısı"
+msgstr "Phonon’un yaratıcısı"
 
 #: src/app/main.cpp:45
 #, kde-format
@@ -255,7 +255,7 @@ msgid ""
 "<qt>Phonon could not be successfully initialized. Dragon Player will now "
 "exit.</qt>"
 msgstr ""
-"<qt>Phonon başarılı bir şekilde başlatılamadı. Dragon'dan çıkılıyor.</qt>"
+"<qt>Phonon başarılı bir şekilde başlatılamadı. Dragon’dan çıkılıyor.</qt>"
 
 #: src/app/mainWindow.cpp:300
 #, kde-format
@@ -381,7 +381,7 @@ msgstr "Sessiz"
 #: src/app/mainWindow.cpp:580
 #, kde-format
 msgid "Dragon Player was asked to open an empty URL; it cannot."
-msgstr "Dragon'a boş bir URL'yi açması önerildi, bu yapılamaz."
+msgstr "Dragon’a boş bir URL’yi açması önerildi, bu yapılamaz."
 
 #: src/app/mainWindow.cpp:657
 #, kde-format
