@@ -7,52 +7,50 @@
 # Viesturs Zariņš <viesturs.zarins@algorego.com>, 2008.
 # Viesturs Zariņš <viesturs.zarins@mii.lu.lv>, 2009.
 # Rūdofls Mazurs <rudolfs.mazurs@gmail.com>, 2012.
+# SPDX-FileCopyrightText: 2024 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-27 00:37+0000\n"
-"PO-Revision-Date: 2012-01-11 23:43+0200\n"
-"Last-Translator: Rūdofls Mazurs <rudolfs.mazurs@gmail.com>\n"
+"PO-Revision-Date: 2024-02-26 20:11+0200\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 23.08.5\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Viesturs Zariņš"
+msgstr "Viesturs Zariņš, Toms Trasūns"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "viesturs.zarins@mi.lu.lv"
+msgstr "viesturs.zarins@mi.lu.lv, toms.trasuns@posteo.net"
 
 #. i18n: ectx: Menu (file)
 #: misc/dragonplayerui.rc:4
-#, fuzzy, kde-format
-#| msgid "&Play"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Play"
 msgstr "&Atskaņot"
 
 #. i18n: ectx: Menu (play_media_menu)
 #: misc/dragonplayerui.rc:5
-#, fuzzy, kde-format
-#| msgid "Play Media"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Play Media"
-msgstr "Atskaņot"
+msgstr "Atskaņot multividi"
 
 #. i18n: ectx: Menu (settings)
 #: misc/dragonplayerui.rc:20
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Settings"
 msgstr "&Iestatījumi"
@@ -64,45 +62,39 @@ msgid "Main Toolbar"
 msgstr "Galvenā rīkjosla"
 
 #: src/app/actions.cpp:24
-#, fuzzy, kde-format
-#| msgid "Play"
+#, kde-format
 msgctxt "@action"
 msgid "Play"
 msgstr "Atskaņot"
 
 #: src/app/actions.cpp:25
-#, fuzzy, kde-format
-#| msgid "Pause"
+#, kde-format
 msgctxt "@action"
 msgid "Pause"
 msgstr "Pauzēt"
 
 #: src/app/actions.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "Volume of sound output"
-#| msgid "Volume"
+#, kde-format
 msgctxt "@option:check Volume of sound output"
 msgid "Volume"
 msgstr "Skaļums"
 
 #: src/app/adjustSizeButton.cpp:38
-#, fuzzy, kde-format
-#| msgid "Preferred Scale"
+#, kde-format
 msgctxt "@action:button"
 msgid "Preferred Scale"
 msgstr "Vēlamais mērogs"
 
 #: src/app/adjustSizeButton.cpp:42
-#, fuzzy, kde-format
-#| msgid "Scale 100%"
+#, kde-format
 msgctxt "@action:button"
 msgid "Scale 100%"
-msgstr "Mērogs 100%"
+msgstr "Mērogot uz 100%"
 
 #: src/app/adjustSizeButton.cpp:49
 #, kde-format
 msgid "<b>Adjust video scale?</b>"
-msgstr "<b>Pielāgot video izmēru?</b>"
+msgstr "<b>Vai pielāgot video mērogu?</b>"
 
 #: src/app/discSelectionDialog.cpp:37
 #, kde-format
@@ -110,7 +102,7 @@ msgctxt ""
 "%1 is the disc type, %2 is the name of the disc that the user can choose. "
 "Ex. 'DVD: OfficeSpace'"
 msgid "%1: %2"
-msgstr "%1: %2"
+msgstr "%1: „%2“"
 
 #: src/app/discSelectionDialog.cpp:56
 #, kde-format
@@ -134,23 +126,21 @@ msgid "Data CD"
 msgstr "Datu CD"
 
 #: src/app/discSelectionDialog.cpp:73
-#, fuzzy, kde-format
-#| msgid "Select a Disc"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select a Disc"
-msgstr "Izvēlieties disku"
+msgstr "Diska atlase"
 
 #: src/app/discSelectionDialog.cpp:75
 #, kde-format
 msgid "Select a disc to play."
-msgstr "Izvēlieties atskaņojamo disku."
+msgstr "Atlasiet atskaņojamo disku."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/app/loadView.ui:61
-#, fuzzy, kde-format
-#| msgid "Dragon Player"
+#, kde-format
 msgid "Welcome to Dragon Player"
-msgstr "Dragon Player"
+msgstr "Laipni lūgti programmā „Dragon Player“"
 
 #: src/app/main.cpp:35
 #, kde-format
@@ -160,7 +150,7 @@ msgstr "Dragon Player"
 #: src/app/main.cpp:37
 #, kde-format
 msgid "A video player that has a usability focus"
-msgstr "Video atskaņotājs ar fokusu uz lietošanas ērtumu"
+msgstr "Video atskaņotājs ar uzsvaru uz vienkāršību"
 
 #: src/app/main.cpp:39
 #, kde-format
@@ -168,8 +158,8 @@ msgid ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe"
 msgstr ""
-"Autortiesībsa 2006, Max Howell\n"
-"Autortiesībsa 2007, Ian Monroe"
+"Autortiesības 2006, Max Howell\n"
+"Autortiesības 2007, Ian Monroe"
 
 #: src/app/main.cpp:43
 #, kde-format
@@ -179,12 +169,12 @@ msgstr "Uzlabojumi un pieslīpēšana"
 #: src/app/main.cpp:44
 #, kde-format
 msgid "Creator of Phonon"
-msgstr "Phonon autors"
+msgstr "„Phonon“ autors"
 
 #: src/app/main.cpp:45
 #, kde-format
 msgid "Dragon Player icon"
-msgstr "Dragon Player ikona"
+msgstr "„Dragon Player“ ikona"
 
 #: src/app/main.cpp:46
 #, kde-format
@@ -194,24 +184,24 @@ msgstr "Rokasgrāmata"
 #: src/app/main.cpp:47
 #, kde-format
 msgid "Great reference code"
-msgstr "Izcils izziņas pirmkods"
+msgstr "Lielisks atsauces pirmkods"
 
 #: src/app/main.cpp:48
 #, kde-format
 msgid "Yatta happened to be the only video on my laptop to test with. :)"
 msgstr ""
-"Sagadījās, ka Yatta ir vienīgais video fails uz mana klēpjdatora, ar ko "
-"testēt. :)"
+"Sagadījās, ka „Yatta“ bija vienīgais testēšanai pieejamais video manā "
+"klēpjdatorā. :)"
 
 #: src/app/main.cpp:49
 #, kde-format
 msgid "MPRIS v2 support"
-msgstr ""
+msgstr "MPRIS v2 atbalsts"
 
 #: src/app/main.cpp:50
 #, kde-format
 msgid "Port to KF5/Plasma 5"
-msgstr ""
+msgstr "Portēšana „KF5/Plasma 5“"
 
 #: src/app/main.cpp:59
 #, kde-format
@@ -221,53 +211,46 @@ msgstr "Atskaņot DVD video"
 #: src/app/main.cpp:61
 #, kde-format
 msgid "Play 'URL'"
-msgstr "Atskaņot 'URL'"
+msgstr "Atskaņot URL"
 
 #: src/app/mainWindow.cpp:138
-#, fuzzy, kde-format
-#| msgid "Aspect &Ratio"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Aspect &Ratio"
 msgstr "Malu a&ttiecība"
 
 #: src/app/mainWindow.cpp:139
-#, fuzzy, kde-format
-#| msgid "&Audio Channels"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Audio Channels"
 msgstr "Sk&aņas kanāli"
 
 #: src/app/mainWindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "&Subtitles"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Subtitles"
 msgstr "&Subtitri"
 
 #: src/app/mainWindow.cpp:153
-#, fuzzy, kde-format
-#| msgid "Determine &Automatically"
+#, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Determine &Automatically"
 msgstr "Noteikt &automātiski"
 
 #: src/app/mainWindow.cpp:154
-#, fuzzy, kde-format
-#| msgid "&4:3"
+#, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "&4:3"
 msgstr "&4:3"
 
 #: src/app/mainWindow.cpp:155
-#, fuzzy, kde-format
-#| msgid "Ana&morphic (16:9)"
+#, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Ana&morphic (16:9)"
 msgstr "Ana&morfisks (16:9)"
 
 #: src/app/mainWindow.cpp:156
-#, fuzzy, kde-format
-#| msgid "&Window Size"
+#, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "&Window Size"
 msgstr "&Loga izmērs"
@@ -277,32 +260,28 @@ msgstr "&Loga izmērs"
 msgid ""
 "<qt>Phonon could not be successfully initialized. Dragon Player will now "
 "exit.</qt>"
-msgstr ""
-"<qt>Phonon nevarēja veiksmīgi inicializēties. Dragon Player tagad izies.</qt>"
+msgstr "<qt>Nevarēja palaist „Phonon“. „Dragon Player“ izslēdzas.</qt>"
 
 #: src/app/mainWindow.cpp:300
-#, fuzzy, kde-format
-#| msgid "Play File"
+#, kde-format
 msgctxt "@action"
 msgid "Play File…"
-msgstr "Atskaņot failu"
+msgstr "Atskaņot datni..."
 
 #: src/app/mainWindow.cpp:301
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open a media file for playback"
-msgstr ""
+msgstr "Atvērt multivides datni atskaņošanai"
 
 #: src/app/mainWindow.cpp:310
-#, fuzzy, kde-format
-#| msgid "Play Media"
+#, kde-format
 msgctxt "@action"
 msgid "Play Stream…"
-msgstr "Atskaņot"
+msgstr "Atskaņot straumi..."
 
 #: src/app/mainWindow.cpp:316
-#, fuzzy, kde-format
-#| msgid "Play Disc"
+#, kde-format
 msgctxt "@action"
 msgid "Play Disc"
 msgstr "Atskaņot disku"
@@ -311,42 +290,37 @@ msgstr "Atskaņot disku"
 #, kde-format
 msgctxt "@action"
 msgid "Increase Volume"
-msgstr ""
+msgstr "Palielināt skaļumu"
 
 #: src/app/mainWindow.cpp:345
 #, kde-format
 msgctxt "@action"
 msgid "Decrease Volume"
-msgstr ""
+msgstr "Samazināt skaļumu"
 
 #: src/app/mainWindow.cpp:350
-#, fuzzy, kde-format
-#| msgid "Stop"
+#, kde-format
 msgctxt "@action"
 msgid "Stop"
 msgstr "Apturēt"
 
 #: src/app/mainWindow.cpp:356
-#, fuzzy, kde-format
-#| msgctxt "Mute the sound output"
-#| msgid "Mute"
+#, kde-format
 msgctxt "@action Mute the sound output"
 msgid "Mute"
 msgstr "Apklusināt"
 
 #: src/app/mainWindow.cpp:362
-#, fuzzy, kde-format
-#| msgid "Reset Video Scale"
+#, kde-format
 msgctxt "@action"
 msgid "Reset Video Scale"
-msgstr "Atstatīt video izmēru"
+msgstr "Atiestatīt video mērogu"
 
 #: src/app/mainWindow.cpp:368
-#, fuzzy, kde-format
-#| msgid "Menu Toggle"
+#, kde-format
 msgctxt "@action"
 msgid "Menu Toggle"
-msgstr "Izvēlnes pārslēgšana"
+msgstr "Pārslēgt izvēlni"
 
 #: src/app/mainWindow.cpp:376 src/app/part.cpp:54
 #, kde-format
@@ -354,8 +328,7 @@ msgid "Position Slider"
 msgstr "Pozīcijas slīdnis"
 
 #: src/app/mainWindow.cpp:380
-#, fuzzy, kde-format
-#| msgid "Video Settings"
+#, kde-format
 msgctxt "@option:check"
 msgid "Video Settings"
 msgstr "Video iestatījumi"
@@ -366,53 +339,46 @@ msgctxt ""
 "@option:check Whether only one instance of dragon can be started and will be "
 "reused when the user tries to play another file."
 msgid "One Instance Only"
-msgstr ""
+msgstr "Tikai viena instance"
 
 #: src/app/mainWindow.cpp:396
-#, fuzzy, kde-format
-#| msgid "Previous Chapter"
+#, kde-format
 msgctxt "@action previous chapter"
 msgid "Previous"
-msgstr "Iepriekšējā nodaļa"
+msgstr "Iepriekšējais"
 
 #: src/app/mainWindow.cpp:402
 #, kde-format
 msgctxt "@action next chapter"
 msgid "Next"
-msgstr ""
+msgstr "Nākamais"
 
 #: src/app/mainWindow.cpp:409
-#, fuzzy, no-c-format, kde-format
-#| msgid "Return 10% Back"
+#, no-c-format, kde-format
 msgctxt "@action"
 msgid "Return 10% Back"
-msgstr "Atpakaļ 10%"
+msgstr "10 % atpakaļ"
 
 #: src/app/mainWindow.cpp:416
-#, fuzzy, no-c-format, kde-format
-#| msgid "Go 10% Forward"
+#, no-c-format, kde-format
 msgctxt "@action"
 msgid "Go 10% Forward"
-msgstr "Uz priekšu 10%"
+msgstr "10 % uz priekšu"
 
 #: src/app/mainWindow.cpp:422
-#, fuzzy, kde-format
-#| msgid "Return 10 Seconds Back"
+#, kde-format
 msgctxt "@action"
 msgid "Return 10 Seconds Back"
-msgstr "Atpakaļ 10 sekundes"
+msgstr "10 sekundes atpakaļ"
 
 #: src/app/mainWindow.cpp:428
-#, fuzzy, kde-format
-#| msgid "Go 10 Seconds Forward"
+#, kde-format
 msgctxt "@action"
 msgid "Go 10 Seconds Forward"
-msgstr "Uz priekšu 10 sekundes"
+msgstr "10 sekundes uz priekšu"
 
 #: src/app/mainWindow.cpp:508
-#, fuzzy, kde-format
-#| msgctxt "Mute the sound output"
-#| msgid "Mute"
+#, kde-format
 msgctxt "@option:check Mute the sound output"
 msgid "Mute"
 msgstr "Apklusināt"
@@ -420,45 +386,41 @@ msgstr "Apklusināt"
 #: src/app/mainWindow.cpp:580
 #, kde-format
 msgid "Dragon Player was asked to open an empty URL; it cannot."
-msgstr "Dragon Player tika pieprasīts atvērt tukšu URL, to nevar."
+msgstr "„Dragon Player“ nevar atvērt tukšu URL."
 
 #: src/app/mainWindow.cpp:657
-#, fuzzy, kde-format
-#| msgid "Select File to Play"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select File to Play"
-msgstr "Izvēlieties atskaņojamo failu"
+msgstr "Atlasiet datni atskaņošanai"
 
 #: src/app/mainWindow.cpp:684
-#, fuzzy, kde-format
-#| msgid "Select File to Play"
+#, kde-format
 msgctxt "@title:window"
 msgid "Stream to Play"
-msgstr "Izvēlieties atskaņojamo failu"
+msgstr "Straumējiet, lai atskaņotu"
 
 #: src/app/mainWindow.cpp:684
-#, fuzzy, kde-format
-#| msgid "Play Media"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Stream:"
-msgstr "Atskaņot"
+msgstr "Straume:"
 
 #: src/app/mainWindow.cpp:814
 #, kde-format
 msgid "Sorry, no media was found in the drop"
-msgstr "Atvainojiet, nomestajā netika atrasts saturs"
+msgstr "Atvainojiet, nomestajā vienumā nav atrasts, ko atskaņot"
 
 #: src/app/mainWindow.cpp:867
-#, fuzzy, kde-format
-#| msgid "Play DVD Video"
+#, kde-format
 msgctxt "Notification inhibition reason"
 msgid "Playing a video"
-msgstr "Atskaņot DVD video"
+msgstr "Atskaņo video"
 
 #: src/app/mainWindow.cpp:914
 #, kde-format
 msgid "No media loaded"
-msgstr "Nav datu nesēja"
+msgstr "Nav ielādētas multivides"
 
 #: src/app/mainWindow.cpp:916
 #, kde-format
@@ -468,12 +430,12 @@ msgstr "Pauzēts"
 #: src/app/playlistFile.cpp:37
 #, kde-format
 msgid "The file is not a playlist"
-msgstr "Šis fails nav repertuārs"
+msgstr "Šī datne nav repertuārs"
 
 #: src/app/playlistFile.cpp:45
 #, kde-format
 msgid "Dragon Player could not download the remote playlist: %1"
-msgstr "Dragon Player neizdevās lejupielādēt attālināto repertuāru: %1"
+msgstr "„Dragon Player“ neizdevās lejupielādēt attālināto repertuāru: %1"
 
 #: src/app/playlistFile.cpp:66
 #, kde-format
@@ -481,77 +443,68 @@ msgid ""
 "<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is empty?"
 "</qt>"
 msgstr ""
-"<qt>Neizdevās saprast repertuāra <i>'%1'</i> saturu. Varbūt tas ir tukšs?</"
-"qt>"
+"<qt>Neizdevās saprast repertuāru <i>„%1“</i>. Varbūt tas ir tukšs?</qt>"
 
 #: src/app/playlistFile.cpp:70
 #, kde-format
 msgid "Dragon Player could not open the file: %1"
-msgstr "Dragon Player neizdevās atvērt failu: %1"
+msgstr "„Dragon Player“ neizdevās atvērt datni: %1"
 
 #: src/app/theStream.cpp:145
 #, kde-format
 msgid "Track %1/%2"
-msgstr ""
+msgstr "%1. celiņš no %2"
 
 #. i18n: ectx: property (text), widget (QLabel, brightnessLabel)
 #: src/app/videoSettingsWidget.ui:19
-#, fuzzy, kde-format
-#| msgid "Brightness:"
+#, kde-format
 msgctxt "@label:slider"
 msgid "Brightness:"
 msgstr "Gaišums:"
 
 #. i18n: ectx: property (text), widget (QLabel, contrastLabel)
 #: src/app/videoSettingsWidget.ui:42
-#, fuzzy, kde-format
-#| msgid "Contrast:"
+#, kde-format
 msgctxt "@label:slider"
 msgid "Contrast:"
 msgstr "Kontrasts:"
 
 #. i18n: ectx: property (text), widget (QLabel, hueLabel)
 #: src/app/videoSettingsWidget.ui:65
-#, fuzzy, kde-format
-#| msgid "Hue:"
+#, kde-format
 msgctxt "@label:slider"
 msgid "Hue:"
-msgstr "Tonis:"
+msgstr "Nokrāsa:"
 
 #. i18n: ectx: property (text), widget (QLabel, saturationLabel)
 #: src/app/videoSettingsWidget.ui:88
-#, fuzzy, kde-format
-#| msgid "Saturation:"
+#, kde-format
 msgctxt "@label:slider"
 msgid "Saturation:"
 msgstr "Piesātinājums:"
 
 #. i18n: ectx: property (text), widget (QPushButton, defaultsButton)
 #: src/app/videoSettingsWidget.ui:128
-#, fuzzy, kde-format
-#| msgid "Restore Defaults"
+#, kde-format
 msgctxt "@action:button"
 msgid "Restore Defaults"
-msgstr "Atjaunot noklusējuma"
+msgstr "Atjaunot noklusējumus"
 
 #. i18n: ectx: property (text), widget (QPushButton, closeButton)
 #: src/app/videoSettingsWidget.ui:135
-#, fuzzy, kde-format
-#| msgid "Close"
+#, kde-format
 msgctxt "@action:button"
 msgid "Close"
 msgstr "Aizvērt"
 
 #: src/app/videoWindow.cpp:107
-#, fuzzy, kde-format
-#| msgid "&DVD Subtitle Selection"
+#, kde-format
 msgctxt "@option:radio"
 msgid "&DVD Subtitle Selection"
 msgstr "&DVD subtitru izvēle"
 
 #: src/app/videoWindow.cpp:117
-#, fuzzy, kde-format
-#| msgid "&Auto"
+#, kde-format
 msgctxt "@option:radio audio language"
 msgid "&Auto"
 msgstr "&Automātiska"
