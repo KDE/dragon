@@ -3,20 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Sveinn í Felli <sveinki@nett.is>, 2008, 2009, 2011, 2013, 2015, 2018, 2022.
-# Guðmundur Erlingsson <gudmundure@gmail.com>, 2022.
+# SPDX-FileCopyrightText: 2022, 2024 Guðmundur Erlingsson <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-27 00:37+0000\n"
-"PO-Revision-Date: 2022-12-12 20:56+0000\n"
-"Last-Translator: gummi <gudmundure@gmail.com>\n"
+"PO-Revision-Date: 2024-02-19 19:09+0000\n"
+"Last-Translator: Guðmundur Erlingsson <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 "\n"
@@ -41,9 +41,7 @@ msgstr "S&pila"
 
 #. i18n: ectx: Menu (play_media_menu)
 #: misc/dragonplayerui.rc:5
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Play Media"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Play Media"
 msgstr "Spila miðlaskrá"
@@ -138,10 +136,9 @@ msgstr "Veldu disk til að spila."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/app/loadView.ui:61
-#, fuzzy, kde-format
-#| msgid "Dragon Player"
+#, kde-format
 msgid "Welcome to Dragon Player"
-msgstr "Dragon spilari"
+msgstr "Velkomin í Dragon spilarann"
 
 #: src/app/main.cpp:35
 #, kde-format
@@ -263,31 +260,25 @@ msgid ""
 msgstr "<qt>Ekki tókst að ræsa Phonon. Dragon spilaranum verður lokað.</qt>"
 
 #: src/app/mainWindow.cpp:300
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play File"
+#, kde-format
 msgctxt "@action"
 msgid "Play File…"
-msgstr "Spila skrá"
+msgstr "Spila skrá..."
 
 #: src/app/mainWindow.cpp:301
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Open a media file for playback"
-msgstr ""
+msgstr "Opna miðlaskrá til að spila"
 
 #: src/app/mainWindow.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Stream"
+#, kde-format
 msgctxt "@action"
 msgid "Play Stream…"
-msgstr "Spila streymi"
+msgstr "Spila streymi..."
 
 #: src/app/mainWindow.cpp:316
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Play Disc"
+#, kde-format
 msgctxt "@action"
 msgid "Play Disc"
 msgstr "Spila disk"
@@ -418,12 +409,10 @@ msgid "Sorry, no media was found in the drop"
 msgstr "Sorrý, enginn miðlaskrá fannst í því sem var sleppt"
 
 #: src/app/mainWindow.cpp:867
-#, fuzzy, kde-format
-#| msgctxt "Notification inhibition reason"
-#| msgid "playing a video"
+#, kde-format
 msgctxt "Notification inhibition reason"
 msgid "Playing a video"
-msgstr "spila myndskeið"
+msgstr "Spila myndskeið"
 
 #: src/app/mainWindow.cpp:914
 #, kde-format
