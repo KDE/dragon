@@ -11,9 +11,9 @@ project(DragonPlayer VERSION ${RELEASE_SERVICE_VERSION})
 set(PROJECT_VERSION ${RELEASE_SERVICE_VERSION})
 
 set(QT_MIN_VERSION "6.5.0")
-set(KF5_MIN_VERSION "5.240.0")
+set(KF_MIN_VERSION "6.0.0")
 
-find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
+find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
 include(KDEInstallDirs)
@@ -32,7 +32,7 @@ find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Widgets
 )
 
-find_package(KF6 ${KF5_MIN_VERSION} REQUIRED
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED
     Config
     ConfigWidgets
     CoreAddons
@@ -67,7 +67,7 @@ configure_file(config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
 ecm_set_disabled_deprecation_versions(
     QT 6.5
-    KF 5.100
+    KF 6.0
 )
 
 add_definitions(-DTRANSLATION_DOMAIN="dragonplayer")
