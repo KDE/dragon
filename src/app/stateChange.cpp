@@ -84,10 +84,10 @@ void MainWindow::engineStateChanged(Phonon::State state)
     {
         // the toolbar play button is always enabled, but the menu item
         // is disabled if we are empty, this looks more sensible
-        PlayAction *playAction = static_cast<PlayAction *>(actionCollection()->action(QLatin1String("play")));
+        PlayAction *playAction = static_cast<PlayAction *>(actionCollection()->action(QStringLiteral("play")));
         playAction->setEnabled(hasMedia);
         playAction->setPlaying(state == Phonon::PlayingState || state == Phonon::BufferingState);
-        actionCollection()->action(QLatin1String("aspect_ratio_menu"))->setEnabled((enable) && TheStream::hasVideo());
+        actionCollection()->action(QStringLiteral("aspect_ratio_menu"))->setEnabled((enable) && TheStream::hasVideo());
 
         // set correct aspect ratio
         if (state != Phonon::LoadingState)

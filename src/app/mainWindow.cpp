@@ -155,8 +155,8 @@ MainWindow::MainWindow()
         make_ratio_action(i18nc("@option:radio aspect ratio", "Ana&morphic (16:9)"), QLatin1String("ratio_anamorphic"), Phonon::VideoWidget::AspectRatio16_9);
         make_ratio_action(i18nc("@option:radio aspect ratio", "&Window Size"), QLatin1String("ratio_window"), Phonon::VideoWidget::AspectRatioWidget);
 
-        ac->action(QLatin1String("ratio_auto"))->setChecked(true);
-        ac->action(QLatin1String("aspect_ratio_menu"))->menu()->addActions(m_aspectRatios->actions());
+        ac->action(QStringLiteral("ratio_auto"))->setChecked(true);
+        ac->action(QStringLiteral("aspect_ratio_menu"))->menu()->addActions(m_aspectRatios->actions());
     }
 
     setupGUI(); // load xml dragonplayerui.rc file
@@ -202,7 +202,7 @@ MainWindow::MainWindow()
         // Extract certain actions out of the settingsmenu and place them in the top level. They don't deserve to be hidden
         for (const auto &id :
              {"volume", "fullscreen", "aspect_ratio_menu", "subtitle_channels_menu", "audio_channels_menu", "toggle_dvd_menu", "video_settings"}) {
-            auto action = ac->action(QLatin1String(id));
+            auto action = ac->action(QString::fromLatin1(id));
             menu->addAction(action);
             settingsMenu->removeAction(action);
         }
@@ -949,7 +949,7 @@ QAction *action(const char *name)
 
     if (mainWindow())
         if ((actionCollection = ((MainWindow *)mainWindow())->actionCollection()))
-            action = actionCollection->action(QLatin1String(name));
+            action = actionCollection->action(QString::fromLatin1(name));
     if (!action)
         qDebug() << name;
     Q_ASSERT(mainWindow());
