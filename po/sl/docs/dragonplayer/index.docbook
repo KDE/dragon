@@ -1,0 +1,360 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Slovenian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="dragon" lang="&language;">
+
+<bookinfo>
+<title
+>&dragon; Priročnik</title>
+
+<authorgroup>
+<author
+><firstname
+>Mike</firstname
+> <surname
+>Diehl</surname
+> <affiliation
+> <address
+><email
+>madpenguin8@yahoo.com</email
+></address>
+</affiliation>
+</author>
+<author
+><firstname
+>Ian</firstname
+> <surname
+>Monroe</surname
+> <affiliation
+> <address
+><email
+>imonroe@kde.org</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Matjaž</firstname
+><surname
+>Jeran</surname
+><affiliation
+><address
+><email
+>matjaz.jeran@amis.net</email
+></address
+></affiliation
+><contrib
+>Prevod</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2004</year>
+<holder
+>Mike Diehl</holder>
+</copyright>
+<copyright>
+<year
+>2007</year>
+<holder
+>Ian Monroe</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>29.06.2016</date>
+<releaseinfo
+>Applications 16.04</releaseinfo>
+
+<abstract>
+<para
+>&dragon; je preprost video predvajalnik &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Codeine</keyword>
+<keyword
+>Phonon</keyword>
+<keyword
+>Dragon</keyword>
+<keyword
+>Predvajalnik</keyword>
+<keyword
+>Dragon Player</keyword>
+<keyword
+>video</keyword>
+<keyword
+>večpredstavnost</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Uvod</title>
+
+<screenshot>
+<screeninfo
+>&dragon; Posnetek zaslona</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="main.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Posnetek zaslona</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+
+<para
+>&dragon; je preprost multimedijski predvajalnik, ki uporablja &phonon; tehnologija. &dragon; je preprost večpredstavnostni predvajalnik, ki je odličen pri predvajanju DVD-jev in filmskih datotek, ne da bi vam bil v napoto. </para>
+
+</chapter>
+
+<chapter id="select-media">
+<title
+>Izberite medij</title>
+
+<para
+>Če zaženete &dragon; iz zaganjalnika aplikacij ali uporabite <guibutton
+>Predvajaj medij</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+>) v orodni vrstici ali iz menija <guimenu
+>Predvajaj</guimenu
+> se prikaže to okno:</para>
+
+<screenshot>
+<screeninfo
+>Predvajaj medij</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="playmedia.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Predvajaj medij</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Video datoteko lahko predvajate na tri načine:</para>
+<para
+><guibutton
+>Predvajaj datoteko</guibutton
+> odpre pogovorno okno datoteke in vam omogoča, da izberete datoteko za predvajanje.</para>
+<para
+><guibutton
+>Predvajaj disk</guibutton
+> za predvajanje &CD; ali DVD.</para>
+<para
+><guibutton
+>Predvajaj tok</guibutton
+> odpre pogovorno okno za vnos naslova nekega <ulink url="https://en.wikipedia.org/wiki/Streaming_media"
+>večpredstavnostnega toka</ulink
+>.</para>
+<para
+>Dvokliknite vnos na seznamu predvajanja z nedavno odprtimi datotekami, da začnete predvajati. Kontekstni meni seznama predvajanja prikazuje dejanja za odstranitev izbranega vnosa ali brisanje celotnega seznama predvajanja. Vsaka datoteka, ki ste jo predvajali, bo samodejno dodana na seznam.</para>
+</chapter>
+
+<chapter id="features">
+<title
+>Lastnosti</title>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Celozaslonski način</guimenuitem>
+</term>
+<listitem
+><para
+>Med predvajanjem filma lahko preklopite v celozaslonski način. Ta za prikaz filma uporabi celoten monitor. Če premaknete miško, se prikaže orodna vrstica na vrhu zaslona v celozaslonskem načinu. Celozaslonski način preklopite z uporabo menija <guimenu
+>Nastavitve</guimenu
+>, dejanja v orodni vrstici, dvokliknite video ali uporabite bližnjico <keycap
+>F</keycap
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Nastavitve videa</guimenuitem>
+</term>
+<listitem
+><para
+>Izberite to dejanje v meniju <guimenu
+>Nastavitve</guimenu
+>, da prilagodite <guilabel
+>Svetlost</guilabel
+>, <guilabel
+>Kontrast</guilabel
+>, <guilabel
+>Odtenek</guilabel
+> in <guilabel
+>Nasičenost</guilabel 
+>. Te nastavitve so shranjene skupaj s položajem predvajanja za vsako video datoteko. To vam omogoča nadaljevanje predvajanja videoposnetka z izbranimi video nastavitvami in položajem, kjer ste ustavili predvajanje. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Navigacija </term>
+<listitem
+><para
+>Bližnjica <keycap
+>PgUp</keycap
+> vas postavi 10% naprej / <keycap
+>+</keycap
+> 10 sekund naprej in <keycap
+>PgDown</keycap
+> vas postavi 10% nazaj / <keycap
+>-</keycap
+> 10 sekund nazaj. Uporabite <menuchoice
+><guimenu
+>Nastavitve</guimenu
+> <guimenuitem
+>Preklop menija</guimenuitem
+></menuchoice
+> (<keycap
+>R</keycap
+>), da preklopite v video meni in izberete drugo poglavje za predvajanje. <menuchoice
+><guimenu
+>Predvajaj</guimenu
+><guimenuitem
+>Predvajaj/Premor</guimenuitem
+></menuchoice
+> (<keysym
+>Preslednica</keysym
+>) vam omogoča, da začasno ustavite in nadaljujete predvajanje, če je film naložen. <menuchoice
+><guimenu
+>Predvajaj</guimenu
+><guimenuitem
+>Ustavi</guimenuitem
+></menuchoice
+> (<keycap
+>S</keycap
+>) ustavi predvajanje. Pojdite na prejšnje ali naslednje poglavje videoposnetka s <guimenuitem
+>Prejšnje poglavje</guimenuitem
+> (<keycap
+>,</keycap
+>) ali <guimenuitem
+>Naslednje poglavje</guimenuitem
+> (<keycap
+>.</keycap
+>) iz menija <guimenu
+>Predvajaj</guimenu
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guimenuitem
+>Nadzor glasnosti</guimenuitem>
+</term>
+<listitem
+><para
+>Če predvajate videoposnetke s skrito orodno vrstico, lahko uporabite bližnjico <keycap
+>M</keycap
+> za izklop ali vklop zvoka; in bližnjico <keycap
+>V</keycap
+>, da preklopite prikaz drsnika za glasnost desno od videa. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Nastavitve</guimenu
+> <guisubmenu
+>Razmerje stranic</guisubmenu
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>V tem meniju lahko izberete razmerje stranic predvajanega filma. Razmerje stranic je širina filma v primerjavi z višino.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guisubmenu
+>Podnapisi</guisubmenu
+> in <guisubmenu
+>Zvočni kanali</guisubmenu
+> </term>
+<listitem
+><para
+>Ti elementi menija v meniju <guimenu
+>Nastavitve</guimenu
+> so aktivni, če so v trenutno predvajanem filmu na voljo podnapisi ali dodatni zvočni kanali (&eg; z različnimi jeziki). Upoštevajte, da lahko traja nekaj sekund predvajanja, preden so podnapisi ali zvočni kanali na voljo. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Zasluge in licenca</title>
+
+<para
+>&dragon; </para>
+
+<para
+>Avtorske pravice za program 2004 Max B. Howell <email
+>max.howell@methylblue.com</email
+></para>
+<para
+>Avtorske pravice za program 2007 Ian A. Monroe <email
+>imonroe@kde.org</email
+></para>
+
+<para
+>Avtorske pravice za dokumentacijo 2004 Mike Diehl <email
+>madpenguin8@yahoo.com</email
+> </para>
+<para
+>Avtorske pravice za dokumentacijo 2007 Ian Monroe <email
+>imonroe@kde.org</email
+> </para>
+
+<para
+>Prevod: Matjaž Jeran<email
+>matjaz.jeran@amis.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->
