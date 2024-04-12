@@ -36,8 +36,8 @@ public:
     static const int FADE_SIZE = 90;
 
 protected:
-    void transform(QVector<float> &) override;
-    void analyze(const QVector<float> &) override;
+    void transform(QList<float> &) override;
+    void analyze(const QList<float> &) override;
     void paintEvent(QPaintEvent *) override;
     void resizeEvent(QResizeEvent *) override;
     void paletteChange(const QPalette &);
@@ -55,7 +55,7 @@ private:
     uint m_y; // y-offset from top of widget
     QPixmap m_barPixmap;
     QPixmap m_topBarPixmap;
-    QVector<float> m_scope; // so we don't create a vector every frame
+    QList<float> m_scope; // so we don't create a vector every frame
     std::vector<float> m_store; // current bar heights
     std::vector<float> m_yscale;
 

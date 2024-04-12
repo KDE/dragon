@@ -26,7 +26,7 @@ Analyzer::Base::Base(QWidget *parent, uint scopeSize)
 {
 }
 
-void Analyzer::Base::transform(QVector<float> &scope) // virtual
+void Analyzer::Base::transform(QList<float> &scope) // virtual
 {
     // this is a standard transformation that should give
     // an FFT scope that has bands for pretty analyzers
@@ -45,12 +45,12 @@ void Analyzer::Base::transform(QVector<float> &scope) // virtual
     delete[] f;
 }
 
-void Analyzer::Base::drawFrame(const QMap<Phonon::AudioDataOutput::Channel, QVector<qint16>> &thescope)
+void Analyzer::Base::drawFrame(const QMap<Phonon::AudioDataOutput::Channel, QList<qint16>> &thescope)
 {
     if (thescope.isEmpty())
         return;
 
-    QVector<float> scope(512);
+    QList<float> scope(512);
     int i = 0;
 
     for (uint x = 0; (int)x < m_fht->size(); ++x) {
@@ -127,7 +127,7 @@ void Analyzer::Base::demo() // virtual
     if (t > 300)
         t = 1; // 0 = wasted calculations
     if (t < 201) {
-        QVector<float> s(512);
+        QList<float> s(512);
 
         const double dt = double(t) / 200;
         for (int i = 0; i < s.size(); ++i)
@@ -135,7 +135,7 @@ void Analyzer::Base::demo() // virtual
 
         analyze(s);
     } else
-        analyze(QVector<float>(1, 0));
+        analyze(QList<float>(1, 0));
 
     ++t;
 }
@@ -169,7 +169,7 @@ void Analyzer::Base2D::paintEvent(QPaintEvent *)
     painter.drawPixmap(rect(), m_canvas);
 }
 
-void Analyzer::interpolate(const QVector<float> &inVec, QVector<float> &outVec) // static
+void Analyzer::interpolate(const QList<float> &inVec, QList<float> &outVec) // static
 {
     double pos = 0.0;
     const double step = (double)inVec.size() / outVec.size();
@@ -192,7 +192,7 @@ void Analyzer::interpolate(const QVector<float> &inVec, QVector<float> &outVec) 
     }
 }
 
-void Analyzer::initSin(QVector<float> &v, const uint size) // static
+void Analyzer::initSin(QList<float> &v, const uint size) // static
 {
     double step = (M_PI * 2) / size;
     double radian = 0;

@@ -91,7 +91,7 @@ void BlockAnalyzer::determineStep()
     m_step = double(m_rows * 80) / fallTime; // 80 = ~milliseconds between signals with audio data
 }
 
-void BlockAnalyzer::transform(QVector<float> &s) // pure virtual
+void BlockAnalyzer::transform(QList<float> &s) // pure virtual
 {
     for (int x = 0; x < s.size(); ++x)
         s[x] *= 2;
@@ -106,7 +106,7 @@ void BlockAnalyzer::transform(QVector<float> &s) // pure virtual
     s.resize(m_scope.size() <= MAX_COLUMNS / 2 ? MAX_COLUMNS / 2 : m_scope.size());
 }
 
-void BlockAnalyzer::analyze(const QVector<float> &s)
+void BlockAnalyzer::analyze(const QList<float> &s)
 {
     Analyzer::interpolate(s, m_scope);
     update();

@@ -34,7 +34,7 @@ class Base : public QWidget
     Q_OBJECT
 
 public Q_SLOTS:
-    void drawFrame(const QMap<Phonon::AudioDataOutput::Channel, QVector<qint16>> &thescope);
+    void drawFrame(const QMap<Phonon::AudioDataOutput::Channel, QList<qint16>> &thescope);
 
 protected:
     Base(QWidget *, uint = 7);
@@ -45,8 +45,8 @@ protected:
 
     int resizeExponent(int);
     int resizeForBands(int);
-    virtual void transform(QVector<float> &);
-    virtual void analyze(const QVector<float> &) = 0;
+    virtual void transform(QList<float> &);
+    virtual void analyze(const QList<float> &) = 0;
     virtual void paused();
 public Q_SLOTS:
     void demo();
@@ -111,8 +111,8 @@ public:
     static QWidget *createPlaylistAnalyzer(QWidget *);
 };
 
-void interpolate(const QVector<float> &, QVector<float> &);
-void initSin(QVector<float> &, const uint = 6000);
+void interpolate(const QList<float> &, QList<float> &);
+void initSin(QList<float> &, const uint = 6000);
 
 } // END namespace Analyzer
 

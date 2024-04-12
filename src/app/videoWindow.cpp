@@ -417,9 +417,9 @@ bool VideoWindow::setupAnalyzer(QObject *analyzer)
         m_aDataOutput = new Phonon::AudioDataOutput(this);
         m_audioDataPath = Phonon::createPath(m_media, m_aDataOutput);
         connect(m_aDataOutput,
-                SIGNAL(dataReady(QMap<Phonon::AudioDataOutput::Channel, QVector<qint16>>)),
+                SIGNAL(dataReady(QMap<Phonon::AudioDataOutput::Channel, QList<qint16>>)),
                 analyzer,
-                SLOT(drawFrame(QMap<Phonon::AudioDataOutput::Channel, QVector<qint16>>)));
+                SLOT(drawFrame(QMap<Phonon::AudioDataOutput::Channel, QList<qint16>>)));
     }
 
     return m_audioDataPath.isValid();
