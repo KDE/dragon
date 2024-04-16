@@ -28,6 +28,7 @@
   <name xml:lang="hu">Dragon Player</name>
   <name xml:lang="ia">Dragon Player (Reproductor Dragon)</name>
   <name xml:lang="id">Dragon Player</name>
+  <name xml:lang="is">Dragon spilari</name>
   <name xml:lang="it">Dragon Player</name>
   <name xml:lang="ka">დამკვრელი Dragon</name>
   <name xml:lang="ko">Dragon 플레이어</name>
@@ -75,6 +76,7 @@
   <summary xml:lang="hu">Egyszerűségre fókuszáló videólejátszó</summary>
   <summary xml:lang="ia">Reproductor de video focalisate sur le simplicitate</summary>
   <summary xml:lang="id">Pemutar video dengan fokus pada kesederhanaan</summary>
+  <summary xml:lang="is">Myndspilari með áherslu á einfaldleika</summary>
   <summary xml:lang="it">Lettore video con l'obiettivo della semplicità</summary>
   <summary xml:lang="ka">უმარტივესი ვიდეო დამკვრელი</summary>
   <summary xml:lang="ko">간단한 동영상 재생기</summary>
@@ -169,6 +171,7 @@
     <p xml:lang="hu">Funkciók:</p>
     <p xml:lang="ia">Characteristicas:</p>
     <p xml:lang="id">Fitur:</p>
+    <p xml:lang="is">Eiginleikar:</p>
     <p xml:lang="it">Caratteristiche:</p>
     <p xml:lang="ka">თვისებები:</p>
     <p xml:lang="ko">기능:</p>
@@ -219,6 +222,7 @@
       <li xml:lang="hu">Egyszerű felület</li>
       <li xml:lang="ia">Interfacie simplice</li>
       <li xml:lang="id">Antarmuka Sederhana</li>
+      <li xml:lang="is">Einfalt notandaviðmót</li>
       <li xml:lang="it">Interfaccia semplice</li>
       <li xml:lang="ka">მარტივი ინტერფეისი</li>
       <li xml:lang="ko">간단한 인터페이스</li>
@@ -266,6 +270,7 @@
       <li xml:lang="hu">Videók folytatása: folytassa ott a lejátszást, ahol legutóbb abbahagyta</li>
       <li xml:lang="ia">Recuperante videos: Initia a reproducer un video ubi tu lo observava le ultime vice</li>
       <li xml:lang="id">Melanjutkan video: Mulai memutar video tempat di mana kamu menontonnya terakhir kali</li>
+      <li xml:lang="is">Halda áfram afspilun: Heldur áfram með myndskeið þar sem þú hættir síðast</li>
       <li xml:lang="it">Riavvio del video: avvia la riproduzione video dal punto in cui l'avevi interrotta l'ultima volta</li>
       <li xml:lang="ka">ვიდეოების გაგრძელება: ვიდეოს დაკვრა იმ მომენტიდან გაგრძელდება, სადაც ბოლოს უყურებდით</li>
       <li xml:lang="ko">동영상 위치 기억: 마지막으로 본 지점부터 동영상을 다시 재생합니다</li>
@@ -313,6 +318,7 @@
       <li xml:lang="hu">Feliratok támogatása: automatikusan betölti az azonos fájlnevű feliratokat</li>
       <li xml:lang="ia">Supporto per subtitulos: Autmaticamente carga subtitulos con le nomine correspondente</li>
       <li xml:lang="id">Mendukung subtitle: Secara otomatis memuat subtitles dengan nama yang cocok</li>
+      <li xml:lang="is">Stuðningur við skjátexta (þýðingar): Hleður sjálfkrafa inn skjátextaskrám með samsvarandi heitum</li>
       <li xml:lang="it">Supporto sottotitoli: carica automaticamente i sottotitoli che corrispondono al nome del video</li>
       <li xml:lang="ka">სუბტიტრების მხარდაჭერა: თუ სახელი ემთხვევა, სუბტიტრები ავტომატურად ჩაიტვირთება</li>
       <li xml:lang="ko">자막 지원: 파일 이름이 동일한 자막을 자동으로 불러옵니다</li>
@@ -360,6 +366,7 @@
       <li xml:lang="hu">Videómegjelenítés beállítása (fényerő, kontraszt)</li>
       <li xml:lang="ia">Preferentias de monstrator de video (Brillantia, contrasto)</li>
       <li xml:lang="id">Pengesetan tampilan video (kecerahan, kontras)</li>
+      <li xml:lang="is">Stillingar á birtingu myndmerkis (birtustig, birtuskil)</li>
       <li xml:lang="it">Impostazioni di visualizzazione (luminosità, contrasto)</li>
       <li xml:lang="ka">ვიდეოს ჩვენების მორგება (სიკაშკაშე, კონტრასტი)</li>
       <li xml:lang="ko">동영상 표시 설정(밝기, 명암)</li>
@@ -453,6 +460,7 @@
       <li xml:lang="hu">CD-k és DVD-k lejátszásának támogatása</li>
       <li xml:lang="ia">Supporta reproducer CDs e DVDs</li>
       <li xml:lang="id">Mendukung pemutaran CD dan DVD</li>
+      <li xml:lang="is">Styður afspilun CD og DVD-diska</li>
       <li xml:lang="it">Supporto per la riproduzione di CD e DVD</li>
       <li xml:lang="ka">CD/DVD-ის დაკვრის მხარდაჭერა</li>
       <li xml:lang="ko">CD 및 DVD 재생 지원</li>
