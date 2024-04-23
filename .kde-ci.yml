@@ -20,3 +20,6 @@ Dependencies:
     'frameworks/kwindowsystem': '@latest-kf6'
     'frameworks/kxmlgui': '@latest-kf6'
     'libraries/phonon': '@latest-kf6'
+
+Options:
+  require-passing-tests-on: ['Linux', 'FreeBSD', 'Windows']
