@@ -11,9 +11,11 @@ apps:
     dragon:
         extensions:
         - kde-neon-6
-        common-id: org.kde.dragon.desktop
-        desktop: usr/share/applications/org.kde.dragon.desktop
+        common-id: org.kde.dragonplayer.desktop
+        desktop: usr/share/applications/org.kde.dragonplayer.desktop
         command: usr/bin/dragon
+        slots:
+        - mpris
         plugs:
         - pulseaudio
         - browser-support
@@ -34,7 +36,7 @@ package-repositories:
 parts:
     dragon:
         parse-info:
-        - usr/share/metainfo/org.kde.dragon.appdata.xml
+        - usr/share/metainfo/org.kde.dragonplayer.appdata.xml
         plugin: cmake
         source: .
         source-type: local
