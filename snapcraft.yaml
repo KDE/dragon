@@ -22,8 +22,10 @@ apps:
 slots:
     session-dbus-interface:
         interface: dbus
-        name: org.kde.dragon
+        name: org.kde.dragonplayer
         bus: session
+    mpris-dragonplayer:
+        name: org.mpris.MediaPlayer2.dragonplayer
 package-repositories:
 -   type: apt
     components:
