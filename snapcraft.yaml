@@ -20,10 +20,6 @@ apps:
         - pulseaudio
         - browser-support
 slots:
-    session-dbus-interface:
-        interface: dbus
-        name: org.kde.dragonplayer
-        bus: session
     mpris-dragonplayer:
         interface: dbus
         name: org.mpris.MediaPlayer2.dragonplayer
