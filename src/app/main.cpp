@@ -27,7 +27,6 @@
 int main(int argc, char **argv)
 {
     Dragon::PlayerApplication app(argc, argv);
-    KCrash::initialize();
 
     KLocalizedString::setApplicationDomain("dragonplayer");
 
@@ -50,7 +49,7 @@ int main(int argc, char **argv)
     aboutData.addCredit(QStringLiteral("Lukáš Tinkl"), i18n("Port to KF5/Plasma 5"), QStringLiteral("lukas@kde.org"));
 
     KAboutData::setApplicationData(aboutData);
-
+    KCrash::initialize();
     QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("dragonplayer")));
 
     QCommandLineParser parser;
