@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragon\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-27 00:37+0000\n"
+"POT-Creation-Date: 2024-08-12 00:38+0000\n"
 "PO-Revision-Date: 2023-08-20 07:15+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -136,17 +136,17 @@ msgstr "აირჩიეთ დასაკრავ დისკი."
 msgid "Welcome to Dragon Player"
 msgstr "მოგესალმებათ დამკვრელი Dragon"
 
-#: src/app/main.cpp:35
+#: src/app/main.cpp:34
 #, kde-format
 msgid "Dragon Player"
 msgstr "დამკვრელი Dragon"
 
-#: src/app/main.cpp:37
+#: src/app/main.cpp:36
 #, kde-format
 msgid "A video player that has a usability focus"
 msgstr "ვიდეო დამკვრელი ფოკუსით გამოყენებადობაზე"
 
-#: src/app/main.cpp:39
+#: src/app/main.cpp:38
 #, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"
@@ -155,54 +155,54 @@ msgstr ""
 "2006, Max Howell\n"
 "2007, Ian Monroe, ყველა უფლება დაცულია"
 
-#: src/app/main.cpp:43
+#: src/app/main.cpp:42
 #, kde-format
 msgid "Improvements and polish"
 msgstr "გაუმჯობესებები და დეტალების ჩასწორება"
 
-#: src/app/main.cpp:44
+#: src/app/main.cpp:43
 #, kde-format
 msgid "Creator of Phonon"
 msgstr "Phonon-ის შექმქმნელი"
 
-#: src/app/main.cpp:45
+#: src/app/main.cpp:44
 #, kde-format
 msgid "Dragon Player icon"
 msgstr "Dragon -ის ხატულა"
 
-#: src/app/main.cpp:46
+#: src/app/main.cpp:45
 #, kde-format
 msgid "Handbook"
 msgstr "სახელმძღვანელო"
 
-#: src/app/main.cpp:47
+#: src/app/main.cpp:46
 #, kde-format
 msgid "Great reference code"
 msgstr "დიდი მიმართვის კოდი"
 
-#: src/app/main.cpp:48
+#: src/app/main.cpp:47
 #, kde-format
 msgid "Yatta happened to be the only video on my laptop to test with. :)"
 msgstr ""
 "მოხდა ისე, რომ Yatta ერთად-ერთი ვიდეო აღმოჩნდა ჩემს ლეპტოპზე, რომლითაც "
 "დატესტვა შემეძლო. :)"
 
-#: src/app/main.cpp:49
+#: src/app/main.cpp:48
 #, kde-format
 msgid "MPRIS v2 support"
 msgstr "MPRIS v2 -ის მხარდაჭერა"
 
-#: src/app/main.cpp:50
+#: src/app/main.cpp:49
 #, kde-format
 msgid "Port to KF5/Plasma 5"
 msgstr "KF5/Plasma 5-ზე გადმოტანა"
 
-#: src/app/main.cpp:59
+#: src/app/main.cpp:58
 #, kde-format
 msgid "Play DVD Video"
 msgstr "DVD ვიდეოს დაკვრა"
 
-#: src/app/main.cpp:61
+#: src/app/main.cpp:60
 #, kde-format
 msgid "Play 'URL'"
 msgstr "URL-ის დაკვრა"

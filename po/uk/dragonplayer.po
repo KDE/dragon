@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-27 00:37+0000\n"
+"POT-Creation-Date: 2024-08-12 00:38+0000\n"
 "PO-Revision-Date: 2023-08-19 08:57+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -139,17 +139,17 @@ msgstr "Виберіть диск для відтворення."
 msgid "Welcome to Dragon Player"
 msgstr "Вітаємо у програвачі Dragon"
 
-#: src/app/main.cpp:35
+#: src/app/main.cpp:34
 #, kde-format
 msgid "Dragon Player"
 msgstr "Програвач Dragon"
 
-#: src/app/main.cpp:37
+#: src/app/main.cpp:36
 #, kde-format
 msgid "A video player that has a usability focus"
 msgstr "Програвач відео, зосереджений на зручності у користуванні"
 
-#: src/app/main.cpp:39
+#: src/app/main.cpp:38
 #, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"
@@ -158,54 +158,54 @@ msgstr ""
 "© Max Howell, 2006\n"
 "© Ian Monroe, 2007"
 
-#: src/app/main.cpp:43
+#: src/app/main.cpp:42
 #, kde-format
 msgid "Improvements and polish"
 msgstr "Покращення і шліфування"
 
-#: src/app/main.cpp:44
+#: src/app/main.cpp:43
 #, kde-format
 msgid "Creator of Phonon"
 msgstr "Творець Phonon"
 
-#: src/app/main.cpp:45
+#: src/app/main.cpp:44
 #, kde-format
 msgid "Dragon Player icon"
 msgstr "Піктограма Dragon Player"
 
-#: src/app/main.cpp:46
+#: src/app/main.cpp:45
 #, kde-format
 msgid "Handbook"
 msgstr "Підручник"
 
-#: src/app/main.cpp:47
+#: src/app/main.cpp:46
 #, kde-format
 msgid "Great reference code"
 msgstr "Чудовий зразковий код"
 
-#: src/app/main.cpp:48
+#: src/app/main.cpp:47
 #, kde-format
 msgid "Yatta happened to be the only video on my laptop to test with. :)"
 msgstr ""
 "Це було єдине відео на моєму лептопі, з яким можна було проводити "
 "тестування. :)"
 
-#: src/app/main.cpp:49
+#: src/app/main.cpp:48
 #, kde-format
 msgid "MPRIS v2 support"
 msgstr "Підтримка MPRIS версії 2"
 
-#: src/app/main.cpp:50
+#: src/app/main.cpp:49
 #, kde-format
 msgid "Port to KF5/Plasma 5"
 msgstr "Портування на KF5/Плазму 5"
 
-#: src/app/main.cpp:59
+#: src/app/main.cpp:58
 #, kde-format
 msgid "Play DVD Video"
 msgstr "Відтворити відео-DVD"
 
-#: src/app/main.cpp:61
+#: src/app/main.cpp:60
 #, kde-format
 msgid "Play 'URL'"
 msgstr "Відтворити «URL»"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-27 00:37+0000\n"
+"POT-Creation-Date: 2024-08-12 00:38+0000\n"
 "PO-Revision-Date: 2024-01-03 14:00-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -141,17 +141,17 @@ msgstr "ਚਲਾਉਣ ਲਈ ਇੱਕ ਡਿਸਕ ਚੁਣੋ"
 msgid "Welcome to Dragon Player"
 msgstr "ਡਰੈਗਨ ਪਲੇਅਰ"
 
-#: src/app/main.cpp:35
+#: src/app/main.cpp:34
 #, kde-format
 msgid "Dragon Player"
 msgstr "ਡਰੈਗਨ ਪਲੇਅਰ"
 
-#: src/app/main.cpp:37
+#: src/app/main.cpp:36
 #, kde-format
 msgid "A video player that has a usability focus"
 msgstr "ਇੱਕ ਵੀਡਿਓ ਪਲੇਅਰ, ਜੋ ਕਿ ਵਰਤੋਂ ਨੂੰ ਧਿਆਨ 'ਚ ਰੱਖ ਕੇ ਬਣਾਇਆ ਗਿਆ ਹੈ"
 
-#: src/app/main.cpp:39
+#: src/app/main.cpp:38
 #, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"
@@ -160,52 +160,52 @@ msgstr ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe"
 
-#: src/app/main.cpp:43
+#: src/app/main.cpp:42
 #, kde-format
 msgid "Improvements and polish"
 msgstr "ਸੁਧਾਰ ਅਤੇ ਪਾਲਿਸ਼"
 
-#: src/app/main.cpp:44
+#: src/app/main.cpp:43
 #, kde-format
 msgid "Creator of Phonon"
 msgstr "ਫੋਨੋਨ ਦਾ ਨਿਰਮਾਤਾ"
 
-#: src/app/main.cpp:45
+#: src/app/main.cpp:44
 #, kde-format
 msgid "Dragon Player icon"
 msgstr "ਡਰੈਗਨ ਪਲੇਅਰ ਆਈਕਾਨ"
 
-#: src/app/main.cpp:46
+#: src/app/main.cpp:45
 #, kde-format
 msgid "Handbook"
 msgstr "ਹੈਂਡਬੁੱਕ"
 
-#: src/app/main.cpp:47
+#: src/app/main.cpp:46
 #, kde-format
 msgid "Great reference code"
 msgstr "ਮਹਾਨ ਰੈਫਰੈਂਸ ਕੋਡ"
 
-#: src/app/main.cpp:48
+#: src/app/main.cpp:47
 #, kde-format
 msgid "Yatta happened to be the only video on my laptop to test with. :)"
 msgstr ""
 
-#: src/app/main.cpp:49
+#: src/app/main.cpp:48
 #, kde-format
 msgid "MPRIS v2 support"
 msgstr "MPRIS v2 ਸਹਿਯੋਗ"
 
-#: src/app/main.cpp:50
+#: src/app/main.cpp:49
 #, kde-format
 msgid "Port to KF5/Plasma 5"
 msgstr ""
 
-#: src/app/main.cpp:59
+#: src/app/main.cpp:58
 #, kde-format
 msgid "Play DVD Video"
 msgstr "DVD ਵੀਡਿਓ ਚਲਾਓ"
 
-#: src/app/main.cpp:61
+#: src/app/main.cpp:60
 #, kde-format
 msgid "Play 'URL'"
 msgstr "'URL' ਚਲਾਓ"
