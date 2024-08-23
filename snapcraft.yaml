@@ -19,6 +19,7 @@ apps:
         plugs:
         - pulseaudio
         - browser-support
+        - audio-record
 slots:
   session-dbus-interface:
     interface: dbus
