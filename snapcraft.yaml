@@ -53,6 +53,9 @@ parts:
         build-packages:
         - libpulse0
         stage-packages:
+        - libasound2
+        - libasound2-plugins
+        - libasound2-data
         - libpulse0
         cmake-parameters:
         - -DCMAKE_INSTALL_PREFIX=/usr
