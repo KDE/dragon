@@ -20,6 +20,11 @@ apps:
         - pulseaudio
         - browser-support
         - audio-record
+environment:
+  ALSA_CONFIG_PATH: "/snap/kf6-core22/current/etc/asound.conf"
+layout:
+  /usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/alsa-lib:
+    bind: $SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/alsa-lib
 slots:
   session-dbus-interface:
     interface: dbus
