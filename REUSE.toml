@@ -1,0 +1,9 @@
+version = 1
+SPDX-PackageName = "dragon"
+SPDX-PackageDownloadLocation = "https://invent.kde.org/multimedia/dragon"
+
+[[annotations]]
+path = "misc/dragonplayer_part.json.in"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "none"
+SPDX-License-Identifier = "CC0-1.0"
