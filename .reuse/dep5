@@ -1,7 +1,0 @@
-Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: dragon
-Source: https://invent.kde.org/multimedia/dragon
-
-Files: misc/dragonplayer_part.json.in
-Copyright: none
-License: CC0-1.0
