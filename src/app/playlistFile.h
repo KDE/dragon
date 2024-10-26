@@ -18,7 +18,12 @@ public:
     explicit PlaylistFile(const QUrl &url);
     ~PlaylistFile();
 
-    enum FileFormat { M3U, PLS, Unknown, NotPlaylistFile = Unknown };
+    enum FileFormat {
+        M3U,
+        PLS,
+        Unknown,
+        NotPlaylistFile = Unknown
+    };
 
     bool isPlaylist() const
     {
