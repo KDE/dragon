@@ -43,6 +43,7 @@
   <name xml:lang="pt-BR">Dragon Player</name>
   <name xml:lang="ro">Dragon Player</name>
   <name xml:lang="ru">Dragon Player</name>
+  <name xml:lang="sa">ड्रैगन प्लेयर</name>
   <name xml:lang="sk">Prehrávač Dragon</name>
   <name xml:lang="sl">Dragon Player</name>
   <name xml:lang="sr">Змајев плејер</name>
@@ -88,6 +89,7 @@
   <summary xml:lang="pt-BR">Reprodutor de vídeo com foco na simplicidade</summary>
   <summary xml:lang="ro">Lector video orientat spre simplitate</summary>
   <summary xml:lang="ru">Простой в использовании видеопроигрыватель</summary>
+  <summary xml:lang="sa">सरलतायां केन्द्रितं विडियो प्लेयर</summary>
   <summary xml:lang="sk">Video prehrávač s dôrazom na jednoduchosť</summary>
   <summary xml:lang="sl">Predvajalnik videov osredotočen na enostavnost</summary>
   <summary xml:lang="sr">Видео плејер усредсређен на једноставност</summary>
@@ -137,6 +139,7 @@
     <p xml:lang="pt-BR">Dragon Player é um reprodutor multimídia com foco na simplicidade e não em funcionalidades. Ele faz uma coisa e apenas isso, que é a reprodução de arquivos multimídia. Sua interface simples é projetada para não atrapalhá-lo e simplesmente reproduzir arquivos multimídia.</p>
     <p xml:lang="ro">Dragon Player e un lector multimedia la care atenția e îndreptată spre simplitate în loc de caracteristici. Dragon Player face un lucru, și doar unul – redă fișiere multimedia. Interfața sa simplă e proiectată să nu vă stea în cale și să vă împuternicească să redați fișiere multimedia cu ușurință.</p>
     <p xml:lang="ru">Dragon Player — простой медиапроигрыватель, не перегруженный различными функциями. Единственная его задача — воспроизведение мультимедийных файлов.</p>
+    <p xml:lang="sa">Dragon Player इति बहुमाध्यमप्लेयरः यत्र सरलतायाः विषये ध्यानं भवति, विशेषतानां स्थाने । Dragon Player एकं कार्यं करोति, केवलं एकं कार्यं च, यत् बहुमाध्यमसञ्चिकाः क्रीडति । अस्य सरलं अन्तरफलकं भवतः मार्गे न प्रविष्टुं विनिर्मितम् अस्ति तथा च तस्य स्थाने केवलं बहुमाध्यमसञ्चिकाः वादयितुं सशक्तं करोति ।</p>
     <p xml:lang="sk">Dragon Player je multimediálny prehrávač, ktorý sa zameriava na jednoduchosť namiesto funkcií. Dragon Player robí jednu vec, a nič iné, ktorou je prehrávania multimediálnych súborov. Jeho jednoduché rozhranie je zavrhnuté, aby nebolo rušivé a aby s ním bolo jednoducho možné prehrávať multimediálne súbory.</p>
     <p xml:lang="sl">Dragon Player je predstavnostni predvajalnik, ki se osredotoča na enostavnost in ne na zmožnosti. Omogoča samo eno in edino stvar in to je predvajanje predstavnostnih datotek. Preprost vmesnik je zasnovan tako, da vam ni v napoto in vam omogoča, da enostavno predvajate predstavnostne datoteke.</p>
     <p xml:lang="sr">Змајев плејер је мултимедијални плејер са тежиштем на једноставности уместо на могућностима. Има једну и само једну намену: пуштање мултимедијалних фајлова. Пружа једноставно сучеље које вас не замара детаљима, већ омогућава да једноставно пуштате мултимедијалне фајлове.</p>
@@ -187,6 +190,7 @@
     <p xml:lang="pt-BR">Funcionalidades:</p>
     <p xml:lang="ro">Caracteristici:</p>
     <p xml:lang="ru">Возможности:</p>
+    <p xml:lang="sa">गुणाः:</p>
     <p xml:lang="sk">Funkcie:</p>
     <p xml:lang="sl">Zmožnosti:</p>
     <p xml:lang="sr">Могућности:</p>
@@ -238,6 +242,7 @@
       <li xml:lang="pt-BR">Interface simples</li>
       <li xml:lang="ro">Interfață simplă</li>
       <li xml:lang="ru">Простой интерфейс;</li>
+      <li xml:lang="sa">सरलं अन्तरफलकं</li>
       <li xml:lang="sk">Jednoduché rozhranie</li>
       <li xml:lang="sl">Preprost vmesnik</li>
       <li xml:lang="sr">Једноставно сучеље.</li>
@@ -285,6 +290,7 @@
       <li xml:lang="pt-BR">Continuação da reprodução de vídeos: Começa a reprodução de um vídeo no ponto em que parou de assistir</li>
       <li xml:lang="ro">Reluarea videoclipurilor: Începe redarea unui videoclip de unde îl vizionați ultima dată</li>
       <li xml:lang="ru">Продолжение просмотра видеофайлов: воспроизведение видео начинается с того момента, на котором вы закончили его смотреть в предыдущий раз;</li>
+      <li xml:lang="sa">पुनः विडियो आरभते: यत्र भवान् गतवारं पश्यति स्म तत्र विडियो वादयितुं आरभते</li>
       <li xml:lang="sk">Pokračovanie videa: Spustí prehrávanie videa, kde ste pozerali naposledy</li>
       <li xml:lang="sl">Nadaljevanje videov: predvajanje videa se začne tam, kjer ste prej končali</li>
       <li xml:lang="sr">Настављање видеа: започиње пуштање видеа тамо где сте последње пут стали.</li>
@@ -333,6 +339,7 @@
       <li xml:lang="pt-BR">Suporte a legendas: Carrega as legendas com o nome correspondente de forma automática</li>
       <li xml:lang="ro">Suport pentru subtitre: Încarcă automat subtitre cu denumirea potrivită</li>
       <li xml:lang="ru">Поддержка субтитров: файл субтитров с соответствующим именем файла загружается автоматически;</li>
+      <li xml:lang="sa">उपशीर्षकाणां समर्थनम् : स्वयमेव मेलनाम्ना सह उपशीर्षकाणि लोड् करोति</li>
       <li xml:lang="sk">Podpora pre titulky: Automaticky načíta titulky so zhodným názvom</li>
       <li xml:lang="sl">Podpora podnapisom: samodejno naloži podnapise z ujemajočim se imenom</li>
       <li xml:lang="sr">Титлови: аутоматски учитава титлове са поклапајућим именом.</li>
@@ -381,6 +388,7 @@
       <li xml:lang="pt-BR">Configuração da exibição de vídeo (brilho, contraste)</li>
       <li xml:lang="ro">Configurări afișare video (luminozitate, contrast)</li>
       <li xml:lang="ru">Настройка параметров видео (яркость, контраст);</li>
+      <li xml:lang="sa">विडियो प्रदर्शनसेटिंग्स् (प्रकाशः, विपरीतता) २.</li>
       <li xml:lang="sk">Nastavenia zobrazenia videa (jas, kontrast)</li>
       <li xml:lang="sl">Nastavitve prikaza videa (svetlost, kontrast)</li>
       <li xml:lang="sr">Поставке видео приказа (осветљај, контраст).</li>
@@ -428,6 +436,7 @@
       <li xml:lang="pt-BR">Devido ao uso do Solid e Phonon, o Dragon Player independe de qualquer plataforma multimídia ou camada de abstração de hardware</li>
       <li xml:lang="ro">Datorită folosirii Solid și Phonon, Dragon Player e independent de vreo platformă multimedia sau strat de abstractizare a echipamentului.</li>
       <li xml:lang="ru">Благодаря использованию Solid и Phonon, Dragon Player одинаково хорошо работает с различными кодеками и звуковыми подсистемами в операционной системе;</li>
+      <li xml:lang="sa">Solid तथा Phonon इत्येतयोः उपयोगस्य कारणात् DragonPlayer कस्यापि बहुमाध्यमरूपरेखायाः अथवा हार्डवेयर अमूर्तस्तरस्य स्वतन्त्रः अस्ति</li>
       <li xml:lang="sk">Kvôli použitiu Solid a Phonon je DragonPlayer nezávislý od akéhokoľvek multimediálneho frameworku alebo vrstvy abstrakcie hardvéru.</li>
       <li xml:lang="sl">Z uporabo Solid in Phonon je Dragon Player neodvisen od predstavnostnih ogrodij ali plasti nad strojno opremo</li>
       <li xml:lang="sr">Будући да користи Солид и Фонон, Змајев плејер је независан од осталих мултимедијалних радних оквира и слојева апстракције хардвера.</li>
@@ -476,6 +485,7 @@
       <li xml:lang="pt-BR">Suporte a reprodução de CDs e DVDs</li>
       <li xml:lang="ro">Susține redarea CD-urilor și DVD-urilor</li>
       <li xml:lang="ru">Поддержка воспроизведения компакт-дисков и DVD.</li>
+      <li xml:lang="sa">सीडी, डीवीडी च वादयितुं समर्थयति</li>
       <li xml:lang="sk">Podpora prehrávania CD a DVD</li>
       <li xml:lang="sl">Podpora predvajanju CD-jev in DVD-jev</li>
       <li xml:lang="sr">Пуштање ЦД‑ова и ДВД‑ова.</li>
