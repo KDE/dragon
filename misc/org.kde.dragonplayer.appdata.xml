@@ -25,6 +25,7 @@
   <name xml:lang="fr">Dragon Player</name>
   <name xml:lang="gl">Dragon Player</name>
   <name xml:lang="he">נגן Dragon</name>
+  <name xml:lang="hi">ड्रैगन प्लेयर</name>
   <name xml:lang="hu">Dragon Player</name>
   <name xml:lang="ia">Dragon Player (Reproductor Dragon)</name>
   <name xml:lang="id">Dragon Player</name>
@@ -74,6 +75,7 @@
   <summary xml:lang="fr">Un lecteur vidéo conçu pour la facilité d'utilisation</summary>
   <summary xml:lang="gl">Reprodutor de vídeo centrado na facilidade.</summary>
   <summary xml:lang="he">נגן וידאו ממוקד פשטות</summary>
+  <summary xml:lang="hi">सरलता पर ध्यान देने वाला वीडियो प्लेयर</summary>
   <summary xml:lang="hu">Egyszerűségre fókuszáló videólejátszó</summary>
   <summary xml:lang="ia">Reproductor de video focalisate sur le simplicitate</summary>
   <summary xml:lang="id">Pemutar video dengan fokus pada kesederhanaan</summary>
@@ -124,6 +126,7 @@
     <p xml:lang="fr">Dragon Player est un lecteur vidéo conçu pour la facilité d'utilisation, plutôt que le nombre de fonctionnalités. Dragon Player fait une chose, et une seule, qui est de lire les fichiers multimédia. Son interface simple est conçue pour ne pas vous embarrasser mais plutôt vous donner le pouvoir de simplement jouer des fichiers multimédia.</p>
     <p xml:lang="gl">Dragon Player é un reprodutor multimedia que prefire a simplicidade ás funcionalidades. Dragon Player fai unha cousa, e só unha cousa: reproducir ficheiros multimedia. A súa interface sinxela está deseñada para non molestar, e simplemente permitirlle reproducir ficheiros multimedia.</p>
     <p xml:lang="he">נגן Dragon הוא נגן מולטימדיה שהמיקוד בו הוא פשטות, במקום עוד יכולות. נגן Dragon עושה דבר אחד, אבל דבר אחד בלבד, שזה לנגן קובצי מולטמדיה. הממשק הפשוט שלו תוכן לא להיתקע לך מול הפרצוף ובמקום להעניק לך מגוון של אפשרויות פשוט לנגן קובצי מולטימדיה.</p>
+    <p xml:lang="hi">ड्रैगन प्लेयर एक मल्टीमीडिया प्लेयर है, जहाँ सुविधाओं के बजाय सादगी पर ध्यान दिया जाता है। ड्रैगन प्लेयर एक काम करता है, और केवल एक काम, जो मल्टीमीडिया फ़ाइलें चलाना है। इसका सरल इंटरफ़ेस आपके काम में बाधा न डालने के लिए डिज़ाइन किया गया है और इसके बजाय आपको आसानी से मल्टीमीडिया फ़ाइलें चलाने की शक्ति देता है।</p>
     <p xml:lang="hu">A Dragon Player egy olyan multimédialejátszó, amely az egyszerűségre helyezi a hangsúly a funkciók helyett. A Dragon Player csak egyetlen dolgot tesz, multimédia fájlokat játszik le. Egyszerű felületét úgy tervezték, hogy ne legyen útban, és csak a lejátszásra koncentrálhasson.</p>
     <p xml:lang="ia">Dragon Player es un reproductor multimedial ubi le foco es sur simplicitate, in loco de charactersticas. Dragon Player face un cosa, e solmente un cosa, que es reproducer files multimedial. Su simple interfacie es designate non per obstacular te e in vice te autorisa simplemente a reproducer files multimedial.</p>
     <p xml:lang="id">Dragon Player adalah pemutar multimedia yang mana berfokus pada kesederhanaan, bukan fitur. Dragon Player melakukan satu hal, dan hanya satu hal, yaitu memutar file multimedia. Antarmuka yang sederhana dirancang agar tidak menghalangi kamu dan malah memberdayakan kamu untuk sekadar memutar file multimedia.</p>
@@ -172,6 +175,7 @@
     <p xml:lang="fr">Fonctionnalités :</p>
     <p xml:lang="gl">Funcionalidades:</p>
     <p xml:lang="he">יכולות:</p>
+    <p xml:lang="hi">विशेषताएँ:</p>
     <p xml:lang="hu">Funkciók:</p>
     <p xml:lang="ia">Characteristicas:</p>
     <p xml:lang="id">Fitur:</p>
@@ -224,6 +228,7 @@
       <li xml:lang="fr">Interface simple</li>
       <li xml:lang="gl">Interface sinxela</li>
       <li xml:lang="he">ממשק פשוט</li>
+      <li xml:lang="hi">सरल इंटरफ़ेस</li>
       <li xml:lang="hu">Egyszerű felület</li>
       <li xml:lang="ia">Interfacie simplice</li>
       <li xml:lang="id">Antarmuka Sederhana</li>
@@ -273,6 +278,7 @@
       <li xml:lang="fr">Reprise des vidéos : démarre la lecture d'une vidéo de là où vous la regardiez la dernière fois</li>
       <li xml:lang="gl">Continuar a reprodución: comeza a reproducir os vídeos polo mesmo punto no que ía a última vez que os estivo a ver.</li>
       <li xml:lang="he">המשך נגינה סרטונים: התחלת נגינת סרטון מאיפה שצפית בו בפעם האחרונה</li>
+      <li xml:lang="hi">वीडियो फिर से शुरू करना: वह वीडियो चलाना शुरू करता है जहाँ आपने उसे पिछली बार देखा था</li>
       <li xml:lang="hu">Videók folytatása: folytassa ott a lejátszást, ahol legutóbb abbahagyta</li>
       <li xml:lang="ia">Recuperante videos: Initia a reproducer un video ubi tu lo observava le ultime vice</li>
       <li xml:lang="id">Melanjutkan video: Mulai memutar video tempat di mana kamu menontonnya terakhir kali</li>
@@ -322,6 +328,7 @@
       <li xml:lang="fr">Prise en charge des sous-titres : charge automatiquement les sous-titres don le nom correspond</li>
       <li xml:lang="gl">Compatibilidade con subtítulos: carga automaticamente subtítulos que teñan o mesmo nome que o ficheiro de vídeo.</li>
       <li xml:lang="he">תמיכה בכתוביות: טוען כתוביות בשם תואם אוטומטית</li>
+      <li xml:lang="hi">उपशीर्षकों के लिए समर्थन: मेल खाते नाम के साथ उपशीर्षकों को स्वचालित रूप से लोड करता है</li>
       <li xml:lang="hu">Feliratok támogatása: automatikusan betölti az azonos fájlnevű feliratokat</li>
       <li xml:lang="ia">Supporto per subtitulos: Autmaticamente carga subtitulos con le nomine correspondente</li>
       <li xml:lang="id">Mendukung subtitle: Secara otomatis memuat subtitles dengan nama yang cocok</li>
@@ -371,6 +378,7 @@
       <li xml:lang="fr">Réglages de l'affichage de la vidéo (luminosité, contraste)</li>
       <li xml:lang="gl">Configuración de vídeo (brillo, contraste)</li>
       <li xml:lang="he">הגדרות תצוגת וידאו (בהירות, ניגודיות)</li>
+      <li xml:lang="hi">वीडियो प्रदर्शन सेटिंग्स (चमक, कंट्रास्ट)</li>
       <li xml:lang="hu">Videómegjelenítés beállítása (fényerő, kontraszt)</li>
       <li xml:lang="ia">Preferentias de monstrator de video (Brillantia, contrasto)</li>
       <li xml:lang="id">Pengesetan tampilan video (kecerahan, kontras)</li>
@@ -419,6 +427,7 @@
       <li xml:lang="fr">Grâce à l'utilisation de Solid et Phonon, Dragon Player est indépendant de toute infrastructure multimédia ou couche d'abstraction matérielle</li>
       <li xml:lang="gl">Grazas a Solid e Phonon, Dragon Player é independente de calquera infraestrutura multimedia ou capa de abstracción de soporte físico.</li>
       <li xml:lang="he">השימוש ב־Solid וב־Phonon הופכים את Dragon לבלתי תלוי בתשתית מולטימדיה או שכבת הפשטת חומרה</li>
+      <li xml:lang="hi">सॉलिड और फोनॉन का उपयोग करने के कारण ड्रैगनप्लेयर किसी भी मल्टीमीडिया फ्रेमवर्क या हार्डवेयर एब्स्ट्रैक्शन परत से स्वतंत्र है</li>
       <li xml:lang="hu">A Solidnak és a Phononnak köszönhetően a Dragon Player független bármely multimédia keretrendszertől és hardverabsztrakciós rétegtől</li>
       <li xml:lang="ia">Proque DragonPlayer es usante Solid e Phonon illo es independente ab ulle structura de multimedia o strato de abstraction hardware</li>
       <li xml:lang="id">Karena menggunakan Solid dan Phonon DragonPlayer tidak bergantung pada kerangka kerja multimedia apapun atau lapisan abstraksi perangkat keras</li>
@@ -468,6 +477,7 @@
       <li xml:lang="fr">Prend en charge la lecture des CD et DVD</li>
       <li xml:lang="gl">Permite reproducir CD e DVD</li>
       <li xml:lang="he">תומך בנגינת תקליטורי שמע ו־DVD</li>
+      <li xml:lang="hi">सीडी और डीवीडी चलाने का समर्थन करता है</li>
       <li xml:lang="hu">CD-k és DVD-k lejátszásának támogatása</li>
       <li xml:lang="ia">Supporta reproducer CDs e DVDs</li>
       <li xml:lang="id">Mendukung pemutaran CD dan DVD</li>
