@@ -326,7 +326,7 @@
       <li xml:lang="eu">Azpidatziak onartzen ditu: Automatikoki zamatzen ditu bat-datozen izeneko azpidatziak</li>
       <li xml:lang="fi">Tekstityksen tuki: lataa samannimiset tekstitystiedostot automaattisesti</li>
       <li xml:lang="fr">Prise en charge des sous-titres : charge automatiquement les sous-titres don le nom correspond</li>
-      <li xml:lang="gl">Compatibilidade con subtítulos: carga automaticamente subtítulos que teñan o mesmo nome que o ficheiro de vídeo.</li>
+      <li xml:lang="gl">Compatibilidade con subtítulos: carga automaticamente subtítulos cun nome coincidente.</li>
       <li xml:lang="he">תמיכה בכתוביות: טוען כתוביות בשם תואם אוטומטית</li>
       <li xml:lang="hi">उपशीर्षकों के लिए समर्थन: मेल खाते नाम के साथ उपशीर्षकों को स्वचालित रूप से लोड करता है</li>
       <li xml:lang="hu">Feliratok támogatása: automatikusan betölti az azonos fájlnevű feliratokat</li>
