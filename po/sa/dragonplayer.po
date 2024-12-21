@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: dragon\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-12 00:38+0000\n"
-"PO-Revision-Date: 2024-12-14 01:48+0530\n"
+"PO-Revision-Date: 2024-12-20 21:51+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -84,7 +84,7 @@ msgstr "प्राथमिकता स्केल"
 #, kde-format
 msgctxt "@action:button"
 msgid "Scale 100%"
-msgstr "स्केल १००% २."
+msgstr "स्केल १००%"
 
 #: src/app/adjustSizeButton.cpp:49
 #, kde-format
@@ -240,7 +240,7 @@ msgstr "&4:3"
 #, kde-format
 msgctxt "@option:radio aspect ratio"
 msgid "Ana&morphic (16:9)"
-msgstr "अन&मोर्फिक (१६:९) २."
+msgstr "अन&मोर्फिक (१६:९)"
 
 #: src/app/mainWindow.cpp:156
 #, kde-format
@@ -454,7 +454,7 @@ msgstr "%1/%2 इति पटलम्"
 #, kde-format
 msgctxt "@label:slider"
 msgid "Brightness:"
-msgstr "कान्तिः : १."
+msgstr "कान्तिः :"
 
 #. i18n: ectx: property (text), widget (QLabel, contrastLabel)
 #: src/app/videoSettingsWidget.ui:42
@@ -468,14 +468,14 @@ msgstr "विप्रकर्ष:"
 #, kde-format
 msgctxt "@label:slider"
 msgid "Hue:"
-msgstr "ह्युः : १."
+msgstr "ह्युः :"
 
 #. i18n: ectx: property (text), widget (QLabel, saturationLabel)
 #: src/app/videoSettingsWidget.ui:88
 #, kde-format
 msgctxt "@label:slider"
 msgid "Saturation:"
-msgstr "संतृप्ति : १."
+msgstr "संतृप्ति :"
 
 #. i18n: ectx: property (text), widget (QPushButton, defaultsButton)
 #: src/app/videoSettingsWidget.ui:128
