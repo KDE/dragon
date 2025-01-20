@@ -260,7 +260,7 @@ MainWindow::~MainWindow()
     hide(); // so we appear to have quit, and then sound fades out below
     releasePowerSave();
     qobject_cast<KRecentFilesAction *>(action(QStringLiteral("file_open_recent")))
-        ->saveEntries(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("General")));
+        ->saveEntries(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("RecentFiles")));
     delete videoWindow(); // fades out sound in dtor
 }
 
@@ -300,7 +300,7 @@ void MainWindow::setupActions()
     open->setText(i18nc("@action", "Play File…"));
     open->setToolTip(i18nc("@info:tooltip", "Open a media file for playback"));
     auto recent = KStandardAction::openRecent(this, &MainWindow::open, ac);
-    recent->loadEntries(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("General")));
+    recent->loadEntries(KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("RecentFiles")));
     KStandardAction::quit(qApp, &QApplication::closeAllWindows, ac);
 
     const auto addToAc = [ac](QAction *action) {
