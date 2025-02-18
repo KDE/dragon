@@ -169,7 +169,6 @@
         "Description[zh_CN]": "可嵌入的视频播放器",
         "Description[zh_TW]": "可嵌入的影片播放器",
         "Icon": "dragonplayer",
-        "Id": "dragonpart",
         "InitialPreference": 9,
         "License": "GPL",
         "MimeTypes": [
