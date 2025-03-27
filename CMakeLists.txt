@@ -38,7 +38,6 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED
     CoreAddons
     Crash
     DBusAddons
-    DocTools
     I18n
     JobWidgets
     KIO
@@ -48,6 +47,13 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED
     WindowSystem
     XmlGui
 )
+
+find_package(KF6DocTools ${KF_MIN_VERSION})
+set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
+    "Tools to generate documentation"
+    TYPE OPTIONAL
+)
+
 find_package(Phonon4Qt6 4.6.60 REQUIRED NO_MODULE)
 
 include_directories(
@@ -74,10 +80,13 @@ add_definitions(-DTRANSLATION_DOMAIN="dragonplayer")
 
 add_subdirectory(src/app)
 add_subdirectory(misc)
-add_subdirectory(doc)
 
 ki18n_install(po)
-kdoctools_install(po)
+if(KF6DocTools_FOUND)
+    kdoctools_install(po)
+    add_subdirectory(doc)
+endif()
+
 
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)
 kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
