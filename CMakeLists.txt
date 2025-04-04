@@ -26,26 +26,26 @@ include(ECMInstallIcons)
 include(ECMSetupVersion)
 include(ECMDeprecationSettings)
 include(FeatureSummary)
+include(ECMQmlModule)
+
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
-    Widgets
+    Quick
+    Multimedia
 )
 
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED
-    Config
-    ConfigWidgets
     CoreAddons
     Crash
-    DBusAddons
     I18n
-    JobWidgets
     KIO
-    Parts
-    Solid
-    WidgetsAddons
     WindowSystem
-    XmlGui
+    # Used by qml (needed for linting)
+    Kirigami
+    Config
 )
 
 find_package(KF6DocTools ${KF_MIN_VERSION})
@@ -53,21 +53,6 @@ set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
     "Tools to generate documentation"
     TYPE OPTIONAL
 )
-
-find_package(Phonon4Qt6 4.6.60 REQUIRED NO_MODULE)
-
-include_directories(
-    ${CMAKE_CURRENT_BINARY_DIR}/src
-    ${CMAKE_CURRENT_BINARY_DIR}/src/app
-    ${CMAKE_CURRENT_SOURCE_DIR}/src
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/app
-    ${CMAKE_CURRENT_BINARY_DIR}
-    )
-
-include_directories(BEFORE SYSTEM ${PHONON_INCLUDES})
-
-include(CheckIncludeFiles)
-check_include_files(unistd.h HAVE_UNISTD_H)
 
 configure_file(config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
@@ -78,7 +63,7 @@ ecm_set_disabled_deprecation_versions(
 
 add_definitions(-DTRANSLATION_DOMAIN="dragonplayer")
 
-add_subdirectory(src/app)
+add_subdirectory(src)
 add_subdirectory(misc)
 
 ki18n_install(po)

@@ -7,8 +7,18 @@
 #ifndef DRAGONPLAYER_MEDIAPLAYER2_H
 #define DRAGONPLAYER_MEDIAPLAYER2_H
 
+#include <QAction>
 #include <QDBusAbstractAdaptor>
+#include <QQmlParserStatus>
 #include <QStringList> // Needed for automoc'ed cpp to compile
+#include <QWindow>
+#include <QtQmlIntegration>
+
+struct ActionSet {
+    QAction *fullscreen;
+    QAction *quit;
+    QAction *raise;
+};
 
 class MediaPlayer2 : public QDBusAbstractAdaptor
 {
@@ -30,7 +40,7 @@ class MediaPlayer2 : public QDBusAbstractAdaptor
     Q_PROPERTY(QStringList SupportedMimeTypes READ SupportedMimeTypes)
 
 public:
-    explicit MediaPlayer2(QObject *parent);
+    explicit MediaPlayer2(ActionSet actionSet, QObject *parent);
     ~MediaPlayer2() override;
 
     bool CanQuit() const;
@@ -54,6 +64,9 @@ public Q_SLOTS:
 
 private Q_SLOTS:
     void emitFullscreenChange(bool fullscreen) const;
+
+private:
+    ActionSet m_actionSet;
 };
 
 #endif
