@@ -5,24 +5,19 @@
 */
 
 #include "mediaplayer2.h"
-#include "actions.h"
-#include "codeine.h"
 #include "mpris2.h"
-#include "theStream.h"
-#include "videoWindow.h"
-
-#include <QApplication>
 
 #include <KAboutData>
 #include <KProtocolInfo>
 #include <KService>
-#include <KX11Extras>
 
-MediaPlayer2::MediaPlayer2(QObject *parent)
+using namespace Qt::StringLiterals;
+
+MediaPlayer2::MediaPlayer2(ActionSet actionSet, QObject *parent)
     : QDBusAbstractAdaptor(parent)
+    , m_actionSet(actionSet)
 {
-    connect(Dragon::action("fullscreen"), &QAction::toggled, this, &MediaPlayer2::emitFullscreenChange);
-    connect(Dragon::videoWindow(), &Dragon::VideoWindow::hasVideoChanged, this, &MediaPlayer2::emitFullscreenChange);
+    connect(m_actionSet.fullscreen, &QAction::toggled, this, &MediaPlayer2::emitFullscreenChange);
 }
 
 MediaPlayer2::~MediaPlayer2()
@@ -36,7 +31,7 @@ bool MediaPlayer2::CanQuit() const
 
 void MediaPlayer2::Quit() const
 {
-    qApp->closeAllWindows();
+    m_actionSet.quit->trigger();
 }
 
 bool MediaPlayer2::CanRaise() const
@@ -46,18 +41,17 @@ bool MediaPlayer2::CanRaise() const
 
 void MediaPlayer2::Raise() const
 {
-    Dragon::mainWindow()->raise();
-    KX11Extras::forceActiveWindow(Dragon::mainWindow()->winId());
+    m_actionSet.raise->trigger();
 }
 
 bool MediaPlayer2::Fullscreen() const
 {
-    return Dragon::action("fullscreen")->isChecked();
+    return m_actionSet.fullscreen->isChecked();
 }
 
 void MediaPlayer2::setFullscreen(bool fullscreen) const
 {
-    Dragon::action("fullscreen")->setChecked(fullscreen);
+    m_actionSet.fullscreen->setChecked(fullscreen);
 }
 
 void MediaPlayer2::emitFullscreenChange(bool fullscreen) const
@@ -71,7 +65,7 @@ void MediaPlayer2::emitFullscreenChange(bool fullscreen) const
 
 bool MediaPlayer2::CanSetFullscreen() const
 {
-    return Dragon::TheStream::hasVideo();
+    return true;
 }
 
 bool MediaPlayer2::HasTrackList() const
@@ -86,7 +80,7 @@ QString MediaPlayer2::Identity() const
 
 QString MediaPlayer2::DesktopEntry() const
 {
-    return QStringLiteral("org.kde." APP_NAME);
+    return QStringLiteral("org.kde.dragonplayer");
 }
 
 QStringList MediaPlayer2::SupportedUriSchemes() const
