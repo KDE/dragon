@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: none
 # Ignore the following files
 *~
 *.[oa]
@@ -28,3 +30,4 @@ CMakeLists.txt.user*
 .cache
 .idea
 /cmake-build*
+/.flatpak-builder

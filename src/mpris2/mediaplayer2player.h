@@ -9,8 +9,8 @@
 
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
-
-#include <phonon/MediaSource>
+#include <QMediaPlayer>
+#include <QtQmlIntegration>
 
 class MediaPlayer2Player : public QDBusAbstractAdaptor
 {
@@ -34,7 +34,7 @@ class MediaPlayer2Player : public QDBusAbstractAdaptor
     Q_PROPERTY(bool CanControl READ CanControl)
 
 public:
-    explicit MediaPlayer2Player(QObject *parent);
+    explicit MediaPlayer2Player(QMediaPlayer *player, QObject *parent);
     ~MediaPlayer2Player() override;
 
     QString PlaybackStatus() const;
@@ -82,6 +82,7 @@ private Q_SLOTS:
 
 private:
     qint64 oldPos;
+    QMediaPlayer *m_player;
 };
 
 #endif

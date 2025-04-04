@@ -122,5 +122,5 @@ X-DocPath=dragonplayer/index.html
 TryExec=dragon
 Exec=dragon %u
 MimeType=video/ogg;video/x-theora+ogg;video/x-ogm+ogg;video/x-ms-wmv;video/x-msvideo;video/x-ms-asf;video/x-matroska;video/mpeg;video/avi;video/quicktime;video/vnd.rn-realvideo;video/x-flic;video/mp4;video/x-flv;video/webm;application/x-cd-image;
-Categories=Qt;KDE;AudioVideo;Player;
+Categories=Qt;KDE;AudioVideo;Video;Player;
 StartupWMClass=dragonplayer

@@ -5,72 +5,77 @@
 */
 
 #include "mediaplayer2player.h"
-#include "mainWindow.h"
 #include "mpris2.h"
-#include "videoWindow.h"
 
+#include <QAudioOutput>
 #include <QCryptographicHash>
+#include <QMediaMetaData>
+
+using namespace Qt::StringLiterals;
 
 static QByteArray makeTrackId(const QString &source)
 {
-    return QByteArray("/org/kde/") + APP_NAME + "/tid_" + QCryptographicHash::hash(source.toLocal8Bit(), QCryptographicHash::Sha1).toHex();
+    return QByteArray("/org/kde/dragonplayer") + "/tid_" + QCryptographicHash::hash(source.toLocal8Bit(), QCryptographicHash::Sha1).toHex();
 }
 
-MediaPlayer2Player::MediaPlayer2Player(QObject *parent)
+MediaPlayer2Player::MediaPlayer2Player(QMediaPlayer *player, QObject *parent)
     : QDBusAbstractAdaptor(parent)
     , oldPos(0)
+    , m_player(player)
 {
-    connect(Dragon::engine(), &Dragon::VideoWindow::tick, this, &MediaPlayer2Player::tick);
-    connect(Dragon::engine(), &Dragon::VideoWindow::currentSourceChanged, this, &MediaPlayer2Player::currentSourceChanged);
-    connect(Dragon::engine(), &Dragon::VideoWindow::metaDataChanged, this, &MediaPlayer2Player::emitMetadataChange);
-    connect(Dragon::engine(), &Dragon::VideoWindow::stateUpdated, this, &MediaPlayer2Player::stateUpdated);
-    connect(Dragon::engine(), &Dragon::VideoWindow::totalTimeChanged, this, &MediaPlayer2Player::emitMetadataChange);
-    connect(Dragon::engine(), &Dragon::VideoWindow::seekableChanged, this, &MediaPlayer2Player::seekableChanged);
-    connect(Dragon::engine(), &Dragon::VideoWindow::volumeChanged, this, &MediaPlayer2Player::volumeChanged);
+    connect(m_player, &QMediaPlayer::positionChanged, this, &MediaPlayer2Player::tick);
+    connect(m_player, &QMediaPlayer::sourceChanged, this, &MediaPlayer2Player::currentSourceChanged);
+    connect(m_player, &QMediaPlayer::metaDataChanged, this, &MediaPlayer2Player::emitMetadataChange);
+    connect(m_player, &QMediaPlayer::playbackStateChanged, this, &MediaPlayer2Player::stateUpdated);
+    connect(m_player, &QMediaPlayer::durationChanged, this, &MediaPlayer2Player::emitMetadataChange);
+    connect(m_player, &QMediaPlayer::seekableChanged, this, &MediaPlayer2Player::seekableChanged);
+    connect(m_player->audioOutput(), &QAudioOutput::volumeChanged, this, &MediaPlayer2Player::volumeChanged);
 }
 
-MediaPlayer2Player::~MediaPlayer2Player()
-{
-}
+MediaPlayer2Player::~MediaPlayer2Player() = default;
 
 bool MediaPlayer2Player::CanGoNext() const
 {
-    return Dragon::engine()->canGoNext();
+    return false;
 }
 
 void MediaPlayer2Player::Next() const
 {
-    Dragon::engine()->nextChapter();
+    qWarning() << "Next() not supported";
 }
 
 bool MediaPlayer2Player::CanGoPrevious() const
 {
-    return Dragon::engine()->canGoPrev();
+    return false;
 }
 
 void MediaPlayer2Player::Previous() const
 {
-    Dragon::engine()->prevChapter();
+    qWarning() << "Previous() not supported";
 }
 
 bool MediaPlayer2Player::CanPause() const
 {
-    return Dragon::engine()->state() != Phonon::ErrorState;
+    return m_player->error() == QMediaPlayer::NoError;
 }
 
 void MediaPlayer2Player::Pause() const
 {
-    Dragon::engine()->pause();
+    m_player->pause();
 }
 
 void MediaPlayer2Player::PlayPause() const
 {
-    Dragon::engine()->playPause();
+    if (m_player->playbackState() == QMediaPlayer::PlayingState) {
+        m_player->pause();
+    } else {
+        m_player->play();
+    }
 }
 
 void MediaPlayer2Player::Stop() const
 {
-    Dragon::engine()->stop();
+    m_player->stop();
 }
 
 bool MediaPlayer2Player::CanPlay() const
@@ -80,37 +85,33 @@ bool MediaPlayer2Player::CanPlay() const
 
 void MediaPlayer2Player::Play() const
 {
-    Dragon::engine()->play();
+    m_player->play();
 }
 
 void MediaPlayer2Player::SetPosition(const QDBusObjectPath &TrackId, qlonglong Position) const
 {
-    if (TrackId.path().toLocal8Bit() == makeTrackId(Dragon::engine()->urlOrDisc()))
-        Dragon::engine()->seek(Position / 1000);
+    m_player->setPosition(Position);
 }
 
 void MediaPlayer2Player::OpenUri(QString Uri) const
 {
-    static_cast<Dragon::MainWindow *>(Dragon::mainWindow())->open(QUrl(Uri));
+    m_player->setSource(QUrl(Uri));
 }
 
 QString MediaPlayer2Player::PlaybackStatus() const
 {
-    switch (Dragon::engine()->state()) {
-    case (Phonon::PlayingState):
+    switch (m_player->playbackState()) {
+    case QMediaPlayer::PlayingState:
         return QStringLiteral("Playing");
         break;
-    case (Phonon::PausedState):
-    case (Phonon::BufferingState):
+    case QMediaPlayer::PausedState:
         return QStringLiteral("Paused");
         break;
-    case (Phonon::StoppedState):
-        return QStringLiteral("Stopped");
-        break;
-    default:
+    case QMediaPlayer::StoppedState:
         return QStringLiteral("Stopped");
         break;
     }
+    return QStringLiteral("Stopped");
 }
 
 QString MediaPlayer2Player::LoopStatus() const
@@ -145,30 +146,29 @@ void MediaPlayer2Player::setShuffle(bool shuffle) const
 
 QVariantMap MediaPlayer2Player::Metadata() const
 {
-    QVariantMap metaData;
+    QVariantMap metaData{
+        {QStringLiteral("mpris:trackid"), QVariant::fromValue<QDBusObjectPath>(QDBusObjectPath(makeTrackId(m_player->source().toString()).constData()))},
+        {QStringLiteral("xesam:url"), QVariant::fromValue(m_player->source().toString())},
+    };
 
-    switch (Dragon::engine()->mediaSourceType()) {
-    case Phonon::MediaSource::Invalid:
-    case Phonon::MediaSource::Empty:
-        break;
-    default:
-        metaData = {
-            {QStringLiteral("mpris:trackid"), QVariant::fromValue<QDBusObjectPath>(QDBusObjectPath(makeTrackId(Dragon::engine()->urlOrDisc()).constData()))},
-            {QStringLiteral("mpris:length"), Dragon::engine()->length() * 1000},
-            {QStringLiteral("xesam:url"), Dragon::engine()->urlOrDisc()},
-        };
+    const auto data = m_player->metaData();
+    const auto keys = data.keys();
+    if (keys.contains(QMediaMetaData::Duration)) {
+        metaData.insert(QStringLiteral("mpris:length"), data.value(QMediaMetaData::Duration).toLongLong());
     }
 
-    QMultiMap<QString, QString> phononMetaData = Dragon::engine()->metaData();
-    QMultiMap<QString, QString>::const_iterator i = phononMetaData.constBegin();
+    // Fields where we don't need to perform any type conversions
+    const std::map<QMediaMetaData::Key, QString> trivialData = {
+        {QMediaMetaData::AlbumArtist, u"xesam:artist"_s},
+        {QMediaMetaData::AlbumTitle, u"xesam:album"_s},
+        {QMediaMetaData::Genre, u"xesam:genre"_s},
+        {QMediaMetaData::TrackNumber, u"xesam:trackNumber"_s},
+    };
 
-    while (i != phononMetaData.constEnd()) {
-        if (i.key() == QLatin1String("ALBUM") || i.key() == QLatin1String("TITLE"))
-            metaData[QLatin1String("xesam:") + i.key().toLower()] = i.value();
-        else if (i.key() == QLatin1String("ARTIST") || i.key() == QLatin1String("GENRE"))
-            metaData[QLatin1String("xesam:") + i.key().toLower()] = QStringList(i.value());
-
-        ++i;
+    for (const auto &[key, value] : trivialData) {
+        if (keys.contains(key)) {
+            metaData.insert(value, data.value(key));
+        }
     }
 
     return metaData;
@@ -176,17 +176,17 @@ QVariantMap MediaPlayer2Player::Metadata() const
 
 double MediaPlayer2Player::Volume() const
 {
-    return Dragon::engine()->volume();
+    return m_player->audioOutput()->volume();
 }
 
 void MediaPlayer2Player::setVolume(double volume) const
 {
-    Dragon::engine()->setVolume(qBound(qreal(0.0), qreal(volume), qreal(1.0)));
+    m_player->audioOutput()->setVolume(qBound(0.0F, float(volume), 1.0F));
 }
 
 qlonglong MediaPlayer2Player::Position() const
 {
-    return Dragon::engine()->currentTime() * 1000;
+    return m_player->position();
 }
 
 double MediaPlayer2Player::MinimumRate() const
@@ -201,12 +201,12 @@ double MediaPlayer2Player::MaximumRate() const
 
 bool MediaPlayer2Player::CanSeek() const
 {
-    return Dragon::engine()->isSeekable();
+    return m_player->isSeekable();
 }
 
 void MediaPlayer2Player::Seek(qlonglong Offset) const
 {
-    Dragon::engine()->seek(((Dragon::engine()->currentTime() * 1000) + Offset) / 1000);
+    m_player->setPosition(m_player->position() + Offset);
 }
 
 bool MediaPlayer2Player::CanControl() const
@@ -216,10 +216,7 @@ bool MediaPlayer2Player::CanControl() const
 
 void MediaPlayer2Player::tick(qint64 newPos)
 {
-    if (newPos - oldPos > Dragon::engine()->tickInterval() + 250 || newPos < oldPos)
-        Q_EMIT Seeked(newPos * 1000);
-
-    oldPos = newPos;
+    Q_EMIT Seeked(newPos);
 }
 
 void MediaPlayer2Player::emitMetadataChange() const
