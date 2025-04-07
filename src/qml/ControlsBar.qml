@@ -120,8 +120,11 @@ QQC2.ToolBar {
                     shortcut: "M"
                 }
 
+                QQC2.MenuSeparator {}
+
                 QQC2.Menu {
-                    title: i18nc("@action:button video subtitle", "Subtitle")
+                    icon.name: "add-subtitle-symbolic"
+                    title: i18nc("@action:button video subtitle", "Subtitles")
                     enabled: count > 0
                     Repeater {
                         id: subtitleRepeater
@@ -154,6 +157,7 @@ QQC2.ToolBar {
                 }
 
                 QQC2.Menu {
+                    icon.name: "text-speak-symbolic"
                     title: i18nc("@action:button track selector", "Audio Track")
                     enabled: count > 0
                     Repeater {
@@ -168,6 +172,7 @@ QQC2.ToolBar {
                     }
                 }
                 QQC2.Menu {
+                    icon.name: "kdenlive-add-clip-symbolic"
                     title: i18nc("@action:button track selector", "Video Track")
                     enabled: count > 0
                     Repeater {
@@ -181,6 +186,9 @@ QQC2.ToolBar {
                         }
                     }
                 }
+
+                QQC2.MenuSeparator {}
+
                 Kirigami.Action {
                     icon.name: "dragonplayer"
                     text: i18nc("@action opens about app page", "About")
