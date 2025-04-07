@@ -30,7 +30,7 @@ QQC2.ToolBar {
         anchors.fill: parent
         spacing: Kirigami.Units.mediumSpacing
 
-        IconToolButton {
+        QQC2.ToolButton {
             action: appWindow.openAction
         }
 
@@ -69,7 +69,7 @@ QQC2.ToolBar {
             }
         }
 
-        IconToolButton {
+        QQC2.ToolButton {
             action: fullscreenAction
         }
 
