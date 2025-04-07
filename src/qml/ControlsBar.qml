@@ -3,6 +3,7 @@
 
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Templates as T
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import QtMultimedia as Multimedia
@@ -79,8 +80,30 @@ QQC2.ToolBar {
 
         IconToolButton {
             id: menuButton
-            readonly property var menu: QQC2.Menu {
-                topMargin: menuButton.height
+
+            icon.name: "open-menu-symbolic"
+
+            text: i18nc("@action:button", "Application Menu")
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+                               && text.length > 0
+                               && display === QQC2.AbstractButton.IconOnly
+                               && !pressed
+                               && !menu.visible
+
+            down: pressed || menu.visible
+            Accessible.role: Accessible.ButtonMenu
+
+            onPressed: {
+                if (!menuButton.menu.visible) {
+                    menuButton.menu.open()
+                } else {
+                    menuButton.menu.dismiss()
+                }
+            }
+
+            readonly property T.Menu menu: QQC2.Menu {
+                y: menuButton.height
 
                 Kirigami.Action {
                     text: i18nc("@action:button stop playback", "Stop")
@@ -163,12 +186,6 @@ QQC2.ToolBar {
                     text: i18nc("@action opens about app page", "About")
                     onTriggered: pageStack.layers.push("AboutPage.qml")
                 }
-            }
-            action: Kirigami.Action {
-                text: i18nc("@action:button", "Application Menu")
-                icon.name: "open-menu-symbolic"
-                onTriggered: menuButton.menu.open()
-                tooltip: text
             }
         }
     }

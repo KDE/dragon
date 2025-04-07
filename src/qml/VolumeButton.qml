@@ -12,36 +12,43 @@ IconToolButton {
 
     required property Multimedia.AudioOutput audioOutput
 
-    action: Kirigami.Action {
-        text: i18nc("@action:button open volume slider popup", "Volume")
-        icon.name: {
-            if (volumeButton.audioOutput.muted || volumeButton.audioOutput.volume == 0.0) {
-                return "audio-volume-muted"
-            }
-            if (volumeButton.audioOutput.volume > 0.66) {
-                return "audio-volume-high"
-            }
-            if (volumeButton.audioOutput.volume > 0.33) {
-                return "audio-volume-medium"
-            }
-            if (volumeButton.audioOutput.volume > 0) {
-                return "audio-volume-low"
-            }
-            return "player-volume"
+    icon.name: {
+        if (volumeButton.audioOutput.muted || volumeButton.audioOutput.volume == 0.0) {
+            return "audio-volume-muted"
         }
-        tooltip: i18nc("@info:tooltip volume button", "Volume")
-        checkable: true
-        onTriggered: {
-            if (checked) {
-                volumeButton.popup.open()
-            } else {
-                volumeButton.popup.close()
-            }
+        if (volumeButton.audioOutput.volume > 0.66) {
+            return "audio-volume-high"
+        }
+        if (volumeButton.audioOutput.volume > 0.33) {
+            return "audio-volume-medium"
+        }
+        if (volumeButton.audioOutput.volume > 0) {
+            return "audio-volume-low"
+        }
+        return "player-volume"
+    }
+
+    text: i18nc("@action:button open volume slider popup", "Volume")
+    QQC2.ToolTip.text: text
+    QQC2.ToolTip.visible: hovered
+                       && text.length > 0
+                       && display === QQC2.AbstractButton.IconOnly
+                       && !pressed
+                       && !popup.visible
+
+    down: pressed || popup.visible
+    Accessible.role: Accessible.ButtonMenu
+
+    onPressed: {
+        if (!popup.visible) {
+            popup.open()
+        } else {
+            popup.close()
         }
     }
 
     readonly property QQC2.Popup popup : QQC2.Popup {
-        topMargin: volumeButton.height
+        y: volumeButton.height
         QQC2.Slider {
             orientation: Qt.Vertical
             from: 0.0

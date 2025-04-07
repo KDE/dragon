@@ -10,5 +10,8 @@ QQC2.ToolButton {
     display: QQC2.AbstractButton.IconOnly
     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
     QQC2.ToolTip.visible: hovered
+                       && text.length > 0
+                       && display === QQC2.AbstractButton.IconOnly
+                       && !pressed
     QQC2.ToolTip.text: (action as Kirigami.Action)?.tooltip
 }
