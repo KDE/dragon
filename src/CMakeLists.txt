@@ -22,7 +22,8 @@ target_sources(dragonmodule
         mpris2/mediaplayer2.cpp
         mpris2/mediaplayer2player.cpp
         mpris2/mpris2.cpp
-        fileopen.cpp)
+        fileopen.cpp
+        sandbox.cpp)
 target_link_libraries(dragonmodule
     PRIVATE
         Qt6::Core
@@ -33,7 +34,8 @@ target_link_libraries(dragonmodule
         Qt6::DBus
         Qt6::Qml
         Qt6::Quick
-        Qt6::Multimedia)
+        Qt6::Multimedia
+        PkgConfig::libavcodec)
 # Set mpris2 as include dir so the qml plugin source can find it
 target_include_directories(dragonmodule PRIVATE "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/mpris2>")
 ecm_finalize_qml_module(dragonmodule DESTINATION ${KDE_INSTALL_QMLDIR})

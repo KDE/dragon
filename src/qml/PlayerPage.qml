@@ -9,6 +9,8 @@ import org.kde.coreaddons as KCoreAddons
 import Qt.labs.animation
 import QtMultimedia as Multimedia
 
+import org.kde.dragon as Dragon
+
 Kirigami.Page {
     id: videoPage
 
@@ -57,11 +59,42 @@ Kirigami.Page {
         }
 
         Kirigami.InlineMessage {
+            property bool blameDistro: false
+            Layout.fillWidth: true
+            type: Kirigami.MessageType.Warning
+            showCloseButton: true
+            position: Kirigami.InlineMessage.Position.Header
+            visible: text.length > 0
+            text: {
+                if (Dragon.Sandbox.inside && !Dragon.Sandbox.ffmpegFull) {
+                    return xi18nc("@info",
+`Not all video codecs are installed. Video playback support may be less reliable than expected.
+Please install ffmpeg-full by running:
+<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</command></para>`)
+                }
+                if (!Dragon.Sandbox.ffmpegFull) {
+                    blameDistro = true
+                    return xi18nc("@info",
+`Not all video codecs are installed. Video playback support may be less reliable than expected.
+Please consult your distribution on how to install all possible codecs.`)
+                }
+                return ""
+            }
+            actions: [
+                Kirigami.Action {
+                    text: i18nc("@action:button %1 is the name of a distribution", "%1 Support", KCoreAddons.KOSRelease.name)
+                    onTriggered: Qt.openUrlExternally(KCoreAddons.KOSRelease.supportUrl)
+                }
+            ]
+        }
+
+        Kirigami.InlineMessage {
             id: errorMessage
             Layout.fillWidth: true
             type: Kirigami.MessageType.Error
-            showCloseButton: true
             position: Kirigami.InlineMessage.Position.Header
+            visible: text.length > 0
+            text: player.errorString
         }
     }
 

@@ -48,6 +48,9 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED
     Config
 )
 
+find_package(PkgConfig)
+pkg_check_modules(libavcodec REQUIRED IMPORTED_TARGET libavcodec)
+
 configure_file(config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
 ecm_set_disabled_deprecation_versions(
