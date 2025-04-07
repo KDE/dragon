@@ -107,7 +107,7 @@ QQC2.ToolBar {
                             keys: () => [0],
                             stringValue: () => i18nc("@action:button selector for no subtitle", "None")
                         }].concat(player.subtitleTracks)
-                        delegate: QQC2.RadioButton {
+                        delegate: QQC2.RadioDelegate {
                             required property var modelData
                             required property int index
                             text: {
@@ -135,7 +135,7 @@ QQC2.ToolBar {
                     enabled: count > 0
                     Repeater {
                         model: player.audioTracks
-                        delegate: QQC2.RadioButton {
+                        delegate: QQC2.RadioDelegate {
                             required property var modelData
                             required property int index
                             text: modelData.stringValue(6)
@@ -149,7 +149,7 @@ QQC2.ToolBar {
                     enabled: count > 0
                     Repeater {
                         model: player.videoTracks
-                        delegate: QQC2.RadioButton {
+                        delegate: QQC2.RadioDelegate {
                             required property var modelData
                             required property int index
                             text: modelData.stringValue(6)
