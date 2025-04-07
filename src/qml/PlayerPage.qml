@@ -34,7 +34,7 @@ Kirigami.Page {
 
     Kirigami.Action {
         id: fullscreenAction
-        text: visibility === Window.Window.FullScreen ? i18nc("@action:button", "Cancel Fullscreen") : i18nc("@action:button", "Fullscreen")
+        text: visibility === Window.Window.FullScreen ? i18nc("@action:button", "Exit Fullscreen") : i18nc("@action:button", "Enter Fullscreen")
         icon.name: "view-fullscreen"
         onTriggered: videoPage.toggleFullscreen()
         shortcut: "F"
