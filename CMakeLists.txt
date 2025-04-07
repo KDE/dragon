@@ -48,12 +48,6 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED
     Config
 )
 
-find_package(KF6DocTools ${KF_MIN_VERSION})
-set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
-    "Tools to generate documentation"
-    TYPE OPTIONAL
-)
-
 configure_file(config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
 ecm_set_disabled_deprecation_versions(
@@ -67,10 +61,6 @@ add_subdirectory(src)
 add_subdirectory(misc)
 
 ki18n_install(po)
-if(KF6DocTools_FOUND)
-    kdoctools_install(po)
-    add_subdirectory(doc)
-endif()
 
 
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)
