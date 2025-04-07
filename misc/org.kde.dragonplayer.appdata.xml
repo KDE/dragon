@@ -57,7 +57,7 @@
   <name xml:lang="x-test">xxDragon Playerxx</name>
   <name xml:lang="zh-CN">Dragon Player</name>
   <name xml:lang="zh-TW">影音播放_DragonPlayer</name>
-  <summary>Video player with focus on simplicity</summary>
+  <summary>Play video files and streams</summary>
   <summary xml:lang="ar">مشغل فيديو مركز على البساطة</summary>
   <summary xml:lang="bg">Възпроизвеждане на видео</summary>
   <summary xml:lang="ca">Reproductor de vídeo amb enfocament en la simplicitat</summary>
@@ -106,9 +106,7 @@
   <summary xml:lang="zh-TW">專注於簡單的影片播放器</summary>
   <description>
     <p>
-      Dragon Player is a multimedia player where the focus is on simplicity, instead of features. Dragon Player does one thing,
-      and only one thing, which is playing multimedia files. Its simple interface is designed not to get in your way and instead
-      empower you to simply play multimedia files.
+      Dragon Player is a video player focusing on simplicity instead of features. Its easy-to-use interface is designed to get out of your way and simply play your video files and streams.
     </p>
     <p xml:lang="ar">مشغل التنين هو مشغل وسائط متعددة حيث يركز على البساطة عوضاً عن الميزات. يقوم مشغل التنين بشيء واحد، وشيء واحد فقط، وهو تشغيل ملفات الوسائط المتعددة. صممت واجهته البسيطة بحيث لا تقف في طريقك وتمكّنك من تشغيل ملفات الوسائط المتعددة.</p>
     <p xml:lang="bg">Dragon е програма за мултимедийно възпроизвеждане, където фокусът е върху простотата на използване, вместо функции. Dragon прави едно и само едно нещо като възпроизвежда мултимедийни файлове. Неговият прост интерфейс е предназначен да не се натрапва и вместо това ще ви даде възможност просто да възпроизведете вашите мултимедийни файлове.</p>
@@ -208,59 +206,8 @@
     <p xml:lang="zh-CN">功能：</p>
     <p xml:lang="zh-TW">功能：</p>
     <ul>
-      <li>Simple Interface</li>
-      <li xml:lang="ar">واجهة بسيطة</li>
-      <li xml:lang="ast">Interfaz simple</li>
-      <li xml:lang="bg">Опростен интерфейс</li>
-      <li xml:lang="bs">Prosto sučelje</li>
-      <li xml:lang="ca">Interfície senzilla</li>
-      <li xml:lang="ca-valencia">Interfície senzilla</li>
-      <li xml:lang="cs">Jednoduché rozhraní</li>
-      <li xml:lang="da">Simpel brugerflade</li>
-      <li xml:lang="de">Einfache Benutzerschnittstelle</li>
-      <li xml:lang="el">Απλή διεπαφή</li>
-      <li xml:lang="en-GB">Simple Interface</li>
-      <li xml:lang="eo">Simpla Interfaco</li>
-      <li xml:lang="es">Interfaz sencilla</li>
-      <li xml:lang="et">Lihtne liides</li>
-      <li xml:lang="eu">Interfaze erraza</li>
-      <li xml:lang="fi">Yksinkertainen käyttöliittymä</li>
-      <li xml:lang="fr">Interface simple</li>
-      <li xml:lang="gl">Interface sinxela</li>
-      <li xml:lang="he">ממשק פשוט</li>
-      <li xml:lang="hi">सरल इंटरफ़ेस</li>
-      <li xml:lang="hu">Egyszerű felület</li>
-      <li xml:lang="ia">Interfacie simplice</li>
-      <li xml:lang="id">Antarmuka Sederhana</li>
-      <li xml:lang="is">Einfalt notandaviðmót</li>
-      <li xml:lang="it">Interfaccia semplice</li>
-      <li xml:lang="ka">მარტივი ინტერფეისი</li>
-      <li xml:lang="ko">간단한 인터페이스</li>
-      <li xml:lang="lv">Vienkārša saskarne</li>
-      <li xml:lang="nb">Enkel brukerflate</li>
-      <li xml:lang="nds">Eenfach Böversiet</li>
-      <li xml:lang="nl">Eenvoudig interface</li>
-      <li xml:lang="nn">Enkelt brukargrensesnitt</li>
-      <li xml:lang="pa">ਸੌਖਾ ਇੰਟਰਫੇਸ</li>
-      <li xml:lang="pl">Prosty układ sterowania</li>
-      <li xml:lang="pt">Interface Simples</li>
-      <li xml:lang="pt-BR">Interface simples</li>
-      <li xml:lang="ro">Interfață simplă</li>
-      <li xml:lang="ru">Простой интерфейс;</li>
-      <li xml:lang="sa">सरलं अन्तरफलकं</li>
-      <li xml:lang="sk">Jednoduché rozhranie</li>
-      <li xml:lang="sl">Preprost vmesnik</li>
-      <li xml:lang="sr">Једноставно сучеље.</li>
-      <li xml:lang="sr-Latn">Jednostavno sučelje.</li>
-      <li xml:lang="sr-ijekavian">Једноставно сучеље.</li>
-      <li xml:lang="sr-ijekavianlatin">Jednostavno sučelje.</li>
-      <li xml:lang="sv">Enkelt gränssnitt</li>
-      <li xml:lang="tr">Yalın Arayüz</li>
-      <li xml:lang="uk">простий інтерфейс;</li>
-      <li xml:lang="x-test">xxSimple Interfacexx</li>
-      <li xml:lang="zh-CN">简洁的界面</li>
-      <li xml:lang="zh-TW">簡易介面</li>
-      <li>Support for subtitles: Automatically loads subtitles with the matching name</li>
+      <li>Click to play or pause, and double-click to enter or exit full screen mode.</li>
+      <li>Choose the subtitle language, and automatically load the right one for your language, if possible.</li>
       <li xml:lang="ar">دعم الترجمة: تحميل الترجمات تلقائيًا بالاسم المطابق</li>
       <li xml:lang="bg">Поддръжка на субтитри: автоматично зарежда тези със съвпадащо име</li>
       <li xml:lang="bs">Podrška za podnaslove: Automatski učitava podnaslove s odgovarajućim imenom</li>
@@ -310,6 +257,9 @@
       <li xml:lang="x-test">xxSupport for subtitles: Automatically loads subtitles with the matching namexx</li>
       <li xml:lang="zh-CN">支持字幕：自动加载名称匹配的字幕</li>
       <li xml:lang="zh-TW">支援字幕：名稱相符的話自動載入字幕</li>
+      <li>Choose the audio track.</li>
+      <li>Choose the video track.</li>
+      <li>Adjust the volume by scrolling.</li>
     </ul>
   </description>
   <content_rating type="oars-1.1"/>
