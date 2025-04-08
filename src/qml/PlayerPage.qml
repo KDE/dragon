@@ -336,6 +336,9 @@ Please consult your distribution on how to install all possible codecs.`)
             id: activeTimer
             interval: Kirigami.Units.humanMoment
             repeat: false
+            onTriggered: {
+                toolbar.dismissPopups();
+            }
         }
 
         MouseArea {

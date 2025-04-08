@@ -16,6 +16,16 @@ QQC2.ToolBar {
     required property Multimedia.MediaPlayer player
     property alias seekSlider: seekSlider
 
+    function dismissPopups()
+    {
+        if (volumeButton.popup.opened) {
+            volumeButton.popup.close();
+        }
+        if (menuButton.menu.opened) {
+            menuButton.menu.dismiss();
+        }
+    }
+
     visible: topInset !== hiddenInset
 
     Behavior on topInset {
