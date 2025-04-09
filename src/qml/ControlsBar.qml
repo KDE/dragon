@@ -58,11 +58,22 @@ QQC2.ToolBar {
 
             Layout.fillWidth: true
 
+            property Timer seekTimer: Timer {
+                property int position: -1
+                interval: 50
+                onTriggered: toolbar.player.position = position
+            }
+
             // Note that hovering is handled by the toolbar not the slider!
             hoverEnabled: false
             from: 0
             to: player.duration
-            onMoved: videoPage.seek(value, true)
+            onMoved: {
+                // Delay seeks ever so slightly to prevent vaapi from falling over because we allocate too many frames when
+                // the user seeks vigorously.
+                seekTimer.position = value
+                seekTimer.restart()
+            }
             wheelEnabled: true
             enabled: !toolbar.player.stopped && toolbar.player.seekable
 
