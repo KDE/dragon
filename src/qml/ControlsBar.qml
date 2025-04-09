@@ -67,7 +67,7 @@ QQC2.ToolBar {
             // Note that hovering is handled by the toolbar not the slider!
             hoverEnabled: false
             from: 0
-            to: player.duration
+            to: toolbar.player.duration
             onMoved: {
                 // Delay seeks ever so slightly to prevent vaapi from falling over because we allocate too many frames when
                 // the user seeks vigorously.
@@ -75,7 +75,7 @@ QQC2.ToolBar {
                 seekTimer.restart()
             }
             wheelEnabled: true
-            enabled: !toolbar.player.stopped && toolbar.player.seekable
+            enabled: toolbar.player.playbackState !== Multimedia.MediaPlayer.StoppedState && toolbar.player.seekable
 
             Behavior on opacity {
                 NumberAnimation { duration: Kirigami.Units.shortDuration }
@@ -84,7 +84,7 @@ QQC2.ToolBar {
             Binding {
                 target: seekSlider
                 property: 'value'
-                value: player.position
+                value: toolbar.player.position
                 when: !seekSlider.pressed
                 delayed: true
             }
