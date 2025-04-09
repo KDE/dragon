@@ -142,18 +142,21 @@ Please consult your distribution on how to install all possible codecs.`)
             anchors.fill: parent
         }
 
+        Multimedia.AudioOutput {
+            id: audio
+            BoundaryRule on volume {
+                id: volumeBoundaryRule
+                minimum: 0
+                maximum: 100
+                overshootFilter: BoundaryRule.Peak
+            }
+            onVolumeChanged: (volume) => volumeWheel.rotation = volume
+        }
+
         Multimedia.MediaPlayer {
             id: player
             videoOutput: video
-            audioOutput: Multimedia.AudioOutput {
-                BoundaryRule on volume {
-                    id: volumeBoundaryRule
-                    minimum: 0
-                    maximum: 100
-                    overshootFilter: BoundaryRule.Peak
-                }
-                onVolumeChanged: (volume) => volumeWheel.rotation = volume
-            }
+            audioOutput: audio
 
             readonly property bool paused: playbackState == Multimedia.MediaPlayer.PausedState
             readonly property bool stopped: playbackState == Multimedia.MediaPlayer.StoppedState
