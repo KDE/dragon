@@ -57,11 +57,16 @@ Kirigami.ApplicationWindow {
     }
 
     title: {
+        if (!playerPage.player.source) {
+            return ""
+        }
+
         const title = playerPage.player.metaData.value(0)
         if (title) {
             return title
         }
-        return playerPage.player.source
+
+        return playerPage.player.source.toString().split('/').pop()
     }
     minimumWidth: Kirigami.Settings.isMobile ? 0 : Kirigami.Units.gridUnit * 30
     minimumHeight: Kirigami.Settings.isMobile ? 0 : Kirigami.Units.gridUnit * 22
