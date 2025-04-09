@@ -164,6 +164,9 @@ Please consult your distribution on how to install all possible codecs.`)
 
             function togglePause() {
                 if (paused || stopped) {
+                    // https://bugreports.qt.io/browse/QTBUG-135851
+                    audioOutput = null
+                    audioOutput = audio
                     play()
                 } else {
                     pause()
