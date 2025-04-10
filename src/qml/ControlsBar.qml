@@ -10,21 +10,12 @@ import QtMultimedia as Multimedia
 
 QQC2.ToolBar {
     id: toolbar
+    readonly property bool anyMenusOpen: menuButton.menu.opened || volumeButton.popup.opened
     readonly property var hiddenInset: -contentHeight
     property alias volumeButton: volumeButton
     property alias toolbarHandler: toolbarHandler
     required property Multimedia.MediaPlayer player
     property alias seekSlider: seekSlider
-
-    function dismissPopups()
-    {
-        if (volumeButton.popup.opened) {
-            volumeButton.popup.close();
-        }
-        if (menuButton.menu.opened) {
-            menuButton.menu.dismiss();
-        }
-    }
 
     visible: topInset !== hiddenInset
 

@@ -339,9 +339,6 @@ Please consult your distribution on how to install all possible codecs.`)
             id: activeTimer
             interval: Kirigami.Units.humanMoment
             repeat: false
-            onTriggered: {
-                toolbar.dismissPopups();
-            }
         }
 
         MouseArea {
@@ -355,7 +352,7 @@ Please consult your distribution on how to install all possible codecs.`)
             State {
                 name: "fullscreen-active"
                 extend: "fullscreen"
-                when: appWindow.visibility === Window.Window.FullScreen && (activeTimer.running || toolbar.toolbarHandler.hovered)
+                when: appWindow.visibility === Window.Window.FullScreen && (activeTimer.running || toolbar.toolbarHandler.hovered || toolbar.anyMenusOpen)
                 PropertyChanges {
                     target: toolbar
                     topInset: { toolbar.topInset = 0 }
