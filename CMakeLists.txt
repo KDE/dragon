@@ -11,7 +11,7 @@ project(DragonPlayer VERSION ${RELEASE_SERVICE_VERSION})
 set(PROJECT_VERSION ${RELEASE_SERVICE_VERSION})
 
 set(QT_MIN_VERSION "6.8.0")
-set(KF_MIN_VERSION "6.13.0")
+set(KF_MIN_VERSION "6.12.0")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
@@ -55,7 +55,7 @@ configure_file(config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
 ecm_set_disabled_deprecation_versions(
     QT 6.8
-    KF 6.13
+    KF 6.12
 )
 
 add_definitions(-DTRANSLATION_DOMAIN="dragonplayer")
