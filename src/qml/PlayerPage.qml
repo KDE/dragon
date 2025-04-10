@@ -193,30 +193,27 @@ Please consult your distribution on how to install all possible codecs.`)
             }
         }
 
-        property Timer tapTimer: Timer {
-            interval: 200
-            repeat: false
-            onTriggered: {
-                if (videoPage.player.playbackState === Multimedia.MediaPlayer.PlayingState) {
-                    videoPage.player.pause()
-                } else {
-                    videoPage.player.play()
+        MouseArea {
+            property Timer clickTimer: Timer {
+                interval: 200
+                repeat: false
+                onTriggered: {
+                    if (videoPage.player.playbackState === Multimedia.MediaPlayer.PlayingState) {
+                        videoPage.player.pause()
+                    } else {
+                        videoPage.player.play()
+                    }
                 }
             }
-        }
 
-        TapHandler {
-            acceptedButtons: Qt.AllButtons
-            onDoubleTapped: {
-                parent.tapTimer.stop()
+            anchors.fill: parent
+            acceptedButtons: Qt.LeftButton
+            propagateComposedEvents: true
+            onDoubleClicked: {
+                clickTimer.stop()
                 videoPage.toggleFullscreen()
             }
-        }
-
-        TapHandler {
-            // Separate from the double tap handler so they don't confuse each other through a shared tapCount.
-            acceptedButtons: Qt.AllButtons
-            onSingleTapped: parent.tapTimer.start()
+            onPressed: clickTimer.start()
         }
 
         MouseArea {
