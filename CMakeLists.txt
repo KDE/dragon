@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.28)
 
 # KDE Application Version, managed by release script
 set(RELEASE_SERVICE_VERSION_MAJOR "25")
@@ -10,8 +10,8 @@ project(DragonPlayer VERSION ${RELEASE_SERVICE_VERSION})
 
 set(PROJECT_VERSION ${RELEASE_SERVICE_VERSION})
 
-set(QT_MIN_VERSION "6.5.0")
-set(KF_MIN_VERSION "6.3.0")
+set(QT_MIN_VERSION "6.8.0")
+set(KF_MIN_VERSION "6.13.0")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
@@ -54,8 +54,8 @@ pkg_check_modules(libavcodec REQUIRED IMPORTED_TARGET libavcodec)
 configure_file(config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
 ecm_set_disabled_deprecation_versions(
-    QT 6.7
-    KF 6.4
+    QT 6.8
+    KF 6.13
 )
 
 add_definitions(-DTRANSLATION_DOMAIN="dragonplayer")

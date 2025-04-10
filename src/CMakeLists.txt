@@ -46,6 +46,7 @@ target_link_libraries(dragon
     Qt6::Gui
     KF6::CoreAddons
     KF6::I18n
+    KF6::I18nQml
     KF6::Crash
     Qt6::Qml
     Qt6::Widgets

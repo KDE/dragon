@@ -8,7 +8,7 @@
 
 #include <KAboutData>
 #include <KCrash>
-#include <KLocalizedContext>
+#include <KLocalizedQmlContext>
 #include <KLocalizedString>
 
 #include "dragon.h"
@@ -34,10 +34,7 @@ int main(int argc, char **argv)
     KCrash::initialize();
 
     auto engine = new QQmlApplicationEngine(&app); // on the heap for code similarity reasons with other projects, technically not necessary.
-
-    static auto l10nContext = new KLocalizedContext(engine);
-    l10nContext->setTranslationDomain(QStringLiteral(TRANSLATION_DOMAIN));
-    engine->rootContext()->setContextObject(l10nContext);
+    KLocalization::setupLocalizedContext(engine);
 
     engine->loadFromModule("org.kde.dragon", "Main");
     if (engine->rootObjects().isEmpty()) {
