@@ -7,4 +7,5 @@ import org.kde.coreaddons as KCoreAddons
 
 Kirigami.AboutPage {
     aboutData: KCoreAddons.AboutData
+    globalToolBarStyle: Kirigami.ApplicationHeaderStyle.ToolBar
 }

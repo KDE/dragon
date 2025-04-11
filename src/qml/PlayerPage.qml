@@ -20,7 +20,7 @@ Kirigami.Page {
     required property QtObject fullscreenAction
 
     // Depending on whether the About page is on the stack we'll either want a header (about page) or not (video page)
-    globalToolBarStyle: pageStack.layers.currentItem === undefined ? Kirigami.ApplicationHeaderStyle.None : Kirigami.ApplicationHeaderStyle.Auto
+    globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
     leftPadding: 0
     topPadding: 0
     rightPadding: 0
