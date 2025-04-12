@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-12 00:38+0000\n"
+"POT-Creation-Date: 2025-04-12 00:40+0000\n"
 "PO-Revision-Date: 2015-12-30 19:18+0200\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
@@ -30,526 +30,478 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "dgvirtual@akl.lt"
 
-#. i18n: ectx: Menu (file)
-#: misc/dragonplayerui.rc:4
-#, fuzzy, kde-format
-#| msgid "&Play"
-msgctxt "@title:menu"
-msgid "&Play"
-msgstr "&Groti"
-
-#. i18n: ectx: Menu (play_media_menu)
-#: misc/dragonplayerui.rc:5
-#, fuzzy, kde-format
-#| msgid "Play Media"
-msgctxt "@title:menu"
-msgid "Play Media"
-msgstr "Leisti kūrinį"
-
-#. i18n: ectx: Menu (settings)
-#: misc/dragonplayerui.rc:20
-#, fuzzy, kde-format
-#| msgid "&Settings"
-msgctxt "@title:menu"
-msgid "&Settings"
-msgstr "&Nuostatos"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: misc/dragonplayerui.rc:37
-#, kde-format
-msgid "Main Toolbar"
-msgstr "Pagrindinė įrankinė"
-
-#: src/app/actions.cpp:24
-#, fuzzy, kde-format
-#| msgid "Play"
-msgctxt "@action"
-msgid "Play"
-msgstr "Groti"
-
-#: src/app/actions.cpp:25
-#, fuzzy, kde-format
-#| msgid "Pause"
-msgctxt "@action"
-msgid "Pause"
-msgstr "Pauzė"
-
-#: src/app/actions.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "Volume of sound output"
-#| msgid "Volume"
-msgctxt "@option:check Volume of sound output"
-msgid "Volume"
-msgstr "Garsas"
-
-#: src/app/adjustSizeButton.cpp:38
-#, fuzzy, kde-format
-#| msgid "Preferred Scale"
-msgctxt "@action:button"
-msgid "Preferred Scale"
-msgstr "Pageidautinas dydis"
-
-#: src/app/adjustSizeButton.cpp:42
-#, fuzzy, kde-format
-#| msgid "Scale 100%"
-msgctxt "@action:button"
-msgid "Scale 100%"
-msgstr "Didinti 100%"
-
-#: src/app/adjustSizeButton.cpp:49
-#, kde-format
-msgid "<b>Adjust video scale?</b>"
-msgstr "<b>Pritaikyti video dydį?</b>"
-
-#: src/app/discSelectionDialog.cpp:37
-#, kde-format
-msgctxt ""
-"%1 is the disc type, %2 is the name of the disc that the user can choose. "
-"Ex. 'DVD: OfficeSpace'"
-msgid "%1: %2"
-msgstr "%1: %2"
-
-#: src/app/discSelectionDialog.cpp:56
-#, kde-format
-msgctxt "Digital Versatile Disc, but keep it short"
-msgid "DVD"
-msgstr "DVD"
-
-#: src/app/discSelectionDialog.cpp:58
-#, kde-format
-msgid "Video CD"
-msgstr "Video CD"
-
-#: src/app/discSelectionDialog.cpp:60
-#, kde-format
-msgid "Audio CD"
-msgstr "Audio CD"
-
-#: src/app/discSelectionDialog.cpp:62
-#, kde-format
-msgid "Data CD"
-msgstr "Duomenų CD"
-
-#: src/app/discSelectionDialog.cpp:73
-#, fuzzy, kde-format
-#| msgid "Select a Disc"
-msgctxt "@title:window"
-msgid "Select a Disc"
-msgstr "Pasirinkti diską"
-
-#: src/app/discSelectionDialog.cpp:75
-#, kde-format
-msgid "Select a disc to play."
-msgstr "Pasirinkti diską grojimui."
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/app/loadView.ui:61
-#, fuzzy, kde-format
-#| msgid "Dragon Player"
-msgid "Welcome to Dragon Player"
-msgstr "Dragon leistuvas"
-
-#: src/app/main.cpp:34
+#: src/main.cpp:24
 #, kde-format
 msgid "Dragon Player"
 msgstr "Dragon leistuvas"
 
-#: src/app/main.cpp:36
+#: src/main.cpp:26
 #, kde-format
 msgid "A video player that has a usability focus"
 msgstr "Patogus naudoti video leistuvas"
 
-#: src/app/main.cpp:38
-#, kde-format
+#: src/main.cpp:28
+#, fuzzy, kde-format
+#| msgid ""
+#| "Copyright 2006, Max Howell\n"
+#| "Copyright 2007, Ian Monroe"
 msgid ""
 "Copyright 2006, Max Howell\n"
-"Copyright 2007, Ian Monroe"
+"Copyright 2007, Ian Monroe\n"
+"Copyright 2022 Harald Sitter"
 msgstr ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe"
 
-#: src/app/main.cpp:42
-#, kde-format
-msgid "Improvements and polish"
-msgstr "Patobulinimai ir padailinimai"
-
-#: src/app/main.cpp:43
-#, kde-format
-msgid "Creator of Phonon"
-msgstr "Phonon kūrėjas"
-
-#: src/app/main.cpp:44
-#, kde-format
-msgid "Dragon Player icon"
-msgstr "Dragon leistuvo ženkliukas"
-
-#: src/app/main.cpp:45
-#, kde-format
-msgid "Handbook"
-msgstr "Žinynas"
-
-#: src/app/main.cpp:46
-#, kde-format
-msgid "Great reference code"
-msgstr "Puikus atspirties kodas"
-
-#: src/app/main.cpp:47
-#, kde-format
-msgid "Yatta happened to be the only video on my laptop to test with. :)"
-msgstr ""
-"Yatta buvo vienintelis video mano nešiojamame kompiuteryje bandymams. :)"
-
-#: src/app/main.cpp:48
-#, kde-format
-msgid "MPRIS v2 support"
-msgstr "MPRIS v2 palaikymas"
-
-#: src/app/main.cpp:49
-#, kde-format
-msgid "Port to KF5/Plasma 5"
+#: src/qml/ControlsBar.qml:98
+msgctxt "@action:button"
+msgid "Application Menu"
 msgstr ""
 
-#: src/app/main.cpp:58
-#, kde-format
-msgid "Play DVD Video"
-msgstr "Leisti DVD video"
-
-#: src/app/main.cpp:60
-#, kde-format
-msgid "Play 'URL'"
-msgstr "Leisti „URL“"
-
-#: src/app/mainWindow.cpp:138
-#, fuzzy, kde-format
-#| msgid "Aspect &Ratio"
-msgctxt "@title:menu"
-msgid "Aspect &Ratio"
-msgstr "&Santykis"
-
-#: src/app/mainWindow.cpp:139
-#, fuzzy, kde-format
-#| msgid "&Audio Channels"
-msgctxt "@title:menu"
-msgid "&Audio Channels"
-msgstr "&Audio kanalai"
-
-#: src/app/mainWindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "&Subtitles"
-msgctxt "@title:menu"
-msgid "&Subtitles"
-msgstr "&Subtitrai"
-
-#: src/app/mainWindow.cpp:153
-#, fuzzy, kde-format
-#| msgid "Determine &Automatically"
-msgctxt "@option:radio aspect ratio"
-msgid "Determine &Automatically"
-msgstr "Nustatyti &automatiškai"
-
-#: src/app/mainWindow.cpp:154
-#, fuzzy, kde-format
-#| msgid "&4:3"
-msgctxt "@option:radio aspect ratio"
-msgid "&4:3"
-msgstr "&4:3"
-
-#: src/app/mainWindow.cpp:155
-#, fuzzy, kde-format
-#| msgid "Ana&morphic (16:9)"
-msgctxt "@option:radio aspect ratio"
-msgid "Ana&morphic (16:9)"
-msgstr "Ana&morfinis (16:9)"
-
-#: src/app/mainWindow.cpp:156
-#, fuzzy, kde-format
-#| msgid "&Window Size"
-msgctxt "@option:radio aspect ratio"
-msgid "&Window Size"
-msgstr "&Lango dydžio"
-
-#: src/app/mainWindow.cpp:237
-#, kde-format
-msgid ""
-"<qt>Phonon could not be successfully initialized. Dragon Player will now "
-"exit.</qt>"
-msgstr ""
-"<qt>Nepavyko sėkmingai paleisti Phonon. Dragon leistuvas dabar išsijungs.</"
-"qt>"
-
-#: src/app/mainWindow.cpp:300
-#, fuzzy, kde-format
-#| msgid "Play File"
-msgctxt "@action"
-msgid "Play File…"
-msgstr "Leisti failą"
-
-#: src/app/mainWindow.cpp:301
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Open a media file for playback"
-msgstr ""
-
-#: src/app/mainWindow.cpp:310
-#, fuzzy, kde-format
-#| msgid "Play Media"
-msgctxt "@action"
-msgid "Play Stream…"
-msgstr "Leisti kūrinį"
-
-#: src/app/mainWindow.cpp:316
-#, fuzzy, kde-format
-#| msgid "Play Disc"
-msgctxt "@action"
-msgid "Play Disc"
-msgstr "Leisti diską"
-
-#: src/app/mainWindow.cpp:340
-#, kde-format
-msgctxt "@action"
-msgid "Increase Volume"
-msgstr ""
-
-#: src/app/mainWindow.cpp:345
-#, kde-format
-msgctxt "@action"
-msgid "Decrease Volume"
-msgstr ""
-
-#: src/app/mainWindow.cpp:350
-#, fuzzy, kde-format
+#: src/qml/ControlsBar.qml:121
+#, fuzzy
 #| msgid "Stop"
-msgctxt "@action"
+msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "Stop"
 
-#: src/app/mainWindow.cpp:356
-#, fuzzy, kde-format
+#: src/qml/ControlsBar.qml:129
+msgctxt "@action:button"
+msgid "Unmute"
+msgstr ""
+
+#: src/qml/ControlsBar.qml:129
+#, fuzzy
 #| msgctxt "Mute the sound output"
 #| msgid "Mute"
-msgctxt "@action Mute the sound output"
+msgctxt "@action:button"
 msgid "Mute"
 msgstr "Nutildyti"
 
-#: src/app/mainWindow.cpp:362
-#, fuzzy, kde-format
-#| msgid "Reset Video Scale"
-msgctxt "@action"
-msgid "Reset Video Scale"
-msgstr "Atstatyti video dydį"
+#: src/qml/ControlsBar.qml:139
+#, fuzzy
+#| msgid "&Subtitles"
+msgctxt "@action:button video subtitle"
+msgid "Subtitles"
+msgstr "&Subtitrai"
 
-#: src/app/mainWindow.cpp:368
-#, fuzzy, kde-format
-#| msgid "Menu Toggle"
-msgctxt "@action"
-msgid "Menu Toggle"
-msgstr "Meniu perjungimas"
+#: src/qml/ControlsBar.qml:146
+msgctxt "@action:button selector for no subtitle"
+msgid "None"
+msgstr ""
 
-#: src/app/mainWindow.cpp:376 src/app/part.cpp:54
-#, kde-format
-msgid "Position Slider"
-msgstr "Pozicijos slinktukas"
-
-#: src/app/mainWindow.cpp:380
-#, fuzzy, kde-format
-#| msgid "Video Settings"
-msgctxt "@option:check"
-msgid "Video Settings"
-msgstr "Vaizdo nuostatos"
-
-#: src/app/mainWindow.cpp:388
-#, kde-format
+#: src/qml/ControlsBar.qml:156
 msgctxt ""
-"@option:check Whether only one instance of dragon can be started and will be "
-"reused when the user tries to play another file."
-msgid "One Instance Only"
+"@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
+"%2 is usually a subtitle (e.g. Traditional)"
+msgid "%1 [%2]"
 msgstr ""
 
-#: src/app/mainWindow.cpp:396
-#, fuzzy, kde-format
-#| msgid "Previous Chapter"
-msgctxt "@action previous chapter"
-msgid "Previous"
-msgstr "Ankstesnis skyrius"
+#: src/qml/ControlsBar.qml:173
+#, fuzzy
+#| msgid "Audio CD"
+msgctxt "@action:button track selector"
+msgid "Audio Track"
+msgstr "Audio CD"
 
-#: src/app/mainWindow.cpp:402
-#, kde-format
-msgctxt "@action next chapter"
-msgid "Next"
+#: src/qml/ControlsBar.qml:188
+#, fuzzy
+#| msgid "Video CD"
+msgctxt "@action:button track selector"
+msgid "Video Track"
+msgstr "Video CD"
+
+#: src/qml/ControlsBar.qml:206
+msgctxt "@action opens about app page"
+msgid "About"
 msgstr ""
 
-#: src/app/mainWindow.cpp:409
-#, fuzzy, no-c-format, kde-format
-#| msgid "Return 10% Back"
-msgctxt "@action"
-msgid "Return 10% Back"
-msgstr "Grįžti 10% atgal"
+#: src/qml/Main.qml:53
+msgctxt "@action:button open file dialog"
+msgid "Open…"
+msgstr ""
 
-#: src/app/mainWindow.cpp:416
-#, fuzzy, no-c-format, kde-format
-#| msgid "Go 10% Forward"
-msgctxt "@action"
-msgid "Go 10% Forward"
-msgstr "Eiti 10% į priekį"
+#: src/qml/PlayerPage.qml:31
+#, fuzzy
+#| msgid "Play"
+msgctxt "@action:button"
+msgid "Play"
+msgstr "Groti"
 
-#: src/app/mainWindow.cpp:422
-#, fuzzy, kde-format
-#| msgid "Return 10 Seconds Back"
-msgctxt "@action"
-msgid "Return 10 Seconds Back"
-msgstr "Grįžti 10 sekundžių atgal"
-
-#: src/app/mainWindow.cpp:428
-#, fuzzy, kde-format
-#| msgid "Go 10 Seconds Forward"
-msgctxt "@action"
-msgid "Go 10 Seconds Forward"
-msgstr "Eiti 10 sekundžių į priekį"
-
-#: src/app/mainWindow.cpp:508
-#, fuzzy, kde-format
-#| msgctxt "Mute the sound output"
-#| msgid "Mute"
-msgctxt "@option:check Mute the sound output"
-msgid "Mute"
-msgstr "Nutildyti"
-
-#: src/app/mainWindow.cpp:580
-#, kde-format
-msgid "Dragon Player was asked to open an empty URL; it cannot."
-msgstr "Dragon leistuvo prašyta atverti tuščia URL; to padaryti negalima."
-
-#: src/app/mainWindow.cpp:657
-#, fuzzy, kde-format
-#| msgid "Select File to Play"
-msgctxt "@title:window"
-msgid "Select File to Play"
-msgstr "Parinkite failą leidimui"
-
-#: src/app/mainWindow.cpp:684
-#, fuzzy, kde-format
-#| msgid "Select File to Play"
-msgctxt "@title:window"
-msgid "Stream to Play"
-msgstr "Parinkite failą leidimui"
-
-#: src/app/mainWindow.cpp:684
-#, fuzzy, kde-format
-#| msgid "Play Media"
-msgctxt "@label:textbox"
-msgid "Stream:"
-msgstr "Leisti kūrinį"
-
-#: src/app/mainWindow.cpp:814
-#, kde-format
-msgid "Sorry, no media was found in the drop"
-msgstr "Atleiskite, nerastas joks kūrinys"
-
-#: src/app/mainWindow.cpp:867
-#, fuzzy, kde-format
-#| msgid "Play DVD Video"
-msgctxt "Notification inhibition reason"
-msgid "Playing a video"
-msgstr "Leisti DVD video"
-
-#: src/app/mainWindow.cpp:914
-#, kde-format
-msgid "No media loaded"
-msgstr "Neįkeltas joks įrašas groti"
-
-#: src/app/mainWindow.cpp:916
-#, kde-format
-msgid "Paused"
+#: src/qml/PlayerPage.qml:31
+#, fuzzy
+#| msgid "Pause"
+msgctxt "@action:button"
+msgid "Pause"
 msgstr "Pauzė"
 
-#: src/app/playlistFile.cpp:37
-#, kde-format
-msgid "The file is not a playlist"
-msgstr "Šis failas nėra grojaraštis"
-
-#: src/app/playlistFile.cpp:45
-#, kde-format
-msgid "Dragon Player could not download the remote playlist: %1"
-msgstr "Dragon leistuvui nepavyko atsisiųsti nutolusio grojaraščio: %1"
-
-#: src/app/playlistFile.cpp:66
-#, kde-format
-msgid ""
-"<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is empty?"
-"</qt>"
-msgstr "<qt>Grojaraštis <i>„%1“</i> neperskaitomas. Gal jis tuščias?</qt>"
-
-#: src/app/playlistFile.cpp:70
-#, kde-format
-msgid "Dragon Player could not open the file: %1"
-msgstr "Dragon leistuvui nepavyko atverti failo: %1"
-
-#: src/app/theStream.cpp:145
-#, kde-format
-msgid "Track %1/%2"
+#: src/qml/PlayerPage.qml:39
+msgctxt "@action:button"
+msgid "Exit Fullscreen"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, brightnessLabel)
-#: src/app/videoSettingsWidget.ui:19
-#, fuzzy, kde-format
-#| msgid "Brightness:"
-msgctxt "@label:slider"
-msgid "Brightness:"
-msgstr "Ryškumas:"
-
-#. i18n: ectx: property (text), widget (QLabel, contrastLabel)
-#: src/app/videoSettingsWidget.ui:42
-#, fuzzy, kde-format
-#| msgid "Contrast:"
-msgctxt "@label:slider"
-msgid "Contrast:"
-msgstr "Kontrastas:"
-
-#. i18n: ectx: property (text), widget (QLabel, hueLabel)
-#: src/app/videoSettingsWidget.ui:65
-#, fuzzy, kde-format
-#| msgid "Hue:"
-msgctxt "@label:slider"
-msgid "Hue:"
-msgstr "Atspalvis:"
-
-#. i18n: ectx: property (text), widget (QLabel, saturationLabel)
-#: src/app/videoSettingsWidget.ui:88
-#, fuzzy, kde-format
-#| msgid "Saturation:"
-msgctxt "@label:slider"
-msgid "Saturation:"
-msgstr "Sodrumas:"
-
-#. i18n: ectx: property (text), widget (QPushButton, defaultsButton)
-#: src/app/videoSettingsWidget.ui:128
-#, fuzzy, kde-format
-#| msgid "Restore Defaults"
+#: src/qml/PlayerPage.qml:39
 msgctxt "@action:button"
-msgid "Restore Defaults"
-msgstr "Atstatyti pradines nuostatas"
+msgid "Enter Fullscreen"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, closeButton)
-#: src/app/videoSettingsWidget.ui:135
-#, fuzzy, kde-format
-#| msgid "Close"
+#: src/qml/PlayerPage.qml:71
+msgctxt "@info"
+msgid ""
+"Not all video codecs are installed. Video playback support may be less "
+"reliable than expected.\n"
+"Please install ffmpeg-full by running:\n"
+"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
+"command></para>"
+msgstr ""
+
+#: src/qml/PlayerPage.qml:78
+msgctxt "@info"
+msgid ""
+"Not all video codecs are installed. Video playback support may be less "
+"reliable than expected.\n"
+"Please consult your distribution on how to install all possible codecs."
+msgstr ""
+
+#: src/qml/PlayerPage.qml:85
+msgctxt "@action:button %1 is the name of a distribution"
+msgid "%1 Support"
+msgstr ""
+
+#: src/qml/PlayerPage.qml:326
+msgctxt ""
+"@info overlay on top of video. %1 is the amount of time played %2 is the "
+"total duration of the video"
+msgid "%1 / %2"
+msgstr ""
+
+#: src/qml/VolumeButton.qml:31
+#, fuzzy
+#| msgctxt "Volume of sound output"
+#| msgid "Volume"
+msgctxt "@action:button open volume slider popup"
+msgid "Volume"
+msgstr "Garsas"
+
+#: src/qml/WelcomeView.qml:16
+#, fuzzy
+#| msgid "Dragon Player"
+msgctxt "@title"
+msgid "Welcome to Dragon Player"
+msgstr "Dragon leistuvas"
+
+#: src/qml/WelcomeView.qml:17
+msgctxt "@info"
+msgid "Dragon Player is a simple video player. Open a video to get started:"
+msgstr ""
+
+#: src/qml/WelcomeView.qml:20
 msgctxt "@action:button"
-msgid "Close"
-msgstr "Užverti"
+msgid "Open Video File or Network Stream"
+msgstr ""
 
-#: src/app/videoWindow.cpp:107
-#, fuzzy, kde-format
-#| msgid "&DVD Subtitle Selection"
-msgctxt "@option:radio"
-msgid "&DVD Subtitle Selection"
-msgstr "&DVD subtitrų parinkimas"
+#, fuzzy
+#~| msgid "&Play"
+#~ msgctxt "@title:menu"
+#~ msgid "&Play"
+#~ msgstr "&Groti"
 
-#: src/app/videoWindow.cpp:117
-#, fuzzy, kde-format
-#| msgid "&Auto"
-msgctxt "@option:radio audio language"
-msgid "&Auto"
-msgstr "&Auto"
+#, fuzzy
+#~| msgid "Play Media"
+#~ msgctxt "@title:menu"
+#~ msgid "Play Media"
+#~ msgstr "Leisti kūrinį"
+
+#, fuzzy
+#~| msgid "&Settings"
+#~ msgctxt "@title:menu"
+#~ msgid "&Settings"
+#~ msgstr "&Nuostatos"
+
+#~ msgid "Main Toolbar"
+#~ msgstr "Pagrindinė įrankinė"
+
+#, fuzzy
+#~| msgid "Preferred Scale"
+#~ msgctxt "@action:button"
+#~ msgid "Preferred Scale"
+#~ msgstr "Pageidautinas dydis"
+
+#, fuzzy
+#~| msgid "Scale 100%"
+#~ msgctxt "@action:button"
+#~ msgid "Scale 100%"
+#~ msgstr "Didinti 100%"
+
+#~ msgid "<b>Adjust video scale?</b>"
+#~ msgstr "<b>Pritaikyti video dydį?</b>"
+
+#~ msgctxt ""
+#~ "%1 is the disc type, %2 is the name of the disc that the user can choose. "
+#~ "Ex. 'DVD: OfficeSpace'"
+#~ msgid "%1: %2"
+#~ msgstr "%1: %2"
+
+#~ msgctxt "Digital Versatile Disc, but keep it short"
+#~ msgid "DVD"
+#~ msgstr "DVD"
+
+#~ msgid "Data CD"
+#~ msgstr "Duomenų CD"
+
+#, fuzzy
+#~| msgid "Select a Disc"
+#~ msgctxt "@title:window"
+#~ msgid "Select a Disc"
+#~ msgstr "Pasirinkti diską"
+
+#~ msgid "Select a disc to play."
+#~ msgstr "Pasirinkti diską grojimui."
+
+#~ msgid "Improvements and polish"
+#~ msgstr "Patobulinimai ir padailinimai"
+
+#~ msgid "Creator of Phonon"
+#~ msgstr "Phonon kūrėjas"
+
+#~ msgid "Dragon Player icon"
+#~ msgstr "Dragon leistuvo ženkliukas"
+
+#~ msgid "Handbook"
+#~ msgstr "Žinynas"
+
+#~ msgid "Great reference code"
+#~ msgstr "Puikus atspirties kodas"
+
+#~ msgid "Yatta happened to be the only video on my laptop to test with. :)"
+#~ msgstr ""
+#~ "Yatta buvo vienintelis video mano nešiojamame kompiuteryje bandymams. :)"
+
+#~ msgid "MPRIS v2 support"
+#~ msgstr "MPRIS v2 palaikymas"
+
+#~ msgid "Play DVD Video"
+#~ msgstr "Leisti DVD video"
+
+#~ msgid "Play 'URL'"
+#~ msgstr "Leisti „URL“"
+
+#, fuzzy
+#~| msgid "Aspect &Ratio"
+#~ msgctxt "@title:menu"
+#~ msgid "Aspect &Ratio"
+#~ msgstr "&Santykis"
+
+#, fuzzy
+#~| msgid "&Audio Channels"
+#~ msgctxt "@title:menu"
+#~ msgid "&Audio Channels"
+#~ msgstr "&Audio kanalai"
+
+#, fuzzy
+#~| msgid "Determine &Automatically"
+#~ msgctxt "@option:radio aspect ratio"
+#~ msgid "Determine &Automatically"
+#~ msgstr "Nustatyti &automatiškai"
+
+#, fuzzy
+#~| msgid "&4:3"
+#~ msgctxt "@option:radio aspect ratio"
+#~ msgid "&4:3"
+#~ msgstr "&4:3"
+
+#, fuzzy
+#~| msgid "Ana&morphic (16:9)"
+#~ msgctxt "@option:radio aspect ratio"
+#~ msgid "Ana&morphic (16:9)"
+#~ msgstr "Ana&morfinis (16:9)"
+
+#, fuzzy
+#~| msgid "&Window Size"
+#~ msgctxt "@option:radio aspect ratio"
+#~ msgid "&Window Size"
+#~ msgstr "&Lango dydžio"
+
+#~ msgid ""
+#~ "<qt>Phonon could not be successfully initialized. Dragon Player will now "
+#~ "exit.</qt>"
+#~ msgstr ""
+#~ "<qt>Nepavyko sėkmingai paleisti Phonon. Dragon leistuvas dabar išsijungs."
+#~ "</qt>"
+
+#, fuzzy
+#~| msgid "Play File"
+#~ msgctxt "@action"
+#~ msgid "Play File…"
+#~ msgstr "Leisti failą"
+
+#, fuzzy
+#~| msgid "Play Media"
+#~ msgctxt "@action"
+#~ msgid "Play Stream…"
+#~ msgstr "Leisti kūrinį"
+
+#, fuzzy
+#~| msgid "Play Disc"
+#~ msgctxt "@action"
+#~ msgid "Play Disc"
+#~ msgstr "Leisti diską"
+
+#, fuzzy
+#~| msgid "Reset Video Scale"
+#~ msgctxt "@action"
+#~ msgid "Reset Video Scale"
+#~ msgstr "Atstatyti video dydį"
+
+#, fuzzy
+#~| msgid "Menu Toggle"
+#~ msgctxt "@action"
+#~ msgid "Menu Toggle"
+#~ msgstr "Meniu perjungimas"
+
+#~ msgid "Position Slider"
+#~ msgstr "Pozicijos slinktukas"
+
+#, fuzzy
+#~| msgid "Video Settings"
+#~ msgctxt "@option:check"
+#~ msgid "Video Settings"
+#~ msgstr "Vaizdo nuostatos"
+
+#, fuzzy
+#~| msgid "Previous Chapter"
+#~ msgctxt "@action previous chapter"
+#~ msgid "Previous"
+#~ msgstr "Ankstesnis skyrius"
+
+#, fuzzy
+#~| msgid "Return 10% Back"
+#~ msgctxt "@action"
+#~ msgid "Return 10% Back"
+#~ msgstr "Grįžti 10% atgal"
+
+#, fuzzy
+#~| msgid "Go 10% Forward"
+#~ msgctxt "@action"
+#~ msgid "Go 10% Forward"
+#~ msgstr "Eiti 10% į priekį"
+
+#, fuzzy
+#~| msgid "Return 10 Seconds Back"
+#~ msgctxt "@action"
+#~ msgid "Return 10 Seconds Back"
+#~ msgstr "Grįžti 10 sekundžių atgal"
+
+#, fuzzy
+#~| msgid "Go 10 Seconds Forward"
+#~ msgctxt "@action"
+#~ msgid "Go 10 Seconds Forward"
+#~ msgstr "Eiti 10 sekundžių į priekį"
+
+#, fuzzy
+#~| msgctxt "Mute the sound output"
+#~| msgid "Mute"
+#~ msgctxt "@option:check Mute the sound output"
+#~ msgid "Mute"
+#~ msgstr "Nutildyti"
+
+#~ msgid "Dragon Player was asked to open an empty URL; it cannot."
+#~ msgstr "Dragon leistuvo prašyta atverti tuščia URL; to padaryti negalima."
+
+#, fuzzy
+#~| msgid "Select File to Play"
+#~ msgctxt "@title:window"
+#~ msgid "Select File to Play"
+#~ msgstr "Parinkite failą leidimui"
+
+#, fuzzy
+#~| msgid "Select File to Play"
+#~ msgctxt "@title:window"
+#~ msgid "Stream to Play"
+#~ msgstr "Parinkite failą leidimui"
+
+#, fuzzy
+#~| msgid "Play Media"
+#~ msgctxt "@label:textbox"
+#~ msgid "Stream:"
+#~ msgstr "Leisti kūrinį"
+
+#~ msgid "Sorry, no media was found in the drop"
+#~ msgstr "Atleiskite, nerastas joks kūrinys"
+
+#, fuzzy
+#~| msgid "Play DVD Video"
+#~ msgctxt "Notification inhibition reason"
+#~ msgid "Playing a video"
+#~ msgstr "Leisti DVD video"
+
+#~ msgid "No media loaded"
+#~ msgstr "Neįkeltas joks įrašas groti"
+
+#~ msgid "Paused"
+#~ msgstr "Pauzė"
+
+#~ msgid "The file is not a playlist"
+#~ msgstr "Šis failas nėra grojaraštis"
+
+#~ msgid "Dragon Player could not download the remote playlist: %1"
+#~ msgstr "Dragon leistuvui nepavyko atsisiųsti nutolusio grojaraščio: %1"
+
+#~ msgid ""
+#~ "<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is "
+#~ "empty?</qt>"
+#~ msgstr "<qt>Grojaraštis <i>„%1“</i> neperskaitomas. Gal jis tuščias?</qt>"
+
+#~ msgid "Dragon Player could not open the file: %1"
+#~ msgstr "Dragon leistuvui nepavyko atverti failo: %1"
+
+#, fuzzy
+#~| msgid "Brightness:"
+#~ msgctxt "@label:slider"
+#~ msgid "Brightness:"
+#~ msgstr "Ryškumas:"
+
+#, fuzzy
+#~| msgid "Contrast:"
+#~ msgctxt "@label:slider"
+#~ msgid "Contrast:"
+#~ msgstr "Kontrastas:"
+
+#, fuzzy
+#~| msgid "Hue:"
+#~ msgctxt "@label:slider"
+#~ msgid "Hue:"
+#~ msgstr "Atspalvis:"
+
+#, fuzzy
+#~| msgid "Saturation:"
+#~ msgctxt "@label:slider"
+#~ msgid "Saturation:"
+#~ msgstr "Sodrumas:"
+
+#, fuzzy
+#~| msgid "Restore Defaults"
+#~ msgctxt "@action:button"
+#~ msgid "Restore Defaults"
+#~ msgstr "Atstatyti pradines nuostatas"
+
+#, fuzzy
+#~| msgid "Close"
+#~ msgctxt "@action:button"
+#~ msgid "Close"
+#~ msgstr "Užverti"
+
+#, fuzzy
+#~| msgid "&DVD Subtitle Selection"
+#~ msgctxt "@option:radio"
+#~ msgid "&DVD Subtitle Selection"
+#~ msgstr "&DVD subtitrų parinkimas"
+
+#, fuzzy
+#~| msgid "&Auto"
+#~ msgctxt "@option:radio audio language"
+#~ msgid "&Auto"
+#~ msgstr "&Auto"
 
 #, fuzzy
 #~| msgid "Play &Media..."

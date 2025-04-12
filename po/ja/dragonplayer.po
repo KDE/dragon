@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-12 00:38+0000\n"
+"POT-Creation-Date: 2025-04-12 00:40+0000\n"
 "PO-Revision-Date: 2011-04-10 13:06-0700\n"
 "Last-Translator: Fumiaki Okushi <okushi@kde.gr.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -28,526 +28,467 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ybando@k6.dion.ne.jp"
 
-#. i18n: ectx: Menu (file)
-#: misc/dragonplayerui.rc:4
-#, fuzzy, kde-format
-#| msgid "&Play"
-msgctxt "@title:menu"
-msgid "&Play"
-msgstr "再生(&P)"
-
-#. i18n: ectx: Menu (play_media_menu)
-#: misc/dragonplayerui.rc:5
-#, fuzzy, kde-format
-#| msgid "Play Media"
-msgctxt "@title:menu"
-msgid "Play Media"
-msgstr "メディアを再生"
-
-#. i18n: ectx: Menu (settings)
-#: misc/dragonplayerui.rc:20
-#, fuzzy, kde-format
-#| msgid "&Settings"
-msgctxt "@title:menu"
-msgid "&Settings"
-msgstr "設定(&S)"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: misc/dragonplayerui.rc:37
-#, kde-format
-msgid "Main Toolbar"
-msgstr "メインツールバー"
-
-#: src/app/actions.cpp:24
-#, fuzzy, kde-format
-#| msgid "Play"
-msgctxt "@action"
-msgid "Play"
-msgstr "再生"
-
-#: src/app/actions.cpp:25
-#, fuzzy, kde-format
-#| msgid "Pause"
-msgctxt "@action"
-msgid "Pause"
-msgstr "一時停止"
-
-#: src/app/actions.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "Volume of sound output"
-#| msgid "Volume"
-msgctxt "@option:check Volume of sound output"
-msgid "Volume"
-msgstr "音量"
-
-#: src/app/adjustSizeButton.cpp:38
-#, fuzzy, kde-format
-#| msgid "Preferred Scale"
-msgctxt "@action:button"
-msgid "Preferred Scale"
-msgstr "優先する拡大率"
-
-#: src/app/adjustSizeButton.cpp:42
-#, fuzzy, kde-format
-#| msgid "Scale 100%"
-msgctxt "@action:button"
-msgid "Scale 100%"
-msgstr "拡大率 100%"
-
-#: src/app/adjustSizeButton.cpp:49
-#, kde-format
-msgid "<b>Adjust video scale?</b>"
-msgstr "動画の拡大率を調整しますか？"
-
-#: src/app/discSelectionDialog.cpp:37
-#, kde-format
-msgctxt ""
-"%1 is the disc type, %2 is the name of the disc that the user can choose. "
-"Ex. 'DVD: OfficeSpace'"
-msgid "%1: %2"
-msgstr "%1: %2"
-
-#: src/app/discSelectionDialog.cpp:56
-#, kde-format
-msgctxt "Digital Versatile Disc, but keep it short"
-msgid "DVD"
-msgstr "DVD"
-
-#: src/app/discSelectionDialog.cpp:58
-#, kde-format
-msgid "Video CD"
-msgstr "ビデオ CD"
-
-#: src/app/discSelectionDialog.cpp:60
-#, kde-format
-msgid "Audio CD"
-msgstr "オーディオ CD"
-
-#: src/app/discSelectionDialog.cpp:62
-#, kde-format
-msgid "Data CD"
-msgstr "データ CD"
-
-#: src/app/discSelectionDialog.cpp:73
-#, fuzzy, kde-format
-#| msgid "Select a Disc"
-msgctxt "@title:window"
-msgid "Select a Disc"
-msgstr "ディスクを選択"
-
-#: src/app/discSelectionDialog.cpp:75
-#, kde-format
-msgid "Select a disc to play."
-msgstr "再生するディスクを選択します。"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/app/loadView.ui:61
-#, fuzzy, kde-format
-#| msgid "Dragon Player"
-msgid "Welcome to Dragon Player"
-msgstr "Dragon Player"
-
-#: src/app/main.cpp:34
+#: src/main.cpp:24
 #, kde-format
 msgid "Dragon Player"
 msgstr "Dragon Player"
 
-#: src/app/main.cpp:36
+#: src/main.cpp:26
 #, kde-format
 msgid "A video player that has a usability focus"
 msgstr "使いやすさを重視した動画プレーヤー"
 
-#: src/app/main.cpp:38
-#, kde-format
+#: src/main.cpp:28
+#, fuzzy, kde-format
+#| msgid ""
+#| "Copyright 2006, Max Howell\n"
+#| "Copyright 2007, Ian Monroe"
 msgid ""
 "Copyright 2006, Max Howell\n"
-"Copyright 2007, Ian Monroe"
+"Copyright 2007, Ian Monroe\n"
+"Copyright 2022 Harald Sitter"
 msgstr ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe"
 
-#: src/app/main.cpp:42
-#, kde-format
-msgid "Improvements and polish"
-msgstr "改良と仕上げ"
-
-#: src/app/main.cpp:43
-#, kde-format
-msgid "Creator of Phonon"
-msgstr "Phonon の作者"
-
-#: src/app/main.cpp:44
-#, kde-format
-msgid "Dragon Player icon"
-msgstr "Dragon Player のアイコン"
-
-#: src/app/main.cpp:45
-#, kde-format
-msgid "Handbook"
-msgstr "ハンドブック"
-
-#: src/app/main.cpp:46
-#, kde-format
-msgid "Great reference code"
-msgstr "素晴しい参考コード"
-
-#: src/app/main.cpp:47
-#, kde-format
-msgid "Yatta happened to be the only video on my laptop to test with. :)"
-msgstr ""
-
-#: src/app/main.cpp:48
-#, kde-format
-msgid "MPRIS v2 support"
-msgstr ""
-
-#: src/app/main.cpp:49
-#, kde-format
-msgid "Port to KF5/Plasma 5"
-msgstr ""
-
-#: src/app/main.cpp:58
-#, kde-format
-msgid "Play DVD Video"
-msgstr "DVD ビデオを再生"
-
-#: src/app/main.cpp:60
-#, kde-format
-msgid "Play 'URL'"
-msgstr "URL を再生"
-
-#: src/app/mainWindow.cpp:138
-#, fuzzy, kde-format
-#| msgid "Aspect &Ratio"
-msgctxt "@title:menu"
-msgid "Aspect &Ratio"
-msgstr "アスペクト比(&R)"
-
-#: src/app/mainWindow.cpp:139
-#, fuzzy, kde-format
-#| msgid "&Audio Channels"
-msgctxt "@title:menu"
-msgid "&Audio Channels"
-msgstr "音声チャンネル(&A)"
-
-#: src/app/mainWindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "&Subtitles"
-msgctxt "@title:menu"
-msgid "&Subtitles"
-msgstr "字幕(&S)"
-
-#: src/app/mainWindow.cpp:153
-#, fuzzy, kde-format
-#| msgid "Determine &Automatically"
-msgctxt "@option:radio aspect ratio"
-msgid "Determine &Automatically"
-msgstr "自動(&A)|/|$[~setProps ~full 'アスペクト比 - 自動']"
-
-#: src/app/mainWindow.cpp:154
-#, fuzzy, kde-format
-#| msgid "&4:3"
-msgctxt "@option:radio aspect ratio"
-msgid "&4:3"
-msgstr "4:3|/|$[~setProps ~full 'アスペクト比 - 4:3']"
-
-#: src/app/mainWindow.cpp:155
-#, fuzzy, kde-format
-#| msgid "Ana&morphic (16:9)"
-msgctxt "@option:radio aspect ratio"
-msgid "Ana&morphic (16:9)"
-msgstr ""
-"16:9 (アナモルフィック)|/|$[~setProps ~full 'アスペクト比 - 16:9 (アナモル"
-"フィック)']"
-
-#: src/app/mainWindow.cpp:156
-#, fuzzy, kde-format
-#| msgid "&Window Size"
-msgctxt "@option:radio aspect ratio"
-msgid "&Window Size"
-msgstr "ウィンドウのサイズ(&W)"
-
-#: src/app/mainWindow.cpp:237
-#, kde-format
-msgid ""
-"<qt>Phonon could not be successfully initialized. Dragon Player will now "
-"exit.</qt>"
-msgstr ""
-
-#: src/app/mainWindow.cpp:300
-#, fuzzy, kde-format
-#| msgid "Play File"
-msgctxt "@action"
-msgid "Play File…"
-msgstr "ファイルを再生"
-
-#: src/app/mainWindow.cpp:301
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Open a media file for playback"
-msgstr ""
-
-#: src/app/mainWindow.cpp:310
-#, fuzzy, kde-format
-#| msgid "Play Media"
-msgctxt "@action"
-msgid "Play Stream…"
-msgstr "メディアを再生"
-
-#: src/app/mainWindow.cpp:316
-#, fuzzy, kde-format
-#| msgid "Play Disc"
-msgctxt "@action"
-msgid "Play Disc"
-msgstr "ディスクを再生"
-
-#: src/app/mainWindow.cpp:340
-#, kde-format
-msgctxt "@action"
-msgid "Increase Volume"
-msgstr ""
-
-#: src/app/mainWindow.cpp:345
-#, kde-format
-msgctxt "@action"
-msgid "Decrease Volume"
+#: src/qml/ControlsBar.qml:98
+msgctxt "@action:button"
+msgid "Application Menu"
 msgstr ""
 
 # ACCELERATOR added by translator
-#: src/app/mainWindow.cpp:350
-#, fuzzy, kde-format
+#: src/qml/ControlsBar.qml:121
+#, fuzzy
 #| msgid "Stop"
-msgctxt "@action"
+msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "停止(&S)"
 
-#: src/app/mainWindow.cpp:356
-#, fuzzy, kde-format
+#: src/qml/ControlsBar.qml:129
+msgctxt "@action:button"
+msgid "Unmute"
+msgstr ""
+
+#: src/qml/ControlsBar.qml:129
+#, fuzzy
 #| msgctxt "Mute the sound output"
 #| msgid "Mute"
-msgctxt "@action Mute the sound output"
+msgctxt "@action:button"
 msgid "Mute"
 msgstr "ミュート"
 
-#: src/app/mainWindow.cpp:362
-#, fuzzy, kde-format
-#| msgid "Reset Video Scale"
-msgctxt "@action"
-msgid "Reset Video Scale"
-msgstr "動画の拡大率をリセット"
+#: src/qml/ControlsBar.qml:139
+#, fuzzy
+#| msgid "&Subtitles"
+msgctxt "@action:button video subtitle"
+msgid "Subtitles"
+msgstr "字幕(&S)"
 
-# ACCELERATOR added by translator
-#: src/app/mainWindow.cpp:368
-#, fuzzy, kde-format
-#| msgid "Menu Toggle"
-msgctxt "@action"
-msgid "Menu Toggle"
-msgstr "メニューの切り替え(&M)"
+#: src/qml/ControlsBar.qml:146
+msgctxt "@action:button selector for no subtitle"
+msgid "None"
+msgstr ""
 
-#: src/app/mainWindow.cpp:376 src/app/part.cpp:54
-#, kde-format
-msgid "Position Slider"
-msgstr "再生位置スライダー"
-
-# ACCELERATOR added by translator
-#: src/app/mainWindow.cpp:380
-#, fuzzy, kde-format
-#| msgid "Video Settings"
-msgctxt "@option:check"
-msgid "Video Settings"
-msgstr "画像の調整(&V)"
-
-#: src/app/mainWindow.cpp:388
-#, kde-format
+#: src/qml/ControlsBar.qml:156
 msgctxt ""
-"@option:check Whether only one instance of dragon can be started and will be "
-"reused when the user tries to play another file."
-msgid "One Instance Only"
+"@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
+"%2 is usually a subtitle (e.g. Traditional)"
+msgid "%1 [%2]"
 msgstr ""
 
-#: src/app/mainWindow.cpp:396
-#, fuzzy, kde-format
-#| msgid "Previous Chapter"
-msgctxt "@action previous chapter"
-msgid "Previous"
-msgstr "前のチャプター"
+#: src/qml/ControlsBar.qml:173
+#, fuzzy
+#| msgid "Audio CD"
+msgctxt "@action:button track selector"
+msgid "Audio Track"
+msgstr "オーディオ CD"
 
-#: src/app/mainWindow.cpp:402
-#, kde-format
-msgctxt "@action next chapter"
-msgid "Next"
+#: src/qml/ControlsBar.qml:188
+#, fuzzy
+#| msgid "Video CD"
+msgctxt "@action:button track selector"
+msgid "Video Track"
+msgstr "ビデオ CD"
+
+#: src/qml/ControlsBar.qml:206
+msgctxt "@action opens about app page"
+msgid "About"
 msgstr ""
 
-#: src/app/mainWindow.cpp:409
-#, fuzzy, no-c-format, kde-format
-#| msgid "Return 10% Back"
-msgctxt "@action"
-msgid "Return 10% Back"
-msgstr "10% 戻る"
+#: src/qml/Main.qml:53
+msgctxt "@action:button open file dialog"
+msgid "Open…"
+msgstr ""
 
-#: src/app/mainWindow.cpp:416
-#, fuzzy, no-c-format, kde-format
-#| msgid "Go 10% Forward"
-msgctxt "@action"
-msgid "Go 10% Forward"
-msgstr "10% 進む"
+#: src/qml/PlayerPage.qml:31
+#, fuzzy
+#| msgid "Play"
+msgctxt "@action:button"
+msgid "Play"
+msgstr "再生"
 
-#: src/app/mainWindow.cpp:422
-#, fuzzy, kde-format
-#| msgid "Return 10 Seconds Back"
-msgctxt "@action"
-msgid "Return 10 Seconds Back"
-msgstr "10 秒戻る"
+#: src/qml/PlayerPage.qml:31
+#, fuzzy
+#| msgid "Pause"
+msgctxt "@action:button"
+msgid "Pause"
+msgstr "一時停止"
 
-#: src/app/mainWindow.cpp:428
-#, fuzzy, kde-format
-#| msgid "Go 10 Seconds Forward"
-msgctxt "@action"
-msgid "Go 10 Seconds Forward"
-msgstr "10 秒進む"
+#: src/qml/PlayerPage.qml:39
+msgctxt "@action:button"
+msgid "Exit Fullscreen"
+msgstr ""
 
-#: src/app/mainWindow.cpp:508
-#, fuzzy, kde-format
-#| msgctxt "Mute the sound output"
-#| msgid "Mute"
-msgctxt "@option:check Mute the sound output"
-msgid "Mute"
-msgstr "ミュート"
+#: src/qml/PlayerPage.qml:39
+msgctxt "@action:button"
+msgid "Enter Fullscreen"
+msgstr ""
 
-#: src/app/mainWindow.cpp:580
-#, kde-format
-msgid "Dragon Player was asked to open an empty URL; it cannot."
-msgstr "空の URL を開くことはできません。"
-
-#: src/app/mainWindow.cpp:657
-#, fuzzy, kde-format
-#| msgid "Select File to Play"
-msgctxt "@title:window"
-msgid "Select File to Play"
-msgstr "再生するファイルを選択"
-
-#: src/app/mainWindow.cpp:684
-#, fuzzy, kde-format
-#| msgid "Select File to Play"
-msgctxt "@title:window"
-msgid "Stream to Play"
-msgstr "再生するファイルを選択"
-
-#: src/app/mainWindow.cpp:684
-#, fuzzy, kde-format
-#| msgid "Play Media"
-msgctxt "@label:textbox"
-msgid "Stream:"
-msgstr "メディアを再生"
-
-#: src/app/mainWindow.cpp:814
-#, kde-format
-msgid "Sorry, no media was found in the drop"
-msgstr "ドロップにメディアが見つかりませんでした"
-
-#: src/app/mainWindow.cpp:867
-#, fuzzy, kde-format
-#| msgid "Play DVD Video"
-msgctxt "Notification inhibition reason"
-msgid "Playing a video"
-msgstr "DVD ビデオを再生"
-
-#: src/app/mainWindow.cpp:914
-#, kde-format
-msgid "No media loaded"
-msgstr "メディアがロードされていません"
-
-#: src/app/mainWindow.cpp:916
-#, kde-format
-msgid "Paused"
-msgstr "一時停止中"
-
-#: src/app/playlistFile.cpp:37
-#, kde-format
-msgid "The file is not a playlist"
-msgstr "このファイルはプレイリストではありません"
-
-#: src/app/playlistFile.cpp:45
-#, kde-format
-msgid "Dragon Player could not download the remote playlist: %1"
-msgstr "リモートのプレイリストをダウンロードできませんでした: %1"
-
-#: src/app/playlistFile.cpp:66
-#, kde-format
+#: src/qml/PlayerPage.qml:71
+msgctxt "@info"
 msgid ""
-"<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is empty?"
-"</qt>"
-msgstr ""
-"<qt>プレイリスト “%1” を解読できませんでした。空ではありませんか？</qt>"
-
-#: src/app/playlistFile.cpp:70
-#, kde-format
-msgid "Dragon Player could not open the file: %1"
-msgstr "ファイルを開けませんでした: %1"
-
-#: src/app/theStream.cpp:145
-#, kde-format
-msgid "Track %1/%2"
+"Not all video codecs are installed. Video playback support may be less "
+"reliable than expected.\n"
+"Please install ffmpeg-full by running:\n"
+"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
+"command></para>"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, brightnessLabel)
-#: src/app/videoSettingsWidget.ui:19
-#, fuzzy, kde-format
-#| msgid "Brightness:"
-msgctxt "@label:slider"
-msgid "Brightness:"
-msgstr "明るさ:"
+#: src/qml/PlayerPage.qml:78
+msgctxt "@info"
+msgid ""
+"Not all video codecs are installed. Video playback support may be less "
+"reliable than expected.\n"
+"Please consult your distribution on how to install all possible codecs."
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, contrastLabel)
-#: src/app/videoSettingsWidget.ui:42
-#, fuzzy, kde-format
-#| msgid "Contrast:"
-msgctxt "@label:slider"
-msgid "Contrast:"
-msgstr "コントラスト:"
+#: src/qml/PlayerPage.qml:85
+msgctxt "@action:button %1 is the name of a distribution"
+msgid "%1 Support"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, hueLabel)
-#: src/app/videoSettingsWidget.ui:65
-#, fuzzy, kde-format
-#| msgid "Hue:"
-msgctxt "@label:slider"
-msgid "Hue:"
-msgstr "色相:"
+#: src/qml/PlayerPage.qml:326
+msgctxt ""
+"@info overlay on top of video. %1 is the amount of time played %2 is the "
+"total duration of the video"
+msgid "%1 / %2"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, saturationLabel)
-#: src/app/videoSettingsWidget.ui:88
-#, fuzzy, kde-format
-#| msgid "Saturation:"
-msgctxt "@label:slider"
-msgid "Saturation:"
-msgstr "彩度:"
+#: src/qml/VolumeButton.qml:31
+#, fuzzy
+#| msgctxt "Volume of sound output"
+#| msgid "Volume"
+msgctxt "@action:button open volume slider popup"
+msgid "Volume"
+msgstr "音量"
 
-#. i18n: ectx: property (text), widget (QPushButton, defaultsButton)
-#: src/app/videoSettingsWidget.ui:128
-#, fuzzy, kde-format
-#| msgid "Restore Defaults"
+#: src/qml/WelcomeView.qml:16
+#, fuzzy
+#| msgid "Dragon Player"
+msgctxt "@title"
+msgid "Welcome to Dragon Player"
+msgstr "Dragon Player"
+
+#: src/qml/WelcomeView.qml:17
+msgctxt "@info"
+msgid "Dragon Player is a simple video player. Open a video to get started:"
+msgstr ""
+
+#: src/qml/WelcomeView.qml:20
 msgctxt "@action:button"
-msgid "Restore Defaults"
-msgstr "標準設定に戻す"
+msgid "Open Video File or Network Stream"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, closeButton)
-#: src/app/videoSettingsWidget.ui:135
-#, fuzzy, kde-format
-#| msgid "Close"
-msgctxt "@action:button"
-msgid "Close"
-msgstr "閉じる"
+#, fuzzy
+#~| msgid "&Play"
+#~ msgctxt "@title:menu"
+#~ msgid "&Play"
+#~ msgstr "再生(&P)"
 
-#: src/app/videoWindow.cpp:107
-#, fuzzy, kde-format
-#| msgid "&DVD Subtitle Selection"
-msgctxt "@option:radio"
-msgid "&DVD Subtitle Selection"
-msgstr "DVD 字幕の選択(&D)"
+#, fuzzy
+#~| msgid "Play Media"
+#~ msgctxt "@title:menu"
+#~ msgid "Play Media"
+#~ msgstr "メディアを再生"
 
-#: src/app/videoWindow.cpp:117
-#, fuzzy, kde-format
-#| msgid "&Auto"
-msgctxt "@option:radio audio language"
-msgid "&Auto"
-msgstr "自動(&A)"
+#, fuzzy
+#~| msgid "&Settings"
+#~ msgctxt "@title:menu"
+#~ msgid "&Settings"
+#~ msgstr "設定(&S)"
+
+#~ msgid "Main Toolbar"
+#~ msgstr "メインツールバー"
+
+#, fuzzy
+#~| msgid "Preferred Scale"
+#~ msgctxt "@action:button"
+#~ msgid "Preferred Scale"
+#~ msgstr "優先する拡大率"
+
+#, fuzzy
+#~| msgid "Scale 100%"
+#~ msgctxt "@action:button"
+#~ msgid "Scale 100%"
+#~ msgstr "拡大率 100%"
+
+#~ msgid "<b>Adjust video scale?</b>"
+#~ msgstr "動画の拡大率を調整しますか？"
+
+#~ msgctxt ""
+#~ "%1 is the disc type, %2 is the name of the disc that the user can choose. "
+#~ "Ex. 'DVD: OfficeSpace'"
+#~ msgid "%1: %2"
+#~ msgstr "%1: %2"
+
+#~ msgctxt "Digital Versatile Disc, but keep it short"
+#~ msgid "DVD"
+#~ msgstr "DVD"
+
+#~ msgid "Data CD"
+#~ msgstr "データ CD"
+
+#, fuzzy
+#~| msgid "Select a Disc"
+#~ msgctxt "@title:window"
+#~ msgid "Select a Disc"
+#~ msgstr "ディスクを選択"
+
+#~ msgid "Select a disc to play."
+#~ msgstr "再生するディスクを選択します。"
+
+#~ msgid "Improvements and polish"
+#~ msgstr "改良と仕上げ"
+
+#~ msgid "Creator of Phonon"
+#~ msgstr "Phonon の作者"
+
+#~ msgid "Dragon Player icon"
+#~ msgstr "Dragon Player のアイコン"
+
+#~ msgid "Handbook"
+#~ msgstr "ハンドブック"
+
+#~ msgid "Great reference code"
+#~ msgstr "素晴しい参考コード"
+
+#~ msgid "Play DVD Video"
+#~ msgstr "DVD ビデオを再生"
+
+#~ msgid "Play 'URL'"
+#~ msgstr "URL を再生"
+
+#, fuzzy
+#~| msgid "Aspect &Ratio"
+#~ msgctxt "@title:menu"
+#~ msgid "Aspect &Ratio"
+#~ msgstr "アスペクト比(&R)"
+
+#, fuzzy
+#~| msgid "&Audio Channels"
+#~ msgctxt "@title:menu"
+#~ msgid "&Audio Channels"
+#~ msgstr "音声チャンネル(&A)"
+
+#, fuzzy
+#~| msgid "Determine &Automatically"
+#~ msgctxt "@option:radio aspect ratio"
+#~ msgid "Determine &Automatically"
+#~ msgstr "自動(&A)|/|$[~setProps ~full 'アスペクト比 - 自動']"
+
+#, fuzzy
+#~| msgid "&4:3"
+#~ msgctxt "@option:radio aspect ratio"
+#~ msgid "&4:3"
+#~ msgstr "4:3|/|$[~setProps ~full 'アスペクト比 - 4:3']"
+
+#, fuzzy
+#~| msgid "Ana&morphic (16:9)"
+#~ msgctxt "@option:radio aspect ratio"
+#~ msgid "Ana&morphic (16:9)"
+#~ msgstr ""
+#~ "16:9 (アナモルフィック)|/|$[~setProps ~full 'アスペクト比 - 16:9 (アナモル"
+#~ "フィック)']"
+
+#, fuzzy
+#~| msgid "&Window Size"
+#~ msgctxt "@option:radio aspect ratio"
+#~ msgid "&Window Size"
+#~ msgstr "ウィンドウのサイズ(&W)"
+
+#, fuzzy
+#~| msgid "Play File"
+#~ msgctxt "@action"
+#~ msgid "Play File…"
+#~ msgstr "ファイルを再生"
+
+#, fuzzy
+#~| msgid "Play Media"
+#~ msgctxt "@action"
+#~ msgid "Play Stream…"
+#~ msgstr "メディアを再生"
+
+#, fuzzy
+#~| msgid "Play Disc"
+#~ msgctxt "@action"
+#~ msgid "Play Disc"
+#~ msgstr "ディスクを再生"
+
+#, fuzzy
+#~| msgid "Reset Video Scale"
+#~ msgctxt "@action"
+#~ msgid "Reset Video Scale"
+#~ msgstr "動画の拡大率をリセット"
+
+# ACCELERATOR added by translator
+#, fuzzy
+#~| msgid "Menu Toggle"
+#~ msgctxt "@action"
+#~ msgid "Menu Toggle"
+#~ msgstr "メニューの切り替え(&M)"
+
+#~ msgid "Position Slider"
+#~ msgstr "再生位置スライダー"
+
+# ACCELERATOR added by translator
+#, fuzzy
+#~| msgid "Video Settings"
+#~ msgctxt "@option:check"
+#~ msgid "Video Settings"
+#~ msgstr "画像の調整(&V)"
+
+#, fuzzy
+#~| msgid "Previous Chapter"
+#~ msgctxt "@action previous chapter"
+#~ msgid "Previous"
+#~ msgstr "前のチャプター"
+
+#, fuzzy
+#~| msgid "Return 10% Back"
+#~ msgctxt "@action"
+#~ msgid "Return 10% Back"
+#~ msgstr "10% 戻る"
+
+#, fuzzy
+#~| msgid "Go 10% Forward"
+#~ msgctxt "@action"
+#~ msgid "Go 10% Forward"
+#~ msgstr "10% 進む"
+
+#, fuzzy
+#~| msgid "Return 10 Seconds Back"
+#~ msgctxt "@action"
+#~ msgid "Return 10 Seconds Back"
+#~ msgstr "10 秒戻る"
+
+#, fuzzy
+#~| msgid "Go 10 Seconds Forward"
+#~ msgctxt "@action"
+#~ msgid "Go 10 Seconds Forward"
+#~ msgstr "10 秒進む"
+
+#, fuzzy
+#~| msgctxt "Mute the sound output"
+#~| msgid "Mute"
+#~ msgctxt "@option:check Mute the sound output"
+#~ msgid "Mute"
+#~ msgstr "ミュート"
+
+#~ msgid "Dragon Player was asked to open an empty URL; it cannot."
+#~ msgstr "空の URL を開くことはできません。"
+
+#, fuzzy
+#~| msgid "Select File to Play"
+#~ msgctxt "@title:window"
+#~ msgid "Select File to Play"
+#~ msgstr "再生するファイルを選択"
+
+#, fuzzy
+#~| msgid "Select File to Play"
+#~ msgctxt "@title:window"
+#~ msgid "Stream to Play"
+#~ msgstr "再生するファイルを選択"
+
+#, fuzzy
+#~| msgid "Play Media"
+#~ msgctxt "@label:textbox"
+#~ msgid "Stream:"
+#~ msgstr "メディアを再生"
+
+#~ msgid "Sorry, no media was found in the drop"
+#~ msgstr "ドロップにメディアが見つかりませんでした"
+
+#, fuzzy
+#~| msgid "Play DVD Video"
+#~ msgctxt "Notification inhibition reason"
+#~ msgid "Playing a video"
+#~ msgstr "DVD ビデオを再生"
+
+#~ msgid "No media loaded"
+#~ msgstr "メディアがロードされていません"
+
+#~ msgid "Paused"
+#~ msgstr "一時停止中"
+
+#~ msgid "The file is not a playlist"
+#~ msgstr "このファイルはプレイリストではありません"
+
+#~ msgid "Dragon Player could not download the remote playlist: %1"
+#~ msgstr "リモートのプレイリストをダウンロードできませんでした: %1"
+
+#~ msgid ""
+#~ "<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is "
+#~ "empty?</qt>"
+#~ msgstr ""
+#~ "<qt>プレイリスト “%1” を解読できませんでした。空ではありませんか？</qt>"
+
+#~ msgid "Dragon Player could not open the file: %1"
+#~ msgstr "ファイルを開けませんでした: %1"
+
+#, fuzzy
+#~| msgid "Brightness:"
+#~ msgctxt "@label:slider"
+#~ msgid "Brightness:"
+#~ msgstr "明るさ:"
+
+#, fuzzy
+#~| msgid "Contrast:"
+#~ msgctxt "@label:slider"
+#~ msgid "Contrast:"
+#~ msgstr "コントラスト:"
+
+#, fuzzy
+#~| msgid "Hue:"
+#~ msgctxt "@label:slider"
+#~ msgid "Hue:"
+#~ msgstr "色相:"
+
+#, fuzzy
+#~| msgid "Saturation:"
+#~ msgctxt "@label:slider"
+#~ msgid "Saturation:"
+#~ msgstr "彩度:"
+
+#, fuzzy
+#~| msgid "Restore Defaults"
+#~ msgctxt "@action:button"
+#~ msgid "Restore Defaults"
+#~ msgstr "標準設定に戻す"
+
+#, fuzzy
+#~| msgid "Close"
+#~ msgctxt "@action:button"
+#~ msgid "Close"
+#~ msgstr "閉じる"
+
+#, fuzzy
+#~| msgid "&DVD Subtitle Selection"
+#~ msgctxt "@option:radio"
+#~ msgid "&DVD Subtitle Selection"
+#~ msgstr "DVD 字幕の選択(&D)"
+
+#, fuzzy
+#~| msgid "&Auto"
+#~ msgctxt "@option:radio audio language"
+#~ msgid "&Auto"
+#~ msgstr "自動(&A)"

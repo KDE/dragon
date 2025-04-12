@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-12 00:38+0000\n"
+"POT-Creation-Date: 2025-04-12 00:40+0000\n"
 "PO-Revision-Date: 2024-06-04 06:08+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -32,477 +32,434 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "franklin@goodhorse.idv.tw, mail@kisaragi-hiu.com"
 
-#. i18n: ectx: Menu (file)
-#: misc/dragonplayerui.rc:4
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Play"
-msgstr "播放(&P)"
-
-#. i18n: ectx: Menu (play_media_menu)
-#: misc/dragonplayerui.rc:5
-#, kde-format
-msgctxt "@title:menu"
-msgid "Play Media"
-msgstr "播放媒體"
-
-#. i18n: ectx: Menu (settings)
-#: misc/dragonplayerui.rc:20
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Settings"
-msgstr "設定(&S)"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: misc/dragonplayerui.rc:37
-#, kde-format
-msgid "Main Toolbar"
-msgstr "主工具列"
-
-#: src/app/actions.cpp:24
-#, kde-format
-msgctxt "@action"
-msgid "Play"
-msgstr "播放"
-
-#: src/app/actions.cpp:25
-#, kde-format
-msgctxt "@action"
-msgid "Pause"
-msgstr "暫停"
-
-#: src/app/actions.cpp:40
-#, kde-format
-msgctxt "@option:check Volume of sound output"
-msgid "Volume"
-msgstr "音量"
-
-#: src/app/adjustSizeButton.cpp:38
-#, kde-format
-msgctxt "@action:button"
-msgid "Preferred Scale"
-msgstr "預設調整大小"
-
-#: src/app/adjustSizeButton.cpp:42
-#, kde-format
-msgctxt "@action:button"
-msgid "Scale 100%"
-msgstr "調整至 100%"
-
-#: src/app/adjustSizeButton.cpp:49
-#, kde-format
-msgid "<b>Adjust video scale?</b>"
-msgstr "<b>要調整影像大小嗎？</b>"
-
-#: src/app/discSelectionDialog.cpp:37
-#, kde-format
-msgctxt ""
-"%1 is the disc type, %2 is the name of the disc that the user can choose. "
-"Ex. 'DVD: OfficeSpace'"
-msgid "%1: %2"
-msgstr "%1：%2"
-
-#: src/app/discSelectionDialog.cpp:56
-#, kde-format
-msgctxt "Digital Versatile Disc, but keep it short"
-msgid "DVD"
-msgstr "DVD"
-
-#: src/app/discSelectionDialog.cpp:58
-#, kde-format
-msgid "Video CD"
-msgstr "VCD"
-
-#: src/app/discSelectionDialog.cpp:60
-#, kde-format
-msgid "Audio CD"
-msgstr "音效光碟"
-
-#: src/app/discSelectionDialog.cpp:62
-#, kde-format
-msgid "Data CD"
-msgstr "資料光碟"
-
-#: src/app/discSelectionDialog.cpp:73
-#, kde-format
-msgctxt "@title:window"
-msgid "Select a Disc"
-msgstr "選擇光碟"
-
-#: src/app/discSelectionDialog.cpp:75
-#, kde-format
-msgid "Select a disc to play."
-msgstr "選擇要播放的碟片。"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/app/loadView.ui:61
-#, kde-format
-msgid "Welcome to Dragon Player"
-msgstr "歡迎來到神龍播放器"
-
-#: src/app/main.cpp:34
+#: src/main.cpp:24
 #, kde-format
 msgid "Dragon Player"
 msgstr "神龍播放器"
 
-#: src/app/main.cpp:36
+#: src/main.cpp:26
 #, kde-format
 msgid "A video player that has a usability focus"
 msgstr "一個好用的影像播放器"
 
-#: src/app/main.cpp:38
-#, kde-format
+#: src/main.cpp:28
+#, fuzzy, kde-format
+#| msgid ""
+#| "Copyright 2006, Max Howell\n"
+#| "Copyright 2007, Ian Monroe"
 msgid ""
 "Copyright 2006, Max Howell\n"
-"Copyright 2007, Ian Monroe"
+"Copyright 2007, Ian Monroe\n"
+"Copyright 2022 Harald Sitter"
 msgstr ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe"
 
-#: src/app/main.cpp:42
-#, kde-format
-msgid "Improvements and polish"
-msgstr "各種改進"
+#: src/qml/ControlsBar.qml:98
+msgctxt "@action:button"
+msgid "Application Menu"
+msgstr ""
 
-#: src/app/main.cpp:43
-#, kde-format
-msgid "Creator of Phonon"
-msgstr "Phonon 建立者"
-
-#: src/app/main.cpp:44
-#, kde-format
-msgid "Dragon Player icon"
-msgstr "神龍播放器圖示"
-
-#: src/app/main.cpp:45
-#, kde-format
-msgid "Handbook"
-msgstr "手冊"
-
-#: src/app/main.cpp:46
-#, kde-format
-msgid "Great reference code"
-msgstr "讓我們參考程式碼"
-
-#: src/app/main.cpp:47
-#, kde-format
-msgid "Yatta happened to be the only video on my laptop to test with. :)"
-msgstr "剛好是我筆記型電腦中唯一可以測試的影像檔 :)"
-
-#: src/app/main.cpp:48
-#, kde-format
-msgid "MPRIS v2 support"
-msgstr "MPRIS v2 支援"
-
-#: src/app/main.cpp:49
-#, kde-format
-msgid "Port to KF5/Plasma 5"
-msgstr "移植到 KF5/Plasma 5"
-
-#: src/app/main.cpp:58
-#, kde-format
-msgid "Play DVD Video"
-msgstr "播放 DVD"
-
-#: src/app/main.cpp:60
-#, kde-format
-msgid "Play 'URL'"
-msgstr "播放網址"
-
-#: src/app/mainWindow.cpp:138
-#, kde-format
-msgctxt "@title:menu"
-msgid "Aspect &Ratio"
-msgstr "外觀比例(&R)"
-
-#: src/app/mainWindow.cpp:139
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Audio Channels"
-msgstr "聲道(&A)"
-
-#: src/app/mainWindow.cpp:140
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Subtitles"
-msgstr "字幕(&S)"
-
-#: src/app/mainWindow.cpp:153
-#, kde-format
-msgctxt "@option:radio aspect ratio"
-msgid "Determine &Automatically"
-msgstr "自動決定(&A)"
-
-#: src/app/mainWindow.cpp:154
-#, kde-format
-msgctxt "@option:radio aspect ratio"
-msgid "&4:3"
-msgstr "4:3(&4)"
-
-#: src/app/mainWindow.cpp:155
-#, kde-format
-msgctxt "@option:radio aspect ratio"
-msgid "Ana&morphic (16:9)"
-msgstr "16:9(&M)"
-
-#: src/app/mainWindow.cpp:156
-#, kde-format
-msgctxt "@option:radio aspect ratio"
-msgid "&Window Size"
-msgstr "視窗大小(&W)"
-
-#: src/app/mainWindow.cpp:237
-#, kde-format
-msgid ""
-"<qt>Phonon could not be successfully initialized. Dragon Player will now "
-"exit.</qt>"
-msgstr "<qt>Phonon 無法成功初始化。神龍播放器將離開。</qt>"
-
-#: src/app/mainWindow.cpp:300
-#, kde-format
-msgctxt "@action"
-msgid "Play File…"
-msgstr "播放檔案…"
-
-#: src/app/mainWindow.cpp:301
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Open a media file for playback"
-msgstr "開啟媒體檔案來進行播放"
-
-#: src/app/mainWindow.cpp:310
-#, kde-format
-msgctxt "@action"
-msgid "Play Stream…"
-msgstr "播放串流…"
-
-#: src/app/mainWindow.cpp:316
-#, kde-format
-msgctxt "@action"
-msgid "Play Disc"
-msgstr "播放光碟"
-
-#: src/app/mainWindow.cpp:340
-#, kde-format
-msgctxt "@action"
-msgid "Increase Volume"
-msgstr "提高音量"
-
-#: src/app/mainWindow.cpp:345
-#, kde-format
-msgctxt "@action"
-msgid "Decrease Volume"
-msgstr "降低音量"
-
-#: src/app/mainWindow.cpp:350
-#, kde-format
-msgctxt "@action"
+#: src/qml/ControlsBar.qml:121
+#, fuzzy
+#| msgctxt "@action"
+#| msgid "Stop"
+msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "停止"
 
-#: src/app/mainWindow.cpp:356
-#, kde-format
-msgctxt "@action Mute the sound output"
+#: src/qml/ControlsBar.qml:129
+msgctxt "@action:button"
+msgid "Unmute"
+msgstr ""
+
+#: src/qml/ControlsBar.qml:129
+#, fuzzy
+#| msgctxt "@action Mute the sound output"
+#| msgid "Mute"
+msgctxt "@action:button"
 msgid "Mute"
 msgstr "靜音"
 
-#: src/app/mainWindow.cpp:362
-#, kde-format
-msgctxt "@action"
-msgid "Reset Video Scale"
-msgstr "重設影像大小"
+#: src/qml/ControlsBar.qml:139
+#, fuzzy
+#| msgctxt "@title:menu"
+#| msgid "&Subtitles"
+msgctxt "@action:button video subtitle"
+msgid "Subtitles"
+msgstr "字幕(&S)"
 
-#: src/app/mainWindow.cpp:368
-#, kde-format
-msgctxt "@action"
-msgid "Menu Toggle"
-msgstr "選單切換"
+#: src/qml/ControlsBar.qml:146
+msgctxt "@action:button selector for no subtitle"
+msgid "None"
+msgstr ""
 
-#: src/app/mainWindow.cpp:376 src/app/part.cpp:54
-#, kde-format
-msgid "Position Slider"
-msgstr "位置滑動器"
-
-#: src/app/mainWindow.cpp:380
-#, kde-format
-msgctxt "@option:check"
-msgid "Video Settings"
-msgstr "影像設定"
-
-#: src/app/mainWindow.cpp:388
-#, kde-format
+#: src/qml/ControlsBar.qml:156
 msgctxt ""
-"@option:check Whether only one instance of dragon can be started and will be "
-"reused when the user tries to play another file."
-msgid "One Instance Only"
-msgstr "只有一個實體"
+"@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
+"%2 is usually a subtitle (e.g. Traditional)"
+msgid "%1 [%2]"
+msgstr ""
 
-#: src/app/mainWindow.cpp:396
-#, kde-format
-msgctxt "@action previous chapter"
-msgid "Previous"
-msgstr "上一個"
+#: src/qml/ControlsBar.qml:173
+#, fuzzy
+#| msgid "Audio CD"
+msgctxt "@action:button track selector"
+msgid "Audio Track"
+msgstr "音效光碟"
 
-#: src/app/mainWindow.cpp:402
-#, kde-format
-msgctxt "@action next chapter"
-msgid "Next"
-msgstr "下一個"
+#: src/qml/ControlsBar.qml:188
+#, fuzzy
+#| msgid "Video CD"
+msgctxt "@action:button track selector"
+msgid "Video Track"
+msgstr "VCD"
 
-#: src/app/mainWindow.cpp:409
-#, no-c-format, kde-format
-msgctxt "@action"
-msgid "Return 10% Back"
-msgstr "往回 10%"
+#: src/qml/ControlsBar.qml:206
+msgctxt "@action opens about app page"
+msgid "About"
+msgstr ""
 
-#: src/app/mainWindow.cpp:416
-#, no-c-format, kde-format
-msgctxt "@action"
-msgid "Go 10% Forward"
-msgstr "往前 10%"
+#: src/qml/Main.qml:53
+msgctxt "@action:button open file dialog"
+msgid "Open…"
+msgstr ""
 
-#: src/app/mainWindow.cpp:422
-#, kde-format
-msgctxt "@action"
-msgid "Return 10 Seconds Back"
-msgstr "往回 10 秒"
+#: src/qml/PlayerPage.qml:31
+#, fuzzy
+#| msgctxt "@action"
+#| msgid "Play"
+msgctxt "@action:button"
+msgid "Play"
+msgstr "播放"
 
-#: src/app/mainWindow.cpp:428
-#, kde-format
-msgctxt "@action"
-msgid "Go 10 Seconds Forward"
-msgstr "往前 10 秒"
+#: src/qml/PlayerPage.qml:31
+#, fuzzy
+#| msgctxt "@action"
+#| msgid "Pause"
+msgctxt "@action:button"
+msgid "Pause"
+msgstr "暫停"
 
-#: src/app/mainWindow.cpp:508
-#, kde-format
-msgctxt "@option:check Mute the sound output"
-msgid "Mute"
-msgstr "靜音"
+#: src/qml/PlayerPage.qml:39
+msgctxt "@action:button"
+msgid "Exit Fullscreen"
+msgstr ""
 
-#: src/app/mainWindow.cpp:580
-#, kde-format
-msgid "Dragon Player was asked to open an empty URL; it cannot."
-msgstr "神龍播放器無法開啟一個空的網址。"
+#: src/qml/PlayerPage.qml:39
+msgctxt "@action:button"
+msgid "Enter Fullscreen"
+msgstr ""
 
-#: src/app/mainWindow.cpp:657
-#, kde-format
-msgctxt "@title:window"
-msgid "Select File to Play"
-msgstr "選擇要播放的檔案"
-
-#: src/app/mainWindow.cpp:684
-#, kde-format
-msgctxt "@title:window"
-msgid "Stream to Play"
-msgstr "選擇要播放的串流"
-
-#: src/app/mainWindow.cpp:684
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Stream:"
-msgstr "串流："
-
-#: src/app/mainWindow.cpp:814
-#, kde-format
-msgid "Sorry, no media was found in the drop"
-msgstr "抱歉，找不到媒體"
-
-#: src/app/mainWindow.cpp:867
-#, kde-format
-msgctxt "Notification inhibition reason"
-msgid "Playing a video"
-msgstr "正在播放影片"
-
-#: src/app/mainWindow.cpp:914
-#, kde-format
-msgid "No media loaded"
-msgstr "沒有載入媒體"
-
-#: src/app/mainWindow.cpp:916
-#, kde-format
-msgid "Paused"
-msgstr "已暫停"
-
-#: src/app/playlistFile.cpp:37
-#, kde-format
-msgid "The file is not a playlist"
-msgstr "此檔案不是一個播放清單"
-
-#: src/app/playlistFile.cpp:45
-#, kde-format
-msgid "Dragon Player could not download the remote playlist: %1"
-msgstr "神龍播放器無法下載遠端的播放清單：%1"
-
-#: src/app/playlistFile.cpp:66
-#, kde-format
+#: src/qml/PlayerPage.qml:71
+msgctxt "@info"
 msgid ""
-"<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is empty?"
-"</qt>"
-msgstr "<qt>此播放清單 %1 無法被解譯。檔案可能是空的。</qt>"
+"Not all video codecs are installed. Video playback support may be less "
+"reliable than expected.\n"
+"Please install ffmpeg-full by running:\n"
+"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
+"command></para>"
+msgstr ""
 
-#: src/app/playlistFile.cpp:70
-#, kde-format
-msgid "Dragon Player could not open the file: %1"
-msgstr "神龍播放器無法開啟檔案：%1"
+#: src/qml/PlayerPage.qml:78
+msgctxt "@info"
+msgid ""
+"Not all video codecs are installed. Video playback support may be less "
+"reliable than expected.\n"
+"Please consult your distribution on how to install all possible codecs."
+msgstr ""
 
-#: src/app/theStream.cpp:145
-#, kde-format
-msgid "Track %1/%2"
-msgstr "音軌 %1/%2"
+#: src/qml/PlayerPage.qml:85
+msgctxt "@action:button %1 is the name of a distribution"
+msgid "%1 Support"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, brightnessLabel)
-#: src/app/videoSettingsWidget.ui:19
-#, kde-format
-msgctxt "@label:slider"
-msgid "Brightness:"
-msgstr "亮度："
+#: src/qml/PlayerPage.qml:326
+msgctxt ""
+"@info overlay on top of video. %1 is the amount of time played %2 is the "
+"total duration of the video"
+msgid "%1 / %2"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, contrastLabel)
-#: src/app/videoSettingsWidget.ui:42
-#, kde-format
-msgctxt "@label:slider"
-msgid "Contrast:"
-msgstr "對比："
+#: src/qml/VolumeButton.qml:31
+#, fuzzy
+#| msgctxt "@option:check Volume of sound output"
+#| msgid "Volume"
+msgctxt "@action:button open volume slider popup"
+msgid "Volume"
+msgstr "音量"
 
-#. i18n: ectx: property (text), widget (QLabel, hueLabel)
-#: src/app/videoSettingsWidget.ui:65
-#, kde-format
-msgctxt "@label:slider"
-msgid "Hue:"
-msgstr "色調："
+#: src/qml/WelcomeView.qml:16
+#, fuzzy
+#| msgid "Welcome to Dragon Player"
+msgctxt "@title"
+msgid "Welcome to Dragon Player"
+msgstr "歡迎來到神龍播放器"
 
-#. i18n: ectx: property (text), widget (QLabel, saturationLabel)
-#: src/app/videoSettingsWidget.ui:88
-#, kde-format
-msgctxt "@label:slider"
-msgid "Saturation:"
-msgstr "飽和度："
+#: src/qml/WelcomeView.qml:17
+msgctxt "@info"
+msgid "Dragon Player is a simple video player. Open a video to get started:"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, defaultsButton)
-#: src/app/videoSettingsWidget.ui:128
-#, kde-format
+#: src/qml/WelcomeView.qml:20
 msgctxt "@action:button"
-msgid "Restore Defaults"
-msgstr "回復預設值"
+msgid "Open Video File or Network Stream"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, closeButton)
-#: src/app/videoSettingsWidget.ui:135
-#, kde-format
-msgctxt "@action:button"
-msgid "Close"
-msgstr "關閉"
+#~ msgctxt "@title:menu"
+#~ msgid "&Play"
+#~ msgstr "播放(&P)"
 
-#: src/app/videoWindow.cpp:107
-#, kde-format
-msgctxt "@option:radio"
-msgid "&DVD Subtitle Selection"
-msgstr "DVD 字幕選擇(&D)"
+#~ msgctxt "@title:menu"
+#~ msgid "Play Media"
+#~ msgstr "播放媒體"
 
-#: src/app/videoWindow.cpp:117
-#, kde-format
-msgctxt "@option:radio audio language"
-msgid "&Auto"
-msgstr "自動(&A)"
+#~ msgctxt "@title:menu"
+#~ msgid "&Settings"
+#~ msgstr "設定(&S)"
+
+#~ msgid "Main Toolbar"
+#~ msgstr "主工具列"
+
+#~ msgctxt "@action:button"
+#~ msgid "Preferred Scale"
+#~ msgstr "預設調整大小"
+
+#~ msgctxt "@action:button"
+#~ msgid "Scale 100%"
+#~ msgstr "調整至 100%"
+
+#~ msgid "<b>Adjust video scale?</b>"
+#~ msgstr "<b>要調整影像大小嗎？</b>"
+
+#~ msgctxt ""
+#~ "%1 is the disc type, %2 is the name of the disc that the user can choose. "
+#~ "Ex. 'DVD: OfficeSpace'"
+#~ msgid "%1: %2"
+#~ msgstr "%1：%2"
+
+#~ msgctxt "Digital Versatile Disc, but keep it short"
+#~ msgid "DVD"
+#~ msgstr "DVD"
+
+#~ msgid "Data CD"
+#~ msgstr "資料光碟"
+
+#~ msgctxt "@title:window"
+#~ msgid "Select a Disc"
+#~ msgstr "選擇光碟"
+
+#~ msgid "Select a disc to play."
+#~ msgstr "選擇要播放的碟片。"
+
+#~ msgid "Improvements and polish"
+#~ msgstr "各種改進"
+
+#~ msgid "Creator of Phonon"
+#~ msgstr "Phonon 建立者"
+
+#~ msgid "Dragon Player icon"
+#~ msgstr "神龍播放器圖示"
+
+#~ msgid "Handbook"
+#~ msgstr "手冊"
+
+#~ msgid "Great reference code"
+#~ msgstr "讓我們參考程式碼"
+
+#~ msgid "Yatta happened to be the only video on my laptop to test with. :)"
+#~ msgstr "剛好是我筆記型電腦中唯一可以測試的影像檔 :)"
+
+#~ msgid "MPRIS v2 support"
+#~ msgstr "MPRIS v2 支援"
+
+#~ msgid "Port to KF5/Plasma 5"
+#~ msgstr "移植到 KF5/Plasma 5"
+
+#~ msgid "Play DVD Video"
+#~ msgstr "播放 DVD"
+
+#~ msgid "Play 'URL'"
+#~ msgstr "播放網址"
+
+#~ msgctxt "@title:menu"
+#~ msgid "Aspect &Ratio"
+#~ msgstr "外觀比例(&R)"
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Audio Channels"
+#~ msgstr "聲道(&A)"
+
+#~ msgctxt "@option:radio aspect ratio"
+#~ msgid "Determine &Automatically"
+#~ msgstr "自動決定(&A)"
+
+#~ msgctxt "@option:radio aspect ratio"
+#~ msgid "&4:3"
+#~ msgstr "4:3(&4)"
+
+#~ msgctxt "@option:radio aspect ratio"
+#~ msgid "Ana&morphic (16:9)"
+#~ msgstr "16:9(&M)"
+
+#~ msgctxt "@option:radio aspect ratio"
+#~ msgid "&Window Size"
+#~ msgstr "視窗大小(&W)"
+
+#~ msgid ""
+#~ "<qt>Phonon could not be successfully initialized. Dragon Player will now "
+#~ "exit.</qt>"
+#~ msgstr "<qt>Phonon 無法成功初始化。神龍播放器將離開。</qt>"
+
+#~ msgctxt "@action"
+#~ msgid "Play File…"
+#~ msgstr "播放檔案…"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Open a media file for playback"
+#~ msgstr "開啟媒體檔案來進行播放"
+
+#~ msgctxt "@action"
+#~ msgid "Play Stream…"
+#~ msgstr "播放串流…"
+
+#~ msgctxt "@action"
+#~ msgid "Play Disc"
+#~ msgstr "播放光碟"
+
+#~ msgctxt "@action"
+#~ msgid "Increase Volume"
+#~ msgstr "提高音量"
+
+#~ msgctxt "@action"
+#~ msgid "Decrease Volume"
+#~ msgstr "降低音量"
+
+#~ msgctxt "@action"
+#~ msgid "Reset Video Scale"
+#~ msgstr "重設影像大小"
+
+#~ msgctxt "@action"
+#~ msgid "Menu Toggle"
+#~ msgstr "選單切換"
+
+#~ msgid "Position Slider"
+#~ msgstr "位置滑動器"
+
+#~ msgctxt "@option:check"
+#~ msgid "Video Settings"
+#~ msgstr "影像設定"
+
+#~ msgctxt ""
+#~ "@option:check Whether only one instance of dragon can be started and will "
+#~ "be reused when the user tries to play another file."
+#~ msgid "One Instance Only"
+#~ msgstr "只有一個實體"
+
+#~ msgctxt "@action previous chapter"
+#~ msgid "Previous"
+#~ msgstr "上一個"
+
+#~ msgctxt "@action next chapter"
+#~ msgid "Next"
+#~ msgstr "下一個"
+
+#~ msgctxt "@action"
+#~ msgid "Return 10% Back"
+#~ msgstr "往回 10%"
+
+#~ msgctxt "@action"
+#~ msgid "Go 10% Forward"
+#~ msgstr "往前 10%"
+
+#~ msgctxt "@action"
+#~ msgid "Return 10 Seconds Back"
+#~ msgstr "往回 10 秒"
+
+#~ msgctxt "@action"
+#~ msgid "Go 10 Seconds Forward"
+#~ msgstr "往前 10 秒"
+
+#~ msgctxt "@option:check Mute the sound output"
+#~ msgid "Mute"
+#~ msgstr "靜音"
+
+#~ msgid "Dragon Player was asked to open an empty URL; it cannot."
+#~ msgstr "神龍播放器無法開啟一個空的網址。"
+
+#~ msgctxt "@title:window"
+#~ msgid "Select File to Play"
+#~ msgstr "選擇要播放的檔案"
+
+#~ msgctxt "@title:window"
+#~ msgid "Stream to Play"
+#~ msgstr "選擇要播放的串流"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Stream:"
+#~ msgstr "串流："
+
+#~ msgid "Sorry, no media was found in the drop"
+#~ msgstr "抱歉，找不到媒體"
+
+#~ msgctxt "Notification inhibition reason"
+#~ msgid "Playing a video"
+#~ msgstr "正在播放影片"
+
+#~ msgid "No media loaded"
+#~ msgstr "沒有載入媒體"
+
+#~ msgid "Paused"
+#~ msgstr "已暫停"
+
+#~ msgid "The file is not a playlist"
+#~ msgstr "此檔案不是一個播放清單"
+
+#~ msgid "Dragon Player could not download the remote playlist: %1"
+#~ msgstr "神龍播放器無法下載遠端的播放清單：%1"
+
+#~ msgid ""
+#~ "<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is "
+#~ "empty?</qt>"
+#~ msgstr "<qt>此播放清單 %1 無法被解譯。檔案可能是空的。</qt>"
+
+#~ msgid "Dragon Player could not open the file: %1"
+#~ msgstr "神龍播放器無法開啟檔案：%1"
+
+#~ msgid "Track %1/%2"
+#~ msgstr "音軌 %1/%2"
+
+#~ msgctxt "@label:slider"
+#~ msgid "Brightness:"
+#~ msgstr "亮度："
+
+#~ msgctxt "@label:slider"
+#~ msgid "Contrast:"
+#~ msgstr "對比："
+
+#~ msgctxt "@label:slider"
+#~ msgid "Hue:"
+#~ msgstr "色調："
+
+#~ msgctxt "@label:slider"
+#~ msgid "Saturation:"
+#~ msgstr "飽和度："
+
+#~ msgctxt "@action:button"
+#~ msgid "Restore Defaults"
+#~ msgstr "回復預設值"
+
+#~ msgctxt "@action:button"
+#~ msgid "Close"
+#~ msgstr "關閉"
+
+#~ msgctxt "@option:radio"
+#~ msgid "&DVD Subtitle Selection"
+#~ msgstr "DVD 字幕選擇(&D)"
+
+#~ msgctxt "@option:radio audio language"
+#~ msgid "&Auto"
+#~ msgstr "自動(&A)"
 
 #~ msgctxt "@action"
 #~ msgid "Play &Media..."

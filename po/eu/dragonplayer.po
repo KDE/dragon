@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragon\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-12 00:38+0000\n"
+"POT-Creation-Date: 2025-04-12 00:40+0000\n"
 "PO-Revision-Date: 2023-08-19 11:35+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -32,481 +32,440 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xalba@ni.eus,julen@mundurat.net"
 
-#. i18n: ectx: Menu (file)
-#: misc/dragonplayerui.rc:4
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Play"
-msgstr "&Jo"
-
-#. i18n: ectx: Menu (play_media_menu)
-#: misc/dragonplayerui.rc:5
-#, kde-format
-msgctxt "@title:menu"
-msgid "Play Media"
-msgstr "Jo euskarria"
-
-#. i18n: ectx: Menu (settings)
-#: misc/dragonplayerui.rc:20
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Settings"
-msgstr "E&zarpenak"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: misc/dragonplayerui.rc:37
-#, kde-format
-msgid "Main Toolbar"
-msgstr "Tresna-barra nagusia"
-
-#: src/app/actions.cpp:24
-#, kde-format
-msgctxt "@action"
-msgid "Play"
-msgstr "Jo"
-
-#: src/app/actions.cpp:25
-#, kde-format
-msgctxt "@action"
-msgid "Pause"
-msgstr "Eten"
-
-#: src/app/actions.cpp:40
-#, kde-format
-msgctxt "@option:check Volume of sound output"
-msgid "Volume"
-msgstr "Bolumena"
-
-#: src/app/adjustSizeButton.cpp:38
-#, kde-format
-msgctxt "@action:button"
-msgid "Preferred Scale"
-msgstr "Hobetsitako eskala"
-
-#: src/app/adjustSizeButton.cpp:42
-#, kde-format
-msgctxt "@action:button"
-msgid "Scale 100%"
-msgstr "Ezarri eskala % 100ean"
-
-#: src/app/adjustSizeButton.cpp:49
-#, kde-format
-msgid "<b>Adjust video scale?</b>"
-msgstr "<b>Bideo eskala egokitu?</b>"
-
-#: src/app/discSelectionDialog.cpp:37
-#, kde-format
-msgctxt ""
-"%1 is the disc type, %2 is the name of the disc that the user can choose. "
-"Ex. 'DVD: OfficeSpace'"
-msgid "%1: %2"
-msgstr "%1: %2"
-
-#: src/app/discSelectionDialog.cpp:56
-#, kde-format
-msgctxt "Digital Versatile Disc, but keep it short"
-msgid "DVD"
-msgstr "DVDa"
-
-#: src/app/discSelectionDialog.cpp:58
-#, kde-format
-msgid "Video CD"
-msgstr "Bideo CDa"
-
-#: src/app/discSelectionDialog.cpp:60
-#, kde-format
-msgid "Audio CD"
-msgstr "Audio CDa"
-
-#: src/app/discSelectionDialog.cpp:62
-#, kde-format
-msgid "Data CD"
-msgstr "Datu CDa"
-
-#: src/app/discSelectionDialog.cpp:73
-#, kde-format
-msgctxt "@title:window"
-msgid "Select a Disc"
-msgstr "Hautatu disko bat"
-
-#: src/app/discSelectionDialog.cpp:75
-#, kde-format
-msgid "Select a disc to play."
-msgstr "Hautatu jo beharreko disko bat."
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/app/loadView.ui:61
-#, kde-format
-msgid "Welcome to Dragon Player"
-msgstr "Ongietorri Dragon jotzailera"
-
-#: src/app/main.cpp:34
+#: src/main.cpp:24
 #, kde-format
 msgid "Dragon Player"
 msgstr "Dragon Player"
 
-#: src/app/main.cpp:36
+#: src/main.cpp:26
 #, kde-format
 msgid "A video player that has a usability focus"
 msgstr "Erabilerraztasuna helburu duen bideo jotzaile bat"
 
-#: src/app/main.cpp:38
-#, kde-format
+#: src/main.cpp:28
+#, fuzzy, kde-format
+#| msgid ""
+#| "Copyright 2006, Max Howell\n"
+#| "Copyright 2007, Ian Monroe"
 msgid ""
 "Copyright 2006, Max Howell\n"
-"Copyright 2007, Ian Monroe"
+"Copyright 2007, Ian Monroe\n"
+"Copyright 2022 Harald Sitter"
 msgstr ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2008, Ian Monroe"
 
-#: src/app/main.cpp:42
-#, kde-format
-msgid "Improvements and polish"
-msgstr "Hobekuntzak eta txukuntzea"
-
-#: src/app/main.cpp:43
-#, kde-format
-msgid "Creator of Phonon"
-msgstr "Phonon-en sortzailea"
-
-#: src/app/main.cpp:44
-#, kde-format
-msgid "Dragon Player icon"
-msgstr "Dragon Player-ren ikonoa"
-
-#: src/app/main.cpp:45
-#, kde-format
-msgid "Handbook"
-msgstr "Eskuliburua"
-
-#: src/app/main.cpp:46
-#, kde-format
-msgid "Great reference code"
-msgstr "Erreferentzi kode oso ona"
-
-#: src/app/main.cpp:47
-#, kde-format
-msgid "Yatta happened to be the only video on my laptop to test with. :)"
-msgstr "«Yatta» izan zen nire magalekoan probatarako bideo bakarra. :)"
-
-#: src/app/main.cpp:48
-#, kde-format
-msgid "MPRIS v2 support"
-msgstr "MPRIS v2 euskarria"
-
-#: src/app/main.cpp:49
-#, kde-format
-msgid "Port to KF5/Plasma 5"
-msgstr "KF5/Plasma 5erako eratorpena"
-
-#: src/app/main.cpp:58
-#, kde-format
-msgid "Play DVD Video"
-msgstr "Jo DVD bideoa"
-
-#: src/app/main.cpp:60
-#, kde-format
-msgid "Play 'URL'"
-msgstr "Jo 'URL'a"
-
-#: src/app/mainWindow.cpp:138
-#, kde-format
-msgctxt "@title:menu"
-msgid "Aspect &Ratio"
-msgstr "Itxura p&roportzioa"
-
-#: src/app/mainWindow.cpp:139
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Audio Channels"
-msgstr "&Audio kanalak"
-
-#: src/app/mainWindow.cpp:140
-#, kde-format
-msgctxt "@title:menu"
-msgid "&Subtitles"
-msgstr "A&zpidatziak"
-
-#: src/app/mainWindow.cpp:153
-#, kde-format
-msgctxt "@option:radio aspect ratio"
-msgid "Determine &Automatically"
-msgstr "Zehaztu &automatikoki"
-
-#: src/app/mainWindow.cpp:154
-#, kde-format
-msgctxt "@option:radio aspect ratio"
-msgid "&4:3"
-msgstr "&4:3"
-
-#: src/app/mainWindow.cpp:155
-#, kde-format
-msgctxt "@option:radio aspect ratio"
-msgid "Ana&morphic (16:9)"
-msgstr "Ana&morfikoa (16:9)"
-
-#: src/app/mainWindow.cpp:156
-#, kde-format
-msgctxt "@option:radio aspect ratio"
-msgid "&Window Size"
-msgstr "&Leihoaren neurria"
-
-#: src/app/mainWindow.cpp:237
-#, kde-format
-msgid ""
-"<qt>Phonon could not be successfully initialized. Dragon Player will now "
-"exit.</qt>"
+#: src/qml/ControlsBar.qml:98
+msgctxt "@action:button"
+msgid "Application Menu"
 msgstr ""
-"<qt>Phonon ezin izan da ondo hasieratu. Dragon Player orain itxi egingo da.</"
-"qt>"
 
-#: src/app/mainWindow.cpp:300
-#, kde-format
-msgctxt "@action"
-msgid "Play File…"
-msgstr "Jo fitxategia..."
-
-#: src/app/mainWindow.cpp:301
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Open a media file for playback"
-msgstr "Ireki atzera-jotzeko euskarri-fitxategi bat"
-
-#: src/app/mainWindow.cpp:310
-#, kde-format
-msgctxt "@action"
-msgid "Play Stream…"
-msgstr "Jo korrontea..."
-
-#: src/app/mainWindow.cpp:316
-#, kde-format
-msgctxt "@action"
-msgid "Play Disc"
-msgstr "Jo diskoa"
-
-#: src/app/mainWindow.cpp:340
-#, kde-format
-msgctxt "@action"
-msgid "Increase Volume"
-msgstr "Igo bolumena"
-
-#: src/app/mainWindow.cpp:345
-#, kde-format
-msgctxt "@action"
-msgid "Decrease Volume"
-msgstr "Jaitsi bolumena"
-
-#: src/app/mainWindow.cpp:350
-#, kde-format
-msgctxt "@action"
+#: src/qml/ControlsBar.qml:121
+#, fuzzy
+#| msgctxt "@action"
+#| msgid "Stop"
+msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "Gelditu"
 
-#: src/app/mainWindow.cpp:356
-#, kde-format
-msgctxt "@action Mute the sound output"
-msgid "Mute"
-msgstr "Isilarazi"
-
-#: src/app/mainWindow.cpp:362
-#, kde-format
-msgctxt "@action"
-msgid "Reset Video Scale"
-msgstr "Berrezarri bideo-eskala"
-
-#: src/app/mainWindow.cpp:368
-#, kde-format
-msgctxt "@action"
-msgid "Menu Toggle"
-msgstr "Menua txandakatu"
-
-#: src/app/mainWindow.cpp:376 src/app/part.cpp:54
-#, kde-format
-msgid "Position Slider"
-msgstr "Kokapen graduatzailea"
-
-#: src/app/mainWindow.cpp:380
-#, kde-format
-msgctxt "@option:check"
-msgid "Video Settings"
-msgstr "Bideo ezarpenak"
-
-#: src/app/mainWindow.cpp:388
-#, kde-format
-msgctxt ""
-"@option:check Whether only one instance of dragon can be started and will be "
-"reused when the user tries to play another file."
-msgid "One Instance Only"
-msgstr "Instantzia bakarra"
-
-#: src/app/mainWindow.cpp:396
-#, kde-format
-msgctxt "@action previous chapter"
-msgid "Previous"
-msgstr "Aurrekoa"
-
-#: src/app/mainWindow.cpp:402
-#, kde-format
-msgctxt "@action next chapter"
-msgid "Next"
-msgstr "Hurrengoa"
-
-#: src/app/mainWindow.cpp:409
-#, no-c-format, kde-format
-msgctxt "@action"
-msgid "Return 10% Back"
-msgstr "Itzuli  % 10 atzerantz"
-
-#: src/app/mainWindow.cpp:416
-#, no-c-format, kde-format
-msgctxt "@action"
-msgid "Go 10% Forward"
-msgstr "Joan  % 10 aurrerantz"
-
-#: src/app/mainWindow.cpp:422
-#, kde-format
-msgctxt "@action"
-msgid "Return 10 Seconds Back"
-msgstr "Itzuli 10 segundo atzerantz"
-
-#: src/app/mainWindow.cpp:428
-#, kde-format
-msgctxt "@action"
-msgid "Go 10 Seconds Forward"
-msgstr "Joan 10 segundo aurrerantz"
-
-#: src/app/mainWindow.cpp:508
-#, kde-format
-msgctxt "@option:check Mute the sound output"
-msgid "Mute"
-msgstr "Isilarazi"
-
-#: src/app/mainWindow.cpp:580
-#, kde-format
-msgid "Dragon Player was asked to open an empty URL; it cannot."
-msgstr "Dragon Player-ri hutsik dagoen URL bat irekitzea eskatu zaio; ezin du."
-
-#: src/app/mainWindow.cpp:657
-#, kde-format
-msgctxt "@title:window"
-msgid "Select File to Play"
-msgstr "Hautatu jo beharreko fitxategia"
-
-#: src/app/mainWindow.cpp:684
-#, kde-format
-msgctxt "@title:window"
-msgid "Stream to Play"
-msgstr "Jo beharreko korrontea"
-
-#: src/app/mainWindow.cpp:684
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Stream:"
-msgstr "Korrontea:"
-
-#: src/app/mainWindow.cpp:814
-#, kde-format
-msgid "Sorry, no media was found in the drop"
-msgstr "Tamalez, ez da komunikabiderik aurkitu jaregindako elementuan"
-
-#: src/app/mainWindow.cpp:867
-#, kde-format
-msgctxt "Notification inhibition reason"
-msgid "Playing a video"
-msgstr "Bideo bat jotzen"
-
-#: src/app/mainWindow.cpp:914
-#, kde-format
-msgid "No media loaded"
-msgstr "Ez da komunikabiderik zamatu"
-
-#: src/app/mainWindow.cpp:916
-#, kde-format
-msgid "Paused"
-msgstr "Etenda"
-
-#: src/app/playlistFile.cpp:37
-#, kde-format
-msgid "The file is not a playlist"
-msgstr "Fitxategia ez da jotze-zerrenda bat"
-
-#: src/app/playlistFile.cpp:45
-#, kde-format
-msgid "Dragon Player could not download the remote playlist: %1"
-msgstr "Dragon Player-rek ezin izan du urruneko jotze-zerrenda zama-jaitsi: %1"
-
-#: src/app/playlistFile.cpp:66
-#, kde-format
-msgid ""
-"<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is empty?"
-"</qt>"
+#: src/qml/ControlsBar.qml:129
+msgctxt "@action:button"
+msgid "Unmute"
 msgstr ""
-"<qt><i>'%1'</i> jotze-zerrenda ezin izan da interpretatu. Agian hutsik dago?"
-"</qt>"
 
-#: src/app/playlistFile.cpp:70
-#, kde-format
-msgid "Dragon Player could not open the file: %1"
-msgstr "Dragon Player-rek ezin izan du fitxategia ireki: %1"
-
-#: src/app/theStream.cpp:145
-#, kde-format
-msgid "Track %1/%2"
-msgstr "Aztarna %1/%2"
-
-#. i18n: ectx: property (text), widget (QLabel, brightnessLabel)
-#: src/app/videoSettingsWidget.ui:19
-#, kde-format
-msgctxt "@label:slider"
-msgid "Brightness:"
-msgstr "Distira:"
-
-#. i18n: ectx: property (text), widget (QLabel, contrastLabel)
-#: src/app/videoSettingsWidget.ui:42
-#, kde-format
-msgctxt "@label:slider"
-msgid "Contrast:"
-msgstr "Kontrastea:"
-
-#. i18n: ectx: property (text), widget (QLabel, hueLabel)
-#: src/app/videoSettingsWidget.ui:65
-#, kde-format
-msgctxt "@label:slider"
-msgid "Hue:"
-msgstr "Tonua:"
-
-#. i18n: ectx: property (text), widget (QLabel, saturationLabel)
-#: src/app/videoSettingsWidget.ui:88
-#, kde-format
-msgctxt "@label:slider"
-msgid "Saturation:"
-msgstr "Asetasuna:"
-
-#. i18n: ectx: property (text), widget (QPushButton, defaultsButton)
-#: src/app/videoSettingsWidget.ui:128
-#, kde-format
+#: src/qml/ControlsBar.qml:129
+#, fuzzy
+#| msgctxt "@action Mute the sound output"
+#| msgid "Mute"
 msgctxt "@action:button"
-msgid "Restore Defaults"
-msgstr "Lehengoratu lehenetsietara"
+msgid "Mute"
+msgstr "Isilarazi"
 
-#. i18n: ectx: property (text), widget (QPushButton, closeButton)
-#: src/app/videoSettingsWidget.ui:135
-#, kde-format
+#: src/qml/ControlsBar.qml:139
+#, fuzzy
+#| msgctxt "@title:menu"
+#| msgid "&Subtitles"
+msgctxt "@action:button video subtitle"
+msgid "Subtitles"
+msgstr "A&zpidatziak"
+
+#: src/qml/ControlsBar.qml:146
+msgctxt "@action:button selector for no subtitle"
+msgid "None"
+msgstr ""
+
+#: src/qml/ControlsBar.qml:156
+msgctxt ""
+"@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
+"%2 is usually a subtitle (e.g. Traditional)"
+msgid "%1 [%2]"
+msgstr ""
+
+#: src/qml/ControlsBar.qml:173
+#, fuzzy
+#| msgid "Audio CD"
+msgctxt "@action:button track selector"
+msgid "Audio Track"
+msgstr "Audio CDa"
+
+#: src/qml/ControlsBar.qml:188
+#, fuzzy
+#| msgid "Video CD"
+msgctxt "@action:button track selector"
+msgid "Video Track"
+msgstr "Bideo CDa"
+
+#: src/qml/ControlsBar.qml:206
+msgctxt "@action opens about app page"
+msgid "About"
+msgstr ""
+
+#: src/qml/Main.qml:53
+msgctxt "@action:button open file dialog"
+msgid "Open…"
+msgstr ""
+
+#: src/qml/PlayerPage.qml:31
+#, fuzzy
+#| msgctxt "@action"
+#| msgid "Play"
 msgctxt "@action:button"
-msgid "Close"
-msgstr "Itxi"
+msgid "Play"
+msgstr "Jo"
 
-#: src/app/videoWindow.cpp:107
-#, kde-format
-msgctxt "@option:radio"
-msgid "&DVD Subtitle Selection"
-msgstr "&DVD azpidatzi hautaketa"
+#: src/qml/PlayerPage.qml:31
+#, fuzzy
+#| msgctxt "@action"
+#| msgid "Pause"
+msgctxt "@action:button"
+msgid "Pause"
+msgstr "Eten"
 
-#: src/app/videoWindow.cpp:117
-#, kde-format
-msgctxt "@option:radio audio language"
-msgid "&Auto"
-msgstr "&Automatikoa"
+#: src/qml/PlayerPage.qml:39
+msgctxt "@action:button"
+msgid "Exit Fullscreen"
+msgstr ""
+
+#: src/qml/PlayerPage.qml:39
+msgctxt "@action:button"
+msgid "Enter Fullscreen"
+msgstr ""
+
+#: src/qml/PlayerPage.qml:71
+msgctxt "@info"
+msgid ""
+"Not all video codecs are installed. Video playback support may be less "
+"reliable than expected.\n"
+"Please install ffmpeg-full by running:\n"
+"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
+"command></para>"
+msgstr ""
+
+#: src/qml/PlayerPage.qml:78
+msgctxt "@info"
+msgid ""
+"Not all video codecs are installed. Video playback support may be less "
+"reliable than expected.\n"
+"Please consult your distribution on how to install all possible codecs."
+msgstr ""
+
+#: src/qml/PlayerPage.qml:85
+msgctxt "@action:button %1 is the name of a distribution"
+msgid "%1 Support"
+msgstr ""
+
+#: src/qml/PlayerPage.qml:326
+msgctxt ""
+"@info overlay on top of video. %1 is the amount of time played %2 is the "
+"total duration of the video"
+msgid "%1 / %2"
+msgstr ""
+
+#: src/qml/VolumeButton.qml:31
+#, fuzzy
+#| msgctxt "@option:check Volume of sound output"
+#| msgid "Volume"
+msgctxt "@action:button open volume slider popup"
+msgid "Volume"
+msgstr "Bolumena"
+
+#: src/qml/WelcomeView.qml:16
+#, fuzzy
+#| msgid "Welcome to Dragon Player"
+msgctxt "@title"
+msgid "Welcome to Dragon Player"
+msgstr "Ongietorri Dragon jotzailera"
+
+#: src/qml/WelcomeView.qml:17
+msgctxt "@info"
+msgid "Dragon Player is a simple video player. Open a video to get started:"
+msgstr ""
+
+#: src/qml/WelcomeView.qml:20
+msgctxt "@action:button"
+msgid "Open Video File or Network Stream"
+msgstr ""
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Play"
+#~ msgstr "&Jo"
+
+#~ msgctxt "@title:menu"
+#~ msgid "Play Media"
+#~ msgstr "Jo euskarria"
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Settings"
+#~ msgstr "E&zarpenak"
+
+#~ msgid "Main Toolbar"
+#~ msgstr "Tresna-barra nagusia"
+
+#~ msgctxt "@action:button"
+#~ msgid "Preferred Scale"
+#~ msgstr "Hobetsitako eskala"
+
+#~ msgctxt "@action:button"
+#~ msgid "Scale 100%"
+#~ msgstr "Ezarri eskala % 100ean"
+
+#~ msgid "<b>Adjust video scale?</b>"
+#~ msgstr "<b>Bideo eskala egokitu?</b>"
+
+#~ msgctxt ""
+#~ "%1 is the disc type, %2 is the name of the disc that the user can choose. "
+#~ "Ex. 'DVD: OfficeSpace'"
+#~ msgid "%1: %2"
+#~ msgstr "%1: %2"
+
+#~ msgctxt "Digital Versatile Disc, but keep it short"
+#~ msgid "DVD"
+#~ msgstr "DVDa"
+
+#~ msgid "Data CD"
+#~ msgstr "Datu CDa"
+
+#~ msgctxt "@title:window"
+#~ msgid "Select a Disc"
+#~ msgstr "Hautatu disko bat"
+
+#~ msgid "Select a disc to play."
+#~ msgstr "Hautatu jo beharreko disko bat."
+
+#~ msgid "Improvements and polish"
+#~ msgstr "Hobekuntzak eta txukuntzea"
+
+#~ msgid "Creator of Phonon"
+#~ msgstr "Phonon-en sortzailea"
+
+#~ msgid "Dragon Player icon"
+#~ msgstr "Dragon Player-ren ikonoa"
+
+#~ msgid "Handbook"
+#~ msgstr "Eskuliburua"
+
+#~ msgid "Great reference code"
+#~ msgstr "Erreferentzi kode oso ona"
+
+#~ msgid "Yatta happened to be the only video on my laptop to test with. :)"
+#~ msgstr "«Yatta» izan zen nire magalekoan probatarako bideo bakarra. :)"
+
+#~ msgid "MPRIS v2 support"
+#~ msgstr "MPRIS v2 euskarria"
+
+#~ msgid "Port to KF5/Plasma 5"
+#~ msgstr "KF5/Plasma 5erako eratorpena"
+
+#~ msgid "Play DVD Video"
+#~ msgstr "Jo DVD bideoa"
+
+#~ msgid "Play 'URL'"
+#~ msgstr "Jo 'URL'a"
+
+#~ msgctxt "@title:menu"
+#~ msgid "Aspect &Ratio"
+#~ msgstr "Itxura p&roportzioa"
+
+#~ msgctxt "@title:menu"
+#~ msgid "&Audio Channels"
+#~ msgstr "&Audio kanalak"
+
+#~ msgctxt "@option:radio aspect ratio"
+#~ msgid "Determine &Automatically"
+#~ msgstr "Zehaztu &automatikoki"
+
+#~ msgctxt "@option:radio aspect ratio"
+#~ msgid "&4:3"
+#~ msgstr "&4:3"
+
+#~ msgctxt "@option:radio aspect ratio"
+#~ msgid "Ana&morphic (16:9)"
+#~ msgstr "Ana&morfikoa (16:9)"
+
+#~ msgctxt "@option:radio aspect ratio"
+#~ msgid "&Window Size"
+#~ msgstr "&Leihoaren neurria"
+
+#~ msgid ""
+#~ "<qt>Phonon could not be successfully initialized. Dragon Player will now "
+#~ "exit.</qt>"
+#~ msgstr ""
+#~ "<qt>Phonon ezin izan da ondo hasieratu. Dragon Player orain itxi egingo "
+#~ "da.</qt>"
+
+#~ msgctxt "@action"
+#~ msgid "Play File…"
+#~ msgstr "Jo fitxategia..."
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Open a media file for playback"
+#~ msgstr "Ireki atzera-jotzeko euskarri-fitxategi bat"
+
+#~ msgctxt "@action"
+#~ msgid "Play Stream…"
+#~ msgstr "Jo korrontea..."
+
+#~ msgctxt "@action"
+#~ msgid "Play Disc"
+#~ msgstr "Jo diskoa"
+
+#~ msgctxt "@action"
+#~ msgid "Increase Volume"
+#~ msgstr "Igo bolumena"
+
+#~ msgctxt "@action"
+#~ msgid "Decrease Volume"
+#~ msgstr "Jaitsi bolumena"
+
+#~ msgctxt "@action"
+#~ msgid "Reset Video Scale"
+#~ msgstr "Berrezarri bideo-eskala"
+
+#~ msgctxt "@action"
+#~ msgid "Menu Toggle"
+#~ msgstr "Menua txandakatu"
+
+#~ msgid "Position Slider"
+#~ msgstr "Kokapen graduatzailea"
+
+#~ msgctxt "@option:check"
+#~ msgid "Video Settings"
+#~ msgstr "Bideo ezarpenak"
+
+#~ msgctxt ""
+#~ "@option:check Whether only one instance of dragon can be started and will "
+#~ "be reused when the user tries to play another file."
+#~ msgid "One Instance Only"
+#~ msgstr "Instantzia bakarra"
+
+#~ msgctxt "@action previous chapter"
+#~ msgid "Previous"
+#~ msgstr "Aurrekoa"
+
+#~ msgctxt "@action next chapter"
+#~ msgid "Next"
+#~ msgstr "Hurrengoa"
+
+#~ msgctxt "@action"
+#~ msgid "Return 10% Back"
+#~ msgstr "Itzuli  % 10 atzerantz"
+
+#~ msgctxt "@action"
+#~ msgid "Go 10% Forward"
+#~ msgstr "Joan  % 10 aurrerantz"
+
+#~ msgctxt "@action"
+#~ msgid "Return 10 Seconds Back"
+#~ msgstr "Itzuli 10 segundo atzerantz"
+
+#~ msgctxt "@action"
+#~ msgid "Go 10 Seconds Forward"
+#~ msgstr "Joan 10 segundo aurrerantz"
+
+#~ msgctxt "@option:check Mute the sound output"
+#~ msgid "Mute"
+#~ msgstr "Isilarazi"
+
+#~ msgid "Dragon Player was asked to open an empty URL; it cannot."
+#~ msgstr ""
+#~ "Dragon Player-ri hutsik dagoen URL bat irekitzea eskatu zaio; ezin du."
+
+#~ msgctxt "@title:window"
+#~ msgid "Select File to Play"
+#~ msgstr "Hautatu jo beharreko fitxategia"
+
+#~ msgctxt "@title:window"
+#~ msgid "Stream to Play"
+#~ msgstr "Jo beharreko korrontea"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Stream:"
+#~ msgstr "Korrontea:"
+
+#~ msgid "Sorry, no media was found in the drop"
+#~ msgstr "Tamalez, ez da komunikabiderik aurkitu jaregindako elementuan"
+
+#~ msgctxt "Notification inhibition reason"
+#~ msgid "Playing a video"
+#~ msgstr "Bideo bat jotzen"
+
+#~ msgid "No media loaded"
+#~ msgstr "Ez da komunikabiderik zamatu"
+
+#~ msgid "Paused"
+#~ msgstr "Etenda"
+
+#~ msgid "The file is not a playlist"
+#~ msgstr "Fitxategia ez da jotze-zerrenda bat"
+
+#~ msgid "Dragon Player could not download the remote playlist: %1"
+#~ msgstr ""
+#~ "Dragon Player-rek ezin izan du urruneko jotze-zerrenda zama-jaitsi: %1"
+
+#~ msgid ""
+#~ "<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is "
+#~ "empty?</qt>"
+#~ msgstr ""
+#~ "<qt><i>'%1'</i> jotze-zerrenda ezin izan da interpretatu. Agian hutsik "
+#~ "dago?</qt>"
+
+#~ msgid "Dragon Player could not open the file: %1"
+#~ msgstr "Dragon Player-rek ezin izan du fitxategia ireki: %1"
+
+#~ msgid "Track %1/%2"
+#~ msgstr "Aztarna %1/%2"
+
+#~ msgctxt "@label:slider"
+#~ msgid "Brightness:"
+#~ msgstr "Distira:"
+
+#~ msgctxt "@label:slider"
+#~ msgid "Contrast:"
+#~ msgstr "Kontrastea:"
+
+#~ msgctxt "@label:slider"
+#~ msgid "Hue:"
+#~ msgstr "Tonua:"
+
+#~ msgctxt "@label:slider"
+#~ msgid "Saturation:"
+#~ msgstr "Asetasuna:"
+
+#~ msgctxt "@action:button"
+#~ msgid "Restore Defaults"
+#~ msgstr "Lehengoratu lehenetsietara"
+
+#~ msgctxt "@action:button"
+#~ msgid "Close"
+#~ msgstr "Itxi"
+
+#~ msgctxt "@option:radio"
+#~ msgid "&DVD Subtitle Selection"
+#~ msgstr "&DVD azpidatzi hautaketa"
+
+#~ msgctxt "@option:radio audio language"
+#~ msgid "&Auto"
+#~ msgstr "&Automatikoa"
 
 #~ msgid "Recent Media"
 #~ msgstr "Azkenaldiko komunikabideak"
