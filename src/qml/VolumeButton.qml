@@ -28,7 +28,7 @@ IconToolButton {
         return "player-volume"
     }
 
-    text: i18nc("@action:button open volume slider popup", "Volume")
+    text: i18nc("@action:button open volume slider popup", "Show volume controls")
     QQC2.ToolTip.text: text
     QQC2.ToolTip.visible: hovered
                        && text.length > 0
