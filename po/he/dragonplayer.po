@@ -4,20 +4,20 @@
 #
 # tahmar1900 <tahmar1900@gmail.com>, 2008, 2009.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
-# SPDX-FileCopyrightText: 2023 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2025 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-12 00:40+0000\n"
-"PO-Revision-Date: 2023-11-05 22:47+0200\n"
+"PO-Revision-Date: 2025-04-12 11:04+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 24.12.3\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
@@ -39,30 +39,25 @@ msgstr "נגן Dragon"
 #: src/main.cpp:26
 #, kde-format
 msgid "A video player that has a usability focus"
-msgstr "נגן וידאו שממוקד שימושיות"
+msgstr "נגן וידאו ממוקד שימושיות"
 
 #: src/main.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Copyright 2006, Max Howell\n"
-#| "Copyright 2007, Ian Monroe"
+#, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe\n"
 "Copyright 2022 Harald Sitter"
 msgstr ""
 "כל הזכויות שמורות 2006, מקס האוול\n"
-"כל הזכויות שמורות 2007, איאן מונרו"
+"כל הזכויות שמורות 2007, איאן מונרו\n"
+"כל הזכויות שמורות 2022 הראלד סיטר"
 
 #: src/qml/ControlsBar.qml:98
 msgctxt "@action:button"
 msgid "Application Menu"
-msgstr ""
+msgstr "תפריט יישום"
 
 #: src/qml/ControlsBar.qml:121
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Stop"
 msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "עצירה"
@@ -70,72 +65,56 @@ msgstr "עצירה"
 #: src/qml/ControlsBar.qml:129
 msgctxt "@action:button"
 msgid "Unmute"
-msgstr ""
+msgstr "ביטול השתקה"
 
 #: src/qml/ControlsBar.qml:129
-#, fuzzy
-#| msgctxt "@action Mute the sound output"
-#| msgid "Mute"
 msgctxt "@action:button"
 msgid "Mute"
 msgstr "השתקה"
 
 #: src/qml/ControlsBar.qml:139
-#, fuzzy
-#| msgctxt "@title:menu"
-#| msgid "&Subtitles"
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
-msgstr "&כתוביות"
+msgstr "כתוביות"
 
 #: src/qml/ControlsBar.qml:146
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
-msgstr ""
+msgstr "ללא"
 
 #: src/qml/ControlsBar.qml:156
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
-msgstr ""
+msgstr "%1 [%2]"
 
 #: src/qml/ControlsBar.qml:173
-#, fuzzy
-#| msgid "Audio CD"
 msgctxt "@action:button track selector"
 msgid "Audio Track"
-msgstr "תקליטור שמע"
+msgstr "רצועת שמע"
 
 #: src/qml/ControlsBar.qml:188
-#, fuzzy
-#| msgid "Video CD"
 msgctxt "@action:button track selector"
 msgid "Video Track"
-msgstr "תקליטור וידאו"
+msgstr "רצועת וידאו"
 
 #: src/qml/ControlsBar.qml:206
 msgctxt "@action opens about app page"
 msgid "About"
-msgstr ""
+msgstr "על אודות"
 
 #: src/qml/Main.qml:53
 msgctxt "@action:button open file dialog"
 msgid "Open…"
-msgstr ""
+msgstr "פתיחה…"
 
 #: src/qml/PlayerPage.qml:31
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Play"
 msgctxt "@action:button"
 msgid "Play"
 msgstr "נגינה"
 
 #: src/qml/PlayerPage.qml:31
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Pause"
 msgctxt "@action:button"
 msgid "Pause"
 msgstr "השהיה"
@@ -143,12 +122,12 @@ msgstr "השהיה"
 #: src/qml/PlayerPage.qml:39
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
-msgstr ""
+msgstr "יציאה ממסך מלא"
 
 #: src/qml/PlayerPage.qml:39
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
-msgstr ""
+msgstr "הגדלה למסך מלא"
 
 #: src/qml/PlayerPage.qml:71
 msgctxt "@info"
@@ -159,6 +138,11 @@ msgid ""
 "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
 "command></para>"
 msgstr ""
+"לא כל מפענחי הווידאו מותקנים. התמיכה בנגינת וידאו עלולה להיות פחות אמינה "
+"מהצפוי.\n"
+"נא להתקין את ffmpeg-full על ידי הרצת הפקודה:\n"
+"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
+"command></para>"
 
 #: src/qml/PlayerPage.qml:78
 msgctxt "@info"
@@ -167,30 +151,28 @@ msgid ""
 "reliable than expected.\n"
 "Please consult your distribution on how to install all possible codecs."
 msgstr ""
+"לא כל מפענחי הווידאו מותקנים. התמיכה בנגינת וידאו עלולה להיות פחות אמינה "
+"מהצפוי.\n"
+"נא לפנות לתמיכה של ההפצה שלך בנוגע להתקין כל המפענחים הזמינים."
 
 #: src/qml/PlayerPage.qml:85
 msgctxt "@action:button %1 is the name of a distribution"
 msgid "%1 Support"
-msgstr ""
+msgstr "תמיכה ב־%1"
 
 #: src/qml/PlayerPage.qml:326
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
 msgid "%1 / %2"
-msgstr ""
+msgstr "%1 / %2"
 
 #: src/qml/VolumeButton.qml:31
-#, fuzzy
-#| msgctxt "@option:check Volume of sound output"
-#| msgid "Volume"
 msgctxt "@action:button open volume slider popup"
 msgid "Volume"
-msgstr "עוצמה"
+msgstr "עוצמת שמע"
 
 #: src/qml/WelcomeView.qml:16
-#, fuzzy
-#| msgid "Welcome to Dragon Player"
 msgctxt "@title"
 msgid "Welcome to Dragon Player"
 msgstr "ברוך בואך לנגן Dragon"
@@ -198,12 +180,12 @@ msgstr "ברוך בואך לנגן Dragon"
 #: src/qml/WelcomeView.qml:17
 msgctxt "@info"
 msgid "Dragon Player is a simple video player. Open a video to get started:"
-msgstr ""
+msgstr "נגן Dragon הוא נגן וידאו פשוט. יש לפתוח סרטון וידאו כדי להתחיל:"
 
 #: src/qml/WelcomeView.qml:20
 msgctxt "@action:button"
 msgid "Open Video File or Network Stream"
-msgstr ""
+msgstr "פתיחת קובץ וידאו או תשדיר/תזרים מקוון"
 
 #~ msgctxt "@title:menu"
 #~ msgid "&Play"

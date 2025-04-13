@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-12 00:40+0000\n"
-"PO-Revision-Date: 2023-08-19 07:38+0200\n"
+"PO-Revision-Date: 2025-04-12 07:07+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.6\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -45,27 +45,22 @@ msgid "A video player that has a usability focus"
 msgstr "Predvajalnik videa s poudarkom na uporabnosti"
 
 #: src/main.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Copyright 2006, Max Howell\n"
-#| "Copyright 2007, Ian Monroe"
+#, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe\n"
 "Copyright 2022 Harald Sitter"
 msgstr ""
-"Avtorske pravice 2006, Max Howell\n"
-"Avtorske pravice 2007, Ian Monroe"
+"Copyright 2006, Max Howell\n"
+"Copyright 2007, Ian Monroe\n"
+"Copyright 2022 Harald Sitter"
 
 #: src/qml/ControlsBar.qml:98
 msgctxt "@action:button"
 msgid "Application Menu"
-msgstr ""
+msgstr "Meni aplikacije"
 
 #: src/qml/ControlsBar.qml:121
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Stop"
 msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "Ustavi"
@@ -73,72 +68,56 @@ msgstr "Ustavi"
 #: src/qml/ControlsBar.qml:129
 msgctxt "@action:button"
 msgid "Unmute"
-msgstr ""
+msgstr "Odutišaj"
 
 #: src/qml/ControlsBar.qml:129
-#, fuzzy
-#| msgctxt "@action Mute the sound output"
-#| msgid "Mute"
 msgctxt "@action:button"
 msgid "Mute"
 msgstr "Utišaj"
 
 #: src/qml/ControlsBar.qml:139
-#, fuzzy
-#| msgctxt "@title:menu"
-#| msgid "&Subtitles"
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
-msgstr "Podnapi&si"
+msgstr "Podnapisi"
 
 #: src/qml/ControlsBar.qml:146
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
-msgstr ""
+msgstr "Noben"
 
 #: src/qml/ControlsBar.qml:156
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
-msgstr ""
+msgstr "%1 [%2]"
 
 #: src/qml/ControlsBar.qml:173
-#, fuzzy
-#| msgid "Audio CD"
 msgctxt "@action:button track selector"
 msgid "Audio Track"
-msgstr "Glasbeni CD"
+msgstr "Zvočni posnetek"
 
 #: src/qml/ControlsBar.qml:188
-#, fuzzy
-#| msgid "Video CD"
 msgctxt "@action:button track selector"
 msgid "Video Track"
-msgstr "Video CD"
+msgstr "Video posnetek"
 
 #: src/qml/ControlsBar.qml:206
 msgctxt "@action opens about app page"
 msgid "About"
-msgstr ""
+msgstr "O aplikaciji"
 
 #: src/qml/Main.qml:53
 msgctxt "@action:button open file dialog"
 msgid "Open…"
-msgstr ""
+msgstr "Odpri…"
 
 #: src/qml/PlayerPage.qml:31
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Play"
 msgctxt "@action:button"
 msgid "Play"
 msgstr "Predvajaj"
 
 #: src/qml/PlayerPage.qml:31
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Pause"
 msgctxt "@action:button"
 msgid "Pause"
 msgstr "Premor"
@@ -146,12 +125,12 @@ msgstr "Premor"
 #: src/qml/PlayerPage.qml:39
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
-msgstr ""
+msgstr "Izhod iz celotnega zaslona"
 
 #: src/qml/PlayerPage.qml:39
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
-msgstr ""
+msgstr "Vstopite v celozaslonski način"
 
 #: src/qml/PlayerPage.qml:71
 msgctxt "@info"
@@ -162,6 +141,11 @@ msgid ""
 "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
 "command></para>"
 msgstr ""
+"Vsi video kodeki niso nameščeni. Podpora za predvajanje videa je morda manj "
+"zanesljiva od pričakovane.\n"
+"Namestite ffmpeg-full tako, da zaženete:\n"
+"<para><command>namestite flatpak paket org.freedesktop.Platform.ffmpeg-"
+"full//24.08</command></para>"
 
 #: src/qml/PlayerPage.qml:78
 msgctxt "@info"
@@ -170,30 +154,28 @@ msgid ""
 "reliable than expected.\n"
 "Please consult your distribution on how to install all possible codecs."
 msgstr ""
+"Vsi video kodeki niso nameščeni. Podpora za predvajanje videa je morda manj "
+"zanesljiva od pričakovane.\n"
+"O tem, kako namestiti vse možne kodeke, preverite pri svoji distribuciji."
 
 #: src/qml/PlayerPage.qml:85
 msgctxt "@action:button %1 is the name of a distribution"
 msgid "%1 Support"
-msgstr ""
+msgstr "%1 Podpora"
 
 #: src/qml/PlayerPage.qml:326
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
 msgid "%1 / %2"
-msgstr ""
+msgstr "%1 / %2"
 
 #: src/qml/VolumeButton.qml:31
-#, fuzzy
-#| msgctxt "@option:check Volume of sound output"
-#| msgid "Volume"
 msgctxt "@action:button open volume slider popup"
 msgid "Volume"
 msgstr "Glasnost"
 
 #: src/qml/WelcomeView.qml:16
-#, fuzzy
-#| msgid "Welcome to Dragon Player"
 msgctxt "@title"
 msgid "Welcome to Dragon Player"
 msgstr "Dobrodošli v Dragon Player"
@@ -202,11 +184,12 @@ msgstr "Dobrodošli v Dragon Player"
 msgctxt "@info"
 msgid "Dragon Player is a simple video player. Open a video to get started:"
 msgstr ""
+"Dragon Player je preprost video predvajalnik. Odprite video za začetek:"
 
 #: src/qml/WelcomeView.qml:20
 msgctxt "@action:button"
 msgid "Open Video File or Network Stream"
-msgstr ""
+msgstr "Odprite video datoteko ali omrežni tok"
 
 #~ msgctxt "@title:menu"
 #~ msgid "&Play"
