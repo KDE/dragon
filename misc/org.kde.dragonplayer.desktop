@@ -1,6 +1,14 @@
 [Desktop Entry]
 Type=Application
 Comment=Play video files and streams
+Comment[ca]=Reprodueix fitxers i fluxos de vídeo
+Comment[ca@valencia]=Reproduïx fitxers i fluxos de vídeo
+Comment[he]=נגינת קובצי וידאו ושידורי אינטרנט
+Comment[ka]=დაუკარით ვიდეოფაილები და ნაკადები
+Comment[nl]=Videobestanden en streams afspelen
+Comment[sl]=Predvajajte video datoteke in tokove
+Comment[uk]=Відтворення відеофайлів та потоків відтворення
+Comment[x-test]=xxPlay video files and streamsxx
 Name=Dragon Player
 Name[ar]=مشغّل التّنّين
 Name[bg]=Програма за видео Dragon
