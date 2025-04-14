@@ -90,6 +90,7 @@ Please consult your distribution on how to install all possible codecs.`)
             }
             actions: [
                 Kirigami.Action {
+                    visible: !Dragon.Sandbox.inside
                     text: i18nc("@action:button %1 is the name of a distribution", "%1 Support", KCoreAddons.KOSRelease.name)
                     onTriggered: Qt.openUrlExternally(KCoreAddons.KOSRelease.supportUrl)
                 }
