@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-12 00:40+0000\n"
+"POT-Creation-Date: 2025-04-14 00:40+0000\n"
 "PO-Revision-Date: 2025-04-12 11:04+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -169,8 +169,8 @@ msgstr "%1 / %2"
 
 #: src/qml/VolumeButton.qml:31
 msgctxt "@action:button open volume slider popup"
-msgid "Volume"
-msgstr "עוצמת שמע"
+msgid "Show volume controls"
+msgstr ""
 
 #: src/qml/WelcomeView.qml:16
 msgctxt "@title"
@@ -186,6 +186,10 @@ msgstr "נגן Dragon הוא נגן וידאו פשוט. יש לפתוח סרט�
 msgctxt "@action:button"
 msgid "Open Video File or Network Stream"
 msgstr "פתיחת קובץ וידאו או תשדיר/תזרים מקוון"
+
+#~ msgctxt "@action:button open volume slider popup"
+#~ msgid "Volume"
+#~ msgstr "עוצמת שמע"
 
 #~ msgctxt "@title:menu"
 #~ msgid "&Play"

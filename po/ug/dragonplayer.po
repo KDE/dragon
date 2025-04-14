@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-12 00:40+0000\n"
+"POT-Creation-Date: 2025-04-14 00:40+0000\n"
 "PO-Revision-Date: 2013-09-08 07:05+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -174,12 +174,9 @@ msgid "%1 / %2"
 msgstr ""
 
 #: src/qml/VolumeButton.qml:31
-#, fuzzy
-#| msgctxt "Volume of sound output"
-#| msgid "Volume"
 msgctxt "@action:button open volume slider popup"
-msgid "Volume"
-msgstr "ئاۋاز مىقدارى"
+msgid "Show volume controls"
+msgstr ""
 
 #: src/qml/WelcomeView.qml:16
 #, fuzzy
@@ -197,6 +194,13 @@ msgstr ""
 msgctxt "@action:button"
 msgid "Open Video File or Network Stream"
 msgstr ""
+
+#, fuzzy
+#~| msgctxt "Volume of sound output"
+#~| msgid "Volume"
+#~ msgctxt "@action:button open volume slider popup"
+#~ msgid "Volume"
+#~ msgstr "ئاۋاز مىقدارى"
 
 #, fuzzy
 #~| msgid "&Play"

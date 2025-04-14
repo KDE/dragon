@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragon\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-12 00:40+0000\n"
+"POT-Creation-Date: 2025-04-14 00:40+0000\n"
 "PO-Revision-Date: 2025-04-12 03:37+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -167,8 +167,8 @@ msgstr "%1 / %2"
 
 #: src/qml/VolumeButton.qml:31
 msgctxt "@action:button open volume slider popup"
-msgid "Volume"
-msgstr "ხმა"
+msgid "Show volume controls"
+msgstr ""
 
 #: src/qml/WelcomeView.qml:16
 msgctxt "@title"
@@ -184,6 +184,10 @@ msgstr "Dragon Player მარტივი ვიდეოდამკვრე
 msgctxt "@action:button"
 msgid "Open Video File or Network Stream"
 msgstr "ვიდეოფაილის ან ქსელური ნაკადის გახსნა"
+
+#~ msgctxt "@action:button open volume slider popup"
+#~ msgid "Volume"
+#~ msgstr "ხმა"
 
 #~ msgctxt "@title:menu"
 #~ msgid "&Play"

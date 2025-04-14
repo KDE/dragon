@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: videoplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-12 00:40+0000\n"
+"POT-Creation-Date: 2025-04-14 00:40+0000\n"
 "PO-Revision-Date: 2015-04-26 22:26+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -167,7 +167,7 @@ msgstr ""
 
 #: src/qml/VolumeButton.qml:31
 msgctxt "@action:button open volume slider popup"
-msgid "Volume"
+msgid "Show volume controls"
 msgstr ""
 
 #: src/qml/WelcomeView.qml:16
@@ -186,104 +186,3 @@ msgstr ""
 msgctxt "@action:button"
 msgid "Open Video File or Network Stream"
 msgstr ""
-
-#~ msgid "Main Toolbar"
-#~ msgstr "Hovedverktøylinje"
-
-#~ msgid "<b>Adjust video scale?</b>"
-#~ msgstr "<b>Juster filmskalering?</b>"
-
-#~ msgctxt ""
-#~ "%1 is the disc type, %2 is the name of the disc that the user can choose. "
-#~ "Ex. 'DVD: OfficeSpace'"
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"
-
-#~ msgctxt "Digital Versatile Disc, but keep it short"
-#~ msgid "DVD"
-#~ msgstr "DVD"
-
-#~ msgid "Data CD"
-#~ msgstr "Data-CD"
-
-#~ msgid "Select a disc to play."
-#~ msgstr "Velg plata du vil spille"
-
-#~ msgid "Improvements and polish"
-#~ msgstr "Forbedringer og finpussing"
-
-#~ msgid "Creator of Phonon"
-#~ msgstr "Utviklet Phonon"
-
-#~ msgid "Dragon Player icon"
-#~ msgstr "Dragon Player-ikon"
-
-#~ msgid "Handbook"
-#~ msgstr "Håndbok"
-
-#~ msgid "Great reference code"
-#~ msgstr "Super referansekode"
-
-#~ msgid "Yatta happened to be the only video on my laptop to test with. :)"
-#~ msgstr ""
-#~ "Yatta var tilfeldigvis den eneste vidoen på min bærbare maskinen som jeg "
-#~ "kunne teste med. :)"
-
-#~ msgid "MPRIS v2 support"
-#~ msgstr "Støtte for MPRIS v2"
-
-#~ msgid "Port to KF5/Plasma 5"
-#~ msgstr "Porting til KF5/Plasma 5"
-
-#~ msgid "Play DVD Video"
-#~ msgstr "Spill DVD-film"
-
-#~ msgid "Play 'URL'"
-#~ msgstr "Spill «adresse»"
-
-#~ msgid ""
-#~ "<qt>Phonon could not be successfully initialized. Dragon Player will now "
-#~ "exit.</qt>"
-#~ msgstr "<qt>Phonon kunne ikke klargjøres. Dragonplayer avslutter nå.</qt>"
-
-#~ msgctxt "@action"
-#~ msgid "Increase Volume"
-#~ msgstr "Øk lydstyrken"
-
-#~ msgctxt "@action"
-#~ msgid "Decrease Volume"
-#~ msgstr "Minsk lydstyrken"
-
-#~ msgid "Position Slider"
-#~ msgstr "Tidsglidebryter"
-
-#~ msgid "Dragon Player was asked to open an empty URL; it cannot."
-#~ msgstr "Dragon Player ble spurt om å åpne en tom adresse; det kan den ikke."
-
-#~ msgctxt "@title:window"
-#~ msgid "Stream to Play"
-#~ msgstr "Strøm du vil spille"
-
-#~ msgid "Sorry, no media was found in the drop"
-#~ msgstr "Fant ingen medium"
-
-#~ msgid "No media loaded"
-#~ msgstr "Ingen medium lastet"
-
-#~ msgid "The file is not a playlist"
-#~ msgstr "Filoa er ikke en spilleliste"
-
-#~ msgid "Dragon Player could not download the remote playlist: %1"
-#~ msgstr "Dragon Player klarte ikke å laste ned nettspillelista: %1"
-
-#~ msgid ""
-#~ "<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is "
-#~ "empty?</qt>"
-#~ msgstr ""
-#~ "<qt>Klarte ikke å tolke spillelista <i>'%1'</i>. Den er kanskje tom?</qt>"
-
-#~ msgid "Dragon Player could not open the file: %1"
-#~ msgstr "Dragon Player klarte ikke åpne fila: %1"
-
-#~ msgid "Track %1/%2"
-#~ msgstr "Spor %1/%2"

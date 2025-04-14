@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-12 00:40+0000\n"
+"POT-Creation-Date: 2025-04-14 00:40+0000\n"
 "PO-Revision-Date: 2025-04-12 14:08+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -170,8 +170,8 @@ msgstr "%1 / %2"
 
 #: src/qml/VolumeButton.qml:31
 msgctxt "@action:button open volume slider popup"
-msgid "Volume"
-msgstr "Volume"
+msgid "Show volume controls"
+msgstr ""
 
 #: src/qml/WelcomeView.qml:16
 msgctxt "@title"
@@ -187,6 +187,10 @@ msgstr "Dragon Player is een eenvoudige videospeler. Open een video en begin:"
 msgctxt "@action:button"
 msgid "Open Video File or Network Stream"
 msgstr "Videobestand of netwerk-stream openen"
+
+#~ msgctxt "@action:button open volume slider popup"
+#~ msgid "Volume"
+#~ msgstr "Volume"
 
 #~ msgctxt "@title:menu"
 #~ msgid "&Play"
