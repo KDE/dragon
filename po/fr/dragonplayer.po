@@ -9,7 +9,7 @@
 # Stanislas Zeller <uncensored.assault@gmail.com>, 2008.
 # Guillaume Pujol <guill.p@gmail.com>, 2009.
 # Geoffray Levasseur <geoffray.levasseurbrandin@numericable.fr>, 2010, 2011, 2012, 2013.
-# SPDX-FileCopyrightText: 2012, 2013, 2020, 2022, 2023 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2012, 2013, 2020, 2022, 2023, 2025 Xavier Besnard <xavier.besnard@kde.org>
 # Vincent Pinon <vpinon@kde.org>, 2017.
 # Simon Depiets <sdepiets@gmail.com>, 2018, 2019.
 # Xavier Besnard <xavier.besnard@kde.org>, 2023.
@@ -20,17 +20,17 @@ msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-14 00:40+0000\n"
-"PO-Revision-Date: 2023-12-20 09:52+0100\n"
+"PO-Revision-Date: 2025-04-13 14:27+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
-"X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
+"X-Environment: kde\n"
+"X-Generator: Lokalize 24.12.3\n"
 "X-Text-Markup: kde4\n"
 
 #, kde-format
@@ -56,27 +56,22 @@ msgid "A video player that has a usability focus"
 msgstr "Un lecteur vidéo conçu pour sa facilité d'utilisation"
 
 #: src/main.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Copyright 2006, Max Howell\n"
-#| "Copyright 2007, Ian Monroe"
+#, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe\n"
 "Copyright 2022 Harald Sitter"
 msgstr ""
 "Copyright 2006, Max Howell\n"
-"Copyright 2007, Ian Monroe"
+"Copyright 2007, Ian Monroe\n"
+"Copyright 2022, Harald Sitter"
 
 #: src/qml/ControlsBar.qml:98
 msgctxt "@action:button"
 msgid "Application Menu"
-msgstr ""
+msgstr "Menu de l'application"
 
 #: src/qml/ControlsBar.qml:121
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Stop"
 msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "Arrêter"
@@ -84,85 +79,69 @@ msgstr "Arrêter"
 #: src/qml/ControlsBar.qml:129
 msgctxt "@action:button"
 msgid "Unmute"
-msgstr ""
+msgstr "Remettre le son"
 
 #: src/qml/ControlsBar.qml:129
-#, fuzzy
-#| msgctxt "@action Mute the sound output"
-#| msgid "Mute"
 msgctxt "@action:button"
 msgid "Mute"
-msgstr "Couper le son"
+msgstr "Mettre en pause"
 
 #: src/qml/ControlsBar.qml:139
-#, fuzzy
-#| msgctxt "@title:menu"
-#| msgid "&Subtitles"
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
-msgstr "&Sous-titres"
+msgstr "Sous-titres"
 
 #: src/qml/ControlsBar.qml:146
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
-msgstr ""
+msgstr "Aucun"
 
 #: src/qml/ControlsBar.qml:156
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
-msgstr ""
+msgstr "%1 [%2]"
 
 #: src/qml/ControlsBar.qml:173
-#, fuzzy
-#| msgid "Audio CD"
 msgctxt "@action:button track selector"
 msgid "Audio Track"
-msgstr "CD audio"
+msgstr "Piste audio"
 
 #: src/qml/ControlsBar.qml:188
-#, fuzzy
-#| msgid "Video CD"
 msgctxt "@action:button track selector"
 msgid "Video Track"
-msgstr "CD vidéo"
+msgstr "Piste vidéo"
 
 #: src/qml/ControlsBar.qml:206
 msgctxt "@action opens about app page"
 msgid "About"
-msgstr ""
+msgstr "À propos"
 
 #: src/qml/Main.qml:53
 msgctxt "@action:button open file dialog"
 msgid "Open…"
-msgstr ""
+msgstr "Ouvrir…"
 
 #: src/qml/PlayerPage.qml:31
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Play"
 msgctxt "@action:button"
 msgid "Play"
 msgstr "Lire"
 
 #: src/qml/PlayerPage.qml:31
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Pause"
 msgctxt "@action:button"
 msgid "Pause"
-msgstr "Pause"
+msgstr "Mettre en pause"
 
 #: src/qml/PlayerPage.qml:39
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
-msgstr ""
+msgstr "Sortir du mode « Plein écran »"
 
 #: src/qml/PlayerPage.qml:39
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
-msgstr ""
+msgstr "Basculer en mode « Plein écran »"
 
 #: src/qml/PlayerPage.qml:71
 msgctxt "@info"
@@ -173,6 +152,12 @@ msgid ""
 "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
 "command></para>"
 msgstr ""
+"Tous les codecs vidéo ne sont pas installés. La prise en charge de la "
+"lecture vidéo peut être moins fiable que prévu.\n"
+"Veuillez installer le module « ffmpeg-full » par l'exécution de la "
+"commande :\n"
+"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
+"command></para>"
 
 #: src/qml/PlayerPage.qml:78
 msgctxt "@info"
@@ -181,18 +166,22 @@ msgid ""
 "reliable than expected.\n"
 "Please consult your distribution on how to install all possible codecs."
 msgstr ""
+"Tous les codecs vidéo ne sont pas installés. La prise en charge de la "
+"lecture vidéo peut être moins fiable que prévu.\n"
+"Veuillez regarder la documentation de votre distribution pour savoir comment "
+"installer tous les codecs possibles."
 
 #: src/qml/PlayerPage.qml:85
 msgctxt "@action:button %1 is the name of a distribution"
 msgid "%1 Support"
-msgstr ""
+msgstr "Prise en charge de %1"
 
 #: src/qml/PlayerPage.qml:326
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
 msgid "%1 / %2"
-msgstr ""
+msgstr "%1 / %2"
 
 #: src/qml/VolumeButton.qml:31
 msgctxt "@action:button open volume slider popup"
@@ -200,8 +189,6 @@ msgid "Show volume controls"
 msgstr ""
 
 #: src/qml/WelcomeView.qml:16
-#, fuzzy
-#| msgid "Welcome to Dragon Player"
 msgctxt "@title"
 msgid "Welcome to Dragon Player"
 msgstr "Bienvenue dans DragonPlayer"
@@ -210,11 +197,13 @@ msgstr "Bienvenue dans DragonPlayer"
 msgctxt "@info"
 msgid "Dragon Player is a simple video player. Open a video to get started:"
 msgstr ""
+"Dragon Player est un lecteur vidéo simple. Veuillez ouvrir une vidéo pour "
+"commencer :"
 
 #: src/qml/WelcomeView.qml:20
 msgctxt "@action:button"
 msgid "Open Video File or Network Stream"
-msgstr ""
+msgstr "Ouvrir un fichier vidéo ou un flux réseau"
 
 #, fuzzy
 #~| msgctxt "@option:check Volume of sound output"

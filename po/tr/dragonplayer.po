@@ -41,27 +41,22 @@ msgid "A video player that has a usability focus"
 msgstr "Kullanılabilirliğe odaklanmış bir video oynatıcısı"
 
 #: src/main.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Copyright 2006, Max Howell\n"
-#| "Copyright 2007, Ian Monroe"
+#, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe\n"
 "Copyright 2022 Harald Sitter"
 msgstr ""
 "Telif hakkı 2006, Max Howell\n"
-"Telif hakkı 2007, Ian Monroe"
+"Telif hakkı 2007, Ian Monroe\n"
+"Telif hakkı 2022, Harald Sitter"
 
 #: src/qml/ControlsBar.qml:98
 msgctxt "@action:button"
 msgid "Application Menu"
-msgstr ""
+msgstr "Uygulama Menüsü"
 
 #: src/qml/ControlsBar.qml:121
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Stop"
 msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "Durdur"
@@ -69,72 +64,56 @@ msgstr "Durdur"
 #: src/qml/ControlsBar.qml:129
 msgctxt "@action:button"
 msgid "Unmute"
-msgstr ""
+msgstr "Sesi Aç"
 
 #: src/qml/ControlsBar.qml:129
-#, fuzzy
-#| msgctxt "@action Mute the sound output"
-#| msgid "Mute"
 msgctxt "@action:button"
 msgid "Mute"
-msgstr "Sessiz"
+msgstr "Sessize Al"
 
 #: src/qml/ControlsBar.qml:139
-#, fuzzy
-#| msgctxt "@title:menu"
-#| msgid "&Subtitles"
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
-msgstr "&Altyazılar"
+msgstr "Altyazılar"
 
 #: src/qml/ControlsBar.qml:146
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
-msgstr ""
+msgstr "Yok"
 
 #: src/qml/ControlsBar.qml:156
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
-msgstr ""
+msgstr "%1 [%2]"
 
 #: src/qml/ControlsBar.qml:173
-#, fuzzy
-#| msgid "Audio CD"
 msgctxt "@action:button track selector"
 msgid "Audio Track"
-msgstr "Ses CD’si"
+msgstr "Ses Parçası"
 
 #: src/qml/ControlsBar.qml:188
-#, fuzzy
-#| msgid "Video CD"
 msgctxt "@action:button track selector"
 msgid "Video Track"
-msgstr "Video CD"
+msgstr "Video Parçası"
 
 #: src/qml/ControlsBar.qml:206
 msgctxt "@action opens about app page"
 msgid "About"
-msgstr ""
+msgstr "Hakkında"
 
 #: src/qml/Main.qml:53
 msgctxt "@action:button open file dialog"
 msgid "Open…"
-msgstr ""
+msgstr "Aç…"
 
 #: src/qml/PlayerPage.qml:31
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Play"
 msgctxt "@action:button"
 msgid "Play"
 msgstr "Oynat"
 
 #: src/qml/PlayerPage.qml:31
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Pause"
 msgctxt "@action:button"
 msgid "Pause"
 msgstr "Duraklat"
@@ -142,12 +121,12 @@ msgstr "Duraklat"
 #: src/qml/PlayerPage.qml:39
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
-msgstr ""
+msgstr "Tam Ekrandan Çık"
 
 #: src/qml/PlayerPage.qml:39
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
-msgstr ""
+msgstr "Tam Ekrana Gir"
 
 #: src/qml/PlayerPage.qml:71
 msgctxt "@info"
@@ -158,6 +137,11 @@ msgid ""
 "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
 "command></para>"
 msgstr ""
+"Tüm video kodlayıcıları kurulu değil. Video oynatımı, beklenenden daha düşük "
+"kaliteli olabilir.\n"
+"Şu komutu çalıştırarak FFmpeg’i kurun:\n"
+"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
+"command></para>"
 
 #: src/qml/PlayerPage.qml:78
 msgctxt "@info"
@@ -166,27 +150,28 @@ msgid ""
 "reliable than expected.\n"
 "Please consult your distribution on how to install all possible codecs."
 msgstr ""
+"Tüm video kodlayıcıları kurulu değil. Video oynatımı, beklenenden daha düşük "
+"kaliteli olabilir.\n"
+"Olası tüm kodlayıcıların kurulumu için dağıtımınıza danışın."
 
 #: src/qml/PlayerPage.qml:85
 msgctxt "@action:button %1 is the name of a distribution"
 msgid "%1 Support"
-msgstr ""
+msgstr "%1 Desteği"
 
 #: src/qml/PlayerPage.qml:326
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
 msgid "%1 / %2"
-msgstr ""
+msgstr "%1 / %2"
 
 #: src/qml/VolumeButton.qml:31
 msgctxt "@action:button open volume slider popup"
 msgid "Show volume controls"
-msgstr ""
+msgstr "Ses düzeyi denetimlerini göster"
 
 #: src/qml/WelcomeView.qml:16
-#, fuzzy
-#| msgid "Welcome to Dragon Player"
 msgctxt "@title"
 msgid "Welcome to Dragon Player"
 msgstr "Dragon’a hoş geldiniz"
@@ -194,273 +179,9 @@ msgstr "Dragon’a hoş geldiniz"
 #: src/qml/WelcomeView.qml:17
 msgctxt "@info"
 msgid "Dragon Player is a simple video player. Open a video to get started:"
-msgstr ""
+msgstr "Dragon, basit bir video oynatıcısıdır. Başlamak için bir video açın:"
 
 #: src/qml/WelcomeView.qml:20
 msgctxt "@action:button"
 msgid "Open Video File or Network Stream"
-msgstr ""
-
-#, fuzzy
-#~| msgctxt "@option:check Volume of sound output"
-#~| msgid "Volume"
-#~ msgctxt "@action:button open volume slider popup"
-#~ msgid "Volume"
-#~ msgstr "Ses Düzeyi"
-
-#~ msgctxt "@title:menu"
-#~ msgid "&Play"
-#~ msgstr "&Oynatım"
-
-#~ msgctxt "@title:menu"
-#~ msgid "Play Media"
-#~ msgstr "Ortam Oynat"
-
-#~ msgctxt "@title:menu"
-#~ msgid "&Settings"
-#~ msgstr "Ayar&lar"
-
-#~ msgid "Main Toolbar"
-#~ msgstr "Ana Araç Çubuğu"
-
-#~ msgctxt "@action:button"
-#~ msgid "Preferred Scale"
-#~ msgstr "Yeğlenen Ölçek"
-
-#~ msgctxt "@action:button"
-#~ msgid "Scale 100%"
-#~ msgstr "%​100 Ölçek"
-
-#~ msgid "<b>Adjust video scale?</b>"
-#~ msgstr "<b>Video ölçeği ayarlansın mı?</b>"
-
-#~ msgctxt ""
-#~ "%1 is the disc type, %2 is the name of the disc that the user can choose. "
-#~ "Ex. 'DVD: OfficeSpace'"
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"
-
-#~ msgctxt "Digital Versatile Disc, but keep it short"
-#~ msgid "DVD"
-#~ msgstr "DVD"
-
-#~ msgid "Data CD"
-#~ msgstr "Veri CD’si"
-
-#~ msgctxt "@title:window"
-#~ msgid "Select a Disc"
-#~ msgstr "Bir Disk Seç"
-
-#~ msgid "Select a disc to play."
-#~ msgstr "Oynatmak için bir disk seçin."
-
-#~ msgid "Improvements and polish"
-#~ msgstr "Geliştirmeler ve düzeltmeler"
-
-#~ msgid "Creator of Phonon"
-#~ msgstr "Phonon’un yaratıcısı"
-
-#~ msgid "Dragon Player icon"
-#~ msgstr "Dragon simgesi"
-
-#~ msgid "Handbook"
-#~ msgstr "El Kitabı"
-
-#~ msgid "Great reference code"
-#~ msgstr "Yararlı kod başvuruları"
-
-#~ msgid "Yatta happened to be the only video on my laptop to test with. :)"
-#~ msgstr "Yatta dizüstü bilgisayarımda sınamaları yaptığım tek video oldu. :)"
-
-#~ msgid "MPRIS v2 support"
-#~ msgstr "MPRIS v2 desteği"
-
-#~ msgid "Port to KF5/Plasma 5"
-#~ msgstr "KF5/Plasma 5 geçişi"
-
-#~ msgid "Play DVD Video"
-#~ msgstr "DVD Video Oynat"
-
-#~ msgid "Play 'URL'"
-#~ msgstr "“URL” Oynat"
-
-#~ msgctxt "@title:menu"
-#~ msgid "Aspect &Ratio"
-#~ msgstr "En–Boy &Oranı"
-
-#~ msgctxt "@title:menu"
-#~ msgid "&Audio Channels"
-#~ msgstr "&Ses Kanalları"
-
-#~ msgctxt "@option:radio aspect ratio"
-#~ msgid "Determine &Automatically"
-#~ msgstr "&Kendiliğinden Belirle"
-
-#~ msgctxt "@option:radio aspect ratio"
-#~ msgid "&4:3"
-#~ msgstr "&4:3"
-
-#~ msgctxt "@option:radio aspect ratio"
-#~ msgid "Ana&morphic (16:9)"
-#~ msgstr "Ana&morfik (16:9)"
-
-#~ msgctxt "@option:radio aspect ratio"
-#~ msgid "&Window Size"
-#~ msgstr "&Pencere Boyutu"
-
-#~ msgid ""
-#~ "<qt>Phonon could not be successfully initialized. Dragon Player will now "
-#~ "exit.</qt>"
-#~ msgstr ""
-#~ "<qt>Phonon başarılı bir şekilde başlatılamadı. Dragon’dan çıkılıyor.</qt>"
-
-#~ msgctxt "@action"
-#~ msgid "Play File…"
-#~ msgstr "Dosya Oynat…"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Open a media file for playback"
-#~ msgstr "Oynatmak için bir ortam dosyası aç"
-
-#~ msgctxt "@action"
-#~ msgid "Play Stream…"
-#~ msgstr "Akış Oynat…"
-
-#~ msgctxt "@action"
-#~ msgid "Play Disc"
-#~ msgstr "Disk Oynat"
-
-#~ msgctxt "@action"
-#~ msgid "Increase Volume"
-#~ msgstr "Sesi Artır"
-
-#~ msgctxt "@action"
-#~ msgid "Decrease Volume"
-#~ msgstr "Sesi Azalt"
-
-#~ msgctxt "@action"
-#~ msgid "Reset Video Scale"
-#~ msgstr "Video Ölçeğini Sıfırla"
-
-#~ msgctxt "@action"
-#~ msgid "Menu Toggle"
-#~ msgstr "Menüyü Aç/Kapat"
-
-#~ msgid "Position Slider"
-#~ msgstr "Konum Sürgüsü"
-
-#~ msgctxt "@option:check"
-#~ msgid "Video Settings"
-#~ msgstr "Video Ayarları"
-
-#~ msgctxt ""
-#~ "@option:check Whether only one instance of dragon can be started and will "
-#~ "be reused when the user tries to play another file."
-#~ msgid "One Instance Only"
-#~ msgstr "Yalnızca Tek Örnek"
-
-#~ msgctxt "@action previous chapter"
-#~ msgid "Previous"
-#~ msgstr "Önceki"
-
-#~ msgctxt "@action next chapter"
-#~ msgid "Next"
-#~ msgstr "Sonraki"
-
-#~ msgctxt "@action"
-#~ msgid "Return 10% Back"
-#~ msgstr "%​10 Geri Git"
-
-#~ msgctxt "@action"
-#~ msgid "Go 10% Forward"
-#~ msgstr "%​10 İleri Git"
-
-#~ msgctxt "@action"
-#~ msgid "Return 10 Seconds Back"
-#~ msgstr "10 Saniye Geri Git"
-
-#~ msgctxt "@action"
-#~ msgid "Go 10 Seconds Forward"
-#~ msgstr "10 Saniye İleri Git"
-
-#~ msgctxt "@option:check Mute the sound output"
-#~ msgid "Mute"
-#~ msgstr "Sessiz"
-
-#~ msgid "Dragon Player was asked to open an empty URL; it cannot."
-#~ msgstr "Dragon’a boş bir URL’yi açması önerildi, bu yapılamaz."
-
-#~ msgctxt "@title:window"
-#~ msgid "Select File to Play"
-#~ msgstr "Oynatılacak Dosyayı Seç"
-
-#~ msgctxt "@title:window"
-#~ msgid "Stream to Play"
-#~ msgstr "Oynatılacak Akış"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Stream:"
-#~ msgstr "Akış:"
-
-#~ msgid "Sorry, no media was found in the drop"
-#~ msgstr "Üzgünüm, sürüklemede bir ortam yok"
-
-#~ msgctxt "Notification inhibition reason"
-#~ msgid "Playing a video"
-#~ msgstr "Bir video oynatılıyor"
-
-#~ msgid "No media loaded"
-#~ msgstr "Yüklü Ortam Yok"
-
-#~ msgid "Paused"
-#~ msgstr "Duraklatıldı"
-
-#~ msgid "The file is not a playlist"
-#~ msgstr "Bu bir oynatma listesi değil"
-
-#~ msgid "Dragon Player could not download the remote playlist: %1"
-#~ msgstr "Dragon, uzak oynatma listesini indiremedi: %1"
-
-#~ msgid ""
-#~ "<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is "
-#~ "empty?</qt>"
-#~ msgstr ""
-#~ "<qt><i>“%1”</i> oynatma listesi yorumlanamadı. Boş olabilir mi?</qt>"
-
-#~ msgid "Dragon Player could not open the file: %1"
-#~ msgstr "Dragon, dosyayı açamadı: %1"
-
-#~ msgid "Track %1/%2"
-#~ msgstr "Parça %1/%2"
-
-#~ msgctxt "@label:slider"
-#~ msgid "Brightness:"
-#~ msgstr "Parlaklık:"
-
-#~ msgctxt "@label:slider"
-#~ msgid "Contrast:"
-#~ msgstr "Karşıtlık:"
-
-#~ msgctxt "@label:slider"
-#~ msgid "Hue:"
-#~ msgstr "Renk tonu:"
-
-#~ msgctxt "@label:slider"
-#~ msgid "Saturation:"
-#~ msgstr "Doygunluk:"
-
-#~ msgctxt "@action:button"
-#~ msgid "Restore Defaults"
-#~ msgstr "Öntanımlı Değerlere Dön"
-
-#~ msgctxt "@action:button"
-#~ msgid "Close"
-#~ msgstr "Kapat"
-
-#~ msgctxt "@option:radio"
-#~ msgid "&DVD Subtitle Selection"
-#~ msgstr "&DVD Altyazı Seçimi"
-
-#~ msgctxt "@option:radio audio language"
-#~ msgid "&Auto"
-#~ msgstr "&Kendiliğinden"
+msgstr "Video Dosyası veya Ağ Akışı Aç"

@@ -44,11 +44,14 @@ msgid ""
 "Copyright 2007, Ian Monroe\n"
 "Copyright 2022 Harald Sitter"
 msgstr ""
+"Copyright 2006, Max Howell\n"
+"Copyright 2007, Ian Monroe\n"
+"Copyright 2022 Harald Sitter"
 
 #: src/qml/ControlsBar.qml:98
 msgctxt "@action:button"
 msgid "Application Menu"
-msgstr ""
+msgstr "应用程序菜单"
 
 #: src/qml/ControlsBar.qml:121
 msgctxt "@action:button stop playback"
@@ -58,7 +61,7 @@ msgstr "停止"
 #: src/qml/ControlsBar.qml:129
 msgctxt "@action:button"
 msgid "Unmute"
-msgstr ""
+msgstr "取消静音"
 
 #: src/qml/ControlsBar.qml:129
 msgctxt "@action:button"
@@ -68,39 +71,39 @@ msgstr "静音"
 #: src/qml/ControlsBar.qml:139
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
-msgstr ""
+msgstr "字幕"
 
 #: src/qml/ControlsBar.qml:146
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
-msgstr ""
+msgstr "无"
 
 #: src/qml/ControlsBar.qml:156
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
-msgstr ""
+msgstr "%1 [%2]"
 
 #: src/qml/ControlsBar.qml:173
 msgctxt "@action:button track selector"
 msgid "Audio Track"
-msgstr ""
+msgstr "音频轨道"
 
 #: src/qml/ControlsBar.qml:188
 msgctxt "@action:button track selector"
 msgid "Video Track"
-msgstr ""
+msgstr "视频轨道"
 
 #: src/qml/ControlsBar.qml:206
 msgctxt "@action opens about app page"
 msgid "About"
-msgstr ""
+msgstr "关于"
 
 #: src/qml/Main.qml:53
 msgctxt "@action:button open file dialog"
 msgid "Open…"
-msgstr ""
+msgstr "打开…"
 
 #: src/qml/PlayerPage.qml:31
 msgctxt "@action:button"
@@ -115,12 +118,12 @@ msgstr "暂停"
 #: src/qml/PlayerPage.qml:39
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
-msgstr ""
+msgstr "退出全屏"
 
 #: src/qml/PlayerPage.qml:39
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
-msgstr ""
+msgstr "进入全屏"
 
 #: src/qml/PlayerPage.qml:71
 msgctxt "@info"
@@ -131,6 +134,10 @@ msgid ""
 "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
 "command></para>"
 msgstr ""
+"没有安装全部视频编解码器，这可能影响视频播放支持的可靠性。  \n"
+"请运行以下命令安装 ffmpeg-full：\n"
+"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
+"command></para>"
 
 #: src/qml/PlayerPage.qml:78
 msgctxt "@info"
@@ -139,18 +146,20 @@ msgid ""
 "reliable than expected.\n"
 "Please consult your distribution on how to install all possible codecs."
 msgstr ""
+"没有安装全部视频编解码器，这可能影响视频播放支持的可靠性。  \n"
+"请向您的发行版咨询如何安装所有可用的编解码器。"
 
 #: src/qml/PlayerPage.qml:85
 msgctxt "@action:button %1 is the name of a distribution"
 msgid "%1 Support"
-msgstr ""
+msgstr "%1 支持"
 
 #: src/qml/PlayerPage.qml:326
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
 msgid "%1 / %2"
-msgstr ""
+msgstr "%1 / %2"
 
 #: src/qml/VolumeButton.qml:31
 msgctxt "@action:button open volume slider popup"
@@ -165,13 +174,9 @@ msgstr "欢迎使用 Dragon Player 播放器"
 #: src/qml/WelcomeView.qml:17
 msgctxt "@info"
 msgid "Dragon Player is a simple video player. Open a video to get started:"
-msgstr ""
+msgstr "Dragon Player 是一款简单易用的播放器。打开任意视频即可使用："
 
 #: src/qml/WelcomeView.qml:20
 msgctxt "@action:button"
 msgid "Open Video File or Network Stream"
-msgstr ""
-
-#~ msgctxt "@action:button open volume slider popup"
-#~ msgid "Volume"
-#~ msgstr "音量"
+msgstr "打开视频文件或网络流媒体"
