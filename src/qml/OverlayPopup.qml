@@ -29,7 +29,9 @@ QQC.Popup {
         radius: Kirigami.Units.cornerRadius + popup.padding
         border {
             width: 1
-            color: Qt.alpha(Kirigami.Theme.textColor, 0.2);
+            color: Qt.alpha(
+                Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, 0.4),
+                0.6);
         }
         shadow {
             size: Kirigami.Units.gridUnit
