@@ -8,10 +8,8 @@ import org.kde.kirigami as Kirigami
 import QtMultimedia as Multimedia
 
 QQC.Popup {
-    id: toolbar
-   // x: Math.round(parent.width / 2 - width / 2)
-   // y: parent.height - height - Kirigami.Units.gridUnit * 2
-  //  width: parent.width - Kirigami.Units.gridUnit * 4
+    id: popup
+
     modal: false
     clip: false
     padding: Kirigami.Units.smallSpacing
@@ -19,14 +17,16 @@ QQC.Popup {
     Kirigami.Theme.colorSet: Kirigami.Theme.Complementary
 
     Binding {
-        target: toolbar.contentItem?.Kirigami.Theme
+        target: popup.contentItem?.Kirigami.Theme
         property: "colorSet"
-        value: toolbar.Kirigami.Theme.colorSet
+        value: popup.Kirigami.Theme.colorSet
     }
     background: Kirigami.ShadowedRectangle {
-        Kirigami.Theme.colorSet: toolbar.Kirigami.Theme.colorSet
+        Kirigami.Theme.colorSet: popup.Kirigami.Theme.colorSet
         color: Qt.alpha(Kirigami.Theme.backgroundColor, 0.6);
-        radius: Kirigami.Units.cornerRadius
+        // This to make the radius of the buttons near the borders exactly concentric,
+        // otherwise it looks very janky
+        radius: Kirigami.Units.cornerRadius + popup.padding
         border {
             width: 1
             color: Qt.alpha(Kirigami.Theme.textColor, 0.2);

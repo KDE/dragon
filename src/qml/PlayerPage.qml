@@ -26,6 +26,8 @@ Kirigami.Page {
     rightPadding: 0
     bottomPadding: 0
 
+    Component.onCompleted: activeTimer.restart()
+
     Kirigami.Action {
         id: togglePauseAction
         text: player.paused || player.stopped ? i18nc("@action:button", "Play") : i18nc("@action:button", "Pause")
@@ -157,6 +159,7 @@ Please consult your distribution on how to install all possible codecs.`)
 
             function seek(target) {
                 position = target
+                activeTimer.restart()
             }
 
             function togglePause() {
@@ -168,6 +171,7 @@ Please consult your distribution on how to install all possible codecs.`)
                 } else {
                     pause()
                 }
+                activeTimer.restart()
             }
         }
 
@@ -235,7 +239,6 @@ Please consult your distribution on how to install all possible codecs.`)
                     const distance = Math.sqrt((initialPoint.x - position.x) ** 2 + (initialPoint.y - position.y) ** 2);
                     if (distance > Kirigami.Units.gridUnit) { // FIXME this should somehow relate to window size
                         activeTimer.restart()
-                        toolbar.shouldBeVisible = true
                     }
                 }
                 resetTimer.restart()
@@ -287,46 +290,35 @@ Please consult your distribution on how to install all possible codecs.`)
             }
         }
 
-        Item {
+        OverlayPopup {
             id: timeItem
+            anchors.centerIn: parent
 
-            anchors.fill: video
-            anchors.leftMargin: Kirigami.Units.gridUnit * 4
-            anchors.rightMargin: Kirigami.Units.gridUnit * 4
+            visible: toolbar.toolbarHandler.hovered ? 1 : 0
 
-            visible: opacity > 0
-            opacity: toolbar.toolbarHandler.hovered ? 1 : 0
-            Behavior on opacity {
-                NumberAnimation { duration: Kirigami.Units.shortDuration }
-            }
+            contentItem: Kirigami.Heading  {
+                Kirigami.Theme.colorSet: Kirigami.Theme.Complementary
+                // Sizing is a bit complicated. We want the text to be as large as possible but not larger than the videoContainer.
+                // What we do here is calculate an invisible heading that will be just right, except for the fact that it will span
+                // the entire width. We later take the calculated fontInfo to set the final font size and actual width required.
+                // This makes the heading as high as possible but as wide as necessary.
+                property Kirigami.Heading fittingHeader: Kirigami.Heading  {
+                    fontSizeMode: Text.Fit
+                    wrapMode: Text.NoWrap
+                    width: video.contentRect.width * 0.5
 
-            Kirigami.AbstractCard {
-                id: timeCard
-                anchors.centerIn: parent
+                    font.pointSize: Kirigami.Theme.defaultFont.pointSize * 10
+                    minimumPixelSize: 2 // Kirigami.Theme.defaultFont.pointSize * 1.50
 
-                header: Kirigami.Heading  {
-                    // Sizing is a bit complicated. We want the text to be as large as possible but not larger than the videoContainer.
-                    // What we do here is calculate an invisible heading that will be just right, except for the fact that it will span
-                    // the entire width. We later take the calculated fontInfo to set the final font size and actual width required.
-                    // This makes the heading as high as possible but as wide as necessary.
-                    property Kirigami.Heading fittingHeader: Kirigami.Heading  {
-                        fontSizeMode: Text.Fit
-                        wrapMode: Text.NoWrap
-                        width: video.contentRect.width * 0.5
-
-                        font.pointSize: Kirigami.Theme.defaultFont.pointSize * 10
-                        minimumPixelSize: 2 // Kirigami.Theme.defaultFont.pointSize * 1.50
-
-                        text: i18nc("@info overlay on top of video. %1 is the amount of time played %2 is the total duration of the video",
-                                    "%1 / %2",
-                                    KCoreAddons.Format.formatDuration(player.position),
-                                    KCoreAddons.Format.formatDuration(player.duration))
-                    }
-
-                    font.pointSize: fittingHeader.fontInfo.pointSize
-                    width: fittingHeader.fontInfo.width
-                    text: fittingHeader.text
+                    text: i18nc("@info overlay on top of video. %1 is the amount of time played %2 is the total duration of the video",
+                                "%1 / %2",
+                                KCoreAddons.Format.formatDuration(player.position),
+                                KCoreAddons.Format.formatDuration(player.duration))
                 }
+
+                font.pointSize: fittingHeader.fontInfo.pointSize
+                width: fittingHeader.fontInfo.width
+                text: fittingHeader.text
             }
         }
 
@@ -334,7 +326,6 @@ Please consult your distribution on how to install all possible codecs.`)
             id: activeTimer
             interval: Kirigami.Units.humanMoment
             repeat: false
-            onTriggered: toolbar.shouldBeVisible = false
         }
 
         MouseArea {
@@ -346,80 +337,60 @@ Please consult your distribution on how to install all possible codecs.`)
 
         ControlsBar {
             id: toolbar
-            property bool shouldBeVisible: false
-            visible: shouldBeVisible || anyMenusOpen
+            visible: activeTimer.running || mainHoverHandler.resetTimer.running || anyMenusOpen || toolbarHandler.hovered
             x: Math.round(parent.width / 2 - width / 2)
             y: parent.height - height - Kirigami.Units.gridUnit * 2
             width: parent.width - Kirigami.Units.gridUnit * 4
             player: player
         }
 
-        states: [
-            State {
-                name: "fullscreen-active"
-                extend: "fullscreen"
-                when: appWindow.visibility === Window.Window.FullScreen && (activeTimer.running || toolbar.toolbarHandler.hovered || toolbar.anyMenusOpen)
-                PropertyChanges {
-                    target: toolbar
-                    topInset: { toolbar.topInset = 0 }
-                    topPadding: { toolbar.topPadding = 0 }
-                }
-            },
-            State {
-                name: "fullscreen"
-                when: appWindow.visibility === Window.Window.FullScreen
-                PropertyChanges {
-                    target: toolbar
-                    topInset: { toolbar.topInset = toolbar.hiddenInset }
-                    topPadding: { toolbar.topPadding = toolbar.hiddenInset }
-                }
-                PropertyChanges {
-                    target: videoContainer
-                    anchors.top: parent.top
-                }
-            },
-            State {
-                name: "" // default state
-            }
-        ]
     }
 
     Shortcut {
+        // ApplicationShortcut needed to not be stolen by OverlayPopup instances
+        context: Qt.ApplicationShortcut
         sequences: ["Space", Qt.Key_MediaPlay]
         onActivated: togglePauseAction.trigger()
     }
 
     Shortcut {
+        context: Qt.ApplicationShortcut
         sequence: StandardKey.Cancel
         onActivated: videoPage.cancelFullscreen()
     }
 
     Shortcut {
+        context: Qt.ApplicationShortcut
         sequence: "Left"
         onActivated: videoPage.seek(toolbar.seekSlider.value - 5000, true)
     }
 
     Shortcut {
+        context: Qt.ApplicationShortcut
         sequence: "Right"
         onActivated: videoPage.seek(toolbar.seekSlider.value + 5000, true)
     }
 
     Shortcut {
+        context: Qt.ApplicationShortcut
         sequence: "Ctrl+Left"
         onActivated: videoPage.seek(toolbar.seekSlider.value - 60000, true)
     }
 
     Shortcut {
+        context: Qt.ApplicationShortcut
         sequence: "Ctrl+Right"
         onActivated: videoPage.seek(toolbar.seekSlider.value + 60000, true)
     }
 
     Shortcut {
+        context: Qt.ApplicationShortcut
         sequence: "Ctrl+Alt+Left"
         onActivated: videoPage.seek(toolbar.seekSlider.value - (5 * 60000), true)
     }
 
     Shortcut {
+        context: Qt.ApplicationShortcut
         sequence: "Ctrl+Alt+Right"
         onActivated: videoPage.seek(toolbar.seekSlider.value + (5 * 60000), true)
     }

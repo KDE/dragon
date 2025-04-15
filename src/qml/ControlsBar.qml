@@ -11,22 +11,11 @@ import QtMultimedia as Multimedia
 OverlayPopup {
     id: toolbar
     readonly property bool anyMenusOpen: menuButton.menu.opened || volumeButton.popup.opened
-    readonly property var hiddenInset: -contentHeight
     property alias volumeButton: volumeButton
     property alias toolbarHandler: toolbarHandler
     required property Multimedia.MediaPlayer player
     property alias seekSlider: seekSlider
 
-  /*  visible: topInset !== hiddenInset
-
-    Behavior on topInset {
-        NumberAnimation { duration: Kirigami.Units.veryShortDuration }
-    }
-
-    Behavior on topPadding {
-        NumberAnimation { duration: Kirigami.Units.veryShortDuration }
-    }
-*/
     contentItem: RowLayout {
        // anchors.fill: parent
         spacing: Kirigami.Units.mediumSpacing
