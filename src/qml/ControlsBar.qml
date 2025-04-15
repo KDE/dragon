@@ -104,7 +104,9 @@ OverlayPopup {
             }
 
             readonly property T.Menu menu: QQC2.Menu {
-                y: -height
+                // Aligned with overlay panel border
+                x: Qt.application.layoutDirection === Qt.RightToLeft ? - toolbar.padding : -width + menuButton.width + toolbar.padding
+                y: -height - toolbar.padding - Kirigami.Units.smallSpacing
 
                 Kirigami.Action {
                     text: i18nc("@action:button stop playback", "Stop")

@@ -49,10 +49,11 @@ IconToolButton {
 
     readonly property QQC2.Popup popup : OverlayPopup {
         x: Math.round(parent.width / 2 - width / 2)
-        y: -height
+        y: -height - toolbar.padding - Kirigami.Units.smallSpacing
         width: Kirigami.Units.gridUnit * 2
         height: Kirigami.Units.gridUnit * 6
         contentItem: QQC2.Slider {
+            Kirigami.Theme.colorSet: Kirigami.Theme.Complementary
             orientation: Qt.Vertical
             from: 0.0
             to: 1.0
