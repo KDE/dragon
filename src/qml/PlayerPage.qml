@@ -172,6 +172,7 @@ Please consult your distribution on how to install all possible codecs.`)
             function seek(target) {
                 position = target
                 activeTimer.restart()
+                seekInteractionTimer.restart()
             }
 
             function togglePause() {
@@ -308,7 +309,7 @@ Please consult your distribution on how to install all possible codecs.`)
             id: timeItem
             anchors.centerIn: parent
 
-            visible: toolbar.toolbarHandler.hovered ? 1 : 0
+            visible: seekInteractionTimer.isActive
 
             contentItem: Kirigami.Heading  {
                 Kirigami.Theme.colorSet: Kirigami.Theme.Complementary
@@ -337,10 +338,22 @@ Please consult your distribution on how to install all possible codecs.`)
         }
 
         Timer {
-            id: activeTimer
+            id: seekInteractionTimer
             interval: Kirigami.Units.humanMoment
             repeat: false
             // Not binding to running as after a restart it will go false then true again
+            property bool isActive: false
+            onRunningChanged: {
+                if (running) {
+                    isActive = true
+                }
+            }
+            onTriggered: isActive = false
+        }
+        Timer {
+            id: activeTimer
+            interval: Kirigami.Units.humanMoment
+            repeat: false
             property bool isActive: false
             onRunningChanged: {
                 if (running) {
