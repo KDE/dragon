@@ -33,7 +33,7 @@ int main(int argc, char **argv)
     KAboutData::setApplicationData(aboutData);
     KCrash::initialize();
 
-    auto engine = new QQmlApplicationEngine(&app); // on the heap for code similarity reasons with other projects, technically not necessary.
+    auto engine = new QQmlApplicationEngine;
     KLocalization::setupLocalizedContext(engine);
 
     engine->loadFromModule("org.kde.dragon", "Main");
@@ -43,5 +43,8 @@ int main(int argc, char **argv)
         return -1;
     }
 
-    return app.exec();
+    auto rc = app.exec();
+    delete engine;
+    engine = nullptr;
+    return rc;
 }
