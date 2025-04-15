@@ -28,6 +28,13 @@ Kirigami.Page {
 
     Component.onCompleted: activeTimer.restart()
 
+    onVisibleChanged: {
+        // Pause when we open the about layer
+        if (!visible) {
+            player.pause()
+        }
+    }
+
     Kirigami.Action {
         id: togglePauseAction
         text: player.paused || player.stopped ? i18nc("@action:button", "Play") : i18nc("@action:button", "Pause")
@@ -337,7 +344,11 @@ Please consult your distribution on how to install all possible codecs.`)
 
         ControlsBar {
             id: toolbar
-            visible: activeTimer.running || mainHoverHandler.resetTimer.running || anyMenusOpen || toolbarHandler.hovered
+            visible: videoPage.visible
+                    && (activeTimer.running
+                        || mainHoverHandler.resetTimer.running
+                        || anyMenusOpen
+                        || toolbarHandler.hovered)
             x: Math.round(parent.width / 2 - width / 2)
             y: parent.height - height - Kirigami.Units.gridUnit * 2
             width: parent.width - Kirigami.Units.gridUnit * 4
