@@ -26,8 +26,6 @@ Kirigami.Page {
     rightPadding: 0
     bottomPadding: 0
 
-    Component.onCompleted: activeTimer.restart()
-
     onVisibleChanged: {
         // Pause when we open the about layer
         if (!visible) {
@@ -182,6 +180,8 @@ Please consult your distribution on how to install all possible codecs.`)
                 }
                 activeTimer.restart()
             }
+
+            onSourceChanged: activeTimer.restart()
         }
 
         WheelHandler {
@@ -354,7 +354,7 @@ Please consult your distribution on how to install all possible codecs.`)
 
         ControlsBar {
             id: toolbar
-            visible: videoPage.visible
+            visible: videoContainer.visible
                     && (activeTimer.isActive
                         || anyMenusOpen
                         || toolbarHandler.hovered)
