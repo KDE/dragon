@@ -8,7 +8,7 @@ import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import QtMultimedia as Multimedia
 
-QQC2.ToolBar {
+OverlayPopup {
     id: toolbar
     readonly property bool anyMenusOpen: menuButton.menu.opened || volumeButton.popup.opened
     readonly property var hiddenInset: -contentHeight
@@ -17,7 +17,7 @@ QQC2.ToolBar {
     required property Multimedia.MediaPlayer player
     property alias seekSlider: seekSlider
 
-    visible: topInset !== hiddenInset
+  /*  visible: topInset !== hiddenInset
 
     Behavior on topInset {
         NumberAnimation { duration: Kirigami.Units.veryShortDuration }
@@ -26,9 +26,9 @@ QQC2.ToolBar {
     Behavior on topPadding {
         NumberAnimation { duration: Kirigami.Units.veryShortDuration }
     }
-
-    RowLayout {
-        anchors.fill: parent
+*/
+    contentItem: RowLayout {
+       // anchors.fill: parent
         spacing: Kirigami.Units.mediumSpacing
 
         QQC2.ToolButton {
@@ -115,7 +115,7 @@ QQC2.ToolBar {
             }
 
             readonly property T.Menu menu: QQC2.Menu {
-                y: menuButton.height
+                y: -height
 
                 Kirigami.Action {
                     text: i18nc("@action:button stop playback", "Stop")

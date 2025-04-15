@@ -52,12 +52,6 @@ Kirigami.Page {
         z: 2 // so we are on top of the video item!
         spacing: 0
 
-        ControlsBar {
-            id: toolbar
-            Layout.fillWidth: true
-            player: player
-        }
-
         Kirigami.InlineMessage {
             property bool blameDistro: false
             Layout.fillWidth: true
@@ -241,6 +235,7 @@ Please consult your distribution on how to install all possible codecs.`)
                     const distance = Math.sqrt((initialPoint.x - position.x) ** 2 + (initialPoint.y - position.y) ** 2);
                     if (distance > Kirigami.Units.gridUnit) { // FIXME this should somehow relate to window size
                         activeTimer.restart()
+                        toolbar.shouldBeVisible = true
                     }
                 }
                 resetTimer.restart()
@@ -339,6 +334,7 @@ Please consult your distribution on how to install all possible codecs.`)
             id: activeTimer
             interval: Kirigami.Units.humanMoment
             repeat: false
+            onTriggered: toolbar.shouldBeVisible = false
         }
 
         MouseArea {
@@ -346,6 +342,16 @@ Please consult your distribution on how to install all possible codecs.`)
             acceptedButtons: Qt.NoButton // do not steal events we are purely visual
             visible: !activeTimer.running
             cursorShape: Qt.BlankCursor
+        }
+
+        ControlsBar {
+            id: toolbar
+            property bool shouldBeVisible: false
+            visible: shouldBeVisible || anyMenusOpen
+            x: Math.round(parent.width / 2 - width / 2)
+            y: parent.height - height - Kirigami.Units.gridUnit * 2
+            width: parent.width - Kirigami.Units.gridUnit * 4
+            player: player
         }
 
         states: [

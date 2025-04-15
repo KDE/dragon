@@ -47,9 +47,12 @@ IconToolButton {
         }
     }
 
-    readonly property QQC2.Popup popup : QQC2.Popup {
-        y: volumeButton.height
-        QQC2.Slider {
+    readonly property QQC2.Popup popup : OverlayPopup {
+        x: Math.round(parent.width / 2 - width / 2)
+        y: -height
+        width: Kirigami.Units.gridUnit * 2
+        height: Kirigami.Units.gridUnit * 6
+        contentItem: QQC2.Slider {
             orientation: Qt.Vertical
             from: 0.0
             to: 1.0
