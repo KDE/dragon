@@ -47,6 +47,8 @@ Kirigami.Page {
         id: fullscreenAction
         text: visibility === Window.Window.FullScreen ? i18nc("@action:button", "Exit Fullscreen") : i18nc("@action:button", "Enter Fullscreen")
         icon.name: "view-fullscreen"
+        checkable: true
+        checked: visibility === Window.Window.FullScreen
         onTriggered: videoPage.toggleFullscreen()
         shortcut: "F"
         tooltip: text
@@ -333,25 +335,34 @@ Please consult your distribution on how to install all possible codecs.`)
             id: activeTimer
             interval: Kirigami.Units.humanMoment
             repeat: false
+            // Not binding to running as after a restart it will go false then true again
+            property bool isActive: false
+            onRunningChanged: {
+                if (running) {
+                    isActive = true
+                }
+            }
+            onTriggered: isActive = false
         }
 
         MouseArea {
             anchors.fill: parent
             acceptedButtons: Qt.NoButton // do not steal events we are purely visual
-            visible: !activeTimer.running
+            visible: !activeTimer.isActive
             cursorShape: Qt.BlankCursor
         }
 
         ControlsBar {
             id: toolbar
             visible: videoPage.visible
-                    && (activeTimer.running
-                        || mainHoverHandler.resetTimer.running
+                    && (activeTimer.isActive
                         || anyMenusOpen
                         || toolbarHandler.hovered)
             x: Math.round(parent.width / 2 - width / 2)
             y: parent.height - height - Kirigami.Units.gridUnit * 2
-            width: parent.width - Kirigami.Units.gridUnit * 4
+            width: Math.min(
+                Kirigami.Units.gridUnit * 25,
+                parent.width - Kirigami.Units.gridUnit * 4)
             player: player
         }
 

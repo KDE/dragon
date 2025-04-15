@@ -4,6 +4,7 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as QQC
+import QtQuick.Effects as Effects
 import org.kde.kirigami as Kirigami
 import QtMultimedia as Multimedia
 
@@ -21,6 +22,7 @@ QQC.Popup {
         property: "colorSet"
         value: popup.Kirigami.Theme.colorSet
     }
+
     background: Kirigami.ShadowedRectangle {
         Kirigami.Theme.colorSet: popup.Kirigami.Theme.colorSet
         color: Qt.alpha(Kirigami.Theme.backgroundColor, 0.6);
@@ -37,6 +39,51 @@ QQC.Popup {
             size: Kirigami.Units.gridUnit
             color: Qt.rgba(0, 0, 0, 0.25)
             yOffset: 2
+        }
+
+        Effects.MultiEffect {
+                id: blurEffect
+                visible: false
+                anchors.fill: parent
+
+                autoPaddingEnabled: false
+                blurEnabled: true
+                blur: 1
+                blurMax: 64
+
+                source: ShaderEffectSource {
+                    id: shaderSource
+                    anchors.fill: parent
+                    sourceRect: Qt.rect(popup.x, popup.y, popup.width, popup.height)
+                    sourceItem: QQC.ApplicationWindow.window.contentItem
+                }
+            }
+
+        Effects.MultiEffect {
+            id: backgroundEffect
+            anchors.fill: parent
+            visible: backgroundSource !== null
+            z: -1
+
+            source: blurEffect
+
+            saturation: 1
+            maskEnabled: true
+            maskSource: mask
+            Item {
+                id: mask
+                visible: false
+                layer.enabled: true
+                anchors.fill: parent
+                Rectangle {
+                    radius: Kirigami.Units.cornerRadius + popup.padding
+                    anchors.fill: parent
+                    x: popup.x
+                    y: popup.y
+                    width: popup.width
+                    height: popup.height
+                }
+            }
         }
     }
     enter: Transition {
