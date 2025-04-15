@@ -28,6 +28,13 @@ Kirigami.Page {
 
     Component.onCompleted: activeTimer.restart()
 
+    onVisibleChanged: {
+        // Pause when we open the about layer
+        if (!visible) {
+            player.pause()
+        }
+    }
+
     Kirigami.Action {
         id: togglePauseAction
         text: player.paused || player.stopped ? i18nc("@action:button", "Play") : i18nc("@action:button", "Pause")
