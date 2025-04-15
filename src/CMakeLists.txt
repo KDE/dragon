@@ -13,6 +13,7 @@ ecm_target_qml_sources(dragonmodule
         qml/ControlsBar.qml
         qml/IconToolButton.qml
         qml/Main.qml
+        qml/OverlayPopup.qml
         qml/PlayerPage.qml
         qml/VolumeButton.qml
         qml/WelcomeView.qml
