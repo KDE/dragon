@@ -382,6 +382,14 @@ Please consult your distribution on how to install all possible codecs.`)
             width: Math.min(implicitWidth,
                             parent.width - Kirigami.Units.gridUnit * 4)
             player: player
+            WheelHandler {
+                // Do not let the scroll direction be inverted by natural scrolling. It'd be weird to move down but the volume goes up.
+                invertible: false
+                rotationScale: 0.01
+                acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
+                onWheel: player.audioOutput.volume = rotation
+                rotation: audioOutput.volume
+            }
         }
 
     }
