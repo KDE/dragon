@@ -4,6 +4,7 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as QQC
+import QtQuick.Effects as Effects
 import org.kde.kirigami as Kirigami
 import QtMultimedia as Multimedia
 
@@ -21,6 +22,7 @@ QQC.Popup {
         property: "colorSet"
         value: popup.Kirigami.Theme.colorSet
     }
+
     background: Kirigami.ShadowedRectangle {
         Kirigami.Theme.colorSet: popup.Kirigami.Theme.colorSet
         color: Qt.alpha(Kirigami.Theme.backgroundColor, 0.6);
@@ -38,7 +40,49 @@ QQC.Popup {
             color: Qt.rgba(0, 0, 0, 0.25)
             yOffset: 2
         }
+
+        Effects.MultiEffect {
+            id: backgroundEffect
+            anchors.fill: parent
+            visible: backgroundSource !== null
+            z: -1
+
+            source: ShaderEffectSource {
+                z: -2
+                id: shaderSource
+                anchors.fill: parent
+                sourceRect: Qt.rect(popup.x + popup.parent?.Kirigami.ScenePosition.x ?? 0,
+                                    popup.y + popup.parent?.Kirigami.ScenePosition.y,
+                                    popup.width ?? 0,
+                                    popup.height)
+                sourceItem: QQC.ApplicationWindow.window.contentItem
+            }
+
+            autoPaddingEnabled: false
+            blurEnabled: true
+            blur: 1
+            blurMax: 64
+
+            saturation: 1
+            maskEnabled: true
+            maskSource: mask
+            Item {
+                id: mask
+                visible: false
+                layer.enabled: true
+                anchors.fill: parent
+                Rectangle {
+                    radius: Kirigami.Units.cornerRadius + popup.padding
+                    anchors.fill: parent
+                    x: popup.x + popup.parent?.Kirigami.ScenePosition.x ?? 0
+                    y: popup.y + popup.parent?.Kirigami.ScenePosition.y ?? 0
+                    width: popup.width
+                    height: popup.height
+                }
+            }
+        }
     }
+
     enter: Transition {
         NumberAnimation {
             property: "opacity"
