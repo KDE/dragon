@@ -366,9 +366,8 @@ Please consult your distribution on how to install all possible codecs.`)
 
             x: Math.round(parent.width / 2 - width / 2)
             y: parent.height - height - Kirigami.Units.gridUnit * 2
-            width: Math.min(
-                Kirigami.Units.gridUnit * 25,
-                parent.width - Kirigami.Units.gridUnit * 4)
+            width: Math.min(implicitWidth,
+                            parent.width - Kirigami.Units.gridUnit * 4)
             player: player
         }
 

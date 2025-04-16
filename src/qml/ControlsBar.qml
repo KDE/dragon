@@ -27,14 +27,18 @@ OverlayPopup {
 
             VolumeButton {
                 id: volumeButton
+                Layout.alignment: Qt.AlignTop
                 audioOutput: toolbar.player.audioOutput
             }
-            IconToolButton {
-                action: appWindow.openAction
+            Item {
+                // This is to keep the label centered
+               implicitWidth: volumeButton.implicitWidth
             }
 
             QQC2.Label {
                 elide: Text.ElideRight
+                wrapMode: Text.Wrap
+                maximumLineCount: 2
                 text: {
                     if (!playerPage.player.source) {
                         return ""
@@ -52,10 +56,12 @@ OverlayPopup {
             }
 
             IconToolButton {
+                Layout.alignment: Qt.AlignTop
                 action: fullscreenAction
             }
             IconToolButton {
                 id: menuButton
+                Layout.alignment: Qt.AlignTop
 
                 icon.name: "open-menu-symbolic"
 
@@ -82,6 +88,12 @@ OverlayPopup {
                     // Aligned with overlay panel border
                     x: Qt.application.layoutDirection === Qt.RightToLeft ? - toolbar.padding : -width + menuButton.width + toolbar.padding
                     y: -height - toolbar.padding - Kirigami.Units.smallSpacing
+
+                    Kirigami.Action {
+                        text: appWindow.openAction.text
+                        icon.name: appWindow.openAction.icon.name
+                        onTriggered: appWindow.openAction.trigger()
+                    }
 
                     Kirigami.Action {
                         text: i18nc("@action:button stop playback", "Stop")
@@ -179,6 +191,7 @@ OverlayPopup {
         QQC2.Slider {
             id: seekSlider
 
+            Layout.minimumWidth: Kirigami.Units.gridUnit * 20
             Layout.fillWidth: true
 
             property Timer seekTimer: Timer {
