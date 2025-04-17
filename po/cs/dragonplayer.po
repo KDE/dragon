@@ -54,7 +54,7 @@ msgstr ""
 #: src/qml/ControlsBar.qml:98
 msgctxt "@action:button"
 msgid "Application Menu"
-msgstr ""
+msgstr "Nabídka aplikací"
 
 #: src/qml/ControlsBar.qml:121
 #, fuzzy
@@ -67,12 +67,9 @@ msgstr "Stop"
 #: src/qml/ControlsBar.qml:129
 msgctxt "@action:button"
 msgid "Unmute"
-msgstr ""
+msgstr "Povolit zvuk"
 
 #: src/qml/ControlsBar.qml:129
-#, fuzzy
-#| msgctxt "@action Mute the sound output"
-#| msgid "Mute"
 msgctxt "@action:button"
 msgid "Mute"
 msgstr "Ztlumit"
@@ -114,7 +111,7 @@ msgstr "Video CD"
 #: src/qml/ControlsBar.qml:206
 msgctxt "@action opens about app page"
 msgid "About"
-msgstr ""
+msgstr "O aplikaci"
 
 #: src/qml/Main.qml:53
 msgctxt "@action:button open file dialog"
@@ -122,9 +119,6 @@ msgid "Open…"
 msgstr ""
 
 #: src/qml/PlayerPage.qml:31
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Play"
 msgctxt "@action:button"
 msgid "Play"
 msgstr "Přehrát"
