@@ -22,232 +22,31 @@ OverlayPopup {
     contentItem: ColumnLayout {
         spacing: Kirigami.Units.mediumSpacing
 
-        RowLayout {
-            Layout.fillWidth: true
-
-            VolumeButton {
-                id: volumeButton
-                Layout.alignment: Qt.AlignTop
-                audioOutput: toolbar.player.audioOutput
-            }
-            Item {
-                // This is to keep the label centered
-               implicitWidth: volumeButton.implicitWidth
-            }
-
-            QQC2.Label {
-                elide: Text.ElideRight
-                wrapMode: Text.Wrap
-                maximumLineCount: 2
-                text: {
-                    if (!playerPage.player.source) {
-                        return ""
-                    }
-
-                    const title = playerPage.player.metaData.value(0)
-                    if (title) {
-                        return title
-                    }
-
-                    return playerPage.player.source.toString().split('/').pop()
-                }
-                Layout.fillWidth: true
-                horizontalAlignment: Text.AlignHCenter
-            }
-
-            IconToolButton {
-                Layout.alignment: Qt.AlignTop
-                action: fullscreenAction
-            }
-            IconToolButton {
-                id: menuButton
-                Layout.alignment: Qt.AlignTop
-
-                icon.name: "open-menu-symbolic"
-
-                text: i18nc("@action:button", "Application Menu")
-                QQC2.ToolTip.text: text
-                QQC2.ToolTip.visible: hovered
-                                && text.length > 0
-                                && display === QQC2.AbstractButton.IconOnly
-                                && !pressed
-                                && !menu.visible
-
-                down: pressed || menu.visible
-                Accessible.role: Accessible.ButtonMenu
-
-                onPressed: {
-                    if (!menuButton.menu.visible) {
-                        menuButton.menu.open()
-                    } else {
-                        menuButton.menu.dismiss()
-                    }
-                }
-
-                readonly property T.Menu menu: QQC2.Menu {
-                    // Aligned with overlay panel border
-                    x: Qt.application.layoutDirection === Qt.RightToLeft ? - toolbar.padding : -width + menuButton.width + toolbar.padding
-                    y: -height - toolbar.padding - Kirigami.Units.smallSpacing
-
-                    Kirigami.Action {
-                        text: appWindow.openAction.text
-                        icon.name: appWindow.openAction.icon.name
-                        onTriggered: appWindow.openAction.trigger()
-                    }
-
-                    Kirigami.Action {
-                        text: i18nc("@action:button stop playback", "Stop")
-                        enabled: !player.stopped
-                        icon.name: "media-playback-stop"
-                        onTriggered: player.stop()
-                        shortcut: "S"
-                    }
-
-                    Kirigami.Action {
-                        text: player.audioOutput.muted ? i18nc("@action:button", "Unmute") : i18nc("@action:button", "Mute")
-                        icon.name: player.audioOutput.muted ? "player-volume" : "player-volume-muted"
-                        onTriggered: player.audioOutput.muted = !player.audioOutput.muted
-                        shortcut: "M"
-                    }
-
-                    QQC2.MenuSeparator {}
-
-                    QQC2.Menu {
-                        icon.name: "add-subtitle-symbolic"
-                        title: i18nc("@action:button video subtitle", "Subtitles")
-                        enabled: count > 0
-                        Repeater {
-                            id: subtitleRepeater
-                            readonly property int prependedItems: 1
-                            model: [{
-                                keys: () => [0],
-                                stringValue: () => i18nc("@action:button selector for no subtitle", "None")
-                            }].concat(player.subtitleTracks)
-                            delegate: QQC2.RadioDelegate {
-                                required property var modelData
-                                required property int index
-                                text: {
-                                    const hasTitle = modelData?.keys()?.includes(0)
-                                    const hasLanguage = modelData?.keys()?.includes(6)
-                                    if (hasTitle && hasLanguage) {
-                                        return i18nc("@action:button subtitle selector %1 is usually a language (e.g. chinese) and %2 is usually a subtitle (e.g. Traditional)",
-                                                    "%1 [%2]",
-                                                    modelData.stringValue(6),
-                                                    modelData.stringValue(0))
-                                    }
-                                    if (hasLanguage) {
-                                        return modelData.stringValue(6)
-                                    }
-                                    return modelData.stringValue(0)
-                                }
-                                checked: player.activeSubtitleTrack === index - subtitleRepeater.prependedItems
-                                onToggled: player.activeSubtitleTrack = index - subtitleRepeater.prependedItems
-                            }
-                        }
-                    }
-
-                    QQC2.Menu {
-                        icon.name: "text-speak-symbolic"
-                        title: i18nc("@action:button track selector", "Audio Track")
-                        enabled: count > 0
-                        Repeater {
-                            model: player.audioTracks
-                            delegate: QQC2.RadioDelegate {
-                                required property var modelData
-                                required property int index
-                                text: modelData.stringValue(6)
-                                checked: player.activeAudioTrack === index
-                                onToggled: player.activeAudioTrack = index
-                            }
-                        }
-                    }
-                    QQC2.Menu {
-                        icon.name: "kdenlive-add-clip-symbolic"
-                        title: i18nc("@action:button track selector", "Video Track")
-                        enabled: count > 0
-                        Repeater {
-                            model: player.videoTracks
-                            delegate: QQC2.RadioDelegate {
-                                required property var modelData
-                                required property int index
-                                text: modelData.stringValue(6)
-                                checked: player.activeVideoTrack === index
-                                onToggled: player.activeVideoTrack = index
-                            }
-                        }
-                    }
-
-                    QQC2.MenuSeparator {}
-
-                    Kirigami.Action {
-                        icon.name: "dragonplayer"
-                        text: i18nc("@action opens about app page", "About")
-                        onTriggered: pageStack.layers.push("AboutPage.qml")
-                    }
-                }
-            }
-        }
-
-        QQC2.Slider {
-            id: seekSlider
-
-            Layout.minimumWidth: Kirigami.Units.gridUnit * 20
-            Layout.fillWidth: true
-
-            property Timer seekTimer: Timer {
-                property int position: -1
-                interval: 50
-                onTriggered: toolbar.player.position = position
-            }
-
-            // Note that hovering is handled by the toolbar not the slider!
-            hoverEnabled: false
-            from: 0
-            to: toolbar.player.duration
-            onMoved: {
-                // Delay seeks ever so slightly to prevent vaapi from falling over because we allocate too many frames when
-                // the user seeks vigorously.
-                seekTimer.position = value
-                seekTimer.restart()
-            }
-            wheelEnabled: true
-            enabled: toolbar.player.playbackState !== Multimedia.MediaPlayer.StoppedState && toolbar.player.seekable
-
-            Behavior on opacity {
-                NumberAnimation { duration: Kirigami.Units.shortDuration }
-            }
-
-            Binding {
-                target: seekSlider
-                property: 'value'
-                value: toolbar.player.position
-                when: !seekSlider.pressed
-                delayed: true
-            }
-        }
-
+        // Buttons
         Item {
             Layout.fillWidth: true
-            Layout.minimumWidth: positionLabel.implicitWidth + playbackButtons.implicitWidth + durationLabel.implicitWidth
-            implicitHeight: playbackButtons.implicitHeight
+            Layout.preferredHeight: childrenRect.height
 
-            QQC2.Label {
-                id: positionLabel
+            // Left button container
+            RowLayout {
+                spacing: Kirigami.Units.smallSpacing
                 anchors {
+                    top: parent.top
                     left: parent.left
-                    verticalCenter: parent.verticalCenter
-                    // Same distance between the two borders
-                    leftMargin: toolbar.height - y - parent.y - height
                 }
-                text: KCoreAddons.Format.formatDuration(player.position)
+                VolumeButton {
+                    id: volumeButton
+                    audioOutput: toolbar.player.audioOutput
+                }
             }
 
-
+            // Center button container
             RowLayout {
-                id: playbackButtons
-                // This uses anchors instead of a single RowLayout because
-                // it needs to be perfectly centered regardless of the label duration size
-                anchors.centerIn: parent
+                anchors {
+                    top: parent.top
+                    horizontalCenter: parent.horizontalCenter
+                }
+
                 IconToolButton {
                     icon {
                         width: Kirigami.Units.iconSizes.small
@@ -269,12 +68,208 @@ OverlayPopup {
                 }
             }
 
+            // Right button container
+            RowLayout {
+                spacing: Kirigami.Units.smallSpacing
+                anchors {
+                    top: parent.top
+                    right: parent.right
+                }
+
+                IconToolButton {
+                    Layout.alignment: Qt.AlignTop | Qt.AlignRight
+                    action: fullscreenAction
+                }
+                IconToolButton {
+                    id: menuButton
+                    Layout.alignment: Qt.AlignTop | Qt.AlignRight
+
+                    icon.name: "open-menu-symbolic"
+
+                    text: i18nc("@action:button", "Application Menu")
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.visible: hovered
+                                    && text.length > 0
+                                    && display === QQC2.AbstractButton.IconOnly
+                                    && !pressed
+                                    && !menu.visible
+
+                    down: pressed || menu.visible
+                    Accessible.role: Accessible.ButtonMenu
+
+                    onPressed: {
+                        if (!menuButton.menu.visible) {
+                            menuButton.menu.open()
+                        } else {
+                            menuButton.menu.dismiss()
+                        }
+                    }
+
+                    readonly property T.Menu menu: QQC2.Menu {
+                        // Aligned with overlay panel border
+                        x: Qt.application.layoutDirection === Qt.RightToLeft ? - toolbar.padding : -width + menuButton.width + toolbar.padding
+                        y: -height - toolbar.padding - Kirigami.Units.smallSpacing
+
+                        Kirigami.Action {
+                            text: appWindow.openAction.text
+                            icon.name: appWindow.openAction.icon.name
+                            onTriggered: appWindow.openAction.trigger()
+                        }
+
+                        Kirigami.Action {
+                            text: i18nc("@action:button stop playback", "Stop")
+                            enabled: !player.stopped
+                            icon.name: "media-playback-stop"
+                            onTriggered: player.stop()
+                            shortcut: "S"
+                        }
+
+                        Kirigami.Action {
+                            text: player.audioOutput.muted ? i18nc("@action:button", "Unmute") : i18nc("@action:button", "Mute")
+                            icon.name: player.audioOutput.muted ? "player-volume" : "player-volume-muted"
+                            onTriggered: player.audioOutput.muted = !player.audioOutput.muted
+                            shortcut: "M"
+                        }
+
+                        QQC2.MenuSeparator {}
+
+                        QQC2.Menu {
+                            icon.name: "add-subtitle-symbolic"
+                            title: i18nc("@action:button video subtitle", "Subtitles")
+                            enabled: count > 0
+                            Repeater {
+                                id: subtitleRepeater
+                                readonly property int prependedItems: 1
+                                model: [{
+                                    keys: () => [0],
+                                    stringValue: () => i18nc("@action:button selector for no subtitle", "None")
+                                }].concat(player.subtitleTracks)
+                                delegate: QQC2.RadioDelegate {
+                                    required property var modelData
+                                    required property int index
+                                    text: {
+                                        const hasTitle = modelData?.keys()?.includes(0)
+                                        const hasLanguage = modelData?.keys()?.includes(6)
+                                        if (hasTitle && hasLanguage) {
+                                            return i18nc("@action:button subtitle selector %1 is usually a language (e.g. chinese) and %2 is usually a subtitle (e.g. Traditional)",
+                                                        "%1 [%2]",
+                                                        modelData.stringValue(6),
+                                                        modelData.stringValue(0))
+                                        }
+                                        if (hasLanguage) {
+                                            return modelData.stringValue(6)
+                                        }
+                                        return modelData.stringValue(0)
+                                    }
+                                    checked: player.activeSubtitleTrack === index - subtitleRepeater.prependedItems
+                                    onToggled: player.activeSubtitleTrack = index - subtitleRepeater.prependedItems
+                                }
+                            }
+                        }
+
+                        QQC2.Menu {
+                            icon.name: "text-speak-symbolic"
+                            title: i18nc("@action:button track selector", "Audio Track")
+                            enabled: count > 0
+                            Repeater {
+                                model: player.audioTracks
+                                delegate: QQC2.RadioDelegate {
+                                    required property var modelData
+                                    required property int index
+                                    text: modelData.stringValue(6)
+                                    checked: player.activeAudioTrack === index
+                                    onToggled: player.activeAudioTrack = index
+                                }
+                            }
+                        }
+                        QQC2.Menu {
+                            icon.name: "kdenlive-add-clip-symbolic"
+                            title: i18nc("@action:button track selector", "Video Track")
+                            enabled: count > 0
+                            Repeater {
+                                model: player.videoTracks
+                                delegate: QQC2.RadioDelegate {
+                                    required property var modelData
+                                    required property int index
+                                    text: modelData.stringValue(6)
+                                    checked: player.activeVideoTrack === index
+                                    onToggled: player.activeVideoTrack = index
+                                }
+                            }
+                        }
+
+                        QQC2.MenuSeparator {}
+
+                        Kirigami.Action {
+                            icon.name: "dragonplayer"
+                            text: i18nc("@action opens about app page", "About")
+                            onTriggered: pageStack.layers.push("AboutPage.qml")
+                        }
+                    }
+                }
+            }
+        }
+
+        // Position/duration controls and labels
+        Item {
+            Layout.fillWidth: true
+            Layout.preferredHeight: childrenRect.height
+
+            // Current position
             QQC2.Label {
-                id: durationLabel
+                anchors {
+                    left: parent.left
+                    verticalCenter: parent.verticalCenter
+                }
+                text: KCoreAddons.Format.formatDuration(player.position)
+            }
+
+            QQC2.Slider {
+                id: seekSlider
+
+                anchors {
+                    horizontalCenter: parent.horizontalCenter
+                    verticalCenter: parent.verticalCenter
+                }
+                width: toolbar.width * 0.6
+
+                property Timer seekTimer: Timer {
+                    property int position: -1
+                    interval: 50
+                    onTriggered: toolbar.player.position = position
+                }
+
+                // Note that hovering is handled by the toolbar not the slider!
+                hoverEnabled: false
+                from: 0
+                to: toolbar.player.duration
+                onMoved: {
+                    // Delay seeks ever so slightly to prevent vaapi from falling over because we allocate too many frames when
+                    // the user seeks vigorously.
+                    seekTimer.position = value
+                    seekTimer.restart()
+                }
+                wheelEnabled: true
+                enabled: toolbar.player.playbackState !== Multimedia.MediaPlayer.StoppedState && toolbar.player.seekable
+
+                Behavior on opacity {
+                    NumberAnimation { duration: Kirigami.Units.shortDuration }
+                }
+
+                Binding {
+                    target: seekSlider
+                    property: 'value'
+                    value: toolbar.player.position
+                    when: !seekSlider.pressed
+                    delayed: true
+                }
+            }
+
+            // Total duration
+            QQC2.Label {
                 anchors {
                     right: parent.right
                     verticalCenter: parent.verticalCenter
-                    rightMargin: toolbar.height - y - parent.y - height
                 }
                 text: KCoreAddons.Format.formatDuration(player.duration)
             }
