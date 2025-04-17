@@ -373,16 +373,17 @@ Please consult your distribution on how to install all possible codecs.`)
         ControlsBar {
             id: toolbar
 
+            readonly property int switchWidth: Kirigami.Units.gridUnit * 30
 
             x: Math.round(parent.width / 2 - width / 2)
             y: Math.round(parent.height - height)
-            width: Math.min(parent.width - margins * 2, Kirigami.Units.gridUnit * 32)
-
+            width: stackedMode ? parent.width - margins * 2 : Math.max(switchWidth - margins * 2, parent.width * 0.7)
             visible: videoContainer.visible
                     && (activeTimer.isActive
                         || anyMenusOpen
                         || toolbarHandler.hovered)
 
+            stackedMode: parent.width < switchWidth
             player: player
             WheelHandler {
                 // Do not let the scroll direction be inverted by natural scrolling. It'd be weird to move down but the volume goes up.

@@ -13,7 +13,7 @@ QQC.Popup {
 
     modal: false
     clip: false
-    padding: Kirigami.Units.largeSpacing
+    padding: Kirigami.Units.smallSpacing
     margins: Kirigami.Units.largeSpacing
     Kirigami.Theme.colorSet: Kirigami.Theme.Complementary
 
