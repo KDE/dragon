@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Application
 Comment=Play video files and streams
+Comment[ar]=شغّل ملفات الفيديو والبث المباشر
 Comment[ca]=Reprodueix fitxers i fluxos de vídeo
 Comment[ca@valencia]=Reproduïx fitxers i fluxos de vídeo
 Comment[fr]=Lire des fichiers et des flux vidéo
@@ -11,6 +12,7 @@ Comment[ka]=დაუკარით ვიდეოფაილები და
 Comment[ko]=동영상 파일과 스트림 재생
 Comment[nl]=Videobestanden en streams afspelen
 Comment[sl]=Predvajajte video datoteke in tokove
+Comment[sv]=Spela videofiler och strömmar
 Comment[tr]=Video dosyalarını ve akışlarını oynatın
 Comment[uk]=Відтворення відеофайлів та потоків відтворення
 Comment[x-test]=xxPlay video files and streamsxx
