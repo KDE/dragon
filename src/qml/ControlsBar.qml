@@ -24,6 +24,7 @@ OverlayPopup {
     contentItem: ColumnLayout {
         // Stacked UI
         ColumnLayout {
+            spacing: Kirigami.Units.mediumSpacing
             visible: toolbar.stackedMode
             Item {
                 Layout.fillWidth: true
@@ -55,9 +56,10 @@ OverlayPopup {
                 target: positionDurationUI
             }
         }
-        // Linerar UI
+        // Linear UI
         RowLayout {
             Layout.fillWidth: true
+            spacing: Kirigami.Units.smallSpacing
             visible: !toolbar.stackedMode
             LayoutItemProxy {
                 target: leftControls
