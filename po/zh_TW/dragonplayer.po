@@ -6,20 +6,20 @@
 # pan93412 <pan93412@gmail.com>, 2018, 2019, 2020.
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2008.
 # Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2008, 2009.
-# SPDX-FileCopyrightText: 2023, 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-14 00:40+0000\n"
-"PO-Revision-Date: 2024-06-04 06:08+0900\n"
+"PO-Revision-Date: 2025-04-19 15:25+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.04.70\n"
+"X-Generator: Lokalize 24.12.3\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -43,27 +43,22 @@ msgid "A video player that has a usability focus"
 msgstr "一個好用的影像播放器"
 
 #: src/main.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Copyright 2006, Max Howell\n"
-#| "Copyright 2007, Ian Monroe"
+#, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe\n"
 "Copyright 2022 Harald Sitter"
 msgstr ""
 "Copyright 2006, Max Howell\n"
-"Copyright 2007, Ian Monroe"
+"Copyright 2007, Ian Monroe\n"
+"Copyright 2022 Harald Sitter"
 
 #: src/qml/ControlsBar.qml:98
 msgctxt "@action:button"
 msgid "Application Menu"
-msgstr ""
+msgstr "應用程式選單"
 
 #: src/qml/ControlsBar.qml:121
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Stop"
 msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "停止"
@@ -71,72 +66,56 @@ msgstr "停止"
 #: src/qml/ControlsBar.qml:129
 msgctxt "@action:button"
 msgid "Unmute"
-msgstr ""
+msgstr "解除靜音"
 
 #: src/qml/ControlsBar.qml:129
-#, fuzzy
-#| msgctxt "@action Mute the sound output"
-#| msgid "Mute"
 msgctxt "@action:button"
 msgid "Mute"
 msgstr "靜音"
 
 #: src/qml/ControlsBar.qml:139
-#, fuzzy
-#| msgctxt "@title:menu"
-#| msgid "&Subtitles"
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
-msgstr "字幕(&S)"
+msgstr "字幕"
 
 #: src/qml/ControlsBar.qml:146
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
-msgstr ""
+msgstr "無"
 
 #: src/qml/ControlsBar.qml:156
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
-msgstr ""
+msgstr "%1 [%2]"
 
 #: src/qml/ControlsBar.qml:173
-#, fuzzy
-#| msgid "Audio CD"
 msgctxt "@action:button track selector"
 msgid "Audio Track"
-msgstr "音效光碟"
+msgstr "音效軌"
 
 #: src/qml/ControlsBar.qml:188
-#, fuzzy
-#| msgid "Video CD"
 msgctxt "@action:button track selector"
 msgid "Video Track"
-msgstr "VCD"
+msgstr "影片軌"
 
 #: src/qml/ControlsBar.qml:206
 msgctxt "@action opens about app page"
 msgid "About"
-msgstr ""
+msgstr "關於"
 
 #: src/qml/Main.qml:53
 msgctxt "@action:button open file dialog"
 msgid "Open…"
-msgstr ""
+msgstr "開啟…"
 
 #: src/qml/PlayerPage.qml:31
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Play"
 msgctxt "@action:button"
 msgid "Play"
 msgstr "播放"
 
 #: src/qml/PlayerPage.qml:31
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Pause"
 msgctxt "@action:button"
 msgid "Pause"
 msgstr "暫停"
@@ -144,12 +123,12 @@ msgstr "暫停"
 #: src/qml/PlayerPage.qml:39
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
-msgstr ""
+msgstr "離開全螢幕"
 
 #: src/qml/PlayerPage.qml:39
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
-msgstr ""
+msgstr "進入全螢幕"
 
 #: src/qml/PlayerPage.qml:71
 msgctxt "@info"
@@ -160,6 +139,10 @@ msgid ""
 "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
 "command></para>"
 msgstr ""
+"有影片編碼器尚未安裝。影片播放支援可能會比預期的還要不好。\n"
+"請安裝 ffmpeg-full：\n"
+"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
+"command></para>"
 
 #: src/qml/PlayerPage.qml:78
 msgctxt "@info"
@@ -168,40 +151,40 @@ msgid ""
 "reliable than expected.\n"
 "Please consult your distribution on how to install all possible codecs."
 msgstr ""
+"有影片編碼器尚未安裝。影片播放支援可能會比預期的還要不好。\n"
+"請查看您的發行版的說明以安裝所有可用的編碼器。"
 
 #: src/qml/PlayerPage.qml:85
 msgctxt "@action:button %1 is the name of a distribution"
 msgid "%1 Support"
-msgstr ""
+msgstr "%1 支援"
 
 #: src/qml/PlayerPage.qml:326
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
 msgid "%1 / %2"
-msgstr ""
+msgstr "%1 / %2"
 
 #: src/qml/VolumeButton.qml:31
 msgctxt "@action:button open volume slider popup"
 msgid "Show volume controls"
-msgstr ""
+msgstr "顯示音量控制"
 
 #: src/qml/WelcomeView.qml:16
-#, fuzzy
-#| msgid "Welcome to Dragon Player"
 msgctxt "@title"
 msgid "Welcome to Dragon Player"
-msgstr "歡迎來到神龍播放器"
+msgstr "歡迎使用神龍播放器"
 
 #: src/qml/WelcomeView.qml:17
 msgctxt "@info"
 msgid "Dragon Player is a simple video player. Open a video to get started:"
-msgstr ""
+msgstr "神龍播放器是一個簡潔的影片播放器。開啟影片來開始使用吧！"
 
 #: src/qml/WelcomeView.qml:20
 msgctxt "@action:button"
 msgid "Open Video File or Network Stream"
-msgstr ""
+msgstr "開啟影片檔或網路串流"
 
 #, fuzzy
 #~| msgctxt "@option:check Volume of sound output"
