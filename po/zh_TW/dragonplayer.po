@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-14 00:40+0000\n"
+"POT-Creation-Date: 2025-04-22 00:40+0000\n"
 "PO-Revision-Date: 2025-04-19 15:25+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -53,54 +53,54 @@ msgstr ""
 "Copyright 2007, Ian Monroe\n"
 "Copyright 2022 Harald Sitter"
 
-#: src/qml/ControlsBar.qml:98
+#: src/qml/ControlsBar.qml:129
 msgctxt "@action:button"
 msgid "Application Menu"
 msgstr "應用程式選單"
 
-#: src/qml/ControlsBar.qml:121
+#: src/qml/ControlsBar.qml:160
 msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "停止"
 
-#: src/qml/ControlsBar.qml:129
+#: src/qml/ControlsBar.qml:168
 msgctxt "@action:button"
 msgid "Unmute"
 msgstr "解除靜音"
 
-#: src/qml/ControlsBar.qml:129
+#: src/qml/ControlsBar.qml:168
 msgctxt "@action:button"
 msgid "Mute"
 msgstr "靜音"
 
-#: src/qml/ControlsBar.qml:139
+#: src/qml/ControlsBar.qml:178
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
 msgstr "字幕"
 
-#: src/qml/ControlsBar.qml:146
+#: src/qml/ControlsBar.qml:185
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
 msgstr "無"
 
-#: src/qml/ControlsBar.qml:156
+#: src/qml/ControlsBar.qml:195
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
 
-#: src/qml/ControlsBar.qml:173
+#: src/qml/ControlsBar.qml:212
 msgctxt "@action:button track selector"
 msgid "Audio Track"
 msgstr "音效軌"
 
-#: src/qml/ControlsBar.qml:188
+#: src/qml/ControlsBar.qml:227
 msgctxt "@action:button track selector"
 msgid "Video Track"
 msgstr "影片軌"
 
-#: src/qml/ControlsBar.qml:206
+#: src/qml/ControlsBar.qml:245
 msgctxt "@action opens about app page"
 msgid "About"
 msgstr "關於"
@@ -110,27 +110,27 @@ msgctxt "@action:button open file dialog"
 msgid "Open…"
 msgstr "開啟…"
 
-#: src/qml/PlayerPage.qml:31
+#: src/qml/PlayerPage.qml:38
 msgctxt "@action:button"
 msgid "Play"
 msgstr "播放"
 
-#: src/qml/PlayerPage.qml:31
+#: src/qml/PlayerPage.qml:38
 msgctxt "@action:button"
 msgid "Pause"
 msgstr "暫停"
 
-#: src/qml/PlayerPage.qml:39
+#: src/qml/PlayerPage.qml:46
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
 msgstr "離開全螢幕"
 
-#: src/qml/PlayerPage.qml:39
+#: src/qml/PlayerPage.qml:46
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
 msgstr "進入全螢幕"
 
-#: src/qml/PlayerPage.qml:71
+#: src/qml/PlayerPage.qml:79
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
@@ -144,7 +144,7 @@ msgstr ""
 "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
 "command></para>"
 
-#: src/qml/PlayerPage.qml:78
+#: src/qml/PlayerPage.qml:86
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
@@ -154,12 +154,12 @@ msgstr ""
 "有影片編碼器尚未安裝。影片播放支援可能會比預期的還要不好。\n"
 "請查看您的發行版的說明以安裝所有可用的編碼器。"
 
-#: src/qml/PlayerPage.qml:85
+#: src/qml/PlayerPage.qml:93
 msgctxt "@action:button %1 is the name of a distribution"
 msgid "%1 Support"
 msgstr "%1 支援"
 
-#: src/qml/PlayerPage.qml:326
+#: src/qml/PlayerPage.qml:329
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"

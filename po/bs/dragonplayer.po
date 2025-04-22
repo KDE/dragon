@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-14 00:40+0000\n"
+"POT-Creation-Date: 2025-04-22 00:40+0000\n"
 "PO-Revision-Date: 2013-11-03 08:38+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -53,24 +53,24 @@ msgstr ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe"
 
-#: src/qml/ControlsBar.qml:98
+#: src/qml/ControlsBar.qml:129
 msgctxt "@action:button"
 msgid "Application Menu"
 msgstr ""
 
-#: src/qml/ControlsBar.qml:121
+#: src/qml/ControlsBar.qml:160
 #, fuzzy
 #| msgid "Stop"
 msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "Zaustavi"
 
-#: src/qml/ControlsBar.qml:129
+#: src/qml/ControlsBar.qml:168
 msgctxt "@action:button"
 msgid "Unmute"
 msgstr ""
 
-#: src/qml/ControlsBar.qml:129
+#: src/qml/ControlsBar.qml:168
 #, fuzzy
 #| msgctxt "Mute the sound output"
 #| msgid "Mute"
@@ -78,40 +78,40 @@ msgctxt "@action:button"
 msgid "Mute"
 msgstr "Utišaj"
 
-#: src/qml/ControlsBar.qml:139
+#: src/qml/ControlsBar.qml:178
 #, fuzzy
 #| msgid "&Subtitles"
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
 msgstr "&Titlovi"
 
-#: src/qml/ControlsBar.qml:146
+#: src/qml/ControlsBar.qml:185
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
 msgstr ""
 
-#: src/qml/ControlsBar.qml:156
+#: src/qml/ControlsBar.qml:195
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
 msgstr ""
 
-#: src/qml/ControlsBar.qml:173
+#: src/qml/ControlsBar.qml:212
 #, fuzzy
 #| msgid "Audio CD"
 msgctxt "@action:button track selector"
 msgid "Audio Track"
 msgstr "Audio CD"
 
-#: src/qml/ControlsBar.qml:188
+#: src/qml/ControlsBar.qml:227
 #, fuzzy
 #| msgid "Video CD"
 msgctxt "@action:button track selector"
 msgid "Video Track"
 msgstr "Video CD"
 
-#: src/qml/ControlsBar.qml:206
+#: src/qml/ControlsBar.qml:245
 msgctxt "@action opens about app page"
 msgid "About"
 msgstr ""
@@ -121,31 +121,31 @@ msgctxt "@action:button open file dialog"
 msgid "Open…"
 msgstr ""
 
-#: src/qml/PlayerPage.qml:31
+#: src/qml/PlayerPage.qml:38
 #, fuzzy
 #| msgid "Play"
 msgctxt "@action:button"
 msgid "Play"
 msgstr "Pusti"
 
-#: src/qml/PlayerPage.qml:31
+#: src/qml/PlayerPage.qml:38
 #, fuzzy
 #| msgid "Pause"
 msgctxt "@action:button"
 msgid "Pause"
 msgstr "Pauza"
 
-#: src/qml/PlayerPage.qml:39
+#: src/qml/PlayerPage.qml:46
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
 msgstr ""
 
-#: src/qml/PlayerPage.qml:39
+#: src/qml/PlayerPage.qml:46
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
 msgstr ""
 
-#: src/qml/PlayerPage.qml:71
+#: src/qml/PlayerPage.qml:79
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
@@ -155,7 +155,7 @@ msgid ""
 "command></para>"
 msgstr ""
 
-#: src/qml/PlayerPage.qml:78
+#: src/qml/PlayerPage.qml:86
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
@@ -163,12 +163,12 @@ msgid ""
 "Please consult your distribution on how to install all possible codecs."
 msgstr ""
 
-#: src/qml/PlayerPage.qml:85
+#: src/qml/PlayerPage.qml:93
 msgctxt "@action:button %1 is the name of a distribution"
 msgid "%1 Support"
 msgstr ""
 
-#: src/qml/PlayerPage.qml:326
+#: src/qml/PlayerPage.qml:329
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
