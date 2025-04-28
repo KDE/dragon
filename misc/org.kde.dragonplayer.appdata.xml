@@ -61,6 +61,7 @@
   <summary xml:lang="ar">تشغّل ملفات الفيديو والبث المباشر</summary>
   <summary xml:lang="ca">Reprodueix fitxers i fluxos de vídeo</summary>
   <summary xml:lang="ca-valencia">Reproduïx fitxers i fluxos de vídeo</summary>
+  <summary xml:lang="es">Reproduzca archivos y transmisiones de vídeo</summary>
   <summary xml:lang="eu">Bideo fitxategiak eta korronteak jo</summary>
   <summary xml:lang="fr">Lire des fichiers et des flux vidéo</summary>
   <summary xml:lang="he">נגינת קובצי וידאו ושידורי אינטרנט</summary>
@@ -83,6 +84,7 @@
     <p xml:lang="ar">مشغل التنين هو مشغل فيديو يركز على البساطة بدلاً من الميزات. فقد صُممت واجهته سهلة الاستخدام لتبتعد عن طريقك وتشغّل ملفات الفيديو والبث ببساطة.</p>
     <p xml:lang="ca">El Dragon Player és un reproductor de vídeo que se centra en la simplicitat en lloc de les característiques. La seva interfície fàcil d'utilitzar està dissenyada perquè no s'interposi en el vostre camí i que simplement pugueu reproduir els fitxers i fluxos de vídeo.</p>
     <p xml:lang="ca-valencia">Dragon Player és un reproductor de vídeo que se centra en la simplicitat en lloc de les característiques. La seua interfície fàcil d'utilitzar està dissenyada perquè no s'interpose en el vostre camí i que senzillament pugueu reproduir els fitxers i fluxos de vídeo.</p>
+    <p xml:lang="es">Dragon Player es un reproductor de vídeo centrado en la simplicidad. Su interfaz fácil de usar se diseñó para apartarse de su camino y simplemente reproducir sus archivos y transmisiones de vídeo.</p>
     <p xml:lang="eu">Dragon Player bideo jotzaile bat da, ezaugarrietan baino sinpletasunean arreta jartzen duena. Bere interfaze erabilerraza zuri trabarik ez egiteko, eta besterik gabe zure fitxategiak eta korronteak jotzeko diseinatuta dago.</p>
     <p xml:lang="fr">Dragon Player est un lecteur vidéo conçu pour la facilité d'utilisation, plutôt que d'offrir de nombreuses fonctionnalités. Son interface simple est conçue pour ne pas vous embarrasser mais plutôt vous donner la capacité de lire le plus simplement possible des fichiers et des flux vidéo.</p>
     <p xml:lang="he">נגן Dragon הוא נגן וידאו שהמיקוד בו הוא פשטות, במקום עוד יכולות. הממשק הפשוט שלו תוכנן לא להיתקע לך מול הפרצוף ובמקום פשוט לנגן את קובצי הווידאו והתשדירים והתזרימים המקוונים שלך.</p>
@@ -155,6 +157,7 @@
       <li xml:lang="ar">النقر للتشغيل أو الإيقاف المؤقت، وانقر نقرًا مزدوجًا للدخول إلى وضع ملء الشاشة أو الخروج منه.</li>
       <li xml:lang="ca">Feu clic per a reproduir o fer una pausa i feu doble clic per a entrar o sortir del mode de pantalla completa.</li>
       <li xml:lang="ca-valencia">Feu clic per a reproduir o fer una pausa i feu doble clic per a entrar o eixir del mode de pantalla completa.</li>
+      <li xml:lang="es">Pulse para reproducir o parar, y haga doble click para entrar o salir del modo pantalla completa.</li>
       <li xml:lang="eu">Egin klik jotzeko edo etenaldirako, eta egin klik bikoitza pantaila-osoko moduan sartzeko edo irteteko.</li>
       <li xml:lang="fr">Veuillez effectuer un clic pour lire ou mettre en pause, puis un double clic pour basculer ou sortie du mode « Plein écran ».</li>
       <li xml:lang="he">נא ללחוץ כדי לנגן או להשהות, לחיצה כפולה כדי להגדיל למסך מלא או להקטין חזרה.</li>
@@ -174,6 +177,7 @@
       <li xml:lang="ar">تختار لغة الترجمة، وتحمل تلقائياً اللغة المناسبة للغتك، إن أمكن.</li>
       <li xml:lang="ca">Trieu l'idioma dels subtítols i carregueu automàticament els adequats de l'idioma que vulgueu, si és possible.</li>
       <li xml:lang="ca-valencia">Seleccioneu l'idioma dels subtítols i carregueu automàticament els adequats de l'idioma que vulgueu, si és possible.</li>
+      <li xml:lang="es">Elija el lenguaje de los subtítulos y automáticamente cargará el correcto para su idioma, si está disponible.</li>
       <li xml:lang="eu">Aukeratu azpidatzien hizkuntza, eta zure hizkuntzarako egokia dena automatikoki zamatu, ahal bada.</li>
       <li xml:lang="fr">Veuillez sélectionner la langue de sous-titres et charger automatiquement celle convenant à votre langue, si possible.</li>
       <li xml:lang="he">נא לבחור את שפת הכתוביות ולטעון את המתאימות לשפה שלך אם ישנן.</li>
@@ -193,6 +197,7 @@
       <li xml:lang="ar">اختيار مقطوعة الصوت.</li>
       <li xml:lang="ca">Trieu la pista d'àudio.</li>
       <li xml:lang="ca-valencia">Seleccioneu la pista d'àudio.</li>
+      <li xml:lang="es">Elija la pista de audio.</li>
       <li xml:lang="eu">Aukeratu audio-pista.</li>
       <li xml:lang="fr">Veuillez sélectionner la piste audio.</li>
       <li xml:lang="he">בחירת רצועת השמע.</li>
@@ -212,6 +217,7 @@
       <li xml:lang="ar">اختيار مسار الفيديو</li>
       <li xml:lang="ca">Trieu la pista de vídeo.</li>
       <li xml:lang="ca-valencia">Seleccioneu la pista de vídeo.</li>
+      <li xml:lang="es">Elija la pista de vídeo.</li>
       <li xml:lang="eu">Aukeratu bideo-pista.</li>
       <li xml:lang="fr">Veuillez sélectionner la piste vidéo.</li>
       <li xml:lang="he">בחירת רצועת הווידאו.</li>
@@ -231,6 +237,7 @@
       <li xml:lang="ar">ضبط الصوت بالتمرير.</li>
       <li xml:lang="ca">Ajusteu el volum amb el desplaçament.</li>
       <li xml:lang="ca-valencia">Ajusteu el volum amb el desplaçament.</li>
+      <li xml:lang="es">Ajuste el volumen por desplazamiento.</li>
       <li xml:lang="eu">Kiribilduz bolumena doitu.</li>
       <li xml:lang="fr">Ajustez le volume par un simple défilement.</li>
       <li xml:lang="he">כוונון עוצמת השמע בגלילה.</li>
