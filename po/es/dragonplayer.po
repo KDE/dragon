@@ -1,31 +1,28 @@
-# Translation of dragonplayer.po to Spanish
-# translation of dragonplayer.po to Spanish
-# Translation of dragonplayer to Spanish
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# Spanish translations for dragonplayer.po package.
+# Copyright (C) 2007-2025 This_file_is_part_of_KDE
+# This file is distributed under the same license as the dragon package.
 #
-# Santiago Fernández Sancho <santi@kde-es.org>, 2007.
-# Alberto Garcia <info@trebol-a.com>, 2007.
-# Jaime Robles <jaime@kde.org>, 2008.
-# Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2008, 2009, 2011.
-# Enrique Matias Sanchez (Quique) <cronopios@gmail.com>, 2008, 2009.
-# Rocio Gallego <traducciones @rociogallego.com>, 2012.
-# Ayoze Hernández Díaz <ayoze12@gmail.com>, 2013.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2013, 2015.
-# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2018, 2019, 2020, 2022, 2023.
+# SPDX-FileCopyrightText: 2007 Santiago Fernández Sancho <santi@kde-es.org>
+# SPDX-FileCopyrightText: 2007 Alberto Garcia <info@trebol-a.com>
+# SPDX-FileCopyrightText: 2008 Jaime Robles <jaime@kde.org>
+# SPDX-FileCopyrightText: 2008, 2009, 2011 Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>
+# SPDX-FileCopyrightText: 2012 Rocio Gallego <traducciones@rociogallego.com>
+# SPDX-FileCopyrightText: 2013 Ayoze Hernández Díaz <ayoze12@gmail.com>
+# SPDX-FileCopyrightText: 2013, 2015 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2018, 2019, 2020, 2022, 2023, 2025 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-22 00:40+0000\n"
-"PO-Revision-Date: 2023-09-02 17:25+0200\n"
+"PO-Revision-Date: 2025-04-27 04:52+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -52,27 +49,22 @@ msgid "A video player that has a usability focus"
 msgstr "Un reproductor de vídeo enfocado a la usabilidad"
 
 #: src/main.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Copyright 2006, Max Howell\n"
-#| "Copyright 2007, Ian Monroe"
+#, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe\n"
 "Copyright 2022 Harald Sitter"
 msgstr ""
 "Copyright 2006, Max Howell\n"
-"Copyright 2007, Ian Monroe"
+"Copyright 2007, Ian Monroe\n"
+"Copyright 2022 Harald Sitter"
 
 #: src/qml/ControlsBar.qml:129
 msgctxt "@action:button"
 msgid "Application Menu"
-msgstr ""
+msgstr "Menú de la aplicación"
 
 #: src/qml/ControlsBar.qml:160
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Stop"
 msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "Detener"
@@ -80,85 +72,69 @@ msgstr "Detener"
 #: src/qml/ControlsBar.qml:168
 msgctxt "@action:button"
 msgid "Unmute"
-msgstr ""
+msgstr "Recuperar sonido"
 
 #: src/qml/ControlsBar.qml:168
-#, fuzzy
-#| msgctxt "@action Mute the sound output"
-#| msgid "Mute"
 msgctxt "@action:button"
 msgid "Mute"
 msgstr "Silenciar"
 
 #: src/qml/ControlsBar.qml:178
-#, fuzzy
-#| msgctxt "@title:menu"
-#| msgid "&Subtitles"
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
-msgstr "&Subtítulos"
+msgstr "Subtítulos"
 
 #: src/qml/ControlsBar.qml:185
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
-msgstr ""
+msgstr "Ninguno"
 
 #: src/qml/ControlsBar.qml:195
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
-msgstr ""
+msgstr "%1 [%2]"
 
 #: src/qml/ControlsBar.qml:212
-#, fuzzy
-#| msgid "Audio CD"
 msgctxt "@action:button track selector"
 msgid "Audio Track"
-msgstr "CD de audio"
+msgstr "Pista de audio"
 
 #: src/qml/ControlsBar.qml:227
-#, fuzzy
-#| msgid "Video CD"
 msgctxt "@action:button track selector"
 msgid "Video Track"
-msgstr "CD de vídeo"
+msgstr "Pista de vídeo"
 
 #: src/qml/ControlsBar.qml:245
 msgctxt "@action opens about app page"
 msgid "About"
-msgstr ""
+msgstr "Sobre"
 
 #: src/qml/Main.qml:53
 msgctxt "@action:button open file dialog"
 msgid "Open…"
-msgstr ""
+msgstr "Abrir…"
 
 #: src/qml/PlayerPage.qml:38
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Play"
 msgctxt "@action:button"
 msgid "Play"
 msgstr "Reproducir"
 
 #: src/qml/PlayerPage.qml:38
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Pause"
 msgctxt "@action:button"
 msgid "Pause"
-msgstr "Pausa"
+msgstr "Pausar"
 
 #: src/qml/PlayerPage.qml:46
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
-msgstr ""
+msgstr "Salir de pantalla completa"
 
 #: src/qml/PlayerPage.qml:46
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
-msgstr ""
+msgstr "Entra en pantalla completa"
 
 #: src/qml/PlayerPage.qml:79
 msgctxt "@info"
@@ -169,6 +145,11 @@ msgid ""
 "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
 "command></para>"
 msgstr ""
+"No todos los codecs de vídeo están instalados. La reproducción de vídeo "
+"puede ser más inestable de lo esperado.\n"
+"Instale ffmpeg-full, ejecutando:\n"
+"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
+"command></para>"
 
 #: src/qml/PlayerPage.qml:86
 msgctxt "@info"
@@ -177,27 +158,28 @@ msgid ""
 "reliable than expected.\n"
 "Please consult your distribution on how to install all possible codecs."
 msgstr ""
+"No todos los codecs de vídeo están instalados. La reproducción de vídeo "
+"puede ser más inestable de lo esperado.\n"
+"Consulte su distribución para saber como instalar todos los posibles codecs."
 
 #: src/qml/PlayerPage.qml:93
 msgctxt "@action:button %1 is the name of a distribution"
 msgid "%1 Support"
-msgstr ""
+msgstr "%1 soportada"
 
 #: src/qml/PlayerPage.qml:329
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
 msgid "%1 / %2"
-msgstr ""
+msgstr "%1 / %2"
 
 #: src/qml/VolumeButton.qml:31
 msgctxt "@action:button open volume slider popup"
 msgid "Show volume controls"
-msgstr ""
+msgstr "Mostrar controles de volumen"
 
 #: src/qml/WelcomeView.qml:16
-#, fuzzy
-#| msgid "Welcome to Dragon Player"
 msgctxt "@title"
 msgid "Welcome to Dragon Player"
 msgstr "Bienvenido a Dragon Player"
@@ -206,276 +188,9 @@ msgstr "Bienvenido a Dragon Player"
 msgctxt "@info"
 msgid "Dragon Player is a simple video player. Open a video to get started:"
 msgstr ""
+"Dragon Player es un reproductor de vídeo simple. Abra un vídeo para empezar:"
 
 #: src/qml/WelcomeView.qml:20
 msgctxt "@action:button"
 msgid "Open Video File or Network Stream"
-msgstr ""
-
-#, fuzzy
-#~| msgctxt "@option:check Volume of sound output"
-#~| msgid "Volume"
-#~ msgctxt "@action:button open volume slider popup"
-#~ msgid "Volume"
-#~ msgstr "Volumen"
-
-#~ msgctxt "@title:menu"
-#~ msgid "&Play"
-#~ msgstr "Re&producir"
-
-#~ msgctxt "@title:menu"
-#~ msgid "Play Media"
-#~ msgstr "Reproducir medio"
-
-#~ msgctxt "@title:menu"
-#~ msgid "&Settings"
-#~ msgstr "Preferencia&s"
-
-#~ msgid "Main Toolbar"
-#~ msgstr "Barra de herramientas principal"
-
-#~ msgctxt "@action:button"
-#~ msgid "Preferred Scale"
-#~ msgstr "Escala preferida"
-
-#~ msgctxt "@action:button"
-#~ msgid "Scale 100%"
-#~ msgstr "Escala a 100 %"
-
-#~ msgid "<b>Adjust video scale?</b>"
-#~ msgstr "<b>¿Desea ajustar la escala de vídeo?</b>"
-
-#~ msgctxt ""
-#~ "%1 is the disc type, %2 is the name of the disc that the user can choose. "
-#~ "Ex. 'DVD: OfficeSpace'"
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"
-
-#~ msgctxt "Digital Versatile Disc, but keep it short"
-#~ msgid "DVD"
-#~ msgstr "DVD"
-
-#~ msgid "Data CD"
-#~ msgstr "CD de datos"
-
-#~ msgctxt "@title:window"
-#~ msgid "Select a Disc"
-#~ msgstr "Seleccione un disco"
-
-#~ msgid "Select a disc to play."
-#~ msgstr "Seleccione un disco para reproducirlo."
-
-#~ msgid "Improvements and polish"
-#~ msgstr "Mejoras y pulido"
-
-#~ msgid "Creator of Phonon"
-#~ msgstr "Creador de Phonon"
-
-#~ msgid "Dragon Player icon"
-#~ msgstr "Icono de Dragon Player"
-
-#~ msgid "Handbook"
-#~ msgstr "Manual"
-
-#~ msgid "Great reference code"
-#~ msgstr "Magnífico código de referencia"
-
-#~ msgid "Yatta happened to be the only video on my laptop to test with. :)"
-#~ msgstr ""
-#~ "Yatta era el único vídeo que había en mi portátil para hacer pruebas. :)"
-
-#~ msgid "MPRIS v2 support"
-#~ msgstr "Admite MPRIS v2"
-
-#~ msgid "Port to KF5/Plasma 5"
-#~ msgstr "Adaptación a KF5/Plasma 5"
-
-#~ msgid "Play DVD Video"
-#~ msgstr "Reproducir DVD de vídeo"
-
-#~ msgid "Play 'URL'"
-#~ msgstr "Reproducir «URL»"
-
-#~ msgctxt "@title:menu"
-#~ msgid "Aspect &Ratio"
-#~ msgstr "&Relación de aspecto"
-
-#~ msgctxt "@title:menu"
-#~ msgid "&Audio Channels"
-#~ msgstr "Canales de &audio"
-
-#~ msgctxt "@option:radio aspect ratio"
-#~ msgid "Determine &Automatically"
-#~ msgstr "Determinar &automáticamente"
-
-#~ msgctxt "@option:radio aspect ratio"
-#~ msgid "&4:3"
-#~ msgstr "&4:3"
-
-#~ msgctxt "@option:radio aspect ratio"
-#~ msgid "Ana&morphic (16:9)"
-#~ msgstr "Ana&mórfico (16:9)"
-
-#~ msgctxt "@option:radio aspect ratio"
-#~ msgid "&Window Size"
-#~ msgstr "Tamaño de la &ventana"
-
-#~ msgid ""
-#~ "<qt>Phonon could not be successfully initialized. Dragon Player will now "
-#~ "exit.</qt>"
-#~ msgstr ""
-#~ "<qt>No fue posible inicializar Phonon con éxito. Dragon Player se cerrará "
-#~ "ahora.</qt>"
-
-#~ msgctxt "@action"
-#~ msgid "Play File…"
-#~ msgstr "Reproducir archivo..."
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Open a media file for playback"
-#~ msgstr "Abrir un archivo de medios para reproducirlo"
-
-#~ msgctxt "@action"
-#~ msgid "Play Stream…"
-#~ msgstr "Reproducir flujo de datos..."
-
-#~ msgctxt "@action"
-#~ msgid "Play Disc"
-#~ msgstr "Reproducir disco"
-
-#~ msgctxt "@action"
-#~ msgid "Increase Volume"
-#~ msgstr "Aumentar volumen"
-
-#~ msgctxt "@action"
-#~ msgid "Decrease Volume"
-#~ msgstr "Disminuir volumen"
-
-#~ msgctxt "@action"
-#~ msgid "Reset Video Scale"
-#~ msgstr "Reiniciar la escala de vídeo"
-
-#~ msgctxt "@action"
-#~ msgid "Menu Toggle"
-#~ msgstr "Alternar el menú"
-
-#~ msgid "Position Slider"
-#~ msgstr "Deslizador de posición"
-
-#~ msgctxt "@option:check"
-#~ msgid "Video Settings"
-#~ msgstr "Preferencias de vídeo"
-
-#~ msgctxt ""
-#~ "@option:check Whether only one instance of dragon can be started and will "
-#~ "be reused when the user tries to play another file."
-#~ msgid "One Instance Only"
-#~ msgstr "Solo una instancia"
-
-#~ msgctxt "@action previous chapter"
-#~ msgid "Previous"
-#~ msgstr "Anterior"
-
-#~ msgctxt "@action next chapter"
-#~ msgid "Next"
-#~ msgstr "Siguiente"
-
-#~ msgctxt "@action"
-#~ msgid "Return 10% Back"
-#~ msgstr "Retroceder 10 %"
-
-#~ msgctxt "@action"
-#~ msgid "Go 10% Forward"
-#~ msgstr "Avanzar 10 %"
-
-#~ msgctxt "@action"
-#~ msgid "Return 10 Seconds Back"
-#~ msgstr "Retroceder 10 segundos"
-
-#~ msgctxt "@action"
-#~ msgid "Go 10 Seconds Forward"
-#~ msgstr "Avanzar 10 segundos"
-
-#~ msgctxt "@option:check Mute the sound output"
-#~ msgid "Mute"
-#~ msgstr "Silenciar"
-
-#~ msgid "Dragon Player was asked to open an empty URL; it cannot."
-#~ msgstr ""
-#~ "Se pidió a Dragon Player que abriera un URL vacío; no puede hacerlo."
-
-#~ msgctxt "@title:window"
-#~ msgid "Select File to Play"
-#~ msgstr "Seleccione un archivo para reproducirlo"
-
-#~ msgctxt "@title:window"
-#~ msgid "Stream to Play"
-#~ msgstr "Seleccione el flujo de datos a reproducir"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Stream:"
-#~ msgstr "Flujo de datos:"
-
-#~ msgid "Sorry, no media was found in the drop"
-#~ msgstr "No se encontró ningún medio en el elemento soltado"
-
-#~ msgctxt "Notification inhibition reason"
-#~ msgid "Playing a video"
-#~ msgstr "Reproduciendo un vídeo"
-
-#~ msgid "No media loaded"
-#~ msgstr "No hay medios cargados"
-
-#~ msgid "Paused"
-#~ msgstr "En pausa"
-
-#~ msgid "The file is not a playlist"
-#~ msgstr "El archivo no es una lista de reproducción"
-
-#~ msgid "Dragon Player could not download the remote playlist: %1"
-#~ msgstr "Dragon Player no pudo descargar la lista de reproducción remota: %1"
-
-#~ msgid ""
-#~ "<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is "
-#~ "empty?</qt>"
-#~ msgstr ""
-#~ "<qt>La lista de reproducción, <i>«%1»</i>, no se pudo interpretar. ¿Tal "
-#~ "vez esté vacía?</qt>"
-
-#~ msgid "Dragon Player could not open the file: %1"
-#~ msgstr "Dragon Player no pudo abrir el archivo: %1"
-
-#~ msgid "Track %1/%2"
-#~ msgstr "Pista %1/%2"
-
-#~ msgctxt "@label:slider"
-#~ msgid "Brightness:"
-#~ msgstr "Brillo:"
-
-#~ msgctxt "@label:slider"
-#~ msgid "Contrast:"
-#~ msgstr "Contraste:"
-
-#~ msgctxt "@label:slider"
-#~ msgid "Hue:"
-#~ msgstr "Tono:"
-
-#~ msgctxt "@label:slider"
-#~ msgid "Saturation:"
-#~ msgstr "Saturación:"
-
-#~ msgctxt "@action:button"
-#~ msgid "Restore Defaults"
-#~ msgstr "Restablecer valores predeterminados"
-
-#~ msgctxt "@action:button"
-#~ msgid "Close"
-#~ msgstr "Cerrar"
-
-#~ msgctxt "@option:radio"
-#~ msgid "&DVD Subtitle Selection"
-#~ msgstr "Selección de subtítulos del &DVD"
-
-#~ msgctxt "@option:radio audio language"
-#~ msgid "&Auto"
-#~ msgstr "&Automático"
+msgstr "Abrir archivo o transmisión de vídeo"
