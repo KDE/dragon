@@ -7,20 +7,20 @@
 # Viesturs Zariņš <viesturs.zarins@algorego.com>, 2008.
 # Viesturs Zariņš <viesturs.zarins@mii.lu.lv>, 2009.
 # Rūdofls Mazurs <rudolfs.mazurs@gmail.com>, 2012.
-# SPDX-FileCopyrightText: 2024 Toms Trasuns <toms.trasuns@posteo.net>
+# SPDX-FileCopyrightText: 2024, 2025 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-30 00:41+0000\n"
-"PO-Revision-Date: 2024-02-26 20:11+0200\n"
+"PO-Revision-Date: 2025-05-04 17:51+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.0\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
@@ -45,27 +45,22 @@ msgid "A video player that has a usability focus"
 msgstr "Video atskaņotājs ar uzsvaru uz vienkāršību"
 
 #: src/main.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Copyright 2006, Max Howell\n"
-#| "Copyright 2007, Ian Monroe"
+#, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe\n"
 "Copyright 2022 Harald Sitter"
 msgstr ""
 "Autortiesības 2006, Max Howell\n"
-"Autortiesības 2007, Ian Monroe"
+"Autortiesības 2007, Ian Monroe\n"
+"Autortiesības 2022 Harald Sitter"
 
 #: src/qml/ControlsBar.qml:129
 msgctxt "@action:button"
 msgid "Application Menu"
-msgstr ""
+msgstr "Programmu izvēlne"
 
 #: src/qml/ControlsBar.qml:160
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Stop"
 msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "Apturēt"
@@ -73,72 +68,56 @@ msgstr "Apturēt"
 #: src/qml/ControlsBar.qml:168
 msgctxt "@action:button"
 msgid "Unmute"
-msgstr ""
+msgstr "Noņemt klusumu"
 
 #: src/qml/ControlsBar.qml:168
-#, fuzzy
-#| msgctxt "@action Mute the sound output"
-#| msgid "Mute"
 msgctxt "@action:button"
 msgid "Mute"
 msgstr "Apklusināt"
 
 #: src/qml/ControlsBar.qml:178
-#, fuzzy
-#| msgctxt "@title:menu"
-#| msgid "&Subtitles"
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
-msgstr "&Subtitri"
+msgstr "Subtitri"
 
 #: src/qml/ControlsBar.qml:185
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
-msgstr ""
+msgstr "Nav"
 
 #: src/qml/ControlsBar.qml:195
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
-msgstr ""
+msgstr "%1 [%2]"
 
 #: src/qml/ControlsBar.qml:212
-#, fuzzy
-#| msgid "Audio CD"
 msgctxt "@action:button track selector"
 msgid "Audio Track"
-msgstr "Audio CD"
+msgstr "Audio celiņš"
 
 #: src/qml/ControlsBar.qml:227
-#, fuzzy
-#| msgid "Video CD"
 msgctxt "@action:button track selector"
 msgid "Video Track"
-msgstr "Video CD"
+msgstr "Video celiņš"
 
 #: src/qml/ControlsBar.qml:245
 msgctxt "@action opens about app page"
 msgid "About"
-msgstr ""
+msgstr "Par"
 
 #: src/qml/Main.qml:53
 msgctxt "@action:button open file dialog"
 msgid "Open…"
-msgstr ""
+msgstr "Atvērt…"
 
 #: src/qml/PlayerPage.qml:38
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Play"
 msgctxt "@action:button"
 msgid "Play"
 msgstr "Atskaņot"
 
 #: src/qml/PlayerPage.qml:38
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Pause"
 msgctxt "@action:button"
 msgid "Pause"
 msgstr "Pauzēt"
@@ -146,12 +125,12 @@ msgstr "Pauzēt"
 #: src/qml/PlayerPage.qml:46
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
-msgstr ""
+msgstr "Iziet no pilnekrāna"
 
 #: src/qml/PlayerPage.qml:46
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
-msgstr ""
+msgstr "Ieslēgt pilnekrānu"
 
 #: src/qml/PlayerPage.qml:79
 msgctxt "@info"
@@ -162,6 +141,11 @@ msgid ""
 "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
 "command></para>"
 msgstr ""
+"Nav instalēti visi video kodeki, tāpēc video atskaņošana var kādreiz "
+"nedarboties.\n"
+"Instalējiet „ffmpeg-full“ palaižot:\n"
+"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
+"command></para>"
 
 #: src/qml/PlayerPage.qml:86
 msgctxt "@info"
@@ -170,40 +154,43 @@ msgid ""
 "reliable than expected.\n"
 "Please consult your distribution on how to install all possible codecs."
 msgstr ""
+"Nav instalēti visi video kodeki, tāpēc video atskaņošana var kādreiz "
+"nedarboties.\n"
+"Lai uzzinātu, kā instalēt visus iespējamos kodekus, vaicājiet savas "
+"distribūcijas autoriem."
 
 #: src/qml/PlayerPage.qml:94
 msgctxt "@action:button %1 is the name of a distribution"
 msgid "%1 Support"
-msgstr ""
+msgstr "„%1“ atbalsts"
 
 #: src/qml/PlayerPage.qml:330
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
 msgid "%1 / %2"
-msgstr ""
+msgstr "%1 / %2"
 
 #: src/qml/VolumeButton.qml:31
 msgctxt "@action:button open volume slider popup"
 msgid "Show volume controls"
-msgstr ""
+msgstr "Rādīt skaļuma vadīklas"
 
 #: src/qml/WelcomeView.qml:16
-#, fuzzy
-#| msgid "Welcome to Dragon Player"
 msgctxt "@title"
 msgid "Welcome to Dragon Player"
-msgstr "Laipni lūgti programmā „Dragon Player“"
+msgstr "Paldies, ka izmantojat „Dragon Player“"
 
 #: src/qml/WelcomeView.qml:17
 msgctxt "@info"
 msgid "Dragon Player is a simple video player. Open a video to get started:"
 msgstr ""
+"„Dragon Player“ ir vienkāršs video atskaņotājs. Lai sāktu, atveriet video:"
 
 #: src/qml/WelcomeView.qml:20
 msgctxt "@action:button"
 msgid "Open Video File or Network Stream"
-msgstr ""
+msgstr "Atvērt video datni vai tīkla straumi"
 
 #, fuzzy
 #~| msgctxt "@option:check Volume of sound output"
