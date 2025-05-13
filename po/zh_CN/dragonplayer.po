@@ -164,7 +164,7 @@ msgstr "%1 / %2"
 #: src/qml/VolumeButton.qml:31
 msgctxt "@action:button open volume slider popup"
 msgid "Show volume controls"
-msgstr ""
+msgstr "显示音量控制"
 
 #: src/qml/WelcomeView.qml:16
 msgctxt "@title"

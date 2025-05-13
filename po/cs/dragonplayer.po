@@ -39,17 +39,12 @@ msgid "A video player that has a usability focus"
 msgstr "Přehrávač videa se zaměřením na jednoduchost použití"
 
 #: src/main.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Copyright 2006, Max Howell\n"
-#| "Copyright 2007, Ian Monroe"
+#, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe\n"
 "Copyright 2022 Harald Sitter"
 msgstr ""
-"Autorská práva 2006, Max Howell\n"
-"Autorská práva 2007, Ian Monroe"
 
 #: src/qml/ControlsBar.qml:129
 msgctxt "@action:button"
@@ -57,12 +52,9 @@ msgid "Application Menu"
 msgstr "Nabídka aplikací"
 
 #: src/qml/ControlsBar.qml:160
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Stop"
 msgctxt "@action:button stop playback"
 msgid "Stop"
-msgstr "Stop"
+msgstr ""
 
 #: src/qml/ControlsBar.qml:168
 msgctxt "@action:button"
@@ -75,12 +67,9 @@ msgid "Mute"
 msgstr "Ztlumit"
 
 #: src/qml/ControlsBar.qml:178
-#, fuzzy
-#| msgctxt "@title:menu"
-#| msgid "&Subtitles"
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
-msgstr "&Titulky"
+msgstr ""
 
 #: src/qml/ControlsBar.qml:185
 msgctxt "@action:button selector for no subtitle"
@@ -95,18 +84,14 @@ msgid "%1 [%2]"
 msgstr ""
 
 #: src/qml/ControlsBar.qml:212
-#, fuzzy
-#| msgid "Audio CD"
 msgctxt "@action:button track selector"
 msgid "Audio Track"
-msgstr "Zvukové CD"
+msgstr ""
 
 #: src/qml/ControlsBar.qml:227
-#, fuzzy
-#| msgid "Video CD"
 msgctxt "@action:button track selector"
 msgid "Video Track"
-msgstr "Video CD"
+msgstr ""
 
 #: src/qml/ControlsBar.qml:245
 msgctxt "@action opens about app page"
@@ -124,12 +109,9 @@ msgid "Play"
 msgstr "Přehrát"
 
 #: src/qml/PlayerPage.qml:38
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Pause"
 msgctxt "@action:button"
 msgid "Pause"
-msgstr "Pozastavit"
+msgstr ""
 
 #: src/qml/PlayerPage.qml:46
 msgctxt "@action:button"
@@ -177,11 +159,9 @@ msgid "Show volume controls"
 msgstr ""
 
 #: src/qml/WelcomeView.qml:16
-#, fuzzy
-#| msgid "Welcome to Dragon Player"
 msgctxt "@title"
 msgid "Welcome to Dragon Player"
-msgstr "Vítejte v přehrávači Dragon"
+msgstr ""
 
 #: src/qml/WelcomeView.qml:17
 msgctxt "@info"
@@ -192,268 +172,3 @@ msgstr ""
 msgctxt "@action:button"
 msgid "Open Video File or Network Stream"
 msgstr ""
-
-#, fuzzy
-#~| msgctxt "@option:check Volume of sound output"
-#~| msgid "Volume"
-#~ msgctxt "@action:button open volume slider popup"
-#~ msgid "Volume"
-#~ msgstr "Hlasitost"
-
-#~ msgctxt "@title:menu"
-#~ msgid "&Play"
-#~ msgstr "&Přehrát"
-
-#~ msgctxt "@title:menu"
-#~ msgid "Play Media"
-#~ msgstr "Přehrát média"
-
-#~ msgctxt "@title:menu"
-#~ msgid "&Settings"
-#~ msgstr "Na&stavení"
-
-#~ msgid "Main Toolbar"
-#~ msgstr "Hlavní panel nástrojů"
-
-#~ msgctxt "@action:button"
-#~ msgid "Preferred Scale"
-#~ msgstr "Preferované měřítko"
-
-#~ msgctxt "@action:button"
-#~ msgid "Scale 100%"
-#~ msgstr "Měřítko 100%"
-
-#~ msgid "<b>Adjust video scale?</b>"
-#~ msgstr "<b>Upravit měřítko videa?</b>"
-
-#~ msgctxt ""
-#~ "%1 is the disc type, %2 is the name of the disc that the user can choose. "
-#~ "Ex. 'DVD: OfficeSpace'"
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"
-
-#~ msgctxt "Digital Versatile Disc, but keep it short"
-#~ msgid "DVD"
-#~ msgstr "DVD"
-
-#~ msgid "Data CD"
-#~ msgstr "Datové CD"
-
-#~ msgctxt "@title:window"
-#~ msgid "Select a Disc"
-#~ msgstr "Vybrat disk"
-
-#~ msgid "Select a disc to play."
-#~ msgstr "Vybrat disk k přehrání."
-
-#~ msgid "Improvements and polish"
-#~ msgstr "Vylepšení a vypilování"
-
-#~ msgid "Creator of Phonon"
-#~ msgstr "Tvůrce Phononu"
-
-#~ msgid "Dragon Player icon"
-#~ msgstr "Ikona přehrávače Dragon"
-
-#~ msgid "Handbook"
-#~ msgstr "Příručka"
-
-#~ msgid "Great reference code"
-#~ msgstr "Výborný referenční kód"
-
-#~ msgid "Yatta happened to be the only video on my laptop to test with. :)"
-#~ msgstr ""
-#~ "Yatta bylo jediné video, které jsem měl k testování na svém laptopu. :-)"
-
-#~ msgid "MPRIS v2 support"
-#~ msgstr "Podpora MPRIS v2"
-
-#~ msgid "Port to KF5/Plasma 5"
-#~ msgstr "Port na KF5/Plasma 5"
-
-#~ msgid "Play DVD Video"
-#~ msgstr "Přehrát DVD video"
-
-#~ msgid "Play 'URL'"
-#~ msgstr "Přehrát 'URL'"
-
-#~ msgctxt "@title:menu"
-#~ msgid "Aspect &Ratio"
-#~ msgstr "Poměr st&ran"
-
-#~ msgctxt "@title:menu"
-#~ msgid "&Audio Channels"
-#~ msgstr "Zvukové k&anály"
-
-#~ msgctxt "@option:radio aspect ratio"
-#~ msgid "Determine &Automatically"
-#~ msgstr "Rozhodnout &automaticky"
-
-#~ msgctxt "@option:radio aspect ratio"
-#~ msgid "&4:3"
-#~ msgstr "&4:3"
-
-#~ msgctxt "@option:radio aspect ratio"
-#~ msgid "Ana&morphic (16:9)"
-#~ msgstr "Ana&morfní (16:9)"
-
-#~ msgctxt "@option:radio aspect ratio"
-#~ msgid "&Window Size"
-#~ msgstr "Ve&likost okna"
-
-#~ msgid ""
-#~ "<qt>Phonon could not be successfully initialized. Dragon Player will now "
-#~ "exit.</qt>"
-#~ msgstr "<qt>Spuštění Phononu selhalo. Dragon Player bude nyní ukončen.</qt>"
-
-#~ msgctxt "@action"
-#~ msgid "Play File…"
-#~ msgstr "Přehrát soubor…"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Open a media file for playback"
-#~ msgstr "Otevřít soubor média pro přehrání"
-
-#~ msgctxt "@action"
-#~ msgid "Play Stream…"
-#~ msgstr "Přehrát proud…"
-
-#~ msgctxt "@action"
-#~ msgid "Play Disc"
-#~ msgstr "Přehrát disk"
-
-#~ msgctxt "@action"
-#~ msgid "Increase Volume"
-#~ msgstr "Zvýšit hlasitost"
-
-#~ msgctxt "@action"
-#~ msgid "Decrease Volume"
-#~ msgstr "Snížit hlasitost"
-
-#~ msgctxt "@action"
-#~ msgid "Reset Video Scale"
-#~ msgstr "Resetovat měřítko videa"
-
-#~ msgctxt "@action"
-#~ msgid "Menu Toggle"
-#~ msgstr "Přepnout nabídku"
-
-#~ msgid "Position Slider"
-#~ msgstr "Posuvník umístění"
-
-#~ msgctxt "@option:check"
-#~ msgid "Video Settings"
-#~ msgstr "Nastavení videa"
-
-#~ msgctxt ""
-#~ "@option:check Whether only one instance of dragon can be started and will "
-#~ "be reused when the user tries to play another file."
-#~ msgid "One Instance Only"
-#~ msgstr "Pouze jedna instance"
-
-#~ msgctxt "@action previous chapter"
-#~ msgid "Previous"
-#~ msgstr "Předchozí"
-
-#~ msgctxt "@action next chapter"
-#~ msgid "Next"
-#~ msgstr "Následující"
-
-#~ msgctxt "@action"
-#~ msgid "Return 10% Back"
-#~ msgstr "Vrátit se o 10% zpět"
-
-#~ msgctxt "@action"
-#~ msgid "Go 10% Forward"
-#~ msgstr "Přejít o 10% vpřed"
-
-#~ msgctxt "@action"
-#~ msgid "Return 10 Seconds Back"
-#~ msgstr "Vrátit o 10 sekund zpět"
-
-#~ msgctxt "@action"
-#~ msgid "Go 10 Seconds Forward"
-#~ msgstr "Přejít o 10 sekund vpřed"
-
-#~ msgctxt "@option:check Mute the sound output"
-#~ msgid "Mute"
-#~ msgstr "Ztlumit"
-
-#~ msgid "Dragon Player was asked to open an empty URL; it cannot."
-#~ msgstr ""
-#~ "Přehrávač Dragon byl požádán, aby otevřel prázdné URL; toto není možné."
-
-#~ msgctxt "@title:window"
-#~ msgid "Select File to Play"
-#~ msgstr "Vyberte soubor k přehrání"
-
-#~ msgctxt "@title:window"
-#~ msgid "Stream to Play"
-#~ msgstr "Vyberte proud k přehrání"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Stream:"
-#~ msgstr "Proud:"
-
-#~ msgid "Sorry, no media was found in the drop"
-#~ msgstr "Bohužel, nebyla nalezena žádná média"
-
-#~ msgctxt "Notification inhibition reason"
-#~ msgid "Playing a video"
-#~ msgstr "Přehrávání videa"
-
-#~ msgid "No media loaded"
-#~ msgstr "Nenačtena žádná média"
-
-#~ msgid "Paused"
-#~ msgstr "Pozastaveno"
-
-#~ msgid "The file is not a playlist"
-#~ msgstr "Tento soubor není seznam skladeb"
-
-#~ msgid "Dragon Player could not download the remote playlist: %1"
-#~ msgstr "Přehrávač Dragon nemůže stáhnout vzdálený seznam skladeb: %1"
-
-#~ msgid ""
-#~ "<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is "
-#~ "empty?</qt>"
-#~ msgstr ""
-#~ "<qt>Seznam skladeb, <i>'%1'</i>, nemohl být zpracován. Není prázdný?</qt>"
-
-#~ msgid "Dragon Player could not open the file: %1"
-#~ msgstr "Přehrávač Dragon nemohl otevřít soubor: %1"
-
-#~ msgid "Track %1/%2"
-#~ msgstr "Stopa %1/%2"
-
-#~ msgctxt "@label:slider"
-#~ msgid "Brightness:"
-#~ msgstr "Jas:"
-
-#~ msgctxt "@label:slider"
-#~ msgid "Contrast:"
-#~ msgstr "Kontrast:"
-
-#~ msgctxt "@label:slider"
-#~ msgid "Hue:"
-#~ msgstr "Tón:"
-
-#~ msgctxt "@label:slider"
-#~ msgid "Saturation:"
-#~ msgstr "Sytost:"
-
-#~ msgctxt "@action:button"
-#~ msgid "Restore Defaults"
-#~ msgstr "Obnovit výchozí"
-
-#~ msgctxt "@action:button"
-#~ msgid "Close"
-#~ msgstr "Zavřít"
-
-#~ msgctxt "@option:radio"
-#~ msgid "&DVD Subtitle Selection"
-#~ msgstr "Výběr &DVD titulků"
-
-#~ msgctxt "@option:radio audio language"
-#~ msgid "&Auto"
-#~ msgstr "&Automaticky"
