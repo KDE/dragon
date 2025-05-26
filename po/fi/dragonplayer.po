@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the kdemultimedia package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2010, 2012, 2013, 2015.
-# Tommi Nieminen <translator@legisign.org>, 2011, 2012, 2016, 2018, 2020, 2023, 2024.
+# SPDX-FileCopyrightText: 2011, 2012, 2016, 2018, 2020, 2023, 2024, 2025 Tommi Nieminen <translator@legisign.org>
 #
 # KDE Finnish translation sprint participants:
 # Author: Artnay
@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-30 00:41+0000\n"
-"PO-Revision-Date: 2024-01-29 17:47+0200\n"
+"PO-Revision-Date: 2025-05-25 09:05+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -20,6 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -44,27 +45,22 @@ msgid "A video player that has a usability focus"
 msgstr "Käytettävyyteen keskittyvä videosoitin"
 
 #: src/main.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Copyright 2006, Max Howell\n"
-#| "Copyright 2007, Ian Monroe"
+#, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe\n"
 "Copyright 2022 Harald Sitter"
 msgstr ""
 "Tekijänoikeudet 2006, Max Howell\n"
-"Tekijänoikeudet 2007, Ian Monroe"
+"Tekijänoikeudet 2007, Ian Monroe\n"
+"Tekijänoikeudet 2022 Harald Sitter"
 
 #: src/qml/ControlsBar.qml:129
 msgctxt "@action:button"
 msgid "Application Menu"
-msgstr ""
+msgstr "Sovellusvalikko"
 
 #: src/qml/ControlsBar.qml:160
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Stop"
 msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "Pysäytä"
@@ -72,72 +68,56 @@ msgstr "Pysäytä"
 #: src/qml/ControlsBar.qml:168
 msgctxt "@action:button"
 msgid "Unmute"
-msgstr ""
+msgstr "Poista vaimennus"
 
 #: src/qml/ControlsBar.qml:168
-#, fuzzy
-#| msgctxt "@action Mute the sound output"
-#| msgid "Mute"
 msgctxt "@action:button"
 msgid "Mute"
 msgstr "Vaimenna"
 
 #: src/qml/ControlsBar.qml:178
-#, fuzzy
-#| msgctxt "@title:menu"
-#| msgid "&Subtitles"
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
-msgstr "&Tekstitys"
+msgstr "Tekstitykset"
 
 #: src/qml/ControlsBar.qml:185
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
-msgstr ""
+msgstr "Ei mitään"
 
 #: src/qml/ControlsBar.qml:195
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
-msgstr ""
+msgstr "%1 [%2]"
 
 #: src/qml/ControlsBar.qml:212
-#, fuzzy
-#| msgid "Audio CD"
 msgctxt "@action:button track selector"
 msgid "Audio Track"
-msgstr "Ääni-CD"
+msgstr "Ääniraita"
 
 #: src/qml/ControlsBar.qml:227
-#, fuzzy
-#| msgid "Video CD"
 msgctxt "@action:button track selector"
 msgid "Video Track"
-msgstr "Video-CD"
+msgstr "Videoraita"
 
 #: src/qml/ControlsBar.qml:245
 msgctxt "@action opens about app page"
 msgid "About"
-msgstr ""
+msgstr "Tietoa"
 
 #: src/qml/Main.qml:53
 msgctxt "@action:button open file dialog"
 msgid "Open…"
-msgstr ""
+msgstr "Avaa…"
 
 #: src/qml/PlayerPage.qml:38
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Play"
 msgctxt "@action:button"
 msgid "Play"
 msgstr "Toista"
 
 #: src/qml/PlayerPage.qml:38
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Pause"
 msgctxt "@action:button"
 msgid "Pause"
 msgstr "Tauko"
@@ -145,12 +125,12 @@ msgstr "Tauko"
 #: src/qml/PlayerPage.qml:46
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
-msgstr ""
+msgstr "Poistu koko näytöltä"
 
 #: src/qml/PlayerPage.qml:46
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
-msgstr ""
+msgstr "Siirry koko näytölle"
 
 #: src/qml/PlayerPage.qml:79
 msgctxt "@info"
@@ -161,6 +141,11 @@ msgid ""
 "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
 "command></para>"
 msgstr ""
+"Kaikki videokoodekkeja ei ole asennettu. Videotoistotuki voi olla odotettua "
+"heikompi.\n"
+"Asenna ffmpeg-full suorittamalla:\n"
+"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
+"command></para>"
 
 #: src/qml/PlayerPage.qml:86
 msgctxt "@info"
@@ -169,29 +154,30 @@ msgid ""
 "reliable than expected.\n"
 "Please consult your distribution on how to install all possible codecs."
 msgstr ""
+"Kaikkia videokoodekkeja ei ole asennettu. Videotoistotuki voi olla odotettua "
+"heikompi.\n"
+"Tarkista jakelusi ohjeista, miten kaikki mahdolliset koodekit voi asentaa."
 
 #: src/qml/PlayerPage.qml:94
 msgctxt "@action:button %1 is the name of a distribution"
 msgid "%1 Support"
-msgstr ""
+msgstr "Tuki – %1"
 
 #: src/qml/PlayerPage.qml:330
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
 msgid "%1 / %2"
-msgstr ""
+msgstr "%1 / %2"
 
 #: src/qml/VolumeButton.qml:31
 msgctxt "@action:button open volume slider popup"
 msgid "Show volume controls"
-msgstr ""
+msgstr "Näytä äänenvoimakkuussäätimet"
 
 # pmap: =/gen=Dragon-soittimen/
 # pmap: =/elat=Dragon-soittimesta/
 #: src/qml/WelcomeView.qml:16
-#, fuzzy
-#| msgid "Welcome to Dragon Player"
 msgctxt "@title"
 msgid "Welcome to Dragon Player"
 msgstr "Tervetuloa Dragon Playeriin"
@@ -199,12 +185,12 @@ msgstr "Tervetuloa Dragon Playeriin"
 #: src/qml/WelcomeView.qml:17
 msgctxt "@info"
 msgid "Dragon Player is a simple video player. Open a video to get started:"
-msgstr ""
+msgstr "Dragon Player on yksinkertainen videosoitin. Aloita avaamalla video:"
 
 #: src/qml/WelcomeView.qml:20
 msgctxt "@action:button"
 msgid "Open Video File or Network Stream"
-msgstr ""
+msgstr "Avaa videotiedosto tai suoratoistovirta"
 
 #, fuzzy
 #~| msgctxt "@option:check Volume of sound output"
