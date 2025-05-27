@@ -65,6 +65,7 @@
   <summary xml:lang="eu">Bideo fitxategiak eta korronteak jo</summary>
   <summary xml:lang="fi">Toista videotiedostoja ja suoratoistovirtoja</summary>
   <summary xml:lang="fr">Lire des fichiers et des flux vidéo</summary>
+  <summary xml:lang="gl">Reproduza ficheiros e emisións de vídeo</summary>
   <summary xml:lang="he">נגינת קובצי וידאו ושידורי אינטרנט</summary>
   <summary xml:lang="ia">Reproduce Files e fluxos (streams) video</summary>
   <summary xml:lang="it">Riproduci file e flussi video</summary>
@@ -90,6 +91,7 @@
     <p xml:lang="eu">Dragon Player bideo jotzaile bat da, ezaugarrietan baino sinpletasunean arreta jartzen duena. Bere interfaze erabilerraza zuri trabarik ez egiteko, eta besterik gabe zure fitxategiak eta korronteak jotzeko diseinatuta dago.</p>
     <p xml:lang="fi">Dragon Player on videosoitin, joka keskittyy ominaisuuksien sijaan yksinkertaisuuteen. Sen helppokäyttöinen käyttöliittymä on suunniteltu pysymään poissa tieltä toistaessasi videotiedostoja ja suoratoistovirtoja.</p>
     <p xml:lang="fr">Dragon Player est un lecteur vidéo conçu pour la facilité d'utilisation, plutôt que d'offrir de nombreuses fonctionnalités. Son interface simple est conçue pour ne pas vous embarrasser mais plutôt vous donner la capacité de lire le plus simplement possible des fichiers et des flux vidéo.</p>
+    <p xml:lang="gl">Dragon Player é un reprodutor de vídeo que prefire a simplicidade ás funcionalidades. A súa interface ergonómica está deseñada para non molestar e simplemente reproducir ficheiros de vídeo e emisións.</p>
     <p xml:lang="he">נגן Dragon הוא נגן וידאו שהמיקוד בו הוא פשטות, במקום עוד יכולות. הממשק הפשוט שלו תוכנן לא להיתקע לך מול הפרצוף ובמקום פשוט לנגן את קובצי הווידאו והתשדירים והתזרימים המקוונים שלך.</p>
     <p xml:lang="ia">Dragon Player es un reproductor multimedial ubi le foco es sur simplicitate, in loco de charactersticas. Su interfacie facile a usar es designate per lassar tu strada e simplemente reproduce tu files e fluxos (/streams) video.</p>
     <p xml:lang="it">Dragon Player è un lettore video il cui obiettivo è la semplicità, anziché la molteplicità di funzioni. La sua interfaccia semplice è progettata per non metterti in difficoltà e per permetterti semplicemente di riprodurre i file multimediali.</p>
@@ -165,6 +167,7 @@
       <li xml:lang="eu">Egin klik jotzeko edo etenaldirako, eta egin klik bikoitza pantaila-osoko moduan sartzeko edo irteteko.</li>
       <li xml:lang="fi">Toista tai keskeytä napsauttamalla ja siirry koko näytön tilaan tai poistu siitä kaksoisnapsautuksella.</li>
       <li xml:lang="fr">Veuillez effectuer un clic pour lire ou mettre en pause, puis un double clic pour basculer ou sortie du mode « Plein écran ».</li>
+      <li xml:lang="gl">Prema para reproducir ou pausar, e faga clic duplo ou saia do modo a pantalla completa.</li>
       <li xml:lang="he">נא ללחוץ כדי לנגן או להשהות, לחיצה כפולה כדי להגדיל למסך מלא או להקטין חזרה.</li>
       <li xml:lang="ia">Clicca per reproducer o pausar, e dupleclicca per entrar o exir de modo a plen texto.</li>
       <li xml:lang="it">Fai clic per riprodurre o mettere in pausa e fai doppio clic per entrare o uscire dalla modalità a schermo intero.</li>
@@ -187,6 +190,7 @@
       <li xml:lang="eu">Aukeratu azpidatzien hizkuntza, eta zure hizkuntzarako egokia dena automatikoki zamatu, ahal bada.</li>
       <li xml:lang="fi">Valitse tekstityskieli ja yritä automaattisesti ladata oikea.</li>
       <li xml:lang="fr">Veuillez sélectionner la langue de sous-titres et charger automatiquement celle convenant à votre langue, si possible.</li>
+      <li xml:lang="gl">Escolla o idioma dos subtítulos, e cargue automaticamente o do seu idioma de ser posíbel.</li>
       <li xml:lang="he">נא לבחור את שפת הכתוביות ולטעון את המתאימות לשפה שלך אם ישנן.</li>
       <li xml:lang="ia">Selige le linguage de subtitulo, e carga automaticamente lo que es correcte per tu linguage, si possibile. </li>
       <li xml:lang="it">Seleziona la lingua dei sottotitoli e, se possibile, carica automaticamente quella giusta per la tua lingua.</li>
@@ -209,6 +213,7 @@
       <li xml:lang="eu">Aukeratu audio-pista.</li>
       <li xml:lang="fi">Valitse ääniraita.</li>
       <li xml:lang="fr">Veuillez sélectionner la piste audio.</li>
+      <li xml:lang="gl">Escolla a pista de son.</li>
       <li xml:lang="he">בחירת רצועת השמע.</li>
       <li xml:lang="ia">Selige le tracia audio.</li>
       <li xml:lang="it">Scegli la traccia audio.</li>
@@ -231,6 +236,7 @@
       <li xml:lang="eu">Aukeratu bideo-pista.</li>
       <li xml:lang="fi">Valitse videoraita.</li>
       <li xml:lang="fr">Veuillez sélectionner la piste vidéo.</li>
+      <li xml:lang="gl">Escolla a pista de vídeo.</li>
       <li xml:lang="he">בחירת רצועת הווידאו.</li>
       <li xml:lang="ia">Selige le tracia video.</li>
       <li xml:lang="it">Scegli la traccia video.</li>
@@ -253,6 +259,7 @@
       <li xml:lang="eu">Kiribilduz bolumena doitu.</li>
       <li xml:lang="fi">Säädä äänenvoimakkuutta vierittämällä.</li>
       <li xml:lang="fr">Ajustez le volume par un simple défilement.</li>
+      <li xml:lang="gl">Desprace para axustar o volume.</li>
       <li xml:lang="he">כוונון עוצמת השמע בגלילה.</li>
       <li xml:lang="ia">Adapta le volumine per rolar.</li>
       <li xml:lang="it">Regola il volume scorrendo.</li>
