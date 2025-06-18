@@ -1,24 +1,21 @@
-# Translation of dragonplayer.po to Spanish
-# translation of dragonplayer.po to Spanish
-# Translation of dragonplayer to Spanish
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# Spanish translations for dragonplayer.po package.
+# Copyright (C) 2007-2025 This file is copyright:
+# This file is distributed under the same license as the dragon package.
 #
-# Santiago Fernández Sancho <santi@kde-es.org>, 2007.
-# Alberto Garcia <info@trebol-a.com>, 2007.
-# Jaime Robles <jaime@kde.org>, 2008.
-# Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2008, 2009, 2011.
-# Enrique Matias Sanchez (Quique) <cronopios@gmail.com>, 2008, 2009.
+# SPDX-FileCopyrightText: 2007 Santiago Fernández Sancho <santi@kde-es.org>
+# SPDX-FileCopyrightText: 2007 Alberto Garcia <info@trebol-a.com>
+# SPDX-FileCopyrightText: 2008 Jaime Robles <jaime@kde.org>
+# SPDX-FileCopyrightText: 2008, 2009, 2011 Enrique Matias Sanchez (Quique) <cronopios@gmail.com>
 # Rocio Gallego <traducciones @rociogallego.com>, 2012.
-# Ayoze Hernández Díaz <ayoze12@gmail.com>, 2013.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2013, 2015.
-# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2018, 2019, 2020, 2022, 2023.
+# SPDX-FileCopyrightText: 2013 Ayoze Hernández Díaz <ayoze12@gmail.com>
+# SPDX-FileCopyrightText: 2013, 2015 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2018, 2019, 2020, 2022, 2023, 2025 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-12 00:38+0000\n"
-"PO-Revision-Date: 2023-09-02 17:25+0200\n"
+"PO-Revision-Date: 2025-06-18 01:34+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -274,7 +271,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Play File…"
-msgstr "Reproducir archivo..."
+msgstr "Reproducir archivo…"
 
 #: src/app/mainWindow.cpp:301
 #, kde-format
@@ -286,7 +283,7 @@ msgstr "Abrir un archivo de medios para reproducirlo"
 #, kde-format
 msgctxt "@action"
 msgid "Play Stream…"
-msgstr "Reproducir flujo de datos..."
+msgstr "Reproducir flujo de datos…"
 
 #: src/app/mainWindow.cpp:316
 #, kde-format
