@@ -37,6 +37,13 @@ find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Multimedia
 )
 
+if(NOT "$ENV{FLATPAK_ID}" STREQUAL "org.kde.dragonplayer") # flatpak is always well formed and doesn't need or work with the private finder
+    find_package(Qt6MultimediaPrivate ${QT_MIN_VERSION} CONFIG REQUIRED)
+    if(NOT TARGET Qt6::QFFmpegMediaPlugin AND NOT DEFINED ENV{KDECI_BUILD}) # suse has crippled their packages so the CI cannot ever have this target
+        message(FATAL_ERROR "Qt6::QFFmpegMediaPlugin not found. Please install the Qt Multimedia module with FFmpeg support.")
+    endif()
+endif()
+
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED
     CoreAddons
     Crash
