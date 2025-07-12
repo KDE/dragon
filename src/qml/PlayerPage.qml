@@ -74,27 +74,34 @@ Kirigami.Page {
             position: Kirigami.InlineMessage.Position.Header
             visible: text.length > 0
             text: {
+                if (!video.videoSink.Backend.ffmpeg) {
+                    blameDistro = true
+                    return xi18nc("@info %2 is the name of a distribution",
+`Dragon Player only supports the QtMultimedia library’s “ffmpeg” backend, but a different one is currently in use.
+<nl/><nl/>
+Please <link url="%1">contact the %2 developers</link> about this issue.`,
+                                  KCoreAddons.KOSRelease.supportUrl, KCoreAddons.KOSRelease.name)
+                }
+
                 if (Dragon.Sandbox.inside && !Dragon.Sandbox.ffmpegFull) {
                     return xi18nc("@info",
 `Not all video codecs are installed. Video playback support may be less reliable than expected.
 Please install ffmpeg-full by running:
 <para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</command></para>`)
                 }
+
                 if (!Dragon.Sandbox.ffmpegFull) {
                     blameDistro = true
-                    return xi18nc("@info",
-`Not all video codecs are installed. Video playback support may be less reliable than expected.
-Please consult your distribution on how to install all possible codecs.`)
+                    return xi18nc("@info %2 is the name of a distribution",
+`Could not locate full support for the H.264 video codec; video playback support may be less reliable than expected.
+<nl/><nl/>
+Please <link url="%1">contact the %2 developers</link> about this issue, or to find out how to install the missing video codecs.`,
+                                  KCoreAddons.KOSRelease.supportUrl, KCoreAddons.KOSRelease.name)
                 }
+
                 return ""
             }
-            actions: [
-                Kirigami.Action {
-                    visible: !Dragon.Sandbox.inside
-                    text: i18nc("@action:button %1 is the name of a distribution", "%1 Support", KCoreAddons.KOSRelease.name)
-                    onTriggered: Qt.openUrlExternally(KCoreAddons.KOSRelease.supportUrl)
-                }
-            ]
+            onLinkActivated: (url) => Qt.openUrlExternally(url)
         }
 
         Kirigami.InlineMessage {
