@@ -67,7 +67,6 @@ Kirigami.Page {
         }
 
         Kirigami.InlineMessage {
-            property bool blameDistro: false
             Layout.fillWidth: true
             type: Kirigami.MessageType.Warning
             showCloseButton: true
@@ -81,7 +80,6 @@ Please install ffmpeg-full by running:
 <para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</command></para>`)
                 }
                 if (!Dragon.Sandbox.ffmpegFull) {
-                    blameDistro = true
                     return xi18nc("@info",
 `Not all video codecs are installed. Video playback support may be less reliable than expected.
 Please consult your distribution on how to install all possible codecs.`)
