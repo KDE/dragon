@@ -73,18 +73,18 @@ Kirigami.Page {
             position: Kirigami.InlineMessage.Position.Header
             visible: text.length > 0
             text: {
-                if (Dragon.Sandbox.inside && !Dragon.Sandbox.ffmpegFull) {
-                    return xi18nc("@info",
+                if (Dragon.Sandbox.ffmpegFull) {
+                    return ""
+                }
+
+                return Dragon.Sandbox.inside
+                    ? xi18nc("@info",
 `Not all video codecs are installed. Video playback support may be less reliable than expected.
 Please install ffmpeg-full by running:
 <para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</command></para>`)
-                }
-                if (!Dragon.Sandbox.ffmpegFull) {
-                    return xi18nc("@info",
+                    : xi18nc("@info",
 `Not all video codecs are installed. Video playback support may be less reliable than expected.
 Please consult your distribution on how to install all possible codecs.`)
-                }
-                return ""
             }
             actions: [
                 Kirigami.Action {
