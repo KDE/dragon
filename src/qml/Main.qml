@@ -70,7 +70,13 @@ Kirigami.ApplicationWindow {
     }
     minimumWidth: Kirigami.Settings.isMobile ? 0 : Kirigami.Units.gridUnit * 30
     minimumHeight: Kirigami.Settings.isMobile ? 0 : Kirigami.Units.gridUnit * 22
-    pageStack.initialPage: playerPage
+    pageStack {
+        initialPage: playerPage
+        globalToolBar {
+            style: Kirigami.ApplicationHeaderStyle.ToolBar
+            showNavigationButtons: Kirigami.ApplicationHeaderStyle.ShowBackButton
+        }
+    }
 
     KConfig.WindowStateSaver {
         configGroupName: "MainWindow"
