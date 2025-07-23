@@ -67,7 +67,6 @@ Kirigami.Page {
         }
 
         Kirigami.InlineMessage {
-            property bool blameDistro: false
             Layout.fillWidth: true
             type: Kirigami.MessageType.Warning
             showCloseButton: true
@@ -75,7 +74,6 @@ Kirigami.Page {
             visible: text.length > 0
             text: {
                 if (!video.videoSink.Backend.ffmpeg) {
-                    blameDistro = true
                     return xi18nc("@info %2 is the name of a distribution",
 `Dragon Player only supports the QtMultimedia library’s “ffmpeg” backend, but a different one is currently in use.
 <nl/><nl/>
@@ -91,7 +89,6 @@ Please install ffmpeg-full by running:
                 }
 
                 if (!Dragon.Sandbox.ffmpegFull) {
-                    blameDistro = true
                     return xi18nc("@info %2 is the name of a distribution",
 `Could not locate full support for the H.264 video codec; video playback support may be less reliable than expected.
 <nl/><nl/>
