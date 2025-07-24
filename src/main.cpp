@@ -12,6 +12,7 @@
 #include <KLocalizedString>
 
 #include "dragon.h"
+#include "renderer.h"
 
 using namespace Qt::StringLiterals;
 
@@ -19,6 +20,15 @@ int main(int argc, char **argv)
 {
     // Needs to be a QApplication rather than QGuiApplication so filedialog actually uses kio.
     QApplication app(argc, argv);
+
+    if (Renderer::isAMD()) {
+        // https://bugreports.qt.io/browse/QTBUG-138679
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+#error "Reevaluate the use of QT_DISABLE_HW_TEXTURES_CONVERSION at a later point in time"
+#endif
+        qWarning() << "Detected AMD GPU, disabling HW Texture Conversion renderer as it is known to cause issues.";
+        qputenv("QT_DISABLE_HW_TEXTURES_CONVERSION", "1");
+    }
 
     KAboutData aboutData(u"dragonplayer"_s,
                          i18n("Dragon Player"),
