@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-30 00:41+0000\n"
+"POT-Creation-Date: 2025-07-24 00:42+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -125,7 +125,16 @@ msgctxt "@action:button"
 msgid "Enter Fullscreen"
 msgstr "进入全屏"
 
-#: src/qml/PlayerPage.qml:79
+#: src/qml/PlayerPage.qml:78
+msgctxt "@info %2 is the name of a distribution"
+msgid ""
+"Dragon Player only supports the QtMultimedia library’s “ffmpeg” backend, but "
+"a different one is currently in use.\n"
+"<nl/><nl/>\n"
+"Please <link url=\"%1\">contact the %2 developers</link> about this issue."
+msgstr ""
+
+#: src/qml/PlayerPage.qml:86
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
@@ -139,22 +148,25 @@ msgstr ""
 "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
 "command></para>"
 
-#: src/qml/PlayerPage.qml:86
-msgctxt "@info"
+#: src/qml/PlayerPage.qml:93
+#, fuzzy
+#| msgctxt "@info"
+#| msgid ""
+#| "Not all video codecs are installed. Video playback support may be less "
+#| "reliable than expected.\n"
+#| "Please consult your distribution on how to install all possible codecs."
+msgctxt "@info %2 is the name of a distribution"
 msgid ""
-"Not all video codecs are installed. Video playback support may be less "
-"reliable than expected.\n"
-"Please consult your distribution on how to install all possible codecs."
+"Could not locate full support for the H.264 video codec; video playback "
+"support may be less reliable than expected.\n"
+"<nl/><nl/>\n"
+"Please <link url=\"%1\">contact the %2 developers</link> about this issue, "
+"or to find out how to install the missing video codecs."
 msgstr ""
 "没有安装全部视频编解码器，这可能影响视频播放支持的可靠性。  \n"
 "请向您的发行版咨询如何安装所有可用的编解码器。"
 
-#: src/qml/PlayerPage.qml:94
-msgctxt "@action:button %1 is the name of a distribution"
-msgid "%1 Support"
-msgstr "%1 支持"
-
-#: src/qml/PlayerPage.qml:330
+#: src/qml/PlayerPage.qml:334
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
@@ -180,3 +192,7 @@ msgstr "Dragon Player 是一款简单易用的播放器。打开任意视频即�
 msgctxt "@action:button"
 msgid "Open Video File or Network Stream"
 msgstr "打开视频文件或网络流媒体"
+
+#~ msgctxt "@action:button %1 is the name of a distribution"
+#~ msgid "%1 Support"
+#~ msgstr "%1 支持"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-30 00:41+0000\n"
+"POT-Creation-Date: 2025-07-24 00:42+0000\n"
 "PO-Revision-Date: 2023-10-12 16:41+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -123,7 +123,16 @@ msgctxt "@action:button"
 msgid "Enter Fullscreen"
 msgstr ""
 
-#: src/qml/PlayerPage.qml:79
+#: src/qml/PlayerPage.qml:78
+msgctxt "@info %2 is the name of a distribution"
+msgid ""
+"Dragon Player only supports the QtMultimedia library’s “ffmpeg” backend, but "
+"a different one is currently in use.\n"
+"<nl/><nl/>\n"
+"Please <link url=\"%1\">contact the %2 developers</link> about this issue."
+msgstr ""
+
+#: src/qml/PlayerPage.qml:86
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
@@ -133,20 +142,17 @@ msgid ""
 "command></para>"
 msgstr ""
 
-#: src/qml/PlayerPage.qml:86
-msgctxt "@info"
+#: src/qml/PlayerPage.qml:93
+msgctxt "@info %2 is the name of a distribution"
 msgid ""
-"Not all video codecs are installed. Video playback support may be less "
-"reliable than expected.\n"
-"Please consult your distribution on how to install all possible codecs."
+"Could not locate full support for the H.264 video codec; video playback "
+"support may be less reliable than expected.\n"
+"<nl/><nl/>\n"
+"Please <link url=\"%1\">contact the %2 developers</link> about this issue, "
+"or to find out how to install the missing video codecs."
 msgstr ""
 
-#: src/qml/PlayerPage.qml:94
-msgctxt "@action:button %1 is the name of a distribution"
-msgid "%1 Support"
-msgstr ""
-
-#: src/qml/PlayerPage.qml:330
+#: src/qml/PlayerPage.qml:334
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
