@@ -133,6 +133,10 @@ msgid ""
 "<nl/><nl/>\n"
 "Please <link url=\"%1\">contact the %2 developers</link> about this issue."
 msgstr ""
+"Dragon Player 仅支持 QtMultimedia 程序库的 ffmpeg 后端，但当前使用的是其他后"
+"端。\n"
+"<nl/><nl/>\n"
+"请将此问题报告给 <link url=\"%1\"> %2 的开发者</link>。"
 
 #: src/qml/PlayerPage.qml:86
 msgctxt "@info"
@@ -157,6 +161,10 @@ msgid ""
 "Please <link url=\"%1\">contact the %2 developers</link> about this issue, "
 "or to find out how to install the missing video codecs."
 msgstr ""
+"无法找到对 H.264 视频编码的完整支持；视频播放支持可能不如预期可靠。\n"
+"<nl/><nl/>\n"
+"请将此问题报告给 <link url=\"%1\">%2 的开发者</link>，或了解如何安装缺失的视"
+"频解码器。"
 
 #: src/qml/PlayerPage.qml:334
 msgctxt ""
