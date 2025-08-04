@@ -8,13 +8,14 @@
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2009, 2012, 2018, 2019, 2020, 2022, 2023.
 # Bianca Oliveira <kbiancasol@gmail.com>, 2019.
 # SPDX-FileCopyrightText: 2025 Marcus Gama <marcus.gama@gmail.com>
+# SPDX-FileCopyrightText: 2025 Guilherme Marçal Silva <guimarcalsilva@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-24 00:42+0000\n"
-"PO-Revision-Date: 2025-08-02 06:28-0300\n"
-"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
+"PO-Revision-Date: 2025-08-03 01:46-0300\n"
+"Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -138,6 +139,11 @@ msgid ""
 "<nl/><nl/>\n"
 "Please <link url=\"%1\">contact the %2 developers</link> about this issue."
 msgstr ""
+"O Dragon Player apenas suporta a biblioteca \"ffmpeg\" do backend "
+"QtMultimedia, mas outra está sendo utilizada atualmente.\n"
+"<nl/><nl/>\n"
+"Por favor, <link url=\"%1\">contacte os desenvolvedores do %2</link> sobre "
+"esse problema."
 
 #: src/qml/PlayerPage.qml:86
 msgctxt "@info"
@@ -155,7 +161,6 @@ msgstr ""
 "comando></para>"
 
 #: src/qml/PlayerPage.qml:93
-#, fuzzy
 msgctxt "@info %2 is the name of a distribution"
 msgid ""
 "Could not locate full support for the H.264 video codec; video playback "
@@ -164,9 +169,11 @@ msgid ""
 "Please <link url=\"%1\">contact the %2 developers</link> about this issue, "
 "or to find out how to install the missing video codecs."
 msgstr ""
-"Nem todos os codecs de vídeo estão instalados. O suporte à reprodução de "
-"vídeo pode ser menos confiável do que o esperado.\n"
-"Consulte sua distribuição para saber como instalar todos os codecs possíveis."
+"Não foi possível localizar o suporte completo para o codec H.264 de vídeo; o "
+"suporte para reprodução de vídeo pode não ser tão confiável como esperado.\n"
+"<nl/><nl/>\n"
+"Por favor, <link url=\"%1\">contacte os desenvolvedores do %2</link> sobre "
+"esse problema, ou para descobrir como instalar os codecs de vídeo faltantes."
 
 #: src/qml/PlayerPage.qml:334
 msgctxt ""
