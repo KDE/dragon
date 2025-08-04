@@ -74,6 +74,7 @@
   <summary xml:lang="ko">동영상 파일과 스트림 재생</summary>
   <summary xml:lang="lv">Atskaņojiet video datnes un straumes</summary>
   <summary xml:lang="nl">Videobestanden en streams afspelen</summary>
+  <summary xml:lang="pt-BR">Reproduz arquivos e transmissões de vídeo</summary>
   <summary xml:lang="sl">Predvajaj video datoteke in tokove</summary>
   <summary xml:lang="sv">Spela videofiler och strömmar</summary>
   <summary xml:lang="tr">Video dosyalarını ve akışlarını oynatın</summary>
@@ -101,6 +102,7 @@
     <p xml:lang="ko">Dragon 플레이어는 기능보다 간단함에 초점을 맞춘 멀티미디어 재생기입니다. 단순히 동영상 파일과 스트림만을 재생할 수 있도록 사용하기 쉽게 인터페이스를 설계했습니다.</p>
     <p xml:lang="lv">„Dragon Player“ ir video atskaņotājs ar uzsvaru uz vienkāršību, bet ne plašām iespējām. Programmai ir viegli lietojama saskarne, lai ļautu bez liekiem traucēkļiem noskatīties video datnes un straumes.</p>
     <p xml:lang="nl">Dragon Player is een videospeler met de focus op eenvoud in plaats van functies. Zijn gemakkelijk te gebruiken interface is ontworpen om niet in de weg te zitten en gewoon videobestanden en streams af te spelen.</p>
+    <p xml:lang="pt-BR">O Dragon Player é um reprodutor de vídeo que prioriza a simplicidade em vez de recursos. Sua interface fácil de usar foi projetada para facilitar a reprodução de seus arquivos e transmissões de vídeo.</p>
     <p xml:lang="sl">Dragon Player je video predvajalnik, ki se osredotoča na preprostost namesto na zmožnosti. Njegov vmesnik, ki je enostaven za uporabo, je zasnovan tako, da se vam umakne in preprosto predvaja vaše video datoteke in tokove.</p>
     <p xml:lang="sv">Dragon videospelare är en videospelare med fokus på enkelhet istället för funktioner. Dess enkla gränssnitt är konstruerat för att inte vara i vägen utan istället ge dig möjlighet att enkelt spela upp videofiler och strömmar.</p>
     <p xml:lang="tr">Dragon, özellikler yerine yalınlığa odaklanan bir çoklu ortam oynatıcısıdır. Basit arayüzü, yolunuza çıkmayacak şekilde tasarlanmıştır ve çoklu ortam dosyalarını kolayca oynatmanızı sağlar.</p>
@@ -178,6 +180,7 @@
       <li xml:lang="ko">클릭하여 재생/일시 정지, 두 번 클릭하여 전체 화면 모드 전환.</li>
       <li xml:lang="lv">Klikšķiniet, lai atskaņotu vai pauzētu, vai veiciet dubultklikšķi, lai ieslēgtu vai izslēgtu pilnekrāna režīmu.</li>
       <li xml:lang="nl">Klik om af te spelen of te pauzeren en dubbelklik om modus volledig scherm in of uit te gaan.</li>
+      <li xml:lang="pt-BR">Clique para reproduzir ou pausar e clique duas vezes para entrar ou sair do modo de tela cheia.</li>
       <li xml:lang="sl">Kliknite za predvajanje ali začasno ustavitev in dvokliknite za vstop ali izhod iz celozaslonskega načina.</li>
       <li xml:lang="sv">Klicka för att spela eller pausa, och dubbelklicka för att gå till eller lämna fullskärmsläge.</li>
       <li xml:lang="tr">Oynatmak veya duraklatmak için tıklayın ve tam ekran kipine girmek veya çıkmak için çift tıklayın.</li>
@@ -202,6 +205,7 @@
       <li xml:lang="ko">자막 언어 선택, 사용 가능한 경우 기본 언어로 자막을 표시합니다.</li>
       <li xml:lang="lv">Izvēlieties subtitru valodu un automātiski ielādējiet pareizos subtitrus, ja pieejami.</li>
       <li xml:lang="nl">Kies de taal van de ondertitels en laad automatisch de juiste voor uw taal, indien mogelijk.</li>
+      <li xml:lang="pt-BR">Selecione o idioma da legenda e carregue automaticamente o correto para o seu idioma, se possível.</li>
       <li xml:lang="sl">Izberite jezik podnapisov in po možnosti samodejno naložite pravega za svoj jezik.</li>
       <li xml:lang="sv">Välj språk för textning, och läs automatiskt in rätt språk, om möjligt.</li>
       <li xml:lang="tr">Altyazı dilini seçin ve varsa diliniz için olan altyazıyı kendiliğinden yükleyin.</li>
@@ -226,6 +230,7 @@
       <li xml:lang="ko">오디오 트랙을 선택할 수 있습니다.</li>
       <li xml:lang="lv">Izvēlieties skaņas celiņu.</li>
       <li xml:lang="nl">Kies de audiotrack.</li>
+      <li xml:lang="pt-BR">Selecione a faixa de áudio.</li>
       <li xml:lang="sl">Izberite zvočni posnetek.</li>
       <li xml:lang="sv">Välj ljudspåret.</li>
       <li xml:lang="tr">Ses parçasını seçin.</li>
@@ -250,6 +255,7 @@
       <li xml:lang="ko">동영상 트랙을 선택할 수 있습니다.</li>
       <li xml:lang="lv">Izvēlieties video celiņu.</li>
       <li xml:lang="nl">Kies de videotrack.</li>
+      <li xml:lang="pt-BR">Selecione a faixa de vídeo.</li>
       <li xml:lang="sl">Izberite video posnetek.</li>
       <li xml:lang="sv">Välj videospåret.</li>
       <li xml:lang="tr">Video parçasını seçin.</li>
@@ -274,6 +280,7 @@
       <li xml:lang="ko">스크롤하여 음량을 조절할 수 있습니다.</li>
       <li xml:lang="lv">Pārvaldiet skaļumu ar ritināšanu.</li>
       <li xml:lang="nl">Pas het volume aan door te schuiven.</li>
+      <li xml:lang="pt-BR">Ajuste o volume rolando o mouse.</li>
       <li xml:lang="sl">Prilagodite glasnost s pomikanjem.</li>
       <li xml:lang="sv">Justera volymen genom att rulla.</li>
       <li xml:lang="tr">Sararak ses düzeyini ayarlayın.</li>
