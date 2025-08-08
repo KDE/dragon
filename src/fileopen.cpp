@@ -38,8 +38,10 @@ void FileOpen::gotResponse(uint response, const QVariantMap &results)
         return;
     }
 
-    if (results.contains("uris"_L1)) {
-        m_selectedUrl = QUrl(results.value("uris"_L1).toStringList().at(0));
+    QStringList uris = results.value("uris"_L1).toStringList();
+
+    if (uris.count() > 0) {
+        m_selectedUrl = QUrl(uris.at(0));
         // Per documentation the uris are always file://
         auto dir = QFileInfo(m_selectedUrl.path()).path();
         if (!dir.isEmpty()) {
