@@ -8,12 +8,12 @@
     "tags": ["nightly"],
     "desktop-file-name-suffix": " (Nightly)",
     "finish-args": [
-        "--share=ipc",
-        "--socket=wayland",
-        "--socket=pulseaudio",
-        "--talk-name=org.mpris.MediaPlayer2.Player",
+        "--device=all",
         "--own-name=org.mpris.MediaPlayer2.dragonplayer",
-        "--device=all"
+        "--share=ipc",
+        "--socket=pulseaudio",
+        "--socket=wayland",
+        "--talk-name=org.mpris.MediaPlayer2.Player"
     ],
 
     "modules": [
