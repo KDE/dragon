@@ -9,6 +9,16 @@
 
 class QWindow;
 
+/*!
+    This class is used to retrieve a file open url.
+    The url is always either local or http/https (as per our .desktop file).
+    It uses the portal directly to avoid having to wire up KIO to QtMultimedia.
+    Instead we rely on the portal stack to turn remote urls the user may choose
+    into local file urls we can consume (i.e. to employ kio-fuse for remote files).
+    This allows us to not have divergent code paths between sandbox and !sandbox
+    uses, and ensures we transparently can access everything KIO can access without
+    having to talk to KIO directly.
+*/
 class FileOpen : public QObject
 {
     Q_OBJECT
