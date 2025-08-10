@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragon\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-24 00:42+0000\n"
+"POT-Creation-Date: 2025-08-10 00:42+0000\n"
 "PO-Revision-Date: 2023-11-06 01:08+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
@@ -27,17 +27,17 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "alministradores@softastur.org"
 
-#: src/main.cpp:24
+#: src/main.cpp:34
 #, kde-format
 msgid "Dragon Player"
 msgstr ""
 
-#: src/main.cpp:26
+#: src/main.cpp:36
 #, kde-format
 msgid "A video player that has a usability focus"
 msgstr ""
 
-#: src/main.cpp:28
+#: src/main.cpp:38
 #, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"

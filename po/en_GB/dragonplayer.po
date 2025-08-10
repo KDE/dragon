@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-24 00:42+0000\n"
+"POT-Creation-Date: 2025-08-10 00:42+0000\n"
 "PO-Revision-Date: 2024-05-17 19:39+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -28,17 +28,17 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "andrew_coles@yahoo.co.uk, steve.allewell@gmail.com"
 
-#: src/main.cpp:24
+#: src/main.cpp:34
 #, kde-format
 msgid "Dragon Player"
 msgstr "Dragon Player"
 
-#: src/main.cpp:26
+#: src/main.cpp:36
 #, kde-format
 msgid "A video player that has a usability focus"
 msgstr "A video player that has a usability focus"
 
-#: src/main.cpp:28
+#: src/main.cpp:38
 #, fuzzy, kde-format
 #| msgid ""
 #| "Copyright 2006, Max Howell\n"

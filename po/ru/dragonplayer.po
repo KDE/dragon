@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-24 00:42+0000\n"
+"POT-Creation-Date: 2025-08-10 00:42+0000\n"
 "PO-Revision-Date: 2023-12-27 10:01+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -43,19 +43,19 @@ msgid "Your emails"
 msgstr ""
 "demon370@gmail.com,translation-team@basealt.ru,translation-team@basealt.ru"
 
-#: src/main.cpp:24
+#: src/main.cpp:34
 #, kde-format
 msgid "Dragon Player"
 msgstr "Dragon Player"
 
-#: src/main.cpp:26
+#: src/main.cpp:36
 #, kde-format
 msgid "A video player that has a usability focus"
 msgstr ""
 "Проигрыватель видео, ставящий своей первостепенной задачей удобство "
 "использования"
 
-#: src/main.cpp:28
+#: src/main.cpp:38
 #, fuzzy, kde-format
 #| msgid ""
 #| "Copyright 2006, Max Howell\n"

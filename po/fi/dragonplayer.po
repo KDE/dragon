@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-24 00:42+0000\n"
+"POT-Creation-Date: 2025-08-10 00:42+0000\n"
 "PO-Revision-Date: 2025-05-25 09:05+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -34,17 +34,17 @@ msgstr ",,oh2fpg@sral.fi, translator@legisign.org"
 
 # pmap: =/gen=Dragon-soittimen/
 # pmap: =/elat=Dragon-soittimesta/
-#: src/main.cpp:24
+#: src/main.cpp:34
 #, kde-format
 msgid "Dragon Player"
 msgstr "Dragon Player"
 
-#: src/main.cpp:26
+#: src/main.cpp:36
 #, kde-format
 msgid "A video player that has a usability focus"
 msgstr "Käytettävyyteen keskittyvä videosoitin"
 
-#: src/main.cpp:28
+#: src/main.cpp:38
 #, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"
