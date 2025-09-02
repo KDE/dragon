@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2021 Harald Sitter <sitter@kde.org>
 
 #include <QApplication>
+#include <QIcon>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQmlEngine>
@@ -42,6 +43,8 @@ int main(int argc, char **argv)
 
     KAboutData::setApplicationData(aboutData);
     KCrash::initialize();
+
+    QApplication::setWindowIcon(QIcon::fromTheme(u"dragonplayer"_s));
 
     auto engine = new QQmlApplicationEngine(&app); // on the heap for code similarity reasons with other projects, technically not necessary.
     KLocalization::setupLocalizedContext(engine);
