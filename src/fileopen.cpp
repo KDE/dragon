@@ -8,12 +8,19 @@
 #include <QDBusObjectPath>
 #include <QDBusPendingCallWatcher>
 #include <QDBusPendingReply>
+#include <QGuiApplication>
 #include <QWindow>
 
 using namespace Qt::StringLiterals;
 
 void FileOpen::open(QWindow *window)
 {
+    if (QGuiApplication::platformName() == "xcb"_L1) {
+        constexpr auto hex = 16;
+        openInternal(u"x11:"_s.append(QString::number(window->winId(), hex)));
+        return;
+    }
+
     auto wayland = KWaylandExtras::self();
     connect(
         wayland,
@@ -24,7 +31,7 @@ void FileOpen::open(QWindow *window)
                 // not our event
                 return;
             }
-            openInternal(handle);
+            openInternal(u"wayland:"_s.append(handle));
         },
         Qt::SingleShotConnection);
     wayland->exportWindow(window);
