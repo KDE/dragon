@@ -54,7 +54,6 @@
   <name xml:lang="sv">Dragon videospelare</name>
   <name xml:lang="tr">Dragon</name>
   <name xml:lang="uk">Програвач Dragon</name>
-  <name xml:lang="x-test">xxDragon Playerxx</name>
   <name xml:lang="zh-CN">Dragon Player 视频播放器</name>
   <name xml:lang="zh-TW">神龍播放器</name>
   <summary>Play video files and streams</summary>
@@ -80,7 +79,6 @@
   <summary xml:lang="sv">Spela videofiler och strömmar</summary>
   <summary xml:lang="tr">Video dosyalarını ve akışlarını oynatın</summary>
   <summary xml:lang="uk">Відтворення відеофайлів та потоків відтворення</summary>
-  <summary xml:lang="x-test">xxPlay video files and streamsxx</summary>
   <summary xml:lang="zh-CN">播放视频文件和流媒体</summary>
   <summary xml:lang="zh-TW">播放影片檔案與串流</summary>
   <description>
@@ -109,7 +107,6 @@
     <p xml:lang="sv">Dragon videospelare är en videospelare med fokus på enkelhet istället för funktioner. Dess enkla gränssnitt är konstruerat för att inte vara i vägen utan istället ge dig möjlighet att enkelt spela upp videofiler och strömmar.</p>
     <p xml:lang="tr">Dragon, özellikler yerine yalınlığa odaklanan bir çoklu ortam oynatıcısıdır. Basit arayüzü, yolunuza çıkmayacak şekilde tasarlanmıştır ve çoklu ortam dosyalarını kolayca oynatmanızı sağlar.</p>
     <p xml:lang="uk">Програвач Dragon — відеопрогравач, перевагою якого є простота, а не широкий діапазон можливостей. Його простий у користуванні інтерфейс не заважатиме вам просто переглядати файли відео та потоки даних з мережі.</p>
-    <p xml:lang="x-test">xxDragon Player is a video player focusing on simplicity instead of features. Its easy-to-use interface is designed to get out of your way and simply play your video files and streams.xx</p>
     <p xml:lang="zh-CN">Dragon Player 是一款设计简洁的视频播放器，专注于易用性。其界面设计不干扰用户，只专注于视频文件和流媒体的播放。</p>
     <p xml:lang="zh-TW">神龍播放器是一個注重簡潔而非大量功能的影片播放器。它提供易於使用的介面，讓您能不用在意它而專注在播放您的影片檔案或串流上。</p>
     <p>Features:</p>
@@ -161,7 +158,6 @@
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="tr">Özellikler:</p>
     <p xml:lang="uk">Можливості:</p>
-    <p xml:lang="x-test">xxFeatures:xx</p>
     <p xml:lang="zh-CN">功能：</p>
     <p xml:lang="zh-TW">功能：</p>
     <ul>
@@ -188,7 +184,6 @@
       <li xml:lang="sv">Klicka för att spela eller pausa, och dubbelklicka för att gå till eller lämna fullskärmsläge.</li>
       <li xml:lang="tr">Oynatmak veya duraklatmak için tıklayın ve tam ekran kipine girmek veya çıkmak için çift tıklayın.</li>
       <li xml:lang="uk">Клацання для запуску або призупинення відтворення, подвійне клацання для входу або виходу з повноекранного режиму.</li>
-      <li xml:lang="x-test">xxClick to play or pause, and double-click to enter or exit full screen mode.xx</li>
       <li xml:lang="zh-CN">点击以播放或暂停，双击进入或退出全屏模式。</li>
       <li xml:lang="zh-TW">點擊以播放或暫停，連點兩下來進入或離開全螢幕模式。</li>
       <li>Choose the subtitle language, and automatically load the right one for your language, if possible.</li>
@@ -214,7 +209,6 @@
       <li xml:lang="sv">Välj språk för textning, och läs automatiskt in rätt språk, om möjligt.</li>
       <li xml:lang="tr">Altyazı dilini seçin ve varsa diliniz için olan altyazıyı kendiliğinden yükleyin.</li>
       <li xml:lang="uk">Вибір мови субтитрів та автоматичне завантаження, якщо це можливо, належних субтитрів для вашої мови.</li>
-      <li xml:lang="x-test">xxChoose the subtitle language, and automatically load the right one for your language, if possible.xx</li>
       <li xml:lang="zh-CN">选择字幕语言，系统会自动加载适合您的字幕 (如果可能)。</li>
       <li xml:lang="zh-TW">選擇字幕語言，並在可能的時候自動載入您的語言的字幕。</li>
       <li>Choose the audio track.</li>
@@ -240,7 +234,6 @@
       <li xml:lang="sv">Välj ljudspåret.</li>
       <li xml:lang="tr">Ses parçasını seçin.</li>
       <li xml:lang="uk">Вибір звукової доріжки.</li>
-      <li xml:lang="x-test">xxChoose the audio track.xx</li>
       <li xml:lang="zh-CN">选择音频轨道。</li>
       <li xml:lang="zh-TW">選擇音效軌。</li>
       <li>Choose the video track.</li>
@@ -266,7 +259,6 @@
       <li xml:lang="sv">Välj videospåret.</li>
       <li xml:lang="tr">Video parçasını seçin.</li>
       <li xml:lang="uk">Вибір відеодоріжки.</li>
-      <li xml:lang="x-test">xxChoose the video track.xx</li>
       <li xml:lang="zh-CN">选择视频轨道。</li>
       <li xml:lang="zh-TW">選擇影片軌。</li>
       <li>Adjust the volume by scrolling.</li>
@@ -292,7 +284,6 @@
       <li xml:lang="sv">Justera volymen genom att rulla.</li>
       <li xml:lang="tr">Sararak ses düzeyini ayarlayın.</li>
       <li xml:lang="uk">Коригування гучності гортанням.</li>
-      <li xml:lang="x-test">xxAdjust the volume by scrolling.xx</li>
       <li xml:lang="zh-CN">通过滚动调整音量。</li>
       <li xml:lang="zh-TW">利用滑鼠捲動來調整音量。</li>
     </ul>
