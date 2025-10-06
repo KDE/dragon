@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-09 02:32+0000\n"
-"PO-Revision-Date: 2015-12-30 19:18+0200\n"
+"PO-Revision-Date: 2025-10-06 00:30+0300\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -18,17 +18,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Poedit 3.6\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Donatas Glodenis"
+msgstr "Donatas Glodenis, Moo"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "dgvirtual@akl.lt"
+msgstr "dgvirtual@akl.lt, <>"
 
 #: src/main.cpp:34
 #, kde-format
@@ -38,112 +38,96 @@ msgstr "Dragon leistuvas"
 #: src/main.cpp:36
 #, kde-format
 msgid "A video player that has a usability focus"
-msgstr "Patogus naudoti video leistuvas"
+msgstr ""
+"Vaizdo įrašų leistuvė, kurios dėmesys nukreiptas į naudojimosi patogumą"
 
 #: src/main.cpp:38
-#, fuzzy, kde-format
-#| msgid ""
-#| "Copyright 2006, Max Howell\n"
-#| "Copyright 2007, Ian Monroe"
+#, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe\n"
 "Copyright 2022 Harald Sitter"
 msgstr ""
-"Copyright 2006, Max Howell\n"
-"Copyright 2007, Ian Monroe"
+"Autorių teisės 2006, Max Howell\n"
+"Autorių teisės 2007, Ian Monroe\n"
+"Autorių teisės 2022 Harald Sitter"
 
 #: src/qml/ControlsBar.qml:129
 msgctxt "@action:button"
 msgid "Application Menu"
-msgstr ""
+msgstr "Programos meniu"
 
 #: src/qml/ControlsBar.qml:160
-#, fuzzy
-#| msgid "Stop"
 msgctxt "@action:button stop playback"
 msgid "Stop"
-msgstr "Stop"
+msgstr "Stabdyti"
 
 #: src/qml/ControlsBar.qml:168
 msgctxt "@action:button"
 msgid "Unmute"
-msgstr ""
+msgstr "Įjungti garsą"
 
 #: src/qml/ControlsBar.qml:168
-#, fuzzy
-#| msgctxt "Mute the sound output"
-#| msgid "Mute"
 msgctxt "@action:button"
 msgid "Mute"
 msgstr "Nutildyti"
 
 #: src/qml/ControlsBar.qml:178
-#, fuzzy
-#| msgid "&Subtitles"
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
-msgstr "&Subtitrai"
+msgstr "Subtitrai"
 
 #: src/qml/ControlsBar.qml:185
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
-msgstr ""
+msgstr "Nėra"
 
 #: src/qml/ControlsBar.qml:195
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
-msgstr ""
+msgstr "%1 [%2]"
 
 #: src/qml/ControlsBar.qml:212
-#, fuzzy
-#| msgid "Audio CD"
 msgctxt "@action:button track selector"
 msgid "Audio Track"
-msgstr "Audio CD"
+msgstr "Garso įrašo takelis"
 
 #: src/qml/ControlsBar.qml:227
-#, fuzzy
-#| msgid "Video CD"
 msgctxt "@action:button track selector"
 msgid "Video Track"
-msgstr "Video CD"
+msgstr "Vaizdo įrašo takelis"
 
 #: src/qml/ControlsBar.qml:245
 msgctxt "@action opens about app page"
 msgid "About"
-msgstr ""
+msgstr "Apie"
 
 #: src/qml/Main.qml:53
 msgctxt "@action:button open file dialog"
 msgid "Open…"
-msgstr ""
+msgstr "Atverti…"
 
 #: src/qml/PlayerPage.qml:38
-#, fuzzy
-#| msgid "Play"
 msgctxt "@action:button"
 msgid "Play"
-msgstr "Groti"
+msgstr "Atkurti"
 
 #: src/qml/PlayerPage.qml:38
-#, fuzzy
-#| msgid "Pause"
 msgctxt "@action:button"
 msgid "Pause"
-msgstr "Pauzė"
+msgstr "Pristabdyti"
 
 #: src/qml/PlayerPage.qml:46
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
-msgstr ""
+msgstr "Išjungti viso ekrano veikseną"
 
 #: src/qml/PlayerPage.qml:46
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
-msgstr ""
+msgstr "Įjungti viso ekrano veikseną"
 
 #: src/qml/PlayerPage.qml:79
 msgctxt "@info"
@@ -154,6 +138,11 @@ msgid ""
 "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
 "command></para>"
 msgstr ""
+"Yra įdiegti ne visi vaizdo įrašų kodekai. Vaizdo įrašo atkūrimo palaikymas "
+"gali būti mažiau patikimas, nei tikėtasi.\n"
+"Įdiekite ffmpeg-full paleisdami komandą:\n"
+"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
+"command></para>"
 
 #: src/qml/PlayerPage.qml:86
 msgctxt "@info"
@@ -162,40 +151,44 @@ msgid ""
 "reliable than expected.\n"
 "Please consult your distribution on how to install all possible codecs."
 msgstr ""
+"Yra įdiegti ne visi vaizdo įrašų kodekai. Vaizdo įrašo atkūrimo palaikymas "
+"gali būti mažiau patikimas, nei tikėtasi.\n"
+"Pasitarkite su savo platinamuoju paketu, kaip įsidiegti visus įmanomus "
+"kodekus."
 
 #: src/qml/PlayerPage.qml:94
 msgctxt "@action:button %1 is the name of a distribution"
 msgid "%1 Support"
-msgstr ""
+msgstr "%1 palaikymas"
 
 #: src/qml/PlayerPage.qml:330
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
 msgid "%1 / %2"
-msgstr ""
+msgstr "%1 / %2"
 
 #: src/qml/VolumeButton.qml:31
 msgctxt "@action:button open volume slider popup"
 msgid "Show volume controls"
-msgstr ""
+msgstr "Rodyti garsumo valdiklius"
 
 #: src/qml/WelcomeView.qml:16
-#, fuzzy
-#| msgid "Dragon Player"
 msgctxt "@title"
 msgid "Welcome to Dragon Player"
-msgstr "Dragon leistuvas"
+msgstr "Jus sveikina Dragon leistuvė"
 
 #: src/qml/WelcomeView.qml:17
 msgctxt "@info"
 msgid "Dragon Player is a simple video player. Open a video to get started:"
 msgstr ""
+"Dragon leistuvė yra paprasta vaizdo įrašų leistuvė. Norėdami pradėti, "
+"atverkite vaizdo įrašą:"
 
 #: src/qml/WelcomeView.qml:20
 msgctxt "@action:button"
 msgid "Open Video File or Network Stream"
-msgstr ""
+msgstr "Atverti vaizdo įrašo failą ar tinklo srautą"
 
 #, fuzzy
 #~| msgctxt "Volume of sound output"
