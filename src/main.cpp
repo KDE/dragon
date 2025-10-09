@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 
     if (Renderer::isAMD()) {
         // https://bugreports.qt.io/browse/QTBUG-138679
-#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(6, 12, 0)
 #error "Reevaluate the use of QT_DISABLE_HW_TEXTURES_CONVERSION at a later point in time"
 #endif
         qWarning() << "Detected AMD GPU, disabling HW Texture Conversion renderer as it is known to cause issues.";
