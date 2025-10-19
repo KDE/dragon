@@ -169,7 +169,7 @@
       <li>Click to play or pause, and double-click to enter or exit full screen mode.</li>
       <li xml:lang="ar">النقر للتشغيل أو الإيقاف المؤقت، وانقر نقرًا مزدوجًا للدخول إلى وضع ملء الشاشة أو الخروج منه.</li>
       <li xml:lang="ca">Feu clic per a reproduir o fer una pausa i feu doble clic per a entrar o sortir del mode de pantalla completa.</li>
-      <li xml:lang="ca-valencia">Feu clic per a reproduir o fer una pausa i feu doble clic per a entrar o eixir del mode de pantalla completa.</li>
+      <li xml:lang="ca-valencia">Cliqueu per a reproduir o fer una pausa i feu doble clic per a entrar o eixir del mode de pantalla completa.</li>
       <li xml:lang="es">Pulse para reproducir o parar, y haga doble click para entrar o salir del modo pantalla completa.</li>
       <li xml:lang="eu">Egin klik jotzeko edo etenaldirako, eta egin klik bikoitza pantaila-osoko moduan sartzeko edo irteteko.</li>
       <li xml:lang="fi">Toista tai keskeytä napsauttamalla ja siirry koko näytön tilaan tai poistu siitä kaksoisnapsautuksella.</li>
@@ -195,7 +195,7 @@
       <li>Choose the subtitle language, and automatically load the right one for your language, if possible.</li>
       <li xml:lang="ar">تختار لغة الترجمة، وتحمل آليّاً اللغة المناسبة للغتك، إن أمكن.</li>
       <li xml:lang="ca">Trieu l'idioma dels subtítols i carregueu automàticament els adequats de l'idioma que vulgueu, si és possible.</li>
-      <li xml:lang="ca-valencia">Seleccioneu l'idioma dels subtítols i carregueu automàticament els adequats de l'idioma que vulgueu, si és possible.</li>
+      <li xml:lang="ca-valencia">Trieu l'idioma dels subtítols i carregueu automàticament els adequats de l'idioma que vulgueu, si és possible.</li>
       <li xml:lang="es">Elija el lenguaje de los subtítulos y automáticamente cargará el correcto para su idioma, si está disponible.</li>
       <li xml:lang="eu">Aukeratu azpidatzien hizkuntza, eta zure hizkuntzarako egokia dena automatikoki zamatu, ahal bada.</li>
       <li xml:lang="fi">Valitse tekstityskieli ja yritä automaattisesti ladata oikea.</li>
@@ -221,7 +221,7 @@
       <li>Choose the audio track.</li>
       <li xml:lang="ar">اختيار مقطوعة الصوت.</li>
       <li xml:lang="ca">Trieu la pista d'àudio.</li>
-      <li xml:lang="ca-valencia">Seleccioneu la pista d'àudio.</li>
+      <li xml:lang="ca-valencia">Trieu la pista d'àudio.</li>
       <li xml:lang="eo">Elektu la aŭdaĵtrakon.</li>
       <li xml:lang="es">Elija la pista de audio.</li>
       <li xml:lang="eu">Aukeratu audio-pista.</li>
@@ -248,7 +248,7 @@
       <li>Choose the video track.</li>
       <li xml:lang="ar">اختيار مسار الفيديو</li>
       <li xml:lang="ca">Trieu la pista de vídeo.</li>
-      <li xml:lang="ca-valencia">Seleccioneu la pista de vídeo.</li>
+      <li xml:lang="ca-valencia">Trieu la pista de vídeo.</li>
       <li xml:lang="eo">Elektu la vidaĵtrakon.</li>
       <li xml:lang="es">Elija la pista de vídeo.</li>
       <li xml:lang="eu">Aukeratu bideo-pista.</li>
