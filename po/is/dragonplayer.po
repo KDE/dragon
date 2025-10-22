@@ -2,21 +2,21 @@
 # Copyright (C) 2008 This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Sveinn í Felli <sveinki@nett.is>, 2008, 2009, 2011, 2013, 2015, 2018, 2022.
+# SPDX-FileCopyrightText: 2008, 2009, 2011, 2013, 2015, 2018, 2022, 2025 Sveinn í Felli <sveinki@nett.is>
 # SPDX-FileCopyrightText: 2022, 2024 Guðmundur Erlingsson <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-10 00:42+0000\n"
-"PO-Revision-Date: 2024-02-19 19:09+0000\n"
-"Last-Translator: Guðmundur Erlingsson <gudmundure@gmail.com>\n"
-"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2025-10-21 09:41+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"Language-Team: Icelandic\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 "\n"
@@ -35,35 +35,30 @@ msgstr "sv1@fellsnet.is,gudmundure@gmail.com"
 #: src/main.cpp:34
 #, kde-format
 msgid "Dragon Player"
-msgstr "Dragon spilari"
+msgstr "Dragon-spilari"
 
 #: src/main.cpp:36
 #, kde-format
 msgid "A video player that has a usability focus"
-msgstr "Notandavænn myndspilari"
+msgstr "Myndspilari með áherslu á þægindi við notkun"
 
 #: src/main.cpp:38
-#, fuzzy, kde-format
-#| msgid ""
-#| "Copyright 2006, Max Howell\n"
-#| "Copyright 2007, Ian Monroe"
+#, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe\n"
 "Copyright 2022 Harald Sitter"
 msgstr ""
 "Höfundarréttur 2006, Max Howell\n"
-"Höfundarréttur 2007, Ian Monroe"
+"Höfundarréttur 2007, Ian Monroe\n"
+"Höfundarréttur 2022 Harald Sitter"
 
 #: src/qml/ControlsBar.qml:129
 msgctxt "@action:button"
 msgid "Application Menu"
-msgstr ""
+msgstr "Forritsvalmynd"
 
 #: src/qml/ControlsBar.qml:160
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Stop"
 msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "Stöðva"
@@ -71,85 +66,69 @@ msgstr "Stöðva"
 #: src/qml/ControlsBar.qml:168
 msgctxt "@action:button"
 msgid "Unmute"
-msgstr ""
+msgstr "Afþagga"
 
 #: src/qml/ControlsBar.qml:168
-#, fuzzy
-#| msgctxt "@action Mute the sound output"
-#| msgid "Mute"
 msgctxt "@action:button"
 msgid "Mute"
 msgstr "Þagga"
 
 #: src/qml/ControlsBar.qml:178
-#, fuzzy
-#| msgctxt "@title:menu"
-#| msgid "&Subtitles"
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
-msgstr "&Skjátextar"
+msgstr "Skjátextar"
 
 #: src/qml/ControlsBar.qml:185
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
-msgstr ""
+msgstr "Ekkert"
 
 #: src/qml/ControlsBar.qml:195
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
-msgstr ""
+msgstr "%1 [%2]"
 
 #: src/qml/ControlsBar.qml:212
-#, fuzzy
-#| msgid "Audio CD"
 msgctxt "@action:button track selector"
 msgid "Audio Track"
-msgstr "Hljóðdiskur (CD)"
+msgstr "Hljóðspor"
 
 #: src/qml/ControlsBar.qml:227
-#, fuzzy
-#| msgid "Video CD"
 msgctxt "@action:button track selector"
 msgid "Video Track"
-msgstr "Vídeódiskur (CD)"
+msgstr "Myndspor"
 
 #: src/qml/ControlsBar.qml:245
 msgctxt "@action opens about app page"
 msgid "About"
-msgstr ""
+msgstr "Um hugbúnaðinn"
 
 #: src/qml/Main.qml:53
 msgctxt "@action:button open file dialog"
 msgid "Open…"
-msgstr ""
+msgstr "Opna…"
 
 #: src/qml/PlayerPage.qml:38
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Play"
 msgctxt "@action:button"
 msgid "Play"
 msgstr "Spila"
 
 #: src/qml/PlayerPage.qml:38
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Pause"
 msgctxt "@action:button"
 msgid "Pause"
-msgstr "Setja á pásu"
+msgstr "Í bið"
 
 #: src/qml/PlayerPage.qml:46
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
-msgstr ""
+msgstr "Hætta í skjáfylli"
 
 #: src/qml/PlayerPage.qml:46
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
-msgstr ""
+msgstr "Fara í skjáfylli"
 
 #: src/qml/PlayerPage.qml:78
 msgctxt "@info %2 is the name of a distribution"
@@ -159,6 +138,11 @@ msgid ""
 "<nl/><nl/>\n"
 "Please <link url=\"%1\">contact the %2 developers</link> about this issue."
 msgstr ""
+"Dragon Player styður einungis “ffmpeg” bakenda QtMultimedia-aðgerðasafnsins, "
+"en einhver annar er í notkun.\n"
+"<nl/><nl/>\n"
+"Endilega <link url=\"%1\">hafðu samband við forritara %2</link> um þetta "
+"vandamál."
 
 #: src/qml/PlayerPage.qml:86
 msgctxt "@info"
@@ -169,6 +153,11 @@ msgid ""
 "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
 "command></para>"
 msgstr ""
+"Ekki eru allir kóðunarlyklar myndskeiða uppsettir. Afspilun myndmerkis gæti "
+"verið óáreiðanlegri en búast mætti við.\n"
+"Settu upp ffmpeg-full með því að keyra:\n"
+"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
+"command></para>"
 
 #: src/qml/PlayerPage.qml:93
 msgctxt "@info %2 is the name of a distribution"
@@ -179,35 +168,41 @@ msgid ""
 "Please <link url=\"%1\">contact the %2 developers</link> about this issue, "
 "or to find out how to install the missing video codecs."
 msgstr ""
+"Tókst ekki að staðsetja fullan stuðning við kóðunarlykla H.264 myndskeiða, "
+"afspilun myndmerkis gæti verið óáreiðanlegri en búast mætti við.\n"
+"<nl/><nl/>\n"
+"Endilega <link url=\"%1\">hafðu samband við forritara %2</link> um þetta "
+"vandamál, eða til að sjá hvernig eigi að setja upp þá myndkóðunarlykla sem "
+"vantar."
 
 #: src/qml/PlayerPage.qml:334
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
 msgid "%1 / %2"
-msgstr ""
+msgstr "%1 / %2"
 
 #: src/qml/VolumeButton.qml:31
 msgctxt "@action:button open volume slider popup"
 msgid "Show volume controls"
-msgstr ""
+msgstr "Birta hljóðstyrksstýringar"
 
 #: src/qml/WelcomeView.qml:16
-#, fuzzy
-#| msgid "Welcome to Dragon Player"
 msgctxt "@title"
 msgid "Welcome to Dragon Player"
-msgstr "Velkomin í Dragon spilarann"
+msgstr "Velkomin í Dragon-spilarann"
 
 #: src/qml/WelcomeView.qml:17
 msgctxt "@info"
 msgid "Dragon Player is a simple video player. Open a video to get started:"
 msgstr ""
+"Dragon-spilarinn er einfaldur spilari fyrir myndskeið. Opnaðu myndskeið til "
+"að komast í gang:"
 
 #: src/qml/WelcomeView.qml:20
 msgctxt "@action:button"
 msgid "Open Video File or Network Stream"
-msgstr ""
+msgstr "Opna myndskeiðsskrá eða netstreymi"
 
 #, fuzzy
 #~| msgctxt "@option:check Volume of sound output"
