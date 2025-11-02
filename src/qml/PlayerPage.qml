@@ -82,10 +82,11 @@ Please <link url="%1">contact the %2 developers</link> about this issue.`,
                 }
 
                 if (Dragon.Sandbox.inside && !Dragon.Sandbox.ffmpegFull) {
+                    // codecs-extras is meant to be auto-installed, but since the user can mask it away we still always need to handle the error case
                     return xi18nc("@info",
 `Not all video codecs are installed. Video playback support may be less reliable than expected.
-Please install ffmpeg-full by running:
-<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</command></para>`)
+Please install codecs-extra by running:
+<para><command>flatpak install org.freedesktop.Platform.codecs-extra//25.08-extra</command></para>`)
                 }
 
                 if (!Dragon.Sandbox.ffmpegFull) {

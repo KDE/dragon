@@ -18,10 +18,6 @@ bool Sandbox::isInside() const
 
 bool Sandbox::hasFfmpegFull() const
 {
-    if (!KSandbox::isFlatpak()) {
-        const auto codec = avcodec_find_decoder_by_name("h264");
-        return codec != nullptr;
-    }
-
-    return QDir(u"/app/lib/ffmpeg/"_s).entryList({u"libav*.so*"_s}, QDir::Files | QDir::NoDotAndDotDot).size() > 0;
+    static const auto hasCodec = avcodec_find_decoder_by_name("h264") != nullptr;
+    return hasCodec;
 }
