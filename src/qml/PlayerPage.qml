@@ -3,6 +3,7 @@
 
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
 import QtQuick.Window as Window
 import org.kde.coreaddons as KCoreAddons
@@ -14,6 +15,7 @@ import org.kde.dragon as Dragon
 Kirigami.Page {
     id: videoPage
 
+    property alias model: sourceModel
     property var storedVisibility: null
     property alias player: player
     property alias videoContainer: videoContainer
@@ -400,6 +402,32 @@ Please <link url="%1">contact the %2 developers</link> about this issue, or to f
             }
         }
 
+        ListView {
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            // width: 128
+            anchors.left: parent.left
+
+            model: Dragon.SourceModel {
+                id: sourceModel
+                player: videoPage.player
+            }
+            onCountChanged: {
+                console.log("SourceModel count changed:", count)
+            }
+
+            delegate: Controls.ItemDelegate {
+                id: delegate
+                required property var modelData
+
+                contentItem: Kirigami.IconTitleSubtitle {
+                    title: modelData.toString()
+                    subtitle: "subtitle"
+                    icon: icon.fromControlsIcon("document-open")
+                }
+            }
+        }
     }
 
     Shortcut {
@@ -449,5 +477,11 @@ Please <link url="%1">contact the %2 developers</link> about this issue, or to f
         context: Qt.ApplicationShortcut
         sequence: "Ctrl+Alt+Right"
         onActivated: videoPage.seek(toolbar.seekSlider.value + (5 * 60000), true)
+    }
+
+    Shortcut {
+        context: Qt.ApplicationShortcut
+        sequence: "N"
+        onActivated: videoPage.model.next()
     }
 }

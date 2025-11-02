@@ -25,7 +25,8 @@ target_sources(dragonmodule
         mpris2/mpris2.cpp
         backend.cpp
         fileopen.cpp
-        sandbox.cpp)
+        sandbox.cpp
+        sourcemodel.cpp)
 target_link_libraries(dragonmodule
     PRIVATE
         Qt6::Core

@@ -86,7 +86,8 @@ Kirigami.ApplicationWindow {
         if (Application.arguments.length < 2) {
             return
         }
-        playerPage.player.source = Qt.resolvedUrl(Application.arguments[1], new QtObject() /* don't resolve relative to qrc:/ (the engine's base url) */)
-        playerPage.player.play()
+        playerPage.model.addSourcePromise(Qt.resolvedUrl(Application.arguments[1], new QtObject() /* don't resolve relative to qrc:/ (the engine's base url) */)).then(() => {
+            playerPage.player.play()
+        })
     }
 }
