@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component type="desktop-application">
-  <id>org.kde.dragonplayer.desktop</id>
+  <id>org.kde.dragonplayer</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <developer id="org.kde">
@@ -310,6 +310,7 @@
   <project_group>KDE</project_group>
   <provides>
     <binary>dragon</binary>
+    <id>org.kde.dragonplayer.desktop</id>
   </provides>
   <launchable type="desktop-id">org.kde.dragonplayer.desktop</launchable>
   <categories>
