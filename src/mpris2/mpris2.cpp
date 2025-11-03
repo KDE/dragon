@@ -54,7 +54,7 @@ void Mpris2::signalPropertiesChange(const QObject *adaptor, const QVariantMap &p
 
 void Mpris2::componentComplete()
 {
-    const QString mpris2Name = QStringLiteral("org.mpris.MediaPlayer2.dragonplayer");
+    const QString mpris2Name = QStringLiteral("org.mpris.MediaPlayer2.org.kde.dragonplayer");
 
     bool success = QDBusConnection::sessionBus().registerService(mpris2Name);
 

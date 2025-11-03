@@ -10,7 +10,6 @@
     ],
     "desktop-file-name-suffix": " (Nightly)",
     "finish-args": [
-        "--own-name=org.mpris.MediaPlayer2.dragonplayer",
         "--device=dri",
         "--share=ipc",
         "--socket=pulseaudio",

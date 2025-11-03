@@ -34,7 +34,7 @@ slots:
     bus: session
   mpris-dragonplayer:
     interface: dbus
-    name: org.mpris.MediaPlayer2.dragonplayer
+    name: org.mpris.MediaPlayer2.org.kde.dragonplayer
     bus: session
 parts:
   dragon:
