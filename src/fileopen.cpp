@@ -11,6 +11,8 @@
 #include <QGuiApplication>
 #include <QWindow>
 
+#include <KLocalizedString>
+
 using namespace Qt::StringLiterals;
 
 void FileOpen::open(QWindow *window)
@@ -79,7 +81,7 @@ void FileOpen::openInternal(const QString &windowHandle)
     }
 
     message << windowHandle;
-    message << /* title = */ QString() << options;
+    message << /* title = */ i18nc("@title", "Open Video File or Network Stream") << options;
 
     QDBusPendingCall pendingCall = QDBusConnection::sessionBus().asyncCall(message);
     auto watcher = new QDBusPendingCallWatcher(pendingCall);
