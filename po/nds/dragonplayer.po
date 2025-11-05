@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-10 00:42+0000\n"
+"POT-Creation-Date: 2025-11-05 00:43+0000\n"
 "PO-Revision-Date: 2014-02-23 20:03+0100\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -29,17 +29,23 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "s_dibbern@web.de, m.j.wiese@web.de"
 
-#: src/main.cpp:34
+#: src/fileopen.cpp:84
+#, kde-format
+msgctxt "@title"
+msgid "Open Video File or Network Stream"
+msgstr ""
+
+#: src/main.cpp:35
 #, kde-format
 msgid "Dragon Player"
 msgstr "Drakenspeler"
 
-#: src/main.cpp:36
+#: src/main.cpp:37
 #, kde-format
 msgid "A video player that has a usability focus"
 msgstr "En Videoafspeler mit en Fokus op Bruukborkeit"
 
-#: src/main.cpp:38
+#: src/main.cpp:39
 #, fuzzy, kde-format
 #| msgid ""
 #| "Copyright 2006, Max Howell\n"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-10 00:42+0000\n"
+"POT-Creation-Date: 2025-11-05 00:43+0000\n"
 "PO-Revision-Date: 2025-04-15 14:59+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -27,17 +27,25 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "g.sora@tiscali.it"
 
-#: src/main.cpp:34
+#: src/fileopen.cpp:84
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Open Video File or Network Stream"
+msgctxt "@title"
+msgid "Open Video File or Network Stream"
+msgstr "Aperi File Video o Fluxo (Stream) de Rete"
+
+#: src/main.cpp:35
 #, kde-format
 msgid "Dragon Player"
 msgstr "Dragon Player (Reproductor Dragon)"
 
-#: src/main.cpp:36
+#: src/main.cpp:37
 #, kde-format
 msgid "A video player that has a usability focus"
 msgstr "Un reproductor video que ha un foco de usabilitate"
 
-#: src/main.cpp:38
+#: src/main.cpp:39
 #, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"

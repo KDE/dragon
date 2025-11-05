@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-10 00:42+0000\n"
+"POT-Creation-Date: 2025-11-05 00:43+0000\n"
 "PO-Revision-Date: 2025-10-06 00:25+0300\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
@@ -30,18 +30,26 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "dgvirtual@akl.lt, <>"
 
-#: src/main.cpp:34
+#: src/fileopen.cpp:84
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Open Video File or Network Stream"
+msgctxt "@title"
+msgid "Open Video File or Network Stream"
+msgstr "Atverti vaizdo įrašo failą ar tinklo srautą"
+
+#: src/main.cpp:35
 #, kde-format
 msgid "Dragon Player"
 msgstr "Dragon leistuvė"
 
-#: src/main.cpp:36
+#: src/main.cpp:37
 #, kde-format
 msgid "A video player that has a usability focus"
 msgstr ""
 "Vaizdo įrašų leistuvė, kurios dėmesys nukreiptas į naudojimosi patogumą"
 
-#: src/main.cpp:38
+#: src/main.cpp:39
 #, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"
