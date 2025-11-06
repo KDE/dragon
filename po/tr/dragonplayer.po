@@ -31,9 +31,7 @@ msgid "Your emails"
 msgstr "tulliana@gmail.com, emir_sari@icloud.com"
 
 #: src/fileopen.cpp:84
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Video File or Network Stream"
+#, kde-format
 msgctxt "@title"
 msgid "Open Video File or Network Stream"
 msgstr "Video Dosyası veya Ağ Akışı Aç"
@@ -46,7 +44,7 @@ msgstr "Dragon"
 #: src/main.cpp:37
 #, kde-format
 msgid "A video player that has a usability focus"
-msgstr "Kullanılabilirliğe odaklanmış bir video oynatıcısı"
+msgstr "Kullanılabilirliğe odaklı bir video oynatıcısı"
 
 #: src/main.cpp:39
 #, kde-format
@@ -55,9 +53,9 @@ msgid ""
 "Copyright 2007, Ian Monroe\n"
 "Copyright 2022 Harald Sitter"
 msgstr ""
-"Telif hakkı 2006, Max Howell\n"
-"Telif hakkı 2007, Ian Monroe\n"
-"Telif hakkı 2022, Harald Sitter"
+"© 2006, Max Howell\n"
+"© 2007, Ian Monroe\n"
+"© 2022, Harald Sitter"
 
 #: src/qml/ControlsBar.qml:129
 msgctxt "@action:button"
@@ -207,7 +205,3 @@ msgstr "Dragon, basit bir video oynatıcısıdır. Başlamak için bir video aç
 msgctxt "@action:button"
 msgid "Open Video File or Network Stream"
 msgstr "Video Dosyası veya Ağ Akışı Aç"
-
-#~ msgctxt "@action:button %1 is the name of a distribution"
-#~ msgid "%1 Support"
-#~ msgstr "%1 Desteği"
