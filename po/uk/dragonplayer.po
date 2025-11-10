@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-05 00:43+0000\n"
-"PO-Revision-Date: 2025-07-24 09:47+0300\n"
+"PO-Revision-Date: 2025-11-09 18:12+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -32,9 +32,7 @@ msgid "Your emails"
 msgstr "yurchor@ukr.net"
 
 #: src/fileopen.cpp:84
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Video File or Network Stream"
+#, kde-format
 msgctxt "@title"
 msgid "Open Video File or Network Stream"
 msgstr "Відкрити файл відео або потік відтворення"

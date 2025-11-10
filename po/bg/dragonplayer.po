@@ -2,20 +2,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Yasen Pramatarov <yasen@lindeas.com>, 2009, 2010, 2011, 2012, 2013, 2015, 2021.
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Mincho Kondarev <mkondarev@yahoo.de>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Mincho Kondarev <mkondarev@yahoo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-05 00:43+0000\n"
-"PO-Revision-Date: 2024-11-10 20:12+0100\n"
+"PO-Revision-Date: 2025-11-09 13:51+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.11.70\n"
+"X-Generator: Lokalize 25.07.70\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -32,7 +32,7 @@ msgstr "yasen@lindeas.com,mkondarev@yahoo.de"
 #, kde-format
 msgctxt "@title"
 msgid "Open Video File or Network Stream"
-msgstr ""
+msgstr "Отваряне на видео файл или мрежов поток"
 
 #: src/main.cpp:35
 #, kde-format
@@ -45,100 +45,79 @@ msgid "A video player that has a usability focus"
 msgstr "Програма за видео, насочена към ползваемостта"
 
 #: src/main.cpp:39
-#, fuzzy, kde-format
-#| msgid ""
-#| "Copyright 2006, Max Howell\n"
-#| "Copyright 2007, Ian Monroe"
+#, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe\n"
 "Copyright 2022 Harald Sitter"
 msgstr ""
 "Copyright 2006, Max Howell\n"
-"Copyright 2007, Ian Monroe"
+"Copyright 2007, Ian Monroe\n"
+"Copyright 2022 Harald Sitter"
 
 #: src/qml/ControlsBar.qml:129
 msgctxt "@action:button"
 msgid "Application Menu"
-msgstr ""
+msgstr "Меню с приложения"
 
 #: src/qml/ControlsBar.qml:160
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Stop"
 msgctxt "@action:button stop playback"
 msgid "Stop"
-msgstr "Стоп"
+msgstr "Спиране"
 
 #: src/qml/ControlsBar.qml:168
 msgctxt "@action:button"
 msgid "Unmute"
-msgstr ""
+msgstr "Включване на звука"
 
 #: src/qml/ControlsBar.qml:168
-#, fuzzy
-#| msgctxt "@action Mute the sound output"
-#| msgid "Mute"
 msgctxt "@action:button"
 msgid "Mute"
 msgstr "Заглушаване"
 
 #: src/qml/ControlsBar.qml:178
-#, fuzzy
-#| msgctxt "@title:menu"
-#| msgid "&Subtitles"
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
-msgstr "&Надписи"
+msgstr "Субтитри"
 
 #: src/qml/ControlsBar.qml:185
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
-msgstr ""
+msgstr "Без"
 
 #: src/qml/ControlsBar.qml:195
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
-msgstr ""
+msgstr "%1 [%2]"
 
 #: src/qml/ControlsBar.qml:212
-#, fuzzy
-#| msgid "Audio CD"
 msgctxt "@action:button track selector"
 msgid "Audio Track"
-msgstr "Аудио CD"
+msgstr "Аудио запис"
 
 #: src/qml/ControlsBar.qml:227
-#, fuzzy
-#| msgid "Video CD"
 msgctxt "@action:button track selector"
 msgid "Video Track"
-msgstr "VCD"
+msgstr "Видео запис"
 
 #: src/qml/ControlsBar.qml:245
 msgctxt "@action opens about app page"
 msgid "About"
-msgstr ""
+msgstr "Относно"
 
 #: src/qml/Main.qml:53
 msgctxt "@action:button open file dialog"
 msgid "Open…"
-msgstr ""
+msgstr "Отваряне…"
 
 #: src/qml/PlayerPage.qml:38
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Play"
 msgctxt "@action:button"
 msgid "Play"
-msgstr "Изпълнение"
+msgstr "Възпроизвеждане"
 
 #: src/qml/PlayerPage.qml:38
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Pause"
 msgctxt "@action:button"
 msgid "Pause"
 msgstr "Пауза"
@@ -146,12 +125,12 @@ msgstr "Пауза"
 #: src/qml/PlayerPage.qml:46
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
-msgstr ""
+msgstr "Изход от цял екран"
 
 #: src/qml/PlayerPage.qml:46
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
-msgstr ""
+msgstr "Цял екран"
 
 #: src/qml/PlayerPage.qml:78
 msgctxt "@info %2 is the name of a distribution"
@@ -161,6 +140,11 @@ msgid ""
 "<nl/><nl/>\n"
 "Please <link url=\"%1\">contact the %2 developers</link> about this issue."
 msgstr ""
+"Програмата за възпроизвеждане на мултимедия Dragon поддържа само бекенда "
+"„ffmpeg“ на библиотеката QtMultimedia, нов момента се използва друг.\n"
+"<nl/><nl/>\n"
+"Моля, <link url=\"%1\">свържете се с разработчиците на %2</link> относно "
+"този проблем."
 
 #: src/qml/PlayerPage.qml:86
 msgctxt "@info"
@@ -171,6 +155,11 @@ msgid ""
 "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
 "command></para>"
 msgstr ""
+"Не всички видео кодеци са инсталирани. Поддръжката за възпроизвеждане на "
+"видео може да е по-ненадеждна от очакваното.\n"
+"Моля, инсталирайте ffmpeg-full, като изпълните:\n"
+"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
+"command></para>"
 
 #: src/qml/PlayerPage.qml:93
 msgctxt "@info %2 is the name of a distribution"
@@ -181,32 +170,37 @@ msgid ""
 "Please <link url=\"%1\">contact the %2 developers</link> about this issue, "
 "or to find out how to install the missing video codecs."
 msgstr ""
+"Не може да се намери пълна поддръжка за видео кодека H.264. Поддръжката за "
+"възпроизвеждане на видео може да се окаже по-малко надеждна от очакваното.\n"
+"<nl/><nl/>\n"
+"Моля, <link url=\"%1\">свържете се с разработчиците на %2</link> по този "
+"въпрос или за да разберете, как да инсталирате липсващите видео кодеци."
 
 #: src/qml/PlayerPage.qml:334
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
 msgid "%1 / %2"
-msgstr ""
+msgstr "%1 / %2"
 
 #: src/qml/VolumeButton.qml:31
 msgctxt "@action:button open volume slider popup"
 msgid "Show volume controls"
-msgstr ""
+msgstr "Показване на бутоните за нагласяне на силата на звука"
 
 #: src/qml/WelcomeView.qml:16
-#, fuzzy
-#| msgid "Welcome to Dragon Player"
 msgctxt "@title"
 msgid "Welcome to Dragon Player"
-msgstr "Добре дошли в програмата за изпълнение на видео Dragon"
+msgstr "Добре дошли в програмата за изпълнение на мултимедия Dragon"
 
 #: src/qml/WelcomeView.qml:17
 msgctxt "@info"
 msgid "Dragon Player is a simple video player. Open a video to get started:"
 msgstr ""
+"Dragon е опростена програма за изпълнение на видео. Отворете видео, за да "
+"започнете:"
 
 #: src/qml/WelcomeView.qml:20
 msgctxt "@action:button"
 msgid "Open Video File or Network Stream"
-msgstr ""
+msgstr "Отваряне на видео файл или мрежов поток"
