@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-05 00:43+0000\n"
-"PO-Revision-Date: 2025-11-08 15:49+0100\n"
+"PO-Revision-Date: 2025-11-09 13:51+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -32,7 +32,7 @@ msgstr "yasen@lindeas.com,mkondarev@yahoo.de"
 #, kde-format
 msgctxt "@title"
 msgid "Open Video File or Network Stream"
-msgstr ""
+msgstr "Отваряне на видео файл или мрежов поток"
 
 #: src/main.cpp:35
 #, kde-format
@@ -58,7 +58,7 @@ msgstr ""
 #: src/qml/ControlsBar.qml:129
 msgctxt "@action:button"
 msgid "Application Menu"
-msgstr ""
+msgstr "Меню с приложения"
 
 #: src/qml/ControlsBar.qml:160
 msgctxt "@action:button stop playback"
@@ -68,7 +68,7 @@ msgstr "Спиране"
 #: src/qml/ControlsBar.qml:168
 msgctxt "@action:button"
 msgid "Unmute"
-msgstr ""
+msgstr "Включване на звука"
 
 #: src/qml/ControlsBar.qml:168
 msgctxt "@action:button"
@@ -83,14 +83,14 @@ msgstr "Субтитри"
 #: src/qml/ControlsBar.qml:185
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
-msgstr ""
+msgstr "Без"
 
 #: src/qml/ControlsBar.qml:195
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
-msgstr ""
+msgstr "%1 [%2]"
 
 #: src/qml/ControlsBar.qml:212
 msgctxt "@action:button track selector"
@@ -155,6 +155,11 @@ msgid ""
 "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
 "command></para>"
 msgstr ""
+"Не всички видео кодеци са инсталирани. Поддръжката за възпроизвеждане на "
+"видео може да е по-ненадеждна от очакваното.\n"
+"Моля, инсталирайте ffmpeg-full, като изпълните:\n"
+"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
+"command></para>"
 
 #: src/qml/PlayerPage.qml:93
 msgctxt "@info %2 is the name of a distribution"
