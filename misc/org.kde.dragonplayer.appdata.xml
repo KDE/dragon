@@ -59,6 +59,7 @@
   <name xml:lang="zh-TW">神龍播放器</name>
   <summary>Play video files and streams</summary>
   <summary xml:lang="ar">تشغّل ملفات الفيديو والبث المباشر</summary>
+  <summary xml:lang="bg">Възпроизвеждане на видео файлове и потоци</summary>
   <summary xml:lang="ca">Reprodueix fitxers i fluxos de vídeo</summary>
   <summary xml:lang="ca-valencia">Reproduïx fitxers i fluxos de vídeo</summary>
   <summary xml:lang="es">Reproduzca archivos y transmisiones de vídeo</summary>
@@ -89,6 +90,7 @@
       Dragon Player is a video player focusing on simplicity instead of features. Its easy-to-use interface is designed to get out of your way and simply play your video files and streams.
     </p>
     <p xml:lang="ar">مشغل التنين هو مشغل فيديو يركز على البساطة بدلاً من الميزات. فقد صُممت واجهته سهلة الاستخدام لتبتعد عن طريقك وتشغّل ملفات الفيديو والبث ببساطة.</p>
+    <p xml:lang="bg">Dragon е програма за мултимедийно възпроизвеждане, в която фокусът е върху простотата на използване, вместо претрупаност от функции. Лесният за употреба интерфейс е предназначен да не се натрапва и по опростен начин да възпроизвежда вашите видеофайлове и потоци.</p>
     <p xml:lang="ca">El Dragon Player és un reproductor de vídeo que se centra en la simplicitat en lloc de les característiques. La seva interfície fàcil d'utilitzar està dissenyada perquè no s'interposi en el vostre camí i que simplement pugueu reproduir els fitxers i fluxos de vídeo.</p>
     <p xml:lang="ca-valencia">Dragon Player és un reproductor de vídeo que se centra en la simplicitat en lloc de les característiques. La seua interfície fàcil d'utilitzar està dissenyada perquè no s'interpose en el vostre camí i que senzillament pugueu reproduir els fitxers i fluxos de vídeo.</p>
     <p xml:lang="eo">Dragon Player estas plurmedia ludilo fokusanta al simpleco anstataŭ funkcioj. Ĝia facile uzebla interfaco estas dezajnita por ne malhelpi vian uzon kaj anstataŭe ebligi vin facile aŭdigi viajn vidaĵajn dosierojn kaj fluojn.</p>
@@ -170,6 +172,7 @@
     <ul>
       <li>Click to play or pause, and double-click to enter or exit full screen mode.</li>
       <li xml:lang="ar">النقر للتشغيل أو الإيقاف المؤقت، وانقر نقرًا مزدوجًا للدخول إلى وضع ملء الشاشة أو الخروج منه.</li>
+      <li xml:lang="bg">Единично кликване за пускане или поставяне на пауза и двойно за влизане или излизане от режим на цял екран.</li>
       <li xml:lang="ca">Feu clic per a reproduir o fer una pausa i feu doble clic per a entrar o sortir del mode de pantalla completa.</li>
       <li xml:lang="ca-valencia">Cliqueu per a reproduir o fer una pausa i feu doble clic per a entrar o eixir del mode de pantalla completa.</li>
       <li xml:lang="es">Pulse para reproducir o parar, y haga doble click para entrar o salir del modo pantalla completa.</li>
@@ -197,6 +200,7 @@
       <li xml:lang="zh-TW">點擊以播放或暫停，連點兩下來進入或離開全螢幕模式。</li>
       <li>Choose the subtitle language, and automatically load the right one for your language, if possible.</li>
       <li xml:lang="ar">تختار لغة الترجمة، وتحمل آليّاً اللغة المناسبة للغتك، إن أمكن.</li>
+      <li xml:lang="bg">Избиране на езика на субтитрите с автоматично зареждане, ако са налични.</li>
       <li xml:lang="ca">Trieu l'idioma dels subtítols i carregueu automàticament els adequats de l'idioma que vulgueu, si és possible.</li>
       <li xml:lang="ca-valencia">Trieu l'idioma dels subtítols i carregueu automàticament els adequats de l'idioma que vulgueu, si és possible.</li>
       <li xml:lang="es">Elija el lenguaje de los subtítulos y automáticamente cargará el correcto para su idioma, si está disponible.</li>
@@ -224,6 +228,7 @@
       <li xml:lang="zh-TW">選擇字幕語言，並在可能的時候自動載入您的語言的字幕。</li>
       <li>Choose the audio track.</li>
       <li xml:lang="ar">اختيار مقطوعة الصوت.</li>
+      <li xml:lang="bg">Избиране на аудио записа.</li>
       <li xml:lang="ca">Trieu la pista d'àudio.</li>
       <li xml:lang="ca-valencia">Trieu la pista d'àudio.</li>
       <li xml:lang="eo">Elektu la aŭdaĵtrakon.</li>
@@ -252,6 +257,7 @@
       <li xml:lang="zh-TW">選擇音效軌。</li>
       <li>Choose the video track.</li>
       <li xml:lang="ar">اختيار مسار الفيديو</li>
+      <li xml:lang="bg">Избиране на видео записа.</li>
       <li xml:lang="ca">Trieu la pista de vídeo.</li>
       <li xml:lang="ca-valencia">Trieu la pista de vídeo.</li>
       <li xml:lang="eo">Elektu la vidaĵtrakon.</li>
@@ -280,6 +286,7 @@
       <li xml:lang="zh-TW">選擇影片軌。</li>
       <li>Adjust the volume by scrolling.</li>
       <li xml:lang="ar">ضبط الصوت بالتمرير.</li>
+      <li xml:lang="bg">Регулиране силата на звука с колелцето на мишката.</li>
       <li xml:lang="ca">Ajusteu el volum amb el desplaçament.</li>
       <li xml:lang="ca-valencia">Ajusteu el volum amb el desplaçament.</li>
       <li xml:lang="eo">Ĝustigu la laŭtecon rulumante.</li>
