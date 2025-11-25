@@ -4,7 +4,6 @@
 #include "backend.h"
 
 #include <QtMultimedia/QVideoSink>
-#include <QtMultimedia/private/qplatformvideosink_p.h>
 
 using namespace Qt::StringLiterals;
 
@@ -24,7 +23,7 @@ bool BackendAttachedType::isFFmpeg() const
         qWarning() << "No platform video sink available";
         return false;
     }
-    auto platform = m_videoSink->platformVideoSink();
+    auto platform = reinterpret_cast<QObject *>(m_videoSink->platformVideoSink());
     constexpr auto ffmpegName = "QFFmpegVideoSink"_L1;
     if (auto className = QLatin1StringView(platform->metaObject()->className()); className != ffmpegName) {
         qWarning() << "Expected" << ffmpegName << ", got" << className;

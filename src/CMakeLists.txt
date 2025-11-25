@@ -37,7 +37,6 @@ target_link_libraries(dragonmodule
         Qt6::Qml
         Qt6::Quick
         Qt6::Multimedia
-        Qt6::MultimediaPrivate
         PkgConfig::libavcodec)
 # Set mpris2 as include dir so the qml plugin source can find it
 target_include_directories(dragonmodule PRIVATE "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/mpris2>")
