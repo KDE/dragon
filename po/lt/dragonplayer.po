@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2025-11-26 00:42+0000\n"
 "PO-Revision-Date: 2025-10-06 00:25+0300\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
@@ -151,14 +151,22 @@ msgstr ""
 "<link url=\"%1\">Susisiekite su %2 plėtotojais</link> dėl šios problemos "
 "sprendimo."
 
-#: src/qml/PlayerPage.qml:86
+#: src/qml/PlayerPage.qml:87
+#, fuzzy
+#| msgctxt "@info"
+#| msgid ""
+#| "Not all video codecs are installed. Video playback support may be less "
+#| "reliable than expected.\n"
+#| "Please install ffmpeg-full by running:\n"
+#| "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-"
+#| "full//24.08</command></para>"
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
 "reliable than expected.\n"
-"Please install ffmpeg-full by running:\n"
-"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
-"command></para>"
+"Please install codecs-extra by running:\n"
+"<para><command>flatpak install org.freedesktop.Platform.codecs-extra//25.08-"
+"extra</command></para>"
 msgstr ""
 "Yra įdiegti ne visi vaizdo įrašų kodekai. Vaizdo įrašo atkūrimo palaikymas "
 "gali būti mažiau patikimas, nei tikėtasi.\n"
@@ -166,7 +174,7 @@ msgstr ""
 "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
 "command></para>"
 
-#: src/qml/PlayerPage.qml:93
+#: src/qml/PlayerPage.qml:94
 msgctxt "@info %2 is the name of a distribution"
 msgid ""
 "Could not locate full support for the H.264 video codec; video playback "
@@ -182,7 +190,7 @@ msgstr ""
 "sprendimo arba kad sužinotumėte kaip įsidiegti trūkstamus vaizdo įrašų "
 "kodekus."
 
-#: src/qml/PlayerPage.qml:334
+#: src/qml/PlayerPage.qml:335
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"

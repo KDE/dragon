@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2025-11-26 00:42+0000\n"
 "PO-Revision-Date: 2025-04-15 14:59+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -142,14 +142,22 @@ msgid ""
 "Please <link url=\"%1\">contact the %2 developers</link> about this issue."
 msgstr ""
 
-#: src/qml/PlayerPage.qml:86
+#: src/qml/PlayerPage.qml:87
+#, fuzzy
+#| msgctxt "@info"
+#| msgid ""
+#| "Not all video codecs are installed. Video playback support may be less "
+#| "reliable than expected.\n"
+#| "Please install ffmpeg-full by running:\n"
+#| "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-"
+#| "full//24.08</command></para>"
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
 "reliable than expected.\n"
-"Please install ffmpeg-full by running:\n"
-"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
-"command></para>"
+"Please install codecs-extra by running:\n"
+"<para><command>flatpak install org.freedesktop.Platform.codecs-extra//25.08-"
+"extra</command></para>"
 msgstr ""
 "Non tote video codecs es installate. Supporto per reproduction de video "
 "poterea esser minus fidel que on expectava.\n"
@@ -157,7 +165,7 @@ msgstr ""
 "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
 "command></para>"
 
-#: src/qml/PlayerPage.qml:93
+#: src/qml/PlayerPage.qml:94
 #, fuzzy
 #| msgctxt "@info"
 #| msgid ""
@@ -177,7 +185,7 @@ msgstr ""
 "Pro favor tu consulta tu distribution sur comoinstallar omne possibile "
 "codecs."
 
-#: src/qml/PlayerPage.qml:334
+#: src/qml/PlayerPage.qml:335
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"

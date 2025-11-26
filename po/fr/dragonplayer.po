@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2025-11-26 00:42+0000\n"
 "PO-Revision-Date: 2025-11-06 17:32+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -163,14 +163,22 @@ msgstr ""
 "Veuillez <link url=\"%1\">contacter l'équipe de développement de %2</link> "
 "concernant ce problème."
 
-#: src/qml/PlayerPage.qml:86
+#: src/qml/PlayerPage.qml:87
+#, fuzzy
+#| msgctxt "@info"
+#| msgid ""
+#| "Not all video codecs are installed. Video playback support may be less "
+#| "reliable than expected.\n"
+#| "Please install ffmpeg-full by running:\n"
+#| "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-"
+#| "full//24.08</command></para>"
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
 "reliable than expected.\n"
-"Please install ffmpeg-full by running:\n"
-"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
-"command></para>"
+"Please install codecs-extra by running:\n"
+"<para><command>flatpak install org.freedesktop.Platform.codecs-extra//25.08-"
+"extra</command></para>"
 msgstr ""
 "Tous les codecs vidéo ne sont pas installés. La prise en charge de la "
 "lecture vidéo peut être moins fiable que prévu.\n"
@@ -179,7 +187,7 @@ msgstr ""
 "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
 "command></para>"
 
-#: src/qml/PlayerPage.qml:93
+#: src/qml/PlayerPage.qml:94
 msgctxt "@info %2 is the name of a distribution"
 msgid ""
 "Could not locate full support for the H.264 video codec; video playback "
@@ -195,7 +203,7 @@ msgstr ""
 "concernant ce problème ou pour trouver comment installer les codecs vidéo "
 "manquants."
 
-#: src/qml/PlayerPage.qml:334
+#: src/qml/PlayerPage.qml:335
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
