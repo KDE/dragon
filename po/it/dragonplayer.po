@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 14:40+0000\n"
+"POT-Creation-Date: 2025-11-27 02:36+0000\n"
 "PO-Revision-Date: 2025-11-07 09:47+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -148,21 +148,29 @@ msgstr ""
 "<link url=\"%1\">Contatta gli sviluppatori di %2</link> in merito a questo "
 "problema."
 
-#: src/qml/PlayerPage.qml:86
+#: src/qml/PlayerPage.qml:87
+#, fuzzy
+#| msgctxt "@info"
+#| msgid ""
+#| "Not all video codecs are installed. Video playback support may be less "
+#| "reliable than expected.\n"
+#| "Please install ffmpeg-full by running:\n"
+#| "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-"
+#| "full//24.08</command></para>"
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
 "reliable than expected.\n"
-"Please install ffmpeg-full by running:\n"
-"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
-"command></para>"
+"Please install codecs-extra by running:\n"
+"<para><command>flatpak install org.freedesktop.Platform.codecs-extra//25.08-"
+"extra</command></para>"
 msgstr ""
 "Non tutti i codificatori video sono installati. Il supporto per la "
 "riproduzione video potrebbe essere meno affidabile del previsto.Installa "
 "ffmpeg-full eseguendo:<para><command>flatpak install org.freedesktop."
 "Platform.ffmpeg-full//24.08</command></para>"
 
-#: src/qml/PlayerPage.qml:93
+#: src/qml/PlayerPage.qml:94
 msgctxt "@info %2 is the name of a distribution"
 msgid ""
 "Could not locate full support for the H.264 video codec; video playback "
@@ -177,7 +185,7 @@ msgstr ""
 "Contatta gli sviluppatori di %2 in merito a questo problema o per scoprire "
 "come installare i codificatori video mancanti."
 
-#: src/qml/PlayerPage.qml:334
+#: src/qml/PlayerPage.qml:335
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"

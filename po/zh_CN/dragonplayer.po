@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 14:40+0000\n"
+"POT-Creation-Date: 2025-11-27 02:36+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -144,21 +144,29 @@ msgstr ""
 "<nl/><nl/>\n"
 "请将此问题报告给 <link url=\"%1\"> %2 的开发者</link>。"
 
-#: src/qml/PlayerPage.qml:86
+#: src/qml/PlayerPage.qml:87
+#, fuzzy
+#| msgctxt "@info"
+#| msgid ""
+#| "Not all video codecs are installed. Video playback support may be less "
+#| "reliable than expected.\n"
+#| "Please install ffmpeg-full by running:\n"
+#| "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-"
+#| "full//24.08</command></para>"
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
 "reliable than expected.\n"
-"Please install ffmpeg-full by running:\n"
-"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
-"command></para>"
+"Please install codecs-extra by running:\n"
+"<para><command>flatpak install org.freedesktop.Platform.codecs-extra//25.08-"
+"extra</command></para>"
 msgstr ""
 "没有安装全部视频编解码器，这可能影响视频播放支持的可靠性。  \n"
 "请运行以下命令安装 ffmpeg-full：\n"
 "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
 "command></para>"
 
-#: src/qml/PlayerPage.qml:93
+#: src/qml/PlayerPage.qml:94
 msgctxt "@info %2 is the name of a distribution"
 msgid ""
 "Could not locate full support for the H.264 video codec; video playback "
@@ -172,7 +180,7 @@ msgstr ""
 "请将此问题报告给 <link url=\"%1\">%2 的开发者</link>，或了解如何安装缺失的视"
 "频解码器。"
 
-#: src/qml/PlayerPage.qml:334
+#: src/qml/PlayerPage.qml:335
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
