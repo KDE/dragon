@@ -8,6 +8,7 @@ import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import QtMultimedia as Multimedia
 import org.kde.coreaddons as KCoreAddons
+import org.kde.ki18n
 
 OverlayPopup {
     id: toolbar
@@ -126,7 +127,7 @@ OverlayPopup {
 
             icon.name: "open-menu-symbolic"
 
-            text: i18nc("@action:button", "Application Menu")
+            text: KI18n.i18nc("@action:button", "Application Menu")
             QQC2.ToolTip.text: text
             QQC2.ToolTip.visible: hovered
                             && text.length > 0
@@ -157,7 +158,7 @@ OverlayPopup {
                 }
 
                 Kirigami.Action {
-                    text: i18nc("@action:button stop playback", "Stop")
+                    text: KI18n.i18nc("@action:button stop playback", "Stop")
                     enabled: !player.stopped
                     icon.name: "media-playback-stop"
                     onTriggered: player.stop()
@@ -165,7 +166,7 @@ OverlayPopup {
                 }
 
                 Kirigami.Action {
-                    text: player.audioOutput.muted ? i18nc("@action:button", "Unmute") : i18nc("@action:button", "Mute")
+                    text: player.audioOutput.muted ? KI18n.i18nc("@action:button", "Unmute") : KI18n.i18nc("@action:button", "Mute")
                     icon.name: player.audioOutput.muted ? "player-volume" : "player-volume-muted"
                     onTriggered: player.audioOutput.muted = !player.audioOutput.muted
                     shortcut: "M"
@@ -175,14 +176,14 @@ OverlayPopup {
 
                 QQC2.Menu {
                     icon.name: "add-subtitle-symbolic"
-                    title: i18nc("@action:button video subtitle", "Subtitles")
+                    title: KI18n.i18nc("@action:button video subtitle", "Subtitles")
                     enabled: count > 0
                     Repeater {
                         id: subtitleRepeater
                         readonly property int prependedItems: 1
                         model: [{
                             keys: () => [0],
-                            stringValue: () => i18nc("@action:button selector for no subtitle", "None")
+                            stringValue: () => KI18n.i18nc("@action:button selector for no subtitle", "None")
                         }].concat(player.subtitleTracks)
                         delegate: QQC2.RadioDelegate {
                             required property var modelData
@@ -191,7 +192,7 @@ OverlayPopup {
                                 const hasTitle = modelData?.keys()?.includes(0)
                                 const hasLanguage = modelData?.keys()?.includes(6)
                                 if (hasTitle && hasLanguage) {
-                                    return i18nc("@action:button subtitle selector %1 is usually a language (e.g. chinese) and %2 is usually a subtitle (e.g. Traditional)",
+                                    return KI18n.i18nc("@action:button subtitle selector %1 is usually a language (e.g. chinese) and %2 is usually a subtitle (e.g. Traditional)",
                                                 "%1 [%2]",
                                                 modelData.stringValue(6),
                                                 modelData.stringValue(0))
@@ -209,7 +210,7 @@ OverlayPopup {
 
                 QQC2.Menu {
                     icon.name: "text-speak-symbolic"
-                    title: i18nc("@action:button track selector", "Audio Track")
+                    title: KI18n.i18nc("@action:button track selector", "Audio Track")
                     enabled: count > 0
                     Repeater {
                         model: player.audioTracks
@@ -224,7 +225,7 @@ OverlayPopup {
                 }
                 QQC2.Menu {
                     icon.name: "kdenlive-add-clip-symbolic"
-                    title: i18nc("@action:button track selector", "Video Track")
+                    title: KI18n.i18nc("@action:button track selector", "Video Track")
                     enabled: count > 0
                     Repeater {
                         model: player.videoTracks
@@ -242,7 +243,7 @@ OverlayPopup {
 
                 Kirigami.Action {
                     icon.name: "dragonplayer"
-                    text: i18nc("@action opens about app page", "About")
+                    text: KI18n.i18nc("@action opens about app page", "About")
                     onTriggered: pageStack.layers.push("AboutPage.qml")
                 }
             }

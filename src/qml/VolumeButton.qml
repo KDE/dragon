@@ -6,6 +6,7 @@ import QtQuick.Controls as QQC2
 import QtMultimedia as Multimedia
 
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 IconToolButton {
     id: volumeButton
@@ -28,7 +29,7 @@ IconToolButton {
         return "player-volume"
     }
 
-    text: i18nc("@action:button open volume slider popup", "Show volume controls")
+    text: KI18n.i18nc("@action:button open volume slider popup", "Show volume controls")
     QQC2.ToolTip.text: text
     QQC2.ToolTip.visible: hovered
                        && text.length > 0

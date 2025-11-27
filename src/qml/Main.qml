@@ -7,6 +7,7 @@ import QtCore as Core
 
 import org.kde.kirigami as Kirigami
 import org.kde.config as KConfig
+import org.kde.ki18n
 
 import org.kde.dragon
 
@@ -50,7 +51,7 @@ Kirigami.ApplicationWindow {
     }
 
     property Kirigami.Action openAction: Kirigami.Action {
-        text: i18nc("@action:button open file dialog", "Open…")
+        text: KI18n.i18nc("@action:button open file dialog", "Open…")
         icon.name: "document-open"
         onTriggered: appWindow.fileDialog.open(appWindow)
         tooltip: text

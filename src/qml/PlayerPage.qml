@@ -10,6 +10,7 @@ import Qt.labs.animation
 import QtMultimedia as Multimedia
 
 import org.kde.dragon as Dragon
+import org.kde.ki18n
 
 Kirigami.Page {
     id: videoPage
@@ -35,7 +36,7 @@ Kirigami.Page {
 
     Kirigami.Action {
         id: togglePauseAction
-        text: player.paused || player.stopped ? i18nc("@action:button", "Play") : i18nc("@action:button", "Pause")
+        text: player.paused || player.stopped ? KI18n.i18nc("@action:button", "Play") : KI18n.i18nc("@action:button", "Pause")
         icon.name: player.paused || player.stopped ? "media-playback-start" : "media-playback-pause"
         onTriggered: player.stopped ? player.play() : player.togglePause()
         tooltip: text
@@ -43,7 +44,7 @@ Kirigami.Page {
 
     Kirigami.Action {
         id: fullscreenAction
-        text: visibility === Window.Window.FullScreen ? i18nc("@action:button", "Exit Fullscreen") : i18nc("@action:button", "Enter Fullscreen")
+        text: visibility === Window.Window.FullScreen ? KI18n.i18nc("@action:button", "Exit Fullscreen") : KI18n.i18nc("@action:button", "Enter Fullscreen")
         icon.name: "view-fullscreen"
         checkable: true
         checked: visibility === Window.Window.FullScreen
@@ -74,7 +75,7 @@ Kirigami.Page {
             visible: text.length > 0
             text: {
                 if (!video.videoSink.Backend.ffmpeg) {
-                    return xi18nc("@info %2 is the name of a distribution",
+                    return KI18n.xi18nc("@info %2 is the name of a distribution",
 `Dragon Player only supports the QtMultimedia library’s “ffmpeg” backend, but a different one is currently in use.
 <nl/><nl/>
 Please <link url="%1">contact the %2 developers</link> about this issue.`,
@@ -83,14 +84,14 @@ Please <link url="%1">contact the %2 developers</link> about this issue.`,
 
                 if (Dragon.Sandbox.inside && !Dragon.Sandbox.ffmpegFull) {
                     // codecs-extras is meant to be auto-installed, but since the user can mask it away we still always need to handle the error case
-                    return xi18nc("@info",
+                    return KI18n.xi18nc("@info",
 `Not all video codecs are installed. Video playback support may be less reliable than expected.
 Please install codecs-extra by running:
 <para><command>flatpak install org.freedesktop.Platform.codecs-extra//25.08-extra</command></para>`)
                 }
 
                 if (!Dragon.Sandbox.ffmpegFull) {
-                    return xi18nc("@info %2 is the name of a distribution",
+                    return KI18n.xi18nc("@info %2 is the name of a distribution",
 `Could not locate full support for the H.264 video codec; video playback support may be less reliable than expected.
 <nl/><nl/>
 Please <link url="%1">contact the %2 developers</link> about this issue, or to find out how to install the missing video codecs.`,
@@ -331,7 +332,7 @@ Please <link url="%1">contact the %2 developers</link> about this issue, or to f
                     font.pointSize: Kirigami.Theme.defaultFont.pointSize * 10
                     minimumPixelSize: 2 // Kirigami.Theme.defaultFont.pointSize * 1.50
 
-                    text: i18nc("@info overlay on top of video. %1 is the amount of time played %2 is the total duration of the video",
+                    text: KI18n.i18nc("@info overlay on top of video. %1 is the amount of time played %2 is the total duration of the video",
                                 "%1 / %2",
                                 KCoreAddons.Format.formatDuration(player.position),
                                 KCoreAddons.Format.formatDuration(player.duration))

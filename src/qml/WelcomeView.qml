@@ -6,6 +6,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 Kirigami.PlaceholderMessage {
     width: parent.width - (Kirigami.Units.largeSpacing * 4)
@@ -13,11 +14,14 @@ Kirigami.PlaceholderMessage {
 
     icon.name: "dragonplayer"
 
-    text: i18nc("@title", "Welcome to Dragon Player")
-    explanation: i18nc("@info", "Dragon Player is a simple video player. Open a video to get started:")
+    text: KI18n.i18nc("@title", "Welcome to Dragon Player")
+    explanation: KI18n.i18nc("@info", "Dragon Player is a simple video player. Open a video to get started:")
 
     helpfulAction: Kirigami.Action {
-        text: i18nc("@action:button", "Open Video File or Network Stream")
+        text: {
+            console.log("action triggered ", KI18n.translationDomain)
+            return KI18n.i18nc("@action:button", "Open Video File or Network Stream")
+        }
         icon.name: appWindow.openAction.icon.name
         onTriggered: appWindow.openAction.trigger()
     }
