@@ -6,7 +6,11 @@ ecm_setup_version(${PROJECT_VERSION}
                   VARIABLE_PREFIX DRAGON
                   VERSION_HEADER version.h)
 
-ecm_add_qml_module(dragonmodule URI org.kde.dragon VERSION 1.0 GENERATE_PLUGIN_SOURCE)
+ecm_add_qml_module(dragonmodule
+    URI org.kde.dragon
+    VERSION 1.0
+    GENERATE_PLUGIN_SOURCE
+    OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/org/kde/dragon)
 ecm_target_qml_sources(dragonmodule
     SOURCES
         qml/AboutPage.qml
