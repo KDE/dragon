@@ -153,6 +153,10 @@ msgid ""
 "<para><command>flatpak install org.freedesktop.Platform.codecs-extra//25.08-"
 "extra</command></para>"
 msgstr ""
+"没有安装全部视频编解码器，这可能影响视频播放支持的可靠性。  \n"
+"请运行以下命令安装 codecs-extra 软件包：\n"
+"<para><command>flatpak install org.freedesktop.Platform.codecs-extra//25.08-"
+"extra</command></para>"
 
 #: src/qml/PlayerPage.qml:94
 msgctxt "@info %2 is the name of a distribution"
