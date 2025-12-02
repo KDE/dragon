@@ -15,6 +15,10 @@
 #include "dragon.h"
 #include "renderer.h"
 
+#if KCOREADDONS_VERSION < QT_VERSION_CHECK(6, 22, 0)
+#include "kguiaddons-backport/systeminhibitor.h"
+#endif
+
 using namespace Qt::StringLiterals;
 
 int main(int argc, char **argv)
@@ -30,6 +34,11 @@ int main(int argc, char **argv)
         qWarning() << "Detected AMD GPU, disabling HW Texture Conversion renderer as it is known to cause issues.";
         qputenv("QT_DISABLE_HW_TEXTURES_CONVERSION", "1");
     }
+
+#if KCOREADDONS_VERSION < QT_VERSION_CHECK(6, 22, 0)
+    qDebug() << "Registering backport SystemInhibitor";
+    qmlRegisterType<SystemInhibitor>("org.kde.guiaddons", 0, 1, "SystemInhibitor");
+#endif
 
     KAboutData aboutData(u"dragonplayer"_s,
                          i18n("Dragon Player"),

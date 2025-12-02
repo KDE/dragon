@@ -8,12 +8,19 @@ import QtQuick.Window as Window
 import org.kde.coreaddons as KCoreAddons
 import Qt.labs.animation
 import QtMultimedia as Multimedia
+import org.kde.guiaddons as KGuiAddons
 
 import org.kde.dragon as Dragon
 
 Kirigami.Page {
     id: videoPage
 
+    readonly property KGuiAddons.SystemInhibitor inhibitor: KGuiAddons.SystemInhibitor {
+        window: appWindow
+        types: KGuiAddons.SystemInhibitor.Suspend | KGuiAddons.SystemInhibitor.Idle
+        enabled: player.playing
+        reason: player.playing ? i18nc("@info system sleep inhibition reason", "Playing a video") : ""
+    }
     property var storedVisibility: null
     property alias player: player
     property alias videoContainer: videoContainer
