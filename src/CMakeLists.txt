@@ -54,3 +54,10 @@ target_link_libraries(dragon
     Qt6::Widgets
 )
 install(TARGETS dragon DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+
+if(WITH_KGUIADDONS_BACKPORT)
+    target_compile_definitions(dragon PRIVATE WITH_DBUS)
+    target_include_directories(dragon PRIVATE kguiaddons-backport)
+    target_sources(dragon PRIVATE kguiaddons-backport/ksysteminhibitor.cpp kguiaddons-backport/systeminhibitor.cpp)
+    target_link_libraries(dragon KF6::GuiAddons Qt6::GuiPrivate Qt6::DBus)
+endif()

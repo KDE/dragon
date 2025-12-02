@@ -48,6 +48,21 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED
     Config
 )
 
+set(WITH_KGUIADDONS_BACKPORT OFF)
+if(KF_MIN_VERSION VERSION_GREATER_EQUAL "6.22.0")
+    message(FATAL_ERROR "Drop kguiaddons-backport!")
+else()
+    find_package(KF6GuiAddons CONFIG)
+    if(KF6GuiAddons_FOUND AND KF6GuiAddons_VERSION VERSION_LESS "6.22.0")
+        set(WITH_KGUIADDONS_BACKPORT ON)
+        if(Qt6Gui_VERSION VERSION_GREATER_EQUAL "6.10.0")
+            find_package(Qt6GuiPrivate ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
+        else()
+            find_package(Qt6Gui ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS Private)
+        endif()
+    endif()
+endif()
+
 find_package(PkgConfig)
 pkg_check_modules(libavcodec REQUIRED IMPORTED_TARGET libavcodec)
 
