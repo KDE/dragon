@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-27 02:36+0000\n"
-"PO-Revision-Date: 2025-10-21 09:41+0000\n"
+"PO-Revision-Date: 2025-12-04 10:53+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -33,9 +33,7 @@ msgid "Your emails"
 msgstr "sv1@fellsnet.is,gudmundure@gmail.com"
 
 #: src/fileopen.cpp:84
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Video File or Network Stream"
+#, kde-format
 msgctxt "@title"
 msgid "Open Video File or Network Stream"
 msgstr "Opna myndskeiðsskrá eða netstreymi"
@@ -153,14 +151,6 @@ msgstr ""
 "vandamál."
 
 #: src/qml/PlayerPage.qml:87
-#, fuzzy
-#| msgctxt "@info"
-#| msgid ""
-#| "Not all video codecs are installed. Video playback support may be less "
-#| "reliable than expected.\n"
-#| "Please install ffmpeg-full by running:\n"
-#| "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-"
-#| "full//24.08</command></para>"
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
@@ -171,9 +161,9 @@ msgid ""
 msgstr ""
 "Ekki eru allir kóðunarlyklar myndskeiða uppsettir. Afspilun myndmerkis gæti "
 "verið óáreiðanlegri en búast mætti við.\n"
-"Settu upp ffmpeg-full með því að keyra:\n"
-"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
-"command></para>"
+"Settu upp codecs-extra með því að keyra:\n"
+"<para><command>flatpak install org.freedesktop.Platform.codecs-extra//25.08-"
+"extra</command></para>"
 
 #: src/qml/PlayerPage.qml:94
 msgctxt "@info %2 is the name of a distribution"
