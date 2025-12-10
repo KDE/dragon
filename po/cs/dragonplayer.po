@@ -1,6 +1,6 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2015, 2017, 2018, 2019, 2020, 2023 Vít Pelčák <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2015, 2017, 2018, 2019, 2020, 2023, 2025 Vít Pelčák <vit@pelcak.org>
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012.
 #
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-26 00:42+0000\n"
-"PO-Revision-Date: 2023-10-12 16:41+0200\n"
+"PO-Revision-Date: 2025-12-02 11:52+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -51,6 +51,9 @@ msgid ""
 "Copyright 2007, Ian Monroe\n"
 "Copyright 2022 Harald Sitter"
 msgstr ""
+"Copyright 2006, Max Howell\n"
+"Copyright 2007, Ian Monroe\n"
+"Copyright 2022 Harald Sitter"
 
 #: src/qml/ControlsBar.qml:129
 msgctxt "@action:button"
@@ -60,7 +63,7 @@ msgstr "Nabídka aplikací"
 #: src/qml/ControlsBar.qml:160
 msgctxt "@action:button stop playback"
 msgid "Stop"
-msgstr ""
+msgstr "Zastavit"
 
 #: src/qml/ControlsBar.qml:168
 msgctxt "@action:button"
@@ -75,29 +78,30 @@ msgstr "Ztlumit"
 #: src/qml/ControlsBar.qml:178
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
-msgstr ""
+msgstr "Titulky"
 
+# žádné parametry funkce v inspektoru funkcí
 #: src/qml/ControlsBar.qml:185
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
-msgstr ""
+msgstr "Nic"
 
 #: src/qml/ControlsBar.qml:195
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
-msgstr ""
+msgstr "%1 [%2]"
 
 #: src/qml/ControlsBar.qml:212
 msgctxt "@action:button track selector"
 msgid "Audio Track"
-msgstr ""
+msgstr "Audio stopa"
 
 #: src/qml/ControlsBar.qml:227
 msgctxt "@action:button track selector"
 msgid "Video Track"
-msgstr ""
+msgstr "Video stopa"
 
 #: src/qml/ControlsBar.qml:245
 msgctxt "@action opens about app page"
@@ -107,7 +111,7 @@ msgstr "O aplikaci"
 #: src/qml/Main.qml:53
 msgctxt "@action:button open file dialog"
 msgid "Open…"
-msgstr ""
+msgstr "Otevřít…"
 
 #: src/qml/PlayerPage.qml:38
 msgctxt "@action:button"
@@ -117,17 +121,17 @@ msgstr "Přehrát"
 #: src/qml/PlayerPage.qml:38
 msgctxt "@action:button"
 msgid "Pause"
-msgstr ""
+msgstr "Pozastavit"
 
 #: src/qml/PlayerPage.qml:46
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
-msgstr ""
+msgstr "Ukončit režim celé obrazovky"
 
 #: src/qml/PlayerPage.qml:46
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
-msgstr ""
+msgstr "Přejít do celoobrazovkového režimu"
 
 #: src/qml/PlayerPage.qml:78
 msgctxt "@info %2 is the name of a distribution"
@@ -163,22 +167,22 @@ msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
 msgid "%1 / %2"
-msgstr ""
+msgstr "%1 / %2"
 
 #: src/qml/VolumeButton.qml:31
 msgctxt "@action:button open volume slider popup"
 msgid "Show volume controls"
-msgstr ""
+msgstr "Zobrazit ovládání hlasitosti"
 
 #: src/qml/WelcomeView.qml:16
 msgctxt "@title"
 msgid "Welcome to Dragon Player"
-msgstr ""
+msgstr "Vítejte v přehrávači Dragon"
 
 #: src/qml/WelcomeView.qml:17
 msgctxt "@info"
 msgid "Dragon Player is a simple video player. Open a video to get started:"
-msgstr ""
+msgstr "Dragon Player je jednoduchý přehrávač videa. Začněte otevřením videa:"
 
 #: src/qml/WelcomeView.qml:20
 msgctxt "@action:button"
