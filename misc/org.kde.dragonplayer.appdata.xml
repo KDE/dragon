@@ -62,6 +62,7 @@
   <summary xml:lang="bg">Възпроизвеждане на видео файлове и потоци</summary>
   <summary xml:lang="ca">Reprodueix fitxers i fluxos de vídeo</summary>
   <summary xml:lang="ca-valencia">Reproduïx fitxers i fluxos de vídeo</summary>
+  <summary xml:lang="cs">Přehrávejte video soubory nebo proudy</summary>
   <summary xml:lang="es">Reproduzca archivos y transmisiones de vídeo</summary>
   <summary xml:lang="eu">Bideo fitxategiak eta korronteak jo</summary>
   <summary xml:lang="fi">Toista videotiedostoja ja suoratoistovirtoja</summary>
@@ -231,6 +232,7 @@
       <li xml:lang="bg">Избиране на аудио записа.</li>
       <li xml:lang="ca">Trieu la pista d'àudio.</li>
       <li xml:lang="ca-valencia">Trieu la pista d'àudio.</li>
+      <li xml:lang="cs">Zavřít zvukovou stopu.</li>
       <li xml:lang="eo">Elektu la aŭdaĵtrakon.</li>
       <li xml:lang="es">Elija la pista de audio.</li>
       <li xml:lang="eu">Aukeratu audio-pista.</li>
@@ -260,6 +262,7 @@
       <li xml:lang="bg">Избиране на видео записа.</li>
       <li xml:lang="ca">Trieu la pista de vídeo.</li>
       <li xml:lang="ca-valencia">Trieu la pista de vídeo.</li>
+      <li xml:lang="cs">Vyberte si video stopu.</li>
       <li xml:lang="eo">Elektu la vidaĵtrakon.</li>
       <li xml:lang="es">Elija la pista de vídeo.</li>
       <li xml:lang="eu">Aukeratu bideo-pista.</li>
@@ -289,6 +292,7 @@
       <li xml:lang="bg">Регулиране силата на звука с колелцето на мишката.</li>
       <li xml:lang="ca">Ajusteu el volum amb el desplaçament.</li>
       <li xml:lang="ca-valencia">Ajusteu el volum amb el desplaçament.</li>
+      <li xml:lang="cs">Upravte úroveň hlasitosti rolováním kolečka myši.</li>
       <li xml:lang="eo">Ĝustigu la laŭtecon rulumante.</li>
       <li xml:lang="es">Ajuste el volumen por desplazamiento.</li>
       <li xml:lang="eu">Kiribilduz bolumena doitu.</li>
