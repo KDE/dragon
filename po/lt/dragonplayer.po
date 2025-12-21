@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-27 02:36+0000\n"
-"PO-Revision-Date: 2025-10-06 00:25+0300\n"
+"PO-Revision-Date: 2025-12-20 21:06+0200\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -31,9 +31,7 @@ msgid "Your emails"
 msgstr "dgvirtual@akl.lt, <>"
 
 #: src/fileopen.cpp:84
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Video File or Network Stream"
+#, kde-format
 msgctxt "@title"
 msgid "Open Video File or Network Stream"
 msgstr "Atverti vaizdo įrašo failą ar tinklo srautą"
@@ -152,14 +150,6 @@ msgstr ""
 "sprendimo."
 
 #: src/qml/PlayerPage.qml:87
-#, fuzzy
-#| msgctxt "@info"
-#| msgid ""
-#| "Not all video codecs are installed. Video playback support may be less "
-#| "reliable than expected.\n"
-#| "Please install ffmpeg-full by running:\n"
-#| "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-"
-#| "full//24.08</command></para>"
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
@@ -170,9 +160,9 @@ msgid ""
 msgstr ""
 "Yra įdiegti ne visi vaizdo įrašų kodekai. Vaizdo įrašo atkūrimo palaikymas "
 "gali būti mažiau patikimas, nei tikėtasi.\n"
-"Įdiekite ffmpeg-full paleisdami komandą:\n"
-"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
-"command></para>"
+"Įdiekite codecs-extra paleisdami komandą:\n"
+"<para><command>flatpak install org.freedesktop.Platform.codecs-extra//25.08-"
+"extra</command></para>"
 
 #: src/qml/PlayerPage.qml:94
 msgctxt "@info %2 is the name of a distribution"
