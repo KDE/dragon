@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the kdemultimedia package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2010, 2012, 2013, 2015.
-# SPDX-FileCopyrightText: 2011, 2012, 2016, 2018, 2020, 2023, 2024, 2025 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2011, 2012, 2016, 2018, 2020, 2023, 2024, 2025, 2026 Tommi Nieminen <translator@legisign.org>
 #
 # KDE Finnish translation sprint participants:
 # Author: Artnay
@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-27 02:36+0000\n"
-"PO-Revision-Date: 2025-11-13 13:37+0200\n"
+"PO-Revision-Date: 2026-01-02 11:44+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -152,14 +152,6 @@ msgstr ""
 "<link url=\"%1\">Ilmoita %2 -kehittäjille</link> tästä ongelmasta."
 
 #: src/qml/PlayerPage.qml:87
-#, fuzzy
-#| msgctxt "@info"
-#| msgid ""
-#| "Not all video codecs are installed. Video playback support may be less "
-#| "reliable than expected.\n"
-#| "Please install ffmpeg-full by running:\n"
-#| "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-"
-#| "full//24.08</command></para>"
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
@@ -168,11 +160,11 @@ msgid ""
 "<para><command>flatpak install org.freedesktop.Platform.codecs-extra//25.08-"
 "extra</command></para>"
 msgstr ""
-"Kaikki videokoodekkeja ei ole asennettu. Videotoistotuki voi olla odotettua "
+"Kaikkia videokoodekkeja ei ole asennettu. Videotoistotuki voi olla odotettua "
 "heikompi.\n"
-"Asenna ffmpeg-full suorittamalla:\n"
-"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
-"command></para>"
+"Asenna codecs-extra suorittamalla:\n"
+"<para><command>flatpak install org.freedesktop.Platform.codecs-extra//25.08-"
+"extra</command></para>"
 
 #: src/qml/PlayerPage.qml:94
 msgctxt "@info %2 is the name of a distribution"
