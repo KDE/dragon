@@ -11,21 +11,21 @@
 # Alexander Potashev <aspotashev@gmail.com>, 2010, 2015.
 # Yuri Efremov <yur.arh@gmail.com>, 2012, 2013.
 # Alexander Lakhin <exclusion@gmail.com>, 2013.
-# SPDX-FileCopyrightText: 2020, 2023, 2025 Alexander Yavorsky <kekcuha@gmail.com>
+# SPDX-FileCopyrightText: 2020, 2023, 2025, 2026 Alexander Yavorsky <kekcuha@gmail.com>
 # Мария Шикунова <translation-team@basealt.ru>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-27 02:36+0000\n"
-"PO-Revision-Date: 2025-08-22 18:58+0300\n"
+"PO-Revision-Date: 2026-01-29 19:00+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.12.1\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Environment: kde\n"
@@ -44,12 +44,10 @@ msgstr ""
 "demon370@gmail.com,translation-team@basealt.ru,translation-team@basealt.ru"
 
 #: src/fileopen.cpp:84
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Video File or Network Stream"
+#, kde-format
 msgctxt "@title"
 msgid "Open Video File or Network Stream"
-msgstr "Открыть файл видео или потоковую трансляцию"
+msgstr "Открытие файла видео или потоковой трансляции"
 
 #: src/main.cpp:35
 #, kde-format
@@ -102,7 +100,7 @@ msgstr "Субтитры"
 #: src/qml/ControlsBar.qml:185
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
-msgstr ""
+msgstr "Отсутствуют"
 
 #: src/qml/ControlsBar.qml:195
 msgctxt ""
@@ -159,16 +157,12 @@ msgid ""
 "<nl/><nl/>\n"
 "Please <link url=\"%1\">contact the %2 developers</link> about this issue."
 msgstr ""
+"Dragon Player поддерживает только модуль «ffmpeg» библиотеки QtMultimedia, "
+"однако в данный момент используется другой.\n"
+"<nl/><nl/>\n"
+"<link url=\"%1\">Сообщите об этой проблеме разработчикам %2</link>."
 
 #: src/qml/PlayerPage.qml:87
-#, fuzzy
-#| msgctxt "@info"
-#| msgid ""
-#| "Not all video codecs are installed. Video playback support may be less "
-#| "reliable than expected.\n"
-#| "Please install ffmpeg-full by running:\n"
-#| "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-"
-#| "full//24.08</command></para>"
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
@@ -179,9 +173,9 @@ msgid ""
 msgstr ""
 "Установлены не все модули кодирования и декодирования видео. Воспроизведение "
 "видео может выполняться не лучшим образом.\n"
-"Запустите следующую команду для установки набора библиотек ffmpeg-full:\n"
-"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
-"command></para>"
+"Запустите следующую команду для установки набора библиотек codecs-extra:\n"
+"<para><command>flatpak install org.freedesktop.Platform.codecs-extra//25.08-"
+"extra</command></para"
 
 #: src/qml/PlayerPage.qml:94
 msgctxt "@info %2 is the name of a distribution"
@@ -192,6 +186,11 @@ msgid ""
 "Please <link url=\"%1\">contact the %2 developers</link> about this issue, "
 "or to find out how to install the missing video codecs."
 msgstr ""
+"Не удалось обнаружить полную поддержку видеокодека H.264; воспроизведение "
+"видео может работать менее надёжно, чем ожидается.\n"
+" <nl/><nl/>\n"
+"<link url=\"%1\">Сообщите об этой проблеме разработчикам %2</link> или "
+"узнайте, как установить отсутствующие видеокодеки."
 
 #: src/qml/PlayerPage.qml:335
 msgctxt ""
