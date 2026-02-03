@@ -2,14 +2,14 @@
 # Copyright (C) 2008 This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2008, 2009, 2011, 2013, 2015, 2018, 2022, 2025 Sveinn í Felli <sveinki@nett.is>
+# SPDX-FileCopyrightText: 2008, 2009, 2011, 2013, 2015, 2018, 2022, 2025, 2026 Sveinn í Felli <sveinki@nett.is>
 # SPDX-FileCopyrightText: 2022, 2024 Guðmundur Erlingsson <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-26 00:42+0000\n"
-"PO-Revision-Date: 2025-11-17 09:48+0000\n"
+"PO-Revision-Date: 2026-02-02 12:04+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -151,14 +151,6 @@ msgstr ""
 "vandamál."
 
 #: src/qml/PlayerPage.qml:87
-#, fuzzy
-#| msgctxt "@info"
-#| msgid ""
-#| "Not all video codecs are installed. Video playback support may be less "
-#| "reliable than expected.\n"
-#| "Please install ffmpeg-full by running:\n"
-#| "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-"
-#| "full//24.08</command></para>"
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
@@ -169,8 +161,8 @@ msgid ""
 msgstr ""
 "Ekki eru allir kóðunarlyklar myndskeiða uppsettir. Afspilun myndmerkis gæti "
 "verið óáreiðanlegri en búast mætti við.\n"
-"Settu upp ffmpeg-full með því að keyra:\n"
-"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
+"Settu upp codecs-extra með því að keyra:\n"
+"<para><command>flatpak install org.freedesktop.Platform.codecs-extra//25.08</"
 "command></para>"
 
 #: src/qml/PlayerPage.qml:94
