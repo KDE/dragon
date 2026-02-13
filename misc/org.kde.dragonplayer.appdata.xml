@@ -80,6 +80,7 @@
   <summary xml:lang="nl">Videobestanden en streams afspelen</summary>
   <summary xml:lang="pl">Odtwarzaj filmy i strumienie</summary>
   <summary xml:lang="pt-BR">Reproduz arquivos e transmissões de vídeo</summary>
+  <summary xml:lang="ro">Redă fișiere și fluxuri video</summary>
   <summary xml:lang="ru">Проигрыватель видеофайлов и видеопотоков</summary>
   <summary xml:lang="sl">Predvajaj video datoteke in tokove</summary>
   <summary xml:lang="sv">Spela videofiler och strömmar</summary>
@@ -113,6 +114,7 @@
     <p xml:lang="nl">Dragon Player is een videospeler met de focus op eenvoud in plaats van functies. Zijn gemakkelijk te gebruiken interface is ontworpen om niet in de weg te zitten en gewoon videobestanden en streams af te spelen.</p>
     <p xml:lang="pl">Odtwarzacz Dragon jest odtwarzaczem multimedialnym, gdzie położono nacisk na prostotę, a nie na możliwości. Jego prosty układ sterowania został zaprojektowany tak, aby nie wchodził w drogę, ale aby pomagał przy odtwarzaniu plików multimedialnych.</p>
     <p xml:lang="pt-BR">O Dragon Player é um reprodutor de vídeo que prioriza a simplicidade em vez de recursos. Sua interface fácil de usar foi projetada para facilitar a reprodução de seus arquivos e transmissões de vídeo.</p>
+    <p xml:lang="ro">Dragon Player e un lector video orientat spre simplitate în loc de caracteristici. Interfața sa simplă e proiectată să nu vă stea în cale și doar să redea fișiere și fluxuri video.</p>
     <p xml:lang="ru">Dragon Player — это приложение для воспроизведения видео, ориентированное на простоту, а не на обилие функций. Его удобный интерфейс создан для того, чтобы  просто воспроизводить видеофайлы и видеопотоки.</p>
     <p xml:lang="sl">Dragon Player je video predvajalnik, ki se osredotoča na preprostost namesto na zmožnosti. Njegov vmesnik, ki je enostaven za uporabo, je zasnovan tako, da se vam umakne in preprosto predvaja vaše video datoteke in tokove.</p>
     <p xml:lang="sv">Dragon videospelare är en videospelare med fokus på enkelhet istället för funktioner. Dess enkla gränssnitt är konstruerat för att inte vara i vägen utan istället ge dig möjlighet att enkelt spela upp videofiler och strömmar.</p>
@@ -195,6 +197,7 @@
       <li xml:lang="nl">Klik om af te spelen of te pauzeren en dubbelklik om modus volledig scherm in of uit te gaan.</li>
       <li xml:lang="pl">Naciśnij tutaj, aby zacząć odtwarzać lub wstrzymać; naciśnij dwukrotnie, aby wejść lub wyjść z trybu pełnego ekranu.</li>
       <li xml:lang="pt-BR">Clique para reproduzir ou pausar e clique duas vezes para entrar ou sair do modo de tela cheia.</li>
+      <li xml:lang="ro">Apăsați pentru a reda sau întrerupe, apăsați dublu pentru a intra sau ieși din regimul de ecran complet</li>
       <li xml:lang="ru">Нажмите для воспроизведения или паузы, дважды нажмите для перехода в полноэкранный режим или выхода из него.</li>
       <li xml:lang="sl">Kliknite za predvajanje ali začasno ustavitev in dvokliknite za vstop ali izhod iz celozaslonskega načina.</li>
       <li xml:lang="sv">Klicka för att spela eller pausa, och dubbelklicka för att gå till eller lämna fullskärmsläge.</li>
@@ -224,6 +227,7 @@
       <li xml:lang="nl">Kies de taal van de ondertitels en laad automatisch de juiste voor uw taal, indien mogelijk.</li>
       <li xml:lang="pl">Wybierz język napisów i sam wczytaj te właściwe dla swojego języka, jeśli będzie to możliwe.</li>
       <li xml:lang="pt-BR">Selecione o idioma da legenda e carregue automaticamente o correto para o seu idioma, se possível.</li>
+      <li xml:lang="ro">Alegeți limba subtilului și cel potrivit va fi încărcat automat atunci când e posibil.</li>
       <li xml:lang="ru">Выберите язык субтитров, и, если возможно, он будет автоматически загружен для вашего языка.</li>
       <li xml:lang="sl">Izberite jezik podnapisov in po možnosti samodejno naložite pravega za svoj jezik.</li>
       <li xml:lang="sv">Välj språk för textning, och läs automatiskt in rätt språk, om möjligt.</li>
@@ -255,6 +259,7 @@
       <li xml:lang="nl">Kies de audiotrack.</li>
       <li xml:lang="pl">Wybierz ścieżkę dźwiękową.</li>
       <li xml:lang="pt-BR">Selecione a faixa de áudio.</li>
+      <li xml:lang="ro">Alegeți pista de sunet.</li>
       <li xml:lang="ru">Выберите звуковую дорожку.</li>
       <li xml:lang="sl">Izberite zvočni posnetek.</li>
       <li xml:lang="sv">Välj ljudspåret.</li>
@@ -286,6 +291,7 @@
       <li xml:lang="nl">Kies de videotrack.</li>
       <li xml:lang="pl">Wybierz ścieżkę obrazu.</li>
       <li xml:lang="pt-BR">Selecione a faixa de vídeo.</li>
+      <li xml:lang="ro">Alegeți pista de imagine.</li>
       <li xml:lang="ru">Выберите дорожку видео.</li>
       <li xml:lang="sl">Izberite video posnetek.</li>
       <li xml:lang="sv">Välj videospåret.</li>
@@ -317,6 +323,7 @@
       <li xml:lang="nl">Pas het volume aan door te schuiven.</li>
       <li xml:lang="pl">Dostosuj głośność przewijając.</li>
       <li xml:lang="pt-BR">Ajuste o volume rolando o mouse.</li>
+      <li xml:lang="ro">Ajustați volumul prin derulare.</li>
       <li xml:lang="ru">Прокрутите, чтобы настроить громкость.</li>
       <li xml:lang="sl">Prilagodite glasnost s pomikanjem.</li>
       <li xml:lang="sv">Justera volymen genom att rulla.</li>
