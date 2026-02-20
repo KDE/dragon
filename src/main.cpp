@@ -46,11 +46,11 @@ int main(int argc, char **argv)
 
     QApplication::setWindowIcon(QIcon::fromTheme(u"dragonplayer"_s));
 
-    auto engine = new QQmlApplicationEngine(&app); // on the heap for code similarity reasons with other projects, technically not necessary.
-    KLocalization::setupLocalizedContext(engine);
+    QQmlApplicationEngine engine;
+    KLocalization::setupLocalizedContext(&engine);
 
-    engine->loadFromModule("org.kde.dragon", "Main");
-    if (engine->rootObjects().isEmpty()) {
+    engine.loadFromModule("org.kde.dragon", "Main");
+    if (engine.rootObjects().isEmpty()) {
         qWarning() << "Failed to load QML code. Note prior errors!";
         abort();
         return -1;
