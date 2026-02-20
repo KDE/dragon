@@ -44,17 +44,12 @@ msgid "A video player that has a usability focus"
 msgstr "Seinnteoir físe atá dírithe ar inúsáidteacht"
 
 #: src/main.cpp:39
-#, fuzzy, kde-format
-#| msgid ""
-#| "Copyright 2006, Max Howell\n"
-#| "Copyright 2007, Ian Monroe"
+#, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe\n"
 "Copyright 2022 Harald Sitter"
 msgstr ""
-"Cóipcheart 2006, Max Howell\n"
-"Cóipcheart 2007, Ian Monroe"
 
 #: src/qml/ControlsBar.qml:129
 msgctxt "@action:button"
@@ -62,11 +57,9 @@ msgid "Application Menu"
 msgstr ""
 
 #: src/qml/ControlsBar.qml:160
-#, fuzzy
-#| msgid "Stop"
 msgctxt "@action:button stop playback"
 msgid "Stop"
-msgstr "Stad"
+msgstr ""
 
 #: src/qml/ControlsBar.qml:168
 msgctxt "@action:button"
@@ -74,19 +67,14 @@ msgid "Unmute"
 msgstr ""
 
 #: src/qml/ControlsBar.qml:168
-#, fuzzy
-#| msgctxt "Mute the sound output"
-#| msgid "Mute"
 msgctxt "@action:button"
 msgid "Mute"
-msgstr "Gan fuaim"
+msgstr ""
 
 #: src/qml/ControlsBar.qml:178
-#, fuzzy
-#| msgid "&Subtitles"
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
-msgstr "&Fotheidil"
+msgstr ""
 
 #: src/qml/ControlsBar.qml:185
 msgctxt "@action:button selector for no subtitle"
@@ -101,19 +89,14 @@ msgid "%1 [%2]"
 msgstr ""
 
 #: src/qml/ControlsBar.qml:212
-#, fuzzy
-#| msgid "Audio CD"
 msgctxt "@action:button track selector"
 msgid "Audio Track"
-msgstr "Dlúthdhiosca Fuaime"
+msgstr ""
 
-# not a product name here!
 #: src/qml/ControlsBar.qml:227
-#, fuzzy
-#| msgid "Video CD"
 msgctxt "@action:button track selector"
 msgid "Video Track"
-msgstr "Dlúthdhiosca Físe"
+msgstr ""
 
 #: src/qml/ControlsBar.qml:245
 msgctxt "@action opens about app page"
@@ -126,32 +109,24 @@ msgid "Open…"
 msgstr ""
 
 #: src/qml/PlayerPage.qml:38
-#, fuzzy
-#| msgid "Play"
 msgctxt "@action:button"
 msgid "Play"
-msgstr "Seinn"
+msgstr ""
 
 #: src/qml/PlayerPage.qml:38
-#, fuzzy
-#| msgid "Pause"
 msgctxt "@action:button"
 msgid "Pause"
-msgstr "Sos"
+msgstr ""
 
 #: src/qml/PlayerPage.qml:46
-#, fuzzy
-#| msgid "Exit F&ull Screen"
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
-msgstr "&Fág Mód Lánscáileáin"
+msgstr ""
 
 #: src/qml/PlayerPage.qml:46
-#, fuzzy
-#| msgid "Exit F&ull Screen"
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
-msgstr "&Fág Mód Lánscáileáin"
+msgstr ""
 
 #: src/qml/PlayerPage.qml:78
 msgctxt "@info %2 is the name of a distribution"
@@ -195,11 +170,9 @@ msgid "Show volume controls"
 msgstr ""
 
 #: src/qml/WelcomeView.qml:16
-#, fuzzy
-#| msgid "Dragon Player"
 msgctxt "@title"
 msgid "Welcome to Dragon Player"
-msgstr "Dragon Player"
+msgstr ""
 
 #: src/qml/WelcomeView.qml:17
 msgctxt "@info"
@@ -210,504 +183,3 @@ msgstr ""
 msgctxt "@action:button"
 msgid "Open Video File or Network Stream"
 msgstr ""
-
-#, fuzzy
-#~| msgctxt "Volume of sound output"
-#~| msgid "Volume"
-#~ msgctxt "@action:button open volume slider popup"
-#~ msgid "Volume"
-#~ msgstr "Airde"
-
-#, fuzzy
-#~| msgid "&Play"
-#~ msgctxt "@title:menu"
-#~ msgid "&Play"
-#~ msgstr "&Seinn"
-
-#, fuzzy
-#~| msgid "Play Media"
-#~ msgctxt "@title:menu"
-#~ msgid "Play Media"
-#~ msgstr "Seinn Meáin"
-
-#, fuzzy
-#~| msgid "&Settings"
-#~ msgctxt "@title:menu"
-#~ msgid "&Settings"
-#~ msgstr "&Socruithe"
-
-#~ msgid "Main Toolbar"
-#~ msgstr "Príomhbharra Uirlisí"
-
-#, fuzzy
-#~| msgid "Preferred Scale"
-#~ msgctxt "@action:button"
-#~ msgid "Preferred Scale"
-#~ msgstr "Scála Is Ansa Leat"
-
-#, fuzzy
-#~| msgid "Scale 100%"
-#~ msgctxt "@action:button"
-#~ msgid "Scale 100%"
-#~ msgstr "Scála 100%"
-
-#~ msgid "<b>Adjust video scale?</b>"
-#~ msgstr "<b>Athraigh scála na físe?</b>"
-
-#~ msgctxt ""
-#~ "%1 is the disc type, %2 is the name of the disc that the user can choose. "
-#~ "Ex. 'DVD: OfficeSpace'"
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"
-
-#~ msgctxt "Digital Versatile Disc, but keep it short"
-#~ msgid "DVD"
-#~ msgstr "DVD"
-
-#~ msgid "Data CD"
-#~ msgstr "Dlúthdhiosca Sonraí"
-
-#, fuzzy
-#~| msgid "Select a Disc"
-#~ msgctxt "@title:window"
-#~ msgid "Select a Disc"
-#~ msgstr "Roghnaigh Diosca"
-
-#~ msgid "Select a disc to play."
-#~ msgstr "Roghnaigh diosca le seinm."
-
-#~ msgid "Improvements and polish"
-#~ msgstr "Feabhsúcháin agus snas"
-
-#~ msgid "Creator of Phonon"
-#~ msgstr "Cruthaitheoir Phonon"
-
-#~ msgid "Dragon Player icon"
-#~ msgstr "Deilbhín Dragonplayer"
-
-#~ msgid "Handbook"
-#~ msgstr "Lámhleabhar"
-
-#~ msgid "Great reference code"
-#~ msgstr "Cód an-mhaith tagartha"
-
-#~ msgid "Yatta happened to be the only video on my laptop to test with. :)"
-#~ msgstr ""
-#~ "Tharla go raibh Yatta an t-aon fhís amháin ar mo ríomhaire glúine le "
-#~ "haghaidh tástála. :)"
-
-#~ msgid "MPRIS v2 support"
-#~ msgstr "Tacaíocht MPRIS v2"
-
-#~ msgid "Play DVD Video"
-#~ msgstr "Seinn Fís DVD"
-
-#~ msgid "Play 'URL'"
-#~ msgstr "Seinn 'URL'"
-
-#, fuzzy
-#~| msgid "Aspect &Ratio"
-#~ msgctxt "@title:menu"
-#~ msgid "Aspect &Ratio"
-#~ msgstr "Cóimheas T&reoíochta"
-
-#, fuzzy
-#~| msgid "&Audio Channels"
-#~ msgctxt "@title:menu"
-#~ msgid "&Audio Channels"
-#~ msgstr "C&ainéil Fhuaime"
-
-#, fuzzy
-#~| msgid "Determine &Automatically"
-#~ msgctxt "@option:radio aspect ratio"
-#~ msgid "Determine &Automatically"
-#~ msgstr "Socraigh go h&Uathoibríoch"
-
-#, fuzzy
-#~| msgid "&4:3"
-#~ msgctxt "@option:radio aspect ratio"
-#~ msgid "&4:3"
-#~ msgstr "&4:3"
-
-#, fuzzy
-#~| msgid "Ana&morphic (16:9)"
-#~ msgctxt "@option:radio aspect ratio"
-#~ msgid "Ana&morphic (16:9)"
-#~ msgstr "Ana&morfach (16:9)"
-
-#, fuzzy
-#~| msgid "&Window Size"
-#~ msgctxt "@option:radio aspect ratio"
-#~ msgid "&Window Size"
-#~ msgstr "&Méid na Fuinneoige"
-
-#~ msgid ""
-#~ "<qt>Phonon could not be successfully initialized. Dragon Player will now "
-#~ "exit.</qt>"
-#~ msgstr ""
-#~ "<qt>Níorbh fhéidir Phonon a thúsú. Cuirfear deireadh le Dragon Player "
-#~ "anois.</qt>"
-
-#, fuzzy
-#~| msgid "Play File"
-#~ msgctxt "@action"
-#~ msgid "Play File…"
-#~ msgstr "Seinn Comhad"
-
-#, fuzzy
-#~| msgid "Play Media"
-#~ msgctxt "@action"
-#~ msgid "Play Stream…"
-#~ msgstr "Seinn Meáin"
-
-#, fuzzy
-#~| msgid "Play Disc"
-#~ msgctxt "@action"
-#~ msgid "Play Disc"
-#~ msgstr "Seinn Diosca"
-
-#~ msgctxt "@action"
-#~ msgid "Increase Volume"
-#~ msgstr "Méadaigh an Airde"
-
-#~ msgctxt "@action"
-#~ msgid "Decrease Volume"
-#~ msgstr "Laghdaigh an Airde"
-
-#, fuzzy
-#~| msgid "Reset Video Scale"
-#~ msgctxt "@action"
-#~ msgid "Reset Video Scale"
-#~ msgstr "Athshocraigh Scála na Físe"
-
-#, fuzzy
-#~| msgid "Menu Toggle"
-#~ msgctxt "@action"
-#~ msgid "Menu Toggle"
-#~ msgstr "Scoránú an Roghchláir"
-
-#~ msgid "Position Slider"
-#~ msgstr "Barra Sleamhnáin"
-
-#, fuzzy
-#~| msgid "Video Settings"
-#~ msgctxt "@option:check"
-#~ msgid "Video Settings"
-#~ msgstr "Socruithe Físe"
-
-#, fuzzy
-#~| msgctxt ""
-#~| "@action:inmenu Whether only one instance of dragon can be started and "
-#~| "will be reused when the user tries to play another file."
-#~| msgid "One Instance Only"
-#~ msgctxt ""
-#~ "@option:check Whether only one instance of dragon can be started and will "
-#~ "be reused when the user tries to play another file."
-#~ msgid "One Instance Only"
-#~ msgstr "Ásc Amháin"
-
-#, fuzzy
-#~| msgid "Previous Chapter"
-#~ msgctxt "@action previous chapter"
-#~ msgid "Previous"
-#~ msgstr "An Chaibidil Roimhe Seo"
-
-#, fuzzy
-#~| msgid "Return 10% Back"
-#~ msgctxt "@action"
-#~ msgid "Return 10% Back"
-#~ msgstr "Téigh 10% ar gcúl"
-
-#, fuzzy
-#~| msgid "Go 10% Forward"
-#~ msgctxt "@action"
-#~ msgid "Go 10% Forward"
-#~ msgstr "Téigh 10% ar aghaidh"
-
-#, fuzzy
-#~| msgid "Return 10 Seconds Back"
-#~ msgctxt "@action"
-#~ msgid "Return 10 Seconds Back"
-#~ msgstr "Téigh 10 soicind ar gcúl"
-
-#, fuzzy
-#~| msgid "Go 10 Seconds Forward"
-#~ msgctxt "@action"
-#~ msgid "Go 10 Seconds Forward"
-#~ msgstr "Téigh 10 soicind ar aghaidh"
-
-#, fuzzy
-#~| msgctxt "Mute the sound output"
-#~| msgid "Mute"
-#~ msgctxt "@option:check Mute the sound output"
-#~ msgid "Mute"
-#~ msgstr "Gan fuaim"
-
-#~ msgid "Dragon Player was asked to open an empty URL; it cannot."
-#~ msgstr "Fiafraíodh de Dragon Player URL folamh a oscailt; ní féidir é seo."
-
-#, fuzzy
-#~| msgid "Select File to Play"
-#~ msgctxt "@title:window"
-#~ msgid "Select File to Play"
-#~ msgstr "Roghnaigh Comhad le Seinm"
-
-#, fuzzy
-#~| msgid "Select File to Play"
-#~ msgctxt "@title:window"
-#~ msgid "Stream to Play"
-#~ msgstr "Roghnaigh Comhad le Seinm"
-
-#, fuzzy
-#~| msgid "Play Media"
-#~ msgctxt "@label:textbox"
-#~ msgid "Stream:"
-#~ msgstr "Seinn Meáin"
-
-#~ msgid "Sorry, no media was found in the drop"
-#~ msgstr "Brón orm, níor aimsíodh aon mheáin sa titim"
-
-#, fuzzy
-#~| msgid "Play DVD Video"
-#~ msgctxt "Notification inhibition reason"
-#~ msgid "Playing a video"
-#~ msgstr "Seinn Fís DVD"
-
-#~ msgid "No media loaded"
-#~ msgstr "Níor luchtaíodh aon mheáin"
-
-#~ msgid "Paused"
-#~ msgstr "Moillithe"
-
-#~ msgid "The file is not a playlist"
-#~ msgstr "Ní seinmliosta é an comhad seo"
-
-#~ msgid "Dragon Player could not download the remote playlist: %1"
-#~ msgstr ""
-#~ "Níorbh fhéidir le Dragon Player an seinmliosta cianda a íosluchtú: %1"
-
-#~ msgid ""
-#~ "<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is "
-#~ "empty?</qt>"
-#~ msgstr ""
-#~ "<qt>Níorbh fhéidir ciall a bhaint as seinmliosta <i>'%1'</i>.  An bhfuil "
-#~ "sé folamh?</qt>"
-
-#~ msgid "Dragon Player could not open the file: %1"
-#~ msgstr "Níorbh fhéidir le Dragon Player an comhad a oscailt: %1"
-
-#, fuzzy
-#~| msgid "Brightness:"
-#~ msgctxt "@label:slider"
-#~ msgid "Brightness:"
-#~ msgstr "Gile:"
-
-#, fuzzy
-#~| msgid "Contrast:"
-#~ msgctxt "@label:slider"
-#~ msgid "Contrast:"
-#~ msgstr "Codarsnacht:"
-
-#, fuzzy
-#~| msgid "Hue:"
-#~ msgctxt "@label:slider"
-#~ msgid "Hue:"
-#~ msgstr "Lí:"
-
-#, fuzzy
-#~| msgid "Saturation:"
-#~ msgctxt "@label:slider"
-#~ msgid "Saturation:"
-#~ msgstr "Sáithiú:"
-
-#, fuzzy
-#~| msgid "Restore Defaults"
-#~ msgctxt "@action:button"
-#~ msgid "Restore Defaults"
-#~ msgstr "Athchóirigh na Réamhshocruithe"
-
-#, fuzzy
-#~| msgid "Close"
-#~ msgctxt "@action:button"
-#~ msgid "Close"
-#~ msgstr "Dún"
-
-#, fuzzy
-#~| msgid "&DVD Subtitle Selection"
-#~ msgctxt "@option:radio"
-#~ msgid "&DVD Subtitle Selection"
-#~ msgstr "Roghnú Fotheideal &DVD"
-
-#, fuzzy
-#~| msgid "&Auto"
-#~ msgctxt "@option:radio audio language"
-#~ msgid "&Auto"
-#~ msgstr "&Uathoibríoch"
-
-#, fuzzy
-#~| msgid "Recently Played Media"
-#~ msgid "Recent Media"
-#~ msgstr "Meáin a Seinneadh Le Déanaí"
-
-#, fuzzy
-#~| msgid "Recently Played Media"
-#~ msgid "Clear Recent Media"
-#~ msgstr "Meáin a Seinneadh Le Déanaí"
-
-#, fuzzy
-#~| msgid "Recently Played Media"
-#~ msgid "Recent Media List"
-#~ msgstr "Meáin a Seinneadh Le Déanaí"
-
-#, fuzzy
-#~| msgid "Play &Media..."
-#~ msgctxt "@action"
-#~ msgid "Play &Media..."
-#~ msgstr "Seinn &Meáin..."
-
-#~ msgid "What media would you like to play?"
-#~ msgstr "Cén meán ar mhaith leat a sheinm?"
-
-#, fuzzy
-#~| msgid "Play File..."
-#~ msgctxt "@action:button"
-#~ msgid "Play File..."
-#~ msgstr "Seinn Comhad..."
-
-#, fuzzy
-#~| msgid "Clear List"
-#~ msgctxt "@action"
-#~ msgid "Clear List"
-#~ msgstr "Glan an Liosta"
-
-#, fuzzy
-#~| msgid "Remove Entry"
-#~ msgctxt "@action"
-#~ msgid "Remove Entry"
-#~ msgstr "Bain Iontráil"
-
-#~ msgid ""
-#~ "This file could not be found. Would you like to remove it from the "
-#~ "playlist?"
-#~ msgstr ""
-#~ "Níorbh fhéidir an comhad seo a aimsiú. An bhfuill fonn ort é a bhaint ón "
-#~ "seinmliosta?"
-
-#, fuzzy
-#~| msgid "File not found"
-#~ msgctxt "@title:window"
-#~ msgid "File not found"
-#~ msgstr "Comhad gan aimsiú"
-
-#~ msgid ""
-#~ "IRC:\n"
-#~ "irc.freenode.net #dragonplayer\n"
-#~ "\n"
-#~ "Feedback:\n"
-#~ "imonroe@kde.org"
-#~ msgstr ""
-#~ "IRC:\n"
-#~ "irc.freenode.net #dragonplayer\n"
-#~ "\n"
-#~ "Aiseolas:\n"
-#~ "imonroe@kde.org"
-
-#~ msgid "David Edmundson"
-#~ msgstr "David Edmundson"
-
-#~ msgid "Matthias Kretz"
-#~ msgstr "Matthias Kretz"
-
-#~ msgid "Eugene Trounev"
-#~ msgstr "Eugene Trounev"
-
-#~ msgid "Mike Diehl"
-#~ msgstr "Mike Diehl"
-
-#~ msgid "The Kaffeine Developers"
-#~ msgstr "Forbróirí Kaffeine"
-
-#~ msgid "Greenleaf"
-#~ msgstr "Greenleaf"
-
-#~ msgid "Eike Hein"
-#~ msgstr "Eike Hein"
-
-#~ msgid "Next Chapter"
-#~ msgstr "An Chéad Chaibidil Eile"
-
-#~ msgctxt "Mute the sound output"
-#~ msgid "Mute "
-#~ msgstr "Gan fuaim "
-
-#~ msgid "Form"
-#~ msgstr "Foirm"
-
-#~ msgid ""
-#~ "<qt>xine could not be successfully initialised. Dragon Player will now "
-#~ "exit. You can try to identify what is wrong with your xine installation "
-#~ "using the <b>xine-check</b> command at a command-prompt.</qt>"
-#~ msgstr ""
-#~ "<qt>Níorbh fhéidir xine a shuiteáil. Éireoidh Dragon Player as anois. "
-#~ "B'fhéidir do shuiteáil xine a dhífhabhtú tríd an ordú <b>xine-check</b> a "
-#~ "úsáid ar líne na n-orduithe.</qt>"
-
-#~ msgid "&Pause"
-#~ msgstr "S&os"
-
-#~ msgid "There was an internal error with the media slave..."
-#~ msgstr "Tharla earráid inmheánach leis an sclábhaí meán..."
-
-#~ msgid "Show Additional Debug Output"
-#~ msgstr "Taispeáin Aschur Breise Dífhabhtaithe"
-
-#~ msgid "Play Disk"
-#~ msgstr "Seinn Diosca"
-
-#~ msgid "Channel %1"
-#~ msgstr "Cainéal %1"
-
-#~ msgid "David Vignoni"
-#~ msgstr "David Vignoni"
-
-#~ msgid "The current Codeine icon"
-#~ msgstr "Deilbhín reatha Codeine"
-
-#~ msgid "Supported Media Formats"
-#~ msgstr "Formáidí Meán a dTacaítear Leo"
-
-#~ msgid "All Files"
-#~ msgstr "Gach Comhad"
-
-#~ msgid "F&ull Screen"
-#~ msgstr "Mód Lán&scáileáin"
-
-#~ msgid "Play DVD"
-#~ msgstr "Seinn DVD"
-
-#~ msgid "Record"
-#~ msgstr "Taifead"
-
-#~ msgid "Media Information"
-#~ msgstr "Eolas faoin Mheán"
-
-#~ msgid "&Determine Automatically"
-#~ msgstr "&Socraigh go hUathoibríoch"
-
-#~ msgid "&Off"
-#~ msgstr "&Múchta"
-
-#~ msgid "Volume: %1"
-#~ msgstr "Airde: %1"
-
-#~ msgid "&Square (1:1)"
-#~ msgstr "&Cearnach (1:1)"
-
-#~ msgid "&DVB (2.11:1)"
-#~ msgstr "&DVB (2.11:1)"
-
-#~ msgid "Video Settings..."
-#~ msgstr "Socruithe Físe..."
-
-#~ msgid "Configure xine..."
-#~ msgstr "Cumraigh xine..."
