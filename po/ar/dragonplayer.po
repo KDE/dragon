@@ -193,7 +193,7 @@ msgstr "اعرض متحكمات الصوت"
 #: src/qml/WelcomeView.qml:16
 msgctxt "@title"
 msgid "Welcome to Dragon Player"
-msgstr "مرحباً بك في مشغل التنين"
+msgstr "مرحبًا بك في مشغل التنين"
 
 #: src/qml/WelcomeView.qml:17
 msgctxt "@info"
