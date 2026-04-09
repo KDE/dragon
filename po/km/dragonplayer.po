@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:42+0000\n"
+"POT-Creation-Date: 2026-04-09 00:43+0000\n"
 "PO-Revision-Date: 2012-06-20 14:45+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -32,17 +32,17 @@ msgctxt "@title"
 msgid "Open Video File or Network Stream"
 msgstr ""
 
-#: src/main.cpp:35
+#: src/main.cpp:25
 #, kde-format
 msgid "Dragon Player"
 msgstr "កម្មវិធី​ចាក់ Dragon"
 
-#: src/main.cpp:37
+#: src/main.cpp:27
 #, kde-format
 msgid "A video player that has a usability focus"
 msgstr "កម្មវិធី​ចាក់​វីដេអូ​ដែលមាន​ការ​ផ្ដោត​ដែលអាច​ប្រើ​បាន"
 
-#: src/main.cpp:39
+#: src/main.cpp:29
 #, fuzzy, kde-format
 #| msgid ""
 #| "Copyright 2006, Max Howell\n"

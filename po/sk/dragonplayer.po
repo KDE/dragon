@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:42+0000\n"
+"POT-Creation-Date: 2026-04-09 00:43+0000\n"
 "PO-Revision-Date: 2022-04-08 18:42+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.12.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -33,23 +33,20 @@ msgstr "lukas.sliacky@gmail.com,misurel@gmail.com"
 #, kde-format
 msgctxt "@title"
 msgid "Open Video File or Network Stream"
-msgstr ""
+msgstr "Otvoriť video súbor alebo sieťový stream"
 
-#: src/main.cpp:35
+#: src/main.cpp:25
 #, kde-format
 msgid "Dragon Player"
 msgstr "Prehrávač Dragon"
 
-#: src/main.cpp:37
+#: src/main.cpp:27
 #, kde-format
 msgid "A video player that has a usability focus"
 msgstr "Prehrávač videa so zameraním na použiteľnosť"
 
-#: src/main.cpp:39
-#, fuzzy, kde-format
-#| msgid ""
-#| "Copyright 2006, Max Howell\n"
-#| "Copyright 2007, Ian Monroe"
+#: src/main.cpp:29
+#, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe\n"
@@ -61,12 +58,9 @@ msgstr ""
 #: src/qml/ControlsBar.qml:129
 msgctxt "@action:button"
 msgid "Application Menu"
-msgstr ""
+msgstr "Menu aplikácie"
 
 #: src/qml/ControlsBar.qml:160
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Stop"
 msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "Zastaviť"
@@ -74,20 +68,14 @@ msgstr "Zastaviť"
 #: src/qml/ControlsBar.qml:168
 msgctxt "@action:button"
 msgid "Unmute"
-msgstr ""
+msgstr "Zrušiť stlmenie"
 
 #: src/qml/ControlsBar.qml:168
-#, fuzzy
-#| msgctxt "@action Mute the sound output"
-#| msgid "Mute"
 msgctxt "@action:button"
 msgid "Mute"
 msgstr "Stlmiť"
 
 #: src/qml/ControlsBar.qml:178
-#, fuzzy
-#| msgctxt "@title:menu"
-#| msgid "&Subtitles"
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
 msgstr "&Titulky"
@@ -95,25 +83,21 @@ msgstr "&Titulky"
 #: src/qml/ControlsBar.qml:185
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
-msgstr ""
+msgstr "Žiadne"
 
 #: src/qml/ControlsBar.qml:195
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
-msgstr ""
+msgstr "%1 [%2]"
 
 #: src/qml/ControlsBar.qml:212
-#, fuzzy
-#| msgid "Audio CD"
 msgctxt "@action:button track selector"
 msgid "Audio Track"
 msgstr "Zvukové CD"
 
 #: src/qml/ControlsBar.qml:227
-#, fuzzy
-#| msgid "Video CD"
 msgctxt "@action:button track selector"
 msgid "Video Track"
 msgstr "Video CD"
@@ -121,25 +105,19 @@ msgstr "Video CD"
 #: src/qml/ControlsBar.qml:245
 msgctxt "@action opens about app page"
 msgid "About"
-msgstr ""
+msgstr "O aplikácii"
 
 #: src/qml/Main.qml:53
 msgctxt "@action:button open file dialog"
 msgid "Open…"
-msgstr ""
+msgstr "Otvoriť…"
 
 #: src/qml/PlayerPage.qml:38
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Play"
 msgctxt "@action:button"
 msgid "Play"
-msgstr "Prehrať"
+msgstr "Hrať"
 
 #: src/qml/PlayerPage.qml:38
-#, fuzzy
-#| msgctxt "@action"
-#| msgid "Pause"
 msgctxt "@action:button"
 msgid "Pause"
 msgstr "Pozastaviť"
@@ -147,12 +125,12 @@ msgstr "Pozastaviť"
 #: src/qml/PlayerPage.qml:46
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
-msgstr ""
+msgstr "Opustiť celú obrazovku"
 
 #: src/qml/PlayerPage.qml:46
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
-msgstr ""
+msgstr "Na celú obrazovku"
 
 #: src/qml/PlayerPage.qml:78
 msgctxt "@info %2 is the name of a distribution"
@@ -162,6 +140,10 @@ msgid ""
 "<nl/><nl/>\n"
 "Please <link url=\"%1\">contact the %2 developers</link> about this issue."
 msgstr ""
+"Dragon Player only supports the QtMultimedia library’s “ffmpeg” backend, but "
+"a different one is currently in use.\n"
+"<nl/><nl/>\n"
+"Please <link url=\"%1\">contact the %2 developers</link> about toto jesue."
 
 #: src/qml/PlayerPage.qml:87
 msgctxt "@info"
@@ -172,6 +154,11 @@ msgid ""
 "<para><command>flatpak install org.freedesktop.Platform.codecs-extra//25.08-"
 "extra</command></para>"
 msgstr ""
+"Nie všetky video kodeky sú nainštalované. Podpora prehrávania videa môže byť "
+"menej spoľahlivá, než sa očakáva.\n"
+"Prosím, nainštalujte codecs-extra spustením:\n"
+"<para><command>flatpak install org.freedesktop.Platform.codecs-extra//25.08-"
+"extra</command></para>"
 
 #: src/qml/PlayerPage.qml:94
 msgctxt "@info %2 is the name of a distribution"
@@ -182,22 +169,25 @@ msgid ""
 "Please <link url=\"%1\">contact the %2 developers</link> about this issue, "
 "or to find out how to install the missing video codecs."
 msgstr ""
+"Nepodarilo sa nájsť plnú podporu pre video kodek H.264; podpora prehrávania "
+"videa môže byť menej spoľahlivá, než sa očakáva.\n"
+"<nl/><nl/>\n"
+"Prosím, <link url=\"%1\">kontaktujte vývojárov %2</link> ohľadom tohto "
+"problému alebo aby ste zistili, ako nainštalovať chýbajúce video kodeky."
 
 #: src/qml/PlayerPage.qml:335
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
 msgid "%1 / %2"
-msgstr ""
+msgstr "%1 / %2"
 
 #: src/qml/VolumeButton.qml:31
 msgctxt "@action:button open volume slider popup"
 msgid "Show volume controls"
-msgstr ""
+msgstr "Zobraziť ovládanie hlasitosti"
 
 #: src/qml/WelcomeView.qml:16
-#, fuzzy
-#| msgid "Dragon Player"
 msgctxt "@title"
 msgid "Welcome to Dragon Player"
 msgstr "Prehrávač Dragon"
@@ -206,15 +196,14 @@ msgstr "Prehrávač Dragon"
 msgctxt "@info"
 msgid "Dragon Player is a simple video player. Open a video to get started:"
 msgstr ""
+"Dragon Player je jednoduchý prehrávač videí. Otvorte video pre začatie:"
 
 #: src/qml/WelcomeView.qml:20
 msgctxt "@action:button"
 msgid "Open Video File or Network Stream"
-msgstr ""
+msgstr "Otvoriť video súbor alebo sieťový stream"
 
 #, fuzzy
-#~| msgctxt "@option:check Volume of sound output"
-#~| msgid "Volume"
 #~ msgctxt "@action:button open volume slider popup"
 #~ msgid "Volume"
 #~ msgstr "Hlasitosť"
@@ -224,8 +213,6 @@ msgstr ""
 #~ msgstr "&Prehrať"
 
 #, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Play Media"
 #~ msgctxt "@title:menu"
 #~ msgid "Play Media"
 #~ msgstr "Prehrať média"
@@ -330,22 +317,16 @@ msgstr ""
 #~ "ukončí.</qt>"
 
 #, fuzzy
-#~| msgctxt "@action:button"
-#~| msgid "Play File"
 #~ msgctxt "@action"
 #~ msgid "Play File…"
 #~ msgstr "Prehrať súbor"
 
 #, fuzzy
-#~| msgctxt "@action:button"
-#~| msgid "Play Stream"
 #~ msgctxt "@action"
 #~ msgid "Play Stream…"
 #~ msgstr "Prehrať prúd"
 
 #, fuzzy
-#~| msgctxt "@action:button"
-#~| msgid "Play Disc"
 #~ msgctxt "@action"
 #~ msgid "Play Disc"
 #~ msgstr "Prehrať disk"
@@ -427,8 +408,6 @@ msgstr ""
 #~ msgstr "Ľutujem, ale žiadne médiá neboli nájdené"
 
 #, fuzzy
-#~| msgctxt "Notification inhibition reason"
-#~| msgid "playing a video"
 #~ msgctxt "Notification inhibition reason"
 #~ msgid "Playing a video"
 #~ msgstr "prehráva sa video"
