@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: videoplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:42+0000\n"
+"POT-Creation-Date: 2026-04-23 02:38+0000\n"
 "PO-Revision-Date: 2015-04-26 22:26+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -35,17 +35,17 @@ msgctxt "@title"
 msgid "Open Video File or Network Stream"
 msgstr ""
 
-#: src/main.cpp:35
+#: src/main.cpp:25
 #, kde-format
 msgid "Dragon Player"
 msgstr "Dragon Player"
 
-#: src/main.cpp:37
+#: src/main.cpp:27
 #, kde-format
 msgid "A video player that has a usability focus"
 msgstr "En filmspiller som prøver å være brukervennlig"
 
-#: src/main.cpp:39
+#: src/main.cpp:29
 #, fuzzy, kde-format
 #| msgid ""
 #| "Copyright 2006, Max Howell\n"
