@@ -1,14 +1,14 @@
 # Translation of dragonplayer to Korean.
 # Copyright (C) 2008 This_file_is_part_of_KDE
 # This file is distributed under the same license as the kdereview package.
-# SPDX-FileCopyrightText: 2008, 2009, 2011, 2012, 2013, 2015, 2019, 2020, 2023, 2025 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2008, 2009, 2011, 2012, 2013, 2015, 2019, 2020, 2023, 2025, 2026 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-09 00:43+0000\n"
-"PO-Revision-Date: 2025-10-09 00:16+0200\n"
+"PO-Revision-Date: 2026-04-26 23:05+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -29,9 +29,7 @@ msgid "Your emails"
 msgstr "kde@peremen.name"
 
 #: src/fileopen.cpp:84
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Video File or Network Stream"
+#, kde-format
 msgctxt "@title"
 msgid "Open Video File or Network Stream"
 msgstr "동영상 파일이나 네트워크 스트림 열기"
@@ -148,14 +146,6 @@ msgstr ""
 "<link url=\"%1\">%2 개발자</link>에게 이 문제를 보고해 주십시오."
 
 #: src/qml/PlayerPage.qml:87
-#, fuzzy
-#| msgctxt "@info"
-#| msgid ""
-#| "Not all video codecs are installed. Video playback support may be less "
-#| "reliable than expected.\n"
-#| "Please install ffmpeg-full by running:\n"
-#| "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-"
-#| "full//24.08</command></para>"
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
@@ -165,9 +155,9 @@ msgid ""
 "extra</command></para>"
 msgstr ""
 "일부 동영상 코덱이 설치되지 않았습니다. 동영상 재생이 제한될 수 있습니다.\n"
-"다음 명령을 실행하여 ffmpeg-full 패키지를 설치하십시오.\n"
-"<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
-"command></para>"
+"다음 명령을 실행하여 codecs-extra 패키지를 설치하십시오:\n"
+"<para><command>flatpak install org.freedesktop.Platform.codecs-extra//25.08-"
+"extra</command></para>"
 
 #: src/qml/PlayerPage.qml:94
 msgctxt "@info %2 is the name of a distribution"
