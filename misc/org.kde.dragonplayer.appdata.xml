@@ -54,6 +54,7 @@
   <name xml:lang="sr-ijekavianlatin">Zmajev plejer</name>
   <name xml:lang="sv">Dragon videospelare</name>
   <name xml:lang="tr">Dragon</name>
+  <name xml:lang="ug">Dragon ياڭراتقۇچ</name>
   <name xml:lang="uk">Програвач Dragon</name>
   <name xml:lang="zh-CN">Dragon Player 视频播放器</name>
   <name xml:lang="zh-TW">神龍播放器</name>
@@ -86,6 +87,7 @@
   <summary xml:lang="sl">Predvajaj video datoteke in tokove</summary>
   <summary xml:lang="sv">Spela videofiler och strömmar</summary>
   <summary xml:lang="tr">Video dosyalarını ve akışlarını oynatın</summary>
+  <summary xml:lang="ug">سىن ھۆججەت ۋە ئېقىم ياڭرىتىدۇ</summary>
   <summary xml:lang="uk">Відтворення відеофайлів та потоків відтворення</summary>
   <summary xml:lang="zh-CN">播放视频文件和流媒体</summary>
   <summary xml:lang="zh-TW">播放影片檔案與串流</summary>
@@ -174,6 +176,7 @@
     <p xml:lang="sr-ijekavianlatin">Mogućnosti:</p>
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="tr">Özellikler:</p>
+    <p xml:lang="ug">ئىقتىدار:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="zh-CN">功能：</p>
     <p xml:lang="zh-TW">功能：</p>
@@ -272,6 +275,7 @@
       <li xml:lang="sl">Izberite zvočni posnetek.</li>
       <li xml:lang="sv">Välj ljudspåret.</li>
       <li xml:lang="tr">Ses parçasını seçin.</li>
+      <li xml:lang="ug">ئاۋاز يولى تاللىنىدۇ.</li>
       <li xml:lang="uk">Вибір звукової доріжки.</li>
       <li xml:lang="zh-CN">选择音频轨道。</li>
       <li xml:lang="zh-TW">選擇音效軌。</li>
@@ -305,6 +309,7 @@
       <li xml:lang="sl">Izberite video posnetek.</li>
       <li xml:lang="sv">Välj videospåret.</li>
       <li xml:lang="tr">Video parçasını seçin.</li>
+      <li xml:lang="ug">سىن يولى تاللىنىدۇ.</li>
       <li xml:lang="uk">Вибір відеодоріжки.</li>
       <li xml:lang="zh-CN">选择视频轨道。</li>
       <li xml:lang="zh-TW">選擇影片軌。</li>
