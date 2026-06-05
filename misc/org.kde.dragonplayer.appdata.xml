@@ -31,6 +31,7 @@
   <name xml:lang="id">Dragon Player</name>
   <name xml:lang="is">Dragon-spilari</name>
   <name xml:lang="it">Dragon Player</name>
+  <name xml:lang="ja">Dragon Player</name>
   <name xml:lang="ka">დამკვრელი Dragon</name>
   <name xml:lang="ko">Dragon 플레이어</name>
   <name xml:lang="lt">Dragon leistuvė</name>
@@ -73,6 +74,7 @@
   <summary xml:lang="ia">Reproduce Files e fluxos (streams) video</summary>
   <summary xml:lang="is">Spilaðu myndskeiðaskrár og myndstreymi</summary>
   <summary xml:lang="it">Riproduci file e flussi video</summary>
+  <summary xml:lang="ja">動画ファイルとストリームを再生</summary>
   <summary xml:lang="ka">ვიდეოფაილებისა და ნაკადების დაკვრა</summary>
   <summary xml:lang="ko">동영상 파일과 스트림 재생</summary>
   <summary xml:lang="lt">Atkurti vaizdo įrašo failus ir srautus</summary>
@@ -109,6 +111,7 @@
     <p xml:lang="ia">Dragon Player es un reproductor multimedial ubi le foco es sur simplicitate, in loco de charactersticas. Su interfacie facile a usar es designate per lassar tu strada e simplemente reproduce tu files e fluxos (/streams) video.</p>
     <p xml:lang="is">Dragon spilarinn er margmiðlunarspilari þar sem áhersla er lögð á einfaldleika frekar en eiginleika. Einfalt notandaviðmótið flækist ekki fyrir og gerir þér kleift að spila einfaldlega margmiðlunarskrár og myndstreymi.</p>
     <p xml:lang="it">Dragon Player è un lettore video il cui obiettivo è la semplicità, anziché la molteplicità di funzioni. La sua interfaccia semplice è progettata per non metterti in difficoltà e per permetterti semplicemente di riprodurre i file multimediali.</p>
+    <p xml:lang="ja">Dragon Player は、多機能さよりもシンプルさに重点を置いた動画プレイヤーです。その使いやすいインタフェースは、ユーザの操作を妨げることなく、動画ファイルやストリームをスムーズに再生できるように設計されています。</p>
     <p xml:lang="ka">Dragon Player-ი მულტიმედია დამკვრელია, რომელიც ფუნქციების ნაცვლად აქცენტს სიმარტივეზე აკეთებს. Dragon Player-ის იოლი ინტერფეისი განკუთვნილია, რომ ფეხებში არ გამოგედოთ და უბრალოდ დაუკრას ვიდეოფაილები.</p>
     <p xml:lang="ko">Dragon 플레이어는 기능보다 간단함에 초점을 맞춘 멀티미디어 재생기입니다. 단순히 동영상 파일과 스트림만을 재생할 수 있도록 사용하기 쉽게 인터페이스를 설계했습니다.</p>
     <p xml:lang="lt">Dragon leistuvė yra vaizdo įrašų leistuvė, kurios dėmesys nukreiptas ne į ypatybes, o į paprastumą. Lengvai naudojama programos sąsaja yra sukurta taip, kad netrukdytų ir tiesiog atkurtų jūsų vaizdo įrašo failus bei srautus.</p>
@@ -151,6 +154,7 @@
     <p xml:lang="id">Fitur:</p>
     <p xml:lang="is">Eiginleikar:</p>
     <p xml:lang="it">Caratteristiche:</p>
+    <p xml:lang="ja">主な機能:</p>
     <p xml:lang="ka">თვისებები:</p>
     <p xml:lang="ko">기능:</p>
     <p xml:lang="lt">Ypatybės:</p>
@@ -194,6 +198,7 @@
       <li xml:lang="ia">Clicca per reproducer o pausar, e dupleclicca per entrar o exir de modo a plen texto.</li>
       <li xml:lang="is">Smelltu til að spila eða setja í bið og tvísmelltu til að fara í eða úr skjáfylliham.</li>
       <li xml:lang="it">Fai clic per riprodurre o mettere in pausa e fai doppio clic per entrare o uscire dalla modalità a schermo intero.</li>
+      <li xml:lang="ja">クリックで再生/一時停止、ダブルクリックでフルスクリーン表示の切り替え</li>
       <li xml:lang="ka">დააწკაპუნეთ დასაკრავად, ან შესაჩერებლად. ორმაგი წკაპი სრულ ეკრანზე გადასასვლელად, ან სრული ეკრანის დასატოვებლად.</li>
       <li xml:lang="ko">클릭하여 재생/일시 정지, 두 번 클릭하여 전체 화면 모드 전환.</li>
       <li xml:lang="lt">Spustelėti, kad vaizdo įrašas būtų atkuriamas arba pristabdytas, ir spustelėti du kartus, kad būtų įjungta arba išjungta viso ekrano veiksena.</li>
@@ -226,6 +231,7 @@
       <li xml:lang="ia">Selige le linguage de subtitulo, e carga automaticamente lo que es correcte per tu linguage, si possibile. </li>
       <li xml:lang="is">Veldu tungumál skjátexta og náðu sjálfvirkt í rétta skjátextann fyrir tungumálið þitt, ef mögulegt er.</li>
       <li xml:lang="it">Seleziona la lingua dei sottotitoli e, se possibile, carica automaticamente quella giusta per la tua lingua.</li>
+      <li xml:lang="ja">字幕言語の選択 (可能であれば、システムの言語に合わせて適切な字幕を自動読み込み)</li>
       <li xml:lang="ka">აირჩიეთ სუბტიტრების ენა და ავტომატური ჩატვირთვა თქვენი ენისთვის, თუ ეს შესაძლებელია.</li>
       <li xml:lang="ko">자막 언어 선택, 사용 가능한 경우 기본 언어로 자막을 표시합니다.</li>
       <li xml:lang="lt">Pasirinkti subtitrų kalbą ir, jei įmanoma, automatiškai įkelti tinkamus subtitrus jūsų kalba.</li>
@@ -259,6 +265,7 @@
       <li xml:lang="ia">Selige le tracia audio.</li>
       <li xml:lang="is">Veldu hljóðrás.</li>
       <li xml:lang="it">Scegli la traccia audio.</li>
+      <li xml:lang="ja">オーディオトラックの選択</li>
       <li xml:lang="ka">აირჩიეთ აუდიობილიკი.</li>
       <li xml:lang="ko">오디오 트랙을 선택할 수 있습니다.</li>
       <li xml:lang="lt">Pasirinkti garso įrašo takelį.</li>
@@ -292,6 +299,7 @@
       <li xml:lang="ia">Selige le tracia video.</li>
       <li xml:lang="is">Veldu myndspor</li>
       <li xml:lang="it">Scegli la traccia video.</li>
+      <li xml:lang="ja">ビデオトラックの選択</li>
       <li xml:lang="ka">აირჩიეთ ვიდეობილიკი.</li>
       <li xml:lang="ko">동영상 트랙을 선택할 수 있습니다.</li>
       <li xml:lang="lt">Pasirinkti vaizdo įrašo takelį.</li>
@@ -325,6 +333,7 @@
       <li xml:lang="ia">Adapta le volumine per rolar.</li>
       <li xml:lang="is">Aðlagaðu hljóðstyrk með því að skruna</li>
       <li xml:lang="it">Regola il volume scorrendo.</li>
+      <li xml:lang="ja">スクロールによる音量調整</li>
       <li xml:lang="ka">ხმის გასწორება თაგუნას ბორბლით.</li>
       <li xml:lang="ko">스크롤하여 음량을 조절할 수 있습니다.</li>
       <li xml:lang="lt">Reguliuoti garsumą sukant pelės ratuką.</li>
