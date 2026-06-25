@@ -81,6 +81,7 @@
   <summary xml:lang="lt">Atkurti vaizdo įrašo failus ir srautus</summary>
   <summary xml:lang="lv">Atskaņojiet video datnes un straumes</summary>
   <summary xml:lang="nl">Videobestanden en streams afspelen</summary>
+  <summary xml:lang="nn">Spel videofiler/-straumar</summary>
   <summary xml:lang="pl">Odtwarzaj filmy i strumienie</summary>
   <summary xml:lang="pt-BR">Reproduz arquivos e transmissões de vídeo</summary>
   <summary xml:lang="ro">Redă fișiere și fluxuri video</summary>
@@ -344,6 +345,7 @@
       <li xml:lang="lt">Reguliuoti garsumą sukant pelės ratuką.</li>
       <li xml:lang="lv">Pārvaldiet skaļumu ar ritināšanu.</li>
       <li xml:lang="nl">Pas het volume aan door te schuiven.</li>
+      <li xml:lang="nn">Juster lydstyrken med mushjulet.</li>
       <li xml:lang="pl">Dostosuj głośność przewijając.</li>
       <li xml:lang="pt-BR">Ajuste o volume rolando o mouse.</li>
       <li xml:lang="ro">Ajustați volumul prin derulare.</li>
