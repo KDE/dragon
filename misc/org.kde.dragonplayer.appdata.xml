@@ -118,6 +118,7 @@
     <p xml:lang="lt">Dragon leistuvė yra vaizdo įrašų leistuvė, kurios dėmesys nukreiptas ne į ypatybes, o į paprastumą. Lengvai naudojama programos sąsaja yra sukurta taip, kad netrukdytų ir tiesiog atkurtų jūsų vaizdo įrašo failus bei srautus.</p>
     <p xml:lang="lv">„Dragon Player“ ir video atskaņotājs ar uzsvaru uz vienkāršību, bet ne plašām iespējām. Programmai ir viegli lietojama saskarne, lai ļautu bez liekiem traucēkļiem noskatīties video datnes un straumes.</p>
     <p xml:lang="nl">Dragon Player is een videospeler met de focus op eenvoud in plaats van functies. Zijn gemakkelijk te gebruiken interface is ontworpen om niet in de weg te zitten en gewoon videobestanden en streams af te spelen.</p>
+    <p xml:lang="nn">Dragon Player er ein videoavspelar med fokus på å vera enkel heller enn funksjonsrik. Brukarflata er utforma for å ikkje vera i vegen og for å gjera det enkelt å spela av eller strøyma videofiler.</p>
     <p xml:lang="pl">Odtwarzacz Dragon jest odtwarzaczem multimedialnym, gdzie położono nacisk na prostotę, a nie na możliwości. Jego prosty układ sterowania został zaprojektowany tak, aby nie wchodził w drogę, ale aby pomagał przy odtwarzaniu plików multimedialnych.</p>
     <p xml:lang="pt-BR">O Dragon Player é um reprodutor de vídeo que prioriza a simplicidade em vez de recursos. Sua interface fácil de usar foi projetada para facilitar a reprodução de seus arquivos e transmissões de vídeo.</p>
     <p xml:lang="ro">Dragon Player e un lector video orientat spre simplitate în loc de caracteristici. Interfața sa simplă e proiectată să nu vă stea în cale și doar să redea fișiere și fluxuri video.</p>
@@ -205,6 +206,7 @@
       <li xml:lang="lt">Spustelėti, kad vaizdo įrašas būtų atkuriamas arba pristabdytas, ir spustelėti du kartus, kad būtų įjungta arba išjungta viso ekrano veiksena.</li>
       <li xml:lang="lv">Klikšķiniet, lai atskaņotu vai pauzētu, vai veiciet dubultklikšķi, lai ieslēgtu vai izslēgtu pilnekrāna režīmu.</li>
       <li xml:lang="nl">Klik om af te spelen of te pauzeren en dubbelklik om modus volledig scherm in of uit te gaan.</li>
+      <li xml:lang="nn">Eit enkelt trykk for å spela av eller pausa, og dobbeltklikk for å gå inn eller ut av fullskjermsmodus.</li>
       <li xml:lang="pl">Naciśnij tutaj, aby zacząć odtwarzać lub wstrzymać; naciśnij dwukrotnie, aby wejść lub wyjść z trybu pełnego ekranu.</li>
       <li xml:lang="pt-BR">Clique para reproduzir ou pausar e clique duas vezes para entrar ou sair do modo de tela cheia.</li>
       <li xml:lang="ro">Apăsați pentru a reda sau întrerupe, apăsați dublu pentru a intra sau ieși din regimul de ecran complet</li>
@@ -238,6 +240,7 @@
       <li xml:lang="lt">Pasirinkti subtitrų kalbą ir, jei įmanoma, automatiškai įkelti tinkamus subtitrus jūsų kalba.</li>
       <li xml:lang="lv">Izvēlieties subtitru valodu un automātiski ielādējiet pareizos subtitrus, ja pieejami.</li>
       <li xml:lang="nl">Kies de taal van de ondertitels en laad automatisch de juiste voor uw taal, indien mogelijk.</li>
+      <li xml:lang="nn">Kan velja språk på undertekstar, og, om mogleg, vert automatisk rett språkversjon valt.</li>
       <li xml:lang="pl">Wybierz język napisów i sam wczytaj te właściwe dla swojego języka, jeśli będzie to możliwe.</li>
       <li xml:lang="pt-BR">Selecione o idioma da legenda e carregue automaticamente o correto para o seu idioma, se possível.</li>
       <li xml:lang="ro">Alegeți limba subtilului și cel potrivit va fi încărcat automat atunci când e posibil.</li>
@@ -272,6 +275,7 @@
       <li xml:lang="lt">Pasirinkti garso įrašo takelį.</li>
       <li xml:lang="lv">Izvēlieties skaņas celiņu.</li>
       <li xml:lang="nl">Kies de audiotrack.</li>
+      <li xml:lang="nn">Kan velja lydspor.</li>
       <li xml:lang="pl">Wybierz ścieżkę dźwiękową.</li>
       <li xml:lang="pt-BR">Selecione a faixa de áudio.</li>
       <li xml:lang="ro">Alegeți pista de sunet.</li>
@@ -306,6 +310,7 @@
       <li xml:lang="lt">Pasirinkti vaizdo įrašo takelį.</li>
       <li xml:lang="lv">Izvēlieties video celiņu.</li>
       <li xml:lang="nl">Kies de videotrack.</li>
+      <li xml:lang="nn">Kan velja videospor.</li>
       <li xml:lang="pl">Wybierz ścieżkę obrazu.</li>
       <li xml:lang="pt-BR">Selecione a faixa de vídeo.</li>
       <li xml:lang="ro">Alegeți pista de imagine.</li>
@@ -340,7 +345,7 @@
       <li xml:lang="lt">Reguliuoti garsumą sukant pelės ratuką.</li>
       <li xml:lang="lv">Pārvaldiet skaļumu ar ritināšanu.</li>
       <li xml:lang="nl">Pas het volume aan door te schuiven.</li>
-      <li xml:lang="nn">Juster lydstyrken med mushjulet.</li>
+      <li xml:lang="nn">Kan justera lydstyrken med mushjulet.</li>
       <li xml:lang="pl">Dostosuj głośność przewijając.</li>
       <li xml:lang="pt-BR">Ajuste o volume rolando o mouse.</li>
       <li xml:lang="ro">Ajustați volumul prin derulare.</li>
