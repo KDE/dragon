@@ -98,7 +98,7 @@
     <p>
       Dragon Player is a video player focusing on simplicity instead of features. Its easy-to-use interface is designed to get out of your way and simply play your video files and streams.
     </p>
-    <p xml:lang="ar">مشغل التنين هو مشغل فيديو يركز على البساطة بدلاً من الميزات. فقد صُممت واجهته سهلة الاستخدام لتبتعد عن طريقك وتشغّل ملفات الفيديو والبث ببساطة.</p>
+    <p xml:lang="ar">مشغل التنين هو مشغل فيديو يركز على البساطة بدلًا من الميزات. فقد صُممت واجهته سهلة الاستخدام لتبتعد عن طريقك وتشغّل ملفات الفيديو والبث ببساطة.</p>
     <p xml:lang="bg">Dragon е програма за мултимедийно възпроизвеждане, в която фокусът е върху простотата на използване, вместо претрупаност от функции. Лесният за употреба интерфейс е предназначен да не се натрапва и по опростен начин да възпроизвежда вашите видеофайлове и потоци.</p>
     <p xml:lang="ca">El Dragon Player és un reproductor de vídeo que se centra en la simplicitat en lloc de les característiques. La seva interfície fàcil d'utilitzar està dissenyada perquè no s'interposi en el vostre camí i que simplement pugueu reproduir els fitxers i fluxos de vídeo.</p>
     <p xml:lang="ca-valencia">Dragon Player és un reproductor de vídeo que se centra en la simplicitat en lloc de les característiques. La seua interfície fàcil d'utilitzar està dissenyada perquè no s'interpose en el vostre camí i que senzillament pugueu reproduir els fitxers i fluxos de vídeo.</p>
@@ -222,7 +222,7 @@
       <li xml:lang="zh-CN">点击以播放或暂停，双击进入或退出全屏模式。</li>
       <li xml:lang="zh-TW">點擊以播放或暫停，連點兩下來進入或離開全螢幕模式。</li>
       <li>Choose the subtitle language, and automatically load the right one for your language, if possible.</li>
-      <li xml:lang="ar">تختار لغة الترجمة، وتحمل آليّاً اللغة المناسبة للغتك، إن أمكن.</li>
+      <li xml:lang="ar">تختار لغة الترجمة، وتحمل آليًّا اللغة المناسبة للغتك، إن أمكن.</li>
       <li xml:lang="bg">Избиране на езика на субтитрите с автоматично зареждане, ако са налични.</li>
       <li xml:lang="ca">Trieu l'idioma dels subtítols i carregueu automàticament els adequats de l'idioma que vulgueu, si és possible.</li>
       <li xml:lang="ca-valencia">Trieu l'idioma dels subtítols i carregueu automàticament els adequats de l'idioma que vulgueu, si és possible.</li>
