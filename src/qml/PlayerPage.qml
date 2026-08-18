@@ -451,4 +451,16 @@ Please <link url="%1">contact the %2 developers</link> about this issue, or to f
         sequence: "Ctrl+Alt+Right"
         onActivated: videoPage.seek(toolbar.seekSlider.value + (5 * 60000), true)
     }
+
+    Shortcut {
+        context: Qt.ApplicationShortcut
+        sequence: "Up"
+        onActivated: player.audioOutput.volume = Math.min(1.0, player.audioOutput.volume + 0.1)
+    }
+
+    Shortcut {
+        context: Qt.ApplicationShortcut
+        sequence: "Down"
+        onActivated: player.audioOutput.volume = Math.max(0.0, player.audioOutput.volume - 0.1)
+    }
 }
