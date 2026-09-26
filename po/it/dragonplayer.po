@@ -1,11 +1,11 @@
 # translation of dragonplayer.po to Italian
 #
-# SPDX-FileCopyrightText: 2013, 2018, 2019, 2020, 2022, 2023, 2025 Vincenzo Reale <smart2128vr@gmail.com>
 # Giovanni Venturi <giovanni@kde.org>, 2008.
 # Giovanni Venturi <giovanni@kde.org>, 2009.
 # Giovanni Venturi <giovanni@kde.org>, 2009, 2010, 2011, 2012, 2013.
 # Federico Zenith <federico.zenith@member.fsf.org>, 2010.
 # Pino Toscano <toscano.pino@tiscali.it>, 2011.
+# SPDX-FileCopyrightText: 2013, 2018, 2019, 2020, 2022, 2023, 2025 Vincenzo Reale <smart2128vr@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
