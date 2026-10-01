@@ -195,7 +195,7 @@
       <li xml:lang="ca">Feu clic per a reproduir o fer una pausa i feu doble clic per a entrar o sortir del mode de pantalla completa.</li>
       <li xml:lang="ca-valencia">Cliqueu per a reproduir o fer una pausa i feu doble clic per a entrar o eixir del mode de pantalla completa.</li>
       <li xml:lang="cs">Kliknutím spustíte nebo pozastavíte přehrávání a dvojitým kliknutím přepnete do režimu celé obrazovky nebo z něj vystoupíte.</li>
-      <li xml:lang="de">Klicken Sie, um die Wiedergabe zu starten oder zu pausieren und doppelklicken Sie, um den Vollbildmodus zu aktivieren oder zu verlassen.</li>
+      <li xml:lang="de">Wiedergabe mit einem Klick starten oder pausieren und mit einem Doppelklick den Vollbildmodus aktivieren bzw. verlassen.</li>
       <li xml:lang="es">Pulse para reproducir o parar, y haga doble click para entrar o salir del modo pantalla completa.</li>
       <li xml:lang="eu">Egin klik jotzeko edo etenaldirako, eta egin klik bikoitza pantaila-osoko moduan sartzeko edo irteteko.</li>
       <li xml:lang="fi">Toista tai keskeytä napsauttamalla ja siirry koko näytön tilaan tai poistu siitä kaksoisnapsautuksella.</li>
@@ -230,7 +230,7 @@
       <li xml:lang="ca">Trieu l'idioma dels subtítols i carregueu automàticament els adequats de l'idioma que vulgueu, si és possible.</li>
       <li xml:lang="ca-valencia">Trieu l'idioma dels subtítols i carregueu automàticament els adequats de l'idioma que vulgueu, si és possible.</li>
       <li xml:lang="cs">Vyberte jazyk titulků a pokud možno automaticky načtěte ten správný pro váš jazyk.</li>
-      <li xml:lang="de">Wählen Sie die Sprache der Untertitel aus und laden Sie, sofern möglich, automatisch die richtige für Ihre Sprache.</li>
+      <li xml:lang="de">Auswahl der Untertitel-Sprache und, falls möglich, automatisches Laden des richtigen Untertitels für Ihre Sprache.</li>
       <li xml:lang="es">Elija el lenguaje de los subtítulos y automáticamente cargará el correcto para su idioma, si está disponible.</li>
       <li xml:lang="eu">Aukeratu azpidatzien hizkuntza, eta zure hizkuntzarako egokia dena automatikoki zamatu, ahal bada.</li>
       <li xml:lang="fi">Valitse tekstityskieli ja yritä automaattisesti ladata oikea.</li>
@@ -265,7 +265,7 @@
       <li xml:lang="ca">Trieu la pista d'àudio.</li>
       <li xml:lang="ca-valencia">Trieu la pista d'àudio.</li>
       <li xml:lang="cs">Zavřít zvukovou stopu.</li>
-      <li xml:lang="de">Eine Audiospur wählen.</li>
+      <li xml:lang="de">Auswahl der Audiospur.</li>
       <li xml:lang="eo">Elektu la aŭdaĵtrakon.</li>
       <li xml:lang="es">Elija la pista de audio.</li>
       <li xml:lang="eu">Aukeratu audio-pista.</li>
@@ -302,7 +302,7 @@
       <li xml:lang="ca">Trieu la pista de vídeo.</li>
       <li xml:lang="ca-valencia">Trieu la pista de vídeo.</li>
       <li xml:lang="cs">Vyberte si video stopu.</li>
-      <li xml:lang="de">Eine Videospur wählen.</li>
+      <li xml:lang="de">Auswahl der Videospur.</li>
       <li xml:lang="eo">Elektu la vidaĵtrakon.</li>
       <li xml:lang="es">Elija la pista de vídeo.</li>
       <li xml:lang="eu">Aukeratu bideo-pista.</li>
@@ -339,7 +339,7 @@
       <li xml:lang="ca">Ajusteu el volum amb el desplaçament.</li>
       <li xml:lang="ca-valencia">Ajusteu el volum amb el desplaçament.</li>
       <li xml:lang="cs">Upravte úroveň hlasitosti rolováním kolečka myši.</li>
-      <li xml:lang="de">Passen Sie die Lautstärke durch Scrollen an.</li>
+      <li xml:lang="de">Anpassen der Lautstärke durch Scrollen.</li>
       <li xml:lang="eo">Ĝustigu la laŭtecon rulumante.</li>
       <li xml:lang="es">Ajuste el volumen por desplazamiento.</li>
       <li xml:lang="eu">Kiribilduz bolumena doitu.</li>
