@@ -1,14 +1,15 @@
 # Translation of dragonplayer.po into Serbian.
 # Slobodan Simic <slsimic@gmail.com>, 2008, 2009.
-# Chusslove Illich <caslav.ilic@gmx.net>, 2008, 2009, 2010, 2012, 2013, 2015, 2016.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2008, 2009, 2010, 2012, 2013, 2015, 2016, 2018.
 # Dalibor Djuric <daliborddjuric@gmail.com>, 2009, 2011.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-09 00:43+0000\n"
-"PO-Revision-Date: 2016-03-20 15:25+0100\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-10-05 12:49+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@latin\n"
 "MIME-Version: 1.0\n"
@@ -23,18 +24,18 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Slobodan Simić"
+msgstr "Slobodan Simić,Nemanja Hiršl"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "slsimic@gmail.com"
+msgstr "slsimic@gmail.com,nemhirsl@gmail.com"
 
 #: src/fileopen.cpp:84
 #, kde-format
 msgctxt "@title"
 msgid "Open Video File or Network Stream"
-msgstr ""
+msgstr "Otvaranje video fajla ili mrežnog toka"
 
 #: src/main.cpp:25
 #, kde-format
@@ -47,26 +48,22 @@ msgid "A video player that has a usability focus"
 msgstr "Video plejer kome je upotrebljivost najvažnija"
 
 #: src/main.cpp:29
-#, fuzzy, kde-format
-#| msgid ""
-#| "Copyright 2006, Max Howell\n"
-#| "Copyright 2007, Ian Monroe"
+#, kde-format
 msgid ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe\n"
 "Copyright 2022 Harald Sitter"
 msgstr ""
 "© 2006, Maks Hauel\n"
-"© 2007, Ijan Monro"
+"© 2007, Ijan Monro\n"
+"© 2022, Harald Siter"
 
 #: src/qml/ControlsBar.qml:129
 msgctxt "@action:button"
 msgid "Application Menu"
-msgstr ""
+msgstr "Meni programa"
 
 #: src/qml/ControlsBar.qml:160
-#, fuzzy
-#| msgid "Stop"
 msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "Zaustavi"
@@ -74,71 +71,58 @@ msgstr "Zaustavi"
 #: src/qml/ControlsBar.qml:168
 msgctxt "@action:button"
 msgid "Unmute"
-msgstr ""
+msgstr "Vrati zvuk"
 
 #: src/qml/ControlsBar.qml:168
-#, fuzzy
-#| msgctxt "Mute the sound output"
-#| msgid "Mute"
 msgctxt "@action:button"
 msgid "Mute"
 msgstr "Utišaj"
 
 #: src/qml/ControlsBar.qml:178
-#, fuzzy
-#| msgid "&Subtitles"
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
-msgstr "&Titlovi"
+msgstr "Titlovi"
 
 #: src/qml/ControlsBar.qml:185
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
-msgstr ""
+msgstr "Ništa"
 
 #: src/qml/ControlsBar.qml:195
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
-msgstr ""
+msgstr "%1 [%2]"
 
 # >> @item
 #: src/qml/ControlsBar.qml:212
-#, fuzzy
-#| msgid "Audio CD"
 msgctxt "@action:button track selector"
 msgid "Audio Track"
-msgstr "audio CD"
+msgstr "Audio staza"
 
 # >> @item
 #: src/qml/ControlsBar.qml:227
-#, fuzzy
-#| msgid "Video CD"
 msgctxt "@action:button track selector"
 msgid "Video Track"
-msgstr "video CD"
+msgstr "Video staza"
 
 #: src/qml/ControlsBar.qml:245
 msgctxt "@action opens about app page"
 msgid "About"
-msgstr ""
+msgstr "O programu"
 
 #: src/qml/Main.qml:53
 msgctxt "@action:button open file dialog"
 msgid "Open…"
-msgstr ""
+msgstr "Otvori…"
 
 #: src/qml/PlayerPage.qml:38
-#, fuzzy
-#| msgid "Play"
 msgctxt "@action:button"
 msgid "Play"
 msgstr "Pusti"
 
 #: src/qml/PlayerPage.qml:38
-#, fuzzy
-#| msgid "Pause"
 msgctxt "@action:button"
 msgid "Pause"
 msgstr "Pauziraj"
@@ -146,12 +130,12 @@ msgstr "Pauziraj"
 #: src/qml/PlayerPage.qml:46
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
-msgstr ""
+msgstr "Napusti ceo ekran"
 
 #: src/qml/PlayerPage.qml:46
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
-msgstr ""
+msgstr "Preko celog ekrana"
 
 #: src/qml/PlayerPage.qml:78
 msgctxt "@info %2 is the name of a distribution"
@@ -161,6 +145,11 @@ msgid ""
 "<nl/><nl/>\n"
 "Please <link url=\"%1\">contact the %2 developers</link> about this issue."
 msgstr ""
+"Zmajev plejer podržava samo pozadinu „ffmpeg“ biblioteke QtMultimedia, a "
+"trenutno se koristi neka druga.\n"
+"<nl/><nl/>\n"
+"<link url=\"%1\">Obratite se programerima distribucije %2</link> u vezi sa "
+"ovim problemom."
 
 #: src/qml/PlayerPage.qml:87
 msgctxt "@info"
@@ -171,6 +160,11 @@ msgid ""
 "<para><command>flatpak install org.freedesktop.Platform.codecs-extra//25.08-"
 "extra</command></para>"
 msgstr ""
+"Nisu instalirani svi video kodeci. Puštanje videa može biti manje pouzdano "
+"nego što se očekuje.\n"
+"Instalirajte codecs-extra ovom naredbom:\n"
+"<para><command>flatpak install org.freedesktop.Platform.codecs-extra//25.08-"
+"extra</command></para>"
 
 #: src/qml/PlayerPage.qml:94
 msgctxt "@info %2 is the name of a distribution"
@@ -181,430 +175,36 @@ msgid ""
 "Please <link url=\"%1\">contact the %2 developers</link> about this issue, "
 "or to find out how to install the missing video codecs."
 msgstr ""
+"Ne mogu da nađem punu podršku za video kodek H.264; puštanje videa može biti "
+"manje pouzdano nego što se očekuje.\n"
+"<nl/><nl/>\n"
+"<link url=\"%1\">Obratite se programerima distribucije %2</link> u vezi sa "
+"ovim problemom ili da saznate kako da instalirate video kodeke koji "
+"nedostaju."
 
 #: src/qml/PlayerPage.qml:335
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
 msgid "%1 / %2"
-msgstr ""
+msgstr "%1 / %2"
 
 #: src/qml/VolumeButton.qml:31
 msgctxt "@action:button open volume slider popup"
 msgid "Show volume controls"
-msgstr ""
+msgstr "Prikaži kontrole jačine"
 
 #: src/qml/WelcomeView.qml:16
-#, fuzzy
-#| msgid "Dragon Player"
 msgctxt "@title"
 msgid "Welcome to Dragon Player"
-msgstr "Zmajev plejer"
+msgstr "Dobro došli u Zmajev plejer"
 
 #: src/qml/WelcomeView.qml:17
 msgctxt "@info"
 msgid "Dragon Player is a simple video player. Open a video to get started:"
-msgstr ""
+msgstr "Zmajev plejer je jednostavan video plejer. Otvorite video da počnete:"
 
 #: src/qml/WelcomeView.qml:20
 msgctxt "@action:button"
 msgid "Open Video File or Network Stream"
-msgstr ""
-
-#, fuzzy
-#~| msgctxt "Volume of sound output"
-#~| msgid "Volume"
-#~ msgctxt "@action:button open volume slider popup"
-#~ msgid "Volume"
-#~ msgstr "Jačina"
-
-#, fuzzy
-#~| msgid "&Play"
-#~ msgctxt "@title:menu"
-#~ msgid "&Play"
-#~ msgstr "P&uštanje"
-
-#, fuzzy
-#~| msgid "Play Media"
-#~ msgctxt "@title:menu"
-#~ msgid "Play Media"
-#~ msgstr "Pusti medijum"
-
-#, fuzzy
-#~| msgid "&Settings"
-#~ msgctxt "@title:menu"
-#~ msgid "&Settings"
-#~ msgstr "&Podešavanje"
-
-#~ msgid "Main Toolbar"
-#~ msgstr "Glavna traka"
-
-#, fuzzy
-#~| msgid "Preferred Scale"
-#~ msgctxt "@action:button"
-#~ msgid "Preferred Scale"
-#~ msgstr "Željena razmera"
-
-#, fuzzy
-#~| msgid "Scale 100%"
-#~ msgctxt "@action:button"
-#~ msgid "Scale 100%"
-#~ msgstr "100%"
-
-#~ msgid "<b>Adjust video scale?</b>"
-#~ msgstr "<b>Podesiti razmeru?</b>"
-
-#~ msgctxt ""
-#~ "%1 is the disc type, %2 is the name of the disc that the user can choose. "
-#~ "Ex. 'DVD: OfficeSpace'"
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"
-
-# >> @item
-#~ msgctxt "Digital Versatile Disc, but keep it short"
-#~ msgid "DVD"
-#~ msgstr "DVD"
-
-# >> @item
-#~ msgid "Data CD"
-#~ msgstr "CD sa podacima"
-
-# >> @title:window
-#, fuzzy
-#~| msgid "Select a Disc"
-#~ msgctxt "@title:window"
-#~ msgid "Select a Disc"
-#~ msgstr "Izbor dijaloga"
-
-#~ msgid "Select a disc to play."
-#~ msgstr "Izaberite disk za puštanje."
-
-#~ msgid "Improvements and polish"
-#~ msgstr "Poboljšanja i poliranje"
-
-#~ msgid "Creator of Phonon"
-#~ msgstr "Stvaralac Phonona"
-
-#~ msgid "Dragon Player icon"
-#~ msgstr "Ikonica Zmajevog plejera"
-
-#~ msgid "Handbook"
-#~ msgstr "Priručnik"
-
-#~ msgid "Great reference code"
-#~ msgstr "Odličan uporedni kôd"
-
-# well-spelled: Јата
-#~ msgid "Yatta happened to be the only video on my laptop to test with. :)"
-#~ msgstr ""
-#~ "„Yatta“ je bio jedini video na mom laptopu sa kojim bih testirao. :)"
-
-#~ msgid "MPRIS v2 support"
-#~ msgstr "Podrška za MPRIS 2"
-
-#~ msgid "Port to KF5/Plasma 5"
-#~ msgstr "Prenošenje na KF5/Plasmu 5"
-
-#~ msgid "Play DVD Video"
-#~ msgstr "Pusti DVD video"
-
-#~ msgid "Play 'URL'"
-#~ msgstr "Pusti URL"
-
-#, fuzzy
-#~| msgid "Aspect &Ratio"
-#~ msgctxt "@title:menu"
-#~ msgid "Aspect &Ratio"
-#~ msgstr "&Proporcija"
-
-#, fuzzy
-#~| msgid "&Audio Channels"
-#~ msgctxt "@title:menu"
-#~ msgid "&Audio Channels"
-#~ msgstr "&Audio kanali"
-
-#, fuzzy
-#~| msgid "Determine &Automatically"
-#~ msgctxt "@option:radio aspect ratio"
-#~ msgid "Determine &Automatically"
-#~ msgstr "Odredi &automatski"
-
-#, fuzzy
-#~| msgid "&4:3"
-#~ msgctxt "@option:radio aspect ratio"
-#~ msgid "&4:3"
-#~ msgstr "&4:3"
-
-#, fuzzy
-#~| msgid "Ana&morphic (16:9)"
-#~ msgctxt "@option:radio aspect ratio"
-#~ msgid "Ana&morphic (16:9)"
-#~ msgstr "Ana&morfno (16:9)"
-
-#, fuzzy
-#~| msgid "&Window Size"
-#~ msgctxt "@option:radio aspect ratio"
-#~ msgid "&Window Size"
-#~ msgstr "&Veličina prozora"
-
-#~ msgid ""
-#~ "<qt>Phonon could not be successfully initialized. Dragon Player will now "
-#~ "exit.</qt>"
-#~ msgstr ""
-#~ "<qt>Pripremanje Phonona nije uspelo. Zmajev plejer će sada biti napušten."
-#~ "</qt>"
-
-#, fuzzy
-#~| msgid "Play File"
-#~ msgctxt "@action"
-#~ msgid "Play File…"
-#~ msgstr "Pusti fajl"
-
-#, fuzzy
-#~| msgid "Play Stream"
-#~ msgctxt "@action"
-#~ msgid "Play Stream…"
-#~ msgstr "Pusti tok"
-
-#, fuzzy
-#~| msgid "Play Disc"
-#~ msgctxt "@action"
-#~ msgid "Play Disc"
-#~ msgstr "Pusti disk"
-
-#~ msgctxt "@action"
-#~ msgid "Increase Volume"
-#~ msgstr "Pojačaj zvuk"
-
-#~ msgctxt "@action"
-#~ msgid "Decrease Volume"
-#~ msgstr "Smanji zvuk"
-
-#, fuzzy
-#~| msgid "Reset Video Scale"
-#~ msgctxt "@action"
-#~ msgid "Reset Video Scale"
-#~ msgstr "Resetuj razmeru videa"
-
-#, fuzzy
-#~| msgid "Menu Toggle"
-#~ msgctxt "@action"
-#~ msgid "Menu Toggle"
-#~ msgstr "Uključi/isključi meni"
-
-#~ msgid "Position Slider"
-#~ msgstr "Klizač položaja"
-
-#, fuzzy
-#~| msgid "Video Settings"
-#~ msgctxt "@option:check"
-#~ msgid "Video Settings"
-#~ msgstr "Video postavke"
-
-#, fuzzy
-#~| msgctxt ""
-#~| "@action:inmenu Whether only one instance of dragon can be started and "
-#~| "will be reused when the user tries to play another file."
-#~| msgid "One Instance Only"
-#~ msgctxt ""
-#~ "@option:check Whether only one instance of dragon can be started and will "
-#~ "be reused when the user tries to play another file."
-#~ msgid "One Instance Only"
-#~ msgstr "Samo jedan primerak"
-
-#, fuzzy
-#~| msgid "Previous"
-#~ msgctxt "@action previous chapter"
-#~ msgid "Previous"
-#~ msgstr "Prethodno"
-
-#, fuzzy
-#~| msgid "Next"
-#~ msgctxt "@action next chapter"
-#~ msgid "Next"
-#~ msgstr "Sledeće"
-
-#, fuzzy
-#~| msgid "Return 10% Back"
-#~ msgctxt "@action"
-#~ msgid "Return 10% Back"
-#~ msgstr "Nazad 10%"
-
-#, fuzzy
-#~| msgid "Go 10% Forward"
-#~ msgctxt "@action"
-#~ msgid "Go 10% Forward"
-#~ msgstr "Napred 10%"
-
-#, fuzzy
-#~| msgid "Return 10 Seconds Back"
-#~ msgctxt "@action"
-#~ msgid "Return 10 Seconds Back"
-#~ msgstr "Nazad 10 sekundi"
-
-#, fuzzy
-#~| msgid "Go 10 Seconds Forward"
-#~ msgctxt "@action"
-#~ msgid "Go 10 Seconds Forward"
-#~ msgstr "Napred 10 sekundi"
-
-#, fuzzy
-#~| msgctxt "Mute the sound output"
-#~| msgid "Mute"
-#~ msgctxt "@option:check Mute the sound output"
-#~ msgid "Mute"
-#~ msgstr "Utišaj"
-
-#~ msgid "Dragon Player was asked to open an empty URL; it cannot."
-#~ msgstr "Zmajevom plejeru je zatraženo da otvori prazan URL; neće moći."
-
-# >> @title:window
-#, fuzzy
-#~| msgid "Select File to Play"
-#~ msgctxt "@title:window"
-#~ msgid "Select File to Play"
-#~ msgstr "Izbor fajla za puštanje"
-
-#~ msgctxt "@title:window"
-#~ msgid "Stream to Play"
-#~ msgstr "Tok za puštanje"
-
-#, fuzzy
-#~| msgid "Stream:"
-#~ msgctxt "@label:textbox"
-#~ msgid "Stream:"
-#~ msgstr "Tok:"
-
-#~ msgid "Sorry, no media was found in the drop"
-#~ msgstr "Izvinite, nema medijuma u prevučenom."
-
-#, fuzzy
-#~| msgid "Play DVD Video"
-#~ msgctxt "Notification inhibition reason"
-#~ msgid "Playing a video"
-#~ msgstr "Pusti DVD video"
-
-#~ msgid "No media loaded"
-#~ msgstr "Nema učitanog medijuma"
-
-#~ msgid "Paused"
-#~ msgstr "Pauzirano"
-
-#~ msgid "The file is not a playlist"
-#~ msgstr "Fajl nije lista puštanja"
-
-#~ msgid "Dragon Player could not download the remote playlist: %1"
-#~ msgstr "Zmajev plejer ne može da preuzme udaljenu listu puštanja: %1"
-
-#~ msgid ""
-#~ "<qt>The playlist, <i>'%1'</i>, could not be interpreted. Perhaps it is "
-#~ "empty?</qt>"
-#~ msgstr ""
-#~ "<qt>Lista puštanja <i>%1</i> ne može da se protumači. Možda je prazna?</"
-#~ "qt>"
-
-#~ msgid "Dragon Player could not open the file: %1"
-#~ msgstr "Zmajev plejer ne može da otvori fajl: %1"
-
-#~ msgid "Track %1/%2"
-#~ msgstr "Numera %1/%2"
-
-#, fuzzy
-#~| msgid "Brightness:"
-#~ msgctxt "@label:slider"
-#~ msgid "Brightness:"
-#~ msgstr "Osvetljaj:"
-
-#, fuzzy
-#~| msgid "Contrast:"
-#~ msgctxt "@label:slider"
-#~ msgid "Contrast:"
-#~ msgstr "Kontrast:"
-
-#, fuzzy
-#~| msgid "Hue:"
-#~ msgctxt "@label:slider"
-#~ msgid "Hue:"
-#~ msgstr "Nijansa:"
-
-#, fuzzy
-#~| msgid "Saturation:"
-#~ msgctxt "@label:slider"
-#~ msgid "Saturation:"
-#~ msgstr "Zasićenje:"
-
-#, fuzzy
-#~| msgid "Restore Defaults"
-#~ msgctxt "@action:button"
-#~ msgid "Restore Defaults"
-#~ msgstr "Vrati podrazumevano"
-
-#, fuzzy
-#~| msgid "Close"
-#~ msgctxt "@action:button"
-#~ msgid "Close"
-#~ msgstr "Zatvori"
-
-#, fuzzy
-#~| msgid "&DVD Subtitle Selection"
-#~ msgctxt "@option:radio"
-#~ msgid "&DVD Subtitle Selection"
-#~ msgstr "Izbor &DVD titla"
-
-#, fuzzy
-#~| msgid "&Auto"
-#~ msgctxt "@option:radio audio language"
-#~ msgid "&Auto"
-#~ msgstr "&Automatski"
-
-#~ msgid ""
-#~ "IRC:\n"
-#~ "irc.freenode.net #dragonplayer\n"
-#~ "\n"
-#~ "Feedback:\n"
-#~ "imonroe@kde.org"
-#~ msgstr ""
-#~ "IRC:\n"
-#~ "irc.freenode.net #dragonplayer\n"
-#~ "\n"
-#~ "Reagovanja:\n"
-#~ "imonroe@kde.org"
-
-#, fuzzy
-#~| msgid "Play &Media..."
-#~ msgctxt "@action"
-#~ msgid "Play &Media..."
-#~ msgstr "Pusti &medij..."
-
-#~ msgid "What media would you like to play?"
-#~ msgstr "Koji medijum želite da pustite?"
-
-#, fuzzy
-#~| msgid "Play File..."
-#~ msgctxt "@action:button"
-#~ msgid "Play File..."
-#~ msgstr "Pusti fajl..."
-
-#, fuzzy
-#~| msgid "Clear List"
-#~ msgctxt "@action"
-#~ msgid "Clear List"
-#~ msgstr "Očisti listu"
-
-#, fuzzy
-#~| msgid "Remove Entry"
-#~ msgctxt "@action"
-#~ msgid "Remove Entry"
-#~ msgstr "Ukloni stavku"
-
-#~ msgid ""
-#~ "This file could not be found. Would you like to remove it from the "
-#~ "playlist?"
-#~ msgstr ""
-#~ "Ovaj fajl se ne može naći. Želite li da ga uklonite sa liste puštanja?"
-
-#, fuzzy
-#~| msgid "File not found"
-#~ msgctxt "@title:window"
-#~ msgid "File not found"
-#~ msgstr "Fajl nije nađen"
+msgstr "Otvori video fajl ili mrežni tok"
