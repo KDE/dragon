@@ -89,6 +89,10 @@
   <summary xml:lang="ru">Проигрыватель видеофайлов и видеопотоков</summary>
   <summary xml:lang="sk">Prehrávanie video súborov a streamov</summary>
   <summary xml:lang="sl">Predvajaj video datoteke in tokove</summary>
+  <summary xml:lang="sr">Пуштање видео фајлова и токова</summary>
+  <summary xml:lang="sr-Latn">Puštanje video fajlova i tokova</summary>
+  <summary xml:lang="sr-ijekavian">Пуштање видео фајлова и токова</summary>
+  <summary xml:lang="sr-ijekavianlatin">Puštanje video fajlova i tokova</summary>
   <summary xml:lang="sv">Spela videofiler och strömmar</summary>
   <summary xml:lang="tr">Video dosyalarını ve akışlarını oynatın</summary>
   <summary xml:lang="ug">سىن ھۆججەت ۋە ئېقىم ياڭرىتىدۇ</summary>
@@ -129,6 +133,10 @@
     <p xml:lang="ru">Dragon Player — это приложение для воспроизведения видео, ориентированное на простоту, а не на обилие функций. Его удобный интерфейс создан для того, чтобы  просто воспроизводить видеофайлы и видеопотоки.</p>
     <p xml:lang="sk">Dragon Player je multimediálny prehrávač, ktorý sa zameriava na jednoduchosť namiesto funkcií. Dragon Player robí jednu vec, a nič iné, ktorou je prehrávania multimediálnych súborov. Jeho jednoduché rozhranie je zavrhnuté, aby nebolo rušivé a aby s ním bolo jednoducho možné prehrávať multimediálne súbory.</p>
     <p xml:lang="sl">Dragon Player je video predvajalnik, ki se osredotoča na preprostost namesto na zmožnosti. Njegov vmesnik, ki je enostaven za uporabo, je zasnovan tako, da se vam umakne in preprosto predvaja vaše video datoteke in tokove.</p>
+    <p xml:lang="sr">Змајев плејер је видео плејер са тежиштем на једноставности уместо на могућностима. Његово лако сучеље осмишљено је да вам не стоји на путу, већ да једноставно пушта ваше видео фајлове и токове.</p>
+    <p xml:lang="sr-Latn">Zmajev plejer je video plejer sa težištem na jednostavnosti umesto na mogućnostima. Njegovo lako sučelje osmišljeno je da vam ne stoji na putu, već da jednostavno pušta vaše video fajlove i tokove.</p>
+    <p xml:lang="sr-ijekavian">Змајев плејер је видео плејер са тежиштем на једноставности умјесто на могућностима. Његово лако сучеље осмишљено је да вам не стоји на путу, већ да једноставно пушта ваше видео фајлове и токове.</p>
+    <p xml:lang="sr-ijekavianlatin">Zmajev plejer je video plejer sa težištem na jednostavnosti umjesto na mogućnostima. Njegovo lako sučelje osmišljeno je da vam ne stoji na putu, već da jednostavno pušta vaše video fajlove i tokove.</p>
     <p xml:lang="sv">Dragon videospelare är en videospelare med fokus på enkelhet istället för funktioner. Dess enkla gränssnitt är konstruerat för att inte vara i vägen utan istället ge dig möjlighet att enkelt spela upp videofiler och strömmar.</p>
     <p xml:lang="tr">Dragon, özellikler yerine yalınlığa odaklanan bir çoklu ortam oynatıcısıdır. Basit arayüzü, yolunuza çıkmayacak şekilde tasarlanmıştır ve çoklu ortam dosyalarını kolayca oynatmanızı sağlar.</p>
     <p xml:lang="uk">Програвач Dragon — відеопрогравач, перевагою якого є простота, а не широкий діапазон можливостей. Його простий у користуванні інтерфейс не заважатиме вам просто переглядати файли відео та потоки даних з мережі.</p>
@@ -219,6 +227,10 @@
       <li xml:lang="ru">Нажмите для воспроизведения или паузы, дважды нажмите для перехода в полноэкранный режим или выхода из него.</li>
       <li xml:lang="sk">Kliknutím prehráte alebo pozastavíte, dvojklikom prejdete alebo opustíte režim celej obrazovky.</li>
       <li xml:lang="sl">Kliknite za predvajanje ali začasno ustavitev in dvokliknite za vstop ali izhod iz celozaslonskega načina.</li>
+      <li xml:lang="sr">Кликните за пуштање или паузу, а двокликните за улазак у режим преко целог екрана или излазак из њега.</li>
+      <li xml:lang="sr-Latn">Kliknite za puštanje ili pauzu, a dvokliknite za ulazak u režim preko celog ekrana ili izlazak iz njega.</li>
+      <li xml:lang="sr-ijekavian">Кликните за пуштање или паузу, а двокликните за улазак у режим преко цијелог екрана или излазак из њега.</li>
+      <li xml:lang="sr-ijekavianlatin">Kliknite za puštanje ili pauzu, a dvokliknite za ulazak u režim preko cijelog ekrana ili izlazak iz njega.</li>
       <li xml:lang="sv">Klicka för att spela eller pausa, och dubbelklicka för att gå till eller lämna fullskärmsläge.</li>
       <li xml:lang="tr">Oynatmak veya duraklatmak için tıklayın ve tam ekran kipine girmek veya çıkmak için çift tıklayın.</li>
       <li xml:lang="uk">Клацання для запуску або призупинення відтворення, подвійне клацання для входу або виходу з повноекранного режиму.</li>
@@ -254,6 +266,10 @@
       <li xml:lang="ru">Выберите язык субтитров, и, если возможно, он будет автоматически загружен для вашего языка.</li>
       <li xml:lang="sk">Vyberte jazyk titulkov a automaticky sa načíta správny pre váš jazyk, ak je to možné.</li>
       <li xml:lang="sl">Izberite jezik podnapisov in po možnosti samodejno naložite pravega za svoj jezik.</li>
+      <li xml:lang="sr">Изаберите језик титла, или пустите да се аутоматски учита одговарајући за ваш језик, ако је могуће.</li>
+      <li xml:lang="sr-Latn">Izaberite jezik titla, ili pustite da se automatski učita odgovarajući za vaš jezik, ako je moguće.</li>
+      <li xml:lang="sr-ijekavian">Изаберите језик титла, или пустите да се аутоматски учита одговарајући за ваш језик, ако је могуће.</li>
+      <li xml:lang="sr-ijekavianlatin">Izaberite jezik titla, ili pustite da se automatski učita odgovarajući za vaš jezik, ako je moguće.</li>
       <li xml:lang="sv">Välj språk för textning, och läs automatiskt in rätt språk, om möjligt.</li>
       <li xml:lang="tr">Altyazı dilini seçin ve varsa diliniz için olan altyazıyı kendiliğinden yükleyin.</li>
       <li xml:lang="uk">Вибір мови субтитрів та автоматичне завантаження, якщо це можливо, належних субтитрів для вашої мови.</li>
@@ -290,6 +306,10 @@
       <li xml:lang="ru">Выберите звуковую дорожку.</li>
       <li xml:lang="sk">Vyberte zvukovú stopu.</li>
       <li xml:lang="sl">Izberite zvočni posnetek.</li>
+      <li xml:lang="sr">Изаберите аудио стазу.</li>
+      <li xml:lang="sr-Latn">Izaberite audio stazu.</li>
+      <li xml:lang="sr-ijekavian">Изаберите аудио стазу.</li>
+      <li xml:lang="sr-ijekavianlatin">Izaberite audio stazu.</li>
       <li xml:lang="sv">Välj ljudspåret.</li>
       <li xml:lang="tr">Ses parçasını seçin.</li>
       <li xml:lang="ug">ئاۋاز يولى تاللىنىدۇ.</li>
@@ -327,6 +347,10 @@
       <li xml:lang="ru">Выберите дорожку видео.</li>
       <li xml:lang="sk">Vyberte video stopu.</li>
       <li xml:lang="sl">Izberite video posnetek.</li>
+      <li xml:lang="sr">Изаберите видео стазу.</li>
+      <li xml:lang="sr-Latn">Izaberite video stazu.</li>
+      <li xml:lang="sr-ijekavian">Изаберите видео стазу.</li>
+      <li xml:lang="sr-ijekavianlatin">Izaberite video stazu.</li>
       <li xml:lang="sv">Välj videospåret.</li>
       <li xml:lang="tr">Video parçasını seçin.</li>
       <li xml:lang="ug">سىن يولى تاللىنىدۇ.</li>
@@ -364,6 +388,10 @@
       <li xml:lang="ru">Прокрутите, чтобы настроить громкость.</li>
       <li xml:lang="sk">Upravte hlasitosť posúvaním.</li>
       <li xml:lang="sl">Prilagodite glasnost s pomikanjem.</li>
+      <li xml:lang="sr">Подесите јачину померањем точкића.</li>
+      <li xml:lang="sr-Latn">Podesite jačinu pomeranjem točkića.</li>
+      <li xml:lang="sr-ijekavian">Подесите јачину помијерањем точкића.</li>
+      <li xml:lang="sr-ijekavianlatin">Podesite jačinu pomijeranjem točkića.</li>
       <li xml:lang="sv">Justera volymen genom att rulla.</li>
       <li xml:lang="tr">Sararak ses düzeyini ayarlayın.</li>
       <li xml:lang="uk">Коригування гучності гортанням.</li>
