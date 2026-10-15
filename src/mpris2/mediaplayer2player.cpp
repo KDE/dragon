@@ -38,6 +38,9 @@ MediaPlayer2Player::MediaPlayer2Player(QMediaPlayer *player, QObject *parent)
     connect(m_player, &QMediaPlayer::sourceChanged, this, &MediaPlayer2Player::currentSourceChanged);
     connect(m_player, &QMediaPlayer::metaDataChanged, this, &MediaPlayer2Player::emitMetadataChange);
     connect(m_player, &QMediaPlayer::playbackStateChanged, this, &MediaPlayer2Player::stateUpdated);
+    connect(m_player, &QMediaPlayer::playbackStateChanged, this, [this] {
+        m_positionTimer.start();
+    });
     connect(m_player, &QMediaPlayer::durationChanged, this, &MediaPlayer2Player::emitMetadataChange);
     connect(m_player, &QMediaPlayer::seekableChanged, this, &MediaPlayer2Player::seekableChanged);
     connect(m_player->audioOutput(), &QAudioOutput::volumeChanged, this, &MediaPlayer2Player::volumeChanged);
@@ -227,7 +230,19 @@ bool MediaPlayer2Player::CanControl() const
 
 void MediaPlayer2Player::tick(qint64 newPos)
 {
-    Q_EMIT Seeked(toMicroseconds(newPos));
+    // QMediaPlayer reports the position many times per second during playback. MPRIS clients extrapolate the position on
+    // their own from Position and PlaybackStatus though, Seeked is only meant for jumps such as the user seeking.
+    constexpr qint64 seekThreshold = 500; // ms, well above the jitter of the reported position
+    qint64 expectedPos = oldPos;
+    if (m_player->playbackState() == QMediaPlayer::PlayingState && m_positionTimer.isValid()) {
+        expectedPos += qRound64(m_positionTimer.elapsed() * m_player->playbackRate());
+    }
+    m_positionTimer.start();
+    oldPos = newPos;
+
+    if (std::abs(newPos - expectedPos) > seekThreshold) {
+        Q_EMIT Seeked(toMicroseconds(newPos));
+    }
 }
 
 void MediaPlayer2Player::emitMetadataChange() const
