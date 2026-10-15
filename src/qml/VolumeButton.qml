@@ -52,6 +52,9 @@ IconToolButton {
         y: -height - toolbar.padding - Kirigami.Units.smallSpacing
         width: Kirigami.Units.gridUnit * 2
         height: Kirigami.Units.gridUnit * 6
+        // Swallow the click that dismisses the popup so it does not also toggle playback on the video below
+        modal: true
+        dim: false
         contentItem: QQC2.Slider {
             Kirigami.Theme.colorSet: Kirigami.Theme.Complementary
             orientation: Qt.Vertical
