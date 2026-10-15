@@ -9,6 +9,7 @@
 
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
+#include <QElapsedTimer>
 #include <QMediaPlayer>
 #include <QtQmlIntegration>
 
@@ -82,6 +83,7 @@ private Q_SLOTS:
 
 private:
     qint64 oldPos;
+    QElapsedTimer m_positionTimer;
     QMediaPlayer *m_player;
 };
 
