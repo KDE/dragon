@@ -13,6 +13,17 @@
 
 using namespace Qt::StringLiterals;
 
+// MPRIS expresses all times in microseconds, QMediaPlayer in milliseconds
+static qlonglong toMicroseconds(qint64 milliseconds)
+{
+    return milliseconds * 1000;
+}
+
+static qint64 toMilliseconds(qlonglong microseconds)
+{
+    return microseconds / 1000;
+}
+
 static QByteArray makeTrackId(const QString &source)
 {
     return QByteArray("/org/kde/dragonplayer") + "/tid_" + QCryptographicHash::hash(source.toLocal8Bit(), QCryptographicHash::Sha1).toHex();
@@ -90,7 +101,7 @@ void MediaPlayer2Player::Play() const
 
 void MediaPlayer2Player::SetPosition(const QDBusObjectPath &TrackId, qlonglong Position) const
 {
-    m_player->setPosition(Position);
+    m_player->setPosition(toMilliseconds(Position));
 }
 
 void MediaPlayer2Player::OpenUri(QString Uri) const
@@ -154,7 +165,7 @@ QVariantMap MediaPlayer2Player::Metadata() const
     const auto data = m_player->metaData();
     const auto keys = data.keys();
     if (keys.contains(QMediaMetaData::Duration)) {
-        metaData.insert(QStringLiteral("mpris:length"), data.value(QMediaMetaData::Duration).toLongLong());
+        metaData.insert(QStringLiteral("mpris:length"), toMicroseconds(data.value(QMediaMetaData::Duration).toLongLong()));
     }
 
     // Fields where we don't need to perform any type conversions
@@ -186,7 +197,7 @@ void MediaPlayer2Player::setVolume(double volume) const
 
 qlonglong MediaPlayer2Player::Position() const
 {
-    return m_player->position();
+    return toMicroseconds(m_player->position());
 }
 
 double MediaPlayer2Player::MinimumRate() const
@@ -206,7 +217,7 @@ bool MediaPlayer2Player::CanSeek() const
 
 void MediaPlayer2Player::Seek(qlonglong Offset) const
 {
-    m_player->setPosition(m_player->position() + Offset);
+    m_player->setPosition(m_player->position() + toMilliseconds(Offset));
 }
 
 bool MediaPlayer2Player::CanControl() const
@@ -216,7 +227,7 @@ bool MediaPlayer2Player::CanControl() const
 
 void MediaPlayer2Player::tick(qint64 newPos)
 {
-    Q_EMIT Seeked(newPos);
+    Q_EMIT Seeked(toMicroseconds(newPos));
 }
 
 void MediaPlayer2Player::emitMetadataChange() const
