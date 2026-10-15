@@ -149,6 +149,9 @@ OverlayPopup {
                 // Aligned with overlay panel border
                 x: Qt.application.layoutDirection === Qt.RightToLeft ? - toolbar.padding : -width + menuButton.width + toolbar.padding
                 y: -height - toolbar.padding - Kirigami.Units.smallSpacing
+                // Swallow the click that dismisses the menu so it does not also toggle playback on the video below
+                modal: true
+                dim: false
 
                 Kirigami.Action {
                     text: appWindow.openAction.text
