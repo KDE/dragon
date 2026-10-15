@@ -112,20 +112,21 @@ Please <link url="%1">contact the %2 developers</link> about this issue, or to f
         }
     }
 
+    // Decide based on the window state, it can also leave fullscreen without us (e.g. through the window manager)
     function cancelFullscreen() {
-        if (storedVisibility !== null) {
-            visibility = storedVisibility
-            storedVisibility = null
+        if (visibility === Window.Window.FullScreen) {
+            visibility = storedVisibility ?? Window.Window.Windowed
         }
+        storedVisibility = null
     }
 
     function fullscreen() {
-        if (storedVisibility === null) {
-            storedVisibility = visibility
-            visibility = Window.Window.FullScreen
-            return true
+        if (visibility === Window.Window.FullScreen) {
+            return false
         }
-        return false
+        storedVisibility = visibility
+        visibility = Window.Window.FullScreen
+        return true
     }
 
     function toggleFullscreen() {
