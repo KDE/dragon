@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-09 00:43+0000\n"
+"POT-Creation-Date: 2026-10-16 00:46+0000\n"
 "PO-Revision-Date: 2022-04-08 18:42+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -60,49 +60,49 @@ msgctxt "@action:button"
 msgid "Application Menu"
 msgstr "Menu aplikácie"
 
-#: src/qml/ControlsBar.qml:160
+#: src/qml/ControlsBar.qml:163
 msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "Zastaviť"
 
-#: src/qml/ControlsBar.qml:168
+#: src/qml/ControlsBar.qml:171
 msgctxt "@action:button"
 msgid "Unmute"
 msgstr "Zrušiť stlmenie"
 
-#: src/qml/ControlsBar.qml:168
+#: src/qml/ControlsBar.qml:171
 msgctxt "@action:button"
 msgid "Mute"
 msgstr "Stlmiť"
 
-#: src/qml/ControlsBar.qml:178
+#: src/qml/ControlsBar.qml:181
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
 msgstr "&Titulky"
 
-#: src/qml/ControlsBar.qml:185
+#: src/qml/ControlsBar.qml:188
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
 msgstr "Žiadne"
 
-#: src/qml/ControlsBar.qml:195
+#: src/qml/ControlsBar.qml:198
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
 
-#: src/qml/ControlsBar.qml:212
+#: src/qml/ControlsBar.qml:215
 msgctxt "@action:button track selector"
 msgid "Audio Track"
 msgstr "Zvukové CD"
 
-#: src/qml/ControlsBar.qml:227
+#: src/qml/ControlsBar.qml:230
 msgctxt "@action:button track selector"
 msgid "Video Track"
 msgstr "Video CD"
 
-#: src/qml/ControlsBar.qml:245
+#: src/qml/ControlsBar.qml:248
 msgctxt "@action opens about app page"
 msgid "About"
 msgstr "O aplikácii"
@@ -175,7 +175,7 @@ msgstr ""
 "Prosím, <link url=\"%1\">kontaktujte vývojárov %2</link> ohľadom tohto "
 "problému alebo aby ste zistili, ako nainštalovať chýbajúce video kodeky."
 
-#: src/qml/PlayerPage.qml:335
+#: src/qml/PlayerPage.qml:336
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
