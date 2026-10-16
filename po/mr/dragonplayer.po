@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-09 00:43+0000\n"
+"POT-Creation-Date: 2026-10-16 03:02+0000\n"
 "PO-Revision-Date: 2014-10-18 10:23+0530\n"
 "Last-Translator: Chetan Khona <chetan@sumconcepts.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -61,19 +61,19 @@ msgctxt "@action:button"
 msgid "Application Menu"
 msgstr ""
 
-#: src/qml/ControlsBar.qml:160
+#: src/qml/ControlsBar.qml:163
 #, fuzzy
 #| msgid "Stop"
 msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "थांबा"
 
-#: src/qml/ControlsBar.qml:168
+#: src/qml/ControlsBar.qml:171
 msgctxt "@action:button"
 msgid "Unmute"
 msgstr ""
 
-#: src/qml/ControlsBar.qml:168
+#: src/qml/ControlsBar.qml:171
 #, fuzzy
 #| msgctxt "Mute the sound output"
 #| msgid "Mute"
@@ -81,40 +81,40 @@ msgctxt "@action:button"
 msgid "Mute"
 msgstr "मौन"
 
-#: src/qml/ControlsBar.qml:178
+#: src/qml/ControlsBar.qml:181
 #, fuzzy
 #| msgid "&Subtitles"
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
 msgstr "सबटायटल्स (&S)"
 
-#: src/qml/ControlsBar.qml:185
+#: src/qml/ControlsBar.qml:188
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
 msgstr ""
 
-#: src/qml/ControlsBar.qml:195
+#: src/qml/ControlsBar.qml:198
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
 msgstr ""
 
-#: src/qml/ControlsBar.qml:212
+#: src/qml/ControlsBar.qml:215
 #, fuzzy
 #| msgid "Audio CD"
 msgctxt "@action:button track selector"
 msgid "Audio Track"
 msgstr "ऑडिओ सीडी"
 
-#: src/qml/ControlsBar.qml:227
+#: src/qml/ControlsBar.qml:230
 #, fuzzy
 #| msgid "Video CD"
 msgctxt "@action:button track selector"
 msgid "Video Track"
 msgstr "व्हिडीओ सीडी"
 
-#: src/qml/ControlsBar.qml:245
+#: src/qml/ControlsBar.qml:248
 msgctxt "@action opens about app page"
 msgid "About"
 msgstr ""
