@@ -10,8 +10,14 @@
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
 #include <QElapsedTimer>
+#include <QImage>
 #include <QMediaPlayer>
 #include <QtQmlIntegration>
+
+#include <memory>
+
+class QMediaMetaData;
+class QTemporaryFile;
 
 class MediaPlayer2Player : public QDBusAbstractAdaptor
 {
@@ -45,7 +51,7 @@ public:
     void setRate(double rate) const;
     bool Shuffle() const;
     void setShuffle(bool shuffle) const;
-    QVariantMap Metadata() const;
+    QVariantMap Metadata();
     double Volume() const;
     void setVolume(double volume) const;
     qlonglong Position() const;
@@ -74,17 +80,22 @@ public Q_SLOTS:
 
 private Q_SLOTS:
     void tick(qint64 newPos);
-    void emitMetadataChange() const;
-    void currentSourceChanged() const;
+    void emitMetadataChange();
+    void currentSourceChanged();
     void stateUpdated() const;
-    void totalTimeChanged() const;
+    void totalTimeChanged();
     void seekableChanged(bool seekable) const;
     void volumeChanged() const;
 
 private:
+    QUrl artworkUrl(const QMediaMetaData &metaData);
+
     qint64 oldPos;
     QElapsedTimer m_positionTimer;
     QMediaPlayer *m_player;
+
+    QImage m_artwork;
+    std::unique_ptr<QTemporaryFile> m_artworkFile;
 };
 
 #endif
