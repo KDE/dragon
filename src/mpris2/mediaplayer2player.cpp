@@ -171,9 +171,14 @@ QVariantMap MediaPlayer2Player::Metadata() const
         metaData.insert(QStringLiteral("mpris:length"), toMicroseconds(data.value(QMediaMetaData::Duration).toLongLong()));
     }
 
+    // xesam:albumArtist is a list of strings while AlbumArtist is a single string.
+    if (keys.contains(QMediaMetaData::AlbumArtist)) {
+        metaData.insert(QStringLiteral("xesam:albumArtist"), QStringList{data.value(QMediaMetaData::AlbumArtist).toString()});
+    }
+
     // Fields where we don't need to perform any type conversions
     const std::map<QMediaMetaData::Key, QString> trivialData = {
-        {QMediaMetaData::AlbumArtist, u"xesam:artist"_s},
+        {QMediaMetaData::ContributingArtist, u"xesam:artist"_s},
         {QMediaMetaData::AlbumTitle, u"xesam:album"_s},
         {QMediaMetaData::Genre, u"xesam:genre"_s},
         {QMediaMetaData::Title, u"xesam:title"_s},
