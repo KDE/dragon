@@ -176,6 +176,7 @@ QVariantMap MediaPlayer2Player::Metadata() const
         {QMediaMetaData::AlbumArtist, u"xesam:artist"_s},
         {QMediaMetaData::AlbumTitle, u"xesam:album"_s},
         {QMediaMetaData::Genre, u"xesam:genre"_s},
+        {QMediaMetaData::Title, u"xesam:title"_s},
         {QMediaMetaData::TrackNumber, u"xesam:trackNumber"_s},
     };
 
