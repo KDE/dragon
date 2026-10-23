@@ -10,6 +10,7 @@ ecm_add_qml_module(dragonmodule URI org.kde.dragon VERSION 1.0 GENERATE_PLUGIN_S
 ecm_target_qml_sources(dragonmodule
     SOURCES
         qml/AboutPage.qml
+        qml/AlbumArt.qml
         qml/ControlsBar.qml
         qml/IconToolButton.qml
         qml/Main.qml
