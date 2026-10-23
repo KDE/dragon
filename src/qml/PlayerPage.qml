@@ -6,6 +6,8 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import QtQuick.Window as Window
 import org.kde.coreaddons as KCoreAddons
+import org.kde.guiaddons as KGuiAddons
+import org.kde.ki18n
 import Qt.labs.animation
 import QtMultimedia as Multimedia
 
@@ -31,6 +33,20 @@ Kirigami.Page {
         if (!visible) {
             player.pause()
         }
+    }
+
+    KGuiAddons.SystemInhibitor {
+        window: videoPage.Window.Window.window
+        types: {
+            let types = KGuiAddons.SystemInhibitor.Suspend
+            if (player.hasVideo) {
+                types |= KGuiAddons.SystemInhibitor.Idle
+            }
+            return types
+        }
+        enabled: player.playing
+        reason: player.hasVideo ? KI18n.i18nc("Reason why we block screensaver/suspend", "Playing video")
+                                : KI18n.i18nc("Reason why we block suspend", "Playing audio")
     }
 
     Kirigami.Action {

@@ -11,7 +11,7 @@ project(DragonPlayer VERSION ${RELEASE_SERVICE_VERSION})
 set(PROJECT_VERSION ${RELEASE_SERVICE_VERSION})
 
 set(QT_MIN_VERSION "6.8.0")
-set(KF_MIN_VERSION "6.12.0")
+set(KF_MIN_VERSION "6.23.0")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
@@ -44,6 +44,7 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED
     KIO
     WindowSystem
     # Used by qml (needed for linting)
+    GuiAddons
     Kirigami
     Config
 )
