@@ -47,6 +47,7 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED
     GuiAddons
     Kirigami
     Config
+    Declarative
 )
 
 find_package(PkgConfig)

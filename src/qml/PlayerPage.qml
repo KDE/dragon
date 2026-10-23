@@ -8,6 +8,7 @@ import QtQuick.Window as Window
 import org.kde.coreaddons as KCoreAddons
 import org.kde.guiaddons as KGuiAddons
 import org.kde.ki18n
+import org.kde.kquickcontrolsaddons as KQA
 import Qt.labs.animation
 import QtMultimedia as Multimedia
 
@@ -167,6 +168,20 @@ Please <link url="%1">contact the %2 developers</link> about this issue, or to f
         anchors.bottom: parent.bottom
         color: "black"
         visible: (player.source.toString()?.length > 0) ?? false // source should never be nullish so .toString() always works!
+
+        Loader {
+            id: albumArtLoader
+            anchors.fill: parent
+
+            readonly property var thumbnail: !player.hasVideo ? player.metaData.value(Multimedia.MediaMetaData.ThumbnailImage) : undefined
+            readonly property bool hasThumbnail: (item as AlbumArt)?.valid ?? false
+
+            sourceComponent: AlbumArt {
+                source: albumArtLoader.thumbnail
+            }
+            active: thumbnail !== undefined
+            visible: hasThumbnail
+        }
 
         Multimedia.VideoOutput {
             id: video
