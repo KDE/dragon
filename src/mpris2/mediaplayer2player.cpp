@@ -10,6 +10,7 @@
 #include <QAudioOutput>
 #include <QCryptographicHash>
 #include <QMediaMetaData>
+#include <QTemporaryFile>
 
 using namespace Qt::StringLiterals;
 
@@ -158,7 +159,7 @@ void MediaPlayer2Player::setShuffle(bool shuffle) const
     Q_UNUSED(shuffle)
 }
 
-QVariantMap MediaPlayer2Player::Metadata() const
+QVariantMap MediaPlayer2Player::Metadata()
 {
     QVariantMap metaData{
         {QStringLiteral("mpris:trackid"), QVariant::fromValue<QDBusObjectPath>(QDBusObjectPath(makeTrackId(m_player->source().toString()).constData()))},
@@ -174,6 +175,26 @@ QVariantMap MediaPlayer2Player::Metadata() const
     // xesam:albumArtist is a list of strings while AlbumArtist is a single string.
     if (keys.contains(QMediaMetaData::AlbumArtist)) {
         metaData.insert(QStringLiteral("xesam:albumArtist"), QStringList{data.value(QMediaMetaData::AlbumArtist).toString()});
+    }
+
+    if (keys.contains(QMediaMetaData::ThumbnailImage)) {
+        const QImage thumbnail = data.value(QMediaMetaData::ThumbnailImage).value<QImage>();
+
+        if (m_artwork != thumbnail) {
+            m_artwork = thumbnail;
+
+            m_artworkFile = std::make_unique<QTemporaryFile>(QDir::tempPath() + "/dragonplayer_XXXXXX.png"_L1);
+            if (m_artworkFile->open()) {
+                thumbnail.save(m_artworkFile.get(), "png");
+                m_artworkFile->close();
+            } else {
+                qWarning() << "Failed to open MPRIS artwork file:" << m_artworkFile->error();
+            }
+        }
+    }
+
+    if (m_artworkFile && !m_artworkFile->fileName().isEmpty()) {
+        metaData.insert(u"mpris:artUrl"_s, QUrl::fromLocalFile(m_artworkFile->fileName()).toString());
     }
 
     // Fields where we don't need to perform any type conversions
@@ -251,13 +272,13 @@ void MediaPlayer2Player::tick(qint64 newPos)
     }
 }
 
-void MediaPlayer2Player::emitMetadataChange() const
+void MediaPlayer2Player::emitMetadataChange()
 {
     const QVariantMap properties{{QStringLiteral("Metadata"), Metadata()}};
     Mpris2::signalPropertiesChange(this, properties);
 }
 
-void MediaPlayer2Player::currentSourceChanged() const
+void MediaPlayer2Player::currentSourceChanged()
 {
     const QVariantMap properties{
         {QStringLiteral("Metadata"), Metadata()},
@@ -275,7 +296,7 @@ void MediaPlayer2Player::stateUpdated() const
     Mpris2::signalPropertiesChange(this, properties);
 }
 
-void MediaPlayer2Player::totalTimeChanged() const
+void MediaPlayer2Player::totalTimeChanged()
 {
     const QVariantMap properties{{QStringLiteral("Metadata"), Metadata()}};
     Mpris2::signalPropertiesChange(this, properties);
