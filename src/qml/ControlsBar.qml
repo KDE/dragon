@@ -179,7 +179,7 @@ OverlayPopup {
                 QQC2.Menu {
                     icon.name: "add-subtitle-symbolic"
                     title: i18nc("@action:button video subtitle", "Subtitles")
-                    enabled: count > 0
+                    enabled: count > 1
                     Repeater {
                         id: subtitleRepeater
                         readonly property int prependedItems: 1
@@ -213,7 +213,7 @@ OverlayPopup {
                 QQC2.Menu {
                     icon.name: "text-speak-symbolic"
                     title: i18nc("@action:button track selector", "Audio Track")
-                    enabled: count > 0
+                    enabled: count > 1
                     Repeater {
                         model: player.audioTracks
                         delegate: QQC2.RadioDelegate {
