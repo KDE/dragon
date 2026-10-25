@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-16 00:46+0000\n"
+"POT-Creation-Date: 2026-10-25 00:49+0000\n"
 "PO-Revision-Date: 2026-01-29 19:00+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -129,27 +129,43 @@ msgctxt "@action:button open file dialog"
 msgid "Open…"
 msgstr "Открыть…"
 
-#: src/qml/PlayerPage.qml:38
+#: src/qml/PlayerPage.qml:48
+#, fuzzy
+#| msgctxt "Notification inhibition reason"
+#| msgid "Playing a video"
+msgctxt "Reason why we block screensaver/suspend"
+msgid "Playing video"
+msgstr "Воспроизведение видео"
+
+#: src/qml/PlayerPage.qml:49
+#, fuzzy
+#| msgctxt "Notification inhibition reason"
+#| msgid "Playing a video"
+msgctxt "Reason why we block suspend"
+msgid "Playing audio"
+msgstr "Воспроизведение видео"
+
+#: src/qml/PlayerPage.qml:54
 msgctxt "@action:button"
 msgid "Play"
 msgstr "Воспроизведение"
 
-#: src/qml/PlayerPage.qml:38
+#: src/qml/PlayerPage.qml:54
 msgctxt "@action:button"
 msgid "Pause"
 msgstr "Приостановить"
 
-#: src/qml/PlayerPage.qml:46
+#: src/qml/PlayerPage.qml:62
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
 msgstr "Выйти из полноэкранного режима"
 
-#: src/qml/PlayerPage.qml:46
+#: src/qml/PlayerPage.qml:62
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
 msgstr "Перейти в полноэкранный режим"
 
-#: src/qml/PlayerPage.qml:78
+#: src/qml/PlayerPage.qml:94
 msgctxt "@info %2 is the name of a distribution"
 msgid ""
 "Dragon Player only supports the QtMultimedia library’s “ffmpeg” backend, but "
@@ -162,7 +178,7 @@ msgstr ""
 "<nl/><nl/>\n"
 "<link url=\"%1\">Сообщите об этой проблеме разработчикам %2</link>."
 
-#: src/qml/PlayerPage.qml:87
+#: src/qml/PlayerPage.qml:103
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
@@ -177,7 +193,7 @@ msgstr ""
 "<para><command>flatpak install org.freedesktop.Platform.codecs-extra//25.08-"
 "extra</command></para"
 
-#: src/qml/PlayerPage.qml:94
+#: src/qml/PlayerPage.qml:110
 msgctxt "@info %2 is the name of a distribution"
 msgid ""
 "Could not locate full support for the H.264 video codec; video playback "
@@ -192,7 +208,7 @@ msgstr ""
 "<link url=\"%1\">Сообщите об этой проблеме разработчикам %2</link> или "
 "узнайте, как установить отсутствующие видеокодеки."
 
-#: src/qml/PlayerPage.qml:336
+#: src/qml/PlayerPage.qml:352
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
@@ -424,10 +440,6 @@ msgstr "Открыть файл видео или потоковую транс�
 
 #~ msgid "Sorry, no media was found in the drop"
 #~ msgstr "Диск не найден"
-
-#~ msgctxt "Notification inhibition reason"
-#~ msgid "Playing a video"
-#~ msgstr "Воспроизведение видео"
 
 #~ msgid "No media loaded"
 #~ msgstr "Мультимедийный файл не выбран."

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragon\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-16 00:46+0000\n"
+"POT-Creation-Date: 2026-10-25 00:49+0000\n"
 "PO-Revision-Date: 2025-12-06 11:46+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -116,27 +116,43 @@ msgctxt "@action:button open file dialog"
 msgid "Open…"
 msgstr "Ireki…"
 
-#: src/qml/PlayerPage.qml:38
+#: src/qml/PlayerPage.qml:48
+#, fuzzy
+#| msgctxt "Notification inhibition reason"
+#| msgid "Playing a video"
+msgctxt "Reason why we block screensaver/suspend"
+msgid "Playing video"
+msgstr "Bideo bat jotzen"
+
+#: src/qml/PlayerPage.qml:49
+#, fuzzy
+#| msgctxt "Notification inhibition reason"
+#| msgid "Playing a video"
+msgctxt "Reason why we block suspend"
+msgid "Playing audio"
+msgstr "Bideo bat jotzen"
+
+#: src/qml/PlayerPage.qml:54
 msgctxt "@action:button"
 msgid "Play"
 msgstr "Jo"
 
-#: src/qml/PlayerPage.qml:38
+#: src/qml/PlayerPage.qml:54
 msgctxt "@action:button"
 msgid "Pause"
 msgstr "Etenaldia"
 
-#: src/qml/PlayerPage.qml:46
+#: src/qml/PlayerPage.qml:62
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
 msgstr "Irten Pantaila osotik"
 
-#: src/qml/PlayerPage.qml:46
+#: src/qml/PlayerPage.qml:62
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
 msgstr "Sartu pantaila osoan"
 
-#: src/qml/PlayerPage.qml:78
+#: src/qml/PlayerPage.qml:94
 msgctxt "@info %2 is the name of a distribution"
 msgid ""
 "Dragon Player only supports the QtMultimedia library’s “ffmpeg” backend, but "
@@ -150,7 +166,7 @@ msgstr ""
 "Mesedez, auzi honi buruz, <link url=\"%1\">jar zaitez %2 garatzaileekin "
 "harremanean</link>."
 
-#: src/qml/PlayerPage.qml:87
+#: src/qml/PlayerPage.qml:103
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
@@ -165,7 +181,7 @@ msgstr ""
 "<para><command>flatpak install org.freedesktop.Platform.codecs-extra//25.08-"
 "extra</command></para>"
 
-#: src/qml/PlayerPage.qml:94
+#: src/qml/PlayerPage.qml:110
 msgctxt "@info %2 is the name of a distribution"
 msgid ""
 "Could not locate full support for the H.264 video codec; video playback "
@@ -180,7 +196,7 @@ msgstr ""
 "Mesedez, auzi honi buruz edo falta diren bideo-kodekak nola instalatu, "
 "jakiteko <link url=\"%1\">jar zaitez %2 garatzaileekin harremanean</link>."
 
-#: src/qml/PlayerPage.qml:336
+#: src/qml/PlayerPage.qml:352
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
@@ -416,10 +432,6 @@ msgstr "Ireki bideo-fitxategi bat edo sareko korronte bat"
 
 #~ msgid "Sorry, no media was found in the drop"
 #~ msgstr "Tamalez, ez da komunikabiderik aurkitu jaregindako elementuan"
-
-#~ msgctxt "Notification inhibition reason"
-#~ msgid "Playing a video"
-#~ msgstr "Bideo bat jotzen"
 
 #~ msgid "No media loaded"
 #~ msgstr "Ez da komunikabiderik zamatu"

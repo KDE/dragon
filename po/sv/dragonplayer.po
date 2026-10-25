@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-16 00:46+0000\n"
+"POT-Creation-Date: 2026-10-25 00:49+0000\n"
 "PO-Revision-Date: 2026-01-20 20:35+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -113,27 +113,43 @@ msgctxt "@action:button open file dialog"
 msgid "Open…"
 msgstr "Öppna…"
 
-#: src/qml/PlayerPage.qml:38
+#: src/qml/PlayerPage.qml:48
+#, fuzzy
+#| msgctxt "Notification inhibition reason"
+#| msgid "Playing a video"
+msgctxt "Reason why we block screensaver/suspend"
+msgid "Playing video"
+msgstr "Spelar en video"
+
+#: src/qml/PlayerPage.qml:49
+#, fuzzy
+#| msgctxt "Notification inhibition reason"
+#| msgid "Playing a video"
+msgctxt "Reason why we block suspend"
+msgid "Playing audio"
+msgstr "Spelar en video"
+
+#: src/qml/PlayerPage.qml:54
 msgctxt "@action:button"
 msgid "Play"
 msgstr "Spela"
 
-#: src/qml/PlayerPage.qml:38
+#: src/qml/PlayerPage.qml:54
 msgctxt "@action:button"
 msgid "Pause"
 msgstr "Paus"
 
-#: src/qml/PlayerPage.qml:46
+#: src/qml/PlayerPage.qml:62
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
 msgstr "Avsluta fullskärm"
 
-#: src/qml/PlayerPage.qml:46
+#: src/qml/PlayerPage.qml:62
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
 msgstr "Gå till fullskärm"
 
-#: src/qml/PlayerPage.qml:78
+#: src/qml/PlayerPage.qml:94
 msgctxt "@info %2 is the name of a distribution"
 msgid ""
 "Dragon Player only supports the QtMultimedia library’s “ffmpeg” backend, but "
@@ -146,7 +162,7 @@ msgstr ""
 "<nl/><nl/>\n"
 "Kontakta <link url=\"%1\">utvecklarna av %2</link> angående problemet."
 
-#: src/qml/PlayerPage.qml:87
+#: src/qml/PlayerPage.qml:103
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
@@ -161,7 +177,7 @@ msgstr ""
 "<para><command>flatpak install org.freedesktop.Platform.codecs-extra//25.08-"
 "extra</command></para>"
 
-#: src/qml/PlayerPage.qml:94
+#: src/qml/PlayerPage.qml:110
 msgctxt "@info %2 is the name of a distribution"
 msgid ""
 "Could not locate full support for the H.264 video codec; video playback "
@@ -176,7 +192,7 @@ msgstr ""
 "Kontakta <link url=\"%1\">utvecklarna av %2</link> angående problemet, eller "
 "för att ta reda på hur man installerar de saknade videoavkodarna."
 
-#: src/qml/PlayerPage.qml:336
+#: src/qml/PlayerPage.qml:352
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
@@ -415,10 +431,6 @@ msgstr "Öppna videofil eller nätverksström"
 
 #~ msgid "Sorry, no media was found in the drop"
 #~ msgstr "Tyvärr hittades inga media i det som släpptes"
-
-#~ msgctxt "Notification inhibition reason"
-#~ msgid "Playing a video"
-#~ msgstr "Spelar en video"
 
 #~ msgid "No media loaded"
 #~ msgstr "Inga media laddade"
