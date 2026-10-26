@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: dragon\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-25 00:49+0000\n"
-"PO-Revision-Date: 2025-11-26 03:22+0100\n"
+"PO-Revision-Date: 2026-10-25 05:28+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.10\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -113,20 +113,14 @@ msgid "Open…"
 msgstr "გახსნა…"
 
 #: src/qml/PlayerPage.qml:48
-#, fuzzy
-#| msgctxt "Notification inhibition reason"
-#| msgid "Playing a video"
 msgctxt "Reason why we block screensaver/suspend"
 msgid "Playing video"
 msgstr "მიმდინარეობს ვიდეოს დაკვრა"
 
 #: src/qml/PlayerPage.qml:49
-#, fuzzy
-#| msgctxt "Notification inhibition reason"
-#| msgid "Playing a video"
 msgctxt "Reason why we block suspend"
 msgid "Playing audio"
-msgstr "მიმდინარეობს ვიდეოს დაკვრა"
+msgstr "მიმდინარეობს აუდიოს დაკვრა"
 
 #: src/qml/PlayerPage.qml:54
 msgctxt "@action:button"

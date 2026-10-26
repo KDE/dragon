@@ -7,22 +7,22 @@
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2008, 2009, 2010, 2011, 2012, 2013, 2015.
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2009, 2012, 2018, 2019, 2020, 2022, 2023.
 # Bianca Oliveira <kbiancasol@gmail.com>, 2019.
-# SPDX-FileCopyrightText: 2025 Marcus Gama <marcus.gama@gmail.com>
+# SPDX-FileCopyrightText: 2025-2026 Marcus Gama <marcus.gama@gmail.com>
 # SPDX-FileCopyrightText: 2025 Guilherme Marçal Silva <guimarcalsilva@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-25 00:49+0000\n"
-"PO-Revision-Date: 2025-11-26 01:18-0300\n"
-"Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
-"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
+"PO-Revision-Date: 2026-10-25 09:05-0300\n"
+"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
+"Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -118,20 +118,14 @@ msgid "Open…"
 msgstr "Abrir…"
 
 #: src/qml/PlayerPage.qml:48
-#, fuzzy
-#| msgctxt "Notification inhibition reason"
-#| msgid "Playing a video"
 msgctxt "Reason why we block screensaver/suspend"
 msgid "Playing video"
-msgstr "Reproduzindo um vídeo"
+msgstr "Reproduzindo vídeo"
 
 #: src/qml/PlayerPage.qml:49
-#, fuzzy
-#| msgctxt "Notification inhibition reason"
-#| msgid "Playing a video"
 msgctxt "Reason why we block suspend"
 msgid "Playing audio"
-msgstr "Reproduzindo um vídeo"
+msgstr "Reproduzindo áudio"
 
 #: src/qml/PlayerPage.qml:54
 msgctxt "@action:button"

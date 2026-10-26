@@ -113,16 +113,14 @@ msgid "Open…"
 msgstr "Otvoriť…"
 
 #: src/qml/PlayerPage.qml:48
-#, fuzzy
 msgctxt "Reason why we block screensaver/suspend"
 msgid "Playing video"
-msgstr "prehráva sa video"
+msgstr "Prehráva sa video"
 
 #: src/qml/PlayerPage.qml:49
-#, fuzzy
 msgctxt "Reason why we block suspend"
 msgid "Playing audio"
-msgstr "prehráva sa video"
+msgstr "Prehráva sa zvuk"
 
 #: src/qml/PlayerPage.qml:54
 msgctxt "@action:button"
