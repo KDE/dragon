@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-25 00:49+0000\n"
-"PO-Revision-Date: 2025-12-20 21:05+0200\n"
+"PO-Revision-Date: 2026-10-26 17:00+0200\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.10\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -116,18 +116,14 @@ msgid "Open…"
 msgstr "Atverti…"
 
 #: src/qml/PlayerPage.qml:48
-#, fuzzy
-#| msgid "Play DVD Video"
 msgctxt "Reason why we block screensaver/suspend"
 msgid "Playing video"
-msgstr "Leisti DVD video"
+msgstr "Atkuriamas vaizdo įrašas"
 
 #: src/qml/PlayerPage.qml:49
-#, fuzzy
-#| msgid "Play DVD Video"
 msgctxt "Reason why we block suspend"
 msgid "Playing audio"
-msgstr "Leisti DVD video"
+msgstr "Atkuriamas garso įrašas"
 
 #: src/qml/PlayerPage.qml:54
 msgctxt "@action:button"
