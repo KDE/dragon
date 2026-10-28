@@ -54,6 +54,7 @@ Kirigami.ApplicationWindow {
         icon.name: "document-open"
         onTriggered: appWindow.fileDialog.open(appWindow)
         tooltip: text
+        shortcut: StandardKey.Open
     }
 
     title: {

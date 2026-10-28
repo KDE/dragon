@@ -157,6 +157,7 @@ OverlayPopup {
                     text: appWindow.openAction.text
                     icon.name: appWindow.openAction.icon.name
                     onTriggered: appWindow.openAction.trigger()
+                    shortcut: appWindow.openAction.shortcut
                 }
 
                 Kirigami.Action {
