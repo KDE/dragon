@@ -20,6 +20,7 @@ Kirigami.Page {
     property var storedVisibility: null
     property alias player: player
     property alias videoContainer: videoContainer
+    readonly property bool hasSource: (player.source.toString()?.length > 0) ?? false // source should never be nullish so .toString() always works!
     required property QtObject fullscreenAction
 
     // Depending on whether the About page is on the stack we'll either want a header (about page) or not (video page)
@@ -28,6 +29,9 @@ Kirigami.Page {
     topPadding: 0
     rightPadding: 0
     bottomPadding: 0
+
+    // Reduce overdraw, black backdrop is done by the ApplicationWindow.
+    background: null
 
     onVisibleChanged: {
         // Pause when we open the about layer
@@ -158,16 +162,17 @@ Please <link url="%1">contact the %2 developers</link> about this issue, or to f
         player.seek(time, precise)
     }
 
-    WelcomeView {}
+    WelcomeView {
+        visible: !videoPage.hasSource
+    }
 
-    Rectangle {
+    Item {
         id: videoContainer
         anchors.top: toolbarLayout.bottom
         anchors.right: parent.right
         anchors.left: parent.left
         anchors.bottom: parent.bottom
-        color: "black"
-        visible: (player.source.toString()?.length > 0) ?? false // source should never be nullish so .toString() always works!
+        visible: videoPage.hasSource
 
         Loader {
             id: albumArtLoader

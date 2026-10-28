@@ -57,6 +57,7 @@ Kirigami.ApplicationWindow {
         shortcut: StandardKey.Open
     }
 
+    color: playerPage.hasSource ? "black" : Kirigami.Theme.backgroundColor
     title: {
         if (!playerPage.player.source) {
             return ""
