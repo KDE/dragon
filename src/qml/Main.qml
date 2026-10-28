@@ -4,9 +4,11 @@
 import QtQuick
 import QtQuick.Dialogs as Dialogs
 import QtCore as Core
+import QtMultimedia as Multimedia
 
 import org.kde.kirigami as Kirigami
 import org.kde.config as KConfig
+import org.kde.ki18n
 
 import org.kde.dragon
 
@@ -61,12 +63,19 @@ Kirigami.ApplicationWindow {
             return ""
         }
 
-        const title = playerPage.player.metaData.value(0)
-        if (title) {
-            return title
-        }
+        const metaData = playerPage.player.metaData
 
-        return playerPage.player.source.toString().split('/').pop()
+        const artists = metaData.value(Multimedia.MediaMetaData.ContributingArtist) || []
+        const artistString = Qt.locale().createSeparatedList(artists)
+        const title = metaData.value(Multimedia.mediaMetaData.Title) || ""
+
+        if (artistString && title) {
+            return KI18n.i18nc("@title:window Track Title - Artist", "%1 – %2", title, artistString);
+        } else if (title) {
+            return title
+        } else if (playerPage.player.source) {
+            return playerPage.player.source.toString().split('/').pop()
+        }
     }
     minimumWidth: Kirigami.Settings.isMobile ? 0 : Kirigami.Units.gridUnit * 30
     minimumHeight: Kirigami.Settings.isMobile ? 0 : Kirigami.Units.gridUnit * 22
