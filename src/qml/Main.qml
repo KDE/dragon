@@ -35,8 +35,7 @@ Kirigami.ApplicationWindow {
     property FileOpen fileDialog: FileOpen {
         onAccepted: {
             appWindow.settings.lastFolder = currentFolder
-            playerPage.player.source = selectedUrl
-            playerPage.player.play()
+            playerPage.openUrl(selectedUrl)
         }
     }
 
@@ -88,7 +87,7 @@ Kirigami.ApplicationWindow {
         if (Application.arguments.length < 2) {
             return
         }
-        playerPage.player.source = Qt.resolvedUrl(Application.arguments[1], new QtObject() /* don't resolve relative to qrc:/ (the engine's base url) */)
-        playerPage.player.play()
+        const url = Qt.resolvedUrl(Application.arguments[1], new QtObject() /* don't resolve relative to qrc:/ (the engine's base url) */)
+        playerPage.openUrl(url)
     }
 }
