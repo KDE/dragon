@@ -162,6 +162,11 @@ Please <link url="%1">contact the %2 developers</link> about this issue, or to f
         player.seek(time, precise)
     }
 
+    function openUrl(url : url) : void {
+        playerPage.player.source = url
+        playerPage.player.play()
+    }
+
     WelcomeView {
         visible: !videoPage.hasSource
     }
