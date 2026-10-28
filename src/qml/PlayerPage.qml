@@ -171,6 +171,20 @@ Please <link url="%1">contact the %2 developers</link> about this issue, or to f
         visible: !videoPage.hasSource
     }
 
+    DropArea {
+        anchors.fill: parent
+        onEntered: (drag) => {
+            if (drag.hasUrls) {
+                drag.accept();
+            }
+        }
+        onDropped: (drag) => {
+            if (drag.hasUrls) {
+                videoPage.openUrl(drag.urls[0])
+            }
+        }
+    }
+
     Item {
         id: videoContainer
         anchors.top: toolbarLayout.bottom
