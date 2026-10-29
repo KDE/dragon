@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: videoplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:49+0000\n"
+"POT-Creation-Date: 2026-10-29 00:52+0000\n"
 "PO-Revision-Date: 2007-12-09 18:19+0200\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -59,51 +59,51 @@ msgctxt "@action:button"
 msgid "Application Menu"
 msgstr ""
 
-#: src/qml/ControlsBar.qml:163
+#: src/qml/ControlsBar.qml:164
 #, fuzzy
 #| msgid "Stop"
 msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "Спыніць"
 
-#: src/qml/ControlsBar.qml:171
+#: src/qml/ControlsBar.qml:172
 msgctxt "@action:button"
 msgid "Unmute"
 msgstr ""
 
-#: src/qml/ControlsBar.qml:171
+#: src/qml/ControlsBar.qml:172
 msgctxt "@action:button"
 msgid "Mute"
 msgstr ""
 
-#: src/qml/ControlsBar.qml:181
+#: src/qml/ControlsBar.qml:182
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
 msgstr ""
 
-#: src/qml/ControlsBar.qml:188
+#: src/qml/ControlsBar.qml:189
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
 msgstr ""
 
-#: src/qml/ControlsBar.qml:198
+#: src/qml/ControlsBar.qml:199
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
 msgstr ""
 
-#: src/qml/ControlsBar.qml:215
+#: src/qml/ControlsBar.qml:216
 msgctxt "@action:button track selector"
 msgid "Audio Track"
 msgstr ""
 
-#: src/qml/ControlsBar.qml:230
+#: src/qml/ControlsBar.qml:231
 msgctxt "@action:button track selector"
 msgid "Video Track"
 msgstr ""
 
-#: src/qml/ControlsBar.qml:248
+#: src/qml/ControlsBar.qml:249
 msgctxt "@action opens about app page"
 msgid "About"
 msgstr ""
@@ -113,47 +113,47 @@ msgctxt "@action:button open file dialog"
 msgid "Open…"
 msgstr ""
 
-#: src/qml/PlayerPage.qml:48
+#: src/qml/PlayerPage.qml:49
 msgctxt "Reason why we block screensaver/suspend"
 msgid "Playing video"
 msgstr ""
 
-#: src/qml/PlayerPage.qml:49
+#: src/qml/PlayerPage.qml:50
 #, fuzzy
 #| msgid "Play File..."
 msgctxt "Reason why we block suspend"
 msgid "Playing audio"
 msgstr "Граць файл..."
 
-#: src/qml/PlayerPage.qml:54
+#: src/qml/PlayerPage.qml:55
 #, fuzzy
 #| msgid "Play"
 msgctxt "@action:button"
 msgid "Play"
 msgstr "Граць"
 
-#: src/qml/PlayerPage.qml:54
+#: src/qml/PlayerPage.qml:55
 #, fuzzy
 #| msgid "Paused"
 msgctxt "@action:button"
 msgid "Pause"
 msgstr "Прыпынена"
 
-#: src/qml/PlayerPage.qml:62
+#: src/qml/PlayerPage.qml:63
 #, fuzzy
 #| msgid "Exit F&ull Screen Mode"
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
 msgstr "Выйсці з &поўнаэкраннага рэжыму"
 
-#: src/qml/PlayerPage.qml:62
+#: src/qml/PlayerPage.qml:63
 #, fuzzy
 #| msgid "Exit F&ull Screen Mode"
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
 msgstr "Выйсці з &поўнаэкраннага рэжыму"
 
-#: src/qml/PlayerPage.qml:94
+#: src/qml/PlayerPage.qml:95
 msgctxt "@info %2 is the name of a distribution"
 msgid ""
 "Dragon Player only supports the QtMultimedia library’s “ffmpeg” backend, but "
@@ -162,7 +162,7 @@ msgid ""
 "Please <link url=\"%1\">contact the %2 developers</link> about this issue."
 msgstr ""
 
-#: src/qml/PlayerPage.qml:103
+#: src/qml/PlayerPage.qml:104
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
@@ -172,7 +172,7 @@ msgid ""
 "extra</command></para>"
 msgstr ""
 
-#: src/qml/PlayerPage.qml:110
+#: src/qml/PlayerPage.qml:111
 msgctxt "@info %2 is the name of a distribution"
 msgid ""
 "Could not locate full support for the H.264 video codec; video playback "
@@ -182,7 +182,7 @@ msgid ""
 "or to find out how to install the missing video codecs."
 msgstr ""
 
-#: src/qml/PlayerPage.qml:352
+#: src/qml/PlayerPage.qml:367
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"

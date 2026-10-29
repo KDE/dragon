@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:49+0000\n"
+"POT-Creation-Date: 2026-10-29 00:52+0000\n"
 "PO-Revision-Date: 2026-10-25 11:49+0100\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -61,50 +61,50 @@ msgctxt "@action:button"
 msgid "Application Menu"
 msgstr "Nabídka aplikací"
 
-#: src/qml/ControlsBar.qml:163
+#: src/qml/ControlsBar.qml:164
 msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "Zastavit"
 
-#: src/qml/ControlsBar.qml:171
+#: src/qml/ControlsBar.qml:172
 msgctxt "@action:button"
 msgid "Unmute"
 msgstr "Povolit zvuk"
 
-#: src/qml/ControlsBar.qml:171
+#: src/qml/ControlsBar.qml:172
 msgctxt "@action:button"
 msgid "Mute"
 msgstr "Ztlumit"
 
-#: src/qml/ControlsBar.qml:181
+#: src/qml/ControlsBar.qml:182
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
 msgstr "Titulky"
 
 # žádné parametry funkce v inspektoru funkcí
-#: src/qml/ControlsBar.qml:188
+#: src/qml/ControlsBar.qml:189
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
 msgstr "Nic"
 
-#: src/qml/ControlsBar.qml:198
+#: src/qml/ControlsBar.qml:199
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
 
-#: src/qml/ControlsBar.qml:215
+#: src/qml/ControlsBar.qml:216
 msgctxt "@action:button track selector"
 msgid "Audio Track"
 msgstr "Audio stopa"
 
-#: src/qml/ControlsBar.qml:230
+#: src/qml/ControlsBar.qml:231
 msgctxt "@action:button track selector"
 msgid "Video Track"
 msgstr "Video stopa"
 
-#: src/qml/ControlsBar.qml:248
+#: src/qml/ControlsBar.qml:249
 msgctxt "@action opens about app page"
 msgid "About"
 msgstr "O aplikaci"
@@ -114,37 +114,37 @@ msgctxt "@action:button open file dialog"
 msgid "Open…"
 msgstr "Otevřít…"
 
-#: src/qml/PlayerPage.qml:48
+#: src/qml/PlayerPage.qml:49
 msgctxt "Reason why we block screensaver/suspend"
 msgid "Playing video"
 msgstr "Přehrává video"
 
-#: src/qml/PlayerPage.qml:49
+#: src/qml/PlayerPage.qml:50
 msgctxt "Reason why we block suspend"
 msgid "Playing audio"
 msgstr "Přehrává audio"
 
-#: src/qml/PlayerPage.qml:54
+#: src/qml/PlayerPage.qml:55
 msgctxt "@action:button"
 msgid "Play"
 msgstr "Přehrát"
 
-#: src/qml/PlayerPage.qml:54
+#: src/qml/PlayerPage.qml:55
 msgctxt "@action:button"
 msgid "Pause"
 msgstr "Pozastavit"
 
-#: src/qml/PlayerPage.qml:62
+#: src/qml/PlayerPage.qml:63
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
 msgstr "Ukončit režim celé obrazovky"
 
-#: src/qml/PlayerPage.qml:62
+#: src/qml/PlayerPage.qml:63
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
 msgstr "Přejít do celoobrazovkového režimu"
 
-#: src/qml/PlayerPage.qml:94
+#: src/qml/PlayerPage.qml:95
 msgctxt "@info %2 is the name of a distribution"
 msgid ""
 "Dragon Player only supports the QtMultimedia library’s “ffmpeg” backend, but "
@@ -158,7 +158,7 @@ msgstr ""
 "Ohledně tohoto problému prosím <link url=\"%1\">kontaktujte vývojáře %2</"
 "link>."
 
-#: src/qml/PlayerPage.qml:103
+#: src/qml/PlayerPage.qml:104
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
@@ -173,7 +173,7 @@ msgstr ""
 "<para><command>flatpak install org.freedesktop.Platform.codecs-extra//25.08-"
 "extra</command></para>"
 
-#: src/qml/PlayerPage.qml:110
+#: src/qml/PlayerPage.qml:111
 msgctxt "@info %2 is the name of a distribution"
 msgid ""
 "Could not locate full support for the H.264 video codec; video playback "
@@ -188,7 +188,7 @@ msgstr ""
 "Ohledně tohoto problému <link url=\"%1\">kontaktujte vývojáře %2</link> nebo "
 "se informujte, jak nainstalovat chybějící video kodeky."
 
-#: src/qml/PlayerPage.qml:352
+#: src/qml/PlayerPage.qml:367
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"

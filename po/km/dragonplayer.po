@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:49+0000\n"
+"POT-Creation-Date: 2026-10-29 00:52+0000\n"
 "PO-Revision-Date: 2012-06-20 14:45+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -60,19 +60,19 @@ msgctxt "@action:button"
 msgid "Application Menu"
 msgstr ""
 
-#: src/qml/ControlsBar.qml:163
+#: src/qml/ControlsBar.qml:164
 #, fuzzy
 #| msgid "Stop"
 msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "បញ្ឈប់"
 
-#: src/qml/ControlsBar.qml:171
+#: src/qml/ControlsBar.qml:172
 msgctxt "@action:button"
 msgid "Unmute"
 msgstr ""
 
-#: src/qml/ControlsBar.qml:171
+#: src/qml/ControlsBar.qml:172
 #, fuzzy
 #| msgctxt "Mute the sound output"
 #| msgid "Mute"
@@ -80,40 +80,40 @@ msgctxt "@action:button"
 msgid "Mute"
 msgstr "ស្ងាត់"
 
-#: src/qml/ControlsBar.qml:181
+#: src/qml/ControlsBar.qml:182
 #, fuzzy
 #| msgid "&Subtitles"
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
 msgstr "ចំណង​ជើង​រង"
 
-#: src/qml/ControlsBar.qml:188
+#: src/qml/ControlsBar.qml:189
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
 msgstr ""
 
-#: src/qml/ControlsBar.qml:198
+#: src/qml/ControlsBar.qml:199
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
 msgstr ""
 
-#: src/qml/ControlsBar.qml:215
+#: src/qml/ControlsBar.qml:216
 #, fuzzy
 #| msgid "Audio CD"
 msgctxt "@action:button track selector"
 msgid "Audio Track"
 msgstr "ស៊ីឌី​អូឌីយ៉ូ"
 
-#: src/qml/ControlsBar.qml:230
+#: src/qml/ControlsBar.qml:231
 #, fuzzy
 #| msgid "Video CD"
 msgctxt "@action:button track selector"
 msgid "Video Track"
 msgstr "ស៊ីឌី​វីដេអូ"
 
-#: src/qml/ControlsBar.qml:248
+#: src/qml/ControlsBar.qml:249
 msgctxt "@action opens about app page"
 msgid "About"
 msgstr ""
@@ -123,45 +123,45 @@ msgctxt "@action:button open file dialog"
 msgid "Open…"
 msgstr ""
 
-#: src/qml/PlayerPage.qml:48
+#: src/qml/PlayerPage.qml:49
 #, fuzzy
 #| msgid "Play DVD Video"
 msgctxt "Reason why we block screensaver/suspend"
 msgid "Playing video"
 msgstr "ចាក់​វីដេអូ​ឌីវីឌី"
 
-#: src/qml/PlayerPage.qml:49
+#: src/qml/PlayerPage.qml:50
 #, fuzzy
 #| msgid "Play DVD Video"
 msgctxt "Reason why we block suspend"
 msgid "Playing audio"
 msgstr "ចាក់​វីដេអូ​ឌីវីឌី"
 
-#: src/qml/PlayerPage.qml:54
+#: src/qml/PlayerPage.qml:55
 #, fuzzy
 #| msgid "Play"
 msgctxt "@action:button"
 msgid "Play"
 msgstr "ចាក់"
 
-#: src/qml/PlayerPage.qml:54
+#: src/qml/PlayerPage.qml:55
 #, fuzzy
 #| msgid "Pause"
 msgctxt "@action:button"
 msgid "Pause"
 msgstr "​ផ្អាក"
 
-#: src/qml/PlayerPage.qml:62
+#: src/qml/PlayerPage.qml:63
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
 msgstr ""
 
-#: src/qml/PlayerPage.qml:62
+#: src/qml/PlayerPage.qml:63
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
 msgstr ""
 
-#: src/qml/PlayerPage.qml:94
+#: src/qml/PlayerPage.qml:95
 msgctxt "@info %2 is the name of a distribution"
 msgid ""
 "Dragon Player only supports the QtMultimedia library’s “ffmpeg” backend, but "
@@ -170,7 +170,7 @@ msgid ""
 "Please <link url=\"%1\">contact the %2 developers</link> about this issue."
 msgstr ""
 
-#: src/qml/PlayerPage.qml:103
+#: src/qml/PlayerPage.qml:104
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
@@ -180,7 +180,7 @@ msgid ""
 "extra</command></para>"
 msgstr ""
 
-#: src/qml/PlayerPage.qml:110
+#: src/qml/PlayerPage.qml:111
 msgctxt "@info %2 is the name of a distribution"
 msgid ""
 "Could not locate full support for the H.264 video codec; video playback "
@@ -190,7 +190,7 @@ msgid ""
 "or to find out how to install the missing video codecs."
 msgstr ""
 
-#: src/qml/PlayerPage.qml:352
+#: src/qml/PlayerPage.qml:367
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
