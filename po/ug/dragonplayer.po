@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:52+0000\n"
+"POT-Creation-Date: 2026-10-30 00:53+0000\n"
 "PO-Revision-Date: 2026-09-23 06:56+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
@@ -112,7 +112,7 @@ msgctxt "@action:button open file dialog"
 msgid "Open…"
 msgstr "ئاچ…"
 
-#: src/qml/PlayerPage.qml:49
+#: src/qml/PlayerPage.qml:53
 #, fuzzy
 #| msgctxt "Notification inhibition reason"
 #| msgid "Playing a video"
@@ -120,7 +120,7 @@ msgctxt "Reason why we block screensaver/suspend"
 msgid "Playing video"
 msgstr "DVD سىن چال"
 
-#: src/qml/PlayerPage.qml:50
+#: src/qml/PlayerPage.qml:54
 #, fuzzy
 #| msgctxt "Notification inhibition reason"
 #| msgid "Playing a video"
@@ -128,27 +128,27 @@ msgctxt "Reason why we block suspend"
 msgid "Playing audio"
 msgstr "DVD سىن چال"
 
-#: src/qml/PlayerPage.qml:55
+#: src/qml/PlayerPage.qml:59
 msgctxt "@action:button"
 msgid "Play"
 msgstr "ياڭرات"
 
-#: src/qml/PlayerPage.qml:55
+#: src/qml/PlayerPage.qml:59
 msgctxt "@action:button"
 msgid "Pause"
 msgstr "ۋاقىتلىق توختا"
 
-#: src/qml/PlayerPage.qml:63
+#: src/qml/PlayerPage.qml:67
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
 msgstr "تولۇق ئېكراندىن چېكىن"
 
-#: src/qml/PlayerPage.qml:63
+#: src/qml/PlayerPage.qml:67
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
 msgstr "پۈتۈن ئېكرانغا كىر"
 
-#: src/qml/PlayerPage.qml:95
+#: src/qml/PlayerPage.qml:99
 msgctxt "@info %2 is the name of a distribution"
 msgid ""
 "Dragon Player only supports the QtMultimedia library’s “ffmpeg” backend, but "
@@ -157,7 +157,7 @@ msgid ""
 "Please <link url=\"%1\">contact the %2 developers</link> about this issue."
 msgstr ""
 
-#: src/qml/PlayerPage.qml:104
+#: src/qml/PlayerPage.qml:108
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
@@ -167,7 +167,7 @@ msgid ""
 "extra</command></para>"
 msgstr ""
 
-#: src/qml/PlayerPage.qml:111
+#: src/qml/PlayerPage.qml:115
 msgctxt "@info %2 is the name of a distribution"
 msgid ""
 "Could not locate full support for the H.264 video codec; video playback "
@@ -177,7 +177,7 @@ msgid ""
 "or to find out how to install the missing video codecs."
 msgstr ""
 
-#: src/qml/PlayerPage.qml:367
+#: src/qml/PlayerPage.qml:372
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:52+0000\n"
+"POT-Creation-Date: 2026-10-30 00:53+0000\n"
 "PO-Revision-Date: 2026-10-26 16:47+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -111,37 +111,37 @@ msgctxt "@action:button open file dialog"
 msgid "Open…"
 msgstr "Aperi…"
 
-#: src/qml/PlayerPage.qml:49
+#: src/qml/PlayerPage.qml:53
 msgctxt "Reason why we block screensaver/suspend"
 msgid "Playing video"
 msgstr "Reproducente video"
 
-#: src/qml/PlayerPage.qml:50
+#: src/qml/PlayerPage.qml:54
 msgctxt "Reason why we block suspend"
 msgid "Playing audio"
 msgstr "Reproducente audio"
 
-#: src/qml/PlayerPage.qml:55
+#: src/qml/PlayerPage.qml:59
 msgctxt "@action:button"
 msgid "Play"
 msgstr "Reproduce"
 
-#: src/qml/PlayerPage.qml:55
+#: src/qml/PlayerPage.qml:59
 msgctxt "@action:button"
 msgid "Pause"
 msgstr "Pausa"
 
-#: src/qml/PlayerPage.qml:63
+#: src/qml/PlayerPage.qml:67
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
 msgstr "Exi schermo plen"
 
-#: src/qml/PlayerPage.qml:63
+#: src/qml/PlayerPage.qml:67
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
 msgstr "Passa a schermo plen"
 
-#: src/qml/PlayerPage.qml:95
+#: src/qml/PlayerPage.qml:99
 msgctxt "@info %2 is the name of a distribution"
 msgid ""
 "Dragon Player only supports the QtMultimedia library’s “ffmpeg” backend, but "
@@ -155,7 +155,7 @@ msgstr ""
 "Pro favor <link url=\"%1\">continge le %2 disveloppatores</link> re iste "
 "problema."
 
-#: src/qml/PlayerPage.qml:104
+#: src/qml/PlayerPage.qml:108
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
@@ -170,7 +170,7 @@ msgstr ""
 "<para><command>flatpak install org.freedesktop.Platform.ffmpeg-full//24.08</"
 "command></para>"
 
-#: src/qml/PlayerPage.qml:111
+#: src/qml/PlayerPage.qml:115
 msgctxt "@info %2 is the name of a distribution"
 msgid ""
 "Could not locate full support for the H.264 video codec; video playback "
@@ -185,7 +185,7 @@ msgstr ""
 "Pro favor<link url=\"%1\">continge le %2 disveloppatores</link> re iste "
 "problema, o discoperi  tu como installarle codec video mancante."
 
-#: src/qml/PlayerPage.qml:367
+#: src/qml/PlayerPage.qml:372
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"

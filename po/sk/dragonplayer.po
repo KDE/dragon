@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:52+0000\n"
+"POT-Creation-Date: 2026-10-30 00:53+0000\n"
 "PO-Revision-Date: 2022-04-08 18:42+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -112,37 +112,37 @@ msgctxt "@action:button open file dialog"
 msgid "Open…"
 msgstr "Otvoriť…"
 
-#: src/qml/PlayerPage.qml:49
+#: src/qml/PlayerPage.qml:53
 msgctxt "Reason why we block screensaver/suspend"
 msgid "Playing video"
 msgstr "Prehráva sa video"
 
-#: src/qml/PlayerPage.qml:50
+#: src/qml/PlayerPage.qml:54
 msgctxt "Reason why we block suspend"
 msgid "Playing audio"
 msgstr "Prehráva sa zvuk"
 
-#: src/qml/PlayerPage.qml:55
+#: src/qml/PlayerPage.qml:59
 msgctxt "@action:button"
 msgid "Play"
 msgstr "Hrať"
 
-#: src/qml/PlayerPage.qml:55
+#: src/qml/PlayerPage.qml:59
 msgctxt "@action:button"
 msgid "Pause"
 msgstr "Pozastaviť"
 
-#: src/qml/PlayerPage.qml:63
+#: src/qml/PlayerPage.qml:67
 msgctxt "@action:button"
 msgid "Exit Fullscreen"
 msgstr "Opustiť celú obrazovku"
 
-#: src/qml/PlayerPage.qml:63
+#: src/qml/PlayerPage.qml:67
 msgctxt "@action:button"
 msgid "Enter Fullscreen"
 msgstr "Na celú obrazovku"
 
-#: src/qml/PlayerPage.qml:95
+#: src/qml/PlayerPage.qml:99
 msgctxt "@info %2 is the name of a distribution"
 msgid ""
 "Dragon Player only supports the QtMultimedia library’s “ffmpeg” backend, but "
@@ -155,7 +155,7 @@ msgstr ""
 "<nl/><nl/>\n"
 "Please <link url=\"%1\">contact the %2 developers</link> about toto jesue."
 
-#: src/qml/PlayerPage.qml:104
+#: src/qml/PlayerPage.qml:108
 msgctxt "@info"
 msgid ""
 "Not all video codecs are installed. Video playback support may be less "
@@ -170,7 +170,7 @@ msgstr ""
 "<para><command>flatpak install org.freedesktop.Platform.codecs-extra//25.08-"
 "extra</command></para>"
 
-#: src/qml/PlayerPage.qml:111
+#: src/qml/PlayerPage.qml:115
 msgctxt "@info %2 is the name of a distribution"
 msgid ""
 "Could not locate full support for the H.264 video codec; video playback "
@@ -185,7 +185,7 @@ msgstr ""
 "Prosím, <link url=\"%1\">kontaktujte vývojárov %2</link> ohľadom tohto "
 "problému alebo aby ste zistili, ako nainštalovať chýbajúce video kodeky."
 
-#: src/qml/PlayerPage.qml:367
+#: src/qml/PlayerPage.qml:372
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
