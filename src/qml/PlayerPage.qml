@@ -172,16 +172,24 @@ Please <link url="%1">contact the %2 developers</link> about this issue, or to f
     }
 
     DropArea {
+        id: dropArea
         anchors.fill: parent
         onEntered: (drag) => {
-            if (drag.hasUrls) {
+            const urls = urlMimeData.urls
+            if (urls.length > 0) {
                 drag.accept();
             }
         }
         onDropped: (drag) => {
-            if (drag.hasUrls) {
+            const urls = urlMimeData.urls
+            if (urls.length > 0) {
                 videoPage.openUrl(drag.urls[0])
             }
+        }
+
+        Dragon.UrlMimeData {
+            id: urlMimeData
+            target: dropArea
         }
     }
 
