@@ -209,11 +209,3 @@ msgstr ""
 msgctxt "@action:button"
 msgid "Open Video File or Network Stream"
 msgstr "Obre un fitxer de vídeo o un flux de xarxa"
-
-#~ msgctxt "@action:button %1 is the name of a distribution"
-#~ msgid "%1 Support"
-#~ msgstr "Assistència %1"
-
-#~ msgctxt "@action:button open volume slider popup"
-#~ msgid "Volume"
-#~ msgstr "Volum"
