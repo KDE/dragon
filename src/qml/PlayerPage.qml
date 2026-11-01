@@ -275,7 +275,12 @@ Please <link url="%1">contact the %2 developers</link> about this issue, or to f
                 clickTimer.stop()
                 videoPage.toggleFullscreen()
             }
-            onPressed: clickTimer.start()
+            onPressed: {
+                // Don't play/pause when you just clicked the window to focus it.
+                if (videoPage.Window.Window.active) {
+                    clickTimer.start()
+                }
+            }
         }
 
         MouseArea {
