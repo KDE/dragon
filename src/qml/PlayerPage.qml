@@ -201,7 +201,13 @@ Please <link url="%1">contact the %2 developers</link> about this issue, or to f
                 maximum: 100
                 overshootFilter: BoundaryRule.Peak
             }
-            onVolumeChanged: (volume) => volumeWheel.rotation = volume
+            onVolumeChanged: (volume) => {
+                if (!toolbar.volumeButton.popup.visible) {
+                    volumeDisplay.opacity = 1
+                    volumeDisplay.hideTimer.restart()
+                }
+                volumeWheel.rotation = volume;
+            }
         }
 
         Multimedia.MediaPlayer {
@@ -307,7 +313,6 @@ Please <link url="%1">contact the %2 developers</link> about this issue, or to f
             id: volumeDisplay
 
             readonly property color displayColor: "white"
-            property var volume: player.audioOutput.volume
             property var hideTimer: Timer {
                 interval: Kirigami.Units.humanMoment
                 repeat: false
@@ -324,14 +329,6 @@ Please <link url="%1">contact the %2 developers</link> about this issue, or to f
             anchors.rightMargin: Kirigami.Units.gridUnit * 2
             y: video.height / 2 - height / 2
             color: "transparent"
-
-            onVolumeChanged: {
-                if (toolbar.volumeButton.popup.visible) {
-                    return
-                }
-                opacity = 1
-                volumeDisplay.hideTimer.restart()
-            }
 
             Behavior on opacity {
                 NumberAnimation { duration: Kirigami.Units.shortDuration }
