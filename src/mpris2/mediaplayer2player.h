@@ -85,6 +85,7 @@ private Q_SLOTS:
     void stateUpdated() const;
     void totalTimeChanged();
     void seekableChanged(bool seekable) const;
+    void playbackRateChanged(double rate) const;
     void volumeChanged() const;
 
 private:

@@ -176,6 +176,66 @@ OverlayPopup {
                     shortcut: "M"
                 }
 
+                QQC2.Menu {
+                    id: playbackRateMenu
+
+                    // Playback rate change mechanism loosely based on how VLC does it.
+                    readonly property var rates: [1/64, 1/32, 1/16, 1/8, 1/4, 1/3, 1/2, 2/3, 1, 3/2, 2, 3, 4, 8, 16, 32, 64]
+                    readonly property real fineSteps: 0.1
+
+                    icon.name: "speedometer"
+                    title: toolbar.player.playbackRate !== 1 ? i18nc("@action:inmenu Submenu title, Playback rate", "Speed (%1x)",
+                                                                     Math.round(toolbar.player.playbackRate * 100) / 100)
+                                                             : i18nc("@action:inmenu Submenu title, Playback rate", "Speed")
+
+                    QQC2.MenuItem {
+                        id: fasterRateItem
+                        text: i18nc("@action:inmenu Change playback speed", "Faster");
+                        icon.name: "arrow-up-double-symbolic"
+                        enabled: toolbar.player.playbackRate < Math.max.apply(Math, playbackRateMenu.rates)
+                        onClicked: {
+                            const target = toolbar.player.playbackRate * 1.1;
+                            const newRate = playbackRateMenu.rates.find(rate => rate > target);
+                            if (newRate) {
+                                toolbar.player.playbackRate = newRate;
+                            }
+                        }
+                    }
+
+                    QQC2.MenuItem {
+                        text: i18nc("@action:inmenu Change playback speed", "Faster (fine)")
+                        enabled: fasterRateItem.enabled
+                        icon.name: "arrow-up-symbolic"
+                        onClicked: toolbar.player.playbackRate += playbackRateMenu.fineSteps
+                    }
+
+                    QQC2.MenuItem {
+                        text: i18nc("@action:inmenu Playback speed normal", "Normal")
+                        onClicked: toolbar.player.playbackRate = 1.0
+                    }
+
+                    QQC2.MenuItem {
+                        text: i18nc("@action:inmenu Change playback speed", "Slower (fine)")
+                        icon.name: "arrow-down-symbolic"
+                        enabled: slowerMenuItem.enabled && toolbar.player.playbackRate > playbackRateMenu.fineSteps
+                        onClicked: toolbar.player.playbackRate -= playbackRateMenu.fineSteps
+                    }
+
+                    QQC2.MenuItem {
+                        id: slowerMenuItem
+                        text: i18nc("@action:inmenu Change playback speed", "Slower")
+                        icon.name: "arrow-down-double-symbolic"
+                        enabled: toolbar.player.playbackRate > Math.min.apply(Math, playbackRateMenu.rates)
+                        onClicked: {
+                            const target = toolbar.player.playbackRate * 0.9;
+                            const rates = playbackRateMenu.rates.filter(rate => rate < target);
+                            if (rates.length > 0) {
+                                toolbar.player.playbackRate = rates.pop();
+                            }
+                        }
+                    }
+                }
+
                 QQC2.MenuSeparator {}
 
                 QQC2.Menu {

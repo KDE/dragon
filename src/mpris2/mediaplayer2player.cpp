@@ -46,6 +46,7 @@ MediaPlayer2Player::MediaPlayer2Player(QMediaPlayer *player, QObject *parent)
     });
     connect(m_player, &QMediaPlayer::durationChanged, this, &MediaPlayer2Player::emitMetadataChange);
     connect(m_player, &QMediaPlayer::seekableChanged, this, &MediaPlayer2Player::seekableChanged);
+    connect(m_player, &QMediaPlayer::playbackRateChanged, this, &MediaPlayer2Player::playbackRateChanged);
     connect(m_player->audioOutput(), &QAudioOutput::volumeChanged, this, &MediaPlayer2Player::volumeChanged);
 }
 
@@ -143,12 +144,12 @@ void MediaPlayer2Player::setLoopStatus(const QString &loopStatus) const
 
 double MediaPlayer2Player::Rate() const
 {
-    return 1.0;
+    return m_player->playbackRate();
 }
 
 void MediaPlayer2Player::setRate(double rate) const
 {
-    Q_UNUSED(rate)
+    m_player->setPlaybackRate(rate);
 }
 
 bool MediaPlayer2Player::Shuffle() const
@@ -245,12 +246,12 @@ qlonglong MediaPlayer2Player::Position() const
 
 double MediaPlayer2Player::MinimumRate() const
 {
-    return 1.0;
+    return 0.1;
 }
 
 double MediaPlayer2Player::MaximumRate() const
 {
-    return 1.0;
+    return 10.0;
 }
 
 bool MediaPlayer2Player::CanSeek() const
@@ -318,6 +319,12 @@ void MediaPlayer2Player::totalTimeChanged()
 void MediaPlayer2Player::seekableChanged(bool seekable) const
 {
     const QVariantMap properties{{QStringLiteral("CanSeek"), seekable}};
+    Mpris2::signalPropertiesChange(this, properties);
+}
+
+void MediaPlayer2Player::playbackRateChanged(double rate) const
+{
+    const QVariantMap properties{{QStringLiteral("Rate"), rate}};
     Mpris2::signalPropertiesChange(this, properties);
 }
 
