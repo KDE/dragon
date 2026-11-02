@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-30 00:53+0000\n"
+"POT-Creation-Date: 2026-11-02 00:53+0000\n"
 "PO-Revision-Date: 2026-02-09 13:33+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -194,7 +194,7 @@ msgstr ""
 "<link url=\"%1\">Contactați dezvoltatorii %2</link> în legătură cu această "
 "problemă, sau pentru a afla cum să instalați codecurile ce lipsesc."
 
-#: src/qml/PlayerPage.qml:372
+#: src/qml/PlayerPage.qml:374
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"

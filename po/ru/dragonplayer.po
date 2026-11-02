@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-30 00:53+0000\n"
+"POT-Creation-Date: 2026-11-02 00:53+0000\n"
 "PO-Revision-Date: 2026-10-25 07:45+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -202,7 +202,7 @@ msgstr ""
 "<link url=\"%1\">Сообщите об этой проблеме разработчикам %2</link> или "
 "узнайте, как установить отсутствующие видеокодеки."
 
-#: src/qml/PlayerPage.qml:372
+#: src/qml/PlayerPage.qml:374
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"

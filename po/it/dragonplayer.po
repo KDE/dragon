@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-30 00:53+0000\n"
+"POT-Creation-Date: 2026-11-02 00:53+0000\n"
 "PO-Revision-Date: 2026-10-26 07:16+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -188,7 +188,7 @@ msgstr ""
 "Contatta gli sviluppatori di %2 in merito a questo problema o per scoprire "
 "come installare i codificatori video mancanti."
 
-#: src/qml/PlayerPage.qml:372
+#: src/qml/PlayerPage.qml:374
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragon\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-30 00:53+0000\n"
+"POT-Creation-Date: 2026-11-02 00:53+0000\n"
 "PO-Revision-Date: 2025-12-06 11:46+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -196,7 +196,7 @@ msgstr ""
 "Mesedez, auzi honi buruz edo falta diren bideo-kodekak nola instalatu, "
 "jakiteko <link url=\"%1\">jar zaitez %2 garatzaileekin harremanean</link>."
 
-#: src/qml/PlayerPage.qml:372
+#: src/qml/PlayerPage.qml:374
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-30 00:53+0000\n"
+"POT-Creation-Date: 2026-11-02 00:53+0000\n"
 "PO-Revision-Date: 2014-10-18 10:23+0530\n"
 "Last-Translator: Chetan Khona <chetan@sumconcepts.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -191,7 +191,7 @@ msgid ""
 "or to find out how to install the missing video codecs."
 msgstr ""
 
-#: src/qml/PlayerPage.qml:372
+#: src/qml/PlayerPage.qml:374
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
