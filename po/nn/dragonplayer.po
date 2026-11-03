@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-02 00:53+0000\n"
+"POT-Creation-Date: 2026-11-03 00:54+0000\n"
 "PO-Revision-Date: 2026-10-26 22:11+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
@@ -109,7 +109,7 @@ msgctxt "@action opens about app page"
 msgid "About"
 msgstr "Om"
 
-#: src/qml/Main.qml:53
+#: src/qml/Main.qml:52
 msgctxt "@action:button open file dialog"
 msgid "Open…"
 msgstr "Opna …"
@@ -188,7 +188,7 @@ msgstr ""
 "kontakt med dei for å finna ut korleis du installerer videokodekane som "
 "manglar."
 
-#: src/qml/PlayerPage.qml:374
+#: src/qml/PlayerPage.qml:400
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
