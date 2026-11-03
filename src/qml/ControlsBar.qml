@@ -83,6 +83,7 @@ OverlayPopup {
             VolumeButton {
                 id: volumeButton
                 audioOutput: toolbar.player.audioOutput
+                enabled: toolbar.player.hasAudio
             }
         }
     }

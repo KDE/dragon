@@ -273,6 +273,7 @@ Please <link url="%1">contact the %2 developers</link> about this issue, or to f
             rotationScale: 0.01
             acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
             rotation: player.audioOutput.volume
+            enabled: player.hasAudio
             onActiveChanged: {
                 if (!active) {
                     rotation = Qt.binding(() => player.audioOutput.volume)
@@ -520,12 +521,14 @@ Please <link url="%1">contact the %2 developers</link> about this issue, or to f
     Shortcut {
         context: Qt.ApplicationShortcut
         sequence: "Up"
+        enabled: player.hasAudio
         onActivated: player.audioOutput.volume = Math.min(1.0, player.audioOutput.volume + 0.1)
     }
 
     Shortcut {
         context: Qt.ApplicationShortcut
         sequence: "Down"
+        enabled: player.hasAudio
         onActivated: player.audioOutput.volume = Math.max(0.0, player.audioOutput.volume - 0.1)
     }
 }
