@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-03 00:54+0000\n"
+"POT-Creation-Date: 2026-11-04 01:01+0000\n"
 "PO-Revision-Date: 2012-06-20 14:45+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -55,24 +55,24 @@ msgstr ""
 "រក្សាសិទ្ធិ​ឆ្នាំ ២០០៦ ដោយ Max Howell\n"
 "រក្សាសិទ្ធិ​ឆ្នាំ ២០០៧ ដោយ Ian Monroe"
 
-#: src/qml/ControlsBar.qml:129
+#: src/qml/ControlsBar.qml:130
 msgctxt "@action:button"
 msgid "Application Menu"
 msgstr ""
 
-#: src/qml/ControlsBar.qml:164
+#: src/qml/ControlsBar.qml:165
 #, fuzzy
 #| msgid "Stop"
 msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "បញ្ឈប់"
 
-#: src/qml/ControlsBar.qml:172
+#: src/qml/ControlsBar.qml:173
 msgctxt "@action:button"
 msgid "Unmute"
 msgstr ""
 
-#: src/qml/ControlsBar.qml:172
+#: src/qml/ControlsBar.qml:173
 #, fuzzy
 #| msgctxt "Mute the sound output"
 #| msgid "Mute"
@@ -80,40 +80,40 @@ msgctxt "@action:button"
 msgid "Mute"
 msgstr "ស្ងាត់"
 
-#: src/qml/ControlsBar.qml:182
+#: src/qml/ControlsBar.qml:183
 #, fuzzy
 #| msgid "&Subtitles"
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
 msgstr "ចំណង​ជើង​រង"
 
-#: src/qml/ControlsBar.qml:189
+#: src/qml/ControlsBar.qml:190
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
 msgstr ""
 
-#: src/qml/ControlsBar.qml:199
+#: src/qml/ControlsBar.qml:200
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
 msgstr ""
 
-#: src/qml/ControlsBar.qml:216
+#: src/qml/ControlsBar.qml:217
 #, fuzzy
 #| msgid "Audio CD"
 msgctxt "@action:button track selector"
 msgid "Audio Track"
 msgstr "ស៊ីឌី​អូឌីយ៉ូ"
 
-#: src/qml/ControlsBar.qml:231
+#: src/qml/ControlsBar.qml:232
 #, fuzzy
 #| msgid "Video CD"
 msgctxt "@action:button track selector"
 msgid "Video Track"
 msgstr "ស៊ីឌី​វីដេអូ"
 
-#: src/qml/ControlsBar.qml:249
+#: src/qml/ControlsBar.qml:250
 msgctxt "@action opens about app page"
 msgid "About"
 msgstr ""
@@ -190,7 +190,7 @@ msgid ""
 "or to find out how to install the missing video codecs."
 msgstr ""
 
-#: src/qml/PlayerPage.qml:400
+#: src/qml/PlayerPage.qml:401
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"

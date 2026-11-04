@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-03 00:54+0000\n"
+"POT-Creation-Date: 2026-11-04 01:01+0000\n"
 "PO-Revision-Date: 2026-10-05 12:49+0200\n"
 "Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -58,37 +58,37 @@ msgstr ""
 "© 2007, Ijan Monro\n"
 "© 2022, Harald Siter"
 
-#: src/qml/ControlsBar.qml:129
+#: src/qml/ControlsBar.qml:130
 msgctxt "@action:button"
 msgid "Application Menu"
 msgstr "Meni programa"
 
-#: src/qml/ControlsBar.qml:164
+#: src/qml/ControlsBar.qml:165
 msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "Zaustavi"
 
-#: src/qml/ControlsBar.qml:172
+#: src/qml/ControlsBar.qml:173
 msgctxt "@action:button"
 msgid "Unmute"
 msgstr "Vrati zvuk"
 
-#: src/qml/ControlsBar.qml:172
+#: src/qml/ControlsBar.qml:173
 msgctxt "@action:button"
 msgid "Mute"
 msgstr "Utišaj"
 
-#: src/qml/ControlsBar.qml:182
+#: src/qml/ControlsBar.qml:183
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
 msgstr "Titlovi"
 
-#: src/qml/ControlsBar.qml:189
+#: src/qml/ControlsBar.qml:190
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
 msgstr "Ništa"
 
-#: src/qml/ControlsBar.qml:199
+#: src/qml/ControlsBar.qml:200
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
@@ -96,18 +96,18 @@ msgid "%1 [%2]"
 msgstr "%1 [%2]"
 
 # >> @item
-#: src/qml/ControlsBar.qml:216
+#: src/qml/ControlsBar.qml:217
 msgctxt "@action:button track selector"
 msgid "Audio Track"
 msgstr "Audio staza"
 
 # >> @item
-#: src/qml/ControlsBar.qml:231
+#: src/qml/ControlsBar.qml:232
 msgctxt "@action:button track selector"
 msgid "Video Track"
 msgstr "Video staza"
 
-#: src/qml/ControlsBar.qml:249
+#: src/qml/ControlsBar.qml:250
 msgctxt "@action opens about app page"
 msgid "About"
 msgstr "O programu"
@@ -192,7 +192,7 @@ msgstr ""
 "ovim problemom ili da saznate kako da instalirate video kodeke koji "
 "nedostaju."
 
-#: src/qml/PlayerPage.qml:400
+#: src/qml/PlayerPage.qml:401
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-03 00:54+0000\n"
+"POT-Creation-Date: 2026-11-04 01:01+0000\n"
 "PO-Revision-Date: 2022-04-08 18:42+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -55,54 +55,54 @@ msgstr ""
 "Copyright 2006, Max Howell\n"
 "Copyright 2007, Ian Monroe"
 
-#: src/qml/ControlsBar.qml:129
+#: src/qml/ControlsBar.qml:130
 msgctxt "@action:button"
 msgid "Application Menu"
 msgstr "Menu aplikácie"
 
-#: src/qml/ControlsBar.qml:164
+#: src/qml/ControlsBar.qml:165
 msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "Zastaviť"
 
-#: src/qml/ControlsBar.qml:172
+#: src/qml/ControlsBar.qml:173
 msgctxt "@action:button"
 msgid "Unmute"
 msgstr "Zrušiť stlmenie"
 
-#: src/qml/ControlsBar.qml:172
+#: src/qml/ControlsBar.qml:173
 msgctxt "@action:button"
 msgid "Mute"
 msgstr "Stlmiť"
 
-#: src/qml/ControlsBar.qml:182
+#: src/qml/ControlsBar.qml:183
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
 msgstr "&Titulky"
 
-#: src/qml/ControlsBar.qml:189
+#: src/qml/ControlsBar.qml:190
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
 msgstr "Žiadne"
 
-#: src/qml/ControlsBar.qml:199
+#: src/qml/ControlsBar.qml:200
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
 
-#: src/qml/ControlsBar.qml:216
+#: src/qml/ControlsBar.qml:217
 msgctxt "@action:button track selector"
 msgid "Audio Track"
 msgstr "Zvukové CD"
 
-#: src/qml/ControlsBar.qml:231
+#: src/qml/ControlsBar.qml:232
 msgctxt "@action:button track selector"
 msgid "Video Track"
 msgstr "Video CD"
 
-#: src/qml/ControlsBar.qml:249
+#: src/qml/ControlsBar.qml:250
 msgctxt "@action opens about app page"
 msgid "About"
 msgstr "O aplikácii"
@@ -185,7 +185,7 @@ msgstr ""
 "Prosím, <link url=\"%1\">kontaktujte vývojárov %2</link> ohľadom tohto "
 "problému alebo aby ste zistili, ako nainštalovať chýbajúce video kodeky."
 
-#: src/qml/PlayerPage.qml:400
+#: src/qml/PlayerPage.qml:401
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"

@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-03 00:54+0000\n"
+"POT-Creation-Date: 2026-11-04 01:01+0000\n"
 "PO-Revision-Date: 2026-10-25 07:45+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -72,54 +72,54 @@ msgstr ""
 "© Ian Monroe, 2007\n"
 "© Harald Sitter ,2022"
 
-#: src/qml/ControlsBar.qml:129
+#: src/qml/ControlsBar.qml:130
 msgctxt "@action:button"
 msgid "Application Menu"
 msgstr "Меню приложения"
 
-#: src/qml/ControlsBar.qml:164
+#: src/qml/ControlsBar.qml:165
 msgctxt "@action:button stop playback"
 msgid "Stop"
 msgstr "Остановить"
 
-#: src/qml/ControlsBar.qml:172
+#: src/qml/ControlsBar.qml:173
 msgctxt "@action:button"
 msgid "Unmute"
 msgstr "Включить звук"
 
-#: src/qml/ControlsBar.qml:172
+#: src/qml/ControlsBar.qml:173
 msgctxt "@action:button"
 msgid "Mute"
 msgstr "Выключить звук"
 
-#: src/qml/ControlsBar.qml:182
+#: src/qml/ControlsBar.qml:183
 msgctxt "@action:button video subtitle"
 msgid "Subtitles"
 msgstr "Субтитры"
 
-#: src/qml/ControlsBar.qml:189
+#: src/qml/ControlsBar.qml:190
 msgctxt "@action:button selector for no subtitle"
 msgid "None"
 msgstr "Отсутствуют"
 
-#: src/qml/ControlsBar.qml:199
+#: src/qml/ControlsBar.qml:200
 msgctxt ""
 "@action:button subtitle selector %1 is usually a language (e.g. chinese) and "
 "%2 is usually a subtitle (e.g. Traditional)"
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
 
-#: src/qml/ControlsBar.qml:216
+#: src/qml/ControlsBar.qml:217
 msgctxt "@action:button track selector"
 msgid "Audio Track"
 msgstr "Звуковая дорожка"
 
-#: src/qml/ControlsBar.qml:231
+#: src/qml/ControlsBar.qml:232
 msgctxt "@action:button track selector"
 msgid "Video Track"
 msgstr "Видеодорожка"
 
-#: src/qml/ControlsBar.qml:249
+#: src/qml/ControlsBar.qml:250
 msgctxt "@action opens about app page"
 msgid "About"
 msgstr "О программе"
@@ -202,7 +202,7 @@ msgstr ""
 "<link url=\"%1\">Сообщите об этой проблеме разработчикам %2</link> или "
 "узнайте, как установить отсутствующие видеокодеки."
 
-#: src/qml/PlayerPage.qml:400
+#: src/qml/PlayerPage.qml:401
 msgctxt ""
 "@info overlay on top of video. %1 is the amount of time played %2 is the "
 "total duration of the video"
