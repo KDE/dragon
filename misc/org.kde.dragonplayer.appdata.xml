@@ -81,6 +81,7 @@
   <summary xml:lang="ko">동영상 파일과 스트림 재생</summary>
   <summary xml:lang="lt">Atkurti vaizdo įrašo failus ir srautus</summary>
   <summary xml:lang="lv">Atskaņojiet video datnes un straumes</summary>
+  <summary xml:lang="nb">Spill videofiler/-nettstrømmer</summary>
   <summary xml:lang="nl">Videobestanden en streams afspelen</summary>
   <summary xml:lang="nn">Spel videofiler/-straumar</summary>
   <summary xml:lang="pl">Odtwarzaj filmy i strumienie</summary>
@@ -125,6 +126,7 @@
     <p xml:lang="ko">Dragon 플레이어는 기능보다 간단함에 초점을 맞춘 멀티미디어 재생기입니다. 단순히 동영상 파일과 스트림만을 재생할 수 있도록 사용하기 쉽게 인터페이스를 설계했습니다.</p>
     <p xml:lang="lt">Dragon leistuvė yra vaizdo įrašų leistuvė, kurios dėmesys nukreiptas ne į ypatybes, o į paprastumą. Lengvai naudojama programos sąsaja yra sukurta taip, kad netrukdytų ir tiesiog atkurtų jūsų vaizdo įrašo failus bei srautus.</p>
     <p xml:lang="lv">„Dragon Player“ ir video atskaņotājs ar uzsvaru uz vienkāršību, bet ne plašām iespējām. Programmai ir viegli lietojama saskarne, lai ļautu bez liekiem traucēkļiem noskatīties video datnes un straumes.</p>
+    <p xml:lang="nb">Dragon Player er en videoavspiller med fokus på å være enkel heller enn funksjonsrik. Brukerflaten er utformet for å ikke være i veien og for å gjøre det enkelt å spille av eller strømme videofiler.</p>
     <p xml:lang="nl">Dragon Player is een videospeler met de focus op eenvoud in plaats van functies. Zijn gemakkelijk te gebruiken interface is ontworpen om niet in de weg te zitten en gewoon videobestanden en streams af te spelen.</p>
     <p xml:lang="nn">Dragon Player er ein videoavspelar med fokus på å vera enkel heller enn funksjonsrik. Brukarflata er utforma for å ikkje vera i vegen og for å gjera det enkelt å spela av eller strøyma videofiler.</p>
     <p xml:lang="pl">Odtwarzacz Dragon jest odtwarzaczem multimedialnym, gdzie położono nacisk na prostotę, a nie na możliwości. Jego prosty układ sterowania został zaprojektowany tak, aby nie wchodził w drogę, ale aby pomagał przy odtwarzaniu plików multimedialnych.</p>
@@ -219,6 +221,7 @@
       <li xml:lang="ko">클릭하여 재생/일시 정지, 두 번 클릭하여 전체 화면 모드 전환.</li>
       <li xml:lang="lt">Spustelėti, kad vaizdo įrašas būtų atkuriamas arba pristabdytas, ir spustelėti du kartus, kad būtų įjungta arba išjungta viso ekrano veiksena.</li>
       <li xml:lang="lv">Klikšķiniet, lai atskaņotu vai pauzētu, vai veiciet dubultklikšķi, lai ieslēgtu vai izslēgtu pilnekrāna režīmu.</li>
+      <li xml:lang="nb">Et enkelt trykk for å spille av eller pause, og dobbeltklikk for å gå inn eller ut av fullskjermsvisning.</li>
       <li xml:lang="nl">Klik om af te spelen of te pauzeren en dubbelklik om modus volledig scherm in of uit te gaan.</li>
       <li xml:lang="nn">Eit enkelt trykk for å spela av eller pausa, og dobbeltklikk for å gå inn eller ut av fullskjermsmodus.</li>
       <li xml:lang="pl">Naciśnij tutaj, aby zacząć odtwarzać lub wstrzymać; naciśnij dwukrotnie, aby wejść lub wyjść z trybu pełnego ekranu.</li>
@@ -258,6 +261,7 @@
       <li xml:lang="ko">자막 언어 선택, 사용 가능한 경우 기본 언어로 자막을 표시합니다.</li>
       <li xml:lang="lt">Pasirinkti subtitrų kalbą ir, jei įmanoma, automatiškai įkelti tinkamus subtitrus jūsų kalba.</li>
       <li xml:lang="lv">Izvēlieties subtitru valodu un automātiski ielādējiet pareizos subtitrus, ja pieejami.</li>
+      <li xml:lang="nb">Kan velge språk på undertekster, og, om mulig, blir automatisk rett språkversjon valgt.</li>
       <li xml:lang="nl">Kies de taal van de ondertitels en laad automatisch de juiste voor uw taal, indien mogelijk.</li>
       <li xml:lang="nn">Kan velja språk på undertekstar, og, om mogleg, vert automatisk rett språkversjon valt.</li>
       <li xml:lang="pl">Wybierz język napisów i sam wczytaj te właściwe dla swojego języka, jeśli będzie to możliwe.</li>
@@ -298,6 +302,7 @@
       <li xml:lang="ko">오디오 트랙을 선택할 수 있습니다.</li>
       <li xml:lang="lt">Pasirinkti garso įrašo takelį.</li>
       <li xml:lang="lv">Izvēlieties skaņas celiņu.</li>
+      <li xml:lang="nb">Velg lydspor.</li>
       <li xml:lang="nl">Kies de audiotrack.</li>
       <li xml:lang="nn">Kan velja lydspor.</li>
       <li xml:lang="pl">Wybierz ścieżkę dźwiękową.</li>
@@ -339,6 +344,7 @@
       <li xml:lang="ko">동영상 트랙을 선택할 수 있습니다.</li>
       <li xml:lang="lt">Pasirinkti vaizdo įrašo takelį.</li>
       <li xml:lang="lv">Izvēlieties video celiņu.</li>
+      <li xml:lang="nb">Velg videospor.</li>
       <li xml:lang="nl">Kies de videotrack.</li>
       <li xml:lang="nn">Kan velja videospor.</li>
       <li xml:lang="pl">Wybierz ścieżkę obrazu.</li>
@@ -380,6 +386,7 @@
       <li xml:lang="ko">스크롤하여 음량을 조절할 수 있습니다.</li>
       <li xml:lang="lt">Reguliuoti garsumą sukant pelės ratuką.</li>
       <li xml:lang="lv">Pārvaldiet skaļumu ar ritināšanu.</li>
+      <li xml:lang="nb">Juster lydstyrken med musehjulet.</li>
       <li xml:lang="nl">Pas het volume aan door te schuiven.</li>
       <li xml:lang="nn">Kan justera lydstyrken med mushjulet.</li>
       <li xml:lang="pl">Dostosuj głośność przewijając.</li>
