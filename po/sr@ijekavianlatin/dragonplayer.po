@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: dragonplayer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-04 01:01+0000\n"
-"PO-Revision-Date: 2026-10-05 12:49+0200\n"
+"PO-Revision-Date: 2026-11-14 16:15+0100\n"
 "Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@ijekavianlatin\n"
@@ -120,12 +120,12 @@ msgstr "Otvori…"
 #: src/qml/PlayerPage.qml:53
 msgctxt "Reason why we block screensaver/suspend"
 msgid "Playing video"
-msgstr ""
+msgstr "Puštanje videa"
 
 #: src/qml/PlayerPage.qml:54
 msgctxt "Reason why we block suspend"
 msgid "Playing audio"
-msgstr ""
+msgstr "Puštanje zvuka"
 
 #: src/qml/PlayerPage.qml:59
 msgctxt "@action:button"
