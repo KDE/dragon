@@ -114,12 +114,12 @@ msgstr "打开…"
 #: src/qml/PlayerPage.qml:53
 msgctxt "Reason why we block screensaver/suspend"
 msgid "Playing video"
-msgstr ""
+msgstr "正在播放视频"
 
 #: src/qml/PlayerPage.qml:54
 msgctxt "Reason why we block suspend"
 msgid "Playing audio"
-msgstr ""
+msgstr "正在播放音频"
 
 #: src/qml/PlayerPage.qml:59
 msgctxt "@action:button"
